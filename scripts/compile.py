@@ -41,7 +41,7 @@ BY_WEEK = ROOT / 'by_week'
 BY_SOURCE = ROOT / 'by_source'
 COVERAGE = ROOT / 'COVERAGE.md'
 
-SCHEMA_VERSION = '2.0'
+SCHEMA_VERSION = '2.1'
 
 
 def load():

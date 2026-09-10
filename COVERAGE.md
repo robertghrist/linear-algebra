@@ -17,10 +17,10 @@
 | 9 | Linear Iterative Systems | 23 | 2 | 0 |
 | 10 | Singular Value Decomposition | 28 | 2 | 2 |
 | 11 | Principal Components & Low-Rank Structure | 21 | 1 | 0 |
-| 12 | Probability & High Dimension | 1 | 0 | 0 |
+| 12 | Probability & High Dimension | 20 | 0 | 0 |
 | 13 | Neural Networks & AI | 11 | 1 | 0 |
 
-## Skills (287/292 problems tagged)
+## Skills (306/311 problems tagged)
 
 ### Week 1: Solving Linear Systems
 
@@ -162,14 +162,14 @@
 
 ### Week 12: Probability & High Dimension
 
-- `W12.S01` (0) Translate between statistical and geometric vocabulary: expectation / projection onto constants, variance / squared length, covariance / inner product, correlation / cosine, centering / projection onto 1^⊥ **← untested**
-- `W12.S02` (0) Recognize the probability inner product ⟨f,g⟩_ρ, why the constant vector has unit length (total probability), and why linearity of expectation needs no independence **← untested**
-- `W12.S03` (0) Recognize conditional expectation as an orthogonal projection, and when variances add (orthogonal residuals — Pythagoras) **← untested**
-- `W12.S04` (0) Recognize the simplex, decide whether a point lies in it, and know what softmax does (a density on the simplex; shift-invariant; not a probability of correctness) and that stochastic matrices preserve the simplex **← untested**
-- `W12.S05` (0) Explain near-orthogonality in high dimension: random inner products have mean 0 and variance 1/n; lengths concentrate; exponentially many nearly-orthogonal directions **← untested**
-- `W12.S06` (0) Know what the union bound and the probabilistic method do, and recognize an argument of the shape "one-point concentration plus a union bound over pairs" **← untested**
-- `W12.S07` (0) Know that pure noise has a predictable spectrum (a bulk with an edge), so a singular value is signal only if it clears the noise floor — and that this is what makes a scree plot readable **← untested**
-- `W12.S08` (1) State what Johnson–Lindenstrauss preserves (pairwise SQUARED distances to relative error ε) and what the target dimension depends on (number of points and ε — NOT the ambient dimension); recognize the random projection's calibration
+- `W12.S01` (2) Translate between statistical and geometric vocabulary: expectation / projection onto constants, variance / squared length, covariance / inner product, correlation / cosine, centering / projection onto 1^⊥
+- `W12.S02` (3) Recognize the probability inner product ⟨f,g⟩_ρ, why the constant vector has unit length (total probability), and why linearity of expectation needs no independence
+- `W12.S03` (3) Recognize conditional expectation as an orthogonal projection, and when variances add (orthogonal residuals — Pythagoras)
+- `W12.S04` (4) Recognize the simplex, decide whether a point lies in it, and know what softmax does (a density on the simplex; shift-invariant; not a probability of correctness) and that stochastic matrices preserve the simplex
+- `W12.S05` (3) Explain near-orthogonality in high dimension: random inner products have mean 0 and variance 1/n; lengths concentrate; exponentially many nearly-orthogonal directions
+- `W12.S06` (1) Know what the union bound and the probabilistic method do, and recognize an argument of the shape "one-point concentration plus a union bound over pairs"
+- `W12.S07` (2) Know that pure noise has a predictable spectrum (a bulk with an edge), so a singular value is signal only if it clears the noise floor — and that this is what makes a scree plot readable
+- `W12.S08` (2) State what Johnson–Lindenstrauss preserves (pairwise SQUARED distances to relative error ε) and what the target dimension depends on (number of points and ε — NOT the ambient dimension); recognize the random projection's calibration
 - `W12.S09` (0) Describe the randomized SVD in order (probe, sketch, orthonormalize, project, factor) and say why it is cheap and approximate **← untested**
 
 ### Week 13: Neural Networks & AI
@@ -187,4 +187,4 @@
 - `W13.S11` (0) Identify kernel and image of a linearized autoencoder round trip D∘E (discarded variation; the learned model of the data), and why the encoder alone reveals little **← untested**
 - `W13.S12` (1) Explain the sense in which a linear autoencoder reproduces PCA, and what a nonlinear one adds
 
-**Untested skills: 27** — W01.S09, W01.S10, W02.S09, W03.S07, W03.S10, W04.S07, W04.S08, W05.S09, W06.S10, W08.S04, W08.S08, W09.S08, W11.S10, W12.S01, W12.S02, W12.S03, W12.S04, W12.S05, W12.S06, W12.S07, W12.S09, W13.S04, W13.S07, W13.S08, W13.S09, W13.S10, W13.S11
+**Untested skills: 20** — W01.S09, W01.S10, W02.S09, W03.S07, W03.S10, W04.S07, W04.S08, W05.S09, W06.S10, W08.S04, W08.S08, W09.S08, W11.S10, W12.S09, W13.S04, W13.S07, W13.S08, W13.S09, W13.S10, W13.S11

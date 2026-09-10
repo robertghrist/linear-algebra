@@ -1,7 +1,12 @@
 # Problem Bank Schema
 
-**Status: FROZEN 2026-09-10 (Phase 1).** Changes from here require a version bump and a
-migration note. The plan this implements is `claude/DATABASE-RESTRUCTURE-PLAN.md` in the
+**Status: FROZEN 2026-09-10 (Phase 1); v2.1 2026-09-10.** Changes from here require a version bump and a
+migration note.
+
+> **v2.1 migration note.** `sources[].semester` admits `POOL` and `sources[].instrument` admits
+> `pool`, for generated problems that have not yet appeared on an instrument. Such a record has
+> exactly one source `{semester: POOL, instrument: pool, position: n}`; when it is first used, the
+> real appearance is APPENDED and the POOL entry removed. No existing record changes. The plan this implements is `claude/DATABASE-RESTRUCTURE-PLAN.md` in the
 LAEF project.
 
 | artefact | role |

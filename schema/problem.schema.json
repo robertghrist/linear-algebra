@@ -183,11 +183,13 @@
         "properties": {
           "semester": {
             "type": "string",
-            "pattern": "^[0-9]{4}[A-C]$"
+            "pattern": "^([0-9]{4}[A-C]|POOL)$",
+            "description": "Term code (2025C), or POOL for a generated problem that has not yet appeared on an instrument."
           },
           "instrument": {
             "type": "string",
-            "pattern": "^(quiz[0-9]+|final|midterm)$"
+            "pattern": "^(quiz[0-9]+|final|midterm|pool)$",
+            "description": "quizN / final / midterm, or pool for a generated problem awaiting first use."
           },
           "position": {
             "type": "integer",
