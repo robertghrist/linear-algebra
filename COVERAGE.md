@@ -17,10 +17,10 @@
 | 9 | Linear Iterative Systems | 23 | 2 | 0 |
 | 10 | Singular Value Decomposition | 28 | 2 | 2 |
 | 11 | Principal Components & Low-Rank Structure | 21 | 1 | 0 |
-| 12 | Probability & High Dimension | 20 | 0 | 0 |
-| 13 | Neural Networks & AI | 11 | 1 | 0 |
+| 12 | Probability & High Dimension | 21 | 0 | 0 |
+| 13 | Neural Networks & AI | 24 | 1 | 0 |
 
-## Skills (306/311 problems tagged)
+## Skills (320/325 problems tagged)
 
 ### Week 1: Solving Linear Systems
 
@@ -170,21 +170,21 @@
 - `W12.S06` (1) Know what the union bound and the probabilistic method do, and recognize an argument of the shape "one-point concentration plus a union bound over pairs"
 - `W12.S07` (2) Know that pure noise has a predictable spectrum (a bulk with an edge), so a singular value is signal only if it clears the noise floor — and that this is what makes a scree plot readable
 - `W12.S08` (2) State what Johnson–Lindenstrauss preserves (pairwise SQUARED distances to relative error ε) and what the target dimension depends on (number of points and ε — NOT the ambient dimension); recognize the random projection's calibration
-- `W12.S09` (0) Describe the randomized SVD in order (probe, sketch, orthonormalize, project, factor) and say why it is cheap and approximate **← untested**
+- `W12.S09` (1) Describe the randomized SVD in order (probe, sketch, orthonormalize, project, factor) and say why it is cheap and approximate
 
 ### Week 13: Neural Networks & AI
 
 - `W13.S01` (3) Explain why depth without nonlinearity collapses to a single affine map, and what an elementwise activation adds
 - `W13.S02` (4) Recognize a single perceptron as a half-space classifier: w is normal to the decision boundary, wᵀx + b is a scaled signed distance, and only linearly separable regions are representable (XOR is not)
 - `W13.S03` (1) State universal approximation as an existence claim about WIDTH, and recognize what it does not say (trainability, depth efficiency, sample complexity)
-- `W13.S04` (0) Recognize the feedforward architecture as alternating affine maps and elementwise nonlinearities with a linear last layer; identify the shapes of W_l, b_l, h_l and count parameters **← untested**
+- `W13.S04` (2) Recognize the feedforward architecture as alternating affine maps and elementwise nonlinearities with a linear last layer; identify the shapes of W_l, b_l, h_l and count parameters
 - `W13.S05` (2) Know what the error signal δ_l IS (the sensitivity ∂L/∂z_l), that hidden layers have no targets, and that backpropagation derives δ_l from δ_{l+1}
 - `W13.S06` (2) Recognize backpropagation as the chain rule on a composition, and identify where the TRANSPOSE enters (forward W, backward Wᵀ — the adjoint of Week 5)
-- `W13.S07` (0) Recognize the output-layer error signal as the negated least squares residual **← untested**
-- `W13.S08` (0) Know why backpropagation is cheap (a constant multiple of one forward pass) versus finite differences (one pass per parameter) **← untested**
-- `W13.S09` (0) Recognize SGD as estimating an expectation by a sample: unbiased mini-batch gradients, variance falling with batch size **← untested**
-- `W13.S10` (0) Recognize attention as a LEARNED inner product (query/key bilinear form), softmax to a column-stochastic S, outputs in the convex hull of the values; know permutation equivariance and the quadratic cost **← untested**
-- `W13.S11` (0) Identify kernel and image of a linearized autoencoder round trip D∘E (discarded variation; the learned model of the data), and why the encoder alone reveals little **← untested**
+- `W13.S07` (2) Recognize the output-layer error signal as the negated least squares residual
+- `W13.S08` (2) Know why backpropagation is cheap (a constant multiple of one forward pass) versus finite differences (one pass per parameter)
+- `W13.S09` (2) Recognize SGD as estimating an expectation by a sample: unbiased mini-batch gradients, variance falling with batch size
+- `W13.S10` (3) Recognize attention as a LEARNED inner product (query/key bilinear form), softmax to a column-stochastic S, outputs in the convex hull of the values; know permutation equivariance and the quadratic cost
+- `W13.S11` (2) Identify kernel and image of a linearized autoencoder round trip D∘E (discarded variation; the learned model of the data), and why the encoder alone reveals little
 - `W13.S12` (1) Explain the sense in which a linear autoencoder reproduces PCA, and what a nonlinear one adds
 
-**Untested skills: 20** — W01.S09, W01.S10, W02.S09, W03.S07, W03.S10, W04.S07, W04.S08, W05.S09, W06.S10, W08.S04, W08.S08, W09.S08, W11.S10, W12.S09, W13.S04, W13.S07, W13.S08, W13.S09, W13.S10, W13.S11
+**Untested skills: 13** — W01.S09, W01.S10, W02.S09, W03.S07, W03.S10, W04.S07, W04.S08, W05.S09, W06.S10, W08.S04, W08.S08, W09.S08, W11.S10
