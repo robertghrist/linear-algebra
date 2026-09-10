@@ -1,0 +1,57 @@
+id: ESE2030-0239
+legacy_id: null
+week: 10
+skills:
+- W10.S04
+status: active
+problem_type: null
+statement: |
+  Let $\{\mathbf{u}_1, \mathbf{u}_2\}$ be orthonormal vectors in $\mathbb{R}^4$ and
+  $\{\mathbf{v}_1, \mathbf{v}_2\}$ be orthonormal vectors in $\mathbb{R}^3$. A matrix is defined as:
+  $$A = 3\,\mathbf{u}_1\mathbf{v}_1^T + 7\,\mathbf{u}_2\mathbf{v}_2^T.$$
+  Which of the following is most TRUE?
+choices:
+- label: A
+  text: $A$ has rank 2; its singular values are $7$ and $3$.
+- label: B
+  text: $A$ has rank 1, since adding two rank-1 terms produces a rank-1 matrix.
+- label: C
+  text: $A$ has rank 2; its singular values are $49$ and $9$.
+- label: D
+  text: $A$ has rank 2; its singular values are $\sqrt{7}$ and $\sqrt{3}$.
+- label: E
+  text: The singular values of $A$ cannot be determined without knowing the specific entries of the $\mathbf{u}_i$
+    and $\mathbf{v}_i$.
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    An expression $\sum_i c_i\,\mathbf{u}_i\mathbf{v}_i^T$ with orthonormal $\{\mathbf{u}_i\}$, orthonormal $\{\mathbf{v}_i\}$, and non-negative $c_i$ is already in SVD outer-product form: the $c_i$ ARE the singular values, and no further computation is needed. Verification via $A^TA$: using $\mathbf{u}_i^T\mathbf{u}_j = \delta_{ij}$, $$A^TA \;=\; 9\,\mathbf{v}_1\mathbf{v}_1^T + 49\,\mathbf{v}_2\mathbf{v}_2^T,$$ whose nonzero eigenvalues are $9$ and $49$. Hence $\sigma_i = \sqrt{\lambda_i(A^TA)}$ gives $\sigma = 3, 7$, recovering the coefficients. Rank is 2 because $\{\mathbf{u}_1, \mathbf{u}_2\}$ are linearly independent (orthonormal), so the column spaces of the two rank-1 terms intersect trivially.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      half-remembers $\sigma_i = \sqrt{\lambda_i(A^TA)}$ but applies the square root to the coefficients $c_i$ instead of to the eigenvalues of $A^TA$, which equal $c_i^2$
+    C: |
+      correctly computes the eigenvalues of $A^TA$ as $9$ and $49$ but forgets the square root step that converts them to singular values. NOT awarded partial credit: the entire point of this problem is reading singular values directly off an orthonormal expansion without computing $A^TA$ at all; falling back to $A^TA$ misses the conceptual shortcut.
+    B: |
+      orthonormality of the $\mathbf{u}_i$ and $\mathbf{v}_i$ guarantees the column spaces and row spaces of the two terms are orthogonal, so the sum has rank $1+1=2$
+    E: |
+      orthonormality is precisely the condition that lets you read singular values directly from the coefficients; the specific directions affect $U$ and $V$ but not $\Sigma$
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 14
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 797
+variant_of: null
+topics:
+- Outer product form of SVD
+- rank-1 decomposition
+- reading singular values from
+notes: 'difficulty: Core'

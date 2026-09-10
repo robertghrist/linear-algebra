@@ -1,0 +1,58 @@
+id: ESE2030-0283
+legacy_id: null
+week: 13
+skills: []
+status: active
+problem_type: null
+statement: |
+  A perceptron with weights $\mathbf{w} \in \mathbb{R}^n$, bias $b \in \mathbb{R}$, and sigmoid activation $\sigma$ computes $y = \sigma(\mathbf{w}^T \mathbf{x} + b)$, with decision boundary $\{\mathbf{x} : \mathbf{w}^T \mathbf{x} + b = 0\}$.
+  Which statement best and most fundamentally describes the geometric role of $\mathbf{w}$?
+choices:
+- label: A
+  text: $\mathbf{w}$ points from the origin toward the centroid of the training inputs whose target label
+    is close to $1$.
+- label: B
+  text: $\mathbf{w}$ lies in the decision boundary, since $\mathbf{w}$ and $\mathbf{x}$ are vectors in
+    the same space $\mathbb{R}^n$.
+- label: C
+  text: $\mathbf{w}$ is normal to the decision boundary, and $\mathbf{w}^T \mathbf{x} + b$ equals $\norm{\mathbf{w}}$
+    times the signed distance from $\mathbf{x}$ to that boundary.
+- label: D
+  text: $\mathbf{w}$ determines the decision boundary.
+- label: E
+  text: $\mathbf{w}$ is the direction of steepest ascent of the pre-activation $\mathbf{x} \mapsto \mathbf{w}^T
+    \mathbf{x} + b$.
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    Two facts together pin down the geometric role of $\mathbf{w}$. (i) The decision boundary is the level set $\{\mathbf{x} : \mathbf{w}^T \mathbf{x} + b = 0\}$, an affine hyperplane. For any two points $\mathbf{x}_1, \mathbf{x}_2$ on the boundary, $\mathbf{w}^T(\mathbf{x}_1 - \mathbf{x}_2) = 0$, so $\mathbf{w}$ is orthogonal to every direction along the boundary --- i.e., $\mathbf{w}$ is a \emph{normal vector} to the hyperplane. (ii) Decompose any input as $\mathbf{x} = \mathbf{x}_\parallel + t \cdot \mathbf{w} / \norm{\mathbf{w}}$, where $\mathbf{x}_\parallel$ is the projection of $\mathbf{x}$ onto the boundary and $t$ is its signed distance to the boundary along $\mathbf{w}$. Then $\mathbf{w}^T \mathbf{x} + b = \mathbf{w}^T \mathbf{x}_\parallel + b + t \norm{\mathbf{w}} = t \norm{\mathbf{w}}$, since $\mathbf{w}^T \mathbf{x}_\parallel + b = 0$ on the boundary. So the pre-activation is literally $\norm{\mathbf{w}}$ times the signed distance from $\mathbf{x}$ to the decision boundary. This is the synthesis: the perceptron is a geometric construction in disguise. The dot product $\mathbf{w}^T \mathbf{x}$ from Wk 5, the orthogonal-projection picture from Wk 6, and the affine-hyperplane / kernel picture from Wk 1--3 all collapse together. ``Classify $\mathbf{x}$'' means ``compute the signed distance from $\mathbf{x}$ to a hyperplane and squash through $\sigma$.''
+  key_insight: null
+  distractor_rationale:
+    D: |
+      but misses that the pre-activation \emph{magnitude} also has metric meaning, namely $\norm{\mathbf{w}}$ times signed distance. One rung below (B) on the ladder.
+    E: |
+      true, but a \emph{calculus} consequence of the linear-algebraic fact in (B): once you know the level sets of $\mathbf{w}^T \mathbf{x} + b$ are hyperplanes normal to $\mathbf{w}$, ``steepest ascent direction is $\mathbf{w}$'' follows. The gradient fact describes a \emph{consequence} of $\mathbf{w}$'s role; it does not capture what $\mathbf{w}$ geometrically \emph{is}.
+    B: |
+      input/weight-space confusion. Living in the same ambient $\mathbb{R}^n$ does not put $\mathbf{w}$ on the boundary --- $\mathbf{w}$ generically does not satisfy $\mathbf{w}^T \mathbf{w} + b = 0$. The fact that $\mathbf{w}$ is normal to the boundary is precisely the opposite of lying in it.
+    A: |
+      folk picture: the weight vector ``points toward the positive class.'' Directionally suggestive but mathematically false in general --- the centroid of positive examples need not lie along $\mathbf{w}$, and after training $\mathbf{w}$ is determined by margin geometry, not class centroids. This story is a half-remembered description of LDA or a class-mean classifier, not a perceptron.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 34
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1949
+variant_of: null
+topics:
+- Perceptron geometry
+- decision boundary
+- normal vector
+notes: 'difficulty: Core (conceptual, synthesis) | week remapped 5 -> 13 at skill tagging: content is
+  Chapter 13 material'

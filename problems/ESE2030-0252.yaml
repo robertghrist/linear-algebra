@@ -1,0 +1,53 @@
+id: ESE2030-0252
+legacy_id: null
+week: 10
+skills:
+- W10.S03
+status: active
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{m \times n}$ has SVD $A = U\Sigma V^T$. Which statement most fundamentally distinguishes a right singular vector $\mathbf{v}_i$ from a left singular vector $\mathbf{u}_i$?
+choices:
+- label: A
+  text: $\mathbf{v}_i \in \mathbb{R}^n$ lives in the domain of $A$, while $\mathbf{u}_i \in \mathbb{R}^m$
+    lives in the codomain, and they are linked by $A\mathbf{v}_i = \sigma_i \mathbf{u}_i$.
+- label: B
+  text: $\mathbf{v}_i$ is an eigenvector of $A^TA$, while $\mathbf{u}_i$ is an eigenvector of $AA^T$.
+- label: C
+  text: $\mathbf{v}_i$ is mapped to $\sigma_i \mathbf{u}_i$ by $A$, while $\mathbf{u}_i$ is mapped to
+    $\sigma_i \mathbf{v}_i$ by $A$.
+- label: D
+  text: $\mathbf{v}_i$ identifies a principal input direction that gets stretched by $A$, while $\mathbf{u}_i$
+    identifies the corresponding output semi-axis of the image ellipsoid.
+- label: E
+  text: $\mathbf{v}_i$ is the column of $V$, while $\mathbf{u}_i$ is the column of $U$.
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The most fundamental distinction between $\mathbf{v}_i$ and $\mathbf{u}_i$ is that they live in \emph{different vector spaces}: $\mathbf{v}_i \in \mathbb{R}^n$ is in the domain, and $\mathbf{u}_i \in \mathbb{R}^m$ is in the codomain. The relation $A\mathbf{v}_i = \sigma_i \mathbf{u}_i$ is precisely the statement that $A$ sends the $i$-th right singular vector to a scaled copy of the $i$-th left singular vector. Everything else (eigenvector characterizations, geometric stretching interpretation, columns of $U$ and $V$) is a \emph{consequence} of this domain/codomain structure. Geometrically: $\{\mathbf{v}_i\}$ is the orthonormal frame of input directions on the unit sphere in $\mathbb{R}^n$; $A$ scales each by $\sigma_i$ and sends it to $\mathbf{u}_i$, the corresponding semi-axis of the output ellipsoid in $\mathbb{R}^m$. Whenever $m \neq n$, no $\mathbf{v}_i$ can equal any $\mathbf{u}_j$ — they live in spaces of different dimension.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      D4 surface match: a true tautology that names \emph{where} the vectors sit in the matrices $V$ and $U$, but says nothing about what distinguishes them mathematically. It is the choice that ``looks right'' to a student pattern-matching on the formula $A = U\Sigma V^T$
+    C: |
+      D1 twin-pair to (B): swaps the asymmetric mapping. The correct relation is $A\mathbf{v}_i = \sigma_i \mathbf{u}_i$ \emph{and} $A^T\mathbf{u}_i = \sigma_i \mathbf{v}_i$; the operator that sends $\mathbf{u}_i$ back to $\sigma_i \mathbf{v}_i$ is $A^T$, not $A$. Students who pattern-match on symmetry without checking domain/codomain fall here
+sources:
+- semester: 2026A
+  instrument: final
+  position: 3
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 221
+variant_of: null
+topics:
+- SVD structure
+- left vs right singular vectors
+- domain vs codomain
+notes: 'difficulty: Deeper'

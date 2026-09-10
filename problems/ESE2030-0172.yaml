@@ -1,0 +1,57 @@
+id: ESE2030-0172
+legacy_id: null
+week: 3
+skills:
+- W03.S08
+status: active
+problem_type: null
+statement: |
+  Which statement about isomorphisms of vector spaces is TRUE?
+choices:
+- label: A
+  text: $\mathbb{R}^{2 \times 2}$ (the space of $2 \times 2$ matrices) is isomorphic to $\mathbb{R}^4$.
+- label: B
+  text: $\mathcal{P}_3$ (polynomials of degree $\leq 3$) is isomorphic to $\mathbb{R}^3$.
+- label: C
+  text: $\mathbb{R}^3$ and $\mathbb{R}^2 \times \mathbb{R}$ are not isomorphic because one is a vector
+    space and the other is a Cartesian product.
+- label: D
+  text: Two finite-dimensional vector spaces are isomorphic if and only if they have bases whose elements
+    are identical.
+- label: E
+  text: $\mathcal{P}_2$ is not isomorphic to $\mathbb{R}^3$ because polynomials and tuples are fundamentally
+    different objects.
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    Two finite-dimensional vector spaces (over the same field) are isomorphic if and only if they have the same dimension. $\mathbb{R}^{2 \times 2}$ has dimension 4 (basis: $E_{11}, E_{12}, E_{21}, E_{22}$), and $\mathbb{R}^4$ has dimension 4. Therefore they are isomorphic. An explicit isomorphism is $T\begin{pmatrix} a & b \\ c & d \end{pmatrix} = (a, b, c, d)$.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      $\mathcal{P}_3$ has dimension 4, not 3! Basis is $\{1, x, x^2, x^3\}$. This targets the common error of confusing "degree 3" with "3 basis elements."
+    C: |
+      $\mathbb{R}^2 \times \mathbb{R}$ is naturally identified with $\mathbb{R}^3$; they are isomorphic. The "product" notation is just another way to write a 3-dimensional space.
+    D: |
+      Isomorphism depends only on dimension, not on the elements themselves being "identical." Bases need the same cardinality, not the same elements.
+    E: |
+      The "type" of object doesn't matter—only the vector space structure. $\mathcal{P}_2$ and $\mathbb{R}^3$ are both 3-dimensional, hence isomorphic.
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 14
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 445
+variant_of: null
+topics:
+- Isomorphism
+- vector space structure
+- dimension
+- abstract spaces
+notes: null

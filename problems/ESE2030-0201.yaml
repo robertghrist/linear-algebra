@@ -1,0 +1,49 @@
+id: ESE2030-0201
+legacy_id: null
+week: 5
+skills:
+- W05.S07
+status: active
+problem_type: null
+statement: |
+  Let $T: \mathbb{R}^3 \to \mathbb{R}^2$ be defined by $T(x_1, x_2, x_3) = (x_1 + 2x_3,\; x_2 - x_3)$, with the standard dot product on both spaces. Which statement about the adjoint $T^*$ is true?
+choices:
+- label: A
+  text: '$T^*: \mathbb{R}^2 \to \mathbb{R}^3$ is surjective.'
+- label: B
+  text: '$T^*: \mathbb{R}^3 \to \mathbb{R}^2$ and has the same kernel as $T$.'
+- label: C
+  text: $\operatorname{im}(T^*) = \ker(T)$.
+- label: D
+  text: '$T^*: \mathbb{R}^2 \to \mathbb{R}^3$ is injective.'
+- label: E
+  text: $T^*$ does not exist because $T$ is not invertible.
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The matrix of $T$ is $A = \begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & -1 \end{bmatrix}$, so $T^*$ is represented by $A^T = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 2 & -1 \end{bmatrix}$, mapping $\mathbb{R}^2 \to \mathbb{R}^3$. This $3 \times 2$ matrix has rank $2$ (both columns are independent), so $T^*$ is injective.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      $T^*$ maps into $\mathbb{R}^3$ with a $2$-dimensional image, so it is not surjective; students who confuse injectivity with surjectivity or who think rank $2$ means surjective into $\mathbb{R}^3$ pick this
+    B: |
+      gets the direction of $T^*$ backwards: $T^*$ maps $\mathbb{R}^2 \to \mathbb{R}^3$, not $\mathbb{R}^3 \to \mathbb{R}^2$. Also conflates the kernels: $\ker(T)$ is $1$-dimensional in $\mathbb{R}^3$ while $\ker(T^*) = \{\mathbf{0}\}$.
+    C: |
+      tempting for students who half-remember the FTLA: the correct relationship is $\operatorname{im}(T^*) = \ker(T)^\perp$, not $\ker(T)$. Here $\ker(T)$ is $1$-dimensional while $\operatorname{im}(T^*)$ is $2$-dimensional --- they are orthogonal complements in $\mathbb{R}^3$, not equal.
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 20
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 652
+variant_of: null
+topics: []
+notes: null

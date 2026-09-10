@@ -1,0 +1,54 @@
+id: ESE2030-0255
+legacy_id: null
+week: 5
+skills:
+- W05.S02
+status: active
+problem_type: null
+statement: |
+  Consider a vector space $C^\infty([a,b])$ of smooth functions on an
+  interval $[a,b]$ with inner product $\langle \cdot , \cdot \rangle$.
+  Under which of the following inner products (and intervals) is the vector $p=\cosh x$ orthogonal to the vector $q=\sinh x$?
+choices:
+- label: A
+  text: $\displaystyle \langle p, q \rangle = \int_{-1}^{1} p(x)\, q(x)\, dx$, on $C^\infty([-1,1])$
+- label: B
+  text: $\displaystyle \langle p, q \rangle = \int_{0}^{1} x\, p(x)\, q(x)\, dx$, on $C^\infty([0,1])$
+- label: C
+  text: $\displaystyle \langle p, q \rangle = \int_{0}^{1} p(x)\, q(x)\, dx$, on $C^\infty([0,1])$
+- label: D
+  text: $\displaystyle \langle p, q \rangle = \int_{-1}^{1} e^{x}\, p(x)\, q(x)\, dx$, on $C^\infty([-1,1])$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    Each option is a genuine inner product on the stated function space, and orthogonality of the same pair $(\cosh, \sinh)$ is a relation that depends on which inner product is in use. Computing each: (A) $\int_{-1}^{1} \cosh(x)\sinh(x)\, dx$. The integrand is odd ($\cosh$ is even, $\sinh$ is odd, product is odd), and the interval is symmetric about $0$, so the integral is $0$. Orthogonal. (B) $\int_{0}^{1} \cosh(x)\sinh(x)\, dx = \tfrac{1}{2}\sinh^2(1) \neq 0$. Not orthogonal --- the interval $[0,1]$ breaks the symmetry that made (A) vanish. (C) $\int_{0}^{1} x \cosh(x)\sinh(x)\, dx > 0$, since $x \cosh(x) \sinh(x) > 0$ on $(0,1]$. Not orthogonal --- the weight biases toward positive contributions, and the interval is not symmetric anyway. (D) $\int_{-1}^{1} e^{x} \cosh(x) \sinh(x)\, dx$. The interval is symmetric, but the weight $e^{x}$ is neither even nor odd, so the combined integrand $e^{x} \cosh(x) \sinh(x)$ is not odd. A direct computation gives $e^{x}\cosh(x)\sinh(x) = \tfrac{1}{2} e^{x}\sinh(2x)$, which evaluates to a nonzero quantity. Not orthogonal --- symmetry of the interval alone does not force the integral to vanish; the \emph{combined} integrand has to be odd. [Pedagogical remark: students often hold the unstated mental model that ``$\cosh$ and $\sinh$ are orthogonal'' as if it were an intrinsic property of the pair. The subtlety this problem highlights is that orthogonality is a relation between three objects --- two vectors and an inner product --- and the function-space lesson is the same as the one Wk 5 made for $\mathbb{R}^n$ with the weighted dot product: change the inner product, and orthogonality changes. The parity argument for (A) is the cleanest and most honest path to seeing why it works: odd integrand on a symmetric interval. Without that combination, the integral is generically nonzero.]
+  key_insight: null
+  distractor_rationale:
+    C: |
+      D5 naive-prior: students who pattern-match on ``smooth functions, $L^2$ integral'' without checking which interval pick this. The interval $[0,1]$ is a perfectly valid choice for $L^2$ on $C^\infty([0,1])$, but loses the parity structure that makes the integral in (A) vanish.
+    B: |
+      D7 surface-match on ``weighted inner product'' --- students who recall that weighted inner products appeared in Wk 5 may grab this without checking that the weight $x$ on $[0,1]$ does not create orthogonality between $\cosh$ and $\sinh$. Twin pair to (B): same interval, extra weight that does not help.
+    D: |
+      the deepest trap. Students who learned the heuristic ``odd integrand on a symmetric interval integrates to zero'' may apply it incompletely: the unweighted product $\cosh(x)\sinh(x)$ is odd, and the interval $[-1,1]$ is symmetric, so a student who stops checking there picks (D). The miss is that the \emph{weight} $e^{x}$ is asymmetric, and the combined integrand $e^{x}\cosh(x)\sinh(x)$ is no longer odd. A careful student decomposes $e^{x} = \cosh(x) + \sinh(x)$ and sees that the integral splits into an even-on-symmetric piece (nonzero) plus an odd-on-symmetric piece (zero), giving a nonzero total. This catches students who memorized the heuristic without tracking which functions it applies to.
+    E: |
+      (the over-cautious
+sources:
+- semester: 2026A
+  instrument: final
+  position: 6
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 387
+variant_of: null
+topics:
+- Inner products on function spaces
+- parity on symmetric
+notes: 'difficulty: Core (synthesis)'

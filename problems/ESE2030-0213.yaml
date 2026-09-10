@@ -1,0 +1,58 @@
+id: ESE2030-0213
+legacy_id: null
+week: 7
+skills:
+- W07.S03
+status: active
+problem_type: null
+statement: |
+  A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 3$, $\lambda_2 = 3$, and $\lambda_3 = -1$.
+  {\bf Fact:} $A$ is diagonalizable.
+  What does diagonalizability of $A$ tell us that the eigenvalues alone do not?
+choices:
+- label: A
+  text: That $\operatorname{tr}(A) = 5$
+- label: B
+  text: That $A$ is symmetric, since only symmetric matrices can have repeated eigenvalues and still be
+    diagonalizable
+- label: C
+  text: That there exists a basis of $\mathbb{R}^3$ consisting entirely of eigenvectors of $A$
+- label: D
+  text: That $\det(A) = -9$
+- label: E
+  text: That $A$ is invertible, since $e^A$ must be well-defined and nonsingular
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The eigenvalues alone --- even knowing that $\lambda = 3$ is repeated --- do not tell us whether $A$ is diagonalizable. Diagonalizability requires that the eigenspace for $\lambda = 3$ be two-dimensional (geometric multiplicity = algebraic multiplicity). When this holds, there exist two linearly independent eigenvectors for $\lambda = 3$ alongside one eigenvector for $\lambda = -1$, forming a full eigenbasis for $\mathbb{R}^3$. This is the defining content of diagonalizability: $\mathbb{R}^3$ has a basis in which $A$ acts by pure scaling on each basis vector. In contrast, the other choices are all deducible from the eigenvalues alone, without knowing whether $A$ is diagonalizable: - (A): $\det(A) = 3 \cdot 3 \cdot (-1) = -9 \neq 0$, so invertibility follows from the eigenvalues. - (B): $\operatorname{tr}(A) = 3 + 3 + (-1) = 5$ from the eigenvalues. - (D): $\det(A) = 3 \cdot 3 \cdot (-1) = -9$ from the eigenvalues. - (E): Symmetry is a stronger condition than diagonalizability; a matrix can be diagonalizable without being symmetric (e.g., any matrix with distinct eigenvalues is diagonalizable but need not be symmetric). The question targets the conceptual distinction between information encoded in the eigenvalues (trace, determinant, invertibility, characteristic polynomial) versus information that requires knowing about the eigenspaces (diagonalizability, existence of an eigenbasis).
+  key_insight: null
+  distractor_rationale:
+    E: |
+      true statement, but follows from the eigenvalues alone --- $\det \neq 0$ since no eigenvalue is zero. A student who selects this doesn't distinguish eigenvalue-level information from eigenspace-level information.
+    A: |
+      true statement, but trace equals the sum of eigenvalues regardless of diagonalizability. Same confusion as (A).
+    D: |
+      true statement, but determinant equals the product of eigenvalues regardless of diagonalizability. Same confusion as (A) and (B).
+    B: |
+      tempting because symmetric matrices are always diagonalizable, so students may conflate the two. But the implication only goes one way: symmetric $\Rightarrow$ diagonalizable, not the converse. Diagonalizability is strictly weaker than symmetry.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 10
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 780
+variant_of: null
+topics:
+- Diagonalization
+- eigenvalues
+- geometric vs algebraic multiplicity
+- eigenbasis
+- geometric interpretation
+notes: null

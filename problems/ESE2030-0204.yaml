@@ -1,0 +1,61 @@
+id: ESE2030-0204
+legacy_id: null
+week: 7
+skills:
+- W07.S06
+status: active
+problem_type: null
+statement: |
+  Consider the system $\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}$ where $A$ is a
+  $3 \times 3$ matrix. Suppose you know two solutions:
+  \begin{itemize}
+  \item $\mathbf{x}_1(t)$ is the solution with initial condition $\mathbf{x}_1(0) = \mathbf{a}$
+  \item $\mathbf{x}_2(t)$ is the solution with initial condition $\mathbf{x}_2(0) = \mathbf{b}$
+  \end{itemize}
+  What is the solution $\mathbf{x}(t)$ with initial condition $\mathbf{x}(0) = 3\mathbf{a} - 2\mathbf{b}$?
+choices:
+- label: A
+  text: $3\mathbf{x}_1(t) - 2\mathbf{x}_2(t)$
+- label: B
+  text: $e^{At}(3\mathbf{a} - 2\mathbf{b})$, but this cannot be simplified further without computing $e^{At}$
+- label: C
+  text: $(3-2t)\mathbf{x}_1(t) + t\,\mathbf{x}_2(t)$, by interpolation between the two known solutions
+- label: D
+  text: $3\mathbf{x}_1(t) - 2\mathbf{x}_2(t)$, but only if $A$ is diagonalizable
+- label: E
+  text: Cannot be determined without knowing $A$ explicitly
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The solution operator $\mathbf{x}_0 \mapsto e^{At}\mathbf{x}_0$ is \emph{linear} in the initial condition, because matrix multiplication is linear. This means: $e^{At}(3\mathbf{a} - 2\mathbf{b}) = 3e^{At}\mathbf{a} - 2e^{At}\mathbf{b} = 3\mathbf{x}_1(t) - 2\mathbf{x}_2(t)$ No knowledge of $A$ is needed beyond the fact that the system is linear. This is the superposition principle for linear ODEs: any linear combination of solutions is again a solution, with the corresponding linear combination of initial conditions. Note that this works for \emph{any} matrix $A$ --- diagonalizable or not, real or complex eigenvalues, repeated eigenvalues or not. The linearity comes from the structure of matrix multiplication, not from any special property of $A$.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      fails to recognize that linearity allows us to build new solutions from old ones; thinks every new initial condition requires recomputing from scratch
+    D: |
+      the superposition principle holds for all linear systems, not just diagonalizable ones. Linearity of the solution operator comes from linearity of matrix multiplication, which requires no assumptions about the eigenstructure of $A$. A student choosing this may conflate the techniques for \emph{computing} $e^{At}$ --- which do depend on eigenstructure --- with the structural fact that $e^{At}$ is linear.
+    C: |
+      invents a nonlinear interpolation scheme; the time-dependent coefficients $(3-2t)$ and $t$ would violate the ODE --- a linear combination of solutions with time-dependent coefficients is generally not a solution unless the coefficients are constant
+    B: |
+      see partial credit; formally correct but misses the simplification that makes the matrix exponential powerful in practice
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 1
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 86
+variant_of: null
+topics:
+- Matrix exponential
+- initial value problem
+- linearity of solutions
+- superposition
+notes: null

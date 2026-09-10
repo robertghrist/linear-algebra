@@ -1,0 +1,62 @@
+id: ESE2030-0286
+legacy_id: null
+week: 9
+skills:
+- W09.S06
+- W09.S05
+status: active
+problem_type: null
+statement: |
+  Let $P$ be a positive column-stochastic $n \times n$ matrix governing a Markov chain
+  \[
+      \mathbf{x}_{k+1}=P\mathbf{x}_k
+  \]
+  on probability vectors in $\mathbb{R}^n$. A \emph{stationary distribution}
+  for $P$ is a probability vector $\boldsymbol{\pi}$ satisfying
+  \[
+      P\boldsymbol{\pi}=\boldsymbol{\pi}.
+  \]
+
+  Which of the following is the best Perron--Frobenius description of the
+  stationary distribution?
+choices:
+- label: A
+  text: A nonzero vector in $\ker(P-I)$.
+- label: B
+  text: The limit $\lim_{k\to\infty} P^k\mathbf{x}_0$ for any probability vector $\mathbf{x}_0$.
+- label: C
+  text: A probability vector $\boldsymbol{\pi}$ such that $\boldsymbol{\pi}^T P = \boldsymbol{\pi}^T$.
+- label: D
+  text: An eigenvector of $P$ whose entries sum to $1$.
+- label: E
+  text: The probability eigenvector of $P$ corresponding to the dominant eigenvalue $\lambda=1$.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    Since $P$ is positive and column-stochastic, Perron--Frobenius applies cleanly.  The eigenvalue $\lambda=1$ is the dominant eigenvalue, and its eigenspace contains a positive eigenvector. Normalizing that positive eigenvector so that its entries sum to $1$ gives the stationary distribution. Choice (D) captures both essential features: the vector is fixed by the dynamics, $P\boldsymbol{\pi}=\boldsymbol{\pi}$, and it is a probability vector.  The word ``dominant'' identifies the Perron--Frobenius role of the eigenvalue $\lambda=1$.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      row-vector convention.  Under the column-stochastic convention used here, stationary distributions are right eigenvectors of $P$, not left eigenvectors.
+    D: |
+      requires entries summing to $1$, but does not specify the eigenvalue $\lambda=1$ and does not require nonnegative entries.  So it need not describe a probability vector fixed by the dynamics.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 37
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 2097
+variant_of: null
+topics:
+- Positive stochastic matrices
+- Markov chains
+- stationary distribution
+notes: null

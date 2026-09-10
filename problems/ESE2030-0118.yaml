@@ -53,4 +53,4 @@ sources:
   line: 145
 variant_of: null
 topics: []
-notes: null
+notes: 'tagging: Tests linear separability / perceptron decision boundaries; no W13 skill names this.'

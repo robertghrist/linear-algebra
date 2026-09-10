@@ -1,0 +1,60 @@
+id: ESE2030-0212
+legacy_id: null
+week: 7
+skills:
+- W07.S03
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a $3 \times 3$ matrix with eigenvalues $\lambda_1 = 5$,
+  $\lambda_2 = -2$, and $\lambda_3 = 5$ (note: $\lambda_1 = \lambda_3$).
+  Let $\mathbf{v}_1$ be an eigenvector for $\lambda_1 = 5$ and $\mathbf{v}_2$
+  an eigenvector for $\lambda_2 = -2$.
+  Which of the following \textbf{must} be true?
+choices:
+- label: A
+  text: $\mathbf{v}_1$ and $\mathbf{v}_2$ are orthogonal
+- label: B
+  text: $\mathbf{v}_1 + \mathbf{v}_2$ is an eigenvector of $A$ with eigenvalue $5 + (-2) = 3$
+- label: C
+  text: $\mathbf{v}_1$ and $\mathbf{v}_2$ are linearly independent
+- label: D
+  text: $A$ must be diagonalizable, since it has three eigenvalues counting multiplicity
+- label: E
+  text: Any nonzero scalar multiple $c\mathbf{v}_1$ is also an eigenvector of $A$, but with a eigenvalue
+    $5c$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    Eigenvectors corresponding to \emph{distinct} eigenvalues are always linearly independent. Since $\lambda_1 = 5 \neq -2 = \lambda_2$, the eigenvectors $\mathbf{v}_1$ and $\mathbf{v}_2$ must be linearly independent regardless of any other properties of $A$. This is a fundamental theorem about eigenspaces: eigenspaces for distinct eigenvalues intersect only at $\mathbf{0}$. This fact is the structural foundation that makes diagonalization possible when a matrix has $n$ distinct eigenvalues: the $n$ eigenvectors are automatically linearly independent, forming a basis.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      orthogonality requires symmetry, which is not given
+    B: |
+      eigenvalues do not ``add'' when eigenvectors are summed. In fact, $\mathbf{v}_1 + \mathbf{v}_2$ is generally \emph{not} an eigenvector at all when $\lambda_1 \neq \lambda_2$: we have $A(\mathbf{v}_1 + \mathbf{v}_2) = 5\mathbf{v}_1 + (-2)\mathbf{v}_2$, which is not a scalar multiple of $\mathbf{v}_1 + \mathbf{v}_2$ unless $5 = -2$. This is a common misconception that treats eigenvalue computations as ``distributing'' over vector addition.
+    D: |
+      having three eigenvalues counting multiplicity is necessary but not sufficient for diagonalizability. The repeated eigenvalue $\lambda = 5$ has algebraic multiplicity 2, and $A$ is diagonalizable only if the geometric multiplicity also equals 2 --- i.e., the eigenspace for $\lambda = 5$ is two-dimensional. Without this information, diagonalizability cannot be concluded.
+    E: |
+      scalar multiples of eigenvectors are indeed eigenvectors, but the eigenvalue does \emph{not} change: $A(c\mathbf{v}_1) = cA\mathbf{v}_1 = c(5\mathbf{v}_1) = 5(c\mathbf{v}_1)$. The eigenvalue remains $5$, not $5c$. This tests whether students understand that the eigenvalue is a property of the \emph{direction}, not the magnitude of the eigenvector.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 9
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 710
+variant_of: null
+topics:
+- Eigenvectors
+- linear independence
+- eigenvalues
+- scalar multiples
+- sums of eigenvectors
+notes: null

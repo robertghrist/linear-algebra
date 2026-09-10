@@ -1,0 +1,60 @@
+id: ESE2030-0291
+legacy_id: null
+week: 11
+skills: []
+status: active
+problem_type: null
+statement: |
+  A data matrix $X \in \mathbb{R}^{n \times d}$ has $n$ observations of $d$ features
+  arranged in columns $\mathbf{x}_1, \ldots, \mathbf{x}_d \in \mathbb{R}^n$, each
+  centered to have sample mean zero. Let $\rho_{ij}$ denote the Pearson correlation
+  coefficient between features $i$ and $j$. Which of the following best describes
+  the geometric meaning of $\rho_{ij}$?
+choices:
+- label: A
+  text: $\rho_{ij}$ is the cosine of the angle between $\mathbf{x}_i$ and $\mathbf{x}_j$, viewed as vectors
+    in $\mathbb{R}^n$.
+- label: B
+  text: $\rho_{ij}$ is the length of the projection of $\mathbf{x}_i$ onto $\mathbf{x}_j$.
+- label: C
+  text: $\rho_{ij}$ is the cosine of the angle between the $i$th and $j$th rows of $X$, viewed as vectors
+    in $\mathbb{R}^d$.
+- label: D
+  text: $\rho_{ij}$ is the cosine of the angle between $\mathbf{x}_i$ and $\mathbf{x}_j$ only after both
+    have been further rescaled to have unit norm.
+- label: E
+  text: $\rho_{ij}$ equals the inner product $\langle \mathbf{x}_i, \mathbf{x}_j \rangle$ scaled by the
+    number of observations.
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    For centered feature columns, the Pearson correlation coefficient is precisely the cosine similarity of the columns viewed as vectors in $\mathbb{R}^n$: $$\rho_{ij} = \frac{\sum_k x_{ki} x_{kj}}{\sqrt{\sum_k x_{ki}^2}\sqrt{\sum_k x_{kj}^2}} = \frac{\langle \mathbf{x}_i, \mathbf{x}_j \rangle}{\norm{\mathbf{x}_i}\,\norm{\mathbf{x}_j}} = \cos\theta_{ij}.$$ Centering is what makes this identity work: the standard correlation formula subtracts the column means before taking inner products, but if the columns are {\em already} centered, that subtraction is a no-op, and what remains is the cosine-similarity formula on $\mathbb{R}^n$. Two structural points worth holding alongside the identity. (i) The columns live in $\mathbb{R}^n$ --- one entry per observation --- so the geometry of correlation is the geometry of the {\em observation space}, not the feature space. (ii) Correlation is normalized; covariance is not. The numerator $\langle \mathbf{x}_i, \mathbf{x}_j \rangle$ gives covariance (up to a factor of $n$ or $n-1$); dividing by the norms gives correlation. [Conceptual through-line: this is the bridge between Wk 5 (cosine similarity as the canonical geometric measure of alignment between vectors) and Wk 11 (correlation as the canonical statistical measure of linear association). They are the same object. Whenever a student computes a correlation, they are computing a cosine; whenever they reason about correlated features, they are reasoning about angles in $\mathbb{R}^n$.]
+  key_insight: null
+  distractor_rationale:
+    E: |
+      D5 naive-prior: drops the normalization entirely, conflating correlation with covariance. Covariance --- not correlation --- is the inner product (up to a $1/n$ or $1/(n-1)$ scaling); correlation additionally divides by the norms. Catches students who half-remember ``correlation has something to do with inner products'' without tracking what makes it dimensionless.
+    C: |
+      D6 shape-implies-property: rows of $X$ are observations in $\mathbb{R}^d$, not features. The angle between rows is a geometric quantity, but it measures similarity between {\em observations}, not the correlation between {\em features}. The classic feature/observation axis confusion in PCA, parallel to the $X^T X$ vs $X X^T$ trap in P32.
+    B: |
+      D5 naive-prior: imports an asymmetric projection picture. The projection length $\langle \mathbf{x}_i, \mathbf{x}_j \rangle / \norm{\mathbf{x}_j}$ is asymmetric in $i$ and $j$ --- but $\rho_{ij}$ is symmetric. Catches students with a partial Wk 6 picture of orthogonal projection who haven't connected it to the symmetric cosine.
+    D: |
+      D7 convention collision: imports the standardization step of correlation PCA into the definition of $\rho_{ij}$. Standardization --- rescaling each column to unit norm or unit sample variance --- is a {\em preprocessing} choice that changes which PCA you run; it is not a prerequisite for $\rho_{ij}$ to equal a cosine. The cosine identity holds for centered columns regardless of their norms.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 42
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 2379
+variant_of: null
+topics:
+- Correlation as cosine similarity
+- centered data
+- geometric interpretation
+notes: 'difficulty: Deeper | tagging: Tests correlation as cosine; no W11 skill names this (W12.S01 does).'

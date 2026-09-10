@@ -1,0 +1,56 @@
+id: ESE2030-0264
+legacy_id: null
+week: 1
+skills:
+- W01.S02
+status: active
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{m \times n}$ and $\mathbf{b} \in \mathbb{R}^m$. Which
+  of the following is equivalent to ``the system $A\mathbf{x} = \mathbf{b}$
+  has at least one solution''?
+choices:
+- label: A
+  text: All three of (A), (B), (C) are equivalent to solvability
+- label: B
+  text: The augmented matrix $[\,A \mid \mathbf{b}\,]$ has the same rank as $A$
+- label: C
+  text: $\mathbf{b} \in \mathrm{im}(A)$
+- label: D
+  text: $\mathbf{b} \perp \ker(A^T)$
+- label: E
+  text: Only (A) and (C) are equivalent; (B) is a separate, stronger condition
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Three faces of the same fact: (A) Definition: $A\mathbf{x} = \mathbf{b}$ has a solution iff $\mathbf{b}$ lies in the image of $A$. (B) Orthogonal FTLA: $\mathrm{im}(A)^\perp = \ker(A^T)$, so $\mathbf{b} \in \mathrm{im}(A)$ iff $\mathbf{b} \perp \ker(A^T)$. This is the \emph{Fredholm alternative}: a linear system is solvable iff $\mathbf{b}$ is orthogonal to every solution of the homogeneous transposed system. (C) Rank criterion: appending $\mathbf{b}$ as an extra column to $A$ leaves the rank unchanged iff $\mathbf{b}$ is already in the span of the columns of $A$, i.e., iff $\mathbf{b} \in \mathrm{im}(A)$. So all three statements are equivalent to solvability, and (D) is correct. This is the FTLA spine appearing at the very start of the exam: the computational view (rank), the algebraic view (image), and the geometric view (orthogonality) of the same condition. [Pedagogical remark: (B) is the deepest of the three but the easiest to misread as a stronger condition. Students often think ``orthogonal to everything in $\ker(A^T)$'' is more demanding than ``in $\mathrm{im}(A)$'' — but the orthogonal FTLA says these are exactly the same condition.]
+  key_insight: null
+  distractor_rationale:
+    C: |
+      recognizes the definitional characterization only — the most basic of the three views. Two rungs below (D).
+    B: |
+      recognizes the rank-based computational characterization — the workhorse for actually checking solvability by row reduction. Two rungs below (D); twin pair to (A).
+    D: |
+      recognizes the orthogonal-FTLA characterization — the deepest of the three views. One rung below (D); a student who picked (B) over (D) has identified the most informative single condition but missed that (A) and (C) are equivalent restatements.
+    E: |
+      D5 naive-prior: treats orthogonality conditions as ``stronger'' than image conditions because of the universal quantifier in ``$\mathbf{b} \perp \ker(A^T)$ for every vector in $\ker(A^T)$.'' The orthogonal FTLA is precisely the theorem that collapses this apparent gap.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 15
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 929
+variant_of: null
+topics:
+- Solvability of Ax = b
+- consistency
+- fundamental subspaces
+notes: 'difficulty: Core | solutions guide matched ("Solvability of $A\mathbf{x} = \mathbf{b}$") but its
+  correct choice could not be mapped to a letter here | tagging: Likely wrong week: relies on im(A), ker(A^T)
+  and FTLA/Fredholm alternative (Week 3/Week 6 content).'

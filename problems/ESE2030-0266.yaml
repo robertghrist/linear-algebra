@@ -1,0 +1,53 @@
+id: ESE2030-0266
+legacy_id: null
+week: 2
+skills:
+- W02.S05
+status: active
+problem_type: null
+statement: |
+  Let $V$ be a finite-dimensional vector space, and let $U, W \subseteq V$ be
+  subspaces satisfying $U + W = V$. Which of the following are equivalent to $V = U \oplus W$ under this hypothesis?
+choices:
+- label: A
+  text: $U \cap W = \{\mathbf{0}\}$
+- label: B
+  text: $\dim(U) + \dim(W) = \dim(V)$
+- label: C
+  text: Every vector in $V$ can be written as $\mathbf{u} + \mathbf{w}$ with $\mathbf{u} \in U$, $\mathbf{w}
+    \in W$
+- label: D
+  text: $U$ and $W$ together contain a basis for $V$
+- label: E
+  text: Both (A) and (B)
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    A direct sum $V = U \oplus W$ requires \emph{both} (i) every $\mathbf{v} \in V$ decomposes as $\mathbf{u} + \mathbf{w}$, and (ii) the decomposition is \emph{unique}. Given that $U + W = V$ already gives existence, uniqueness is the additional requirement — and uniqueness is equivalent to $U \cap W = \{\mathbf{0}\}$. In finite dimensions, this is \emph{also} equivalent to the dimension count $\dim(U) + \dim(W) = \dim(V)$ (since $\dim(U+W) = \dim(U) + \dim(W) - \dim(U \cap W)$). So (A) and (B) are each individually equivalent to the direct-sum condition under the hypothesis $U + W = V$, and both must be true. [Teaching remark: students often treat ``direct sum'' as a synonym for ``sum,'' missing that the directness is precisely the uniqueness of decomposition. The trivial-intersection condition and the dimension-count condition are two faces of the same coin, linked by the inclusion-exclusion formula for subspace dimensions. Recognizing that two conditions describe the same structural fact is the FTLA-style pattern of equivalent characterizations applied at the level of subspaces.]
+  key_insight: null
+  distractor_rationale:
+    D: |
+      D4 surface-match: ``contains a basis'' sounds structurally relevant but is too loose — $U \cup W$ contains a basis for $V$ whenever $U + W = V$, regardless of directness. The trap is pattern-matching on basis vocabulary.
+    C: |
+      this is just a restatement of $U + W = V$, which was \emph{given} as a hypothesis — picking this means the student did not recognize that something \emph{additional} is needed for directness. D5 naive-prior: existence without uniqueness.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 17
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1056
+variant_of: null
+topics:
+- Direct sum decomposition
+- subspace sum
+- intersection
+- dimension
+notes: 'difficulty: Deeper | solutions guide matched ("Direct sum decomposition --- equivalent characterizations")
+  but its correct choice could not be mapped to a letter here'

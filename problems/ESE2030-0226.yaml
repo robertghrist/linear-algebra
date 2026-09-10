@@ -1,0 +1,59 @@
+id: ESE2030-0226
+legacy_id: null
+week: 11
+skills:
+- W11.S09
+status: active
+problem_type: null
+statement: |
+  Correlation PCA on standardized measurements from five environmental sensors yields the first two PC directions:
+  $$\mathbf{v}_1 = \frac{1}{\sqrt{5}}\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \qquad \mathbf{v}_2 = \frac{1}{2}\begin{pmatrix} 1 \\ 1 \\ 0 \\ -1 \\ -1 \end{pmatrix}.$$
+  The five sensors measure (1) $\mathrm{CO}_2$, (2) methane, (3) ozone, (4) wind speed, (5) solar radiation.
+  Which interpretation is most consistent with these vectors?
+choices:
+- label: A
+  text: $\mathbf{v}_1$ carries no information because its entries are all equal.
+- label: B
+  text: $\mathbf{v}_1$ is an overall level; in $\mathbf{v}_2$, ozone is the dominant variable.
+- label: C
+  text: $\mathbf{v}_1$ shows all five variables are perfectly correlated; $\mathbf{v}_2$ shows wind/solar
+    are independent of $\mathrm{CO}_2$/methane.
+- label: D
+  text: $\mathbf{v}_1$ is an overall level; $\mathbf{v}_2$ contrasts $\mathrm{CO}_2$/methane against wind/solar,
+    with ozone not participating.
+- label: E
+  text: $\mathbf{v}_2$ contrasts $\mathrm{CO}_2$ against methane, indicating they are negatively correlated.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Reading PC entries: - EQUAL POSITIVE ENTRIES ($\mathbf{v}_1$): represents a ``common mode'' / overall level. Projection onto $\mathbf{v}_1$ is an equally-weighted average of standardized variables --- a global factor. - OPPOSITE SIGNS ($\mathbf{v}_2$): $\mathrm{CO}_2$ and methane have positive entries, wind and solar have negative entries. This is a CONTRAST: when one group is above average, the other tends to be below. Ozone's zero entry means ozone does not participate in this pattern.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      ozone's entry in $\mathbf{v}_2$ is ZERO; zero means ``does not contribute,'' not ``dominant''
+    A: |
+      a constant vector is highly informative: it captures common-factor variation, often the most important pattern in correlated data
+    C: |
+      ``perfectly correlated'' is too strong; opposite signs in $\mathbf{v}_2$ indicate negative association in that mode, not independence
+    E: |
+      same sign indicates positive association, not negative; the contrast is between the positive-sign group and the negative-sign group
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 1
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 87
+variant_of: null
+topics:
+- Interpreting principal component entries
+- signs
+- magnitudes
+- zero entries
+notes: 'difficulty: Core'

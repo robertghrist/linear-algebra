@@ -1,0 +1,50 @@
+id: ESE2030-0202
+legacy_id: null
+week: 6
+skills:
+- W06.S07
+- W06.S02
+status: active
+problem_type: null
+statement: |
+  Let $W$ be a subspace of an inner product space $V$, and let $\mathbf{v} \in V$. Define $\hat{\mathbf{v}} = \Pi_W(\mathbf{v})$ (the orthogonal projection onto $W$) and $\mathbf{r} = \mathbf{v} - \hat{\mathbf{v}}$ (the ``error''). Which of the following is guaranteed to be true?
+choices:
+- label: A
+  text: $\|\hat{\mathbf{v}}\| = \|\mathbf{v}\|$
+- label: B
+  text: $\langle \hat{\mathbf{v}},\, \mathbf{r} \rangle = 1$
+- label: C
+  text: $\mathbf{r} \in W$
+- label: D
+  text: $\|\mathbf{r}\| > 0$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The orthogonal decomposition gives $\mathbf{v} = \hat{\mathbf{v}} + \mathbf{r}$ with $\hat{\mathbf{v}} \in W$ and $\mathbf{r} \in W^\perp$, satisfying $\langle \hat{\mathbf{v}}, \mathbf{r} \rangle = 0$. By the Pythagorean theorem, $\|\mathbf{v}\|^2 = \|\hat{\mathbf{v}}\|^2 + \|\mathbf{r}\|^2$, so $\|\hat{\mathbf{v}}\| \leq \|\mathbf{v}\|$ with equality iff $\mathbf{v} \in W$. None of (A)--(D) is universally true.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      confuses projection with an isometry; projection preserves norm only when $\mathbf{v} \in W$ already, in which case $\mathbf{r} = \mathbf{0}$. For any $\mathbf{v} \notin W$, Pythagoras gives strict inequality.
+    B: |
+      remembers that the projection and residual have a special inner-product relationship, but the value is $0$, not $1$; orthogonality is the defining geometric property of the decomposition
+    D: |
+      true for ``generic'' $\mathbf{v}$, and true in the overdetermined least-squares setting students are most familiar with, but fails when $\mathbf{v} \in W$: then $\hat{\mathbf{v}} = \mathbf{v}$ and $\mathbf{r} = \mathbf{0}$. Students who forget the edge case pick this.
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 21
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 704
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,52 @@
+id: ESE2030-0247
+legacy_id: null
+week: 11
+skills:
+- W11.S02
+status: active
+problem_type: null
+statement: |
+  Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix with covariance
+  $C = \frac{1}{n}X^TX$, and let $\mathbf{v}_1$ be the first principal component direction.
+  Which characterization of the second principal component direction $\mathbf{v}_2$ is correct?
+choices:
+- label: A
+  text: The unit eigenvector of $C$ whose eigenvalue has the second-largest absolute value.
+- label: B
+  text: The unit vector $\mathbf{v}$ such that $\{\mathbf{v}_1, \mathbf{v}\}$ maximizes the total variance
+    $\mathbf{v}_1^T C \mathbf{v}_1 + \mathbf{v}^T C \mathbf{v}$.
+- label: C
+  text: The unit vector $\mathbf{v}$ orthogonal to $\mathbf{v}_1$ that minimizes $\|X\mathbf{v}\|$.
+- label: D
+  text: The unit vector $\mathbf{v}$ orthogonal to $\mathbf{v}_1$ that maximizes $\mathbf{v}^T C \mathbf{v}$.
+- label: E
+  text: Both (B) and (D).
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    (C) is the standard sequential definition of PCA: after fixing $\mathbf{v}_1$, the second PC maximizes variance among unit vectors orthogonal to $\mathbf{v}_1$. (A) is the equivalent "joint" formulation: choose the orthonormal pair $\{\mathbf{v}_1, \mathbf{v}\}$ maximizing total captured variance — since $\mathbf{v}_1^T C \mathbf{v}_1$ is already fixed (and maximal), this reduces to maximizing $\mathbf{v}^T C \mathbf{v}$ over unit vectors orthogonal to $\mathbf{v}_1$. Both characterizations yield the same $\mathbf{v}_2$, so (E) is correct.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      covariance matrices are PSD, so all eigenvalues are nonnegative and "second-largest absolute value" coincides with "second-largest" — but the phrasing invokes a distinction that doesn't apply here, and a student who flags this is reading carefully. The answer is wrong because it doesn't capture that PCA *defines* the components via variance maximization; the eigenvector characterization is a *consequence* of the Spectral Theorem.
+    C: |
+      minimizing $\|X\mathbf{v}\|$ subject to orthogonality finds the direction of LEAST variance in the orthogonal complement — the last PC restricted to that subspace, not the second.
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 22
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 1158
+variant_of: null
+topics:
+- PCA as sequential variance maximization
+- orthogonality constraint
+notes: 'difficulty: Core | EXPLANATION: explanation letters follow another version ordering'

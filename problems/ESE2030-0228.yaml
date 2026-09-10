@@ -1,0 +1,58 @@
+id: ESE2030-0228
+legacy_id: null
+week: 13
+skills: []
+status: active
+problem_type: null
+statement: |
+  A perceptron with input $\mathbf{x} \in \mathbb{R}^n$, weights $\mathbf{w} \in \mathbb{R}^n$,
+  bias $b \in \mathbb{R}$, and sigmoid activation $\sigma$ computes
+  $y = \sigma(\mathbf{w}^T\mathbf{x} + b)$. Suppose we replace $\mathbf{w}$ with $2\mathbf{w}$
+  and replace $b$ with $2b$, but leave $\sigma$ unchanged. Which statement best describes
+  the effect on the perceptron's output?
+choices:
+- label: A
+  text: The output $y$ doubles for every input $\mathbf{x}$.
+- label: B
+  text: The set of inputs $\mathbf{x}$ for which $y = 1/2$ is unchanged.
+- label: C
+  text: 'The decision boundary $\{\mathbf{x} : y = 1/2\}$ shifts by a constant vector in $\mathbb{R}^n$.'
+- label: D
+  text: The output becomes more sensitive to changes in $\mathbf{x}$ near the decision boundary, and the
+    boundary itself moves.
+- label: E
+  text: The output saturates more sharply near the decision boundary, and the boundary itself is unchanged.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The decision boundary is the level set $\{\mathbf{x} : \mathbf{w}^T\mathbf{x} + b = 0\}$ (since $\sigma(0) = 1/2$). After scaling, the new pre-activation is $2\mathbf{w}^T\mathbf{x} + 2b = 2(\mathbf{w}^T\mathbf{x} + b)$. Two consequences: (1) BOUNDARY UNCHANGED. The zero set is identical: $2(\mathbf{w}^T\mathbf{x} + b) = 0$ iff $\mathbf{w}^T\mathbf{x} + b = 0$. The hyperplane is the same set of points in $\mathbb{R}^n$, so the decision boundary $\{\mathbf{x} : y = 1/2\}$ is preserved. (2) SHARPER SATURATION. Away from the boundary, the pre-activation is twice as large in magnitude. The sigmoid pushes $y$ closer to $0$ or $1$ for the same input, and the slope of $y$ as a function of $\mathbf{x}$ along the normal direction is doubled at the boundary itself: $\nabla y \big|_{\text{boundary}}$ scales linearly with the magnitude of the pre-activation gradient. This is why scaling $(\mathbf{w}, b)$ jointly is a meaningful operation: it controls ``confidence'' (saturation) without changing ``what is classified positive'' (boundary). In the limit of large scaling, the sigmoid approaches a step function with the same boundary --- recovering the hard-threshold perceptron.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      sigmoid is nonlinear, so doubling the pre-activation does not double the output; e.g., $\sigma(0) = 1/2$ but $\sigma(0) = 1/2$ also after scaling, not $1$. Confuses doubling the affine map with doubling the network output.
+    C: |
+      the boundary is invariant under joint scaling of $\mathbf{w}$ and $b$ by the same factor; a shift would result from scaling $\mathbf{w}$ alone, which would change $\{\mathbf{w}^T\mathbf{x} + b = 0\}$ to a parallel hyperplane offset by $b/2$. This distractor is exactly the case the question avoids by scaling both.
+    D: |
+      (correctly identifies sharper sensitivity at the boundary, but incorrectly claims the boundary moves. A student picking (D) has internalized that scaling pre-activations sharpens the sigmoid but hasn't checked that joint scaling preserves the zero set.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 3
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 190
+variant_of: null
+topics:
+- Perceptron geometry
+- decision boundary invariance
+- sigmoid saturation
+notes: 'difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts
+  them in Chapter 13 | tagging: Tests perceptron decision-boundary invariance under scaling and sigmoid
+  saturation; no W13 skill fits.'

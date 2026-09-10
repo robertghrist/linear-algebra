@@ -1,7 +1,8 @@
 id: ESE2030-0047
 legacy_id: Q2-P22
 week: 5
-skills: []
+skills:
+- W05.S07
 status: active
 problem_type: null
 statement: |
@@ -42,4 +43,4 @@ sources:
   line: 613
 variant_of: null
 topics: []
-notes: null
+notes: 'EXPLANATION: explanation letters follow another version ordering ("Option B" = this E)'

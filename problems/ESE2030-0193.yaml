@@ -1,0 +1,52 @@
+id: ESE2030-0193
+legacy_id: null
+week: 5
+skills:
+- W05.S09
+- W05.S05
+status: active
+problem_type: null
+statement: |
+  Let $A$ be an $n \times n$ invertible matrix with columns $\mathbf{a}_1, \ldots, \mathbf{a}_n$, and let $A = QR$ be its QR decomposition. Which statement best describes the relationship between Gram--Schmidt and QR?
+choices:
+- label: A
+  text: The columns of $Q$ are obtained by normalizing the columns of $A$; $R$ records the original norms.
+- label: B
+  text: The columns of $Q$ are the Gram--Schmidt orthonormalization of $\mathbf{a}_1, \ldots, \mathbf{a}_n$;
+    the entry $r_{ij}$ of $R$ is $\langle \mathbf{a}_j, \mathbf{q}_i \rangle$ for $i \leq j$.
+- label: C
+  text: The columns of $R$ are the Gram--Schmidt orthonormalization of $\mathbf{a}_1, \ldots, \mathbf{a}_n$;
+    $Q$ records the change of basis.
+- label: D
+  text: Gram--Schmidt produces $Q$; the matrix $R = Q^T A$ is diagonal with the norms $\|\mathbf{a}_i\|$
+    on the diagonal.
+- label: E
+  text: 'Gram--Schmidt and QR solve different problems: Gram--Schmidt orthogonalizes vectors while QR
+    factors a matrix.'
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Gram--Schmidt applied to $\mathbf{a}_1, \ldots, \mathbf{a}_n$ produces orthonormal vectors $\mathbf{q}_1, \ldots, \mathbf{q}_n$, which become the columns of $Q$. Since each $\mathbf{a}_j$ is a linear combination of $\mathbf{q}_1, \ldots, \mathbf{q}_j$ (only earlier vectors), we have $\mathbf{a}_j = \sum_{i=1}^{j} r_{ij}\,\mathbf{q}_i$ with $r_{ij} = \langle \mathbf{a}_j, \mathbf{q}_i \rangle$. This is exactly $A = QR$ with $R$ upper triangular.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      normalizing without orthogonalizing does not produce orthonormal columns; this ignores the projection/subtraction step that is the heart of Gram--Schmidt
+    D: |
+      correctly identifies $R = Q^TA$, but $R$ is upper triangular, not diagonal; it would only be diagonal if the columns of $A$ were already orthogonal
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 12
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 393
+variant_of: null
+topics: []
+notes: null

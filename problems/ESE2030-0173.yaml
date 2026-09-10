@@ -1,0 +1,55 @@
+id: ESE2030-0173
+legacy_id: null
+week: 1
+skills: []
+status: active
+problem_type: null
+statement: |
+  An engineer needs to solve the systems $A\mathbf{x}_1 = \mathbf{b}_1$, $A\mathbf{x}_2 = \mathbf{b}_2$, \ldots, $A\mathbf{x}_{100} = \mathbf{b}_{100}$, where $A$ is a fixed $500 \times 500$ invertible matrix and the right-hand sides $\mathbf{b}_i$ arrive sequentially over time. Why is computing the LU decomposition of $A$ advantageous compared to other approaches?
+choices:
+- label: A
+  text: Computing $A^{-1}$ once and multiplying $\mathbf{x}_i = A^{-1}\mathbf{b}_i$ requires storing a
+    dense matrix, while LU requires less memory since $L$ and $U$ are sparse
+- label: B
+  text: LU decomposition is the only factorization method that works when $A$ is not symmetric
+- label: C
+  text: The diagonal entries of $U$ directly give the solutions $\mathbf{x}_i$ without further computation
+- label: D
+  text: Row reducing the augmented matrix $[A | \mathbf{b}_i]$ for each new $\mathbf{b}_i$ repeats $O(n^3)$
+    work; with LU, the $O(n^3)$ factorization is done once, and each solve is only $O(n^2)$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    The key computational advantage of LU decomposition is separating the expensive factorization from the cheap solves. Gaussian elimination on an $n \times n$ system costs $O(n^3)$ operations. If we row reduce $[A | \mathbf{b}_i]$ separately for each of 100 right-hand sides, we do $100 \times O(n^3)$ work. With LU, we factor $A = LU$ once ($O(n^3)$), then each system $LU\mathbf{x}_i = \mathbf{b}_i$ requires only forward and backward substitution ($O(n^2)$ each). Total: $O(n^3) + 100 \times O(n^2)$, a massive savings.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      $L$ and $U$ are generally NOT sparse for a dense $A$; they have the same storage cost as $A$. The memory argument is wrong.
+    B: |
+      False; many methods work for non-symmetric matrices: QR, direct row reduction, computing $A^{-1}$, etc.
+    C: |
+      The diagonal of $U$ contains pivots from elimination, not solutions; we still need forward/backward substitution.
+    E: |
+      (D is correct, so "none of the above" is wrong here) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 15
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 469
+variant_of: null
+topics:
+- LU decomposition
+- computational efficiency
+- solving multiple systems
+notes: 'tagging: Tests cost amortization of LU (O(n^3) once vs O(n^2) per solve); no listed skill covers
+  computational cost.'

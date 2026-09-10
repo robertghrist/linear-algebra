@@ -1,0 +1,58 @@
+id: ESE2030-0275
+legacy_id: null
+week: 10
+skills:
+- W10.S03
+status: active
+problem_type: null
+statement: |
+  The diagram below is an abstract representation of the SVD of a linear transformation $M$, with five regions labeled (A) through (E). Which region best represents the {\em coimage} of the transformation? (choose (A) - (E))
+choices:
+- label: A
+  text: 'Region A: shaded first $r$ columns of $U$.'
+- label: B
+  text: 'Region B: unshaded last $m - r$ columns of $U$.'
+- label: C
+  text: 'Region C: the diagonal $\Sigma$ block.'
+- label: D
+  text: 'Region D: shaded first $r$ rows of $V^T$.'
+- label: E
+  text: 'Region E: unshaded last $n - r$ rows of $V^T$.'
+figures:
+- ESE2030-0275-a.png
+answer:
+  correct: D
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The coimage $\mathrm{coim}(M) = \mathbb{R}^n / \ker(M)$ is naturally represented in the domain by $\ker(M)^\perp$, which is spanned by the first $r$ right singular vectors $\mathbf{v}_1, \ldots, \mathbf{v}_r$. The rows of $V^T$ are exactly the $\mathbf{v}_i^T$, so the first $r$ rows of $V^T$ --- region D --- house the right singular vectors that span the coimage representative. FTLA spine: $\mathrm{coim}(M) \cong \mathrm{im}(M)$, so regions D (in the domain) and A (in the codomain) describe naturally isomorphic spaces. But the \emph{coimage itself lives in the domain}, where $V$ acts --- hence D, not A.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      recognizes the rank-$r$ shaded structure and the FTLA isomorphism $\mathrm{coim} \cong \mathrm{im}$, but places coimage on the codomain side (partial credit)
+    B: |
+      unshaded columns of $U$ span $\ker(M^T) = \mathrm{im}(M)^\perp$, the natural representative of the \emph{cokernel}. Confuses coimage (domain side) with cokernel (codomain side).
+    C: |
+      the $\Sigma$ block holds the singular values --- stretching factors, not a subspace
+    E: |
+      the last $n - r$ rows of $V^T$ span $\ker(M)$ --- the orthogonal complement of the coimage representative. Classic kernel-vs-coimage swap.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 26
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1542
+variant_of: null
+topics:
+- SVD block structure
+- four fundamental subspaces
+- coimage
+- FTLA
+notes: 'difficulty: Deeper | choices are the five labeled regions of the figure; choice texts transcribed
+  from the solutions guide (the exam says only ''choose (A)-(E)'') | figure supplied by prof-g 2026-09-10
+  (original name SVD-ABSTRACT.png)'

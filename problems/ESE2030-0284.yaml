@@ -1,0 +1,56 @@
+id: ESE2030-0284
+legacy_id: null
+week: 6
+skills:
+- W06.S02
+status: active
+problem_type: null
+statement: |
+  Let $V$ be a finite-dimensional inner product space and let $W \subseteq V$
+  be a subspace.  For $\mathbf{v} \in V$, let $\Pi_W(\mathbf{v})$ denote
+  the orthogonal projection of $\mathbf{v}$ onto $W$.  Which of the
+  following characterizes $\Pi_W(\mathbf{v})$?
+choices:
+- label: A
+  text: The unique vector $\mathbf{w} \in W$ with $\norm{\mathbf{w}} = \norm{\mathbf{v}}$
+- label: B
+  text: The unique vector $\mathbf{w} \in W$ minimizing $\norm{\mathbf{w}}$
+- label: C
+  text: The unique vector $\mathbf{w} \in V$ such that $\mathbf{v} - \mathbf{w} \in W^\perp$
+- label: D
+  text: The unique vector $\mathbf{w} \in W$ minimizing $\norm{\mathbf{v} - \mathbf{w}}$
+- label: E
+  text: The unique vector $\mathbf{w} \in W$ such that $\mathbf{v} - \mathbf{w} \in W$
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The orthogonal projection $\Pi_W(\mathbf{v})$ is the {\em closest point in $W$ to $\mathbf{v}$}: it is the unique $\mathbf{w} \in W$ minimizing $\norm{\mathbf{v} - \mathbf{w}}$. Equivalently, it is the unique $\mathbf{w} \in W$ such that the residual $\mathbf{v} - \mathbf{w}$ lies in $W^\perp$. [Geometric picture: drop a perpendicular from $\mathbf{v}$ to $W$; the foot of the perpendicular is $\Pi_W(\mathbf{v})$.  The residual $\mathbf{v} - \Pi_W(\mathbf{v})$ is the perpendicular itself, lying in $W^\perp$.]
+  key_insight: null
+  distractor_rationale:
+    B: |
+      the smallest-norm vector in $W$ is $\mathbf{0}$ for any subspace; this characterization ignores $\mathbf{v}$ entirely.  Naive-prior surface match on "minimization."
+    E: |
+      asks for $\mathbf{v} - \mathbf{w} \in W$ instead of $W^\perp$ — the orthogonality condition flipped to the wrong subspace.  Twin pair to (D) at the subspace level.
+    C: |
+      correct orthogonality condition, but $\mathbf{w}$ is allowed to range over $V$ rather than constrained to $W$.  Without the constraint $\mathbf{w} \in W$ the equation $\mathbf{v} - \mathbf{w} \in W^\perp$ has many solutions — every element of $\Pi_W(\mathbf{v}) + W^\perp$ — so uniqueness fails. Twin pair to (C); each loses one of the two defining conditions.
+    A: |
+      norm-preservation: a property of {\em isometries}, not projections.  Projections shorten vectors in general — surface match on "$\mathbf{w}$ relates to $\mathbf{v}$ by some norm equation."
+sources:
+- semester: 2026A
+  instrument: final
+  position: 35
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 2007
+variant_of: null
+topics:
+- Orthogonal projection
+- best approximation
+- closest point in a subspace
+notes: null

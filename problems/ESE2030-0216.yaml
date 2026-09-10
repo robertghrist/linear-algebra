@@ -1,0 +1,61 @@
+id: ESE2030-0216
+legacy_id: null
+week: 9
+skills:
+- W09.S07
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a real symmetric $n \times n$ matrix, and let $B$ be a
+  general (non-symmetric) diagonalizable $n \times n$ matrix. Both
+  have $n$ linearly independent eigenvectors.
+  To express a vector $\mathbf{x} \in \mathbb{R}^n$ in the eigenbasis
+  of each matrix, what key simplification does the symmetry of $A$ provide?
+choices:
+- label: A
+  text: The eigenvalues of $A$ are guaranteed real, so the eigenbasis coordinates of $\mathbf{x}$ are
+    real-valued --- unlike the general case where coordinates may be complex
+- label: B
+  text: Both $A$ and $B$ require computing $V^{-1}\mathbf{x}$ to find eigenbasis coordinates; symmetry
+    does not simplify this step
+- label: C
+  text: The diagonalization of $A$ is unique, whereas $B = V\Lambda V^{-1}$ has infinitely many choices
+    of $V$
+- label: D
+  text: The eigenvectors of $A$ can always be chosen orthonormal, so the eigenbasis coordinates are $c_i
+    = \mathbf{q}_i^T\mathbf{x}$ --- no matrix inversion is required
+- label: E
+  text: Symmetric matrices always have distinct eigenvalues, so there is exactly one eigenbasis up to
+    scaling
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The Spectral Theorem guarantees that a real symmetric matrix possesses an orthonormal eigenbasis $\{\mathbf{q}_1, \ldots, \mathbf{q}_n\}$. Forming $Q = [\mathbf{q}_1 \cdots \mathbf{q}_n]$, we get $A = Q\Lambda Q^T$ with $Q^{-1} = Q^T$. To find the eigenbasis coordinates of $\mathbf{x}$: $$\mathbf{c} = Q^T\mathbf{x} \quad \Longrightarrow \quad c_i = \mathbf{q}_i^T\mathbf{x}$$ Each coordinate is a dot product --- an $O(n)$ operation requiring no matrix inversion. For the general case $B = V\Lambda V^{-1}$, the coordinates are $\mathbf{c} = V^{-1}\mathbf{x}$, which requires solving a linear system ($O(n^2)$ or $O(n^3)$) and may be ill-conditioned. The student must supply the unstated intermediate step: symmetric $\Rightarrow$ Spectral Theorem $\Rightarrow$ orthonormal eigenbasis $\Rightarrow$ $Q^{-1} = Q^T$ $\Rightarrow$ coordinates are dot products.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      the orthogonal diagonalization is NOT unique: within each eigenspace, any orthonormal basis may be chosen. The general diagonalization is also non-unique for the same reason. Uniqueness is not the distinguishing advantage.
+    E: |
+      false --- symmetric matrices can have repeated eigenvalues. The Spectral Theorem still guarantees a full orthonormal eigenbasis even with repetition, but distinctness is not guaranteed.
+    B: |
+      false --- this is precisely what symmetry DOES simplify. A student who does not know the Spectral Theorem may reason that both cases are ``just diagonalizable'' and conclude there is no difference. This distractor targets that gap.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 13
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 1019
+variant_of: null
+topics:
+- Spectral Theorem (unstated)
+- symmetric matrices
+- orthogonal
+notes: null

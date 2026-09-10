@@ -1,0 +1,42 @@
+id: ESE2030-0189
+legacy_id: null
+week: 6
+skills:
+- W06.S03
+status: active
+problem_type: null
+statement: |
+  Let $P$ be the matrix that orthogonally projects $\mathbb{R}^n$ onto a subspace $W$ with $\dim(W) = k$, where $0 < k < n$. Which of the following is \emph{false}?
+choices:
+- label: A
+  text: $P^2 = P$
+- label: B
+  text: $P^T = P$
+- label: C
+  text: $\operatorname{rank}(P) = k$
+- label: D
+  text: $I - P$ is the orthogonal projection onto $W^\perp$
+- label: E
+  text: $P$ is invertible
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Since $0 < k < n$, the projection has a nontrivial kernel ($W^\perp \neq \{\mathbf{0}\}$), so $P$ is not invertible. Concretely, $P\mathbf{v} = \mathbf{0}$ for every $\mathbf{v} \in W^\perp$. All other properties are fundamental facts about orthogonal projections.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 8
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 287
+variant_of: null
+topics: []
+notes: 'partial credit note: none (all distractors are true and well-known)'

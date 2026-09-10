@@ -1,0 +1,59 @@
+id: ESE2030-0205
+legacy_id: null
+week: 9
+skills:
+- W09.S01
+status: active
+problem_type: null
+statement: |
+  A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 0.7$,
+  $\lambda_2 = -0.9$, and $\lambda_3 = 0.2$.
+  Consider the iteration $\mathbf{x}_{k+1} = A\mathbf{x}_k$ starting
+  from a generic initial condition $\mathbf{x}_0$.
+  What is the long-term behavior of $\mathbf{x}_k$?
+choices:
+- label: A
+  text: $\mathbf{x}_k$ may converge or diverge depending on the initial condition
+- label: B
+  text: $\mathbf{x}_k$ oscillates indefinitely without settling to a limit
+- label: C
+  text: $\mathbf{x}_k$ converges to a dominant eigenvector
+- label: D
+  text: $\mathbf{x}_k$ converges to $\mathbf{0}$ for every initial condition
+- label: E
+  text: $\mathbf{x}_k$ diverges due to oscillations at each step
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The key fact is that $A^k \to 0$ if and only if every eigenvalue of $A$ satisfies $|\lambda_i| < 1$, i.e., the spectral radius $\rho(A) < 1$. Here, $|\lambda_1| = 0.7$, $|\lambda_2| = 0.9$, and $|\lambda_3| = 0.2$, so $\rho(A) = 0.9 < 1$. What happens mechanically: when $A$ is diagonalizable (or more generally), the $k$-th iterate decomposes along eigenvectors as $\mathbf{x}_k = c_1 \lambda_1^k \mathbf{v}_1 + c_2 \lambda_2^k \mathbf{v}_2 + c_3 \lambda_3^k \mathbf{v}_3$. Each term decays because $|\lambda_i|^k \to 0$. The term $(-0.9)^k$ does alternate in sign, but its \emph{magnitude} $0.9^k \to 0$, so this component oscillates with decreasing amplitude and still vanishes. This holds for \emph{every} initial condition, not just special ones: every component of $\mathbf{x}_k$ along every eigendirection is multiplied by a quantity with magnitude less than $1$ at each step.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      confuses the sign of $\lambda_2$ with the growth of iterates. A negative eigenvalue with $|\lambda| < 1$ produces \emph{decaying} sign-alternating behavior, not growing oscillations. The student conflates ``negative'' with ``unstable.''
+    C: |
+      two errors compounded. First, it identifies $\lambda_1 = 0.7$ as ``the largest eigenvalue'' --- but the dominant eigenvalue is determined by magnitude, and $|\lambda_2| = 0.9 > 0.7$. Second, it claims the iteration converges to a nonzero limit, which would require a dominant eigenvalue with $|\lambda| = 1$, not $< 1$. When all $|\lambda_i| < 1$, every component decays to zero; there is no surviving eigendirection.
+    B: |
+      see partial credit; the sign alternation is real but the student doesn't recognize damping
+    A: |
+      when $\rho(A) < 1$, convergence to $\mathbf{0}$ holds for \emph{all} initial conditions, not just some. The behavior is global, not initial-condition-dependent. Initial-condition dependence arises when some eigenvalues have $|\lambda| < 1$ and others have $|\lambda| > 1$, which is not the case here.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 2
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 160
+variant_of: null
+topics:
+- Spectral radius
+- linear iteration
+- convergence to zero
+- eigenvalue magnitude vs sign
+notes: null

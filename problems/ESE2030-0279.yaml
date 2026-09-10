@@ -1,0 +1,59 @@
+id: ESE2030-0279
+legacy_id: null
+week: 3
+skills:
+- W03.S03
+- W03.S07
+- W03.S06
+status: active
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a rank 3 linear transformation between finite-dimensional vector
+  spaces, with $\dim(V) = 7$, $\dim(W) = 4$.
+  Which of the following must be TRUE?
+choices:
+- label: A
+  text: $\dim(\ker T) = 3$ and $\mathrm{coim}(T) \cong \mathrm{im}(T)$
+- label: B
+  text: $\dim(\ker T) = 4$ and $\mathrm{coim}(T) \cong \ker(T)$
+- label: C
+  text: $\dim(\mathrm{coim}\, T) = 4$ and $\mathrm{coker}(T) \cong \mathbb{R}^1$
+- label: D
+  text: $\dim(\mathrm{coim}\, T) = 3$ and $\mathrm{coker}(T) \cong \mathbb{R}^1$
+- label: E
+  text: $\dim(\ker T) = 4$ and $\mathrm{coker}(T) \cong \ker(T)$
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    Three facts are in play: (i) Rank-nullity: $\dim(\ker T) = \dim V - \dim(\mathrm{im}\, T) = 7 - 3 = 4$. (ii) FTLA punchline: $\mathrm{coim}(T) \cong \mathrm{im}(T)$, so $\dim(\mathrm{coim}\, T) = 3$. (iii) Cokernel dimension: $\dim(\mathrm{coker}\, T) = \dim W - \dim(\mathrm{im}\, T) = 4 - 3 = 1$, so $\mathrm{coker}(T) \cong \mathbb{R}^1$. Option (D) is the only choice consistent with all three. [Teaching remark: the FTLA gives a natural isomorphism $\mathrm{coim}(T) \cong \mathrm{im}(T)$, but \emph{not} $\mathrm{coker}(T) \cong \ker(T)$ in general — those have the same dimension only when $\dim V = \dim W$, and even then the isomorphism is not natural. This distinction is the FTLA spine.]
+  key_insight: null
+  distractor_rationale:
+    B: |
+      $\dim \ker T = 4$ correct, but pairs it with the wrong FTLA isomorphism $\mathrm{coim}(T) \cong \ker(T)$. Coim is naturally isomorphic to \emph{image}, not kernel — this is the FTLA confusion that swaps the two non-trivial pieces of the four-subspace picture.
+    A: |
+      Has the correct FTLA isomorphism $\mathrm{coim}(T) \cong \mathrm{im}(T)$, but pairs it with the wrong kernel dimension $\dim \ker T = 3$ — confusing $\dim \ker T$ with $\mathrm{rank}(T)$, or equivalently using $\dim W - \mathrm{rank}$ instead of $\dim V - \mathrm{rank}$.
+    E: |
+      $\dim \ker T = 4$ correct, but pairs it with the false isomorphism $\mathrm{coker}(T) \cong \ker(T)$. This is the classic FTLA-misremembering trap: dimension counts can coincide for square-domain/codomain cases, but here $\dim \ker T = 4 \neq 1 = \dim \mathrm{coker}\, T$.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 30
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1754
+variant_of: null
+topics:
+- FTLA
+- coimage
+- image
+- cokernel
+- quotient spaces
+- dimension count
+notes: 'difficulty: Deeper'

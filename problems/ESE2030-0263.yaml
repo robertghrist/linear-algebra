@@ -1,0 +1,55 @@
+id: ESE2030-0263
+legacy_id: null
+week: 3
+skills:
+- W03.S06
+status: active
+problem_type: null
+statement: |
+  Let $V$ be a finite-dimensional vector space and $W \subseteq V$ a nontrivial subspace ($W\neq V$ and $W\neq\{0\}$).
+  Which of the following best describes an element of the quotient space $V/W$?
+choices:
+- label: A
+  text: The orthogonal projection of a vector in $V$ onto the complement of $W$
+- label: B
+  text: A set of vectors in $V$ that all differ from one another by an element of $W$
+- label: C
+  text: A vector in $V$ paired with a vector in $W$
+- label: D
+  text: A vector in $V$ that is not in $W$
+- label: E
+  text: A vector in $V$ together with a choice of representative for $W$
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    An element of $V/W$ is a \emph{coset} (equivalence class) $[\mathbf{v}] = \{\mathbf{v} + \mathbf{w} : \mathbf{w} \in W\}$. Two vectors $\mathbf{u}, \mathbf{v} \in V$ represent the same element of $V/W$ if and only if $\mathbf{u} - \mathbf{v} \in W$. So an element of $V/W$ is genuinely a \emph{set} of vectors in $V$, all pairwise differing by elements of $W$ — not a single vector, not a pair, not a projection. [Teaching remark: this is the structural shift students most often miss. The quotient construction does not pick out a ``preferred representative''; it identifies all vectors that differ by something in $W$. The zero element of $V/W$ is the entire subspace $W$ itself, viewed as one coset. Geometrically, in $V = \mathbb{R}^3$ with $W$ a line through the origin, $V/W$ is a 2-dimensional space whose ``points'' are the parallel lines (cosets) of $W$.]
+  key_insight: null
+  distractor_rationale:
+    D: |
+      captures the intuition that ``quotienting kills $W$,'' and a non-$W$ representative does specify a nonzero coset — but conflates a coset with a single representative and misses that vectors inside $W$ also represent an element of $V/W$, namely the zero coset.
+    C: |
+      D4 surface-match: pairs sound like quotient-related structure, perhaps confused with direct sum $V \oplus W$ or product construction. The quotient is a single object derived from $V$ and $W$, not a pair.
+    E: |
+      D4 surface-match: ``representative'' is the right vocabulary for the wrong question — picking a representative describes how one \emph{names} a coset, not what a coset \emph{is}. Twin pair to (A) in spirit: both confuse representative with coset.
+    A: |
+      D7 convention collision: imports an inner-product notion into the abstract quotient construction. Even when $V$ has an inner product, $V/W$ and $W^\perp$ are isomorphic but not equal — and this problem makes no inner-product assumption. Premature Week-6 import.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 14
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 878
+variant_of: null
+topics:
+- Quotient spaces
+- equivalence classes
+- cosets
+- dimension
+notes: 'difficulty: Deeper'

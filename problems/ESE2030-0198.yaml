@@ -1,0 +1,54 @@
+id: ESE2030-0198
+legacy_id: null
+week: 5
+skills:
+- W05.S07
+status: active
+problem_type: null
+statement: |
+  Let $V$ and $W$ be finite-dimensional inner product spaces with inner products $\langle \cdot, \cdot \rangle_V$ and $\langle \cdot, \cdot \rangle_W$, and let $T: V \to W$ be linear. Which of the following correctly defines the adjoint $T^*$?
+choices:
+- label: A
+  text: For each $\mathbf{w} \in W$, the vector $T^*(\mathbf{w})$ is the unique element of $V$ satisfying
+    \\ $\langle T(\mathbf{v}), \mathbf{w} \rangle_W = \langle \mathbf{v}, T^*(\mathbf{w}) \rangle_V$ for
+    every $\mathbf{v} \in V$.
+- label: B
+  text: $T^*(\mathbf{w})$ is the vector in $V$ that minimizes $\|T(\mathbf{v}) - \mathbf{w}\|_W$ over
+    all $\mathbf{v} \in V$.
+- label: C
+  text: $T^*$ is the unique linear map $W \to V$ satisfying $T^* \circ T = I_V$.
+- label: D
+  text: $T^*(\mathbf{w})$ is the orthogonal projection of $\mathbf{w}$ onto $\operatorname{im}(T)$.
+- label: E
+  text: $T^* = T^{-1}$ when $T$ is invertible, and $T^* = (A^TA)^{-1}A^T$ otherwise, where $A$ is a matrix
+    representing $T$.
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The adjoint is defined by ``moving $T$ across the inner product'': $\langle T(\mathbf{v}), \mathbf{w} \rangle_W = \langle \mathbf{v}, T^*(\mathbf{w}) \rangle_V$ for all $\mathbf{v} \in V$, $\mathbf{w} \in W$. The Riesz representation theorem guarantees that for each fixed $\mathbf{w}$, the functional $\mathbf{v} \mapsto \langle T(\mathbf{v}), \mathbf{w} \rangle_W$ is represented by a unique vector in $V$; that vector is $T^*(\mathbf{w})$.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      describes the least-squares/pseudoinverse solution $T^\dagger(\mathbf{w})$, not the adjoint; students fresh from Week 6 who conflate $T^*$ with $T^\dagger$ pick this
+    C: |
+      $T^*T = I_V$ would make $T$ an isometry; this confuses the adjoint with a left inverse and fails whenever $T$ has a nontrivial kernel
+    D: |
+      the orthogonal projection onto $\operatorname{im}(T)$ is the map $TT^\dagger$, not $T^*$; and it maps $W \to W$, not $W \to V$, so the types do not even match
+    E: |
+      conflates the adjoint with the pseudoinverse; $T^*$ always exists and equals the transpose $A^T$ in standard coordinates, while $(A^TA)^{-1}A^T$ is the pseudoinverse, a different object entirely
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 17
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 571
+variant_of: null
+topics: []
+notes: null

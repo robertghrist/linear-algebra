@@ -1,0 +1,52 @@
+id: ESE2030-0184
+legacy_id: null
+week: 5
+skills:
+- W05.S02
+status: active
+problem_type: null
+statement: |
+  In $\mathbb{R}^2$, consider the weighted inner product
+  $$\langle \mathbf{u}, \mathbf{v} \rangle_M = \mathbf{u}^T M \mathbf{v}, \qquad M = \begin{bmatrix} 3 & 1 \\ 1 & 4 \end{bmatrix}.$$
+  Let $\mathbf{a} = \begin{pmatrix} 1 \\ -2 \end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$. Which statement is correct?
+choices:
+- label: A
+  text: $\mathbf{a}$ and $\mathbf{b}$ are orthogonal under both the standard dot product and $\langle
+    \cdot, \cdot \rangle_M$.
+- label: B
+  text: $\mathbf{a}$ and $\mathbf{b}$ are orthogonal under $\langle \cdot, \cdot \rangle_M$ but not under
+    the standard dot product.
+- label: C
+  text: $\mathbf{a}$ and $\mathbf{b}$ are orthogonal under the standard dot product but not under $\langle
+    \cdot, \cdot \rangle_M$.
+- label: D
+  text: $\mathbf{a}$ and $\mathbf{b}$ are not orthogonal under either inner product, but $\|\mathbf{a}\|_M
+    = \|\mathbf{a}\|$.
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Standard dot product equals $0$, so $\mathbf{a} \perp \mathbf{b}$ in the standard sense. Weighted dot product $\neq 0$, so they are \emph{not} $M$-orthogonal. The core lesson: orthogonality depends on the choice of inner product. Two vectors perpendicular in the standard geometry can fail to be perpendicular when distances are weighted differently along different axes.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      computes only the standard dot product and assumes all inner products agree on orthogonality
+    B: |
+      gets the conclusion backwards; a student who computes both but swaps which is zero picks this
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 3
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 157
+variant_of: null
+topics: []
+notes: null

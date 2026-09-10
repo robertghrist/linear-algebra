@@ -1,0 +1,55 @@
+id: ESE2030-0209
+legacy_id: null
+week: 9
+skills:
+- W09.S07
+status: active
+problem_type: null
+statement: |
+  A real $n \times n$ matrix $A$ is known to be symmetric.
+  Which of the following is a consequence of the Spectral Theorem that does
+  \textbf{not} follow from diagonalizability alone?
+choices:
+- label: A
+  text: $\operatorname{tr}(A)$ equals the sum of the eigenvalues of $A$
+- label: B
+  text: $\det(A)$ equals the product of the eigenvalues of $A$
+- label: C
+  text: $A$ can be written as $V\Lambda V^{-1}$ for some invertible $V$ and diagonal $\Lambda$
+- label: D
+  text: $A$ has $n$ eigenvalues with algebraic and geometric multiplicity one
+- label: E
+  text: The eigenvectors of $A$ can be chosen to form an orthonormal basis for $\mathbb{R}^n$
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The Spectral Theorem for real symmetric matrices states that $A = Q\Lambda Q^T$ where $Q$ is orthogonal and $\Lambda$ is real diagonal. This means: (1) All eigenvalues are real. (2) There exists a \emph{full orthonormal} eigenbasis. (3) $A$ is always diagonalizable, regardless of eigenvalue multiplicity. Among the choices, only (E) --- the existence of an orthonormal eigenbasis --- requires symmetry. The others are either properties of all matrices or of all diagonalizable matrices: (A) Every $n \times n$ matrix (symmetric or not, diagonalizable or not) has $n$ eigenvalues counting multiplicity, because the characteristic polynomial always has degree $n$. (B) This is the \emph{definition} of diagonalizability. It follows from diagonalizability alone; symmetry is not needed. (C) $\operatorname{tr}(A) = \sum \lambda_i$ holds for \emph{every} square matrix, not just diagonalizable or symmetric ones. It follows from the relationship between the characteristic polynomial and the trace. (D) $\det(A) = \prod \lambda_i$ also holds for every square matrix, for the same reason as (C). The conceptual point: diagonalizability gives you a basis of eigenvectors; the Spectral Theorem upgrades this to an \emph{orthonormal} basis. This is a strictly stronger condition. A diagonalizable matrix with non-orthogonal eigenvectors (e.g., $\begin{bmatrix} 2 & 1 \\ 0 & 3 \end{bmatrix}$) satisfies (A)--(D) but not (E).
+  key_insight: null
+  distractor_rationale:
+    D: |
+      true for all matrices, not specific to symmetry or even to diagonalizability; students may think the Spectral Theorem is needed to guarantee $n$ eigenvalues exist
+    C: |
+      this IS diagonalizability --- precisely the property the question says is already assumed. A student who selects this fails to distinguish diagonalizability from the additional structure that symmetry provides.
+    A: |
+      true for all matrices; a student may associate the trace-eigenvalue relationship with diagonalization, but it holds universally
+    B: |
+      (same reasoning as C; the determinant-eigenvalue relationship is universal) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 6
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 479
+variant_of: null
+topics:
+- Spectral Theorem
+- symmetric vs diagonalizable
+- real eigenvalues
+notes: null

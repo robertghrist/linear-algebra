@@ -1,0 +1,61 @@
+id: ESE2030-0253
+legacy_id: null
+week: 13
+skills:
+- W13.S05
+status: active
+problem_type: null
+statement: |
+  In a feed-forward network, layer $k$ takes input $\mathbf{h}_{k-1}$ and produces $\mathbf{z}_k = W_k \mathbf{h}_{k-1} + \mathbf{b}_k$ followed by $\mathbf{h}_k = \sigma(\mathbf{z}_k)$, with $\sigma$ applied componentwise. Define $\boldsymbol{\delta}_k = \partial L / \partial \mathbf{z}_k$.
+  Backpropagation produces a recursion that expresses $\boldsymbol{\delta}_k$ in terms of $\boldsymbol{\delta}_{k+1}$. Which is the most accurate description of \emph{why} this recursion takes the form it does?
+choices:
+- label: A
+  text: Since the loss is computed at the output, a hidden layer's contribution decays geometrically with
+    depth, and the recursion encodes that decay.
+- label: B
+  text: The map $\mathbf{z}_k \mapsto \mathbf{z}_{k+1}$ factors through $\mathbf{h}_k$, and its derivative
+    is the product of the derivatives of the two pieces --- a diagonal matrix from componentwise $\sigma$
+    and the matrix $W_{k+1}$ from the affine step. %Pulling a gradient back through this composition multiplies
+    by the transposes of these derivatives in reverse order.
+- label: C
+  text: The recursion is a consequence of gradient descent on the loss, in which the learning rate is
+    replaced by $\mathrm{diag}(\sigma'(\mathbf{z}_k))$ to keep updates well-scaled across layers.
+- label: D
+  text: Backpropagation distributes the output error $\mathbf{h}_{\text{out}} - \mathbf{t}$ across layers
+    in proportion to each layer's share of the network's total weight magnitude.
+- label: E
+  text: Each layer must be inverted to send information from the output back toward the input, so the
+    recursion involves $W_{k+1}^{-1}$ acting on $\boldsymbol{\delta}_{k+1}$.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    Backpropagation is the chain rule applied to a composition. The map $\mathbf{z}_k \mapsto \mathbf{z}_{k+1}$ factors as $\mathbf{z}_k \;\xrightarrow{\;\sigma\;}\; \mathbf{h}_k \;\xrightarrow{\;W_{k+1}\,\cdot\,+\,\mathbf{b}_{k+1}\;}\; \mathbf{z}_{k+1}.$ Neither piece is a linear map: the first is a nonlinear pointwise map, the second is affine. But the chain rule operates on \emph{derivatives}, and at a given $\mathbf{z}_k$ each piece has a well-defined derivative (a linear map): - The derivative of $\sigma$ at $\mathbf{z}_k$ is the diagonal matrix $D_k = \mathrm{diag}(\sigma'(\mathbf{z}_k))$ (componentwise application has a diagonal derivative). - The derivative of the affine map $\mathbf{h} \mapsto W_{k+1}\mathbf{h} + \mathbf{b}_{k+1}$ is $W_{k+1}$ at every point (the bias contributes a constant and drops out). The chain rule multiplies these derivatives in forward order, giving $W_{k+1} D_k$, and pulling a gradient back through a linear map multiplies by its \emph{transpose}: that is the adjoint, not the inverse. Composing transposes reverses order, so $\boldsymbol{\delta}_k \;=\; (W_{k+1} D_k)^T \, \boldsymbol{\delta}_{k+1} \;=\; D_k^T W_{k+1}^T \, \boldsymbol{\delta}_{k+1} \;=\; D_k W_{k+1}^T \, \boldsymbol{\delta}_{k+1}$ (using $D_k^T = D_k$ since $D_k$ is diagonal). Every structural feature of the recursion --- the transpose, the reversed order, the diagonal $D_k$, the absence of the bias --- comes directly from this derivative-factorization picture. This is the linear-algebra heart of the entire course showing up in the deep-learning setting: forward through a linear map uses $W$, backward through it uses $W^T$ --- the same transpose that drives least squares ($A^T A \mathbf{x} = A^T \mathbf{b}$), the FTLA ($\ker(A)^\perp = \mathrm{im}(A^T)$), and the pseudoinverse.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      the naive ``to go backward, invert'' instinct. Wrong on the linear- algebra: weight matrices are generally not square --- $W_{k+1} \in \mathbb{R}^{n_{k+1} \times n_k}$ --- and even when they are, the chain rule produces the adjoint, not the inverse. Adjoint and inverse coincide only for orthogonal matrices.
+    A: |
+      geometric decay with depth is a possible \emph{training-dynamics} phenomenon (the vanishing-gradient effect), not a property of the recursion itself. The recursion can shrink, preserve, or amplify $\boldsymbol{\delta}$ depending on $W_{k+1}$ and $\sigma'(\mathbf{z}_k)$.
+    D: |
+      a folk picture of error ``flowing back'' in proportion to weights; no chain rule, and the proportional-to-weight-magnitude story is not what the actual recursion does. This is the kind of plausible-sounding pseudo-explanation the chain rule replaces.
+    C: |
+      confuses the recursion with the gradient-descent update step. $\boldsymbol{\delta}_k$ is computed before any learning rate enters; the learning rate appears later, when $\boldsymbol{\delta}_k$ is used to form $\partial L / \partial W_k$ and update weights.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 4
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 265
+variant_of: null
+topics:
+- Backpropagation
+- chain rule as composition of derivatives
+notes: 'difficulty: Core (conceptual) | week remapped 12 -> 13: 2026-A taught neural networks as week
+  12; LAEF 2E puts them in Chapter 13'

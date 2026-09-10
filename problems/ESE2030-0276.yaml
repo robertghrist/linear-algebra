@@ -1,0 +1,63 @@
+id: ESE2030-0276
+legacy_id: null
+week: 13
+skills:
+- W13.S03
+status: active
+problem_type: null
+statement: |
+  A feed-forward neural network alternates affine layers $\mathbf{z}_k = W_k \mathbf{h}_{k-1} +
+  \mathbf{b}_k$ with a componentwise nonlinear activation $\mathbf{h}_k = \sigma(\mathbf{z}_k)$.
+  Removing the activations from such a network --- so each layer is purely affine and the layers
+  are composed directly --- collapses the network's expressive power dramatically. Which of the
+  following best describes the {\em fundamental} reason a nonlinear $\sigma$ is required?
+choices:
+- label: A
+  text: Without $\sigma$, the Universal Approximation Theorem does not apply, so the network is not guaranteed
+    to approximate arbitrary target functions.
+- label: B
+  text: Without $\sigma$, gradients cannot flow back through the network during backpropagation, so the
+    weights cannot be trained.
+- label: C
+  text: Without $\sigma$, hidden activations are unbounded and the network's outputs cannot be interpreted
+    as probabilities or classifications.
+- label: D
+  text: Without $\sigma$, the network can only fit linear targets, and most real-world relationships between
+    inputs and outputs are nonlinear.
+- label: E
+  text: Without $\sigma$, the entire network --- regardless of depth or width --- represents only an affine
+    function of its input, so no amount of stacking enlarges the class of functions the network can compute.
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The structural fact is that the composition of affine maps is affine. Writing two consecutive layers without activation, $$\mathbf{z}_2 = W_2(W_1 \mathbf{x} + \mathbf{b}_1) + \mathbf{b}_2 = (W_2 W_1) \mathbf{x} + (W_2 \mathbf{b}_1 + \mathbf{b}_2),$$ the result is again of the form $W' \mathbf{x} + \mathbf{b}'$. Iterating, a network of any depth without $\sigma$ collapses to a single affine map $\mathbf{x} \mapsto W' \mathbf{x} + \mathbf{b}'$. Depth gives no new expressive power; width gives no new expressive power; the function class is exactly the affine maps. The nonlinear $\sigma$ is the {\em only} ingredient that breaks this collapse and makes depth meaningful. Every other consequence --- universal approximation, the ability to fit nonlinear targets, the bounded-output interpretation of sigmoid specifically --- is downstream of this structural fact. [Pedagogical note: this is the foundational ``why $\sigma$ exists'' answer for the course. Distractors (A), (B), (C), (E) each name something true {\em about} networks with $\sigma$, but they describe consequences rather than the structural cause. The test of whether a student has understood the role of $\sigma$ is whether they can articulate, without prompting, that affine-composed-with-affine is affine and that this is what stacking-without-$\sigma$ does.]
+  key_insight: null
+  distractor_rationale:
+    B: |
+      D4 surface match: imports a backpropagation concern. Affine maps are perfectly differentiable, and backpropagation through a network with no activations works mechanically --- it just computes the gradient of an affine map, which exists and is well-defined. The training pathology if you removed $\sigma$ is not that gradients vanish but that the only function the network {\em can} represent is affine. The student who picks (A) is reaching for ``$\sigma$ is needed for training'' without checking whether removing $\sigma$ actually breaks training mechanics.
+    C: |
+      D6 shape-implies-property: confuses the role of nonlinearity in general with the specific behavior of sigmoid. Sigmoid bounds outputs to $(0,1)$; tanh bounds to $(-1,1)$; ReLU does not bound at all. Boundedness is a feature of {\em particular} activations, not the structural reason any nonlinearity is needed. A network using ReLU still escapes the affine-collapse problem despite its activations being unbounded above.
+    A: |
+      D7 tautology: ``UAT does not apply'' restates the question in different vocabulary. The Universal Approximation Theorem {\em assumes} a nonlinear activation as a hypothesis, so saying ``without $\sigma$ UAT fails'' is just naming UAT's hypothesis, not explaining why $\sigma$ is needed. The genuine answer addresses the structural cause that makes UAT's hypothesis necessary in the first place.
+    D: |
+      D5 naive-prior: locates the problem in the world rather than in the network. Even if every target function in the universe were linear, removing $\sigma$ would still mean the network's depth and width are wasted --- you would have a 50-layer linear regressor that does the same thing as a 1-layer linear regressor. The issue is intrinsic to the network architecture, not contingent on the target.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 27
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1588
+variant_of: null
+topics:
+- Role of nonlinear activation
+- expressive power
+- why sigma is essential
+notes: 'difficulty: Deeper | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E
+  puts them in Chapter 13'

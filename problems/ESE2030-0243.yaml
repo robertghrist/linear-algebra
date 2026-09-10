@@ -1,0 +1,58 @@
+id: ESE2030-0243
+legacy_id: null
+week: 11
+skills:
+- W11.S05
+status: active
+problem_type: null
+statement: |
+  Consider two centered datasets, each with $n$ observations and $d$ variables.
+
+  \textbf{Dataset P:} all $d$ variables measure voltage (mV) from various resistors on a circuit board.
+
+  \textbf{Dataset Q:} the $d$ variables measure temperature, humidity, wind speed, and barometric pressure.
+
+  Which choice of PCA method is most appropriate?
+choices:
+- label: A
+  text: Correlation PCA for Dataset P; covariance PCA for Dataset Q.
+- label: B
+  text: Covariance PCA for Dataset P; correlation PCA for Dataset Q.
+- label: C
+  text: Correlation PCA for both datasets.
+- label: D
+  text: Either method works for either dataset; the two methods produce the same principal components.
+- label: E
+  text: Covariance PCA for both datasets.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The choice depends on whether differences in variance are meaningful or are scale artifacts. DATASET P: all variables in mV. Variance differences reflect real physical differences (e.g., one sensor monitors a more variable node). Covariance PCA correctly weights these; standardizing would destroy meaningful information. DATASET Q: incommensurable units. Variance magnitudes depend on arbitrary unit choice (switching $^\circ$C to $^\circ$F changes the variance). Covariance PCA would let whichever variable has the largest numerical variance dominate. Correlation PCA standardizes to unit variance, removing the scale artifact. RULE OF THUMB: commensurable units $\to$ covariance PCA; incommensurable units $\to$ correlation PCA.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      standardizing same-unit data destroys meaningful variance differences
+    E: |
+      with incommensurable units, covariance PCA produces scale-dependent artifacts
+    D: |
+      the two methods generally produce different principal components unless all variables already have equal variance
+    A: |
+      (reverses the correct rule) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 18
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 984
+variant_of: null
+topics:
+- Covariance vs correlation PCA
+- when to standardize
+notes: 'difficulty: Core'

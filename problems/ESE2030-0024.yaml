@@ -40,4 +40,6 @@ topics:
 - Elementary matrices
 - row operations
 - matrix multiplication order
-notes: 'trap (Q24 answers): Matrix multiplication is right-to-left, but we describe operations left-to-right!'
+notes: 'trap (Q24 answers): Matrix multiplication is right-to-left, but we describe operations left-to-right!
+  | tagging: Tests order of composition of elementary matrices (left multiplication, right-to-left); no
+  listed skill names this.'

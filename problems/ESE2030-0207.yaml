@@ -1,0 +1,61 @@
+id: ESE2030-0207
+legacy_id: null
+week: 9
+skills:
+- W09.S09
+status: active
+problem_type: null
+statement: |
+  Let $G$ be an undirected graph on $n$ vertices with adjacency matrix $A$
+  and degree matrix $D = \operatorname{diag}(d_1, \ldots, d_n)$. The graph
+  Laplacian is $L = D - A$.
+
+  Which of the following best explains why $\lambda = 0$ is always an
+  eigenvalue of $L$, regardless of the graph?
+choices:
+- label: A
+  text: Every row of $L$ sums to zero, so the all-ones vector $\mathbf{1}$ is in $\ker(L)$
+- label: B
+  text: $L = D - A$ is a difference of two matrices, and the subtraction causes cancellation that forces
+    a zero eigenvalue
+- label: C
+  text: The diagonal entries of $L$ are non-negative and the off-diagonal entries are non-positive, which
+    forces at least one eigenvalue to be zero
+- label: D
+  text: $L$ is symmetric, and symmetric matrices always have at least one zero eigenvalue
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The graph Laplacian $L = D - A$ has the property that its rows sum to zero. This is because the diagonal entry $L_{ii} = d_i$ (the degree of vertex $i$) and the off-diagonal entries in row $i$ are $L_{ij} = -A_{ij}$, so: $$\sum_j L_{ij} = d_i - \sum_{j \neq i} A_{ij} = d_i - d_i = 0$$ since the degree of vertex $i$ equals the number of its neighbors. This means $L\mathbf{1} = \mathbf{0}$, where $\mathbf{1}$ is the vector of all ones. By definition, $\mathbf{1}$ is an eigenvector of $L$ with eigenvalue $0$. This argument works for any undirected graph --- connected or disconnected, with any degree sequence. Moreover, since $L$ is symmetric (the graph is undirected, so $A = A^T$, and $D$ is diagonal), the Spectral Theorem guarantees that $L$ can be orthogonally diagonalized with all real eigenvalues. It is also positive semi-definite (since $\mathbf{x}^T L \mathbf{x} = \sum_{(i,j) \in E} (x_i - x_j)^2 \geq 0$), so all eigenvalues are $\geq 0$, and we have just shown that $0$ is achieved.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      false --- symmetric matrices do NOT necessarily have a zero eigenvalue. For example, the identity matrix $I$ is symmetric with all eigenvalues equal to $1$. Symmetry guarantees real eigenvalues and orthogonal eigenvectors, but says nothing about whether zero is among them. The zero eigenvalue of $L$ comes from the specific row-sum structure, not from symmetry alone.
+    B: |
+      the fact that $L$ is a ``difference'' does not explain the zero eigenvalue. Many differences of matrices are invertible --- e.g., $3I - I = 2I$ has no zero eigenvalue. The zero eigenvalue arises from the specific algebraic relationship between $D$ and $A$, not from the subtraction operation itself.
+    C: |
+      the sign pattern of $L$ does not force a zero eigenvalue. The matrix $\begin{bmatrix} 2 & -1 \\ -1 & 3 \end{bmatrix}$ has the same sign pattern as a Laplacian but is invertible, with eigenvalues $\frac{5 \pm \sqrt{5}}{2}$. The sign pattern describes the class of \emph{M-matrices}, not all of which are singular.
+    E: |2+
+
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 4
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 314
+variant_of: null
+topics:
+- Graph Laplacian
+- symmetry
+- Spectral Theorem
+- kernel structure
+notes: null

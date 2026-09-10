@@ -1,0 +1,61 @@
+id: ESE2030-0257
+legacy_id: null
+week: 11
+skills:
+- W11.S06
+status: active
+problem_type: null
+statement: |
+  The matrix $A \in \mathbb{R}^{500 \times 200}$ has SVD $A = U\Sigma V^T$ with exactly $100$ nonzero singular values $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_{100} > 0$ and $\sigma_{101} = \cdots = \sigma_{200} = 0$.
+
+  Let $A_{50}$ denote the best rank-$50$ approximation to $A$. Which of the following best describes the image of the unit sphere in the domain under $A_{50}$?
+choices:
+- label: A
+  text: A solid $50$-dimensional ellipsoid in $\mathrm{span}(\mathbf{v}_{51}, \ldots, \mathbf{v}_{100})
+    \subset \mathbb{R}^{500}$, with semi-axis lengths $\sigma_{51}, \ldots, \sigma_{100}$.
+- label: B
+  text: A solid $50$-dimensional ellipsoid in $\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_{50}) \subset
+    \mathbb{R}^{200}$, with semi-axis lengths $\sigma_1, \ldots, \sigma_{50}$.
+- label: C
+  text: A solid $50$-dimensional ellipsoid in $\mathrm{span}(\mathbf{u}_1, \ldots, \mathbf{u}_{50}) \subset
+    \mathbb{R}^{500}$, with semi-axis lengths $\sigma_1^2, \ldots, \sigma_{50}^2$.
+- label: D
+  text: A solid $50$-dimensional ellipsoid in $\mathrm{span}(\mathbf{u}_1, \ldots, \mathbf{u}_{50}) \subset
+    \mathbb{R}^{500}$, with semi-axis lengths $\sigma_1, \ldots, \sigma_{50}$.
+- label: E
+  text: A solid $50$-dimensional ellipsoid in $\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_{50}) \subset
+    \mathbb{R}^{200}$, with semi-axis lengths $\sigma_1^2, \ldots, \sigma_{50}^2$.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The truncated SVD is $A_{50} = \sum_{i=1}^{50} \sigma_i \mathbf{u}_i \mathbf{v}_i^T$, keeping the $50$ largest singular values. Its image is A solid $50$-dimensional subspace of the codomain — namely $\mathrm{span}(\mathbf{u}_1, \ldots, \mathbf{u}_{50}) \subset \mathbb{R}^{500}$. On the unit sphere in the domain, the action of $A_{50}$ stretches the input direction $\mathbf{v}_i$ (for $i \leq 50$) by factor $\sigma_i$ and sends it to $\sigma_i \mathbf{u}_i$; all directions in $\ker(A_{50}) = \mathrm{span}(\mathbf{v}_{51}, \ldots, \mathbf{v}_{200})$ are collapsed to zero. The image is a genuine $50$-dimensional ellipsoid with semi-axes $\sigma_1, \ldots, \sigma_{50}$. Geometrically: the full $A$ produces a $100$-dim image ellipsoid in $\mathbb{R}^{500}$. Truncation to rank $50$ \emph{further collapses} that ellipsoid by zeroing the $50$ shortest \emph{nonzero} semi-axes, leaving a solid $50$-dim ellipsoid spanned by the longest $50$ semi-axes. The $100$ already-zero singular values play no role in the truncation — they were already part of the kernel of $A$.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      compound error twin to (D): both swaps the ambient space (domain instead of codomain) AND uses $\sigma_i^2$ instead of $\sigma_i$. A student making both errors at once lands here. Notably, $\sigma_i^2$ are the eigenvalues of $A^TA$, whose eigenvectors \emph{do} live in the domain alongside the $\mathbf{v}_i$ — so the two errors here are mutually reinforcing rather than independent, which is why this is a tempting wrong answer for a student who half-remembers ``$A^TA$ gives the singular values.''
+    B: |
+      D1 twin-pair to (A): swaps $\mathbf{u}$ and $\mathbf{v}$. Right singular vectors $\mathbf{v}_i$ live in the domain $\mathbb{R}^{200}$, so this answer locates the image in the wrong space entirely. Classic domain-codomain confusion.
+    C: |
+      D7 convention collision: confuses singular values with eigenvalues of $A^TA$. The semi-axis lengths are $\sigma_i$ themselves, not $\sigma_i^2 = \lambda_i(A^TA)$. Right ambient space, wrong scaling.
+    A: |
+      D6 shape-implies-property: keeps the wrong half of the nonzero singular values — the $50$ smallest nonzero ones rather than the $50$ largest. ``Best rank-$50$'' keeps the top $50$, not the next-best $50$.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 8
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 547
+variant_of: null
+topics:
+- Best rank-k approximation
+- image of truncated SVD
+- geometric structure
+notes: 'difficulty: Deeper | week remapped 10 -> 11: Eckart-Young / best rank-k / PCA-via-SVD are LAEF
+  2E Chapter 11'

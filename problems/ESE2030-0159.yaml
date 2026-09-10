@@ -1,0 +1,58 @@
+id: ESE2030-0159
+legacy_id: null
+week: 1
+skills:
+- W01.S01
+status: active
+problem_type: null
+statement: |
+  A $4 \times 5$ matrix $A$ row reduces to the following reduced row echelon form:
+  $$\begin{bmatrix} 1 & 0 & 2 & 0 & -1 \\ 0 & 1 & 3 & 0 & 4 \\ 0 & 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+
+  For the homogeneous system $A\mathbf{x} = \mathbf{0}$, which statement is correct?
+choices:
+- label: A
+  text: The solution set is a 1-dimensional subspace of $\mathbb{R}^5$
+- label: B
+  text: The solution set is a 2-dimensional subspace of $\mathbb{R}^5$
+- label: C
+  text: The solution set is a 3-dimensional subspace of $\mathbb{R}^4$
+- label: D
+  text: The general solution has exactly three free parameters
+- label: E
+  text: The system has only the trivial solution $\mathbf{x} = \mathbf{0}$
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    The RREF has 3 pivots (in columns 1, 2, and 4), leaving 2 free variables (columns 3 and 5). The nullity equals the number of free variables, so the solution set is a 2-dimensional subspace of $\mathbb{R}^5$. This is the kernel of the associated linear transformation, which by rank-nullity has dimension $5 - 3 = 2$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      counts only column 5 as free, missing column 3
+    C: |
+      correct dimension but wrong ambient space -- solutions live in $\mathbb{R}^5$, not $\mathbb{R}^4$
+    D: |
+      confuses pivots with free variables, or counts pivots instead
+    E: |
+      only true when there are no free variables
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 1
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 106
+variant_of: null
+topics:
+- Row reduction
+- RREF
+- solution structure
+- free variables
+- pivots
+notes: null

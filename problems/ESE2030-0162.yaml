@@ -1,0 +1,52 @@
+id: ESE2030-0162
+legacy_id: null
+week: 2
+skills:
+- W02.S01
+status: active
+problem_type: null
+statement: |
+  Consider the vector space $\mathcal{F}$ of all functions $f: \mathbb{R} \to \mathbb{R}$ with standard addition and scalar multiplication. Which of the following subsets is a subspace of $\mathcal{F}$?
+choices:
+- label: A
+  text: '$\{f \in \mathcal{F} : f(0) = 1\}$'
+- label: B
+  text: '$\{f \in \mathcal{F} : f(x) \geq 0 \text{ for all } x \in \mathbb{R}\}$'
+- label: C
+  text: '$\{f \in \mathcal{F} : f(1) = 2f(0)\}$'
+- label: D
+  text: '$\{f \in \mathcal{F} : f(x) = f(-x) \text{ for all } x \in \mathbb{R}\}$'
+- label: E
+  text: More than one of the above is a subspace
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    Both (C) and (D) are subspaces: - (C): The zero function satisfies $0 = 2(0)$. If $f(1) = 2f(0)$ and $g(1) = 2g(0)$, then $(f+g)(1) = f(1)+g(1) = 2f(0)+2g(0) = 2(f+g)(0)$. Similarly for scalar multiplication. This is a subspace. - (D): These are the even functions. The zero function is even. If $f$ and $g$ are even, so is $f+g$ and $cf$. This is a subspace. - (A) fails: the zero function has $f(0) = 0 \neq 1$ - (B) fails: if $f(x) \geq 0$ for all $x$, then $(-1)f(x) \leq 0$, so not closed under scalar multiplication
+  key_insight: null
+  distractor_rationale:
+    A: |
+      students may forget to check that the zero function must be in the set
+    B: |
+      inequality constraints typically fail scalar multiplication closure
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 4
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 182
+variant_of: null
+topics:
+- Subspaces
+- vector space axioms
+- function spaces
+- closure properties
+notes: null

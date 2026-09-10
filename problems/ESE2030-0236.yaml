@@ -1,0 +1,72 @@
+id: ESE2030-0236
+legacy_id: null
+week: 13
+skills:
+- W13.S03
+status: active
+problem_type: null
+statement: |
+  The network below takes input $\mathbf{x} \in \mathbb{R}^3$ and produces output $\mathbf{y} \in \mathbb{R}^2$:
+  \begin{tikzpicture}[
+      node distance=1.5cm,
+      block/.style={rectangle, draw, minimum height=1cm, minimum width=1.6cm, align=center},
+      arrow/.style={->, >=stealth, thick}
+  ]
+  \node (x) {$\mathbf{x}$};
+  \node[block, right of=x, node distance=1.8cm] (L1) {$W_1,\ \mathbf{b}_1$};
+  \node[right of=L1, node distance=2.2cm] (h) {$\mathbf{h}$};
+  \node[block, right of=h, node distance=1.8cm] (L2) {$W_2,\ \mathbf{b}_2$};
+  \node[right of=L2, node distance=1.8cm] (y) {$\mathbf{y}$};
+
+  \draw[arrow] (x) -- (L1);
+  \draw[arrow] (L1) -- (h);
+  \draw[arrow] (h) -- (L2);
+  \draw[arrow] (L2) -- (y);
+  \end{tikzpicture}
+  Each block applies the stated weights and biases to its input, with no activation function between blocks.
+  Which statement best describes what this network can compute?
+choices:
+- label: A
+  text: A more limited class of functions than a single-block map.
+- label: B
+  text: '(approximately) Any continuous function $f: \mathbb{R}^3 \to \mathbb{R}^2$, since it has a hidden
+    layer.'
+- label: C
+  text: It reduces to a single linear map.
+- label: D
+  text: Exactly what a single-block affine map computes; the extra block adds no expressive power.
+- label: E
+  text: Any quadratic function of $\mathbf{x}$, since composing two blocks introduces second-order terms.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Without an activation function between blocks, the network is the composition of two affine maps. Expanding: $$\mathbf{y} = W_2(W_1\mathbf{x} + \mathbf{b}_1) + \mathbf{b}_2 = (W_2W_1)\mathbf{x} + (W_2\mathbf{b}_1 + \mathbf{b}_2).$$ The composition is itself an affine map; stacking does not enlarge the function class. This is exactly why activation functions are essential. Without a nonlinearity between layers, depth gives no new expressive power.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      universal approximation requires a nonlinear activation; without $\sigma$, the network can only represent affine maps, regardless of hidden width
+    E: |
+      composing linear maps gives a linear map, not a quadratic one; no $x_i x_j$ terms appear
+    A: |2+
+
+    C: |
+      biases do not vanish; they combine into $W_2\mathbf{b}_1 + \mathbf{b}_2$, which is generally nonzero
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 11
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 633
+variant_of: null
+topics:
+- Why nonlinearity matters
+- composition of affine maps is affine
+notes: 'difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts
+  them in Chapter 13'

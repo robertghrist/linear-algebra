@@ -1,0 +1,51 @@
+id: ESE2030-0165
+legacy_id: null
+week: 1
+skills:
+- W01.S04
+- W01.S06
+status: active
+problem_type: null
+statement: |
+  Suppose a $4 \times 4$ matrix $A$ has the LU decomposition $A = LU$ where $L$ is unit lower triangular and $U$ is upper triangular. If the third diagonal entry of $U$ is zero (i.e., $u_{33} = 0$), which statement must be TRUE?
+choices:
+- label: A
+  text: The matrix $A$ is invertible, but $U$ is not.
+- label: B
+  text: The system $A\mathbf{x} = \mathbf{b}$ has no solution for any $\mathbf{b}$.
+- label: C
+  text: The matrix $A$ has rank exactly 2.
+- label: D
+  text: The matrix $A$ is singular.
+- label: E
+  text: The LU decomposition does not exist; this situation is impossible.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    Since $L$ is unit lower triangular, $\det(L) = 1$, so $L$ is always invertible. We have $\det(A) = \det(L)\det(U) = \det(U)$. For an upper triangular matrix, the determinant is the product of diagonal entries. Since $u_{33} = 0$, we have $\det(U) = 0$, hence $\det(A) = 0$, so $A$ is singular.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      contradicts itself; if $U$ is singular then $A = LU$ must also be singular
+    B: |
+      singular matrices can still have solutions for some $\mathbf{b}$ (just not all)
+    C: |
+      rank could be 2 or 3 depending on $u_{44}$; we only know rank $\leq 3$
+    E: |
+      the decomposition can exist with zero pivots; it just means $A$ is singular
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 7
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 261
+variant_of: null
+topics:
+- LU DECOMPOSITION
+notes: null

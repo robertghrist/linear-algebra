@@ -1,0 +1,57 @@
+id: ESE2030-0170
+legacy_id: null
+week: 3
+skills:
+- W03.S07
+- W03.S03
+status: active
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation with $\dim(V) = 7$ and $\dim(W) = 5$. Suppose $\dim(\ker(T)) = 3$.
+
+  According to the Fundamental Theorem of Linear Algebra, which statement is TRUE?
+choices:
+- label: A
+  text: $\ker(T) \cong \text{coker}(T)$, since both measure ``what $T$ misses.''
+- label: B
+  text: $\text{coim}(T) \cong \text{im}(T)$, with $\dim(\text{coim}(T)) = \dim(\text{im}(T)) = 4$.
+- label: C
+  text: $V \cong W$, since every linear transformation induces an isomorphism between domain and codomain.
+- label: D
+  text: $\ker(T) \cong \text{im}(T)$, since the dimensions must add up to $\dim(V)$.
+- label: E
+  text: $\text{coker}(T)$ has dimension 3 because it is isomorphic to $\ker(T)$.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    The Fundamental Theorem of Linear Algebra states that $\text{coim}(T) \cong \text{im}(T)$. Computing dimensions: by rank-nullity, $\dim(\text{im}(T)) = \dim(V) - \dim(\ker(T)) = 7 - 3 = 4$. The coimage is $V/\ker(T)$, so $\dim(\text{coim}(T)) = \dim(V) - \dim(\ker(T)) = 7 - 3 = 4$. Both have dimension 4, and the FTLA says they are isomorphic via the map induced by $T$: if $[\mathbf{v}] \in V/\ker(T)$, we map $[\mathbf{v}] \mapsto T(\mathbf{v})$, which is well-defined precisely because $\ker(T)$ is modded out.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      kernel and cokernel both measure defects, but in different spaces: kernel is in the domain, cokernel is a quotient of the codomain. They have dimensions $\dim(\ker(T)) = 3$ and $\dim(\text{coker}(T)) = \dim(W) - \dim(\text{im}(T)) = 5 - 4 = 1$. Not isomorphic.
+    C: |
+      completely false; a linear transformation does not imply the domain and codomain are isomorphic. Here $\dim(V) = 7 \neq 5 = \dim(W)$.
+    D: |
+      rank-nullity says $\dim(\ker(T)) + \dim(\text{im}(T)) = \dim(V)$, but equal dimensions don't mean isomorphic in any natural way. Here $\dim(\ker(T)) = 3$ and $\dim(\text{im}(T)) = 4$, so they don't even have equal dimension!
+    E: |
+      (the cokernel has dimension $\dim(W) - \dim(\text{im}(T)) = 5 - 4 = 1$, not 3. The kernel and cokernel are generally NOT isomorphic.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 12
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 389
+variant_of: null
+topics:
+- Fundamental Theorem of Linear Algebra
+- four subspaces
+- dimensional relationships
+- induced isomorphism
+notes: null

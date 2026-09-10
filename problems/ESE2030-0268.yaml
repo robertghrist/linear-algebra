@@ -1,0 +1,55 @@
+id: ESE2030-0268
+legacy_id: null
+week: 6
+skills:
+- W06.S04
+status: active
+problem_type: null
+statement: |
+  Let $A$ be an $m \times n$ matrix.
+  Suppose $\mathbf{b} \in \mathbb{R}^m$ has the property that $\mathbf{b} \perp \mathrm{im}(A)$.
+  Which of the following must also be true of $\mathbf{b}$?
+choices:
+- label: A
+  text: $\mathbf{b} \in \mathrm{im}(A^T)$
+- label: B
+  text: $A^T \mathbf{b} = \mathbf{0}$
+- label: C
+  text: $A \mathbf{b} = \mathbf{0}$
+- label: D
+  text: $\mathbf{b} \in \ker(A)$
+- label: E
+  text: Both (B) and (C)
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The orthogonal version of the FTLA states $\mathrm{im}(A)^\perp = \ker(A^T)$. So $\mathbf{b} \perp \mathrm{im}(A)$ means $\mathbf{b} \in \ker(A^T)$, equivalently $A^T \mathbf{b} = \mathbf{0}$. The condition $\mathbf{b} \perp \mathrm{im}(A)$ says $\mathbf{b}$ is orthogonal to every column of $A$, which is exactly the statement that $A^T \mathbf{b} = \mathbf{0}$. [Geometric picture: $\mathbf{b}$ lives in the codomain $\mathbb{R}^m$; the natural orthogonal complement of $\mathrm{im}(A) \subseteq \mathbb{R}^m$ inside $\mathbb{R}^m$ is the kernel of the adjoint $A^T$, not anything involving the domain $\mathbb{R}^n$.]
+  key_insight: null
+  distractor_rationale:
+    D: |
+      ($\ker(A)$ lives in the domain $\mathbb{R}^n$, not in $\mathbb{R}^m$ where $\mathbf{b}$ lives — a domain/codomain confusion).
+    A: |
+      ($\mathrm{im}(A^T) \subseteq \mathbb{R}^n$, the wrong space; this is the orthogonal complement of $\ker(A)$ in the domain, not of $\mathrm{im}(A)$ in the codomain).
+    C: |
+      ($A\mathbf{b}$ is not even defined when $\mathbf{b} \in \mathbb{R}^m$ unless $m = n$; surface match on "orthogonal $\Rightarrow$ kills under multiplication" without tracking which matrix to multiply by).
+    E: |
+      (combining a true statement with a wrong-domain statement; tempts students who recognized (C) but also misremembered (B) as a parallel fact).
+sources:
+- semester: 2026A
+  instrument: final
+  position: 19
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1174
+variant_of: null
+topics:
+- Orthogonal FTLA
+- fundamental subspace relations
+- ker/im perp characterization
+notes: null

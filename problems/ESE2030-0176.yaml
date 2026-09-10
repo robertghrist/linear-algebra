@@ -1,0 +1,50 @@
+id: ESE2030-0176
+legacy_id: null
+week: 3
+skills:
+- W03.S02
+- W03.S01
+status: active
+problem_type: null
+statement: |
+  Define $T: \mathcal{P}_2 \to \mathbb{R}^2$ by $T(p) = \begin{pmatrix} p(0) \\ p(1) - p(0) \end{pmatrix}$. Which statement is TRUE?
+choices:
+- label: A
+  text: $T$ is not a linear transformation because evaluation at a point is not a linear operation.
+- label: B
+  text: $T$ is a linear transformation with $\dim(\ker(T)) = 1$.
+- label: C
+  text: $T$ is a linear transformation with $\dim(\ker(T)) = 2$.
+- label: D
+  text: $T$ is a linear transformation that is injective.
+- label: E
+  text: $T$ is not a linear transformation because the codomain has smaller dimension than the domain.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    First verify linearity. For $p, q \in \mathcal{P}_2$ and scalar $c$: $$T(p+q) = \begin{pmatrix} (p+q)(0) \\ (p+q)(1) - (p+q)(0) \end{pmatrix} = \begin{pmatrix} p(0)+q(0) \\ p(1)-p(0) + q(1)-q(0) \end{pmatrix} = T(p) + T(q)$$ Similarly $T(cp) = cT(p)$. So $T$ is linear. For the kernel: $p(x) = a + bx + cx^2$ is in $\ker(T)$ iff $p(0) = 0$ and $p(1) - p(0) = 0$. We have $p(0) = a = 0$ and $p(1) - p(0) = (a + b + c) - a = b + c = 0$, so $c = -b$. Thus $\ker(T) = \{bx - bx^2 : b \in \mathbb{R}\} = \text{span}\{x - x^2\}$, giving $\dim(\ker(T)) = 1$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      evaluation IS linear: $(p+q)(0) = p(0) + q(0)$ and $(cp)(0) = c \cdot p(0)$
+    C: |
+      miscounts the constraints or free parameters
+    D: |
+      by rank-nullity, $\dim(\ker(T)) = 3 - \dim(\text{im}(T)) \geq 3 - 2 = 1$, so $T$ cannot be injective
+    E: |
+      dimension mismatch does not preclude linearity
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 18
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 560
+variant_of: null
+topics: []
+notes: null

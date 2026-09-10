@@ -1,0 +1,60 @@
+id: ESE2030-0227
+legacy_id: null
+week: 13
+skills:
+- W13.S05
+status: active
+problem_type: null
+statement: |
+  In backpropagation, the algorithm computes at each layer $k$ of a feed-forward network a vector $\boldsymbol{\delta}^{(k)}$, called the ``error signal'' (or ``error vector'') at that layer.
+  Which statement best describes what $\boldsymbol{\delta}^{(k)}$ measures, and why backpropagation goes to the trouble of computing it?
+choices:
+- label: A
+  text: A local quantity at layer $k$ that depends only on the layer's own weights and inputs, not on
+    anything downstream.
+- label: B
+  text: The prediction error $\mathbf{y} - \mathbf{t}$ scaled down geometrically with depth, so that earlier
+    layers receive proportionally smaller error signals.
+- label: C
+  text: 'The sensitivity of the loss to the layer''s pre-activation $\mathbf{z}^{(k)}$: how much $L$ would
+    change in response to a small perturbation of $\mathbf{z}^{(k)}$.'
+- label: D
+  text: The change in weights to be applied at layer $k$ during the gradient descent update.
+- label: E
+  text: The difference between the layer's actual output and the output the layer should have produced,
+    supplied as a per-layer target during training.
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The error signal at layer $k$ is the gradient of the loss with respect to the pre-activation at that layer, $$\boldsymbol{\delta}^{(k)} = \frac{\partial L}{\partial \mathbf{z}^{(k)}},$$ which is by definition a sensitivity: to first order, $\Delta L \approx \boldsymbol{\delta}^{(k)} \cdot \Delta \mathbf{z}^{(k)}$. It tells us how much the loss would change if we could nudge the layer's pre-activation in some direction --- the layer's ``share of responsibility'' for the output error. Why this is the quantity worth computing: the gradient with respect to any weight at layer $k$ factors as $$\frac{\partial L}{\partial W_{ij}^{(k)}} = \delta_i^{(k)} \cdot a_j^{(k-1)}$$ --- the error signal at the unit, times the activation flowing into that weight. Once $\boldsymbol{\delta}^{(k)}$ is known, every weight and bias gradient at layer $k$ is one multiplication away. Backpropagation is precisely the procedure that computes the $\boldsymbol{\delta}^{(k)}$'s recursively from output to input. The deeper conceptual content is the absence of intermediate targets. In supervised training we are given a ground-truth target ONLY at the output. Hidden layers have no externally-supplied ``correct value.'' Backpropagation's central insight is that we can DERIVE an effective target signal for each hidden layer by chain-ruling the output error backward --- and that derived signal is exactly $\boldsymbol{\delta}^{(k)}$.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      the most seductive wrong answer: it pictures each hidden layer as having its own target, with $\boldsymbol{\delta}^{(k)}$ playing the role of (actual $-$ target) layer by layer. There ARE no targets at hidden layers; backprop exists precisely because we need a way to assign blame to hidden units WITHOUT knowing what they ``should have'' produced.
+    B: |
+      error signals do not decay geometrically with depth. At each layer they are transformed by $(W^{(k+1)})^T$ and $\sigma'$, which can shrink, preserve, or amplify them depending on the weights and activations. The vanishing gradient phenomenon is one possible behavior of training dynamics, but it is not part of the definition or purpose of $\boldsymbol{\delta}^{(k)}$.
+    D: |
+      confuses the error signal with the weight update. The update is $W^{(k)} \leftarrow W^{(k)} - \eta \, \partial L / \partial W^{(k)}$, and $\partial L / \partial W^{(k)}$ differs from $\boldsymbol{\delta}^{(k)}$ by a factor of the incoming activation $\mathbf{a}^{(k-1)}$. The error signal lives in the SPACE of the layer's pre-activations, not the space of its weights.
+    A: |
+      contradicts the chain rule: the loss is computed only at the output, so the influence of $\mathbf{z}^{(k)}$ on $L$ flows through every subsequent layer. The recursion $\boldsymbol{\delta}^{(k)} = \big((W^{(k+1)})^T \boldsymbol{\delta}^{(k+1)}\big) \odot \sigma'(\mathbf{z}^{(k)})$ shows the dependence on layer $k+1$ explicitly. A purely local quantity at layer $k$ could not possibly carry information about an output-layer loss.
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 2
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 127
+variant_of: null
+topics:
+- Backpropagation
+- error signal
+- meaning of delta
+- sensitivity interpretation
+notes: 'difficulty: Core (conceptual) | week remapped 12 -> 13: 2026-A taught neural networks as week
+  12; LAEF 2E puts them in Chapter 13'

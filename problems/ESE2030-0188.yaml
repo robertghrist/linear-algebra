@@ -1,0 +1,52 @@
+id: ESE2030-0188
+legacy_id: null
+week: 6
+skills:
+- W06.S06
+- W06.S04
+status: active
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation between inner product spaces (not necessarily injective or surjective). Given $\mathbf{b} \in W$, which description of $T^\dagger \mathbf{b}$ is correct?
+choices:
+- label: A
+  text: Project $\mathbf{b}$ onto $(\operatorname{im} T)^\perp$, then apply $T^{-1}$ to the result.
+- label: B
+  text: Project $\mathbf{b}$ onto $\operatorname{im}(T)$; then map the projection back to the unique preimage
+    in $(\ker T)^\perp$ via the invertible restriction $T\big|_{(\ker T)^\perp}$.
+- label: C
+  text: Apply the adjoint $T^*$ to $\mathbf{b}$; the adjoint always inverts $T$ on $\operatorname{im}(T)$.
+- label: D
+  text: Project $\mathbf{b}$ onto $\ker(T^*)$, then solve $T\mathbf{x} = \mathbf{b}$ in that subspace.
+- label: E
+  text: Find any solution to $T\mathbf{x} = \mathbf{b}$, then project $\mathbf{x}$ onto $\ker(T)$.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The restriction of $T$ to $(\ker T)^\perp$ is an isomorphism onto $\operatorname{im}(T)$. The pseudoinverse exploits this in two steps: (1) project $\mathbf{b}$ onto $\operatorname{im}(T)$, discarding the component in $(\operatorname{im} T)^\perp = \ker(T^*)$; (2) apply the inverse of the restricted map $T\big|_{(\ker T)^\perp}$ to pull the projected vector back to the unique preimage in $(\ker T)^\perp$. This yields the minimum-norm least-squares solution: "minimum norm" because the output lives in $(\ker T)^\perp$, and "least squares" because the input is the closest point in $\operatorname{im}(T)$ to $\mathbf{b}$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      projects onto the \emph{wrong} subspace: $(\operatorname{im} T)^\perp$ is the part of $\mathbf{b}$ that $T$ cannot reach, so there is no preimage to find there. Also, $T^{-1}$ need not exist.
+    C: |
+      $T^*$ maps $W \to V$ and sends $\operatorname{im}(T)$ to $(\ker T)^\perp$, but it does not invert $T$; it distorts magnitudes. Students who half-remember the role of $A^T$ in the formula $A^\dagger = (A^TA)^{-1}A^T$ and attribute the inversion entirely to the adjoint pick this.
+    D: |
+      projects onto $\ker(T^*) = (\operatorname{im} T)^\perp$, which is exactly the component of $\mathbf{b}$ with \emph{no} preimage under $T$. This is the opposite of what the pseudoinverse does.
+    E: |
+      (projects onto the wrong subspace in the domain: the pseudoinverse produces a vector in $(\ker T)^\perp$, not $\ker(T)$. Projecting a solution onto $\ker(T)$ gives the component that $T$ sends to zero --- the opposite of the minimum-norm idea.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 7
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 258
+variant_of: null
+topics: []
+notes: null

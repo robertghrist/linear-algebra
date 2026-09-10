@@ -1,0 +1,46 @@
+id: ESE2030-0186
+legacy_id: null
+week: 5
+skills:
+- W05.S08
+status: active
+problem_type: null
+statement: |
+  Let $Q$ be an $n \times n$ orthogonal matrix. Which of the following is \emph{not} guaranteed to be true?
+choices:
+- label: A
+  text: $\|Q\mathbf{x}\| = \|\mathbf{x}\|$ for all $\mathbf{x} \in \mathbb{R}^n$
+- label: B
+  text: $\det(Q) = 1$
+- label: C
+  text: The rows of $Q$ form an orthonormal set
+- label: D
+  text: $Q^{-1} = Q^T$
+- label: E
+  text: $\langle Q\mathbf{x}, Q\mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{y} \rangle$ for all $\mathbf{x},
+    \mathbf{y} \in \mathbb{R}^n$
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    From $Q^TQ = I$ we get $(\det Q)^2 = 1$, so $\det(Q) = \pm 1$. Reflections, for example, have determinant $-1$. All other listed properties are guaranteed.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      students often memorize that the \emph{columns} are orthonormal and forget that $Q^TQ = I$ also gives $QQ^T = I$, which means rows are orthonormal too; a student unsure about rows may incorrectly flag this
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 5
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 211
+variant_of: null
+topics: []
+notes: null

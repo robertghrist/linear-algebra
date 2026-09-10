@@ -1,0 +1,61 @@
+id: ESE2030-0174
+legacy_id: null
+week: 3
+skills:
+- W03.S02
+- W03.S06
+status: active
+problem_type: null
+statement: |
+  Consider the linear transformation $T: \mathcal{P}_3 \to \mathbb{R}^2$ defined by
+  $$T(p) = \begin{pmatrix} p(0) \\ p'(0) \end{pmatrix}$$
+  which extracts the constant and linear coefficients of a polynomial (equivalently, the degree-1 Taylor polynomial at $x = 0$).
+
+  Two polynomials $p$ and $q$ are defined to be \emph{equivalent} if $T(p) = T(q)$, i.e., if they have the same constant and linear terms. The quotient space $\mathcal{P}_3 / \ker(T)$ consists of these equivalence classes.
+
+  Which statement is TRUE?
+choices:
+- label: A
+  text: $\ker(T) = \{0\}$, so the quotient space is isomorphic to $\mathcal{P}_3$.
+- label: B
+  text: $\ker(T) = \text{span}\{x^2, x^3\}$, and $\dim(\mathcal{P}_3/\ker(T)) = 2$.
+- label: C
+  text: $\ker(T) = \text{span}\{1, x\}$, and $\dim(\mathcal{P}_3/\ker(T)) = 2$.
+- label: D
+  text: The polynomials $p(x) = 1 + x + x^2$ and $q(x) = 1 + x + 5x^3$ are in different equivalence classes.
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    The kernel of $T$ consists of all polynomials $p(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3$ such that $p(0) = a_0 = 0$ and $p'(0) = a_1 = 0$. This means $\ker(T) = \{a_2 x^2 + a_3 x^3 : a_2, a_3 \in \mathbb{R}\} = \text{span}\{x^2, x^3\}$. So $\dim(\ker(T)) = 2$. By the dimension formula for quotient spaces, $\dim(\mathcal{P}_3/\ker(T)) = \dim(\mathcal{P}_3) - \dim(\ker(T)) = 4 - 2 = 2$. Alternatively, by the Fundamental Theorem, $\mathcal{P}_3/\ker(T) \cong \text{im}(T) = \mathbb{R}^2$, confirming dimension 2.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      ignores that polynomials with zero constant and linear terms are in the kernel; $T$ is not injective
+    C: |
+      confuses the kernel with the image. The kernel consists of polynomials that map to zero, not the polynomials that span the output. $\text{span}\{1, x\}$ would be relevant if we asked what polynomials have nonzero image components.
+    D: |
+      these polynomials satisfy $p(0) = q(0) = 1$ and $p'(0) = q'(0) = 1$, so $T(p) = T(q) = (1, 1)^T$. They ARE in the same equivalence class. The difference $p - q = x^2 - 5x^3 \in \ker(T)$.
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 16
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 498
+variant_of: null
+topics:
+- Quotient spaces
+- equivalence classes
+- polynomial spaces
+- Taylor polynomials
+- kernel
+notes: null

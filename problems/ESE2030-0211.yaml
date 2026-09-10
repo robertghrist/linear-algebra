@@ -1,0 +1,64 @@
+id: ESE2030-0211
+legacy_id: null
+week: 9
+skills:
+- W09.S06
+- W09.S03
+status: active
+problem_type: null
+statement: |
+  Consider the $3 \times 3$ positive stochastic matrix with stationary distribution:
+  $$P = \begin{bmatrix}
+  0.4 & 0.2 & 0.1 \\
+  0.4 & 0.5 & 0.3 \\
+  0.2 & 0.3 & 0.6
+  \end{bmatrix} \quad \Rightarrow \quad
+  \boldsymbol{\pi} = \begin{pmatrix} 0.2 \\ 0.4 \\ 0.4 \end{pmatrix}$$
+  If %the system starts in state $1$ with certainty, so that
+  $\mathbf{x}_0 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$,
+  what is $\displaystyle\lim_{k \to \infty} P^k \mathbf{x}_0$?
+choices:
+- label: A
+  text: $\begin{pmatrix} 0.2 \\ 0.4 \\ 0.4 \end{pmatrix}$
+- label: B
+  text: The limit depends on $\mathbf{x}_0$; knowing $\boldsymbol{\pi}$ alone is not enough to determine
+    it
+- label: C
+  text: $\begin{pmatrix} 1/3 \\ 1/3 \\ 1/3 \end{pmatrix}$
+- label: D
+  text: $\begin{pmatrix} 0.4 \\ 0.4 \\ 0.2 \end{pmatrix}$
+- label: E
+  text: The limit does not necessarily exist
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    By Perron-Frobenius, a positive stochastic matrix has a unique stationary distribution $\boldsymbol{\pi}$, which is the eigenvector for the dominant eigenvalue $\lambda = 1$. All other eigenvalues satisfy $|\lambda_i| < 1$, so the components of $\mathbf{x}_0$ along non-dominant eigenvectors decay geometrically: $$P^k\mathbf{x}_0 = c_1 \boldsymbol{\pi} + c_2 \lambda_2^k \mathbf{v}_2 + c_3 \lambda_3^k \mathbf{v}_3 \;\;\longrightarrow\;\; c_1 \boldsymbol{\pi}$$ Since $\mathbf{x}_0$ is a probability distribution (entries sum to $1$), the coefficient $c_1 = 1$, giving $\lim_{k\to\infty} P^k\mathbf{x}_0 = \boldsymbol{\pi}$. This holds for \emph{any} initial probability distribution.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      This is $P\mathbf{x}_0$, the first column of $P$: the distribution after \emph{one} step, not infinitely many. Particularly deceptive here because the entries $0.4, 0.4, 0.2$ are the same three numbers as $\boldsymbol{\pi} = (0.2, 0.4, 0.4)^T$ rearranged. A student who computes one step and sees familiar-looking numbers may convince themselves they have the answer without checking the order.
+    C: |
+      Confuses ``equilibrium'' with ``uniform.'' The misconception is that long-run behavior must treat all states equally. The stationary distribution reflects the structure of $P$; uniform is stationary only for doubly stochastic matrices (both rows \emph{and} columns sum to $1$).
+    B: |
+      Sounds sophisticated: ``the limit depends on the initial condition.'' This is true for dynamical systems with multiple attractors (e.g., when $|\lambda_1| = |\lambda_2|$), but for a positive stochastic matrix, Perron-Frobenius guarantees a \emph{unique} stationary distribution that attracts \emph{every} probability distribution. The initial state affects the transient behavior (how fast convergence occurs) but not the limiting state. A student who selects this has some dynamical systems intuition but does not know the convergence theorem.
+    E: |
+      Reverses the logic of stationarity. The equation $P\boldsymbol{\pi} = \boldsymbol{\pi}$ says that $\boldsymbol{\pi}$ is a \emph{fixed point}: if you start there, you stay. The convergence theorem says something much stronger: you arrive at $\boldsymbol{\pi}$ from \emph{any} starting distribution. A student selecting (E) understands stationarity as a local property but misses the global attractivity. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 8
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 628
+variant_of: null
+topics:
+- Stochastic matrices
+- stationary distribution
+- convergence
+notes: null

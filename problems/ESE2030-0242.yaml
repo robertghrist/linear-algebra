@@ -1,0 +1,54 @@
+id: ESE2030-0242
+legacy_id: null
+week: 10
+skills:
+- W10.S05
+status: active
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{m \times n}$ has SVD with singular values
+  $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r > 0$.
+  Which quantity equals $\|A\|_F^2$?
+choices:
+- label: A
+  text: $r \cdot \sigma_1^2$
+- label: B
+  text: $\sigma_1 + \sigma_2 + \cdots + \sigma_r$
+- label: C
+  text: $\sigma_1^2 \cdot \sigma_2^2 \cdots \sigma_r^2$
+- label: D
+  text: $\sigma_1^2$
+- label: E
+  text: $\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_r^2$
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The Frobenius norm can be computed three equivalent ways: - Entry-wise: $\|A\|_F^2 = \sum_{i,j} a_{ij}^2$ - Via trace: $\|A\|_F^2 = \mathrm{tr}(A^TA)$ - Via singular values: $\|A\|_F^2 = \sigma_1^2 + \sigma_2^2 + \cdots + \sigma_r^2$ The equivalence follows from the SVD: $A^TA = V\Sigma^T\Sigma V^T = V\,\mathrm{diag}(\sigma_i^2)\,V^T$, so $\mathrm{tr}(A^TA) = \sum \sigma_i^2$. KEY CONCEPTUAL POINT: $\|A\|_F$ depends only on the singular values, NOT on $U$ or $V$. It is therefore invariant under orthogonal multiplication: $\|QA\|_F = \|AQ\|_F = \|A\|_F$ for any orthogonal $Q$. This invariance will matter for Eckart-Young-Mirsky later. CONTRAST WITH OPERATOR NORM: $\|A\|_{\mathrm{op}} = \sigma_1$ captures only the maximum stretching direction. The Frobenius norm captures the ``total stretching energy'' summed over ALL singular directions. These coincide exactly when $A$ is rank-1.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      operator norm $\|A\|_{\mathrm{op}} = \sigma_1$; conflating $F$-norm with operator norm is the classic confusion since both are standard matrix norms built from the SVD
+    B: |
+      sum of singular values is the \emph{nuclear norm} $\|A\|_* = \sum \sigma_i$, a different matrix norm used in low-rank optimization
+    A: |
+      equal to $\|A\|_F^2$ only if $\sigma_1 = \sigma_2 = \cdots = \sigma_r$; in general this overestimates because smaller singular values contribute less
+    C: |
+      product of squared singular values equals $|\det A|^2$ when $A$ is square; this is a volume-scaling quantity, not an ``energy'' quantity
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 17
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 938
+variant_of: null
+topics:
+- Frobenius norm from singular values
+- contrast with operator norm
+notes: 'difficulty: Core'

@@ -1,0 +1,64 @@
+id: ESE2030-0177
+legacy_id: null
+week: 3
+skills:
+- W03.S02
+- W03.S04
+status: active
+problem_type: null
+statement: |
+  Consider differentiation as a linear transformation on polynomial spaces. Define:
+  \begin{align*}
+  S &: \mathcal{P}_5 \to \mathcal{P}_5 \quad \text{by} \quad S(p) = p' \\
+  T &: \mathcal{P}_5 \to \mathcal{P}_4 \quad \text{by} \quad T(p) = p'
+  \end{align*}
+  Both maps send a polynomial to its derivative; they differ only in their declared codomains.
+
+  Which statement is TRUE?
+choices:
+- label: A
+  text: $S$ is surjective because every polynomial in $\mathcal{P}_5$ is the derivative of some polynomial.
+- label: B
+  text: $T$ is injective because different polynomials have different derivatives.
+- label: C
+  text: $S$ and $T$ have kernels of different dimensions.
+- label: D
+  text: $T$ is surjective but $S$ is not.
+- label: E
+  text: $S$ and $T$ are both isomorphisms since differentiation is invertible via integration.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    The image of differentiation on $\mathcal{P}_5$ is $\mathcal{P}_4$ (derivatives of degree-5 polynomials have degree at most 4). For $S: \mathcal{P}_5 \to \mathcal{P}_5$, the image is $\mathcal{P}_4 \subsetneq \mathcal{P}_5$, so $S$ is NOT surjective (e.g., $x^5$ is not the derivative of any polynomial in $\mathcal{P}_5$). For $T: \mathcal{P}_5 \to \mathcal{P}_4$, the image equals the codomain $\mathcal{P}_4$, so $T$ IS surjective. This illustrates how surjectivity depends on the choice of codomain, not just the rule.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      the image of $S$ is $\mathcal{P}_4$, not $\mathcal{P}_5$; for example, $x^5$ cannot be obtained as a derivative of any polynomial of degree $\leq 5$
+    B: |
+      false: $p(x) = x$ and $q(x) = x + 7$ have the same derivative $p' = q' = 1$. The kernel of differentiation is the constant polynomials, which is nontrivial, so differentiation is never injective on polynomial spaces.
+    C: |
+      both have the same kernel: constant polynomials. The kernel depends only on the map's rule, not on the declared codomain. $\ker(S) = \ker(T) = \mathcal{P}_0$, with dimension 1.
+    E: |
+      differentiation is NOT invertible! Integration is only a right inverse: $\frac{d}{dx}(\int p) = p$, but $\int(\frac{d}{dx}p) = p + C \neq p$. The kernel is nontrivial, so neither $S$ nor $T$ can be an isomorphism.
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 19
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 588
+variant_of: null
+topics:
+- Differentiation operator
+- linear transformation
+- injectivity
+- surjectivity
+- kernel
+- image
+notes: null

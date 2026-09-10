@@ -1,0 +1,58 @@
+id: ESE2030-0241
+legacy_id: null
+week: 11
+skills:
+- W11.S06
+- W11.S04
+status: active
+problem_type: null
+statement: |
+  A centered data matrix $X \in \mathbb{R}^{500 \times 20}$ has ordered covariance eigenvalues:
+  $$\lambda_1 = 200, \quad \lambda_2 = 180, \quad \lambda_3 = 10, \quad \lambda_4 = 1.5,
+  \quad \ldots, \quad \lambda_{20} = 0.1.$$
+  Which statement about reducing this data to its rank-2 PCA approximation $X_2$ is correct?
+choices:
+- label: A
+  text: $X_2 = X$, since the first two principal components span the column space of $X$.
+- label: B
+  text: $X_2 \neq X$, and the relative error $\|X - X_2\|_F / \|X\|_F$ is determined by the ratio $\lambda_3
+    / \lambda_2$, which measures the size of the spectral gap.
+- label: C
+  text: $X_2 = X$, since the rank of $X$ equals the number of principal components retained when a clear
+    elbow is present in the scree plot.
+- label: D
+  text: $X_2 \neq X$, but the relative error $\|X - X_2\|_F / \|X\|_F$ is small because the discarded
+    eigenvalues are small relative to $\lambda_1$ and $\lambda_2$.
+- label: E
+  text: $X_2 \neq X$, and rank-2 reduction is inappropriate here because $X$ has 20 nonzero singular values.
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The rank-2 PCA approximation $X_2$ is not equal to $X$ — $X$ has rank 20, so projection onto a 2-dimensional subspace strictly loses information. However, the Frobenius error satisfies $\|X - X_2\|_F^2 = n \sum_{i \geq 3} \lambda_i \approx n \cdot 12.6$, while $\|X\|_F^2 = n \sum_i \lambda_i \approx n \cdot 391.6$. Small relative error despite nonzero rank deficiency is exactly what makes rank-2 reduction appropriate.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      mathematically false; $X_2 = X$ would require the remaining eigenvalues to be exactly zero, confusing effective dimension with mathematical rank. NOT awarded partial credit: claiming equality when the tail eigenvalues are strictly nonzero is a misunderstanding of what a low-rank approximation is.
+    C: |
+      rank does not equal the number of retained components; this conflates mathematical rank with effective dimension in the opposite direction from (A).
+    E: |
+      correctly identifies $X_2 \neq X$ but draws the wrong conclusion: rank-2 reduction is appropriate *precisely because* the discarded variance is negligible, not inappropriate because the rank exceeds 2.
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 16
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 892
+variant_of: null
+topics:
+- Effective dimensionality vs mathematical rank
+- scree plot reading
+notes: 'difficulty: Core'

@@ -1,0 +1,55 @@
+id: ESE2030-0281
+legacy_id: null
+week: 10
+skills: []
+status: retired-2e
+problem_type: null
+statement: |
+  A square matrix $A \in \mathbb{R}^{n \times n}$ admits a polar factorization $A = QH$, where $Q$ is orthogonal and $H$ is symmetric positive semidefinite.
+
+  Which statement best describes the geometric content of this decomposition?
+choices:
+- label: A
+  text: $Q$ rotates $\mathbb{R}^n$ into the principal-axis frame, and $H$ stretches each coordinate by
+    the corresponding singular value.
+- label: B
+  text: $H = A^T A$ and $Q = A H^{-1}$, with $H$ symmetric positive semidefinite and $Q$ orthogonal.
+- label: C
+  text: $H$ stretches by the eigenvalues of $A$ along the eigenvectors of $A$, and $Q$ realigns the result.
+- label: D
+  text: $H$ is the symmetric part $(A + A^T)/2$ and $Q$ is the orthogonal part $(A - A^T)/2$ of $A$.
+- label: E
+  text: $H$ stretches along $n$ mutually orthogonal directions by the singular values of $A$, and $Q$
+    then rotates the stretched result.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    Polar decomposition writes the action of $A$ as \emph{stretch first, rotate second}. The symmetric PSD factor $H = \sqrt{A^T A}$ is orthogonally diagonalizable; its eigenvalues are exactly the singular values $\sigma_i$ of $A$, and its eigenvectors are the right singular vectors $\mathbf{v}_i$. So $H$ acts on $\mathbb{R}^n$ by stretching along $n$ mutually orthogonal axes (the $\mathbf{v}_i$) by factors $\sigma_i$. Then $Q$ rigidly rotates the result into the codomain. This is the \textbf{fundamental} description: $A$ is a stretch composed with a rotation, with singular values controlling the stretch. Cross-check via SVD: $A = U \Sigma V^T = (UV^T)(V \Sigma V^T) = QH$, with $Q = UV^T$ and $H = V \Sigma V^T$.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      (D4 surface match: confuses singular values with eigenvalues and right singular vectors with eigenvectors; $H$'s eigenvalues are $\sigma_i(A)$, not $\lambda_i(A)$, and these agree only when $A$ is symmetric PSD).
+    B: |
+      (D7 convention/notation collision: gets $H = \sqrt{A^T A}$ wrong as $H = A^T A$. The matrix $A^T A$ has eigenvalues $\sigma_i^2$, not $\sigma_i$, so this $H$ stretches by the {\em squares} of the singular values --- the wrong square root. Equivalently, $A H^{-1} = A (A^T A)^{-1}$ is not orthogonal in general; the formula for $Q$ inherits the same error).
+    D: |
+      (D5 naive-prior: imports the symmetric/skew-symmetric additive decomposition, which has nothing to do with polar form; the polar decomposition is multiplicative, not additive, and $(A - A^T)/2$ is skew-symmetric, not orthogonal).
+sources:
+- semester: 2026A
+  instrument: final
+  position: 32
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1834
+variant_of: null
+topics:
+- Polar decomposition
+- geometric meaning of A = QH
+- relationship to SVD
+notes: 'difficulty: Deeper | retired-2e: polar decomposition was removed from LAEF 2E Chapter 10'

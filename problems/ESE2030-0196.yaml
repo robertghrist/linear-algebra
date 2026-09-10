@@ -1,0 +1,56 @@
+id: ESE2030-0196
+legacy_id: null
+week: 4
+skills:
+- W04.S01
+status: active
+problem_type: null
+statement: |
+  Consider $\mathcal{P}_2$, the vector space of polynomials of degree at most 2. Consider the basis $\mathcal{L} = \{L_0, L_1, L_2\}$ associated to the nodes $x = -1, 0, 1$: each $L_i \in \mathcal{P}_2$ is the unique polynomial that equals $1$ at its own node and $0$ at the other two. Explicitly,
+  $$L_0(-1) = 1, \quad L_0(0) = 0, \quad L_0(1) = 0,$$
+  $$L_1(-1) = 0, \quad L_1(0) = 1, \quad L_1(1) = 0,$$
+  $$L_2(-1) = 0, \quad L_2(0) = 0, \quad L_2(1) = 1.$$
+
+  What is $[p]_\mathcal{L}$ for $p(x) = x^2 - x + 2$?
+choices:
+- label: A
+  text: $\begin{pmatrix} 2 \\ -1 \\ 1 \end{pmatrix}$
+- label: B
+  text: $\begin{pmatrix} 2 \\ 2 \\ 4 \end{pmatrix}$
+- label: C
+  text: $\begin{pmatrix} 1 \\ -1 \\ 2 \end{pmatrix}$
+- label: D
+  text: $\begin{pmatrix} 4 \\ 2 \\ 2 \end{pmatrix}$
+- label: E
+  text: Cannot be determined without computing $L_0$, $L_1$, and $L_2$ explicitly
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Writing $p = c_0 L_0 + c_1 L_1 + c_2 L_2$ and evaluating at each node, the defining property gives $p(\text{node}_i) = c_i$. So the coordinates are simply the evaluations of $p$ at the nodes $-1, 0, 1$: $p(-1) = 1 + 1 + 2 = 4$, \quad $p(0) = 0 - 0 + 2 = 2$, \quad $p(1) = 1 - 1 + 2 = 2$. Thus $[p]_\mathcal{L} = (4, 2, 2)^T$. The key insight is that the Lagrange basis is designed so that coordinates \emph{are} evaluations at the nodes --- no explicit computation of the basis polynomials is needed.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      reads off the coefficients $2, -1, 1$ from the standard-basis representation $p(x) = 2 \cdot 1 + (-1) \cdot x + 1 \cdot x^2$; conflates the monomial basis $\{1, x, x^2\}$ with $\mathcal{L}$. This is the most common error: assuming ``coordinates'' always means the coefficients in the standard form.
+    B: |
+      understands the evaluation idea but evaluates at the nodes $0, 1, 2$ instead of $-1, 0, 1$; a student who grasps the concept but misreads the node set picks this
+    C: |
+      reads off $1, -1, 2$ from $x^2, -x, +2$ in descending-degree order; a different flavor of the monomial-basis confusion, reversing the coefficient order
+    E: |
+      misses the elegant consequence of the defining property; believes one must first derive the explicit formulas for $L_0, L_1, L_2$ and then solve a linear system. A student who picks this has not understood how the basis definition directly determines coordinates.
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 15
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 476
+variant_of: null
+topics: []
+notes: null

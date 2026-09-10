@@ -1,8 +1,9 @@
 id: ESE2030-0111
 legacy_id: Q5-P16
 week: 11
-skills: []
-status: active
+skills:
+- W11.S02
+status: needs-review
 problem_type: null
 statement: |
   Consider two analysts working with the same centered data matrix $X \in \mathbb{R}^{100 \times 6}$ that has singular values $\sigma_1 = 20, \sigma_2 = 15, \sigma_3 = 8, \sigma_4 = 5, \sigma_5 = 2, \sigma_6 = 1$.
@@ -55,4 +56,4 @@ topics:
 - Effect of orthogonal transformations
 - invariance properties
 - creative application
-notes: null
+notes: 'KEY CHECK: A also appears true'

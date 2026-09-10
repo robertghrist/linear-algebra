@@ -1,0 +1,48 @@
+id: ESE2030-0199
+legacy_id: null
+week: 5
+skills:
+- W05.S01
+status: active
+problem_type: null
+statement: |
+  Which of the following defines a valid inner product on $\mathbb{R}^2$?
+choices:
+- label: A
+  text: $\langle \mathbf{u}, \mathbf{v} \rangle = u_1 v_1 - u_2 v_2$
+- label: B
+  text: $\langle \mathbf{u}, \mathbf{v} \rangle = u_1 v_2 + u_2 v_1$
+- label: C
+  text: $\langle \mathbf{u}, \mathbf{v} \rangle = 2u_1 v_1 + u_1 v_2 + u_2 v_1 + 3u_2 v_2$
+- label: D
+  text: $\langle \mathbf{u}, \mathbf{v} \rangle = (u_1 + u_2)(v_1 + v_2)$
+- label: E
+  text: $\langle \mathbf{u}, \mathbf{v} \rangle = u_1 v_1 + u_2 v_2 + 1$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    This corresponds to $\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u}^T M \mathbf{v}$ with $M = \begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix}$. This matrix is symmetric (so symmetry holds), and its eigenvalues are positive ($\det(M)=5>0$, $\operatorname{tr}(M)=5>0$), so $M$ is positive definite. All three axioms are satisfied.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      symmetric and bilinear, but fails positive definiteness: $\langle (0,1),(0,1)\rangle = -1 < 0$; students who don't check PD pick this
+    B: |
+      bilinear and symmetric, but fails positive definiteness: $\langle (1,0),(1,0)\rangle = 0$ for a nonzero vector
+    D: |
+      symmetric and bilinear, but fails positive definiteness: $\langle (1,-1),(1,-1)\rangle = 0$ for a nonzero vector; this is a rank-1 form
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 18
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 596
+variant_of: null
+topics: []
+notes: null

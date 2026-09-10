@@ -1,0 +1,57 @@
+id: ESE2030-0277
+legacy_id: null
+week: 8
+skills:
+- W08.S01
+status: active
+problem_type: null
+statement: |
+  A real matrix $A$ has a complex conjugate pair of eigenvalues $\lambda = \alpha \pm i\beta$ with $\beta \neq 0$. The system $d\mathbf{x}/dt = A\mathbf{x}$ has real basis solutions involving $e^{\alpha t} \cos(\beta t)$ and $e^{\alpha t} \sin(\beta t)$. Which of the following is the most fundamental reason these trigonometric functions appear?
+choices:
+- label: A
+  text: Euler's formula $e^{i\beta t} = \cos(\beta t) + i\sin(\beta t)$ converts the complex exponential
+    solution into trigonometric form.
+- label: B
+  text: Because $A$ is real, complex eigenvalues must occur in conjugate pairs, forcing the imaginary
+    parts of solutions to cancel.
+- label: C
+  text: The $2 \times 2$ real block associated with $\alpha \pm i\beta$ has the form $\begin{bmatrix}
+    \alpha & -\beta \\ \beta & \alpha \end{bmatrix}$, which is a scaled rotation matrix.
+- label: D
+  text: Complex numbers do not appear in physically meaningful solutions, so they must be replaced by
+    trigonometric functions.
+- label: E
+  text: The matrix exponential's Taylor series collapses into the series for sine and cosine when applied
+    to the Jordan block.
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The complex-valued function $e^{\lambda t}\mathbf{v} = e^{(\alpha + i\beta)t}\mathbf{v}$ is a genuine solution to $d\mathbf{x}/dt = A\mathbf{x}$. Applying Euler's formula, $e^{(\alpha + i\beta)t} = e^{\alpha t}(\cos(\beta t) + i\sin(\beta t))$, so the complex solution splits into a real part and an imaginary part, each of which is itself a real solution by linearity. The trigonometric functions appear precisely because Euler's formula \emph{is} the bridge between complex exponentials and oscillation. Every other appearance of $\cos(\beta t)$ and $\sin(\beta t)$ in this setting — in the $2\times 2$ block formula, in the matrix-exponential Taylor series, in the structure of damped oscillators — derives from this single identity. The conjugate-pair structure (B) explains why we end up with \emph{real} solutions, but does not by itself explain why those solutions are \emph{trigonometric}. The block-form (C) and Taylor-series (D) facts are correct \emph{consequences}: they are how Euler's formula manifests in matrix language, not the underlying reason. Pedagogically, when students see ``where does $\cos(\beta t)$ come from?'', the answer should be Euler's formula first; the matrix-exponential derivation is a verification of what Euler already guarantees.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      correct fact, wrong question — conjugate pairing explains real-valuedness, not trigonometric structure. A classic D4 surface-match: ``complex conjugate'' is the right vocabulary for a different question.
+    C: |
+      true fact about the real Jordan block, but the rotation interpretation is itself a consequence of Euler's formula applied to $e^{Jt}$. Catches students who pattern-match on ``rotation'' without asking where the rotation came from.
+    D: |
+      the naive-prior D5: confuses physical motivation with mathematical justification. Complex numbers do appear in solutions; we extract real solutions by linearity, not by fiat.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 28
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1657
+variant_of: null
+topics:
+- Complex eigenvalues
+- oscillatory ODE solutions
+- Euler's formula
+notes: 'difficulty: Core'

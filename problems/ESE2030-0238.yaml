@@ -1,0 +1,59 @@
+id: ESE2030-0238
+legacy_id: null
+week: 13
+skills: []
+status: active
+problem_type: null
+statement: |
+  The Universal Approximation Theorem is a foundational result about feed-forward neural networks
+  with at least one hidden layer and a nonlinear activation function.
+  Which of the following statements most accurately describes what the theorem claims?
+choices:
+- label: A
+  text: A network with one hidden layer can approximate any target function to arbitrary accuracy, provided
+    the hidden layer is wide enough and the weights are found by stochastic gradient descent.
+- label: B
+  text: Approximation to arbitrary accuracy requires at least two hidden layers; a single hidden layer
+    is fundamentally insufficient.
+- label: C
+  text: A network with one hidden layer can compute any target function exactly, provided the hidden layer
+    is wide enough.
+- label: D
+  text: A network with one hidden layer can approximate any target function to arbitrary accuracy, provided
+    the hidden layer is wide enough and the right weights and biases exist.
+- label: E
+  text: A network with one hidden layer can approximate any target function to arbitrary accuracy, provided
+    the hidden layer is wide enough.
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The Universal Approximation Theorem is an EXISTENCE statement about expressive power: with enough hidden units and a nonlinear activation, there *exist* weights and biases such that a one-hidden-layer network approximates the target function to any desired accuracy. Two important features of the claim: 1. APPROXIMATION, NOT EQUALITY. The network can get arbitrarily close, but in general cannot compute the target function exactly. 2. EXISTENCE, NOT TRAINABILITY. The theorem says good weights exist; it says nothing about whether any algorithm (SGD or otherwise) can find them, how long that would take, or whether training would converge.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      ``compute exactly'' is too strong; the theorem gives approximation, not equality. Confuses ``arbitrarily close'' with ``equal.''
+    A: |
+      conflates expressive power with trainability. The theorem says good weights exist; SGD's ability to find them is a separate, much harder question.
+    B: |
+      depth is not required; one hidden layer is provably sufficient. Modern deep networks use depth for efficiency and inductive bias, not because shallow networks are fundamentally limited.
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 13
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 752
+variant_of: null
+topics:
+- Universal approximation theorem
+- expressive power vs trainability
+notes: 'difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts
+  them in Chapter 13 | tagging: Tests universal approximation (existence vs trainability); no W13 skill
+  names this.'

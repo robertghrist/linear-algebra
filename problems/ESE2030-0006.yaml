@@ -42,4 +42,5 @@ topics:
 - determinants
 - invertibility
 notes: 'trap (Q6 answers): Not all elementary matrices have $\det = \pm 1$; row scaling can give any nonzero
-  determinant.'
+  determinant. | tagging: Tests determinant values of elementary matrices / their invertibility; no listed
+  skill covers elementary-matrix determinants.'

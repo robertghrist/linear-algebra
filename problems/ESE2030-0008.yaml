@@ -42,4 +42,5 @@ topics:
 - Permutation matrices
 - properties
 - PLU decomposition
-notes: null
+notes: 'tagging: Tests permutation-matrix algebra (order of a 3-cycle, P^3 = I); not decoupling, so S08
+  does not fit.'

@@ -1,0 +1,49 @@
+id: ESE2030-0191
+legacy_id: null
+week: 6
+skills:
+- W06.S04
+- W06.S01
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a $5 \times 8$ matrix with $\operatorname{rank}(A) = 3$. Consider the four fundamental subspaces of $A$: $\ker(A)$, $\operatorname{im}(A)$, $\ker(A)^\perp$, and $\operatorname{im}(A)^\perp$. Which of the following is true?
+choices:
+- label: A
+  text: $\ker(A)$ and $\operatorname{im}(A)$ are orthogonal complements
+- label: B
+  text: $\ker(A)$ has dimension $3$ and is a subspace of $\mathbb{R}^5$
+- label: C
+  text: $\dim(\operatorname{im}(A)^\perp) = 3$
+- label: D
+  text: $\dim(\ker(A)^\perp) = 5$
+- label: E
+  text: A vector $\mathbf{x} \in \mathbb{R}^8$ that is orthogonal to every row of $A$ must be in $\ker(A)$
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The geometric FTLA gives $\ker(A) = (\text{row space of } A)^\perp$ in $\mathbb{R}^8$. A vector orthogonal to every row of $A$ lies in $\ker(A)$. This is the orthogonal restatement of the fact that $A\mathbf{x} = \mathbf{0}$ iff each row of $A$ dots to zero with $\mathbf{x}$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      $\ker(A) \subset \mathbb{R}^8$ and $\operatorname{im}(A) \subset \mathbb{R}^5$ live in different ambient spaces, so they cannot be orthogonal complements. The correct pairs are $\ker(A) \oplus \ker(A)^\perp = \mathbb{R}^8$ and $\operatorname{im}(A) \oplus \operatorname{im}(A)^\perp = \mathbb{R}^5$.
+    C: |
+      $\operatorname{im}(A) \subset \mathbb{R}^5$ has dimension $3$, so $\dim(\operatorname{im}(A)^\perp) = 5 - 3 = 2$, not $3$. Students who think a subspace and its complement have the same dimension pick this.
+    D: |
+      ($\ker(A) \subset \mathbb{R}^8$ has dimension $5$, so $\dim(\ker(A)^\perp) = 8 - 5 = 3$, not $5$. Students who confuse the dimension of the subspace with the dimension of its complement pick this.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 10
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 338
+variant_of: null
+topics: []
+notes: null

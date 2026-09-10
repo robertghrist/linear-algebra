@@ -1,0 +1,59 @@
+id: ESE2030-0175
+legacy_id: null
+week: 2
+skills:
+- W02.S01
+status: active
+problem_type: null
+statement: |
+  Let $\mathcal{C}^\infty(\mathbb{R})$ denote the vector space of all infinitely differentiable functions $f: \mathbb{R} \to \mathbb{R}$. Consider the set
+  $$S = \left\{ f \in \mathcal{C}^\infty(\mathbb{R}) : f'' - 3f' + 2f = 0 \right\}.$$
+
+  Which statement best explains why $S$ is a subspace of smooth functions $\mathcal{C}^\infty(\mathbb{R})$?
+choices:
+- label: A
+  text: $S$ is nonempty because the functions $e^x$ and $e^{2x}$ are both solutions.
+- label: B
+  text: The zero function satisfies $0'' - 3(0') + 2(0) = 0$, and any scalar multiple of a solution is
+    again a solution.
+- label: C
+  text: $S$ is the kernel of the linear operator $T = D^2 - 3D + 2I$, where $D$ denotes differentiation,
+    and the kernel of any linear operator is a subspace.
+- label: D
+  text: Differential equations always have solution sets that form vector spaces.
+- label: E
+  text: The equation is second-order, so its solution set is 2-dimensional and therefore a subspace.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    Define $T: \mathcal{C}^\infty(\mathbb{R}) \to \mathcal{C}^\infty(\mathbb{R})$ by $T(f) = f'' - 3f' + 2f$. This can be written as $T = D^2 - 3D + 2I$, where $D$ is the differentiation operator and $I$ is the identity. Since $D$ is linear and linear combinations of linear operators are linear, $T$ is linear. The set $S$ is precisely $\ker(T) = \{f : T(f) = 0\}$. By a general theorem, the kernel of any linear transformation is a subspace. This structural reasoning is the best explanation.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      identifying specific solutions shows $S$ is nonempty, but being nonempty is far from sufficient for being a subspace; this is a necessary condition, not an explanation
+    B: |
+      incomplete axiom verification: omits closure under addition
+    D: |
+      false in general: nonhomogeneous equations like $f'' - 3f' + 2f = 1$ do NOT have solution sets that are subspaces, since the zero function is not a solution
+    E: |
+      (the dimension is a property of the subspace, not an explanation of why it's a subspace; also, "2-dimensional therefore a subspace" is backwards reasoning) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 17
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 528
+variant_of: null
+topics:
+- Subspaces
+- linear operators
+- kernel
+notes: null

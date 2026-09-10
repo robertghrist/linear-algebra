@@ -1,0 +1,58 @@
+id: ESE2030-0285
+legacy_id: null
+week: 7
+skills:
+- W07.S06
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a $2 \times 2$ matrix with eigenvalues $\lambda_1 = 2$ and $\lambda_2 = -1$ and corresponding eigenvectors
+  $\mathbf{v}_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix},  \mathbf{v}_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}$.
+  What is the solution $\mathbf{x}(t)$ to the initial value problem
+  \[
+  \frac{d\mathbf{x}}{dt} = A\mathbf{x}, \qquad \mathbf{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}.
+  \]
+choices:
+- label: A
+  text: $2 e^{2t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} + e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$
+- label: B
+  text: $2 e^{2t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} + e^{t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$
+- label: C
+  text: $e^{2t} \begin{pmatrix} 3 \\ 1 \end{pmatrix} + e^{-t} \begin{pmatrix} 3 \\ 1 \end{pmatrix}$
+- label: D
+  text: $e^{2t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} + 2 e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$
+- label: E
+  text: $3 e^{2t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} + e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    For diagonalizable $A$, the general solution to $\dot{\mathbf{x}} = A\mathbf{x}$ is \[ \mathbf{x}(t) = c_1 e^{\lambda_1 t}\mathbf{v}_1 + c_2 e^{\lambda_2 t}\mathbf{v}_2, \] where the constants $c_1, c_2$ are the coordinates of $\mathbf{x}_0$ in the eigenbasis. Solving $\mathbf{x}(0) = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 = \begin{pmatrix} 3 \\ 1 \end{pmatrix}$: \[ c_1 + c_2 = 3, \qquad c_1 - c_2 = 1 \quad \Longrightarrow \quad c_1 = 2, \; c_2 = 1. \] Hence $\mathbf{x}(t) = 2 e^{2t}\mathbf{v}_1 + e^{-t}\mathbf{v}_2$. [Equivalently: $\mathbf{x}(t) = e^{At}\mathbf{x}_0 = V e^{\Lambda t} V^{-1}\mathbf{x}_0$. The vector $V^{-1}\mathbf{x}_0 = (c_1, c_2)^T$ is the initial condition expressed in the eigenbasis; $e^{\Lambda t}$ scales each coordinate by $e^{\lambda_i t}$; $V$ converts back to standard coordinates.]
+  key_insight: null
+  distractor_rationale:
+    E: |
+      uses the entries of $\mathbf{x}_0 = (3,1)^T$ directly as the eigencomponent coefficients $c_1 = 3, c_2 = 1$, skipping the eigenbasis change of coordinates. This is the most common mistake: forgetting that $c_i$ are coordinates \emph{in the eigenbasis}, not coordinates of $\mathbf{x}_0$ in the standard basis.
+    B: |
+      sign error on the second eigenvalue: $e^{t}$ instead of $e^{-t}$. Coefficients are correct but $\lambda_2 = -1$, not $+1$.
+    C: |
+      wholesale conceptual error: treats $\mathbf{x}_0$ as if it were the eigenvector for both modes, replacing $\mathbf{v}_1$ and $\mathbf{v}_2$ with $\mathbf{x}_0$. Misses the fundamental role of eigenvectors as the directions of independent exponential evolution.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 36
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 2056
+variant_of: null
+topics:
+- Linear ODE systems
+- matrix exponential
+- eigencomponent solution
+- initial conditions
+notes: null

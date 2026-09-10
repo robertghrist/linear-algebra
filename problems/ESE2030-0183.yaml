@@ -1,0 +1,49 @@
+id: ESE2030-0183
+legacy_id: null
+week: 5
+skills:
+- W05.S09
+status: active
+problem_type: null
+statement: |
+  An $n \times n$ invertible matrix $A$ has QR decomposition $A = QR$. Using this factorization, the system $A\mathbf{x} = \mathbf{b}$ reduces to:
+choices:
+- label: A
+  text: Solving the lower triangular system $R^T\mathbf{x} = Q\mathbf{b}$.
+- label: B
+  text: Solving the upper triangular system $R\mathbf{x} = Q\mathbf{b}$.
+- label: C
+  text: Computing $\mathbf{x} = R^TQ^T\mathbf{b}$.
+- label: D
+  text: Computing $\mathbf{x} = QR^{-1}\mathbf{b}$.
+- label: E
+  text: Solving the upper triangular system $R\mathbf{x} = Q^T\mathbf{b}$.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    From $QR\mathbf{x} = \mathbf{b}$, multiply both sides on the left by $Q^T$. Since $Q$ is orthogonal, $Q^TQ = I$, giving $R\mathbf{x} = Q^T\mathbf{b}$. The right-hand side $Q^T\mathbf{b}$ is a single matrix--vector product (cheap), and $R$ is upper triangular, so the resulting system is solved by back-substitution (Week~1). This is the practical payoff of QR: it replaces a general linear system with a triangular one, at the cost of one orthogonal multiplication.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      $R^T$ is lower triangular, not upper, and uses $Q$ instead of $Q^T$; a student who transposes the wrong factor and confuses the triangular orientation picks this
+    C: |
+      $R^TQ^T = (QR)^T = A^T$, so this computes $A^T\mathbf{b}$, not $A^{-1}\mathbf{b}$; the student who confuses transpose with inverse picks this. A good distractor because it ``looks like'' it undoes the factorization.
+    D: |
+      the order is wrong: $A^{-1} = R^{-1}Q^T$, not $QR^{-1}$. This student forgets that $(QR)^{-1} = R^{-1}Q^{-1}$, i.e., that products invert in reverse order. Moreover, explicitly computing $R^{-1}$ defeats the purpose of the factorization.
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 2
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 134
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,51 @@
+id: ESE2030-0167
+legacy_id: null
+week: 2
+skills:
+- W02.S04
+status: active
+problem_type: null
+statement: |
+  Let $V = \mathbb{R}^{2 \times 2}$ be the vector space of all $2 \times 2$ real matrices. Define the subset
+  $$W = \left\{ A \in V : A \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \right\}.$$
+  What is the dimension of $W$?
+choices:
+- label: A
+  text: '1'
+- label: B
+  text: '2'
+- label: C
+  text: '3'
+- label: D
+  text: '4'
+- label: E
+  text: 'Undefined: $W$ is not a subspace of $V$.'
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    A matrix $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ is in $W$ iff $A\begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}a+b\\c+d\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}$. This gives two constraints: $a + b = 0$ and $c + d = 0$, i.e., $b = -a$ and $d = -c$. So $W = \left\{ \begin{pmatrix} a & -a \\ c & -c \end{pmatrix} : a, c \in \mathbb{R} \right\}$, which has basis $\left\{ \begin{pmatrix} 1 & -1 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 1 & -1 \end{pmatrix} \right\}$. Thus $\dim(W) = 2$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      miscounts the degrees of freedom
+    C: |
+      treats the two constraints as one, or miscounts free parameters
+    D: |
+      ignores the constraints entirely
+    E: |
+      $W$ is the kernel of the linear map $A \mapsto A\begin{pmatrix}1\\1\end{pmatrix}$, hence is a subspace
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 9
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 309
+variant_of: null
+topics: []
+notes: week 2 taken from the solutions guide section heading

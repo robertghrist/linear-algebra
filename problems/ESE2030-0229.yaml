@@ -1,0 +1,68 @@
+id: ESE2030-0229
+legacy_id: null
+week: 13
+skills:
+- W13.S11
+status: active
+problem_type: null
+statement: |
+  Both PCA and neural networks can extract features from high-dimensional data. PCA reduces
+  $X \in \mathbb{R}^{n \times d}$ to $k$-dimensional coordinates via
+  $\mathbf{y}_{\text{PCA}} = V_k^T \mathbf{x}$, where $V_k$ contains the top $k$ right singular
+  vectors of $X$. A neural network with a hidden layer of $k$ units produces an alternative
+  feature vector $\mathbf{y}_{\text{NN}} = \sigma(W_1 \mathbf{x} + \mathbf{b}_1)$, where
+  $\sigma$ is a nonlinear activation and $W_1, \mathbf{b}_1$ are learned during training.
+
+  Two researchers are given the same dataset $X$. The first computes $V_k$ via PCA. The second
+  trains a neural network and extracts $W_1, \mathbf{b}_1$. Which statement best describes how
+  their resulting feature maps compare?
+choices:
+- label: A
+  text: The neural network's feature map can always be written as $\sigma(V_k^T \mathbf{x} + \mathbf{b}_1)$
+    for some bias $\mathbf{b}_1$, so the two approaches differ only in the activation function.
+- label: B
+  text: The neural network's feature map is a nonlinear function of $\mathbf{x}$, so it cannot in general
+    be written as a linear projection $V_k^T \mathbf{x}$; this is the only structural difference between
+    the two approaches.
+- label: C
+  text: The PCA feature map is determined by $X$ alone, whereas the neural network's feature map depends
+    on the training objective; the two researchers can obtain genuinely different features from the same
+    $X$.
+- label: D
+  text: The PCA feature map is optimal for reconstructing $X$, so any neural network feature map trained
+    on $X$ will reconstruct $X$ at most as well as PCA does.
+- label: E
+  text: Both feature maps are determined entirely by $X$, so the two researchers will obtain features
+    that span the same $k$-dimensional subspace of input space.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The genuine structural difference between PCA and neural-network feature extraction is not just linearity vs. nonlinearity --- it is that PCA is determined by the data alone, while neural network features are determined by the data *together with* a training objective. PCA: $V_k$ comes from the SVD of $X$. There is no notion of a task; $V_k$ is the same regardless of what the features will be used for. NEURAL NETWORK: $W_1, \mathbf{b}_1$ are learned by minimizing some loss on training data. Different losses (classification, regression, or different supervised targets) yield different $W_1$, even with the same $X$. The features adapt to the task. This task-dependence is what makes neural network features powerful for supervised problems --- they can encode whatever about $\mathbf{x}$ is useful for the goal --- and also what makes them less interpretable: they are no longer a canonical representation of $X$ itself.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      assumes both are data-determined; misses that the network's training objective is an additional input. Also subtly conflates ``feature map'' with ``subspace'' --- the PCA features live in a fixed subspace, but the NN features generally do not even define a subspace, since $\sigma$ is nonlinear.
+    A: |
+      claims the network's $W_1$ must factor through the PCA basis; this is false. $W_1$ can have any rows, not just linear combinations of top singular vectors.
+    D: |
+      PCA is optimal for *linear* reconstruction in Frobenius norm (Eckart-Young), but the comparison to general nonlinear feature maps is not the right framing here, and a network trained for a different objective entirely (classification, say) is not even trying to reconstruct $X$.
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 4
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 255
+variant_of: null
+topics:
+- PCA vs neural network features
+- linear vs nonlinear dimensionality reduction
+notes: 'difficulty: Deeper | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E
+  puts them in Chapter 13'

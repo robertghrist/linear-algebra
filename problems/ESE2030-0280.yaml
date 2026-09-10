@@ -1,0 +1,55 @@
+id: ESE2030-0280
+legacy_id: null
+week: 7
+skills:
+- W07.S03
+status: active
+problem_type: null
+statement: |
+  Let $A$ be an $n \times n$ matrix with real entries. Which of the following statements about $A$ is most true?
+choices:
+- label: A
+  text: $A$ is diagonalizable if and only if every eigenvalue of $A$ is real.
+- label: B
+  text: If $A$ is diagonalizable, then $A$ has $n$ distinct eigenvalues, but the converse does not hold.
+- label: C
+  text: If $A$ has $n$ distinct real eigenvalues, then $A$ is diagonalizable, but the converse does not
+    hold.
+- label: D
+  text: $A$ is diagonalizable if and only if $A$ has $n$ distinct real eigenvalues.
+- label: E
+  text: $A$ is diagonalizable if and only if $\det(A) \neq 0$.
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    Having $n$ distinct eigenvalues is \emph{sufficient} for diagonalizability: distinct eigenvalues guarantee linearly independent eigenvectors, giving a full eigenbasis. But it is \emph{not necessary}: the identity $I_n$ has the single repeated eigenvalue $1$ (multiplicity $n$) and is already diagonal. More generally, $A$ is diagonalizable iff for every eigenvalue, geometric multiplicity equals algebraic multiplicity --- i.e., the eigenspaces together span $\mathbb{R}^n$ (or $\mathbb{C}^n$). Distinct eigenvalues force this automatically; repeated eigenvalues may or may not. [Geometric picture: distinct eigenvalues $\Rightarrow$ each eigenspace is $1$-dim and they pile up to $n$ independent directions. Repeated eigenvalues only obstruct diagonalization when the corresponding eigenspace is too small --- a Jordan block. The implication runs one way only.]
+  key_insight: null
+  distractor_rationale:
+    D: |
+      asserts the converse, the classic confusion of sufficient with necessary; the canonical counterexample is $I_n$ or any $cI$.
+    B: |
+      reverses the implication; this would mean $I$ is non-diagonalizable, which is absurd since $I$ is already diagonal.
+    A: |
+      reality of eigenvalues is independent of diagonalizability: a $2\times 2$ rotation by $\theta \notin \pi\mathbb{Z}$ has complex eigenvalues and is diagonalizable over $\mathbb{C}$; a defective Jordan block can have all real eigenvalues and not be diagonalizable.
+    E: |
+      confuses diagonalizability with invertibility; $I$ is diagonalizable and invertible, the zero matrix is diagonalizable but singular, and a defective $2\times 2$ Jordan block at $\lambda = 1$ is invertible but not diagonalizable.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 31
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1807
+variant_of: null
+topics:
+- Diagonalizability
+- distinct eigenvalues
+- sufficient vs. necessary conditions
+- eigenspace dimension
+notes: null

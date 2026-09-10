@@ -1,7 +1,8 @@
 id: ESE2030-0018
 legacy_id: Q1-P18
 week: 3
-skills: []
+skills:
+- W03.S07
 status: active
 problem_type: null
 statement: |
@@ -41,4 +42,4 @@ topics:
 - Differentiation operator
 - kernel
 - polynomial spaces
-notes: null
+notes: 'tagging: topics field mislabeled (says differentiation/kernel; content is FTLA)'

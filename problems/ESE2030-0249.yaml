@@ -1,0 +1,55 @@
+id: ESE2030-0249
+legacy_id: null
+week: 11
+skills:
+- W11.S01
+status: active
+problem_type: null
+statement: |
+  A centered data matrix $X \in \mathbb{R}^{n \times d}$ has covariance matrix $C = \frac{1}{n}X^TX$.
+  Which of the following must $C$ satisfy?
+choices:
+- label: A
+  text: $C$ is symmetric and positive definite, with $\mathrm{tr}(C)$ equal to the total variance.
+- label: B
+  text: $C$ is symmetric and positive semidefinite, with $C_{ii}$ equal to the variance of variable $i$.
+- label: C
+  text: $C$ is symmetric, with $C_{ij} = 0$ if and only if variables $i$ and $j$ are independent.
+- label: D
+  text: $C$ is symmetric and positive semidefinite, with eigenvalues equal to $\sigma_i^2(X)$.
+- label: E
+  text: $C$ is symmetric and positive semidefinite, with $C_{ij}$ equal to the correlation between variables
+    $i$ and $j$.
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Three properties of $C = X^TX/n$: (1) Symmetric: $C^T = (X^TX/n)^T = C$. (2) PSD: $\mathbf{z}^TC\mathbf{z} = \|X\mathbf{z}\|^2/n \geq 0$. (PD only if $X$ has full column rank.) (3) Diagonal entries: $C_{ii} = \frac{1}{n}\sum_{k} x_{ki}^2$ (since the data is centered) is the sample variance of variable $i$.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      off-diagonal entries are COVARIANCES, not correlations; correlation requires normalization $\rho_{ij} = C_{ij}/\sqrt{C_{ii}C_{jj}}$
+    C: |
+      uncorrelated $\neq$ independent; $C_{ij} = 0$ means uncorrelated, but independence is a stronger condition involving the full joint distribution
+    D: |
+      off by a factor of $n$: eigenvalues of $C$ are $\sigma_i^2/n$, not $\sigma_i^2$
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 24
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 1235
+variant_of: null
+topics:
+- Covariance matrix properties
+- diagonal entries as variances
+- PSD
+- centering
+notes: 'difficulty: Core'

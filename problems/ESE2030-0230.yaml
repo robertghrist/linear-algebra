@@ -1,0 +1,58 @@
+id: ESE2030-0230
+legacy_id: null
+week: 11
+skills:
+- W11.S03
+- W11.S06
+status: active
+problem_type: null
+statement: |
+  A centered data matrix $X \in \mathbb{R}^{100 \times 3}$ has $X^TX$ with eigenvalues
+  $900$, $400$, and $100$. The data points $\{\mathbf{x}_1, \ldots, \mathbf{x}_{100}\}$ are
+  the rows of $X$, and $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ are the corresponding
+  principal component directions.
+  Which of the following is correct?
+choices:
+- label: A
+  text: Projecting all $100$ data points onto the first principal component direction yields scalars whose
+    sample variance is $9$.
+- label: B
+  text: The image of the unit sphere in $\mathbb{R}^3$ under $X$ is an ellipsoid in $\mathbb{R}^{100}$
+    with semi-axis lengths $900$, $400$, and $100$.
+- label: C
+  text: The total squared distance from the data points to the 2D subspace spanned by $\mathbf{v}_1$ and
+    $\mathbf{v}_2$ equals $100$.
+- label: D
+  text: Statements (A) and (B) are both correct.
+- label: E
+  text: Statements (A) and (C) are both correct.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Three SVD-to-PCA conversions are tested simultaneously. (E) PC VARIANCES. Projecting $\mathbf{x}_i$ onto $\mathbf{v}_1$ gives the scalar $\mathbf{x}_i^T\mathbf{v}_1$. The sample variance of these $100$ scalars is the first eigenvalue of the covariance matrix $C = X^TX/n$: $$\lambda_1(B) = \lambda_1(X^TX)/n = 900/100 = 9. \quad \text{CORRECT.}$$ (D) ELLIPSOID SEMI-AXES. The image of the unit sphere under $X$ is an ellipsoid whose semi-axis lengths are the SINGULAR VALUES of $X$, not the eigenvalues of $X^TX$: $$\sigma_i = \sqrt{\lambda_i(X^TX)} \;\Rightarrow\; \sigma = 30,\, 20,\, 10. \quad \text{INCORRECT.}$$ Also, the ellipsoid lives in $\mathrm{im}(X) \subset \mathbb{R}^{100}$ as a 3-dimensional object, not as a $\mathbb{R}^{100}$-shaped object. (B) RESIDUAL VARIANCE. The total squared distance from the points to the 2D subspace $\mathrm{span}\{\mathbf{v}_1, \mathbf{v}_2\}$ equals the variance NOT captured by the first two PCs --- i.e., the third eigenvalue of $X^TX$: $$\sum_{i=1}^{100} \mathrm{dist}(\mathbf{x}_i,\, \mathrm{span}\{\mathbf{v}_1,\mathbf{v}_2\})^2 \;=\; \lambda_3(X^TX) \;=\; 100. \quad \text{CORRECT.}$$ (Equivalently: $\|X\|_F^2 = \sum_i \lambda_i(X^TX) = 1400$, the rank-2 truncation captures $\sigma_1^2 + \sigma_2^2 = 1300$, and the Pythagorean identity gives residual $1400 - 1300 = 100$.) So (E) and (B) are correct, (D) is wrong, and the answer is (C).
+  key_insight: null
+  distractor_rationale:
+    B: |
+      uses eigenvalues of $X^TX$ as semi-axis lengths; the semi-axes are the singular values $\sqrt{900}, \sqrt{400}, \sqrt{100} = 30, 20, 10$. This is the most common SVD↔PCA confusion: forgetting the square-root step.
+    D: |
+      combines a correct statement (E) with the trick (D); a student picking (A) understands PC variances but conflates the eigenvalues of $X^TX$ with geometric semi-axis lengths.
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 5
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 323
+variant_of: null
+topics:
+- 'SVD-to-PCA dictionary: singular values'
+- eigenvalues of X^TX
+- PC variances
+notes: 'difficulty: Deeper'

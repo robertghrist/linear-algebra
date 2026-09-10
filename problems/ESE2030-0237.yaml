@@ -1,0 +1,55 @@
+id: ESE2030-0237
+legacy_id: null
+week: 10
+skills:
+- W10.S07
+status: active
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{m \times n}$ have rank $r$, with SVD $A = U\Sigma V^T$ and singular
+  values $\sigma_1 > \sigma_2 > \cdots > \sigma_r > 0$.
+  Suppose $A^\dagger = \tilde U \tilde\Sigma \tilde V^T$ is an SVD of $A^\dagger$
+  in standard form (singular values in descending order).
+  What is $\tilde\sigma_1$, the largest singular value of $A^\dagger$, and its
+  corresponding left singular vector $\tilde{\mathbf{u}}_1$?
+choices:
+- label: A
+  text: $\tilde\sigma_1 = \sigma_1$ and $\tilde{\mathbf{u}}_1 = \mathbf{u}_1$.
+- label: B
+  text: $\tilde\sigma_1 = 1/\sigma_r$ and $\tilde{\mathbf{u}}_1 = \mathbf{v}_r$.
+- label: C
+  text: $\tilde\sigma_1 = 1/\sigma_1$ and $\tilde{\mathbf{u}}_1 = \mathbf{v}_1$.
+- label: D
+  text: $\tilde\sigma_1 = 1/\sigma_r$ and $\tilde{\mathbf{u}}_1 = \mathbf{u}_r$.
+- label: E
+  text: $\tilde\sigma_1 = 1/\sigma_1$ and $\tilde{\mathbf{u}}_1 = \mathbf{u}_1$.
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    From $A = U\Sigma V^T$, the pseudoinverse is $A^\dagger = V\Sigma^\dagger U^T$. Three coordinated changes occur in passing from the SVD of $A$ to the SVD of $A^\dagger$: (i)   singular values are inverted: $\sigma_i \mapsto 1/\sigma_i$; (ii)  the orthogonal factors $U$ and $V$ swap sides --- $V$ is now the matrix of left singular vectors and $U$ the matrix of right singular vectors; (iii) descending-order convention forces an index reversal: since $\sigma_1 > \cdots > \sigma_r$ implies $1/\sigma_r > \cdots > 1/\sigma_1$, the LARGEST singular value of $A^\dagger$ is $1/\sigma_r$, paired with the singular vectors that were associated with $\sigma_r$ in the SVD of $A$. Combining: $\tilde\sigma_1 = 1/\sigma_r$ and $\tilde{\mathbf{u}}_1 = \mathbf{v}_r$. Geometric picture: $A$ stretches $\mathbf{v}_i$ by $\sigma_i$ and outputs along $\mathbf{u}_i$. $A^\dagger$ inverts this, stretching $\mathbf{u}_i$ by $1/\sigma_i$ and outputting along $\mathbf{v}_i$. So $\mathbf{u}_i$ becomes an INPUT direction (right singular vector) for $A^\dagger$, and $\mathbf{v}_i$ becomes an OUTPUT direction (left singular vector). The five choices form a clean ladder of which transformations the student gets right: (A) none: ignores that pseudoinverse changes anything. (B) reciprocal only. (C) reciprocal + swap. (D) reciprocal + reversal. (E) all three: reciprocal + swap + reversal. CORRECT.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      assumes pseudoinverse leaves SVD untouched.
+    E: |
+      (correctly inverts singular values, but assumes the singular vectors are unchanged --- conflates inversion of $\Sigma$ with inversion of $A$.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 12
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 688
+variant_of: null
+topics:
+- SVD of the pseudoinverse
+- reciprocal of singular values
+- U/V role swap
+notes: 'difficulty: Deeper'

@@ -1,226 +1,169 @@
 # ESE 2030 Problem Bank
 
-A structured database of linear algebra quiz problems for self-study and AI-assisted
-learning, keyed to **Linear Algebra: Essence & Form** (LAEF), second edition.
+A structured database of multiple-choice linear algebra problems from ESE 2030 (Linear
+Algebra for Engineers, Penn), keyed to **Linear Algebra: Essence & Form** (LAEF), second
+edition. One chapter per week, thirteen weeks.
 
-The course runs thirteen weeks, one week per chapter of the text.
+Every problem records where it appeared, what it tests, the correct answer, how that answer
+was verified, and — in the instructor's own words — why each wrong choice tempts.
 
-## Contents
-
-```
-problem_bank/
-├── problems.json          # Complete database
-├── README.md              # This file
-├── weekly_topics/         # Authoritative topic specification, one file per week
-│   ├── WEEK 1 SOLVING LINEAR SYSTEMS.txt
-│   ├── WEEK 2 ABSTRACT VECTOR SPACES.txt
-│   └── ... (13 files)
-├── by_week/               # Problems organized by course week
-│   ├── week01_solving_linear_systems.md
-│   ├── week02_abstract_vector_spaces.md
-│   └── ...
-├── by_quiz/               # Problems organized by quiz
-│   ├── quiz1_weeks_1_3.md
-│   ├── quiz2_weeks_3_5.md
-│   └── ...
-├── images/                # Figures referenced in problems
-└── scripts/               # Tools for parsing and studying
-    ├── parse_quizzes.py   # Parser (regenerate database)
-    ├── generate_markdown.py
-    └── quiz_me.py         # Interactive study tool
-```
-
-## Course Map: Weeks, Chapters, Topics
-
-Each week corresponds to exactly one chapter of LAEF 2E. The text is organized in four
-movements, after Blake's Four Zoas, mapped onto the four fundamental subspaces.
-
-### THARMAS — body / material (coimage)
-
-| Week | Chapter | Title |
-|---|---|---|
-| 1 | 1 | Solving Linear Systems |
-| 2 | 2 | Abstract Vector Spaces |
-| 3 | 3 | Linear Transformations |
-
-### URIZEN — reason (image)
-
-| Week | Chapter | Title |
-|---|---|---|
-| 4 | 4 | Bases & Coordinates |
-| 5 | 5 | Inner Products & Orthogonality |
-| 6 | 6 | Orthogonal Decomposition & Data |
-
-### LUVAH — passion (kernel)
-
-| Week | Chapter | Title |
-|---|---|---|
-| 7 | 7 | Diagonalization & Dynamics |
-| 8 | 8 | Eigenvalue Complexities |
-| 9 | 9 | Linear Iterative Systems |
-
-### URTHONA — imagination (cokernel)
-
-| Week | Chapter | Title |
-|---|---|---|
-| 10 | 10 | Singular Value Decomposition |
-| 11 | 11 | Principal Components & Low-Rank Structure |
-| 12 | 12 | Probability & High Dimension |
-
-### ALBION — synthesis
-
-| Week | Chapter | Title |
-|---|---|---|
-| 13 | 13 | Neural Networks & AI |
-
-## Weekly Topic Files
-
-`weekly_topics/` is the **authoritative specification** of what each week covers, and is
-the reference any problem-generation pass should be given. Each file carries:
-
-- the LAEF 2E chapter and section range, plus the chapter's application sections
-- **CORE CONCEPTS** — section by section, with definition/theorem numbers from the text
-- **ESSENTIAL SKILLS** — what a student is expected to do without hesitation; this is the
-  examinable core, and problems should concentrate here
-- **TYPICAL MCQ TRAPS** — the standard misconceptions, written to seed distractors and the
-  `trick_answers` field
-- **PERIPHERAL — CONTEXT ONLY** — application sections and out-of-scope variants, at most
-  a light conceptual question
-- **CONNECTIONS** — what the week depends on and what depends on it
-
-Where the second edition changed emphasis, the topic file says so at the top under
-NOTE ON SCOPE. The significant shifts from the first edition:
-
-- **Week 6** — the pseudoinverse is promoted to its own section, placed *before* least
-  squares; least squares is now its consequence
-- **Week 10** — polar decomposition is **removed**; the chapter opens with the Spectral
-  Theorem, and matrix norms and the condition number are defined here
-- **Week 11** — the first edition's Chapters 11 and 12 are merged; Eckart-Young-Mirsky is
-  core, and matrix completion, nuclear norm, and Robust PCA are full sections
-- **Week 12** — new chapter: probability as inner-product geometry, concentration,
-  Marchenko-Pastur, Johnson-Lindenstrauss, and the randomized SVD
-- **Week 13** — new chapter: activations, backpropagation, SGD, attention, and
-  representation learning
-
-## Quick Start
-
-### Interactive Quiz
-```bash
-cd scripts
-python quiz_me.py --week 7 --count 5
-```
-
-### Browse by Week
-Open any file in `by_week/` to study problems organized by topic.
-
-## Using with AI Assistants
-
-The `problems.json` file is designed for use with AI assistants like Claude or ChatGPT.
-For problem generation, supply the relevant `weekly_topics/` file alongside it. You can:
-
-1. **Ask for explanations**: "Explain the concept tested in problem Q3-P12"
-2. **Request similar problems**: "Generate a problem similar to Q1-P05"
-3. **Get study guidance**: "What concepts should I review for Week 7?"
-4. **Practice sessions**: "Quiz me on 5 problems about eigenvalues"
-
-### Example Prompts
+## Layout
 
 ```
-"Using the problem bank, explain why the answer to Q2-P15 is correct
-and what common mistakes students make."
-
-"Based on the Week 6 problems, what are the key concepts I need to
-understand about orthogonal decomposition?"
-
-"Create a practice problem similar to Q4-P08 but with different numbers."
-
-"Using weekly_topics/WEEK 12 PROBABILITY & HIGH DIMENSION.txt, write five
-multiple-choice problems on the ESSENTIAL SKILLS list, drawing distractors
-from the TYPICAL MCQ TRAPS section."
+problems/            ESE2030-NNNN.yaml   ONE FILE PER PROBLEM. The source of truth. Hand-editable.
+problems.json        compiled from problems/ -- GENERATED, never hand-edited
+by_week/             study views, one per week / LAEF 2E chapter        -- GENERATED
+by_source/           study views, one per exam instrument (2025C-quiz3) -- GENERATED
+COVERAGE.md          problems per week and per skill; untested skills   -- GENERATED
+schema/
+  problem.schema.json   JSON Schema every record must satisfy
+  skills.json           index of the 113 essential skills, by id        -- GENERATED
+  EXAMPLE-problem.yaml  worked template
+weekly_topics/       one file per week: concepts, ESSENTIAL SKILLS, MCQ traps -- the spec
+quizzes-exams/       source .tex files, by semester (2025-C, 2026-A), with answer keys / guides
+images/              figures, named by problem id (ESE2030-0275-a.png)
+skills/              MC-skill-2030.md, the problem-writing skill for AI assistants
+book/                LAEF 2E corpus
+scripts/             see below
+SCHEMA.md            the schema, the reasons behind it, and the validation rules
 ```
 
-## JSON Structure
+The design decisions — week as a mutable attribute, quiz appearance as provenance, opaque
+permanent ids, one file per problem — are explained in `SCHEMA.md`.
 
-Each problem in `problems.json` has this structure:
+## Course map
 
-```json
-{
-  "id": "Q1-P03",
-  "quiz": 1,
-  "problem_number": 3,
-  "week": 3,
-  "chapter_topic": "Linear Transformations",
-  "topics": ["Linear transformations", "kernel", "matrix representation"],
-  "concepts_tested": ["Rank-Nullity Theorem", "Kernel computation"],
-  "problem_type": "conceptual",
-  "statement": "Let T: R^3 -> R^3 be...",
-  "choices": [
-    {"label": "A", "text": "0"},
-    {"label": "B", "text": "1"},
-    ...
-  ],
-  "figures": [],
-  "correct_answer": "C",
-  "explanation": "All three rows are scalar multiples...",
-  "partial_credit": {},
-  "trick_answers": {"B": "Miscounts rank as 2"},
-  "key_insight": "Recognize row proportionality..."
-}
+| Week | Chapter | Title | Movement |
+|---|---|---|---|
+| 1 | 1 | Solving Linear Systems | THARMAS — body / material (coimage) |
+| 2 | 2 | Abstract Vector Spaces | |
+| 3 | 3 | Linear Transformations | |
+| 4 | 4 | Bases & Coordinates | URIZEN — reason (image) |
+| 5 | 5 | Inner Products & Orthogonality | |
+| 6 | 6 | Orthogonal Decomposition & Data | |
+| 7 | 7 | Diagonalization & Dynamics | LUVAH — passion (kernel) |
+| 8 | 8 | Eigenvalue Complexities | |
+| 9 | 9 | Linear Iterative Systems | |
+| 10 | 10 | Singular Value Decomposition | URTHONA — imagination (cokernel) |
+| 11 | 11 | Principal Components & Low-Rank Structure | |
+| 12 | 12 | Probability & High Dimension | |
+| 13 | 13 | Neural Networks & AI | ALBION — synthesis |
+
+`weekly_topics/` is the **authoritative specification** of what each week covers. Each file
+carries CORE CONCEPTS (with definition/theorem numbers), ESSENTIAL SKILLS (the examinable
+core, tagged `[W06.S04]`), TYPICAL MCQ TRAPS (to seed distractors), PERIPHERAL material, and
+CONNECTIONS to other weeks. Where the second edition changed emphasis, the file says so under
+NOTE ON SCOPE. Notably: the pseudoinverse now precedes least squares (Week 6); **polar
+decomposition is gone** from Week 10; Weeks 12 and 13 are new.
+
+**Week numbers in this bank always mean LAEF 2E chapters**, whatever the syllabus of the term
+a problem was written for. The 2026-A offering, for instance, taught neural networks as its
+"week 12"; those problems are filed under Week 13 here, with a note.
+
+## Workflow
+
+```
+edit problems/*.yaml            # the only thing you hand-edit
+python scripts/validate.py      # schema + invariants (SCHEMA.md section 5)
+python scripts/compile.py       # -> problems.json, by_week/, by_source/, COVERAGE.md
 ```
 
-## quiz_me.py Usage
+`compile.py` refuses to run while `validate.py` reports errors, so a broken record can never
+reach the compiled outputs. Commit the generated files alongside the YAML.
+
+### Ingesting a new semester
 
 ```
-usage: quiz_me.py [-h] [--week WEEK] [--quiz QUIZ] [--topic TOPIC]
-                  [--count COUNT] [--list-weeks] [--list-topics]
-
-ESE 2030 Problem Bank - Self-Study Quiz Tool
-
-options:
-  -h, --help            show this help message and exit
-  --week, -w WEEK       Filter by week number
-  --quiz, -q QUIZ       Filter by quiz number
-  --topic, -t TOPIC     Filter by topic keyword
-  --count, -c COUNT     Number of problems (default: 5)
-  --list-weeks          List all weeks and topics
-  --list-topics         List all available topics
-
-Examples:
-  python quiz_me.py                      # 5 random problems
-  python quiz_me.py --week 7 --count 10  # 10 problems from Week 7
-  python quiz_me.py --quiz 3             # Problems from Quiz 3
-  python quiz_me.py --topic eigenvalue   # Problems about eigenvalues
+python scripts/build.py 2026-A 2026A            # ids continue from the highest existing
+python scripts/build.py 2026-A 2026A --start-id 159
 ```
 
-## Current Database Status
+`build.py` reads `quizzes-exams/<semester>/*.tex`, extracts one record per live problem
+(commented-out drafts are excluded and reported), and cross-checks every answer key it can
+find: the key embedded in the exam source, a `-ANSWERS.tex` file (2025-C formats), or a
+student-facing `-SOLUTIONS.tex` guide (2026-A format, matched by *text* because the guides
+permute both problem and choice order — see `scripts/parse_solutions.py`). Two independent
+sources that agree are both recorded in `answer.verified_from`; a disagreement is recorded as
+`answer.conflict`, never resolved silently. **It never overwrites an existing record** without
+`--force`, because hand edits (week, skills, notes) live only in the YAML.
 
-The problem set below **predates the second edition** and is slated for a full rebuild.
-The `weekly_topics/` files are current; `problems.json` is not.
+### Scripts
 
-- **Total Problems**: 115
-- **Quizzes**: 5
-- **Weeks Represented**: 1-11 (7, 9, 16, 9, 8, 10, 16, 9, 11, 13, 7 respectively)
-- **Weeks With No Problems Yet**: 12, 13
-- **Problem Types**: Conceptual, Computational, Definitional, Identification
+| script | role |
+|---|---|
+| `validate.py` | every record against the schema and the invariants; exit 1 on any error |
+| `compile.py` | YAML → `problems.json`, `by_week/`, `by_source/`, `COVERAGE.md` |
+| `build.py` | one-shot import of a semester's `.tex` into new YAML records |
+| `extract.py` | the `.tex` parser used by `build.py` |
+| `parse_solutions.py` | parser + text-matcher for the 2026-A solutions guides |
+| `build_skills_index.py` | regenerate `schema/skills.json` after editing ESSENTIAL SKILLS |
+| `quiz_me.py` | interactive self-study tool over `problems.json` |
 
-Two known gaps to close in the rebuild:
+## Self-study
 
-1. Weeks 12 and 13 have no problems at all.
-2. Existing Week 6, 10, and 11 problems were written against first-edition emphasis and
-   need review against the revised topic files — in particular any Week 10 problem on
-   polar decomposition, which the second edition no longer contains.
+```
+python scripts/quiz_me.py --week 7 --count 10     # ten Week 7 problems
+python scripts/quiz_me.py --source 2025C:quiz3    # the problems from one quiz
+python scripts/quiz_me.py --skill W06.S02         # one essential skill
+python scripts/quiz_me.py --topic eigenvalue
+python scripts/quiz_me.py --list-weeks
+```
 
-`scripts/quiz_me.py` also hardcodes weeks 1-11 in its `WEEK_TOPICS` table and its
-`--week` argument; both need extending to 13 as part of the rebuild.
+Or open any file in `by_week/` — each problem is followed by a collapsed **Answer** section
+with the explanation and the distractor rationale.
 
-## Course Information
+## Using with AI assistants
 
-- **Course**: ESE 2030 — Linear Algebra for Engineers
-- **Text**: *Linear Algebra: Essence & Form*, second edition (Agenbyte Press)
-- **Structure**: 13 weeks, one chapter per week
-- **Source quizzes**: Fall 2025 offering
-- **Scope**: From solving linear systems through neural networks
+`problems.json` is one document with everything, for handing to Claude or ChatGPT. For
+problem *generation*, supply the relevant `weekly_topics/` file and `skills/MC-skill-2030.md`
+alongside it, and aim at the gaps `COVERAGE.md` reports.
+
+```
+"Using weekly_topics/WEEK 12 PROBABILITY & HIGH DIMENSION.txt and the style of the
+Week 10-11 problems in problems.json, write five multiple-choice problems on the
+ESSENTIAL SKILLS list, drawing distractors from the TYPICAL MCQ TRAPS section."
+
+"Explain why the answer to ESE2030-0130 is correct and what each distractor
+diagnoses."
+```
+
+## Record structure
+
+One problem, abbreviated (see `schema/EXAMPLE-problem.yaml` for a full one):
+
+```yaml
+id: ESE2030-0130            # opaque, permanent
+legacy_id: null             # pre-2026 id (Q3-P12), where one exists
+week: 6                     # LAEF 2E chapter -- mutable
+skills: [W06.S04]           # ids into schema/skills.json; week must match
+status: active              # active | needs-review | retired-2e
+statement: |                # LaTeX, verbatim from source
+  ...
+choices: [{label: A, text: ...}, ...]
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:            # two entries = two independent keys agreed
+    - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: ...
+  distractor_rationale: {A: ..., C: ...}   # the instructor's own words, verbatim
+sources:                    # every appearance; a reused problem is ONE problem
+  - {semester: 2025C, instrument: final, position: 15, file: ..., line: ...}
+```
+
+## Status
+
+| | |
+|---|---|
+| records | 292 — all of 2025-C (Q1–Q5 + final) and 2026-A (Q1–Q4 + final) |
+| answer keys | 0 conflicts; 2026-A keys 92% double-verified against the solutions guides |
+| weeks | assigned everywhere except the two end-of-quiz survey items |
+| skills | not yet tagged — the next phase; `COVERAGE.md` will then show untested skills |
+| retired-2e | 2 (polar decomposition, 2026-A) |
+| thin weeks | Week 12 has one problem, Week 13 eleven — the generation targets |
 
 ---
 
-*Generated from course quiz materials. For study purposes only.*
+*For study purposes only. ESE 2030, University of Pennsylvania.*

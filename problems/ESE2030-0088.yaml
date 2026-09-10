@@ -1,8 +1,9 @@
 id: ESE2030-0088
 legacy_id: Q4-P15
 week: 9
-skills: []
-status: active
+skills:
+- W09.S06
+status: needs-review
 problem_type: null
 statement: |
   A robot performs a random walk on a network of four rooms connected by doorways. At each time step, the robot moves to a randomly chosen adjacent room with equal probability. The transition matrix is:
@@ -55,4 +56,4 @@ topics:
 - graph structure
 - symmetric matrices
 - Markov chains
-notes: null
+notes: 'KEY CHECK: B and E also appear true'

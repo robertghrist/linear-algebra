@@ -1,0 +1,55 @@
+id: ESE2030-0163
+legacy_id: null
+week: 1
+skills:
+- W01.S06
+status: active
+problem_type: null
+statement: |
+  Consider a matrix $A$ that requires row swaps during Gaussian elimination. The PLU decomposition gives $PA = LU$ where $P$ is a permutation matrix. Which statement is correct?
+choices:
+- label: A
+  text: $A = PLU$, so we solve $A\mathbf{x} = \mathbf{b}$ by first computing $P\mathbf{b}$
+- label: B
+  text: $A = P^{-1}LU$, and since $P^{-1} = P^T$, we have $A = P^TLU$
+- label: C
+  text: $A = LPU$, with the permutation matrix sandwiched between the triangular factors
+- label: D
+  text: $A = P^{-1}LU$, and since $P^{-1} = -P$, we have $A = -PLU$
+- label: E
+  text: The decomposition $PA = LU$ is only valid when $A$ is symmetric
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    Starting from $PA = LU$, we multiply both sides on the left by $P^{-1}$ to get $A = P^{-1}LU$. The key property of permutation matrices is that they are orthogonal: $P^{-1} = P^T$. Therefore $A = P^TLU$. To solve $A\mathbf{x} = \mathbf{b}$, we use $PA\mathbf{x} = P\mathbf{b}$, giving $LU\mathbf{x} = P\mathbf{b}$, then solve by forward/backward substitution.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      gets the solving procedure right but writes the factorization incorrectly as $A = PLU$
+    C: |
+      incorrectly places $P$ between $L$ and $U$; this doesn't arise from the elimination process
+    D: |
+      knows $P^{-1}$ is needed but incorrectly thinks $P^{-1} = -P$; confuses with properties of other special matrices
+    E: |
+      PLU works for any matrix, not just symmetric ones; no such restriction exists
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 5
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 207
+variant_of: null
+topics:
+- PLU decomposition
+- permutation matrices
+- row swaps
+- factorization
+notes: solutions guide matched ("PLU decomposition, permutation matrices") but its correct choice could
+  not be mapped to a letter here

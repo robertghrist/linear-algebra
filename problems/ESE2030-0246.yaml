@@ -1,0 +1,51 @@
+id: ESE2030-0246
+legacy_id: null
+week: 10
+skills: []
+status: retired-2e
+problem_type: null
+statement: |
+  Which of the following correctly describes the polar decomposition of an invertible matrix $A \in \mathbb{R}^{n \times n}$?
+choices:
+- label: A
+  text: $A = QH$, where $Q$ is orthogonal and $H$ is symmetric positive definite, with stretching axes
+    given by the eigenvectors of $A^TA$.
+- label: B
+  text: $A = QR$, where $Q$ is orthogonal and $R$ is upper triangular.
+- label: C
+  text: $A = QH$, where $Q$ is orthogonal and $H$ is symmetric positive definite, with stretching axes
+    given by the eigenvectors of $A$.
+- label: D
+  text: $A = QR$, where $Q$ is orthogonal and $R$ is symmetric positive definite.
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The polar decomposition writes $A = QH$ with $Q$ orthogonal and $H$ symmetric positive definite. Geometrically, $H$ applies a ``pure stretch'' along orthogonal axes, then $Q$ rotates (or reflects). Squaring identifies $H$: $A^TA = (QH)^T(QH) = H^T Q^T Q H = H^2$, so $H = (A^TA)^{1/2}$. The stretching axes of $H$ are therefore the eigenvectors of $A^TA$ (equivalently, the right singular vectors of $A$); the stretching factors are the singular values $\sigma_i$. Analogue: polar coordinates for complex numbers, $z = re^{i\theta}$ --- magnitude (stretch) times rotation. The polar decomposition is the matrix version.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      this is the QR decomposition from Week 6; the shared letter $Q$ tempts the student into matching ``orthogonal-times-something'' with the wrong named factorization
+    D: |
+      a hybrid: takes the structure of polar (orthogonal $\times$ symmetric positive definite) but uses the QR letter for the second factor. Catches students who remember ``polar is orthogonal times something nice'' without keeping the names straight; the actual notation convention for the second factor is $H$, and a polar-style identity $A = QH$ is not what ``QR decomposition'' refers to.
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 21
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 1106
+variant_of: null
+topics:
+- 'Polar decomposition: structure'
+- geometric meaning
+- distinction from QR / SVD / eigendecomp
+notes: 'difficulty: Core | retired-2e: polar decomposition was removed from LAEF 2E Chapter 10'

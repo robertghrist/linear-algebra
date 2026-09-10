@@ -1,0 +1,60 @@
+id: ESE2030-0287
+legacy_id: null
+week: 4
+skills:
+- W04.S01
+status: active
+problem_type: null
+statement: |
+  Let $V$ be an $n$-dimensional vector space and fix
+  an ordered basis $\mathcal{B}$.  Consider the coordinate map
+  $\Phi_{\mathcal{B}} : V \to \mathbb{R}^n$ defined by
+  $\Phi_{\mathcal{B}}(\mathbf{v}) = [\mathbf{v}]_{\mathcal{B}}$.  Which
+  of the following must be true?
+choices:
+- label: A
+  text: $\Phi_{\mathcal{B}}$ is an isomorphism only if $V$ is literally $\mathbb{R}^n$ (not merely isomorphic
+    to it).
+- label: B
+  text: $\Phi_{\mathcal{B}}$ is a linear transformation but generally not invertible.
+- label: C
+  text: $\Phi_{\mathcal{B}}$ is an isomorphism, and any two ordered bases $\mathcal{B}, \mathcal{C}$ produce
+    the same coordinate map.
+- label: D
+  text: $\Phi_{\mathcal{B}}$ is an isomorphism, and a different ordered basis $\mathcal{C}$ gives a different
+    coordinate map $\Phi_{\mathcal{C}}$.
+- label: E
+  text: $\Phi_{\mathcal{B}}$ is an isomorphism only if $\mathcal{B}$ is orthonormal.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The coordinate map $\Phi_{\mathcal{B}}$ is linear (coordinates respect addition and scalar multiplication), injective (only the zero vector has all-zero coordinates), and surjective (every $(c_1, \ldots, c_n) \in \mathbb{R}^n$ is the coordinates of $c_1 \mathbf{b}_1 + \cdots + c_n \mathbf{b}_n$). So $\Phi_{\mathcal{B}}$ is an isomorphism for {\em any} ordered basis $\mathcal{B}$ of any $n$-dimensional $V$.  But the isomorphism is {\em not canonical} --- it depends on the basis choice.  For any two distinct ordered bases $\mathcal{B} \neq \mathcal{C}$, the coordinate maps $\Phi_{\mathcal{B}}$ and $\Phi_{\mathcal{C}}$ are different functions: they disagree on at least the basis vectors themselves, and in general they differ by the change-of-basis matrix $\Phi_{\mathcal{C}} = P \circ \Phi_{\mathcal{B}}$. [Conceptual takeaway: every finite-dimensional vector space ``becomes'' $\mathbb{R}^n$ after a basis choice.  This is what justifies treating abstract vector spaces $V$ via numerical computations on coordinates --- but the price is that {\em the isomorphism depends on the basis}. Coordinate-free properties survive any basis choice; coordinate-dependent statements (like the matrix entries of a transformation) do not.]
+  key_insight: null
+  distractor_rationale:
+    B: |
+      recognizes linearity but mis-remembers invertibility --- the naive-prior answer for a student who has not internalized that a basis is, by definition, exactly the data needed to make the coordinate map bijective.
+    C: |
+      twin pair to (B); collapses the basis-dependence of the coordinate map.  Tempts students who remember ``coordinate maps are isomorphisms'' but treat the isomorphism as canonical --- the same conceptual error as treating $V \cong V^*$ via an unspecified isomorphism.
+    A: |
+      the naive-prior answer for the student who thinks $\mathbb{R}^n$ is special; misses that coordinate maps {\em produce} the identification $V \cong \mathbb{R}^n$ rather than requiring it.  The clarification ``literally $\mathbb{R}^n$'' sharpens the trap by ruling out the tautological reading.
+    E: |
+      imports an inner-product condition that is irrelevant to the coordinate map.  Surface match on ``orthonormal bases are nicer'' --- true in inner product spaces for computation, but the coordinate map exists and is an isomorphism without any inner product structure.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 38
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 2157
+variant_of: null
+topics:
+- Coordinate map
+- isomorphism via basis choice
+- abstract vs concrete vector spaces
+notes: null

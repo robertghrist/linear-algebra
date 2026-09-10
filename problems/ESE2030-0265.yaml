@@ -1,0 +1,58 @@
+id: ESE2030-0265
+legacy_id: null
+week: 5
+skills:
+- W05.S02
+status: active
+problem_type: null
+statement: |
+  For nonzero vectors $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$, define
+  $\mathrm{sim}(\mathbf{u}, \mathbf{v}) \;=\; \displaystyle \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\|{\mathbf{u}}\|\,\|{\mathbf{v}}\|}$.
+
+  Which of the following operations is guaranteed to leave $\mathrm{sim}(\mathbf{u},\mathbf{v})$ unchanged?
+choices:
+- label: A
+  text: Replacing $\mathbf{u}$ with $5\mathbf{u}$
+- label: B
+  text: Replacing $\mathbf{u}$ with $-\mathbf{u}$
+- label: C
+  text: Replacing both $\mathbf{u}$ and $\mathbf{v}$ with $\mathbf{u} + \mathbf{c}$ and $\mathbf{v} +
+    \mathbf{c}$ for a fixed $\mathbf{c} \in \mathbb{R}^n$
+- label: D
+  text: All of the above
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    Cosine similarity depends only on the {\em directions} of the input vectors, not their magnitudes — but it is sensitive to the sign of each vector and to the choice of origin. (A) For any positive scalar $c > 0$: $\mathrm{sim}(c\mathbf{u}, \mathbf{v}) = \frac{c \langle \mathbf{u}, \mathbf{v}\rangle}{(c\|{\mathbf{u}}\|)\|{\mathbf{v}}\|} = \mathrm{sim}(\mathbf{u},\mathbf{v})$.  The factors of $c$ cancel. (B) Negation flips the sign: $\mathrm{sim}(-\mathbf{u}, \mathbf{v}) = -\mathrm{sim}(\mathbf{u}, \mathbf{v})$.  The numerator picks up a sign; the denominator does not (norm is positive).  Cosine similarity is invariant under {\em positive} scaling, not arbitrary scaling. (C) Translation by a common vector $\mathbf{c}$ generally changes the similarity.  The inner product $\langle \mathbf{u}+\mathbf{c}, \mathbf{v}+\mathbf{c}\rangle = \langle \mathbf{u},\mathbf{v}\rangle + \langle \mathbf{u},\mathbf{c}\rangle + \langle \mathbf{c},\mathbf{v}\rangle + \|{\mathbf{c}}^2$ does not simplify, and the norms in the denominator change too.  This is why PCA centers data {\em before} computing similarities — translation is not an invariance of cosine similarity, only of {\em centered} cosine similarity (a.k.a. Pearson correlation). [Geometric picture: cosine similarity = cosine of the angle the two vectors make at the origin.  Sliding both vectors by $\mathbf{c}$ moves them away from the origin, which generally changes the angle they subtend at the origin even though their relative offset is unchanged.  Negation rotates a vector by $180^\circ$, flipping the sign of the cosine.]
+  key_insight: null
+  distractor_rationale:
+    B: |
+      negation: the naive "scaling invariance" answer that doesn't track the sign restriction.  Tempting because $\|{-\mathbf{u}} = \|{\mathbf{u}}$ — students stop checking after the denominator.
+    C: |
+      translation: the deepest trap.  Students who think "cosine similarity is just relative geometry" import a false translation invariance — a mental model that confuses cosine similarity with Pearson correlation.
+    D: |
+      combines a true statement (A) with two false ones; tempts students who recognize (A) and assume the "more invariances the better."
+    E: |
+      the over-cautious answer; tempts students who, having spotted that (B) and (C) fail, conclude that nothing is safe and miss (A).
+sources:
+- semester: 2026A
+  instrument: final
+  position: 16
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 990
+variant_of: null
+topics:
+- Cosine similarity
+- scale invariance
+- normalization
+- inner product geometry
+notes: null

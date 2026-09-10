@@ -1,0 +1,51 @@
+id: ESE2030-0235
+legacy_id: null
+week: 11
+skills: []
+status: active
+problem_type: null
+statement: |
+  A centered data matrix $X \in \mathbb{R}^{n \times 3}$ with columns
+  $\mathbf{x}_1, \mathbf{x}_2, \mathbf{x}_3$ has correlation matrix
+  $$R = \begin{bmatrix} 1 & -1 & 0 \\ -1 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}.$$
+  Which of the following must be true?
+choices:
+- label: A
+  text: $\mathbf{x}_2 = -\mathbf{x}_1$, and $\mathbf{x}_3$ is orthogonal to both.
+- label: B
+  text: $\mathbf{x}_1, \mathbf{x}_2, \mathbf{x}_3$ are orthonormal in $\mathbb{R}^n$.
+- label: C
+  text: $\mathbf{x}_1 \perp \mathbf{x}_2$, and $\mathbf{x}_3$ is orthogonal to both.
+- label: D
+  text: $\mathbf{x}_1$ and $\mathbf{x}_2$ are antiparallel; $\mathbf{x}_3$ is orthogonal to both.
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Correlation between centered columns is the cosine of the angle between them. $\rho_{12} = -1 \Rightarrow \theta_{12} = 180^\circ$, so $\mathbf{x}_2 = -c\,\mathbf{x}_1$ for some $c > 0$ (antiparallel; correlation fixes the angle but not the magnitude). $\rho_{13} = \rho_{23} = 0$ gives $\mathbf{x}_3 \perp \mathbf{x}_1, \mathbf{x}_2$. The diagonal entries $\rho_{ii} = 1$ are automatic and carry no information about $\|\mathbf{x}_i\|$.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      (confuses negative correlation with zero correlation; $\rho = -1$ is $180^\circ$, not $90^\circ$).
+    B: |
+      reads $\rho_{ii} = 1$ as $\|\mathbf{x}_i\| = 1$; the diagonal of any correlation matrix is $1$ by construction. Also misreads $\rho_{12} = -1$.
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 10
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 599
+variant_of: null
+topics:
+- Correlation as cosine similarity
+- geometric interpretation
+notes: 'difficulty: Core | tagging: Tests correlation as cosine; no W11 skill names this (W12.S01 does).'

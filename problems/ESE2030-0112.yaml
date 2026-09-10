@@ -63,4 +63,5 @@ topics:
 - Correlation as cosine similarity
 - orthogonality
 - angle interpretation
-notes: null
+notes: 'tagging: Tests correlation as cosine of the angle between centered columns; no W11 skill names
+  this (W12.S01 does).'

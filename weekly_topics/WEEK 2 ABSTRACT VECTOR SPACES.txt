@@ -67,8 +67,7 @@ TYPICAL MCQ TRAPS:
 
 PERIPHERAL -- CONTEXT ONLY (de-emphasized):
 - Independence of the axioms from one another
-- Sequence spaces and convergence questions
-- The signals and ODE application sections
+- Proofs of Exchange Bound
 
 CONNECTIONS FORWARD:
 - Kernel and image are subspaces defined by a map, not by equations (Week 3)

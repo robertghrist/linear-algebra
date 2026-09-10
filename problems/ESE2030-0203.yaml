@@ -1,0 +1,51 @@
+id: ESE2030-0203
+legacy_id: null
+week: 4
+skills:
+- W04.S01
+status: active
+problem_type: null
+statement: |
+  Let $V$ be a 3-dimensional vector space with basis $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3\}$ (not further specified). Three vectors in $V$ have coordinates
+  $$[\mathbf{u}]_\mathcal{B} = \begin{pmatrix} 1 \\ 2 \\ -1 \end{pmatrix}, \qquad [\mathbf{v}]_\mathcal{B} = \begin{pmatrix} 3 \\ 0 \\ 1 \end{pmatrix}, \qquad [\mathbf{w}]_\mathcal{B} = \begin{pmatrix} 4 \\ 2 \\ 0 \end{pmatrix}.$$
+
+  Which statement about $\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}$ is correct?
+choices:
+- label: A
+  text: They are linearly independent because $V$ is 3-dimensional and we have exactly 3 vectors.
+- label: B
+  text: Whether they are linearly dependent or independent cannot be determined without knowing the basis
+    $\mathcal{B}$ explicitly.
+- label: C
+  text: They are linearly independent because $\mathcal{B}$ is a basis.
+- label: D
+  text: They are linearly dependent because $[\mathbf{w}]_\mathcal{B} = [\mathbf{u}]_\mathcal{B} + [\mathbf{v}]_\mathcal{B}$.
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The coordinate map $\mathbf{v} \mapsto [\mathbf{v}]_\mathcal{B}$ is a linear isomorphism from $V$ to $\mathbb{R}^3$. Because it is linear, any linear relation among vectors is faithfully reflected in their coordinate vectors: if $[\mathbf{w}]_\mathcal{B} = [\mathbf{u}]_\mathcal{B} + [\mathbf{v}]_\mathcal{B}$, then $\mathbf{w} = \mathbf{u} + \mathbf{v}$, making the set $\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}$ linearly dependent. One can verify the arithmetic: $(1,2,-1)^T + (3,0,1)^T = (4,2,0)^T$. No knowledge of $\mathcal{B}$ is needed beyond the fact that it is a basis.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      having $n$ vectors in an $n$-dimensional space is necessary for a basis, but not sufficient for independence; three coplanar vectors in $\mathbb{R}^3$ are dependent. This conflates a necessary condition with a sufficient one.
+    C: |
+      checks only for pairwise proportionality, which rules out one specific type of dependence but misses the general case. The three coordinate vectors are indeed pairwise non-proportional, yet they satisfy $[\mathbf{u}]_\mathcal{B} + [\mathbf{v}]_\mathcal{B} - [\mathbf{w}]_\mathcal{B} = \mathbf{0}$. Students who reduce ``linear independence'' to ``no vector is a multiple of another'' will pick this.
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 22
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 727
+variant_of: null
+topics: []
+notes: null

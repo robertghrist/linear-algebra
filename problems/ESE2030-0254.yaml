@@ -1,0 +1,57 @@
+id: ESE2030-0254
+legacy_id: null
+week: 4
+skills:
+- W04.S05
+status: active
+problem_type: null
+statement: |
+  Let $T:V\to V$ be a linear transformation on a finite-dimensional vector space,
+  and let $\mathcal{B}$ and $\mathcal{C}$ be two ordered bases of $V$. Let
+  $[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$ denote the matrices of the same
+  linear transformation $T$ in these two bases.
+  Which of the following best describes the relationship between
+  $[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$?
+choices:
+- label: A
+  text: They are equal, because they represent the same linear transformation.
+- label: B
+  text: They are inverses of each other, because changing basis reverses coordinates.
+- label: C
+  text: They have the same row-reduced echelon form, because row reduction does not depend on basis.
+- label: D
+  text: They are similar matrices.
+- label: E
+  text: They have the same columns, but written in different coordinate systems.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The linear transformation $T$ is the same coordinate-free object in both bases, but its matrix representation depends on the choice of basis.  The two matrices are related by a change of basis: if $S$ is the change-of-coordinates matrix from $\mathcal{C}$-coordinates to $\mathcal{B}$-coordinates, then \[ [T]_{\mathcal{C}} = S^{-1}[T]_{\mathcal{B}}S. \] Thus $[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$ are similar matrices.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      confuses the linear transformation with its coordinate representation.  The map $T$ is the same, but its matrix depends on the basis.
+    B: |
+      confuses the coordinate-change matrices with the matrices representing $T$.  The change-of-basis maps in opposite directions are inverses of each other; the two matrices representing $T$ are similar, not inverse.
+    E: |
+      the columns of a matrix representation are the coordinate vectors of the images of basis vectors.  Changing basis changes both the input basis vectors and the coordinate system used to express their images, so the columns are not generally the same.
+    C: |
+      row-reduced echelon form is not the correct relationship between two coordinate representations of the same operator.  Row reduction changes a matrix by left multiplication with elementary matrices; change of basis for an operator uses conjugation by an invertible matrix.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 5
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 327
+variant_of: null
+topics:
+- Change of basis
+- matrix representation of a linear transformation
+notes: 'difficulty: Core'

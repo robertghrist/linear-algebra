@@ -1,0 +1,52 @@
+id: ESE2030-0178
+legacy_id: null
+week: 2
+skills:
+- W02.S01
+status: active
+problem_type: null
+statement: |
+  Which of the following subsets of $\mathbb{R}^2$ is a subspace?
+choices:
+- label: A
+  text: '$\{(x, y) : x \geq 0\}$'
+- label: B
+  text: '$\{(x, y) : x + y = 1\}$'
+- label: C
+  text: '$\{(x, y) : xy = 0\}$'
+- label: D
+  text: '$\{(x, y) : x^2 + y^2 \leq 1\}$'
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    Each subset fails at least one subspace criterion: (A) Fails closure under scalar multiplication: $(1, 0)$ is in the set, but $(-1)(1, 0) = (-1, 0)$ has $x = -1 < 0$, so it's not in the set. (B) Fails to contain the zero vector: $(0, 0)$ has $0 + 0 = 0 \neq 1$. (C) Fails closure under addition: $(1, 0)$ and $(0, 1)$ are both in the set (since $1 \cdot 0 = 0$ and $0 \cdot 1 = 0$), but $(1, 0) + (0, 1) = (1, 1)$ has $1 \cdot 1 = 1 \neq 0$. (D) Fails closure under scalar multiplication: $(1, 0)$ is in the set, but $2(1, 0) = (2, 0)$ has $4 + 0 = 4 > 1$, so it's not in the set.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      students may think "half of $\mathbb{R}^2$" is a subspace, forgetting that subspaces must be symmetric about the origin
+    B: |
+      a line, which looks like a subspace, but this line doesn't pass through the origin
+    D: |
+      (a "nice" geometric region, but bounded sets other than $\{0\}$ cannot be subspaces) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 20
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 619
+variant_of: null
+topics:
+- Subspaces
+- subspace criteria
+- closure properties
+notes: null

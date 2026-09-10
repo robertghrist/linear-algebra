@@ -1,0 +1,48 @@
+id: ESE2030-0192
+legacy_id: null
+week: 4
+skills:
+- W04.S02
+status: active
+problem_type: null
+statement: |
+  Let $\mathcal{B}$ and $\mathcal{C}$ be two bases for $\mathbb{R}^n$, and let $P$ be the matrix satisfying $[\mathbf{v}]_\mathcal{C} = P\,[\mathbf{v}]_\mathcal{B}$ for all $\mathbf{v} \in \mathbb{R}^n$. What are the columns of $P$?
+choices:
+- label: A
+  text: The vectors in $\mathcal{C}$, expressed in standard coordinates
+- label: B
+  text: The vectors in $\mathcal{B}$, expressed in standard coordinates
+- label: C
+  text: The vectors in $\mathcal{B}$, expressed in $\mathcal{C}$-coordinates
+- label: D
+  text: The vectors in $\mathcal{C}$, expressed in $\mathcal{B}$-coordinates
+- label: E
+  text: The standard basis vectors, expressed in $\mathcal{C}$-coordinates
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Plugging in $\mathbf{v} = \mathbf{b}_j$ (the $j$-th vector of $\mathcal{B}$), its $\mathcal{B}$-coordinates are $\mathbf{e}_j$. So $P\mathbf{e}_j = [\mathbf{b}_j]_\mathcal{C}$: the $j$-th column of $P$ is the $j$-th basis vector of $\mathcal{B}$, written in $\mathcal{C}$-coordinates.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      swaps the roles of $\mathcal{B}$ and $\mathcal{C}$; this would be the columns of $P^{-1}$. Students who get the direction of conversion backwards pick this.
+    B: |
+      these are the columns of the matrix that converts from $\mathcal{B}$-coordinates to \emph{standard} coordinates, not to $\mathcal{C}$-coordinates; confuses change-of-basis with the coordinate matrix
+    A: |
+      same error as B but with the wrong basis; these columns convert from $\mathcal{C}$-coordinates to standard
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 11
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 370
+variant_of: null
+topics: []
+notes: null

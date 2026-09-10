@@ -1,0 +1,57 @@
+id: ESE2030-0278
+legacy_id: null
+week: 5
+skills:
+- W05.S05
+status: active
+problem_type: null
+statement: |
+  Let $\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$ be a linearly
+  independent set in an inner product space $V$, and let $\{\mathbf{u}_1,
+  \mathbf{u}_2, \ldots, \mathbf{u}_n\}$ be the orthogonal set produced by
+  applying the Gram-Schmidt process (in that order).  Which of the
+  following must be true for every $k$ with $1 \leq k \leq n$?
+choices:
+- label: A
+  text: $\mathbf{u}_k = \mathbf{v}_k$
+- label: B
+  text: $\norm{\mathbf{u}_k} = \norm{\mathbf{v}_k}$
+- label: C
+  text: $\mathrm{span}\{\mathbf{u}_1, \ldots, \mathbf{u}_k\} = \mathrm{span}\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$
+- label: D
+  text: $\mathbf{u}_k$ is a positive scalar multiple of $\mathbf{v}_k$
+- label: E
+  text: $\mathbf{u}_k \perp \mathbf{v}_k$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The defining feature of Gram-Schmidt is that it builds the orthogonal vectors recursively by subtracting from $\mathbf{v}_k$ its projections onto $\mathbf{u}_1, \ldots, \mathbf{u}_{k-1}$: \[ \mathbf{u}_k = \mathbf{v}_k - \sum_{j=1}^{k-1} \frac{\langle \mathbf{v}_k, \mathbf{u}_j\rangle}{\langle \mathbf{u}_j, \mathbf{u}_j\rangle}\, \mathbf{u}_j. \] Each $\mathbf{u}_k$ lies in $\mathrm{span}\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$ (it is $\mathbf{v}_k$ plus a combination of previous $\mathbf{u}_j$'s, each of which is itself in that span), and conversely each $\mathbf{v}_k$ can be recovered from the $\mathbf{u}$'s.  So the partial spans match for every $k$.  This is why Gram-Schmidt produces a {\em compatible} orthogonal basis — it orthogonalizes without disturbing the nested-subspace structure of the original list. [Geometric picture: at step $k$, Gram-Schmidt takes $\mathbf{v}_k$ and removes its component inside the subspace already spanned by $\mathbf{v}_1, \ldots, \mathbf{v}_{k-1}$.  The leftover is $\mathbf{u}_k$, which lives in the same partial span as $\mathbf{v}_k$ but is now orthogonal to everything that came before. This nested-span invariance is exactly the structure that makes the QR decomposition $A = QR$ work, with $R$ upper-triangular precisely because $\mathbf{v}_k$ involves only $\mathbf{u}_1, \ldots, \mathbf{u}_k$.]
+  key_insight: null
+  distractor_rationale:
+    A: |
+      only true at $k=1$; in general $\mathbf{u}_k \neq \mathbf{v}_k$ because Gram-Schmidt subtracts the projections onto previous vectors.  Naive-prior answer for a student who treats Gram-Schmidt as ``relabeling.''
+    B: |
+      norms are not preserved; subtracting projections strictly shortens the vector unless $\mathbf{v}_k$ is already orthogonal to the previous span.  Surface match on the QR fact that the diagonal of $R$ encodes these length changes.
+    E: |
+      mixes up which vectors are orthogonal to which.  Gram-Schmidt makes $\mathbf{u}_k \perp \mathbf{u}_j$ for $j < k$, not $\mathbf{u}_k \perp \mathbf{v}_k$.  In fact $\langle \mathbf{u}_k, \mathbf{v}_k \rangle = \norm{\mathbf{u}_k}^2 > 0$ since $\mathbf{v}_k = \mathbf{u}_k + (\text{stuff orthogonal to } \mathbf{u}_k)$.
+    D: |
+      true at $k=1$ only; ignores that for $k \geq 2$, $\mathbf{u}_k$ is $\mathbf{v}_k$ {\em minus} other vectors, not a scalar multiple.  Twin pair to (A) — both stop the recursion at the first step.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 29
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1687
+variant_of: null
+topics:
+- Gram-Schmidt
+- partial-span invariance
+- orthogonal basis construction
+notes: null

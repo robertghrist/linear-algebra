@@ -1,0 +1,59 @@
+id: ESE2030-0181
+legacy_id: null
+week: 1
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a $3 \times 3$ matrix. The following row operations are performed in sequence:
+  \begin{itemize}
+  \item Step 1: Add $-2$ times row 1 to row 2
+  \item Step 2: Swap rows 2 and 3
+  \item Step 3: Multiply row 3 by $5$
+  \end{itemize}
+  Let $E_1, E_2, E_3$ be the elementary matrices corresponding to Steps 1, 2, 3 respectively. Which expression gives the resulting matrix?
+choices:
+- label: A
+  text: $E_1 E_2 E_3 A$
+- label: B
+  text: $E_3 E_2 E_1 A$
+- label: C
+  text: $A E_1 E_2 E_3$
+- label: D
+  text: $A E_3 E_2 E_1$
+- label: E
+  text: $(E_1 E_2 E_3)^{-1} A$
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    Each row operation on $A$ corresponds to left-multiplication by an elementary matrix. If we start with $A$ and apply Step 1, we get $E_1 A$. Then applying Step 2 gives $E_2(E_1 A) = E_2 E_1 A$. Finally, Step 3 gives $E_3(E_2 E_1 A) = E_3 E_2 E_1 A$. The key insight: the most recent operation becomes the leftmost factor. This is because matrix multiplication is applied ``from the inside out.''
+  key_insight: null
+  distractor_rationale:
+    A: |
+      writes the matrices in the order the operations were performed, left-to-right; this is the most common error and reflects misunderstanding of how composition works
+    C: |
+      right-multiplication performs column operations, not row operations; this confuses the two
+    D: |
+      combines both errors: right-multiplication AND reversed order
+    E: |
+      confuses the forward elimination process with the inverse; $(E_1 E_2 E_3)^{-1}$ would undo these operations, not perform them
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 23
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 708
+variant_of: null
+topics:
+- Elementary matrices
+- row operations
+- matrix multiplication order
+notes: 'tagging: Tests order of composition of elementary matrices; same gap as 0024.'

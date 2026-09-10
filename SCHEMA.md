@@ -7,12 +7,12 @@ LAEF project.
 | artefact | role |
 |---|---|
 | `problems/ESE2030-NNNN.yaml` | one problem per file — **the source of truth**, hand-editable |
-| `problems.json` | compiled from `problems/`, **generated**, never hand-edited |
+| `problems.json` | compiled from `problems/` by `scripts/compile.py`, **generated**, never hand-edited |
 | `schema/problem.schema.json` | JSON Schema; every record must validate |
 | `schema/skills.json` | generated index of the 113 essential skills, by id |
 | `schema/EXAMPLE-problem.yaml` | worked template, validates against the schema |
 | `weekly_topics/*.txt` | human-authored source of the skill ids |
-| `by_week/`, `by_source/` | **generated** study views |
+| `by_week/`, `by_source/`, `COVERAGE.md` | **generated** study views and the skill-coverage report (`scripts/compile.py`) |
 
 ---
 

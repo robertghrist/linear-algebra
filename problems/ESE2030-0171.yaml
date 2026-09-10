@@ -1,0 +1,55 @@
+id: ESE2030-0171
+legacy_id: null
+week: 3
+skills:
+- W03.S04
+- W03.S03
+status: active
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces with $\dim(V) = 4$ and $\dim(W) = 6$. Which statement is correct?
+choices:
+- label: A
+  text: $T$ can be surjective but cannot be injective.
+- label: B
+  text: $T$ can be injective but cannot be surjective.
+- label: C
+  text: $T$ can be both injective and surjective (an isomorphism).
+- label: D
+  text: $T$ cannot be injective because $\dim(\ker(T)) \geq 2$ by rank-nullity.
+- label: E
+  text: $T$ must be injective because there is ``room'' in $W$ for all of $V$.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    By rank-nullity, $\dim(\ker(T)) + \dim(\text{im}(T)) = 4$. For injectivity, we need $\ker(T) = \{\mathbf{0}\}$, i.e., $\dim(\ker(T)) = 0$, which gives $\dim(\text{im}(T)) = 4$. This is achievable since $\dim(\text{im}(T)) \leq \min(4, 6) = 4$. For surjectivity, we need $\text{im}(T) = W$, i.e., $\dim(\text{im}(T)) = 6$. But $\dim(\text{im}(T)) \leq 4 < 6$, so surjectivity is impossible. Summary: $T$ *can* be injective (if rank = 4), *cannot* be surjective (rank $\leq 4 < 6$).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      reverses the constraints; students confuse "larger codomain" with "can be surjective"
+    D: |
+      misapplies rank-nullity; with $\dim(V) = 4$ and $\dim(W) = 6$, we have $\dim(\ker(T)) = 4 - \text{rank}(T)$, which can be 0
+    E: |
+      having "room" doesn't force injectivity; it merely permits it. The map could still have a nontrivial kernel.
+    C: |
+      isomorphism requires $\dim(V) = \dim(W)$
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 13
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 421
+variant_of: null
+topics:
+- Injectivity
+- surjectivity
+- rank-nullity
+- dimension constraints
+notes: null

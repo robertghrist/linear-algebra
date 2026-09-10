@@ -1,0 +1,58 @@
+id: ESE2030-0222
+legacy_id: null
+week: 7
+skills:
+- W07.S05
+status: active
+problem_type: null
+statement: |
+  A diagonalizable $2 \times 2$ matrix $A$ has eigenvalues $\lambda_1 = 2$
+  and $\lambda_2 = -1$ with corresponding eigenvectors $\mathbf{v}_1$
+  and $\mathbf{v}_2$.
+
+  Given an initial vector $\mathbf{x}_0 = 3\mathbf{v}_1 + 5\mathbf{v}_2$,
+  what is $A^{100}\mathbf{x}_0$?
+choices:
+- label: A
+  text: $(3 \cdot 2^{100} + 5)\,\mathbf{v}_1$
+- label: B
+  text: $2^{100}(3\,\mathbf{v}_1 + 5\,\mathbf{v}_2)$
+- label: C
+  text: $3 \cdot 2^{100}\,\mathbf{v}_1 - 5\,\mathbf{v}_2$
+- label: D
+  text: $3 \cdot 2^{100}\,\mathbf{v}_1$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The diagonalization $A = V\Lambda V^{-1}$ gives $A^k = V\Lambda^k V^{-1}$. When we expand $\mathbf{x}_0$ in the eigenbasis, the matrix power acts on each component independently: $$A^{100}\mathbf{x}_0 = 3\lambda_1^{100}\,\mathbf{v}_1 + 5\lambda_2^{100}\,\mathbf{v}_2 = 3 \cdot 2^{100}\,\mathbf{v}_1 + 5 \cdot (-1)^{100}\,\mathbf{v}_2$$ Since $(-1)^{100} = +1$ (even power), this simplifies to: $$A^{100}\mathbf{x}_0 = 3 \cdot 2^{100}\,\mathbf{v}_1 + 5\,\mathbf{v}_2$$ This expression does not appear among choices (A)--(D), so the answer is (E). The key ideas tested: (1) $A^k$ acts on each eigenvector component by raising the corresponding eigenvalue to the $k$-th power: the coefficient $c_i$ becomes $c_i \lambda_i^k$. (2) $(-1)^{100} = +1$, not $-1$. Even powers of $-1$ are positive. (3) The two eigenvector components evolve independently --- they do not merge, cancel, or interact.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      see partial credit; miscomputes $(-1)^{100} = -1$ instead of $+1$. This is the most common error: the student correctly sets up the eigendecomposition but defaults to thinking $(-1)^k$ is always $-1$, forgetting to check the parity of $k$.
+    B: |
+      treats the dominant eigenvalue $2^{100}$ as a uniform scaling factor applied to the entire vector. This misses the fundamental point that each eigenvector component is scaled by its \emph{own} eigenvalue power. The matrix does not act like a scalar multiple --- different directions are stretched differently.
+    D: |
+      assumes the $\mathbf{v}_2$ component vanishes because $(-1)^{100}$ is ``small'' or ``decays.'' In fact, $|{-1}|^{100} = 1$: the magnitude of the $\mathbf{v}_2$ component is perfectly preserved. This distractor catches students who confuse $|\lambda| < 1$ (which causes decay) with $\lambda < 0$ (which causes sign alternation but no decay). The eigenvalue $-1$ has magnitude exactly $1$, so it neither grows nor decays.
+    A: |
+      (collapses both eigenvector components into the dominant direction $\mathbf{v}_1$, as if the large factor $2^{100}$ somehow absorbs the $\mathbf{v}_2$ component. This reflects a misunderstanding of eigendecomposition: the components along different eigenvectors are independent and never ``merge'' into a single direction, no matter how large one eigenvalue power becomes relative to the other.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 19
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 1454
+variant_of: null
+topics:
+- Matrix powers via diagonalization
+- eigendecomposition of vectors
+notes: null

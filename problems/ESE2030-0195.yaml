@@ -1,0 +1,49 @@
+id: ESE2030-0195
+legacy_id: null
+week: 4
+skills:
+- W04.S04
+status: active
+problem_type: null
+statement: |
+  Let $T: V \to V$ be a linear transformation on an $n$-dimensional vector space ($n \geq 3$), and let $\mathcal{B} = \{\mathbf{b}_1, \ldots, \mathbf{b}_n\}$ be a basis for $V$. The matrix representation $[T]_\mathcal{B}$ has the property that its third column is the zero vector.
+
+  Which conclusion follows?
+choices:
+- label: A
+  text: $\operatorname{coker}(T)$ contains $\mathbf{b}_3$
+- label: B
+  text: $\operatorname{im}(T)$ does not contain $\mathbf{b}_3$
+- label: C
+  text: $\ker(T)$ contains $\mathbf{b}_3$
+- label: D
+  text: $\operatorname{rank}(T) = n - 1$
+- label: E
+  text: None of the above must be true
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The $j$-th column of $[T]_\mathcal{B}$ is $[T(\mathbf{b}_j)]_\mathcal{B}$. If the third column is $\mathbf{0}$, then $[T(\mathbf{b}_3)]_\mathcal{B} = \mathbf{0}$, which means $T(\mathbf{b}_3) = \mathbf{0}$. So $\mathbf{b}_3 \in \ker(T)$, and since $\ker(T) \neq \{\mathbf{0}\}$, the transformation is not injective and therefore not invertible.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      that is not correct...
+    B: |
+      confuses the column space of the matrix in coordinate space with the actual image of $T$. The other columns, as $\mathcal{B}$-coordinate vectors, can have nonzero third components, meaning $T(\mathbf{b}_j)$ for $j \neq 3$ may involve $\mathbf{b}_3$. For example, if $[T]_\mathcal{B}$ has first column $(0,0,1,0,\ldots)^T$, then $T(\mathbf{b}_1) = \mathbf{b}_3 \in \operatorname{im}(T)$.
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 14
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 451
+variant_of: null
+topics: []
+notes: null

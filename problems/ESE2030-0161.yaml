@@ -1,0 +1,59 @@
+id: ESE2030-0161
+legacy_id: null
+week: 2
+skills:
+- W02.S03
+- W02.S02
+status: active
+problem_type: null
+statement: |
+  Consider the vectors in $\mathbb{R}^3$:
+  $$\mathbf{v}_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad \mathbf{v}_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, \quad \mathbf{v}_3 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}$$
+
+  Which statement is TRUE about the set $S = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$?
+choices:
+- label: A
+  text: $S$ is a basis for $\mathbb{R}^3$
+- label: B
+  text: $S$ is linearly independent but does not span $\mathbb{R}^3$
+- label: C
+  text: $S$ spans $\mathbb{R}^3$ but is linearly dependent
+- label: D
+  text: $S$ is linearly dependent and does not span $\mathbb{R}^3$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    Observe that $\mathbf{v}_1 - \mathbf{v}_2 = (1-0, 1-1, 0-1) = (1, 0, -1) = \mathbf{v}_3$. This dependence relation $\mathbf{v}_1 - \mathbf{v}_2 - \mathbf{v}_3 = \mathbf{0}$ shows the vectors are linearly dependent. Since $S$ is dependent, $\text{span}(S) = \text{span}\{\mathbf{v}_1, \mathbf{v}_2\}$, which is a 2-dimensional plane in $\mathbb{R}^3$. Thus $S$ does not span $\mathbb{R}^3$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      students may not check for dependence and assume 3 vectors in $\mathbb{R}^3$ form a basis
+    B: |
+      impossible: 3 linearly independent vectors in $\mathbb{R}^3$ always span $\mathbb{R}^3$
+    C: |
+      this targets the misconception that "3 vectors in $\mathbb{R}^3$" guarantees spanning; in fact, dependence means the span has dimension $< 3$
+    E: |2+
+
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 3
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 155
+variant_of: null
+topics:
+- Basis
+- linear independence
+- span
+- dimension
+notes: null

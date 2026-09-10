@@ -1,0 +1,82 @@
+id: ESE2030-0231
+legacy_id: null
+week: 13
+skills: []
+status: active
+problem_type: null
+statement: |
+  A single perceptron with input $\mathbf{x} \in \mathbb{R}^2$ computes output $y = \sigma(\mathbf{w}^T\mathbf{x} + b)$, where $\sigma$ is a sigmoid function. The perceptron classifies an input as ``positive'' when $y \geq 0.5$.
+  Below are four subsets of $\mathbb{R}^2$ (shaded grey). For which subsets can a single perceptron be trained so that its ``positive'' region exactly matches the shaded region?
+
+  \begin{tikzpicture}[scale=0.8]
+  \begin{scope}[shift={(0,0)}]
+    \fill[gray!40] (-1.5,-1.5) rectangle (1.5,1.5);
+    \fill[white] (-1.5,1.5) -- (1.5,-0.5) -- (1.5,1.5) -- cycle;
+    \draw[thick] (-1.5,-1.5) rectangle (1.5,1.5);
+    \draw[thick] (-1.5,1.5) -- (1.5,-0.5);
+    \node at (0,-2) {\textbf{I}};
+  \end{scope}
+  \begin{scope}[shift={(4,0)}]
+    \draw[thick] (-1.5,-1.5) rectangle (1.5,1.5);
+    \fill[gray!40] (0,0) circle (1);
+    \draw[thick] (0,0) circle (1);
+    \node at (0,-2) {\textbf{II}};
+  \end{scope}
+  \begin{scope}[shift={(8,0)}]
+    \draw[thick] (-1.5,-1.5) rectangle (1.5,1.5);
+    \fill[gray!40] (-1.5,-0.5) rectangle (1.5,0.5);
+    \draw[thick] (-1.5,-0.5) -- (1.5,-0.5);
+    \draw[thick] (-1.5,0.5) -- (1.5,0.5);
+    \node at (0,-2) {\textbf{III}};
+  \end{scope}
+  \begin{scope}[shift={(12,0)}]
+    \fill[gray!40] (-1.5,0.3) rectangle (1.5,1.5);
+    \draw[thick] (-1.5,-1.5) rectangle (1.5,1.5);
+    \draw[thick] (-1.5,0.3) -- (1.5,0.3);
+    \node at (0,-2) {\textbf{IV}};
+  \end{scope}
+  \end{tikzpicture}
+choices:
+- label: A
+  text: Regions I, III, and IV only.
+- label: B
+  text: Regions I and II only.
+- label: C
+  text: Regions II and III only.
+- label: D
+  text: None can be {\em exactly} matched.
+- label: E
+  text: Regions I and IV only.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    A perceptron's decision boundary in $\mathbb{R}^2$ is the line $\mathbf{w}^T\mathbf{x} + b = c$ (where $c$ is determined by the threshold $y \geq 0.5$ and the monotonicity of $\sigma$). The ``positive'' region is the half-plane on one side of this line. - Region I (half-plane below the diagonal): linearly separable. $\checkmark$ - Region II (disk): requires a curved boundary; not realizable by any single line. $\times$ - Region III (horizontal strip): requires the conjunction of two inequalities (above one line AND below another); a single perceptron enforces only one. $\times$ - Region IV (horizontal half-plane $y > 0.3$): linearly separable, with weight vector $\mathbf{w} = (0, 1)$. $\checkmark$ This limitation --- representability is restricted to half-planes --- is exactly what hidden layers exist to overcome.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      the perceptron is more limited than the multi-layer networks students will see next, but it can represent half-planes exactly.
+    B: |
+      groups I and II as ``regions bounded by a single curve'' --- but linearity, not smoothness, is the relevant criterion.
+    C: |
+      (groups II and III as ``bounded'' or ``convex'' regions --- but convexity is necessary, not sufficient; both convexity AND being a half-plane are required.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 6
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 388
+variant_of: null
+topics:
+- Perceptron limitations
+- linear separability
+- hyperplane decision boundary
+notes: 'difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts
+  them in Chapter 13 | tagging: Tests linear separability by a single perceptron; no W13 skill fits.'

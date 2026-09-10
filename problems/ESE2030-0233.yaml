@@ -1,0 +1,54 @@
+id: ESE2030-0233
+legacy_id: null
+week: 10
+skills:
+- W10.S08
+status: active
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{5 \times 3}$ have rank $2$ with singular values $\sigma_1 \geq \sigma_2 > 0$. Consider the eigen-structure of $A^TA \in \mathbb{R}^{3 \times 3}$ and $AA^T \in \mathbb{R}^{5 \times 5}$.
+  Which of the following is TRUE?
+choices:
+- label: A
+  text: $A^TA$ and $AA^T$ have the same eigenvalues, counted with multiplicity.
+- label: B
+  text: $A^TA$ and $AA^T$ are both invertible, since each is a square matrix.
+- label: C
+  text: $A^TA$ and $AA^T$ share the same nonzero eigenvalues; $A^TA$ has one zero eigenvalue and $AA^T$
+    has three.
+- label: D
+  text: $A^TA$ and $AA^T$ are both positive definite, since each is symmetric with non-negative eigenvalues.
+- label: E
+  text: $A^TA$ has eigenvalues $\sigma_1, \sigma_2, 0$, and $AA^T$ has eigenvalues $\sigma_1, \sigma_2,
+    0, 0, 0$.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Both $A^TA$ and $AA^T$ are symmetric and PSD. Their nonzero eigenvalues coincide and equal $\sigma_1^2, \sigma_2^2$ (the squared singular values, two of them since $\mathrm{rank}(A) = 2$). They differ in size, and therefore in the number of zero eigenvalues: - $A^TA$ is $3 \times 3$: eigenvalues $\sigma_1^2, \sigma_2^2, 0$ (one zero). - $AA^T$ is $5 \times 5$: eigenvalues $\sigma_1^2, \sigma_2^2, 0, 0, 0$ (three zeros). In general, the number of zero eigenvalues equals (ambient dimension) $-$ rank.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      conflates ``same nonzero eigenvalues'' with ``same eigenvalues counted with multiplicity''; the matrices have different sizes, so their multisets of eigenvalues differ in the number of zeros
+    B: |
+      square does not imply invertible; rank-deficiency forces both products to be singular
+    D: |
+      symmetric + non-negative eigenvalues = PSD, not PD; positive definiteness requires \emph{strictly} positive eigenvalues, ruled out here by rank deficiency
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 8
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 506
+variant_of: null
+topics:
+- 'Eigen-structure of A^TA and AA^T: shared nonzero eigenvalues'
+- PSD vs PD
+notes: 'difficulty: Core'

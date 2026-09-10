@@ -1,0 +1,54 @@
+id: ESE2030-0180
+legacy_id: null
+week: 3
+skills:
+- W03.S01
+status: active
+problem_type: null
+statement: |
+  Which of the following is NOT a linear transformation?
+choices:
+- label: A
+  text: '$T: \mathbb{R}^2 \to \mathbb{R}^2$ defined by $T(x,y) = (y, x)$'
+- label: B
+  text: '$S: \mathcal{P}_2 \to \mathbb{R}$ defined by $S(p) = p(1)$'
+- label: C
+  text: '$R: \mathcal{P}_2 \to \mathcal{P}_3$ defined by $R(p)(x) = x \cdot p(x)$'
+- label: D
+  text: '$F: \mathbb{R}^{2 \times 2} \to \mathbb{R}^{2 \times 2}$ defined by $F(A) = A^2$'
+- label: E
+  text: '$G: \mathbb{R}^3 \to \mathbb{R}^3$ defined by $G(x,y,z) = (x,\, x+y,\, x+y+z)$'
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    $F(A) = A^2$ is not linear. It fails homogeneity: $F(cA) = (cA)^2 = c^2 A^2 \neq c A^2 = cF(A)$ for $c \neq 0, 1$. It also fails additivity: $F(A+B) = (A+B)^2 = A^2 + AB + BA + B^2 \neq A^2 + B^2$ in general (matrix multiplication is not commutative, so the cross terms don't cancel). Importantly, $F(\mathbf{0}) = \mathbf{0}^2 = \mathbf{0}$, so the simplest check doesn't catch this failure.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      swapping coordinates looks like ``rearrangement,'' but $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$ holds; this is a permutation matrix transformation
+    B: |
+      evaluation at a point seems computational/nonlinear, but $(p+q)(1) = p(1) + q(1)$ and $(cp)(1) = c \cdot p(1)$; evaluation functionals are linear
+    C: |
+      multiplying by $x$ seems to ``add a variable,'' but $R$ is linear \emph{in $p$}: $R(p+q) = x(p+q) = xp + xq = R(p) + R(q)$
+    E: |
+      the cumulative-sum pattern might look suspicious, but this is exactly the lower triangular matrix $\begin{psmallmatrix} 1 & 0 & 0 \\ 1 & 1 & 0 \\ 1 & 1 & 1 \end{psmallmatrix}$ acting on $(x,y,z)^T$
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 22
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 684
+variant_of: null
+topics:
+- Linear transformations
+- additivity
+- homogeneity
+- verifying linearity
+notes: null

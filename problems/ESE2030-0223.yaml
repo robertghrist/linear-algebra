@@ -1,0 +1,61 @@
+id: ESE2030-0223
+legacy_id: null
+week: 8
+skills:
+- W08.S08
+status: active
+problem_type: null
+statement: |
+  The QR algorithm computes $A_{k+1} = R_k Q_k$ from the QR factorization
+  $A_k = Q_k R_k$.
+  A key property is that every iterate $A_{k+1}$ has the same eigenvalues
+  as $A_k$.
+  Why is this true?
+choices:
+- label: A
+  text: Because $Q_k$ is orthogonal, and orthogonal transformations preserve all matrix properties including
+    eigenvalues
+- label: B
+  text: 'Because the QR factorization itself preserves eigenvalues: $Q_k$ and $R_k$ each have the same
+    eigenvalues as $A_k$'
+- label: C
+  text: Because $A_{k+1} = Q_k^{-1} A_k Q_k$, which is a similarity transformation
+- label: D
+  text: Because the diagonal entries of $R_k$ are the eigenvalues of $A_k$, and these entries are reused
+    to construct $A_{k+1}$
+- label: E
+  text: Because $R_k Q_k$ and $Q_k R_k$ are transposes of each other, and a matrix and its transpose share
+    eigenvalues
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The crucial algebraic identity: $$A_{k+1} = R_k Q_k = (Q_k^{-1} Q_k) R_k Q_k = Q_k^{-1} (Q_k R_k) Q_k = Q_k^{-1} A_k Q_k$$ This shows $A_{k+1}$ is obtained from $A_k$ by a similarity transformation (conjugation by $Q_k$). Similar matrices have the same characteristic polynomial and therefore the same eigenvalues. This is the foundational reason the QR algorithm works: it iteratively transforms $A$ toward a simpler form (triangular) while preserving its eigenvalues at every step.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      The QR factorization does NOT individually preserve eigenvalues. The eigenvalues of $Q_k$ all have modulus $1$ (since $Q_k$ is orthogonal), and the eigenvalues of $R_k$ are its diagonal entries (since $R_k$ is upper triangular). Neither set of eigenvalues matches those of $A_k$ in general. The eigenvalue preservation comes from the \emph{re-multiplication} $R_kQ_k$, not from the factorization itself.
+    A: |
+      ``Orthogonal transformations preserve all matrix properties'' is far too broad. Orthogonal transformations preserve eigenvalues (via similarity), inner products, and norms, but they do \emph{not} preserve all matrix properties (e.g., they generally change the entries, the sparsity pattern, and so on). More importantly, the reason is specifically that $Q_k^{-1}A_kQ_k$ is a \emph{similarity transformation}, not just that $Q_k$ is orthogonal. Any invertible $P$ gives a similarity $P^{-1}A_kP$ preserving eigenvalues; orthogonality is helpful for numerical stability but is not the reason eigenvalues are preserved.
+    D: |
+      The diagonal entries of $R_k$ are related to norms from the Gram-Schmidt process, \emph{not} to the eigenvalues of $A_k$. This conflates two different roles of diagonal entries: in a triangular matrix obtained by \emph{similarity} (like the Schur form), diagonal entries are eigenvalues. In the $R$ factor from QR \emph{factorization}, they are not.
+    E: |
+      $R_kQ_k$ and $Q_kR_k$ are generally \emph{not} transposes of each other. While it is true that a matrix and its transpose share eigenvalues (same characteristic polynomial), this fact is irrelevant here because the transpose relationship does not hold. This conflates two unrelated algebraic facts.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 20
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 1543
+variant_of: null
+topics:
+- QR algorithm
+- similarity transformation
+- eigenvalue preservation
+notes: null

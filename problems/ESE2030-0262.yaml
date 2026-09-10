@@ -1,0 +1,56 @@
+id: ESE2030-0262
+legacy_id: null
+week: 1
+skills:
+- W01.S07
+- W01.S06
+status: active
+problem_type: null
+statement: |
+  Suppose a square matrix $A$ has been factored as $A = LU$. Which statement best describes the principal practical advantage of having this factorization in hand?
+choices:
+- label: A
+  text: $A = LU$ removes the need for row pivoting.
+- label: B
+  text: $A = LU$ provides $A^{-1}$ directly as $U^{-1}L^{-1}$.
+- label: C
+  text: Solving $A\mathbf{x} = \mathbf{b}$ via $A = LU$ costs fewer arithmetic operations than Gaussian
+    elimination on the augmented matrix $[\,A \mid \mathbf{b}\,]$.
+- label: D
+  text: Once $A = LU$ is computed, additional systems $A\mathbf{x} = \mathbf{b}$ are solved by forward
+    substitution followed by back substitution.
+- label: E
+  text: The diagonal of $U$ reveals whether $A$ is invertible.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The signature use of an LU factorization is to amortize the cost of factoring across many right-hand sides. The factorization itself costs $O(n^3)$, the same as a single Gaussian elimination. The payoff arrives when one wants to solve $A\mathbf{x} = \mathbf{b}_1, A\mathbf{x} = \mathbf{b}_2, \ldots$: each subsequent solve is just \textbf{$L\mathbf{y} = \mathbf{b}$ followed by $U\mathbf{x} = \mathbf{y}$}, two triangular systems at $O(n^2)$ each. This is the structural insight behind LU --- triangular systems are easy, so split the hard work of factoring from the easy work of solving.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      captures the intuition that LU saves work, but misattributes the source: a single solve via LU is the \emph{same} cost as a single Gaussian elimination; the savings come only when the factorization is re-used across multiple right-hand sides.
+    E: |
+      true consequence --- since $L$ has unit diagonal, $\det(A) = \det(U) = \prod u_{ii}$, so $A$ is invertible iff $U$ has all nonzero diagonal entries --- but this is a diagnostic byproduct, not the reason one computes the factorization.
+    B: |
+      technically correct identity $A^{-1} = U^{-1}L^{-1}$, but in practice one never \emph{forms} $A^{-1}$; one solves with triangular substitutions. The whole point of LU is to avoid computing inverses.
+    A: |
+      the opposite is true --- pivoting is precisely why the more general $PA = LU$ form exists. LU does not eliminate the need for pivoting; it accommodates it.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 13
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 838
+variant_of: null
+topics:
+- LU decomposition
+- computational re-use
+- triangular solves
+notes: 'difficulty: Core'

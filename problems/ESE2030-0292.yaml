@@ -1,0 +1,52 @@
+id: ESE2030-0292
+legacy_id: null
+week: 7
+skills:
+- W07.S01
+status: active
+problem_type: null
+statement: |
+  Let $A$ be an $n \times n$ matrix and $\lambda \in \mathbb{R}$ a scalar. Which of the following is equivalent to ``$\lambda$ is an eigenvalue of $A$''?
+choices:
+- label: A
+  text: $\det(A) = \lambda^n$
+- label: B
+  text: $A\mathbf{v} = \lambda \mathbf{v}$ for every $\mathbf{v} \in \mathbb{R}^n$
+- label: C
+  text: $A - \lambda I$ is singular
+- label: D
+  text: $(A - \lambda I)\mathbf{v} = \mathbf{0}$ has only the trivial solution $\mathbf{v} = \mathbf{0}$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The chain of equivalences that licenses eigenvalue computation is: $\lambda$ is an eigenvalue $\Leftrightarrow$ there exists a \emph{nonzero} $\mathbf{v}$ with $(A - \lambda I)\mathbf{v} = \mathbf{0}$ $\Leftrightarrow$ $A - \lambda I$ has a nontrivial kernel $\Leftrightarrow$ $A - \lambda I$ is singular $\Leftrightarrow$ $\det(A - \lambda I) = 0$. The bridge from the geometric definition (an invariant scaling direction) to the computational recipe (root of the characteristic polynomial) runs through the singularity of $A - \lambda I$. That is what choice (B) names directly. Without this bridge, the characteristic polynomial feels like an unmotivated trick. With it, eigenvalues are exactly the scalars that ``collapse'' $A - \lambda I$ --- every other property follows.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      the exact \emph{negation} of the eigenvalue condition. ``$(A - \lambda I)\mathbf{v} = \mathbf{0}$ has only the trivial solution'' says $\ker(A - \lambda I) = \{\mathbf{0}\}$, i.e., $A - \lambda I$ is \emph{invertible} --- which is precisely the condition under which $\lambda$ is \emph{not} an eigenvalue. Catches students who recognize that eigenvalues involve the equation $(A - \lambda I)\mathbf{v} = \mathbf{0}$ but lose track of the nontriviality requirement on $\mathbf{v}$. The closest miss possible: right equation, wrong quantifier.
+    B: |
+      replaces ``some nonzero $\mathbf{v}$'' with ``every $\mathbf{v}$.'' Universal quantification would mean $A = \lambda I$, a vastly stronger condition than having $\lambda$ as an eigenvalue. Catches students who don't read quantifiers carefully --- twin pair to (A) at the quantifier level.
+    A: |
+      uses the false ``determinant is multiplicative across $\lambda I$'' rule: $\det(A - \lambda I) \neq \det(A) - \lambda^n$, and $\det(A) = \lambda^n$ has no general meaning. A student applying a phantom algebraic identity lands here.
+    E: |
+      rewards the second-guesser who reads (B) correctly but talks themselves out of it; the standard ``None'' trap when (B) is the genuine answer.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 43
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 2450
+variant_of: null
+topics:
+- Eigenvalue characterization
+- singularity of A - lambda I
+notes: 'difficulty: Core'

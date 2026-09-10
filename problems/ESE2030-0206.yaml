@@ -1,0 +1,62 @@
+id: ESE2030-0206
+legacy_id: null
+week: 8
+skills:
+- W08.S04
+status: active
+problem_type: null
+statement: |
+  The $6 \times 6$ matrix ${\mathcal J}$ below is in real Jordan canonical form:
+  $${\mathcal J} = \begin{bmatrix}
+  3 & 1 & 0 & 0 & 0 & 0 \\
+  0 & 3 & 0 & 0 & 0 & 0 \\
+  0 & 0 & 3 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 & -1 & -2 \\
+  0 & 0 & 0 & 0 & 2 & -1
+  \end{bmatrix}$$
+  How many Jordan blocks does ${\mathcal J}$ have?
+choices:
+- label: A
+  text: $6$
+- label: B
+  text: $3$
+- label: C
+  text: $4$
+- label: D
+  text: $5$
+- label: E
+  text: This matrix is not in Jordan canonical form
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The four blocks are: \begin{enumerate} \item A $2 \times 2$ Jordan block $\begin{bmatrix} 3 & 1 \\ 0 & 3 \end{bmatrix}$ for $\lambda = 3$ (the superdiagonal $1$ chains an eigenvector to a generalized eigenvector). \item A $1 \times 1$ block $[3]$ for $\lambda = 3$. \item A $1 \times 1$ block $[0]$ for $\lambda = 0$. \item A $2 \times 2$ rotation block $\begin{bmatrix} -1 & -2 \\ 2 & -1 \end{bmatrix}$ encoding the complex conjugate pair $\lambda = -1 \pm 2i$. This has the standard form $\begin{bmatrix} \alpha & -\beta \\ \beta & \alpha \end{bmatrix}$ with $\alpha = -1$, $\beta = 2$. \end{enumerate} Total: $4$ blocks. The key subtleties are (i) the eigenvalue $\lambda = 3$ produces \emph{two} separate blocks (a $2 \times 2$ Jordan chain and a $1 \times 1$ block), not one combined block, and (ii) the $2 \times 2$ rotation block is a \emph{single} block in real Jordan form.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      Counts one block per distinct eigenvalue: one block for $\lambda = 3$, one for $\lambda = 0$, one for the complex pair. This conflates ``same eigenvalue'' with ``same block.'' In Jordan form, a single eigenvalue can produce multiple blocks --- here $\lambda = 3$ has a $2 \times 2$ Jordan block AND a separate $1 \times 1$ block (reflecting geometric multiplicity $2$ within algebraic multiplicity $3$).
+    D: |
+      Splits the $2 \times 2$ rotation block into two $1 \times 1$ blocks by reading $-1$ and $-1$ off its diagonal, yielding five blocks: the $2 \times 2$ Jordan block, $[3]$, $[0]$, $[-1]$, $[-1]$. This targets the student who does not recognize the rotation block as a single unit encoding a complex conjugate pair.
+    A: |
+      Treats every diagonal entry as its own $1 \times 1$ block, ignoring all block structure entirely. This is the ``I don't know what blocks are'' answer: six diagonal entries, six blocks.
+    E: |
+      Believes the off-diagonal entries $\pm 2$ in the lower-right $2 \times 2$ block violate Jordan form. This targets the student who only knows \emph{complex} Jordan form (where all blocks are upper triangular with eigenvalues on the diagonal) and does not recognize that \emph{real} Jordan form uses $2 \times 2$ rotation blocks to encode complex conjugate pairs using only real entries. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 3
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 233
+variant_of: null
+topics:
+- Real Jordan canonical form
+- block structure
+- complex conjugate
+notes: null

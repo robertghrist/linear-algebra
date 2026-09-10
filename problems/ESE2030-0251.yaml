@@ -1,0 +1,53 @@
+id: ESE2030-0251
+legacy_id: null
+week: 6
+skills:
+- W06.S08
+status: active
+problem_type: null
+statement: |
+  Let $A$ be an $m \times n$ matrix, let $\mathbf{b} \in \mathbb{R}^m$, and
+  let $\hat{\mathbf{x}} = A^\dagger \mathbf{b}$, where $A^\dagger$ denotes
+  the pseudoinverse.  Which of the following best characterizes
+  $\hat{\mathbf{x}}$?
+choices:
+- label: A
+  text: $\hat{\mathbf{x}} = (A^T A)^{-1} A^T \mathbf{b}$.
+- label: B
+  text: $\hat{\mathbf{x}}$ is the unique minimizer of $\norm{A\mathbf{x} - \mathbf{b}}$ in $\mathrm{im}(A)^\perp$.
+- label: C
+  text: $\hat{\mathbf{x}}$ is the unique vector in $\mathbb{R}^n$ satisfying $A\hat{\mathbf{x}} = \mathbf{b}$.
+- label: D
+  text: $\hat{\mathbf{x}}$ is the unique vector in $\mathbb{R}^n$ such that $A\hat{\mathbf{x}}$ is the
+    orthogonal projection of $\mathbf{b}$ onto $\mathrm{im}(A)$.
+- label: E
+  text: $\hat{\mathbf{x}}$ is the unique minimizer of $\norm{A\mathbf{x} - \mathbf{b}}$ in $\ker(A)^\perp$.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The pseudoinverse $A^\dagger$ produces, for any $\mathbf{b}$, the unique vector $\hat{\mathbf{x}}$ that simultaneously (i) minimizes the residual $\norm{A\mathbf{x} - \mathbf{b}}$ and (ii) has minimum norm among all such minimizers.  When $A$ has a nontrivial kernel, the set of residual minimizers is the affine subspace $\hat{\mathbf{x}}_0 + \ker(A)$; the minimum-norm choice is the unique representative in $\ker(A)^\perp$.  Equivalently, $\hat{\mathbf{x}}$ is the unique minimizer of $\norm{A\mathbf{x} - \mathbf{b}}$ that lies in $\ker(A)^\perp$ --- and existence-and-uniqueness on this subspace is the cleanest characterization, valid whether or not exact solutions to $A\mathbf{x} = \mathbf{b}$ exist. [Geometric picture: $A$ collapses $\ker(A)$ to zero, so any component of $\mathbf{x}$ inside $\ker(A)$ adds norm without changing $A\mathbf{x}$.  The minimum-norm solution lives where there is nothing to throw away --- perpendicular to the kernel.  This is precisely the subspace $\mathrm{coim}(A) = \ker(A)^\perp$, on which $A$ acts as an isomorphism onto $\mathrm{im}(A)$.]
+  key_insight: null
+  distractor_rationale:
+    C: |
+      the naive-prior answer: treats $A^\dagger$ as if it were $A^{-1}$.  Wrong on two counts --- there may be no solution to $A\mathbf{x} = \mathbf{b}$ at all (so the residual must be minimized rather than zeroed), and even when solutions exist they need not be unique.
+    B: |
+      mixes domain and codomain subspaces: $\mathrm{im}(A)^\perp \subseteq \mathbb{R}^m$, the wrong space for $\hat{\mathbf{x}}$, which lives in $\mathbb{R}^n$.  A vector in $\mathbb{R}^m$ cannot be a minimizer over inputs $\mathbf{x}$. Surface match on ``perp of im'' without tracking which space.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 2
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 152
+variant_of: null
+topics:
+- Pseudoinverse
+- minimum-norm least-squares characterization
+notes: 'difficulty: Deeper'

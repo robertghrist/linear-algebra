@@ -1,0 +1,64 @@
+id: ESE2030-0218
+legacy_id: null
+week: 8
+skills:
+- W08.S02
+status: active
+problem_type: null
+statement: |
+  A $2 \times 2$ real matrix $A$ has complex eigenvalues $\lambda = \alpha \pm i\beta$
+  with $\alpha < 0$ and $\beta > 0$. The solution to $\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}$
+  exhibits oscillations whose amplitude decreases over time.
+  Now consider a modified matrix $A'$ with eigenvalues $\lambda' = \alpha \pm 2i\beta$.
+  Compared to the original system, solutions of $\dfrac{d\mathbf{x}}{dt} = A'\mathbf{x}$ will:
+choices:
+- label: A
+  text: Oscillate at twice the frequency and also decay faster, since the eigenvalues are farther from
+    the origin in the complex plane
+- label: B
+  text: Have identical behavior, since only the real part of the eigenvalue affects the solution of a
+    real ODE
+- label: C
+  text: Oscillate at the same frequency but decay faster, since the eigenvalues have larger imaginary
+    part
+- label: D
+  text: Oscillate at twice the frequency and decay at half the rate, since energy is transferred from
+    decay into oscillation
+- label: E
+  text: Oscillate at twice the frequency with the same rate of amplitude decay
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    For complex eigenvalues $\alpha \pm i\beta$, the real basis solutions have the form $e^{\alpha t}\cos(\beta t)$ and $e^{\alpha t}\sin(\beta t)$. The real part $\alpha$ controls the rate of exponential growth or decay (the envelope), while the imaginary part $\beta$ controls the frequency of oscillation. These two roles are completely independent. In the modified system, $\alpha$ is unchanged, so the amplitude decay rate is identical. The imaginary part has doubled from $\beta$ to $2\beta$, so the oscillation frequency doubles. The solution form becomes $e^{\alpha t}\cos(2\beta t)$ and $e^{\alpha t}\sin(2\beta t)$: same exponential envelope, faster oscillations within it. The key conceptual point: $\alpha$ and $\beta$ enter the solution in completely separate places --- $\alpha$ in the exponential prefactor, $\beta$ inside the trigonometric functions. Changing one does not affect the other.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      reverses which part does what; the imaginary part controls frequency, not decay rate. A student who selects this may be confusing the roles of $\alpha$ and $\beta$.
+    A: |
+      see partial credit note above; the ``farther from the origin'' reasoning is geometrically intuitive but wrong --- it's $\alpha$ alone, not $|\lambda|$, that governs decay.
+    D: |
+      invokes a plausible-sounding but fictitious ``conservation'' principle --- there is no energy trade-off between oscillation and decay. The real and imaginary parts act independently in the solution structure.
+    B: |
+      confuses the fact that we work with real basis solutions with the claim that the imaginary part is irrelevant. The imaginary part is essential: it determines the oscillation frequency even though the final solution is real-valued.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 15
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 1201
+variant_of: null
+topics:
+- Complex eigenvalues
+- real/imaginary parts
+- ODE solution behavior
+- oscillation frequency
+- growth/decay
+notes: null

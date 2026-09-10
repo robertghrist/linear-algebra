@@ -1,0 +1,56 @@
+id: ESE2030-0282
+legacy_id: null
+week: 3
+skills:
+- W03.S04
+- W03.S08
+status: active
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation between finite-dimensional
+  vector spaces with $\dim(V) = \dim(W)$. Which of the following statements
+  must be TRUE?
+choices:
+- label: A
+  text: The cokernel of $T$ is a subspace of $W$
+- label: B
+  text: If $T$ is injective, then $T$ is an isomorphism
+- label: C
+  text: If $\ker(T) = \{\mathbf{0}\}$, then $\mathrm{im}(T) = W$
+- label: D
+  text: Both (B) and (C)
+- label: E
+  text: All of the above
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Under the hypothesis $\dim(V) = \dim(W)$, injectivity and surjectivity are equivalent — and either, alone, implies $T$ is an isomorphism. By rank-nullity, $\dim(\mathrm{im}\, T) = \dim(V) - \dim(\ker T)$. If $T$ is injective then $\dim(\ker T) = 0$, so $\dim(\mathrm{im}\, T) = \dim(V) = \dim(W)$, forcing $\mathrm{im}(T) = W$ and giving surjectivity (and thus an isomorphism). Statement (C) says exactly this — injective implies surjective — using the kernel characterization of injectivity. So (B) and (C) are equivalent statements of the same fact, and the genuine answer is (D). [Teaching remark: the equal-dimension hypothesis collapses injectivity and surjectivity into a single condition, just as it does for square matrices (where invertibility, injectivity, and surjectivity all coincide). Without equal dimensions, all three properties can come apart — the differentiation operator $\mathcal{D}: \mathcal{P}_3 \to \mathcal{P}_2$ from Q1 P5 is surjective but not injective. Recognizing that (B) and (C) describe the same fact via the FTLA is the conceptual payoff.]
+  key_insight: null
+  distractor_rationale:
+    A: |
+      categorical confusion: $\mathrm{coker}(T) = W / \mathrm{im}(T)$ is a \emph{quotient} of $W$, not a subspace. The trap is the surface intuition ``cokernel lives on the $W$-side, so it must sit inside $W$.'' This conflates the quotient construction with subspace inclusion — a Wk-3 conceptual error worth catching. Note that $\mathrm{coker}(T)$ \emph{is} isomorphic to a subspace of $W$ when an inner product is available, but as defined it is a quotient, not a subspace.
+    E: |
+      requires knowing that (A) is false.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 33
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1890
+variant_of: null
+topics:
+- Linear transformations
+- isomorphism
+- injectivity
+- surjectivity
+- cokernel
+- FTLA
+notes: 'difficulty: Deeper | solutions guide matched ("Equal-dimension transformation --- which equivalences
+  hold?") but its correct choice could not be mapped to a letter here'

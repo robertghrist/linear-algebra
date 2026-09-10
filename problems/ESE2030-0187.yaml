@@ -1,0 +1,47 @@
+id: ESE2030-0187
+legacy_id: null
+week: 5
+skills:
+- W05.S04
+status: active
+problem_type: null
+statement: |
+  Consider $W<\mathbb{R}^7$ with $\dim W=3$. Which statement about $W^\perp$ is true?
+choices:
+- label: A
+  text: $W \boxplus W^\perp = \mathbb{R}^7$
+- label: B
+  text: $W \cap W^\perp = W$
+- label: C
+  text: $\dim(W^\perp) = 3$
+- label: D
+  text: $\dim\left((W^\perp)^\perp\right)=4$
+- label: E
+  text: $W$ and $W^\perp$ do not intersect
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The orthogonal decomposition theorem guarantees $\mathbb{R}^7 = W \oplus W^\perp$: every vector decomposes uniquely into a component in $W$ and a component in $W^\perp$. Since $\dim(W) = 3$, we have $\dim(W^\perp) = 7 - 3 = 4$.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      a common error: assuming $W$ and $W^\perp$ have the same dimension; the complement formula gives $\dim(W^\perp) = 7 - 3 = 4$, not $3$
+    D: |
+      $(W^\perp)^\perp = W$, so its dimension is $3$, not $4$; students who think taking $\perp$ twice gives something new pick this
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 6
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 235
+variant_of: null
+topics: []
+notes: null

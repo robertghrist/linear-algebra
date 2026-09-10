@@ -1,0 +1,58 @@
+id: ESE2030-0164
+legacy_id: null
+week: 1
+skills:
+- W01.S01
+status: active
+problem_type: null
+statement: |
+  A $5 \times 4$ matrix $A$ has the following row echelon form (not necessarily reduced):
+  $$\begin{bmatrix} 2 & 1 & 0 & 3 \\ 0 & 0 & 4 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
+
+  Which statement is TRUE?
+choices:
+- label: A
+  text: The column space of $A$ is a 2-dimensional subspace of $\mathbb{R}^4$.
+- label: B
+  text: Columns 1 and 3 of the row echelon form displayed above form a basis for the column space of $A$.
+- label: C
+  text: The equation $A\mathbf{x} = \mathbf{0}$ has a 3-dimensional solution space.
+- label: D
+  text: The rank of $A$ equals 2, which is the number of nonzero rows.
+- label: E
+  text: The pivot columns are columns 1, 2, and 3.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    The rank of a matrix equals the number of pivots, which equals the number of nonzero rows in any row echelon form. Here there are 2 pivots (in columns 1 and 3), so rank$(A) = 2$. This is a fundamental fact: row operations preserve rank, and in REF the rank is visible as the number of nonzero rows.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      the column space lives in $\mathbb{R}^5$, not $\mathbb{R}^4$! The column space is a subspace of the codomain, which has dimension 5 since $A$ has 5 rows. This is a common error: confusing row space and column space ambient dimensions.
+    B: |
+      This is a critical misconception! To form a basis for the column space of $A$, we must take the pivot columns from the ORIGINAL matrix $A$, not from its row echelon form. Row operations change the column space; the REF columns span a different space than $A$'s columns.
+    C: |
+      by rank-nullity, nullity $= 4 - 2 = 2$, not 3. The solution space to $A\mathbf{x} = \mathbf{0}$ is 2-dimensional.
+    E: |
+      (column 2 is NOT a pivot column; it has no leading entry. Pivots are in columns 1 and 3 only.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 6
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 230
+variant_of: null
+topics:
+- Rank
+- pivots
+- row echelon form
+- column space
+- linear independence
+notes: null

@@ -1,0 +1,59 @@
+id: ESE2030-0271
+legacy_id: null
+week: 5
+skills:
+- W05.S07
+status: active
+problem_type: null
+statement: |
+  Let $V$ and $W$ be inner product spaces and let $T : V \to W$ be a linear
+  transformation.  The adjoint $T^*$ is the linear transformation
+  characterized by which of the following?
+choices:
+- label: A
+  text: '$T^* : V \to W$ with $T^* \circ T = I_V$'
+- label: B
+  text: '$T^* : W \to V$ with $T(T^*(\mathbf{w})) = \mathbf{w}$ for all $\mathbf{w} \in W$'
+- label: C
+  text: '$T^* : W \to V$ with $\langle T(\mathbf{v}), T^*(\mathbf{w}) \rangle = \langle \mathbf{v}, \mathbf{w}
+    \rangle$ for all $\mathbf{v} \in V$, $\mathbf{w} \in W$'
+- label: D
+  text: '$T^* : W \to V$ with $\langle T(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, T^*(\mathbf{w})
+    \rangle$ for all $\mathbf{v} \in V$, $\mathbf{w} \in W$'
+- label: E
+  text: '$T^* : V \to W$ with $\langle T(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, T^*(\mathbf{w})
+    \rangle$ for all $\mathbf{v} \in V$, $\mathbf{w} \in W$'
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The adjoint $T^*$ goes in the opposite direction to $T$, so $T^* : W \to V$.  Its defining property is the cross-pairing identity $\langle T(\mathbf{v}), \mathbf{w} \rangle_W = \langle \mathbf{v}, T^*(\mathbf{w}) \rangle_V$ — moving $T$ across the inner product produces $T^*$ on the other side. [Type-signature picture: $T(\mathbf{v}) \in W$ pairs with $\mathbf{w} \in W$ on the left, and $\mathbf{v} \in V$ pairs with $T^*(\mathbf{w}) \in V$ on the right. Each inner product is taken in the space where both arguments live.]
+  key_insight: null
+  distractor_rationale:
+    E: |
+      correct identity, wrong direction — twin pair to (B), differing only in the type signature of $T^*$.  Catches students who memorize the identity but not which space $T^*$ acts between.
+    C: |
+      the {\em isometry} condition — preserving inner products — not the adjoint condition.  Surface match for students who confuse adjoint with the inverse of an orthogonal transformation.
+    A: |
+      left-inverse property — confuses adjoint with inverse, with the wrong type signature on top of it.
+    B: |
+      right-inverse property — same confusion as (D) with the right type signature; tempts students who got the direction right but think "adjoint = inverse on the codomain side."
+sources:
+- semester: 2026A
+  instrument: final
+  position: 22
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1335
+variant_of: null
+topics:
+- Adjoint
+- definition
+- type signature
+- inner product spaces
+notes: null

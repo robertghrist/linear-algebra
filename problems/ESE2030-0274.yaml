@@ -1,0 +1,58 @@
+id: ESE2030-0274
+legacy_id: null
+week: 11
+skills:
+- W11.S01
+status: active
+problem_type: null
+statement: |
+  Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix: $n$ observations of $d$ features, with each column having mean zero. Which statement best describes the covariance matrix of $X$?
+choices:
+- label: A
+  text: The $d \times d$ symmetric matrix $X^T X$, whose entries are the inner products of feature columns.
+- label: B
+  text: The $d \times d$ matrix obtained by standardizing each feature to unit variance, with entry $C_{ij}$
+    equal to the correlation between features $i$ and $j$.
+- label: C
+  text: The $n \times n$ symmetric matrix $\frac{1}{n} X X^T$, whose entries measure pairwise relationships
+    between observations.
+- label: D
+  text: The $d \times d$ symmetric matrix $\frac{1}{n} X^T X$, whose diagonal entries are the variances
+    of the features and whose off-diagonal entries are the covariances between feature pairs.
+- label: E
+  text: The $n \times n$ symmetric matrix $\frac{1}{d} X X^T$, whose diagonal entries are the squared
+    distances of each observation from the origin, normalized by the number of features.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    For a centered data matrix $X \in \mathbb{R}^{n \times d}$, the covariance matrix is $$C = \frac{1}{n} X^T X \in \mathbb{R}^{d \times d}.$$ Its structure is most easily read off entry-by-entry: writing $X$ in column form as $X = [\mathbf{x}_1 \mid \mathbf{x}_2 \mid \cdots \mid \mathbf{x}_d]$ where each $\mathbf{x}_j \in \mathbb{R}^n$ is a centered feature column, $$C_{ij} = \frac{1}{n} \mathbf{x}_i^T \mathbf{x}_j = \frac{1}{n} \sum_{k=1}^{n} x_{ki} x_{kj}.$$ The diagonal $C_{ii} = \frac{1}{n}\|\mathbf{x}_i\|^2$ is the variance of feature $i$; the off-diagonal $C_{ij}$ is the covariance between features $i$ and $j$. Two structural facts worth holding alongside the definition: (1) the matrix is $d \times d$, not $n \times n$ — it captures relationships between \emph{features}, not between observations; (2) centering is essential — without it, $X^T X$ would include the means and would not give covariances at all.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      D6 shape-implies-property: swaps $X^TX$ for $XX^T$. The $n \times n$ Gram-of-observations matrix is a different object — useful in some kernel/dual formulations of PCA, but \emph{not} the covariance matrix. A student who picks A has confused the feature-side and observation-side Gram matrices, the classic dimension confusion in PCA.
+    A: |
+      D4 surface match: drops the normalization entirely. $X^TX$ is proportional to the covariance matrix but is not itself the covariance matrix — its entries scale with sample size. A student who picks C has lost the ``per-observation'' character of variance.
+    B: |
+      D7 convention collision: describes the \emph{correlation} matrix, not the covariance matrix. The two are related — correlation PCA standardizes features before computing covariance — but they are distinct objects with different entries and different units.
+    E: |
+      a real and nameable object — the $1/d$-normalized observation Gram matrix, whose diagonal does encode squared observation magnitudes — but it is the wrong-side Gram matrix \emph{and} the wrong normalization. Catches a student who pattern-matches on ``$XX^T$ with some normalization'' without checking which side or which scaling.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 25
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1491
+variant_of: null
+topics:
+- Covariance matrix
+- definition
+- statistical structure
+- centered data
+notes: 'difficulty: Core | solutions guide matched ("Definition of the sample covariance matrix") but
+  its correct choice could not be mapped to a letter here'

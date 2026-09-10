@@ -1,0 +1,61 @@
+id: ESE2030-0290
+legacy_id: null
+week: 8
+skills:
+- W08.S06
+status: active
+problem_type: null
+statement: |
+  Let $J = \lambda I + N$ be a $k \times k$ Jordan block with eigenvalue
+  $\lambda$ on the diagonal and a single superdiagonal of $1$'s, so that $N$
+  is the $k \times k$ nilpotent matrix with $N^k = 0$. The matrix exponential
+  $e^{Jt}$ controls the solution to $d\mathbf{x}/dt = J\mathbf{x}$.
+  Which of the following is the most accurate description of $e^{Jt}$, and
+  why?
+choices:
+- label: A
+  text: $e^{Jt} = e^{\lambda t}\!\left(I + tN + \tfrac{t^2}{2!}N^2 + \cdots + \tfrac{t^{k-1}}{(k-1)!}N^{k-1}\right)$,
+    because $\lambda I$ and $N$ commute and $N$ is nilpotent of index $k$.
+- label: B
+  text: $e^{Jt} = e^{\lambda I t} + e^{Nt}$, since the matrix exponential is additive over a sum of commuting
+    matrices.
+- label: C
+  text: $e^{Jt}$ is undefined whenever $J$ is non-diagonalizable, since the matrix exponential requires
+    an eigenbasis to compute.
+- label: D
+  text: $e^{Jt} = e^{\lambda t}\!\left(I + tN + \tfrac{t^2}{2!}N^2 + \cdots\right)$ as an infinite series,
+    since the superdiagonal contributions never terminate.
+- label: E
+  text: $e^{Jt} = e^{\lambda t} I$, since the diagonal entry $\lambda$ governs the exponential growth
+    rate.
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The decomposition $J = \lambda I + N$ exhibits $J$ as a sum of two \emph{commuting} matrices --- $\lambda I$ commutes with everything --- so the matrix exponential factors as $$e^{Jt} \;=\; e^{(\lambda I + N) t} \;=\; e^{\lambda I t}\, e^{N t} \;=\; e^{\lambda t}\, e^{Nt}.$$ The first factor is the scalar $e^{\lambda t}$ times $I$; the second factor is the matrix exponential of the nilpotent $N$, which by definition is the power series $e^{Nt} = \sum_{j \geq 0} \frac{t^j}{j!} N^j$. Because $N^k = 0$, this series terminates after $k$ terms: $$e^{Nt} \;=\; I + tN + \tfrac{t^2}{2!} N^2 + \cdots + \tfrac{t^{k-1}}{(k-1)!} N^{k-1}.$$ Multiplying by $e^{\lambda t}$ gives (C). This is the structural origin of the polynomial-times-exponential ladder $\{e^{\lambda t}, t e^{\lambda t}, t^2 e^{\lambda t}/2!, \ldots\}$ that appears as the basis of solutions to a higher-order linear ODE with a repeated root (P21). The factor $e^{\lambda t}$ comes from $\lambda I$; the polynomial factors $1, t, t^2/2!, \ldots, t^{k-1}/(k-1)!$ are the entries that $N$ generates as it climbs the superdiagonal. The Jordan block is the matrix avatar of the repeated-root behavior --- Jordan structure and the polynomial ladder are the same phenomenon viewed from two angles. [Conceptual through-line: matrix exponentials of diagonalizable matrices (Wk 7) involve only $e^{\lambda t}$ scalings on each eigenvector. The \emph{new} content of Wk 8 is what happens when there are not enough eigenvectors --- the missing directions are filled in by the nilpotent $N$, and matrix exponentiation reaches into those directions through the polynomial $t^j N^j / j!$ ladder. (C) is the single formula that encodes both the eigenvalue scaling and the Jordan-chain ladder.]
+  key_insight: null
+  distractor_rationale:
+    E: |
+      D5 naive-prior: takes the diagonal-case answer $e^{\lambda t} I$ and applies it to the non-diagonalizable case. This would be correct if $N = 0$, but the whole point of a Jordan block is that $N \neq 0$; ignoring $N$ ignores the entire Jordan-chain structure. A student who picks (A) has not registered that non-diagonalizable matrices behave differently under exponentiation.
+    B: |
+      D7 algebraic-rule misuse: invokes a false ``additivity'' rule. The matrix exponential is multiplicative over commuting summands, $e^{A+B} = e^A e^B$ when $AB = BA$ --- never additive. The correct decomposition does start from $J = \lambda I + N$ with commutativity, but produces a \emph{product} $e^{\lambda I t} e^{Nt}$, not a sum. The student who picks (B) has the right ingredients but the wrong combinator.
+    C: |
+      D5 naive-prior: confuses ``computation by diagonalization'' with the existence of $e^{Jt}$. The matrix exponential is defined for \emph{any} square matrix via its power series; diagonalization is a convenient shortcut when available, not a precondition. The Jordan-block formula in (C) is precisely the tool that handles the non-diagonalizable case.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 41
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 2299
+variant_of: null
+topics:
+- Matrix exponential of a Jordan block
+- nilpotent decomposition
+notes: 'difficulty: Deeper | week remapped 7 -> 8 at skill tagging: content is Chapter 8 material'

@@ -27,7 +27,7 @@ SRC = ROOT / 'quizzes-exams'
 
 MARKER = re.compile(r'^\s*\{*\\bf PROBLEM\s*(\d+)?\s*:')
 DEAD_MARKER = re.compile(r'^\s*%\s*\{*\\bf PROBLEM')
-WEEK = re.compile(r'^\s*%\s*WEEK\s*=\s*(\d+)')
+WEEK = re.compile(r'^\s*%\s*WEEK\s*=?\s*(\d+)')
 TOPICS = re.compile(r'^\s*%\s*TOPICS\s*=\s*(.+)$')
 CHOICE_ENV = re.compile(r'\\begin\{enumerate\}\[\(A\)\]')
 END_ENV = re.compile(r'\\end\{enumerate\}')
@@ -134,6 +134,23 @@ def parse_block(body):
                     break
         cj = cj if cj is not None else len(body) - 1
         head, choice_lines, tail = body[:ci], body[ci + 1:cj], body[cj + 1:]
+
+        # Layout hacks: choices laid out side by side inside a minipage, with
+        # "(B) ...", "(C) ..." written inline after \hfill, and "\item[(E)]".
+        # Normalise them into one \item per choice before parsing.
+        flat = []
+        for l in choice_lines:
+            if re.search(r'\\(?:begin|end)\{minipage\}', l):
+                continue
+            l = re.sub(r'\\item\[\([A-H]\)\]', r'\\item', l)
+            for piece in re.split(r'\\hfill(?:\\mbox\{\})?', l):
+                piece = piece.strip()
+                m = re.match(r'^\(([B-H])\)\s+(.*)$', piece)
+                if m:
+                    piece = r'\item ' + m.group(2)
+                if piece:
+                    flat.append(piece)
+        choice_lines = flat
 
         cur = None
         for l in choice_lines:

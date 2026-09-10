@@ -1,0 +1,54 @@
+id: ESE2030-0273
+legacy_id: null
+week: 9
+skills:
+- W09.S05
+status: active
+problem_type: null
+statement: |
+  Suppose $A$ is a square matrix with all entries strictly positive. Which statement most completely captures what the Perron-Frobenius theorem guarantees about the eigenstructure of $A$?
+choices:
+- label: A
+  text: The spectral radius $\rho(A)$ is itself an eigenvalue of $A$.
+- label: B
+  text: There is a real positive eigenvalue, strictly greater in magnitude than every other eigenvalue,
+    with a corresponding eigenvector having all strictly positive entries.
+- label: C
+  text: The largest magnitude eigenvalue is dominant.
+- label: D
+  text: There exists an eigenvector of $A$ with all strictly positive entries.
+- label: E
+  text: All eigenvalues of $A$ are real and positive.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The Perron-Frobenius theorem (in its strictly-positive form) asserts a \textbf{bundle} of facts about the dominant eigenpair of a positive matrix: there is a single eigenvalue $\lambda_*$ that is \emph{(i)} real and positive, \emph{(ii)} equal to the spectral radius $\rho(A)$, \emph{(iii)} \emph{strictly} dominant (no other eigenvalue has the same magnitude), and \emph{(iv)} associated with an eigenvector $\mathbf{v}_*$ whose entries are all strictly positive. Choice (C) packages three of these four guarantees into a single statement; (A), (B), and (D) each isolate one piece and miss the others. The eigenvalue $\lambda_*$ is sometimes called the \emph{Perron eigenvalue} and $\mathbf{v}_*$ the \emph{Perron vector}. [Teaching remark: the strictness in ``strictly greater in magnitude than every other eigenvalue'' is what makes power iteration converge for positive matrices --- if the dominant eigenvalue were merely tied with another, the iterates would not settle into a single direction. The positivity of the eigenvector is what makes Perron-Frobenius the right tool for stationary distributions of stochastic matrices, population dynamics, and PageRank-style ranking applications: the entries of $\mathbf{v}_*$ can be interpreted as probabilities, populations, or scores.]
+  key_insight: null
+  distractor_rationale:
+    A: |
+      captures one consequence of Perron-Frobenius --- that $\rho(A)$ is realized as an actual eigenvalue rather than just a bound --- but says nothing about strict dominance or the positive eigenvector. One rung of the ladder.
+    D: |
+      captures the positive-eigenvector half of the theorem but is silent about which eigenvalue this eigenvector corresponds to. A second rung of the ladder.
+    C: |
+      captures strict dominance --- the gap between $\rho(A)$ and the next-largest magnitude --- but says nothing about the sign or reality of the dominant eigenvalue, nor about the positive eigenvector. A third rung of the ladder.
+    E: |
+      over-generalizes ``positive matrix'' to ``all eigenvalues positive.'' Perron-Frobenius guarantees only that the \emph{dominant} eigenvalue is real and positive; the other eigenvalues can be complex or negative, provided their magnitudes are strictly smaller. For example, the $3 \times 3$ positive matrix $\begin{bmatrix} 1 & 1 & 1 \\ 2 & 1 & 1 \\ 1 & 2 & 1 \end{bmatrix}$ has one dominant real eigenvalue near $3.4$ and a complex conjugate pair with magnitude near $0.6$. Classic D6 shape-implies-property fallacy.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 24
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1432
+variant_of: null
+topics:
+- Perron-Frobenius theorem
+- dominant eigenvalue
+- positive eigenvector
+notes: 'difficulty: Core'

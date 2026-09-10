@@ -1,0 +1,54 @@
+id: ESE2030-0250
+legacy_id: null
+week: 10
+skills:
+- W10.S05
+status: active
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{4 \times 3}$ has singular values $\sigma_1 = 6$, $\sigma_2 = 3$, $\sigma_3 = 2$.
+  Over all unit vectors $\mathbf{x} \in \mathbb{R}^3$, what is the largest possible value of $\|A\mathbf{x}\|$?
+choices:
+- label: A
+  text: $\sqrt{6^2 + 3^2 + 2^2} = 7$
+- label: B
+  text: $36$
+- label: C
+  text: $11$
+- label: D
+  text: $6$
+- label: E
+  text: Cannot be determined from the information given.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The largest singular value $\sigma_1$ is \emph{defined} by the extremal property $$ \sigma_1 \;=\; \max_{\|\mathbf{x}\| = 1} \|A\mathbf{x}\|, $$ with the maximum attained at $\mathbf{x} = \mathbf{v}_1$, the first right singular vector. Geometrically: $A$ maps the unit sphere in $\mathbb{R}^3$ to an ellipsoid in $\mathbb{R}^4$ whose longest semi-axis has length $\sigma_1 = 6$. So the answer is $6$. This quantity is the \textbf{operator 2-norm} $\|A\|_2 = \sigma_1$. It is fundamentally different from the Frobenius norm $\|A\|_F = \sqrt{\sum \sigma_i^2}$: the operator norm is the \emph{worst-case stretching} of a single unit vector, while the Frobenius norm aggregates over all stretching directions.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      (D3 correct-structure-wrong-detail: the student computed $\|A\|_F = \sqrt{36 + 9 + 4} = 7$ correctly, but Frobenius is the wrong norm for ``maximum of $\|A\mathbf{x}\|$ over unit $\mathbf{x}$''.
+    B: |
+      (D6 shape-implies-property: confuses $\sigma_1$ with $\sigma_1^2$, the largest eigenvalue of $A^T A$; the eigenvalue of $A^T A$ tells you $\|A\mathbf{x}\|^2$, not $\|A\mathbf{x}\|$).
+    C: |
+      (D5 naive-prior: just adds the singular values, $6 + 3 + 2 = 11$; treats them as if they combine additively for a single input vector).
+    E: |
+      (D4 surface match: $U$ and $V$ are needed to find the maximizing vector $\mathbf{v}_1$, but they are not needed to know the maximum \emph{value} --- that depends only on $\sigma_1$. The singular values alone determine the operator norm).
+sources:
+- semester: 2026A
+  instrument: final
+  position: 1
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 96
+variant_of: null
+topics:
+- Operator 2-norm
+- geometric meaning of largest singular value
+- extremal characterization
+notes: 'difficulty: Core'

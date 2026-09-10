@@ -1,7 +1,8 @@
 id: ESE2030-0078
 legacy_id: Q4-P05
-week: 8
-skills: []
+week: 7
+skills:
+- W07.S07
 status: active
 problem_type: null
 statement: |
@@ -55,4 +56,4 @@ topics:
 - companion matrices
 - characteristic polynomial
 - basis solutions
-notes: null
+notes: 'week remapped 8 -> 7 at skill tagging: content is Chapter 7 material'

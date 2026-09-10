@@ -1,0 +1,49 @@
+id: ESE2030-0182
+legacy_id: null
+week: 4
+skills:
+- W04.S05
+- W04.S06
+status: active
+problem_type: null
+statement: |
+  Two engineers model the same linear transformation $T:\mathbb{R}^n\to\mathbb{R}^n$ using different coordinate systems. Engineer 1 uses basis $\mathcal{A}$ and obtains matrix $A$; Engineer 2 uses basis $\mathcal{B}$ and obtains matrix $B$. Which statement is correct?
+choices:
+- label: A
+  text: $A$ and $B$ have the same kernel
+- label: B
+  text: $A$ and $B$ have the same image
+- label: C
+  text: $A=B$ if the bases $\mathcal{A}$ and $\mathcal{B}$ are both orthonormal
+- label: D
+  text: $A$ and $B$ are similar
+- label: E
+  text: $A$ and $B$ are invertible
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - A
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Since both matrices represent the same transformation in different bases, $B = P^{-1}AP$ where $P$ is the change-of-basis matrix from $\mathcal{A}$ to $\mathcal{B}$. This is the definition of similarity.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      the abstract $\ker(T)$ is basis-independent, but $\ker(A)$ and $\ker(B)$ are sets of coordinate vectors in different bases; they are generically different subsets of $\mathbb{R}^n$
+    B: |
+      same reasoning: $\operatorname{im}(T)$ is basis-independent, but $\operatorname{im}(A)$ and $\operatorname{im}(B)$ encode it in different coordinate systems
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 1
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 109
+variant_of: null
+topics: []
+notes: null

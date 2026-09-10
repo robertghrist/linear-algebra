@@ -1,0 +1,50 @@
+id: ESE2030-0200
+legacy_id: null
+week: 5
+skills:
+- W05.S05
+status: active
+problem_type: null
+statement: |
+  Let $V$ be an $n$-dimensional inner product space, and let $S = \{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$ be a linearly independent set in $V$ with $1 < k < n$. The vectors in $S$ are \emph{not} pairwise orthogonal. Which of the following is guaranteed?
+choices:
+- label: A
+  text: There exists an orthonormal set of $k$ vectors whose span equals $\operatorname{span}(S)$.
+- label: B
+  text: There exist positive scalars $\alpha_i$ such that $\{\alpha_1\mathbf{v}_1, \ldots, \alpha_k\mathbf{v}_k\}$
+    is orthonormal.
+- label: C
+  text: There exists an orthonormal basis for $V$ that contains every vector in $S$ (unmodified) as an
+    element.
+- label: D
+  text: The set $S$ can be orthonormalized only after first extending it to a basis for all of $V$.
+- label: E
+  text: None of the above is guaranteed.
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Gram--Schmidt applied to $\mathbf{v}_1, \ldots, \mathbf{v}_k$ produces orthonormal vectors $\mathbf{q}_1, \ldots, \mathbf{q}_k$ satisfying $\operatorname{span}\{\mathbf{q}_1, \ldots, \mathbf{q}_j\} = \operatorname{span}\{\mathbf{v}_1, \ldots, \mathbf{v}_j\}$ for each $j$. In particular the overall spans agree. This works for any linearly independent set --- no extension to a full basis is needed, and the vectors need not already be orthogonal.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      rescaling each $\mathbf{v}_i$ by a positive scalar preserves its direction, so $\alpha_i\mathbf{v}_i \parallel \mathbf{v}_i$. Normalization makes each vector unit length but cannot change angles between vectors. Since the $\mathbf{v}_i$ are explicitly not pairwise orthogonal, no rescaling can make them orthonormal. This catches the ``Gram--Schmidt is just normalization'' misconception.
+    C: |
+      conflates the basis extension theorem with orthonormal extension. Since the $\mathbf{v}_i$ are not pairwise orthogonal, at least two satisfy $\langle \mathbf{v}_i, \mathbf{v}_j \rangle \neq 0$, so they cannot both belong to any orthonormal set. The student remembers ``independent vectors extend to a basis'' but forgets that orthonormal extension requires modifying the originals.
+    D: |
+      a student who thinks of Gram--Schmidt as purely a ``basis $\to$ orthonormal basis'' machine believes you must first have $n$ vectors. In fact, Gram--Schmidt works on any linearly independent set of size $k \leq n$; it orthonormalizes a subspace, not just the full space.
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 19
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 622
+variant_of: null
+topics: []
+notes: 'week remapped 4 -> 5 at skill tagging: content is Chapter 5 material'

@@ -1,0 +1,58 @@
+id: ESE2030-0215
+legacy_id: null
+week: 9
+skills:
+- W09.S05
+- W09.S06
+status: active
+problem_type: null
+statement: |
+  A positive stochastic matrix $P$ (all entries strictly positive, columns
+  sum to $1$) has eigenvalues $\lambda_i$.
+  The Perron-Frobenius theorem guarantees several properties of $P$.
+  Which of the following is \textbf{not} among them?
+choices:
+- label: A
+  text: Every other eigenvalue satisfies $|\lambda_i| < 1$
+- label: B
+  text: The eigenvalue $\lambda_1 = 1$ is simple (algebraic multiplicity one)
+- label: C
+  text: The eigenvalue $\lambda_1 = 1$ has a corresponding eigenvector with all entries strictly positive
+- label: D
+  text: For any initial probability distribution $\mathbf{x}_0$, the iterates $P^k\mathbf{x}_0$ converge
+    to the unique stationary distribution as $k \to \infty$
+- label: E
+  text: 'None of the above : all these properties are guaranteed.'
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    Perron-Frobenius guarantees a great deal about the \emph{dominant} eigenvalue and its eigenvector, but its guarantees about the remaining eigenvectors are much more limited. Specifically, for a positive matrix: (A) TRUE: The Perron eigenvector (for $\lambda_1 = \rho(P)$) can be chosen with all entries strictly positive. This is a central conclusion of the theorem. (B) TRUE: For a positive (not merely non-negative) matrix, the Perron eigenvalue is simple --- it has algebraic multiplicity one. This is the ``uniqueness'' part of Perron-Frobenius. (C) TRUE: For a positive stochastic matrix, the Perron eigenvalue is $1$, and all other eigenvalues are strictly less than $1$ in magnitude. This is what makes convergence possible. (D) TRUE: Since $|\lambda_i| < 1$ for $i \geq 2$, the components of $P^k\mathbf{x}_0$ along non-dominant eigenvectors decay to zero, leaving only the stationary distribution. The positivity of the Perron eigenvector combined with $\lambda_1 = 1$ and simplicity ensures convergence to a unique limit.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      this IS guaranteed by Perron-Frobenius and is perhaps the theorem's most famous conclusion. A student selecting this may doubt that an eigenvector can have a sign constraint, but positivity of the Perron eigenvector is the theorem's core content.
+    B: |
+      simplicity of the Perron eigenvalue is guaranteed for positive matrices. A student might confuse this with the weaker result for non-negative matrices, where the Perron eigenvalue can have higher multiplicity in reducible cases. But the problem specifies a positive matrix.
+    A: |
+      this follows from the combination of Perron-Frobenius and the stochastic property. A student might doubt this if they recall that non-negative matrices can have multiple eigenvalues on the spectral circle, but strict positivity rules this out.
+    D: |
+      (this is the convergence theorem for positive stochastic matrices. A student might think initial conditions matter for the limit, but the uniqueness of the stationary distribution and $|\lambda_i| < 1$ for $i \geq 2$ ensure universal convergence.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 12
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 938
+variant_of: null
+topics:
+- Perron-Frobenius theorem
+- positive matrices
+- uniqueness of
+notes: null

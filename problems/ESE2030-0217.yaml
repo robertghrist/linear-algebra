@@ -1,0 +1,69 @@
+id: ESE2030-0217
+legacy_id: null
+week: 9
+skills:
+- W09.S03
+status: active
+problem_type: null
+statement: |
+  The Fibonacci sequence $F_0 = 0, \; F_1 = 1, \; F_{k+1} = F_k + F_{k-1}$
+  can be written in matrix form:
+  $$\begin{pmatrix} F_{k+1} \\ F_k \end{pmatrix}
+    = \underbrace{\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix}}_{A}
+      \begin{pmatrix} F_k \\ F_{k-1} \end{pmatrix}
+  \quad \Rightarrow \quad \lambda_1 = \dfrac{1+\sqrt{5}}{2} \approx 1.618...\,\, ; \,\, \lambda_2= \dfrac{1-\sqrt{5}}{2} \approx -0.618...
+  $$
+  It is a classical fact that $\dfrac{F_{k+1}}{F_k} \to \lambda_1 \approx 1.618\ldots$ as
+  $k \to \infty$.
+  Which of the following best explains \textbf{why}?
+choices:
+- label: A
+  text: $\lambda_1$ is the only positive eigenvalue of $A$, and Fibonacci numbers are positive, so the
+    ratio must converge to the positive eigenvalue
+- label: B
+  text: The trace of $A$ is $1$, so the sum of eigenvalues is $1$; as $k$ grows, this forces the ratio
+    $F_{k+1}/F_k$ toward the larger eigenvalue
+- label: C
+  text: $A$ is symmetric, so the Spectral Theorem guarantees that the dominant eigenvalue controls the
+    long-term ratio
+- label: D
+  text: $\lambda_1$ satisfies $\lambda_1^2 = \lambda_1 + 1$, which is the same relation as $F_{k+1} =
+    F_k + F_{k-1}$ after dividing by $F_k$; therefore any sequence obeying this recurrence must converge
+    to $\lambda_1$
+- label: E
+  text: Since $|\lambda_2| < 1 < |\lambda_1|$, the component of $\mathbf{x}_k = A^k\mathbf{x}_0$ along
+    the other eigenvector decays relative to the component along $\lambda_1$'s eigenvector, so $\mathbf{x}_k$
+    becomes approximately parallel to $\lambda_1$'s eigenvector, and multiplication by $A$ then scales
+    by approximately $\lambda_1$
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    Writing the state vector in the eigenbasis, $\mathbf{x}_0 = c_1\mathbf{v}_1 + c_2\mathbf{v}_2$ where $\mathbf{v}_1, \mathbf{v}_2$ are eigenvectors for $\lambda_1$ and $\lambda_2$ respectively. Then: $$\mathbf{x}_k = A^k\mathbf{x}_0 = c_1\lambda_1^k\,\mathbf{v}_1 + c_2(\lambda_2)^k\,\mathbf{v}_2$$ Since $|\lambda_2| \approx 0.618 < 1$ and $|\lambda_1| \approx 1.618 > 1$, the first term grows while the second decays. For large $k$: $$\mathbf{x}_k \approx c_1\lambda_1^k\,\mathbf{v}_1$$ Once $\mathbf{x}_k$ is approximately a multiple of $\mathbf{v}_1$, one more multiplication by $A$ scales it by $\lambda_1$, meaning both entries --- $F_{k+1}$ and $F_k$ --- grow by the same factor $\lambda_1$. Their ratio therefore approaches $\lambda_1$. This is exactly the mechanism behind the power method: repeated multiplication by a matrix causes the iterate to align with the dominant eigenvector, and the ratio of successive iterates converges to the dominant eigenvalue. The Fibonacci sequence is a natural instance of this phenomenon.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      contains a true algebraic observation: dividing $F_{k+1} = F_k + F_{k-1}$ by $F_k$ gives $F_{k+1}/F_k = 1 + F_{k-1}/F_k$, and if the ratio converges to some limit $L$, then $L = 1 + 1/L$, i.e., $L^2 = L + 1$, which $\lambda_1$ satisfies. This argument correctly identifies the limit \emph{assuming convergence}, but does not explain \emph{why} convergence occurs. The claim ``any sequence obeying this recurrence must converge'' is false without the eigenvalue analysis: one must verify that $c_1 \neq 0$ and that the subdominant component actually decays. The fixed-point equation alone does not rule out oscillation, divergence, or convergence to $\hat{\lambda_1}$. A student selecting this has a correct algebraic intuition but has not identified the mechanism --- dominant eigenvalue decay --- that makes convergence happen.
+    B: |
+      the trace of $A$ is $1 + 0 = 1$, which is indeed the sum of eigenvalues. But the trace being $1$ has no mechanism for ``forcing'' the ratio toward the larger eigenvalue. The trace constrains the eigenvalue sum; it says nothing about which eigenvalue dominates the iteration. Convergence is governed by eigenvalue \emph{magnitudes}, not their sum.
+    C: |
+      $A = \begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix}$ is indeed symmetric, so the Spectral Theorem does apply. However, symmetry is not the reason the dominant eigenvalue controls the ratio. Any diagonalizable matrix with a strictly dominant eigenvalue exhibits the same behavior --- symmetry provides orthogonal eigenvectors and real eigenvalues, but the convergence mechanism is eigenvalue magnitude separation, which works identically for non-symmetric matrices. A student selecting this over-attributes the convergence to a structural property that is present but irrelevant.
+    A: |
+      (positivity of $\lambda_1$ and positivity of Fibonacci numbers are both true, but the convergence has nothing to do with sign matching. If the initial condition had been chosen so that $c_1 < 0$, the iterates would eventually become negative, but the \emph{ratio} would still converge to $\lambda_1$. Moreover, $\lambda_2$ alternates sign when raised to powers, which does not prevent it from being the dominant eigenvalue in a different matrix. The sign of the eigenvalue is not the operative criterion; the magnitude is.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 14
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 1089
+variant_of: null
+topics:
+- Dominant eigenvalue
+- linear recurrence as matrix iteration
+notes: null

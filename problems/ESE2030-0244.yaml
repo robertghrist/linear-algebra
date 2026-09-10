@@ -1,0 +1,55 @@
+id: ESE2030-0244
+legacy_id: null
+week: 11
+skills:
+- W11.S06
+status: active
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{6 \times 4}$ have exactly four nonzero singular values
+  $\sigma_i$, left singular vectors $\mathbf{u}_i$,
+  and right singular vectors $\mathbf{v}_i$. Among all rank-$2$ matrices $X$,
+  which minimizes $\|A - X\|_F$?
+choices:
+- label: A
+  text: There is not a unique minimizer.
+- label: B
+  text: $\sigma_2\mathbf{u}_2\mathbf{v}_2^T + \sigma_3\mathbf{u}_3\mathbf{v}_3^T$.
+- label: C
+  text: $\sigma_1\mathbf{u}_1\mathbf{v}_1^T + \sigma_2\mathbf{u}_2\mathbf{v}_2^T$.
+- label: D
+  text: $\sigma_3\mathbf{u}_3\mathbf{v}_3^T + \sigma_4\mathbf{u}_4\mathbf{v}_4^T$.
+- label: E
+  text: $\sigma_1\mathbf{u}_1\mathbf{v}_1^T + \sigma_4\mathbf{u}_4\mathbf{v}_4^T$.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Eckart-Young: the truncated SVD $A_k = \sum_{i=1}^k \sigma_i\mathbf{u}_i\mathbf{v}_i^T$ minimizes $\|A - X\|_F$ over ALL rank-$k$ matrices $X$, with error $\sqrt{\sigma_{k+1}^2 + \cdots + \sigma_r^2}$. Here $k=2$ gives (A), with error $\sqrt{\sigma_3^2 + \sigma_4^2}$.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      keeps the smallest two singular components; error $\sqrt{\sigma_1^2 + \sigma_2^2}$, the worst among SVD-based rank-$2$ truncations
+    B: |
+      similar to above
+    A: |2+
+
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 19
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 1036
+variant_of: null
+topics:
+- Eckart-Young
+- form and scope of optimal low-rank approximation
+notes: 'difficulty: Core | week remapped 10 -> 11: Eckart-Young / best rank-k / PCA-via-SVD are LAEF 2E
+  Chapter 11 | EXPLANATION: explanation letters follow another version ordering ("(A)" = this C)'

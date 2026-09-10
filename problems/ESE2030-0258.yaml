@@ -1,0 +1,56 @@
+id: ESE2030-0258
+legacy_id: null
+week: 2
+skills: []
+status: active
+problem_type: null
+statement: |
+  Which of the following properties is NOT one of the axioms of a vector space?
+choices:
+- label: A
+  text: $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$ for every $\mathbf{u}, \mathbf{v} \in V$
+- label: B
+  text: There exists a vector $\mathbf{0} \in V$ such that $\mathbf{v} + \mathbf{0} = \mathbf{v}$ for
+    every $\mathbf{v} \in V$
+- label: C
+  text: $1 \cdot \mathbf{v} = \mathbf{v}$ for every $\mathbf{v} \in V$
+- label: D
+  text: $c \cdot (\mathbf{u} + \mathbf{v}) = c \cdot \mathbf{u} + c \cdot \mathbf{v}$ for every scalar
+    $c$ and $\mathbf{u}, \mathbf{v} \in V$
+- label: E
+  text: $0 \cdot \mathbf{v} = \mathbf{0}$ for every $\mathbf{v} \in V$
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The identity $0 \cdot \mathbf{v} = \mathbf{0}$ is a \emph{theorem}, not an axiom. It is provable from the axioms via distributivity over scalar addition: $0 \cdot \mathbf{v} = (0 + 0) \cdot \mathbf{v} = 0 \cdot \mathbf{v} + 0 \cdot \mathbf{v}$, and subtracting $0 \cdot \mathbf{v}$ from both sides gives $\mathbf{0} = 0 \cdot \mathbf{v}$. The other four are axioms: (B) commutativity of vector addition, (C) the scalar identity axiom, (D) distributivity of scalar multiplication over vector addition, and (E) existence of the additive identity (zero vector). [Teaching remark: the axioms are deliberately minimal. Recognizing which properties are primitive versus which are derivable is the point of an axiomatic system. Note that the scalar identity $1 \cdot \mathbf{v} = \mathbf{v}$ \emph{must} be assumed as an axiom — without it, one could define a degenerate ``scalar multiplication'' where $c \cdot \mathbf{v} = \mathbf{0}$ for all $c, \mathbf{v}$, and most other axioms would still hold.]
+  key_insight: null
+  distractor_rationale:
+    C: |
+      D4 surface-match: looks similar in form to (A) — both are scalar-times-vector identities involving a specific scalar. Students may pattern-match on shape and pick the ``$1$ version'' as derivable from the ``$0$ version'' or vice versa. Twin pair to (A); the genuine asymmetry is that (C) is irreducible while (A) follows from distributivity.
+    A: |
+      D5 naive-prior: a student who has not internalized the axiom list might guess that commutativity is a ``computational consequence'' of structure. It is not — commutativity of vector addition is an explicit axiom.
+    D: |
+      D5 naive-prior: distributivity of scalar multiplication over vector addition is an explicit axiom; this is distinct from distributivity over scalar addition, which is a \emph{separate} axiom — students sometimes conflate the two and assume one implies the other.
+    B: |
+      D5 naive-prior: students who think of the zero vector as ``just there'' rather than as something whose existence is asserted by an axiom might pick this. Existence of the additive identity is an explicit axiom in every standard formulation.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 9
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 601
+variant_of: null
+topics:
+- Vector space axioms
+- derived properties
+- distributivity
+- scalar multiplication
+notes: 'difficulty: Deeper | tagging: Tests vector space axioms vs derived properties (0v=0 is a theorem);
+  no listed skill covers axiom recall.'

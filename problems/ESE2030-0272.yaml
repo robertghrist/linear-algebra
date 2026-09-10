@@ -1,0 +1,53 @@
+id: ESE2030-0272
+legacy_id: null
+week: 6
+skills:
+- W06.S01
+status: active
+problem_type: null
+statement: |
+  Let $V$ be a finite-dimensional inner product space and let $W \subseteq V$
+  be a subspace.  Which of the following must be true?
+choices:
+- label: A
+  text: $\dim(W) + \dim(W^\perp) = \dim(V)$
+- label: B
+  text: $W \cap W^\perp = \{\mathbf{0}\}$
+- label: C
+  text: All three of (A), (B), (D) must be true
+- label: D
+  text: $(W^\perp)^\perp = W$
+- label: E
+  text: Only (A) and (B) must be true; (D) requires $W$ to be closed under additional structure
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    In a finite-dimensional inner product space, all three statements hold for every subspace $W$: (A) follows from the orthogonal decomposition $V = W \oplus W^\perp$. (B) is immediate: any $\mathbf{v} \in W \cap W^\perp$ satisfies $\langle \mathbf{v}, \mathbf{v} \rangle = 0$, hence $\mathbf{v} = \mathbf{0}$ by positive-definiteness of the inner product. (C) follows from (A) applied twice: $\dim((W^\perp)^\perp) = \dim(V) - \dim(W^\perp) = \dim(W)$, and the inclusion $W \subseteq (W^\perp)^\perp$ is automatic, so equality of dimensions forces equality of subspaces. [Conceptual note: $\perp$ is an involution on the lattice of subspaces of a finite-dimensional inner product space. The three properties above are not independent observations — they are the three faces of the orthogonal decomposition theorem.]
+  key_insight: null
+  distractor_rationale:
+    D: |
+      (correct as a standalone statement, but a student who picks (C) over (D) has missed (A) and (B) — the double-complement identity is the deepest of the three, and the pattern-matching student grabs it without checking the others).
+    E: |
+      (twin pair to (D) under a fabricated caveat — tempts the student who half-remembers that $(W^\perp)^\perp = W$ can fail in {\em infinite} dimensions and overgeneralizes the caveat to the finite-dimensional setting where it does not apply).
+sources:
+- semester: 2026A
+  instrument: final
+  position: 23
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1380
+variant_of: null
+topics:
+- Orthogonal complements
+- dimension formula
+- double complement
+- finite-dimensional inner product spaces
+notes: solutions guide matched ("Orthogonal complement --- which properties hold?") but its correct choice
+  could not be mapped to a letter here | choice cross-references repaired to this letter order (the exam
+  .tex carries the permuted-but-unrelabeled "printed version" the solutions guide apologises for)

@@ -1,0 +1,53 @@
+id: ESE2030-0288
+legacy_id: null
+week: 4
+skills:
+- W04.S05
+status: active
+problem_type: null
+statement: |
+  Square matrices $A$ and $B$ of the same size satisfy $B = P^{-1} A P$ for some invertible matrix $P$. Which statement most fundamentally describes the relationship between $A$ and $B$?
+choices:
+- label: A
+  text: $A$ and $B$ have the same determinant and trace.
+- label: B
+  text: $A$ and $B$ have the same image as subspaces of $\mathbb{R}^n$.
+- label: C
+  text: $A$ and $B$ have the same eigenvalues.
+- label: D
+  text: $A$ is obtained from $B$ by a change of coordinates in the codomain only.
+- label: E
+  text: $A$ and $B$ represent the same linear transformation expressed in different bases.
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The equation $B = P^{-1} A P$ is the change-of-basis formula for a linear transformation $T : V \to V$. If $A = [T]_{\mathcal{B}}$ and $\mathcal{C}$ is another basis with change-of-basis matrix $P$ (so columns of $P$ express the $\mathcal{C}$-vectors in $\mathcal{B}$-coordinates), then $[T]_{\mathcal{C}} = P^{-1} A P = B$. The fundamental content of similarity is therefore: \textbf{same transformation, different bases}. Every other true statement about similar matrices --- equal eigenvalues, equal determinant, equal trace, equal rank --- is a \emph{consequence} of this fact, because these quantities are intrinsic to the transformation $T$ itself and do not depend on the basis chosen to represent it. This is the conceptual seed of diagonalization: an eigenbasis is a basis in which the matrix representation is diagonal, because in that basis $T$ acts as a pure stretch along each axis.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      recognizes the strongest invariant of similarity --- eigenvalues are preserved because they are intrinsic to the transformation --- but identifies a consequence rather than the meaning.
+    A: |
+      recognizes two correct invariants of similarity, but a strictly weaker observation than (A), since equal eigenvalues already imply equal determinant and trace.
+    D: |
+      the change of basis affects \emph{both} the input and output sides, since the same basis is used for the domain and codomain of $T : V \to V$; this is why $P$ appears on both sides of $A$, not on one side. A change of coordinates ``on one side only'' would correspond to a different operation, not similarity.
+    B: |
+      the classic similarity trap: image, kernel, and column/row spaces depend on the choice of basis and are \emph{not} preserved under similarity. For example, $I$ and $P^{-1} I P = I$ are similar with identical image, but $A$ and $P^{-1} A P$ for general $A$ have images that differ as concrete subspaces of $\mathbb{R}^n$.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 39
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 2219
+variant_of: null
+topics:
+- Similarity
+- change of basis
+- matrix representations of a linear transformation
+notes: 'difficulty: Core'

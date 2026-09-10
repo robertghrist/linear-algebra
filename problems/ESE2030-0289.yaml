@@ -1,0 +1,56 @@
+id: ESE2030-0289
+legacy_id: null
+week: 8
+skills:
+- W08.S04
+- W08.S03
+status: active
+problem_type: null
+statement: |
+  A $5 \times 5$ matrix $A$ has a single eigenvalue $\lambda = 3$ with algebraic multiplicity $5$ and geometric multiplicity $2$. Which of the following statements is most true about the Jordan canonical form of $A$?
+choices:
+- label: A
+  text: The Jordan form has exactly $2$ Jordan blocks, but their sizes are not determined by the given
+    information.
+- label: B
+  text: The Jordan form has exactly $3$ Jordan blocks.
+- label: C
+  text: The Jordan form is diagonal, since all eigenvalues equal $3$.
+- label: D
+  text: The Jordan form is uniquely determined to be one $4 \times 4$ Jordan block plus one $1 \times
+    1$ block.
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    For a single eigenvalue, the geometric multiplicity equals the \emph{number} of Jordan blocks, while the algebraic multiplicity equals the total number of rows occupied by those blocks (the sum of block sizes). With algebraic multiplicity $5$ and geometric multiplicity $2$, the Jordan form has exactly $2$ blocks whose sizes sum to $5$. The possible partitions of $5$ into $2$ positive parts are $5 = 4 + 1$ and $5 = 3 + 2$, giving two distinct (non-similar) Jordan forms consistent with the data: \[ J_4(3) \oplus J_1(3) \quad \text{or} \quad J_3(3) \oplus J_2(3). \] Distinguishing them requires more refined information --- e.g., the dimensions of $\ker((A - 3I)^k)$ for $k = 2, 3, \ldots$, which count generalized-eigenspace filtration steps. So algebraic and geometric multiplicities pin down the \emph{count} of blocks but not their \emph{sizes}. [Rule of thumb: geometric multiplicity = number of blocks; algebraic multiplicity = total size. The partition of block sizes is a \emph{finer} invariant than the spectrum-plus-multiplicities pair, and it is precisely what the Jordan form adds to the eigenvalue picture.]
+  key_insight: null
+  distractor_rationale:
+    B: |
+      D6 shape-implies-property: confuses ``deficiency'' (alg.\ mult. minus geom.\ mult. $= 5 - 2 = 3$, which counts the number of \emph{generalized} eigenvectors needed beyond ordinary ones) with the number of blocks. The number of blocks is the geometric multiplicity, $2$ --- not $3$.
+    C: |
+      asserts diagonalizability from a repeated eigenvalue without checking geometric multiplicity. With geom.\ mult.\ $= 2 \neq 5 =$ alg.\ mult., $A$ is not diagonalizable, so $A \neq 3I_5$. This is the P2030-C diagonalizability-gap trap.
+    E: |2+
+
+sources:
+- semester: 2026A
+  instrument: final
+  position: 40
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 2268
+variant_of: null
+topics:
+- Jordan canonical form
+- algebraic multiplicity
+- geometric multiplicity
+- block-size partition
+notes: null

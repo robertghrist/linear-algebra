@@ -1,0 +1,61 @@
+id: ESE2030-0261
+legacy_id: null
+week: 11
+skills:
+- W11.S02
+- W11.S03
+status: active
+problem_type: null
+statement: |
+  Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix ($n$
+  observations, $d$ features, each column with sample mean zero). The
+  principal components of the data may be computed in two ways: (i) by
+  diagonalizing the covariance matrix $C$, or (ii) by
+  computing the SVD $X = U\Sigma V^T$. Suppose the SVD has singular values
+  $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_d \geq 0$. Which of the
+  following best describes the relationship between the two routes?
+choices:
+- label: A
+  text: The columns of $V$ are the principal components, and the eigenvalues of $C$ are $\sigma_i^2 /
+    n$, because the SVD diagonalizes $X^T X$ rather than $C$ itself.
+- label: B
+  text: The two routes are unrelated computational procedures that happen to give the same numerical answer;
+    the agreement is coincidental.
+- label: C
+  text: The columns of $V$ are the principal components, and the eigenvalues of $C$ are $\sigma_i$, since
+    the SVD computes the same diagonalization as the covariance route.
+- label: D
+  text: The columns of $V$ are the principal components, and the eigenvalues of $C$ are $\sigma_i^2$.
+- label: E
+  text: The columns of $U$ are the principal components, and the eigenvalues of $C$ are the singular values
+    $\sigma_i$ themselves.
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The SVD route and the covariance-eigendecomposition route are not just numerically equivalent --- they are the \emph{same diagonalization, viewed through two factorizations}. Computing $X^T X$ from the SVD: $$X^T X = (U \Sigma V^T)^T (U \Sigma V^T) = V \Sigma^T U^T U \Sigma V^T = V (\Sigma^T \Sigma) V^T,$$ using $U^T U = I$. The matrix $\Sigma^T \Sigma$ is the $d \times d$ diagonal matrix with entries $\sigma_i^2$. So $X^T X = V \Lambda V^T$ is an orthogonal diagonalization of $X^T X$ with eigenvalues $\sigma_i^2$ and eigenvectors $\mathbf{v}_i$ (the columns of $V$). The covariance matrix is $C = \frac{1}{n} X^T X$, so the eigenvectors of $C$ are the same $\mathbf{v}_i$, but the eigenvalues are scaled by $1/n$: $$C = \frac{1}{n} V (\Sigma^T \Sigma) V^T \;=\; V \Lambda_C V^T, \qquad \Lambda_C = \mathrm{diag}\!\left(\tfrac{\sigma_1^2}{n}, \ldots, \tfrac{\sigma_d^2}{n}\right).$$ Hence: principal components are the columns of $V$, the right singular vectors of $X$; and the eigenvalues of $C$ (the variances along principal directions) are $\sigma_i^2 / n$. [Two structural takeaways. (i) The principal components live in the \emph{feature space} $\mathbb{R}^d$ --- they are directions among features, not among observations --- which is exactly where the columns of $V$ live. The columns of $U$ live in the observation space $\mathbb{R}^n$ and are a different (related but distinct) object: they give the projections of the observations onto the principal directions, scaled by $\sigma_i$. (ii) The square-root relationship between singular values and covariance eigenvalues, $\sigma_i^2 = n \cdot \lambda_i(C)$, is the single most important computational fact in PCA. In practice one almost always computes PCA via the SVD of $X$ rather than forming $X^T X$ explicitly, because forming $X^T X$ squares the condition number and amplifies numerical error. The two routes give identical principal components but the SVD route is dramatically more stable.]
+  key_insight: null
+  distractor_rationale:
+    B: |
+      D5 naive-prior: misses the structural identity entirely. The two procedures are not coincidentally compatible --- they are algebraically the same diagonalization. A student who picks (A) has not seen the $X^T X = V \Sigma^T \Sigma V^T$ computation.
+    E: |
+      D6 shape-implies-property: swaps $U$ and $V$. The columns of $U$ live in the observation space $\mathbb{R}^n$, not the feature space $\mathbb{R}^d$ where principal components must live. Classic feature-vs-observation confusion, parallel to the $X^T X$ vs $X X^T$ trap in P32. Compounded by also dropping the square: claims $\sigma_i$ are eigenvalues of $C$ rather than $\sigma_i^2/n$.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 12
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 751
+variant_of: null
+topics:
+- PCA via SVD of centered data
+- equivalence of two computational
+notes: 'difficulty: Deeper | week remapped 10 -> 11: Eckart-Young / best rank-k / PCA-via-SVD are LAEF
+  2E Chapter 11'

@@ -1,0 +1,50 @@
+id: ESE2030-0168
+legacy_id: null
+week: 2
+skills:
+- W02.S03
+status: active
+problem_type: null
+statement: |
+  In $\mathbb{R}^4$, let $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ be linearly independent vectors. Define $\mathbf{w}_1 = \mathbf{v}_1 + \mathbf{v}_2$, $\mathbf{w}_2 = \mathbf{v}_2 + \mathbf{v}_3$, and $\mathbf{w}_3 = \mathbf{v}_3 + \mathbf{v}_1$. Which statement is TRUE?
+choices:
+- label: A
+  text: $\{\mathbf{w}_1, \mathbf{w}_2, \mathbf{w}_3\}$ is always linearly independent.
+- label: B
+  text: $\{\mathbf{w}_1, \mathbf{w}_2, \mathbf{w}_3\}$ is always linearly dependent.
+- label: C
+  text: $\{\mathbf{w}_1, \mathbf{w}_2, \mathbf{w}_3\}$ is linearly independent if and only if $\mathbf{v}_1
+    + \mathbf{v}_2 + \mathbf{v}_3 \neq \mathbf{0}$.
+- label: D
+  text: $\{\mathbf{w}_1, \mathbf{w}_2, \mathbf{w}_3\}$ spans $\mathbb{R}^4$.
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    Suppose $a\mathbf{w}_1 + b\mathbf{w}_2 + c\mathbf{w}_3 = \mathbf{0}$. Substituting: $$a(\mathbf{v}_1 + \mathbf{v}_2) + b(\mathbf{v}_2 + \mathbf{v}_3) + c(\mathbf{v}_3 + \mathbf{v}_1) = \mathbf{0}$$ $$(a+c)\mathbf{v}_1 + (a+b)\mathbf{v}_2 + (b+c)\mathbf{v}_3 = \mathbf{0}$$ Since $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ are linearly independent, we need $a+c = 0$, $a+b = 0$, and $b+c = 0$. From the first two: $c = -a$ and $b = -a$. Substituting into the third: $-a + (-a) = -2a = 0$, so $a = 0$. Thus $a = b = c = 0$, proving linear independence.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      students may guess dependence because $\mathbf{w}_1 + \mathbf{w}_2 + \mathbf{w}_3 = 2(\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3)$, but this sum being nonzero doesn't create dependence
+    C: |
+      the sum $\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3$ is irrelevant to independence of the $\mathbf{w}$'s
+    D: |
+      three vectors cannot span $\mathbb{R}^4$
+    E: |
+      there is a definitive answer
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 10
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 337
+variant_of: null
+topics: []
+notes: week 2 taken from the solutions guide section heading

@@ -1,0 +1,55 @@
+id: ESE2030-0160
+legacy_id: null
+week: 3
+skills:
+- W03.S02
+status: active
+problem_type: null
+statement: |
+  Define the linear transformation $T: \mathbb{R}^{2 \times 2} \to \mathbb{R}^{2 \times 2}$ by $T(X) = X - X^T$ (where $X^T$ denotes the transpose of $X$). Which of the following correctly describes $\ker(T)$?
+choices:
+- label: A
+  text: $\ker(T) = \{\mathbf{0}\}$, the zero matrix
+- label: B
+  text: $\ker(T)$ is the set of all diagonal matrices
+- label: C
+  text: $\ker(T)$ is the set of all symmetric matrices
+- label: D
+  text: $\ker(T)$ is the set of all triangular matrices (upper or lower)
+- label: E
+  text: $\ker(T) = \mathbb{R}^{2 \times 2}$, the entire space
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    The kernel consists of all $X$ such that $T(X) = X - X^T = \mathbf{0}$, which means $X = X^T$. This is precisely the definition of a symmetric matrix. The space of $2 \times 2$ symmetric matrices has dimension 3 (entries $a, b, d$ in $\begin{pmatrix} a & b \\ b & d \end{pmatrix}$), so $\dim(\ker(T)) = 3$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      would mean $T$ is injective, but symmetric matrices map to zero
+    B: |
+      diagonal matrices are symmetric, but symmetric matrices with off-diagonal entries also satisfy $X = X^T$
+    D: |
+      nope
+    E: |
+      would mean $T$ is the zero map, but $T(X) = 0$ only when $X$ is symmetric
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 2
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 132
+variant_of: null
+topics:
+- Kernel
+- linear transformation
+- matrix spaces
+- nullity
+notes: null

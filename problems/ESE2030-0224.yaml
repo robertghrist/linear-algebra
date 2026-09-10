@@ -1,0 +1,57 @@
+id: ESE2030-0224
+legacy_id: null
+week: 7
+skills:
+- W07.S02
+status: active
+problem_type: null
+statement: |
+  A $3 \times 3$ real matrix $A$ satisfies $\operatorname{tr}(A) = 7$, $\det(A) = 0$, and is known to have an eigenvalue $\lambda_1 = 3$.
+  Which of the following must be the remaining eigenvalues?
+choices:
+- label: A
+  text: $\lambda_2 = 4, \; \lambda_3 = 0$
+- label: B
+  text: $\lambda_2 = 4, \; \lambda_3 = 3$
+- label: C
+  text: $\lambda_2 = 2+i, \; \lambda_3 = 2-i$
+- label: D
+  text: $\lambda_2 = 0, \; \lambda_3 = 0$
+- label: E
+  text: $\lambda_2 = 7, \; \lambda_3 = 0$
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    Two constraints must be satisfied simultaneously: (1) $\operatorname{tr}(A) = \lambda_1 + \lambda_2 + \lambda_3 = 7$, so $\lambda_2 + \lambda_3 = 4$. (2) $\det(A) = \lambda_1 \cdot \lambda_2 \cdot \lambda_3 = 0$, so at least one of $\lambda_2, \lambda_3$ must be zero. Additionally, since $A$ is a real matrix, complex eigenvalues must come in conjugate pairs. Checking each choice: (A) $4 + 0 = 4$ and $3 \cdot 4 \cdot 0 = 0$. Both conditions satisfied. VALID. (B) $7 + 0 = 7 \neq 4$. Fails the trace condition. (C) $(2+i) + (2-i) = 4$ and conjugate pair is valid for a real matrix. But $\det = 3(2+i)(2-i) = 3 \cdot 5 = 15 \neq 0$. Fails the determinant condition. (D) $0 + 0 = 0 \neq 4$. Fails the trace condition. (E) $4 + 3 = 7 \neq 4$ (i.e., $3 + 4 + 3 = 10 \neq 7$). Fails the trace condition.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      satisfies trace and conjugate-pair requirements but violates $\det = 0$; catches students who check only one or two conditions
+    E: |
+      has a zero eigenvalue, appealing if focused only on $\det = 0$, but violates the trace
+    B: |
+      plausible-looking integers, but $3+4+3=10\neq 7$; catches careless arithmetic
+    D: |
+      double zero is tempting for students who over-focus on $\det = 0$ without checking the sum
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 21
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 1623
+variant_of: null
+topics:
+- Eigenvalues
+- trace
+- determinant
+- characteristic polynomial
+- properties of eigenvalues
+notes: null

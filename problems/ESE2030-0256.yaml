@@ -1,0 +1,57 @@
+id: ESE2030-0256
+legacy_id: null
+week: 8
+skills:
+- W08.S08
+status: active
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{n \times n}$ be a real symmetric matrix with distinct
+  nonzero eigenvalues. The QR algorithm produces the iteration
+  $$A_0 = A, \qquad A_k = Q_k R_k, \qquad A_{k+1} = R_k Q_k.$$
+  Each iterate $A_{k+1}$ is similar to $A_k$ (and hence to $A$), so the eigenvalues
+  are preserved at every step. To what does the sequence $A_k$ converge to as $k \to \infty$?
+choices:
+- label: A
+  text: $A_k$ converges to an upper-triangular matrix whose diagonal entries are the eigenvalues of $A$.
+- label: B
+  text: $A_k$ converges to a diagonal matrix whose diagonal entries are the singular values of $A$.
+- label: C
+  text: $A_k$ converges to a diagonal matrix whose diagonal entries are the eigenvalues of $A$.
+- label: D
+  text: $A_k$ converges to $A^T A$, since the QR iteration is built from products of $Q$ and $R$.
+- label: E
+  text: $A_k$ converges to $A$ itself, since the iteration is a similarity transformation and $A$ is the
+    unique fixed point.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The QR algorithm produces a sequence of matrices, each similar to $A$, that converges to a form displaying the eigenvalues of $A$ directly on the diagonal. For a general matrix the limit is upper-triangular (real Schur form, with the eigenvalues on the diagonal). For a symmetric matrix --- as here --- the limit is strictly stronger: $A_k$ converges to a {\em diagonal} matrix whose diagonal entries are the eigenvalues of $A$ in (typically) descending magnitude order. Why diagonal in the symmetric case: each iterate $A_{k+1} = Q_k^T A_k Q_k$ is itself symmetric (a similarity by an orthogonal matrix preserves symmetry), so the limit of a sequence of symmetric upper-triangular matrices is both symmetric and upper-triangular --- forcing all off-diagonal entries to vanish. So the symmetric case collapses the general upper-triangular limit to a diagonal limit. This is the conceptual purpose of the algorithm. Q3 P20 establishes that similarity preserves eigenvalues at each step; the present problem establishes that the limit, by being diagonal, {\em displays} those eigenvalues. Together, the two halves explain how the QR algorithm extracts eigenvalues without ever computing a characteristic polynomial.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      D5 naive-prior: imagines the iteratihttps://aistudio.google.com/app/libraryon as a ``settling'' that returns the original matrix. The iteration {\em is} a similarity transformation at each step, but it does not fix $A$ --- instead, it transforms $A$ along a path through the orbit of similar matrices toward a canonical representative. The fixed points of QR iteration are the matrices that are already (block-)triangular, not $A$ itself.
+    B: |
+      D7 convention collision: confuses singular values with eigenvalues. The QR algorithm extracts {\em eigenvalues}, not singular values. For symmetric positive-definite $A$ these happen to coincide in absolute value, but the algorithm extracts signed eigenvalues regardless of definiteness --- so for symmetric $A$ with negative eigenvalues the diagonal limit will contain those negative values, not their absolute values.
+    D: |
+      D4 surface match: $Q$ and $R$ appear in the iteration, and $A^T A = R_0^T Q_0^T Q_0 R_0 = R_0^T R_0$ at the first step, so the symbols look related --- but the iteration does not converge to $A^T A$. For symmetric $A$, $A^T A = A^2$ has eigenvalues $\lambda_i^2$, not $\lambda_i$, so this answer is doubly wrong: wrong limit, wrong eigenvalue magnitudes.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 7
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 474
+variant_of: null
+topics:
+- QR algorithm convergence
+- what the iterates approach
+- eigenvalue
+notes: 'difficulty: Deeper'

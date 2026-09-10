@@ -1,0 +1,57 @@
+id: ESE2030-0269
+legacy_id: null
+week: 9
+skills:
+- W09.S07
+status: active
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{n \times n}$ be a real symmetric matrix. The Spectral
+  Theorem asserts a package of structural facts about $A$ that can each fail
+  for a general (non-symmetric) real $n \times n$ matrix. Which of the
+  following is GUARANTEED by the Spectral Theorem for symmetric $A$?
+choices:
+- label: A
+  text: For every eigenvalue $\lambda$ of $A$, the geometric multiplicity of $\lambda$ equals its algebraic
+    multiplicity.
+- label: B
+  text: All three of (A), (C), and (D) are guaranteed, and each can fail for some non-symmetric real matrix.
+- label: C
+  text: There exists an orthonormal basis of $\mathbb{R}^n$ consisting of eigenvectors of $A$.
+- label: D
+  text: Every eigenvalue of $A$ is real.
+- label: E
+  text: Only (C) and (D) are guaranteed; (A) can fail when $A$ has repeated eigenvalues.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The Spectral Theorem for real symmetric matrices asserts that $A = Q\Lambda Q^T$ where $Q$ is orthogonal (real) and $\Lambda$ is diagonal (real). Reading off the three guarantees: (A) Real eigenvalues: the diagonal entries of $\Lambda$ are real. (B) Full geometric multiplicity: the columns of $Q$ form a basis of $\mathbb{R}^n$, so the eigenspaces collectively span $\mathbb{R}^n$ --- equivalently, geometric multiplicity equals algebraic multiplicity for every eigenvalue (no Jordan obstruction). (C) Orthonormal eigenbasis: the columns of $Q$ are not just an eigenbasis but an orthonormal one. Each fails for some general real matrix: \begin{itemize} \item (A) fails for the rotation $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$, with eigenvalues $\pm i$. \item (B) fails for the Jordan block $\begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$, with algebraic multiplicity $2$ and geometric multiplicity $1$ at $\lambda = 2$. \item (C) fails for $\begin{pmatrix} 1 & 1 \\ 0 & 2 \end{pmatrix}$: it has an eigenbasis $\{(1,0)^T, (1,1)^T\}$ --- so it is diagonalizable --- but no orthonormal eigenbasis. \end{itemize} All three statements are independently nontrivial guarantees, all three are simultaneously delivered by the Spectral Theorem, and (D) is the only choice that captures the full content along with the contrast. [Pedagogical note: (C) alone logically implies (A) and (B) --- if an orthonormal eigenbasis exists, then $A = Q\Lambda Q^T$ with real $Q$ forces real $\Lambda$, and the existence of an eigenbasis is exactly full geometric multiplicity. So (C) is the strongest single statement on the list. The reason (D) is still the best answer is that (D) names the contrast with general matrices --- the structural payoff of the theorem --- whereas (C) alone reads like a fact about a particular $A$. The Spectral Theorem's content is that \emph{symmetry forces this package}.]
+  key_insight: null
+  distractor_rationale:
+    C: |
+      the strongest single guarantee on the list, logically implying (A) and (B); a student who picked C has identified the most informative individual fact but missed the synthesis and the contrast with general matrices. One rung below (D).
+    D: |
+      captures the reality of the spectrum --- a genuine guarantee of the theorem, but the weakest of the three on its own. Real eigenvalues alone do not yield diagonalizability, let alone orthogonal diagonalizability. Two rungs below (D).
+    A: |
+      captures full geometric multiplicity --- equivalent to diagonalizability, a genuine guarantee, but does not address reality of the eigenvalues or orthogonality of the eigenbasis. Two rungs below (D); twin pair to (A).
+    E: |
+      D5 naive-prior: imports the Jordan-block intuition --- ``repeated eigenvalues can cause geometric multiplicity to fall short'' --- and applies it to symmetric matrices, where the Spectral Theorem precisely \emph{prevents} this. A student who picked E has correctly diagnosed the general behavior tested in P19 but failed to register that symmetry overrides it. The canonical Wk 8 vs. Wk 9 confusion: Jordan defects happen for general matrices, never for symmetric ones.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 20
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1220
+variant_of: null
+topics:
+- Spectral Theorem for symmetric matrices
+- real eigenvalues
+notes: 'difficulty: Deeper | choice cross-references repaired to this letter order (the exam .tex carries
+  the permuted-but-unrelabeled "printed version" the solutions guide apologises for)'

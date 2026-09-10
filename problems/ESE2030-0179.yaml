@@ -1,0 +1,58 @@
+id: ESE2030-0179
+legacy_id: null
+week: 3
+skills:
+- W03.S06
+- W03.S07
+status: active
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation. Which of the following best describes what the \emph{cokernel} of $T$ is?
+choices:
+- label: A
+  text: The subspace of the domain consisting of vectors that $T$ collapses to zero.
+- label: B
+  text: A quotient space that measures what portion of the codomain $W$ is ``missed'' by $T$.
+- label: C
+  text: The subspace of $W$ consisting of all possible outputs $T(\mathbf{v})$.
+- label: D
+  text: A quotient space formed from the domain by identifying vectors that have the same image under
+    $T$.
+- label: E
+  text: The subspace of $W$ consisting of vectors that cannot be expressed as $T(\mathbf{v})$ for any
+    $\mathbf{v} \in V$.
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    The cokernel of $T$ is $\text{coker}(T) = W / \text{im}(T)$, the quotient of the codomain by the image. Intuitively, it measures "what $T$ fails to hit" in the codomain. If $T$ is surjective, $\text{im}(T) = W$, so the cokernel is trivial. If $T$ is not surjective, the cokernel has positive dimension equal to $\dim(W) - \text{rank}(T)$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      this describes the KERNEL, not the cokernel
+    C: |
+      this describes the IMAGE, not the cokernel
+    D: |
+      this describes the COIMAGE; students often confuse cokernel and coimage since both are quotients
+    E: |
+      tempting but wrong: the set of "missed" vectors is NOT a subspace! If $\mathbf{w}_1$ and $\mathbf{w}_2$ are not in the image, their sum $\mathbf{w}_1 + \mathbf{w}_2$ might still be in the image. The cokernel captures "what's missed" via equivalence classes, not as a subspace of $W$.
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 21
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 654
+variant_of: null
+topics:
+- Cokernel
+- quotient spaces
+- four fundamental subspaces
+- conceptual understanding
+notes: null

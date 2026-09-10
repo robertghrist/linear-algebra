@@ -1,0 +1,51 @@
+id: ESE2030-0240
+legacy_id: null
+week: 10
+skills:
+- W10.S03
+status: active
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{3 \times 3}$ has singular values $\sigma_1 = 6$, $\sigma_2 = 3$, $\sigma_3 = 0$. Let $S$ denote the image of the unit sphere $\{\mathbf{x} \in \mathbb{R}^3 : \|\mathbf{x}\| = 1\}$ under $A$. Which of the following is TRUE?
+choices:
+- label: A
+  text: $S$ is an ellipsoid in $\mathbb{R}^3$ with semi-axes $6$, $3$, and $0$.
+- label: B
+  text: $S$ is an ellipse in $\mathrm{im}(A)$ with semi-axes $6$ and $3$.
+- label: C
+  text: $S$ is an ellipse in $\mathbb{R}^3$ with semi-axes $36$ and $9$.
+- label: D
+  text: $S$ is a line segment of length $12$ along $\mathbf{u}_1$.
+- label: E
+  text: $S$ is an ellipse in $\ker(A)^\perp$ with semi-axes $6$ and $3$.
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Decompose $\mathbf{x}$ in the right-singular basis: $\mathbf{x} = \alpha_1\mathbf{v}_1 + \alpha_2\mathbf{v}_2 + \alpha_3\mathbf{v}_3$ with $\alpha_1^2 + \alpha_2^2 + \alpha_3^2 = 1$. Then $A\mathbf{x} = 6\alpha_1\mathbf{u}_1 + 3\alpha_2\mathbf{u}_2$, since $\sigma_3 = 0$ kills the $\mathbf{v}_3$-component. The image $S$ therefore lies in $\mathrm{span}\{\mathbf{u}_1, \mathbf{u}_2\} = \mathrm{im}(A)$ --- a 2D plane in the codomain. The two surviving stretching factors $\sigma_1 = 6, \sigma_2 = 3$ give the semi-axes. TWO CONCEPTUAL CHECKS: (1) rank-deficiency collapses one dimension, so the image is 2D, not 3D. (2) the image lives in the codomain ($\mathrm{im}(A)$, spanned by left singular vectors), NOT in the domain ($\ker(A)^\perp$, spanned by right singular vectors).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      refuses to acknowledge that $\sigma_3 = 0$ collapses one dimension; an "ellipsoid with semi-axis 0" is geometrically just an ellipse in a lower-dimensional plane
+    D: |
+      over-collapses: $\sigma_2 = 3 > 0$ gives a second independent stretching direction, so the image is 2D, not 1D
+    C: |
+      (uses $\sigma_i^2$ as semi-axis lengths; $36$ and $9$ are eigenvalues of $A^TA$, not the semi-axes themselves) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 15
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 843
+variant_of: null
+topics:
+- Sphere-to-ellipsoid geometry under rank deficiency
+- image lives in im(A)
+notes: 'difficulty: Deeper'

@@ -1,0 +1,68 @@
+id: ESE2030-0219
+legacy_id: null
+week: 7
+skills:
+- W07.S06
+- W07.S04
+status: active
+problem_type: null
+statement: |
+  Consider the coupled system $\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}$ where
+  $A$ is a $2 \times 2$ diagonalizable matrix with distinct real eigenvalues
+  $\lambda_1 \neq \lambda_2$ and corresponding eigenvectors
+  $\mathbf{v}_1, \mathbf{v}_2$.
+
+  We solve this by writing $A = V\Lambda V^{-1}$ and substituting
+  $\mathbf{x} = V\mathbf{y}$ to obtain the transformed system
+  $\dfrac{d\mathbf{y}}{dt} = \Lambda\mathbf{y}$.
+  What is the essential reason this change of variables helps?
+choices:
+- label: A
+  text: It orthogonalizes the eigenvectors, which is necessary for the solution components to evolve independently
+- label: B
+  text: It makes the matrix $\Lambda$ invertible, which is required to compute the solution $\mathbf{x}(t)
+    = e^{At}\mathbf{x}(0)$
+- label: C
+  text: It eliminates the eigenvalues, replacing them with simpler constants that are easier to exponentiate
+- label: D
+  text: Since $\Lambda$ is diagonal, the transformed system consists of independent scalar equations $dy_i/dt
+    = \lambda_i y_i$, each of which can be solved separately
+- label: E
+  text: It converts the differential equation into an algebraic equation, removing the need to compute
+    any exponentials
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The fundamental benefit of diagonalization for solving $d\mathbf{x}/dt = A\mathbf{x}$ is decoupling. In the original coordinates, the equations for the components of $\mathbf{x}$ are intertwined --- each component's derivative depends on the other components. After substituting $\mathbf{x} = V\mathbf{y}$, the system becomes $d\mathbf{y}/dt = \Lambda\mathbf{y}$, which, because $\Lambda$ is diagonal, breaks apart into $n$ independent scalar equations: $$\frac{dy_1}{dt} = \lambda_1 y_1, \quad \frac{dy_2}{dt} = \lambda_2 y_2$$ Each has the immediate solution $y_i(t) = y_i(0)e^{\lambda_i t}$. This is something we know how to solve from one-variable calculus. The solution in original coordinates is then recovered via $\mathbf{x}(t) = V\mathbf{y}(t)$. The conceptual point: diagonalization transforms a coupled system (hard) into independent scalar systems (easy).
+  key_insight: null
+  distractor_rationale:
+    B: |
+      $\Lambda$ may or may not be invertible --- an eigenvalue could be zero --- and invertibility is not the point. The matrix exponential $e^{At}$ is always well-defined and invertible regardless. This answer confuses a property of $\Lambda$ with the reason diagonalization helps.
+    C: |
+      the eigenvalues are not eliminated; they appear directly as the diagonal entries of $\Lambda$ and in the exponential solutions $e^{\lambda_i t}$. The change of variables isolates the eigenvalues, it does not remove them.
+    E: |
+      the problem remains a differential equation after the substitution --- it just becomes a simpler one. We still compute exponentials ($e^{\lambda_i t}$), but they are scalar exponentials rather than matrix exponentials.
+    A: |
+      (see partial credit; the student has the right intuition about independence but the wrong mechanism) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 16
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 1274
+variant_of: null
+topics:
+- Coupled systems
+- diagonalization
+- decoupling
+- matrix exponential
+- eigenbasis
+notes: null

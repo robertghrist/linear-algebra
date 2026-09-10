@@ -1,0 +1,59 @@
+id: ESE2030-0210
+legacy_id: null
+week: 8
+skills:
+- W08.S04
+- W08.S03
+status: active
+problem_type: null
+statement: |
+  A $4 \times 4$ matrix $A$ has only one eigenvalue, $\lambda = 3$, with
+  algebraic multiplicity $4$. The eigenspace $\ker(A - 3I)$ has dimension $2$.
+  How many Jordan blocks appear in the Jordan form of $A$, and why?
+choices:
+- label: A
+  text: 'Two blocks: specifically one $3 \times 3$ block and one $1 \times 1$ block, because the deficiency
+    $4 - 2 = 2$ means the matrix $(A - 3I)$ is not nilpotent of order $1$, forcing the larger block to
+    have size $3$'
+- label: B
+  text: Four $1 \times 1$ blocks, because the algebraic multiplicity is $4$
+- label: C
+  text: Two blocks, because the number of Jordan blocks for an eigenvalue equals the dimension of its
+    eigenspace
+- label: D
+  text: One $4 \times 4$ block, because there is only one eigenvalue
+- label: E
+  text: Cannot be determined without knowing the dimensions of $\ker(A - 3I)^k$ for $k \geq 2$
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    A fundamental fact about Jordan form: the number of Jordan blocks for a given eigenvalue equals the \emph{geometric multiplicity} --- the dimension of the eigenspace. Each Jordan block begins with an eigenvector, so the number of independent eigenvectors is exactly the number of blocks. Here, $\dim(\ker(A - 3I)) = 2$, so there are exactly 2 Jordan blocks for $\lambda = 3$. Since $A$ is $4 \times 4$ and has only one eigenvalue, these two blocks must account for all 4 dimensions. The blocks could be $2 \times 2$ and $2 \times 2$, or $3 \times 3$ and $1 \times 1$ --- this cannot be determined without further information (specifically, $\dim(\ker(A - 3I)^2)$). But the \emph{number} of blocks is determined: it is $2$.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      confuses ``one eigenvalue'' with ``one block.'' Having a single eigenvalue constrains all blocks to share that eigenvalue, but doesn't mean there's only one block. The number of blocks depends on the eigenspace dimension, not the number of distinct eigenvalues.
+    B: |
+      this would mean $A$ is diagonalizable --- four $1 \times 1$ blocks is the same as a diagonal matrix. But if the eigenspace is only $2$-dimensional while the algebraic multiplicity is $4$, the matrix is \emph{not} diagonalizable, so blocks of size $> 1$ must appear.
+    E: |
+      the block count \emph{is} determined by the eigenspace dimension alone --- it equals the geometric multiplicity. While it's true that generalized eigenspaces are needed to determine block \emph{sizes}, the question only asks about the number of blocks. A student selecting (E) fails to recognize what the geometric multiplicity directly tells us.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 7
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 560
+variant_of: null
+topics:
+- Jordan canonical form
+- eigenvalues
+- algebraic/geometric multiplicity
+- block structure
+notes: null

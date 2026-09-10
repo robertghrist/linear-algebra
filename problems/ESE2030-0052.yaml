@@ -1,8 +1,9 @@
 id: ESE2030-0052
 legacy_id: Q3-P03
 week: 7
-skills: []
-status: active
+skills:
+- W07.S07
+status: needs-review
 problem_type: null
 statement: |
   The second-order differential equation
@@ -52,4 +53,4 @@ topics:
 - Companion matrix
 - characteristic polynomial
 - polynomial differential operators
-notes: null
+notes: 'KEY CHECK: two choices appear correct (B and E)'

@@ -1,0 +1,55 @@
+id: ESE2030-0234
+legacy_id: null
+week: 10
+skills:
+- W10.S03
+status: active
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{4 \times 3}$ has rank 2 with SVD $A = U\Sigma V^T$ and left singular vectors $U = [\mathbf{u}_1 \; \mathbf{u}_2 \; \mathbf{u}_3 \; \mathbf{u}_4]$.
+  Consider the vector $\mathbf{b} = 2\mathbf{u}_1 - \mathbf{u}_2 + 4\mathbf{u}_4$.
+  Does the system $A\mathbf{x} = \mathbf{b}$ have a solution and, if it does, how many?
+choices:
+- label: A
+  text: Exactly one solution, because the pseudoinverse $A^\dagger\mathbf{b}$ is unique.
+- label: B
+  text: No solution, because the system is overdetermined (more equations than unknowns).
+- label: C
+  text: Infinitely many solutions, because $\mathrm{rank}(A) = 2 < 3$ means there is one free variable.
+- label: D
+  text: No solution, because $\mathbf{b}$ has a nonzero component in $\mathrm{im}(A)^\perp$.
+- label: E
+  text: Exactly one solution, because $\mathbf{b}$ has nonzero component in $\mathrm{im}(A)$.
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The system $A\mathbf{x} = \mathbf{b}$ is consistent if and only if $\mathbf{b} \in \mathrm{im}(A) = \mathrm{span}\{\mathbf{u}_1, \mathbf{u}_2\}$. Decomposing $\mathbf{b}$ using the orthogonal direct sum $\mathbb{R}^4 = \mathrm{im}(A) \oplus \mathrm{im}(A)^\perp$: $$\mathbf{b} = \underbrace{2\mathbf{u}_1 - \mathbf{u}_2}_{\in\;\mathrm{im}(A)} + \underbrace{4\mathbf{u}_4}_{\in\;\mathrm{im}(A)^\perp}$$ The component $4\mathbf{u}_4 \neq \mathbf{0}$ lies in $\mathrm{im}(A)^\perp$, so $\mathbf{b}$ does not lie entirely in $\mathrm{im}(A)$. No solution exists. TRICHOTOMY: For $A \in \mathbb{R}^{4 \times 3}$ with rank 2: either $\mathbf{b} \notin \mathrm{im}(A)$ and there is no solution; or $\mathbf{b} \in \mathrm{im}(A)$ and there are infinitely many solutions (one free variable from $\dim(\ker A) = 1$). A unique solution is impossible when $\mathrm{rank}(A) < n$.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      overdetermined systems CAN have solutions; shape alone does not rule them out
+    E: |
+      correctly notes nonzero components along $\mathbf{u}_1, \mathbf{u}_2$, but ignores the $4\mathbf{u}_4$ component; ALL of $\mathbf{b}$ must lie in $\mathrm{im}(A)$
+    C: |
+      claims an inconsistent system has infinitely many solutions just because the matrix is wide. Conflates uniqueness/nullspace with existence/column space --- a fatal failure to check the fundamental subspaces. NOT awarded partial credit.
+    A: |
+      ($A^\dagger\mathbf{b}$ always exists as the least-squares solution, but this is not an exact solution to $A\mathbf{x} = \mathbf{b}$ unless $\mathbf{b} \in \mathrm{im}(A)$) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 9
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 547
+variant_of: null
+topics:
+- Fundamental subspaces
+- consistency of Ax = b
+- SVD reveals solvability
+notes: 'difficulty: Core'

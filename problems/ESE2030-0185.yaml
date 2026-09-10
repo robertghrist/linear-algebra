@@ -1,0 +1,46 @@
+id: ESE2030-0185
+legacy_id: null
+week: 5
+skills:
+- W05.S02
+status: active
+problem_type: null
+statement: |
+  Consider the vector space $M_{m \times n}(\mathbb{R})$ of all $m \times n$ real matrices, equipped with the Frobenius inner product $\langle A, B \rangle_F = \operatorname{tr}(A^T B)$. Which of the following is TRUE?
+choices:
+- label: A
+  text: For square matrices, $\|A\|_F = \sqrt{\langle A, A\rangle} = \sqrt{\operatorname{tr}(A^2)}$
+- label: B
+  text: $\langle A, B \rangle_F = 0$ if and only if $A^T B = \mathbf{0}$
+- label: C
+  text: $\langle A, B \rangle_F = \sum_{i,j} a_{ij}\,b_{ij}$
+- label: D
+  text: This satisfies the definition of an inner product only for square matrices
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Expanding the trace, $\operatorname{tr}(A^T B) = \sum_{j=1}^{n}\sum_{i=1}^{m} a_{ij}\,b_{ij}$, which is exactly the standard dot product applied to the $mn$ entries of $A$ and $B$ laid out as vectors. This is the key conceptual insight: the Frobenius inner product "vectorizes" a matrix and takes the ordinary dot product, so all the machinery of inner product spaces (norms, angles, orthogonality, projections) applies to matrices.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      confuses the trace with the Frobenius norm; $\operatorname{tr}(A)$ sums only the diagonal entries $a_{ii}$, while $\|A\|_F = \sqrt{\sum_{i,j} a_{ij}^2}$ involves \emph{all} entries. For example, $A = \begin{psmallmatrix} 0 & 3 \\ 0 & 0 \end{psmallmatrix}$ has $\operatorname{tr}(A) = 0$ but $\|A\|_F = 3$.
+    B: |
+      confuses the matrix product $AB$ with the entry-wise inner product $\langle A, B \rangle_F$; these are fundamentally different operations. The identity $I$ and the rotation $\begin{psmallmatrix} 0 & 1 \\ -1 & 0 \end{psmallmatrix}$ are Frobenius-orthogonal since $\operatorname{tr}(I^T B) = \operatorname{tr}(B) = 0$, yet $IB = B \neq \mathbf{0}$.
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 4
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 187
+variant_of: null
+topics: []
+notes: null

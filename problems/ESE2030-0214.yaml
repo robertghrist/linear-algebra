@@ -1,0 +1,56 @@
+id: ESE2030-0214
+legacy_id: null
+week: 9
+skills:
+- W09.S06
+status: active
+problem_type: null
+statement: |
+  A $3 \times 3$ matrix $P$ has non-negative entries and every column
+  sums to $1$.
+  Which of the following \textbf{must} be true?
+choices:
+- label: A
+  text: All eigenvalues of $P$ are real
+- label: B
+  text: The columns of $P$ are linearly independent
+- label: C
+  text: Every eigenvalue of $P$ satisfies $0 \leq \lambda \leq 1$
+- label: D
+  text: $\det(P) = 1$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    Each of (A)--(D) fails for some valid stochastic matrix. The properties that DO always hold for a stochastic matrix are: $\lambda = 1$ is always an eigenvalue, and every eigenvalue satisfies $|\lambda| \leq 1$ (a bound on \emph{magnitude}, not on the eigenvalue itself). None of the four listed statements captures these correctly. (A) FALSE: Stochastic matrices can have complex eigenvalues. The cyclic permutation matrix $\begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}$ is stochastic (non-negative entries, columns sum to $1$) with eigenvalues $1, \, e^{2\pi i/3}, \, e^{-2\pi i/3}$ --- a conjugate pair of non-real complex numbers. Symmetry would guarantee real eigenvalues, but stochastic matrices are generally not symmetric. (B) FALSE: This is the most instructive wrong answer. The correct bound on eigenvalues of a stochastic matrix is $|\lambda| \leq 1$ --- a constraint on \emph{magnitude}. This allows negative real eigenvalues (e.g., $\lambda = -0.5$) and complex eigenvalues (e.g., $\lambda = e^{2\pi i/3}$), as long as the modulus does not exceed $1$. The statement $0 \leq \lambda \leq 1$ incorrectly restricts eigenvalues to the interval $[0,1]$ on the real line, which excludes both negative and complex eigenvalues that are perfectly valid. (C) FALSE: $\det(P)$ equals the product of eigenvalues, and there is no reason this product must be $1$. For instance, a stochastic matrix with eigenvalues $1, 0.5, -0.3$ has $\det(P) = -0.15$. A stochastic matrix with a zero eigenvalue has $\det(P) = 0$. (D) FALSE: Stochastic matrices can be singular. The matrix $\frac{1}{2}\begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 0 & 0 & 0 \end{bmatrix}$ is not valid (third row sums are wrong), but the matrix with two identical columns, such as $P = \begin{bmatrix} 0.5 & 0.5 & 0.3 \\ 0.3 & 0.3 & 0.4 \\ 0.2 & 0.2 & 0.3 \end{bmatrix}$, is stochastic with linearly dependent columns (columns $1$ and $2$ are equal), so $\det(P) = 0$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      real eigenvalues hold for symmetric matrices by the Spectral Theorem, but stochastic matrices are not generally symmetric. A student selecting this may be conflating the two classes.
+    C: |
+      see partial credit; the most common error --- knowing the right bound but stating it incorrectly
+    D: |
+      a student may reason: ``columns sum to $1$, so the determinant should be $1$.'' This confuses the column-sum constraint with a determinant constraint. The column sums relate to the left eigenvector $\mathbf{1}^T$ for $\lambda = 1$, not to the product of all eigenvalues.
+    B: |
+      a student may assume that a ``well-behaved'' probability transition matrix should be invertible. In fact, stochastic matrices with repeated columns --- representing states with identical transition behavior --- are singular and arise naturally in applications.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 11
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 845
+variant_of: null
+topics:
+- Stochastic matrices
+- eigenvalue properties
+- column sums
+notes: null

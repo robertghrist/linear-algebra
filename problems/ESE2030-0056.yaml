@@ -1,7 +1,8 @@
 id: ESE2030-0056
 legacy_id: Q3-P07
-week: 6
-skills: []
+week: 5
+skills:
+- W05.S09
 status: active
 problem_type: null
 statement: |
@@ -43,4 +44,4 @@ topics:
 - QR decomposition
 - orthogonal matrices
 - determinant
-notes: null
+notes: 'week remapped 6 -> 5 at skill tagging: content is Chapter 5 material'

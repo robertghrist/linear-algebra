@@ -1,0 +1,56 @@
+id: ESE2030-0166
+legacy_id: null
+week: 2
+skills:
+- W02.S04
+- W02.S01
+status: active
+problem_type: null
+statement: |
+  Let $V$ be the set of all smooth functions $f: \mathbb{R} \to \mathbb{R}$ satisfying the differential equation $$d^2x/dt^2 + x = 0.$$ Every such solution $x(t)$ is a linear combination of $\sin(t)$ and $\cos(t)$. Under standard function addition and scalar multiplication, which statement is TRUE?
+choices:
+- label: A
+  text: $V$ is not a vector space because it does not contain the zero function.
+- label: B
+  text: $V$ is a vector space of dimension 1.
+- label: C
+  text: $V$ is a vector space of dimension 2.
+- label: D
+  text: $V$ is a vector space of infinite dimension.
+- label: E
+  text: $V$ is not a vector space because $\sin$ and $\cos$ are not linear.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    The zero function corresponds to $c_1 = c_2 = 0$, so the zero function is in $V$. The set $\{\cos, \sin\}$ is linearly independent (neither is a scalar multiple of the other), and every element of $V$ is a linear combination of these two functions. Thus $\{\cos, \sin\}$ is a basis for $V$, giving $\dim(V) = 2$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      (the zero function does satisfy $0'' + 0 = 0$
+    B: |
+      might think only $\cos$ or only $\sin$ is needed, or confuse the two parameters with one degree of freedom
+    D: |
+      confuses the solution space with the infinite-dimensional space of all smooth functions
+    E: |
+      the equation is linear
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 8
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 285
+variant_of: null
+topics:
+- Subspaces
+- function spaces
+- dimension
+- basis
+notes: null

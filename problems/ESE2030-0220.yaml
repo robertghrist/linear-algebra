@@ -1,0 +1,57 @@
+id: ESE2030-0220
+legacy_id: null
+week: 8
+skills:
+- W08.S07
+status: active
+problem_type: null
+statement: |
+  A fourth-order linear homogeneous ODE has characteristic polynomial
+  $$p(\lambda) = (\lambda - 1)(\lambda + 2)^2(\lambda + 3) = 0$$
+  Which of the following is the correct general solution?
+choices:
+- label: A
+  text: $x(t) = c_1 e^{t} + c_2 e^{-2t} + c_3 e^{-3t}$
+- label: B
+  text: $x(t) = c_1 e^{t} + c_2 e^{-2t} + c_3 e^{-2t}\cos(t) + c_4 e^{-3t}$
+- label: C
+  text: $x(t) = c_1 e^{t} + c_2 e^{-2t} + c_3 te^{-2t} + c_4 e^{-3t}$
+- label: D
+  text: $x(t) = c_1 e^{t} + c_2 e^{-2t} + c_3 t^2 e^{-2t} + c_4 e^{-3t}$
+- label: E
+  text: $x(t) = c_1 e^{t} + c_2 e^{-2t} + c_3 te^{-2t} + c_4 te^{-3t}$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The characteristic polynomial has four roots (counting multiplicity): $\lambda = 1$ (simple), $\lambda = -2$ (repeated with algebraic multiplicity 2), and $\lambda = -3$ (simple). The rules for constructing basis solutions: - Each simple real root $\lambda$ contributes $e^{\lambda t}$. - A repeated real root $\lambda$ with algebraic multiplicity $k$ contributes $e^{\lambda t}, \, te^{\lambda t}, \, \ldots, \, t^{k-1}e^{\lambda t}$. - A complex conjugate pair $\alpha \pm i\beta$ contributes $e^{\alpha t}\cos(\beta t)$ and $e^{\alpha t}\sin(\beta t)$. Here, $\lambda = -2$ appears twice, producing both $e^{-2t}$ and $te^{-2t}$. Combined with $e^{t}$ and $e^{-3t}$ from the simple roots, we get exactly four basis solutions --- matching the fourth-order equation.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      ignores multiplicity entirely and produces only 3 basis solutions for a 4th-order equation; this reflects a more fundamental gap --- the student does not recognize that algebraic multiplicity demands additional basis solutions
+    B: |
+      introduces $\cos(t)$ alongside $e^{-2t}$, as if the repeated real root produces oscillatory behavior. This conflates repeated real eigenvalues with complex eigenvalues --- trigonometric terms arise only from imaginary parts, and $\lambda = -2$ is purely real.
+    D: |
+      the student correctly identifies that: (1) a fourth-order equation needs four basis solutions, (2) the repeated root $\lambda = -2$ produces a polynomial-exponential term, and (3) this term is attached specifically to $\lambda = -2$ and not to the simple roots. The only error is the power of $t$: for multiplicity $k$, the prefactors run $t^0, t^1, \ldots, t^{k-1}$, so multiplicity 2 gives $e^{-2t}$ and $te^{-2t}$, not $t^2e^{-2t}$. This is a minor indexing error reflecting genuine but imperfect understanding of the repeated-root mechanism.
+    E: |
+      correctly produces $te^{-2t}$ for the repeated root, but also introduces a spurious $te^{-3t}$ for the simple root $\lambda = -3$. This suggests the student knows that polynomial prefactors appear somewhere but applies them indiscriminately rather than only to repeated eigenvalues.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 17
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 1359
+variant_of: null
+topics:
+- Higher-order ODEs
+- characteristic polynomial
+- basis solutions
+- complex eigenvalues
+- repeated eigenvalues
+notes: null

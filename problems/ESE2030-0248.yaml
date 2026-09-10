@@ -1,0 +1,60 @@
+id: ESE2030-0248
+legacy_id: null
+week: 11
+skills:
+- W11.S06
+- W11.S03
+status: active
+problem_type: null
+statement: |
+  Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix and let $X_k$ denote its
+  rank-$k$ truncated SVD. The truncation satisfies the Pythagorean identity
+  $$\|X\|_F^2 \;=\; \|X_k\|_F^2 \,+\, \|X - X_k\|_F^2.$$
+  The Eckart-Young theorem says $X_k$ minimizes $\|X - B\|_F$ over rank-$k$ matrices $B$.
+  PCA says the projection onto the first $k$ principal components maximizes the variance
+  captured in $k$ dimensions. Why are these two statements equivalent?
+choices:
+- label: A
+  text: Because the SVD diagonalizes $X$ and PCA diagonalizes $X^TX$, the two share eigenvectors.
+- label: B
+  text: 'They are not equivalent: Eckart-Young minimizes a matrix norm, while PCA maximizes a scalar quantity.'
+- label: C
+  text: They aren't equivalent in general; they happen to coincide for centered data.
+- label: D
+  text: Because the singular vectors $\mathbf{v}_1, \ldots, \mathbf{v}_k$ are orthonormal, projecting
+    onto them preserves variance exactly.
+- label: E
+  text: Because $\|X\|_F^2$ is fixed, minimizing $\|X - X_k\|_F^2$ is the same as maximizing $\|X_k\|_F^2$,
+    and the latter is proportional to the captured variance.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The Pythagorean identity (given in the stem) is the entire engine. Since $\|X\|_F^2$ is a constant of the data, the identity says minimizing $\|X - X_k\|_F^2$ is equivalent to maximizing $\|X_k\|_F^2 = \sigma_1^2 + \cdots + \sigma_k^2$. Dividing by $n$ gives the PCA-captured variance, so the two optimizations have the same maximizer.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      centering affects the *interpretation* of $\|X_k\|_F^2/n$ as variance, but the optimization equivalence holds for any $X$.
+    D: |
+      orthonormal projection preserves the squared norm of the projected component, but this is a *consequence* of the Pythagorean identity, not the explanation of the equivalence between two optimizations.
+    B: |
+      both are scalar optimizations; conflates "minimizing a Frobenius norm" with "the answer being a matrix."
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 23
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 1196
+variant_of: null
+topics:
+- Eckart-Young as variance maximization
+- Pythagorean identity
+- SVD <-> PCA equivalence
+notes: 'difficulty: Deeper | week 11 taken from the solutions guide section heading'

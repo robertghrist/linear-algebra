@@ -1,0 +1,57 @@
+id: ESE2030-0260
+legacy_id: null
+week: 5
+skills:
+- W05.S09
+- W05.S05
+status: active
+problem_type: null
+statement: |
+  Let $A$ be an $m \times n$ matrix with linearly independent columns,
+  and let $A = QR$ be its QR decomposition.  Why must $R$ be upper triangular
+  rather than lower triangular?
+choices:
+- label: A
+  text: It is a convention; the decomposition $A = QR$ also admits a lower-triangular $R$
+- label: B
+  text: Because the $k$th column of $A$ is a linear combination of the first $k$ columns of $Q$
+- label: C
+  text: Because $R = Q^T A$ and the transpose of a triangular matrix is upper triangular
+- label: D
+  text: Because the columns of $Q$ are pairwise orthogonal
+- label: E
+  text: Because the $k$th column of $A$ is orthogonal to the first $k-1$ columns of $Q$
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The QR decomposition records exactly what Gram-Schmidt does to the columns of $A$.  If $\mathbf{q}_1, \ldots, \mathbf{q}_n$ are the orthonormalized vectors and $\mathbf{a}_1, \ldots, \mathbf{a}_n$ are the columns of $A$, then the partial-span invariance of Gram-Schmidt gives $\mathrm{span}\{\mathbf{a}_1, \ldots, \mathbf{a}_k\} = \mathrm{span}\{\mathbf{q}_1, \ldots, \mathbf{q}_k\}$ for every $k$. Hence $\mathbf{a}_k$ is a linear combination of $\mathbf{q}_1, \ldots, \mathbf{q}_k$ alone, with no contribution from $\mathbf{q}_{k+1}, \ldots, \mathbf{q}_n$.  Reading $A = QR$ column-by-column, the $k$th column of $R$ has zeros below row $k$ — precisely the upper-triangular structure. [Conceptual link: the $(k,k)$-entry of $R$ is $\norm{\mathbf{u}_k}$, the norm of the unnormalized Gram-Schmidt output at step $k$.  The above-diagonal entries $R_{j,k}$ for $j < k$ are the projection coefficients $\langle \mathbf{a}_k, \mathbf{q}_j \rangle$ that Gram-Schmidt subtracts off.  $R$ is the bookkeeping ledger of Gram-Schmidt; its triangularity is the recursion's visible fingerprint.]
+  key_insight: null
+  distractor_rationale:
+    D: |
+      true statement, but explains the structure of $Q$, not the triangularity of $R$.  Surface match for the student who reaches for any QR fact without tracking which fact answers the question.
+    E: |
+      twin pair to (B) — same surface (``$\mathbf{a}_k$ relates to the first $k-1$ columns of $Q$'') with the relationship swapped from {\em linear combination} to {\em orthogonality}.  In fact the $k$th column of $A$ is generally {\em not} orthogonal to the previous columns of $Q$ — it has nonzero components along them, which is exactly what Gram-Schmidt subtracts off.
+    C: |
+      the formula $R = Q^T A$ is correct, but the rest of the reasoning is nonsense — the transpose of an upper- triangular matrix is lower-triangular, not the other way around. D6 shape-implies-property fallacy: invokes a transpose identity that doesn't say what the student wants it to say.
+    A: |
+      the naive-prior answer for the student who has not connected the triangularity of $R$ to anything structural and assumes it is arbitrary.  In fact the partial-span structure of Gram-Schmidt {\em forces} $R$ upper-triangular; a lower- triangular $R$ would correspond to running Gram-Schmidt {\em backwards} on the columns of $A$, which is a different decomposition.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 11
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 687
+variant_of: null
+topics:
+- QR decomposition
+- upper-triangular R
+- Gram-Schmidt
+- partial span structure
+notes: null

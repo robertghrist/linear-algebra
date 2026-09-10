@@ -1,0 +1,50 @@
+id: ESE2030-0169
+legacy_id: null
+week: 2
+skills:
+- W02.S02
+status: active
+problem_type: null
+statement: |
+  Let $S = \{p_1, p_2, p_3\}$ be a set of polynomials in $\mathcal{P}_3$ where
+  $$p_1(x) = x^3 - x, \quad p_2(x) = x^3 + x^2, \quad p_3(x) = x^3 - x^2 - 2x.$$
+  Which polynomial is in $\text{span}(S)$?
+choices:
+- label: A
+  text: $q(x) = 1$
+- label: B
+  text: $q(x) = x^2 + x$
+- label: C
+  text: $q(x) = x^3$
+- label: D
+  text: $q(x) = x$
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q1-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q1.tex
+  conflict: null
+  explanation: |
+    Every polynomial in span$(S)$ has the form $ax^3 + bx^2 + cx$ (no constant term), which rules out (A). To test (B): we compute $-p_1 + p_2 = -(x^3-x) + (x^3+x^2) = x^2 + x$, confirming (B) is in the span. For (C): setting $\alpha p_1 + \beta p_2 + \gamma p_3 = x^3$ requires $\alpha + \beta + \gamma = 1$ (for $x^3$), $\beta - \gamma = 0$ (for $x^2$), and $-\alpha - 2\gamma = 0$ (for $x$). From these: $\beta = \gamma$ and $\alpha = -2\gamma$, so $-2\gamma + \gamma + \gamma = 0 \neq 1$. No solution exists. For (D): $x$ alone would require $\alpha + \beta + \gamma = 0$, $\beta - \gamma = 0$, $-\alpha - 2\gamma = 1$. This gives $\alpha = -2\gamma$, $\beta = \gamma$, so $0 = 0$ (consistent), but then $-(-2\gamma) - 2\gamma = 0 \neq 1$. Impossible.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      no constant terms can be produced from $S$
+    C: |
+      plausible since all three polynomials contain $x^3$, but the constraints are inconsistent
+    D: |
+      students might think lower-degree terms are easier to isolate
+sources:
+- semester: 2026A
+  instrument: quiz1
+  position: 11
+  file: quizzes-exams/2026-A/2030-Q1.tex
+  line: 364
+variant_of: null
+topics: []
+notes: week 2 taken from the solutions guide section heading

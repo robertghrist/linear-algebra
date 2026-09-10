@@ -1,0 +1,51 @@
+id: ESE2030-0270
+legacy_id: null
+week: 7
+skills:
+- W07.S05
+status: active
+problem_type: null
+statement: |
+  Compute $e^{-N}$ for the matrix
+  $N = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{bmatrix}.$
+choices:
+- label: A
+  text: \begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix}
+- label: B
+  text: \begin{bmatrix} 1 & -1 & -1/2 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}
+- label: C
+  text: \begin{bmatrix} 1 & -1 & 1/2 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}
+- label: D
+  text: \begin{bmatrix} 1 & -1 & 1 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}
+- label: E
+  text: \begin{bmatrix} 1 & -1 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The matrix exponential is defined by the power series $e^A = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots$. Applied to $-N$: $$e^{-N} = I + (-N) + \frac{(-N)^2}{2!} + \frac{(-N)^3}{3!} + \cdots.$$ Since $N$ is nilpotent with $N^3 = 0$, the series terminates after three terms. The key observation is that $(-N)^2 = N^2$ — squaring cancels the sign — so $$e^{-N} = I - N + \frac{N^2}{2}.$$ Computing $N^2 = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$ and assembling gives the answer in (C). \emph{Alternative path:} since $e^N$ and $e^{-N}$ commute and their product is $e^{N + (-N)} = e^0 = I$, we have $e^{-N} = (e^N)^{-1}$. A student who computes $e^N$ and inverts the resulting upper-triangular matrix arrives at the same place. This route emphasizes that $e^A$ is always invertible — a foundational fact about the matrix exponential.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      twin pair to (D): computed $e^{N}$ instead of $e^{-N}$, \emph{and} forgot the factorial. The student missed the negative sign in the question entirely. No partial credit; the sign error is fundamental.
+    B: |
+      negates the sign of \emph{every} term, including the $N^2$ term, missing that $(-N)^2 = +N^2$. A subtle but fundamental error: squaring cancels signs. Catches students who reflexively flip every sign rather than thinking term-by-term.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 21
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1296
+variant_of: null
+topics:
+- Matrix exponential
+- definition via power series
+- nilpotent matrix
+notes: 'difficulty: Core'

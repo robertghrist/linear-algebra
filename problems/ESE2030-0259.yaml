@@ -1,0 +1,54 @@
+id: ESE2030-0259
+legacy_id: null
+week: 8
+skills:
+- W08.S07
+status: active
+problem_type: null
+statement: |
+  Consider the third-order linear differential equation $p(D)x = 0$, where
+  $p(D) = (D - 2)^2 (D + 3)$ and $D = d/dt$. Which of the following is a basis for the solution space?
+choices:
+- label: A
+  text: $\{e^{2t},\ e^{2t},\ e^{-3t}\}$
+- label: B
+  text: $\{e^{2t},\ e^{-3t}\}$
+- label: C
+  text: $\{e^{2t},\ t e^{2t},\ e^{-3t}\}$
+- label: D
+  text: $\{e^{2t},\ e^{2t} \ln t,\ e^{-3t}\}$
+- label: E
+  text: $\{e^{-2t},\ t e^{-2t},\ e^{3t}\}$
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The characteristic polynomial $p(\lambda) = (\lambda - 2)^2 (\lambda + 3)$ has roots $\lambda = 2$ (algebraic multiplicity $2$) and $\lambda = -3$ (algebraic multiplicity $1$). Each simple root contributes one basis solution $e^{\lambda t}$; a root of multiplicity $k$ contributes $k$ basis solutions $e^{\lambda t}, t e^{\lambda t}, \ldots, t^{k-1} e^{\lambda t}$. So the basis is $\{e^{2t}, t e^{2t}, e^{-3t}\}$. [Recipe: read the multiplicities off the factorization, then for each root of multiplicity $k$, generate $k$ basis solutions by multiplying $e^{\lambda t}$ by powers of $t$ from $t^0$ to $t^{k-1}$. The total count must match the degree of $p$, which equals the dimension of the solution space.]
+  key_insight: null
+  distractor_rationale:
+    A: |
+      writes $e^{2t}$ twice for the repeated root, producing a linearly \emph{dependent} set --- $\{e^{2t}, e^{2t}, e^{-3t}\}$ has rank $2$, not $3$. Diagnoses a student who knows the count must equal the multiplicity but doesn't know how independence is achieved.
+    E: |
+      sign-flips both roots: reads the factor $(D - 2)$ as eigenvalue $-2$ and $(D + 3)$ as eigenvalue $3$. The factor $(D - \lambda)$ corresponds to root $\lambda$, not $-\lambda$.
+    D: |
+      multiplies by $\ln t$ instead of $t$ for the repeated root --- the polynomial ladder $1, t, t^2, \ldots$ comes from differentiation of $e^{\lambda t}$ and the structure of Jordan blocks, not from any logarithmic source.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 10
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 658
+variant_of: null
+topics:
+- Higher-order linear ODEs
+- polynomial differential operator
+- basis of solution space
+- repeated roots
+notes: 'week remapped 7 -> 8 at skill tagging: content is Chapter 8 material'

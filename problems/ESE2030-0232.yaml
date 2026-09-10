@@ -1,0 +1,54 @@
+id: ESE2030-0232
+legacy_id: null
+week: 10
+skills:
+- W10.S09
+- W10.S01
+status: active
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{n \times n}$ be symmetric, with eigendecomposition $A = Q\Lambda Q^T$.
+  Under what condition does setting $U = V = Q$ and $\Sigma = \Lambda$ (up to reordering) yield a
+  valid SVD of $A$?
+choices:
+- label: A
+  text: Whenever $A$ is symmetric.
+- label: B
+  text: Whenever $A$ is invertible.
+- label: C
+  text: Whenever $A$ is positive definite.
+- label: D
+  text: Whenever every eigenvalue of $A$ is non-negative.
+- label: E
+  text: This eigendecomposition cannot be a valid SVD.
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q4-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The SVD requires $\Sigma$ to have non-negative diagonal entries. Taking $U = V = Q$ and $\Sigma = \Lambda$ is a valid SVD precisely when every $\lambda_i \geq 0$ --- i.e., when $A$ is positive semidefinite. If some $\lambda_i < 0$, an SVD must use $\sigma_i = |\lambda_i|$ and absorb the sign by flipping the corresponding column of $U$ or $V$; e.g., $A = -I$ has eigenvalues $-1$ but singular values $+1$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      negative eigenvalues break $\Sigma \geq 0$.
+    B: |
+      invertibility rules out zero eigenvalues but not negative ones.
+    E: |2+
+
+sources:
+- semester: 2026A
+  instrument: quiz4
+  position: 7
+  file: quizzes-exams/2026-A/2030-Q4.tex
+  line: 474
+variant_of: null
+topics:
+- SVD vs eigendecomposition
+- PSD vs PD
+notes: 'difficulty: Core'

@@ -1,0 +1,55 @@
+id: ESE2030-0225
+legacy_id: null
+week: 7
+skills:
+- W07.S03
+status: active
+problem_type: null
+statement: |
+  A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 4$,
+  $\lambda_2 = 4$, $\lambda_3 = 1$.
+  Which additional piece of information would guarantee that $A$ is
+  diagonalizable?
+choices:
+- label: A
+  text: $\ker(A - 4I)$ is one-dimensional
+- label: B
+  text: $A$ is upper triangular
+- label: C
+  text: The columns of $A$ are linearly independent
+- label: D
+  text: The eigenspace for $\lambda = 4$ is two-dimensional
+- label: E
+  text: 'None of the above: a repeated eigenvalue means $A$ cannot be diagonalized'
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The eigenvalue $\lambda = 4$ has algebraic multiplicity $2$, so diagonalizability hinges on whether its geometric multiplicity also equals $2$. If the eigenspace for $\lambda = 4$ is two-dimensional, then geometric multiplicity matches algebraic multiplicity for this eigenvalue. The eigenvalue $\lambda = 1$ has algebraic multiplicity $1$, so its geometric multiplicity is automatically $1$. With geometric $=$ algebraic for \emph{every} eigenvalue, $A$ is diagonalizable.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      correctly identifies $\ker(A - 4I)$ as the eigenspace for the repeated eigenvalue and recognizes that this eigenspace is the object that determines diagonalizability. However, a one-dimensional eigenspace means geometric multiplicity $1 < 2 =$ algebraic multiplicity, which actually guarantees $A$ is \emph{not} diagonalizable. The student has the right framework but the wrong dimension threshold.)
+    B: |
+      Upper triangular matrices display their eigenvalues on the diagonal, but this gives no information about eigenspace dimensions. A Jordan block such as $\begin{bmatrix} 4 & 1 \\ 0 & 4 \end{bmatrix}$ is upper triangular with repeated eigenvalue $4$ yet is not diagonalizable. Upper triangularity is about the form of the matrix, not the structure of its eigenspaces.
+    C: |
+      Since no eigenvalue is zero, $\det(A) = 4 \cdot 4 \cdot 1 = 16 \neq 0$, so $A$ is already invertible (i.e., its columns are already linearly independent) from the given information alone. This tells us nothing new. Moreover, invertibility is unrelated to diagonalizability: a matrix can be invertible but not diagonalizable (e.g., a Jordan block with $\lambda \neq 0$).
+    E: |
+      This is a common misconception. Repeated eigenvalues do \emph{not} prevent diagonalizability; they merely create a \emph{condition} that must be checked. For instance, $4I_{3\times 3}$ has eigenvalue $4$ with algebraic multiplicity $3$ and is trivially diagonalizable (it is already diagonal). Diagonalizability fails only when an eigenspace is too small, not when an eigenvalue is repeated.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 22
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 1678
+variant_of: null
+topics:
+- Diagonalizability
+- algebraic vs geometric multiplicity
+notes: null

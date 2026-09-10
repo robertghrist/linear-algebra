@@ -1,0 +1,53 @@
+id: ESE2030-0221
+legacy_id: null
+week: 7
+skills:
+- W07.S02
+- W07.S03
+status: active
+problem_type: null
+statement: |
+  A $4 \times 4$ matrix $A$ has characteristic polynomial $p(\lambda) = \lambda^2(\lambda - 3)(\lambda + 1)$.
+  Which of the following must be true?
+choices:
+- label: A
+  text: $\ker(A) \neq \{\mathbf{0}\}$
+- label: B
+  text: $A^{-1}$ exists
+- label: C
+  text: $\text{tr}(A) = 0$
+- label: D
+  text: $e^{A}$ is singular
+- label: E
+  text: $A$ is diagonalizable
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q3-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The characteristic polynomial $\lambda^2(\lambda-3)(\lambda+1)$ has roots $\lambda = 0$ (algebraic multiplicity 2), $\lambda = 3$, and $\lambda = -1$. Since $0$ is an eigenvalue, there exists a nonzero $\mathbf{v}$ with $A\mathbf{v} = \mathbf{0}$, so $\ker(A)$ is nontrivial. Equivalently, $\det(A) = 0 \cdot 0 \cdot 3 \cdot (-1) = 0$, so $A$ is singular.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      The trace equals the sum of eigenvalues: $\text{tr}(A) = 0 + 0 + 3 + (-1) = 2 \neq 0$. A student who confuses trace (sum) with determinant (product) might select this.
+    D: |
+      $e^A$ is ALWAYS nonsingular (since $\det(e^A) = e^{\text{tr}(A)} = e^2 \neq 0$). This is a common misconception: students think singularity of $A$ implies singularity of $e^A$.
+sources:
+- semester: 2026A
+  instrument: quiz3
+  position: 18
+  file: quizzes-exams/2026-A/2030-Q3.tex
+  line: 1428
+variant_of: null
+topics:
+- Eigenvalue zero
+- singularity
+- invertibility
+- ker(A)
+- matrix exponential
+notes: null

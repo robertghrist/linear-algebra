@@ -1,0 +1,56 @@
+id: ESE2030-0267
+legacy_id: null
+week: 7
+skills:
+- W07.S05
+status: active
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{n \times n}$ and let $p(t) = c_k t^k + \cdots + c_1 t
+  + c_0$ be a polynomial. Suppose $A\mathbf{v} = \lambda \mathbf{v}$ for a
+  nonzero $\mathbf{v}$. Which of the following must be TRUE?
+choices:
+- label: A
+  text: $p(A)$ has the same eigenvalues as $A$, since $p$ does not change the spectrum.
+- label: B
+  text: $p(A)\mathbf{v} = p(\lambda)\,\mathbf{v}$, but the eigenvalues of $p(A)$ are unrelated to those
+    of $A$.
+- label: C
+  text: Eigenvalues of $p(A)$ are $p(\lambda_i)$ only when $A$ is diagonalizable.
+- label: D
+  text: $p(A)\mathbf{v} = \lambda\, p(\mathbf{v})$, since polynomials commute with linear maps.
+- label: E
+  text: $p(A)\mathbf{v} = p(\lambda)\,\mathbf{v}$, and the eigenvectors of $A$ are eigenvectors of $p(A)$.
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  - quizzes-exams/2026-A/2030-FINAL-SOLUTIONS.tex
+  conflict: null
+  explanation: |
+    The \emph{spectral mapping theorem for polynomials}: if $A\mathbf{v} = \lambda \mathbf{v}$, then $A^j \mathbf{v} = \lambda^j \mathbf{v}$ for every $j \geq 0$ (induction: $A^{j+1}\mathbf{v} = A(A^j \mathbf{v}) = A(\lambda^j \mathbf{v}) = \lambda^{j+1}\mathbf{v}$), so applying $p$ termwise gives $$p(A)\mathbf{v} \;=\; \sum_{j=0}^{k} c_j A^j \mathbf{v} \;=\; \sum_{j=0}^{k} c_j \lambda^j \mathbf{v} \;=\; p(\lambda)\,\mathbf{v}.$$ So $\mathbf{v}$ is an eigenvector of $p(A)$ with eigenvalue $p(\lambda)$. The eigenvectors of $A$ remain eigenvectors of $p(A)$; the eigenvalues transform by $p$. This single structural fact underlies an enormous amount of the course: the matrix exponential $e^{At} = \sum t^j A^j / j!$ has the same eigenvectors as $A$ with eigenvalues $e^{\lambda t}$; the resolvent $(zI - A)^{-1}$ has eigenvalues $1/(z - \lambda)$; powers $A^k$ have eigenvalues $\lambda^k$. The rule ``$A$ acts on its own eigenvectors as multiplication by $\lambda$'' propagates through every analytic function of $A$ that the course encounters. [Pedagogical remark: the result holds without any diagonalizability hypothesis — it is a per-eigenvector statement, not a global diagonalization statement. (D) gets this wrong by overgeneralizing the diagonalizable case.]
+  key_insight: null
+  distractor_rationale:
+    B: |
+      D3 correct-structure-wrong-detail: gets the identity $p(A)\mathbf{v} = p(\lambda)\mathbf{v}$ correct but then claims the spectra are unrelated. The spectra are related precisely by $p$: every eigenvalue of $p(A)$ is of the form $p(\lambda)$ for some eigenvalue $\lambda$ of $A$.
+    D: |
+      D7 type confusion: ``$p(\mathbf{v})$'' is undefined — $p$ is a polynomial in a matrix variable, not in a vector variable. The expression $\lambda \cdot p(\mathbf{v})$ has no meaning. Catches students who reach for ``polynomials commute'' without checking what objects $p$ can be applied to.
+    C: |
+      D5 naive-prior: thinks diagonalizability is needed for a per-eigenvector spectral identity. The identity holds eigenvector-by-eigenvector; whether the eigenvectors span $\mathbb{R}^n$ is irrelevant for this single-eigenvector claim.
+    A: |
+      D5 naive-prior at the spectrum level: confuses ``preserves eigenvectors'' with ``preserves eigenvalues.'' $A^2$ has the same eigenvectors as $A$ but eigenvalues $\lambda^2$, which generically differ from $\lambda$.
+sources:
+- semester: 2026A
+  instrument: final
+  position: 18
+  file: quizzes-exams/2026-A/2030-FINAL-EXAM.tex
+  line: 1110
+variant_of: null
+topics:
+- Spectral mapping
+- eigenvalues of polynomials in A
+- eigenvectors preserved
+notes: 'difficulty: Deeper'

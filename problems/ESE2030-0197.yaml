@@ -1,0 +1,50 @@
+id: ESE2030-0197
+legacy_id: null
+week: 6
+skills:
+- W06.S06
+- W06.S05
+status: active
+problem_type: null
+statement: |
+  Let $A$ be an $m \times n$ matrix with $m > n$ and $\operatorname{rank}(A) = n$ (full column rank). The pseudoinverse is $A^\dagger = (A^TA)^{-1}A^T$. Which of the following statements is TRUE?
+choices:
+- label: A
+  text: $A^\dagger A = I_m$, so $A^\dagger$ is a right inverse of $A$.
+- label: B
+  text: $A^\dagger$ is an $n \times m$ matrix, and $A^\dagger A = I_n$.
+- label: C
+  text: $(A^TA)^{-1}$ does not exist because $A$ is not square.
+- label: D
+  text: $A^\dagger \mathbf{b}$ solves $A\mathbf{x} = \mathbf{b}$ exactly for every $\mathbf{b} \in \mathbb{R}^m$.
+- label: E
+  text: $A^\dagger = A^{-1}$ after discarding the extra rows of $A$.
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2026-A/2030-Q2-SOLUTIONS.tex
+  - quizzes-exams/2026-A/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Since $A$ is $m \times n$, we have $A^T$ is $n \times m$, so $A^TA$ is $n \times n$. Full column rank guarantees $A^TA$ is invertible, so $(A^TA)^{-1}$ is $n \times n$. Thus $A^\dagger = (A^TA)^{-1}A^T$ is $n \times m$. Computing $A^\dagger A = (A^TA)^{-1}A^TA = I_n$: the pseudoinverse is a \emph{left} inverse of $A$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      gets the side wrong: $A^\dagger A = I_n$, not $AA^\dagger = I_m$. The product $AA^\dagger$ is $m \times m$ but equals the projection onto $\operatorname{im}(A)$, not $I_m$. Students who confuse left and right inverses pick this. Note also the dimension mismatch: $I_m$ is $m \times m$ but $A^\dagger A$ is $n \times n$.
+    C: |
+      a common fear: since $A$ is not square, students worry that $A^TA$ might also be defective. But $A^TA$ is $n \times n$ and full column rank of $A$ guarantees it is invertible. This distractor catches students who do not trace the dimensions carefully.
+    D: |
+      $A\mathbf{x} = \mathbf{b}$ is overdetermined ($m > n$), so exact solutions exist only when $\mathbf{b} \in \operatorname{im}(A)$. For general $\mathbf{b}$, $A^\dagger \mathbf{b}$ gives the \emph{least squares} solution minimizing $\|A\mathbf{x} - \mathbf{b}\|$, not an exact solution. Students who conflate least squares with exact solving pick this.
+sources:
+- semester: 2026A
+  instrument: quiz2
+  position: 16
+  file: quizzes-exams/2026-A/2030-Q2.tex
+  line: 513
+variant_of: null
+topics: []
+notes: null
