@@ -1,0 +1,2833 @@
+\documentclass[12pt]{amsart}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{itemsep=6pt, topsep=6pt, parsep=0pt}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage[left=0.75in,right=1in,bottom=0.9in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1}
+
+% SECTION DIVIDERS
+\newcommand{\divider}{
+  \vspace{-1em}
+  \noindent
+  \raisebox{-0.15ex}{\textbullet}%
+  \hspace{0.5em}%
+  \rule[0.5ex]{0.95\textwidth}{1.0pt}%
+  \hspace{0.5em}%
+  \raisebox{-0.15ex}{\textbullet}%
+  \vspace{0em}
+}
+
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+\title{ESE 2030 FINAL EXAM : SOLUTIONS GUIDE \\ Spring 2026}
+\author{prof-g}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+{\bf NOTE TO STUDENTS}
+\end{center}
+
+This solutions guide is organized by course week and topic, spanning the full
+semester of material. Since there are multiple versions of this exam with
+permuted problem orders \emph{and} permuted answer choices, the guide does
+\emph{not} identify correct answers by letter~(A)--(E).
+Instead, the correct answer is \textcolor{blue}{\textbf{highlighted in blue}}
+directly within each list of choices.
+Match the problem text to the one you received, then read the highlighted
+choice, the explanation, and the analysis of each distractor.
+
+Each solution includes:
+\begin{itemize}
+\item The correct answer (highlighted in blue in the choice list)
+\item Detailed mathematical explanation
+\item Analysis of every wrong choice, including partial credit designations and common misconceptions
+\end{itemize}
+
+A few synthesis problems span more than one week; these are placed under the
+\emph{later} of the two weeks (the week in which the synthesis becomes
+available), with cross-references noted in the explanations.
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 1: SOLVING LINEAR SYSTEMS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: Practical advantage of the LU factorization}
+%----------------------------------------------------------
+
+Suppose a square matrix $A$ has been factored as $A = LU$. Which statement
+best describes the principal practical advantage of having this factorization
+in hand?
+
+\begin{enumerate}[(A)]
+\item $A = LU$ removes the need for row pivoting.
+\item $A = LU$ provides $A^{-1}$ directly as $U^{-1}L^{-1}$.
+\item Solving $A\mathbf{x} = \mathbf{b}$ via $A = LU$ costs fewer arithmetic operations than Gaussian elimination on the augmented matrix $[\,A \mid \mathbf{b}\,]$.
+\item \textcolor{blue}{\textbf{Once $A = LU$ is computed, additional systems $A\mathbf{x} = \mathbf{b}$ are solved by forward substitution followed by back substitution.}}
+\item The diagonal of $U$ reveals whether $A$ is invertible.
+\end{enumerate}
+
+\textbf{Explanation:}
+The signature use of an LU factorization is to amortize the cost of factoring
+across many right-hand sides. The factorization itself costs $O(n^3)$ ---
+the same as a single Gaussian elimination. The payoff arrives when one wants
+to solve $A\mathbf{x} = \mathbf{b}_1, A\mathbf{x} = \mathbf{b}_2, \ldots$:
+each subsequent solve is just $L\mathbf{y} = \mathbf{b}$ (forward substitution)
+followed by $U\mathbf{x} = \mathbf{y}$ (back substitution), two triangular
+systems at $O(n^2)$ each. This is the structural insight behind LU:
+triangular systems are easy, so split the hard work of factoring from the
+easy work of solving.
+
+\textbf{Trick answer:}
+``Fewer arithmetic operations than a single Gaussian elimination'' captures
+the intuition that LU saves work, but misattributes the source: a single
+solve via LU is the \emph{same} cost as a single Gaussian elimination.
+The savings come only when the factorization is re-used across multiple
+right-hand sides.
+
+\textbf{Trick answer:}
+``Diagonal of $U$ reveals invertibility'' is a true consequence --- since
+$L$ has unit diagonal, $\det(A) = \det(U) = \prod u_{ii}$, so $A$ is invertible
+iff $U$ has all nonzero diagonal entries --- but this is a diagnostic
+byproduct, not the reason one computes the factorization.
+
+\textbf{Trick answer:}
+``$A^{-1} = U^{-1}L^{-1}$'' is a technically correct identity, but in practice
+one never \emph{forms} $A^{-1}$; one solves with triangular substitutions.
+The whole point of LU is to avoid computing inverses.
+
+\textbf{Trick answer:}
+``Removes the need for row pivoting'' has the relationship backwards ---
+pivoting is precisely why the more general $PA = LU$ form exists. LU does
+not eliminate the need for pivoting; it accommodates it.
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 2: ABSTRACT VECTOR SPACES}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: Which property is NOT a vector space axiom}
+%----------------------------------------------------------
+
+Which of the following properties is NOT one of the axioms of a vector space?
+
+\begin{enumerate}[(A)]
+\item $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$ for every $\mathbf{u}, \mathbf{v} \in V$
+\item There exists a vector $\mathbf{0} \in V$ such that $\mathbf{v} + \mathbf{0} = \mathbf{v}$ for every $\mathbf{v} \in V$
+\item $1 \cdot \mathbf{v} = \mathbf{v}$ for every $\mathbf{v} \in V$
+\item $c \cdot (\mathbf{u} + \mathbf{v}) = c \cdot \mathbf{u} + c \cdot \mathbf{v}$ for every scalar $c$ and $\mathbf{u}, \mathbf{v} \in V$
+\item \textcolor{blue}{\textbf{$0 \cdot \mathbf{v} = \mathbf{0}$ for every $\mathbf{v} \in V$}}
+\end{enumerate}
+
+\textbf{Explanation:}
+The identity $0 \cdot \mathbf{v} = \mathbf{0}$ is a \emph{theorem}, not an
+axiom. It is provable from the axioms via distributivity over scalar addition:
+$$0 \cdot \mathbf{v} = (0 + 0) \cdot \mathbf{v} = 0 \cdot \mathbf{v} + 0 \cdot \mathbf{v},$$
+and subtracting $0 \cdot \mathbf{v}$ from both sides gives $\mathbf{0} = 0 \cdot \mathbf{v}$.
+The other four are axioms: commutativity of vector addition, existence of the
+additive identity, the scalar identity axiom, and distributivity of scalar
+multiplication over vector addition.
+
+The axioms are deliberately minimal. Recognizing which properties are
+primitive versus which are derivable is the point of an axiomatic system.
+Note that the scalar identity $1 \cdot \mathbf{v} = \mathbf{v}$ \emph{must} be
+assumed as an axiom: without it, one could define a degenerate ``scalar
+multiplication'' where $c \cdot \mathbf{v} = \mathbf{0}$ for all
+$c, \mathbf{v}$, and most other axioms would still hold.
+
+\textbf{Trick answer:}
+The scalar identity $1 \cdot \mathbf{v} = \mathbf{v}$ looks similar in form
+to $0 \cdot \mathbf{v} = \mathbf{0}$ --- both are scalar-times-vector
+identities involving a specific scalar. Students may pattern-match on shape
+and pick the ``$1$ version'' as derivable from the ``$0$ version'' or vice
+versa. The genuine asymmetry: the $1$-version is irreducible, while the
+$0$-version follows from distributivity.
+
+\textbf{Trick answer:}
+Commutativity of vector addition is an explicit axiom in every standard
+formulation, not a ``computational consequence'' of structure.
+
+\textbf{Trick answer:}
+Distributivity of scalar multiplication over vector addition is an explicit
+axiom; this is distinct from distributivity over scalar addition, which is
+a \emph{separate} axiom. Students sometimes conflate the two and assume one
+implies the other.
+
+\textbf{Trick answer:}
+Existence of the additive identity (zero vector) is an explicit axiom in
+every standard formulation. Students who think of the zero vector as
+``just there'' rather than as something whose existence is asserted by an
+axiom might pick this.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Direct sum decomposition --- equivalent characterizations}
+%----------------------------------------------------------
+
+Let $V$ be a finite-dimensional vector space, and let $U, W \subseteq V$ be
+subspaces satisfying $U + W = V$. Which of the following are equivalent to
+$V = U \oplus W$ under this hypothesis?
+
+\begin{enumerate}[(A)]
+\item $U \cap W = \{\mathbf{0}\}$
+\item $\dim(U) + \dim(W) = \dim(V)$
+\item Every vector in $V$ can be written as $\mathbf{u} + \mathbf{w}$ with $\mathbf{u} \in U$, $\mathbf{w} \in W$
+\item $U$ and $W$ together contain a basis for $V$
+\item \textcolor{blue}{\textbf{Both (A) and (B) (the trivial-intersection condition and the dimension-count condition)}}
+\end{enumerate}
+
+\textbf{A note on the wording:}
+The phrasing ``which of the following are equivalent'' is asking which of the
+\emph{listed options}, taken on its own, captures the full equivalence to
+$V = U \oplus W$ under the hypothesis. Both (A) and (B) are individually
+equivalent to the direct-sum condition; the option naming \emph{both of them
+together} is therefore the most complete answer on the list. We graded
+generously where the phrasing caused a student to pick (A) or (B) alone --- those
+are each correctly identified equivalences, just incomplete relative to the
+combined option.
+
+\textbf{Explanation:}
+A direct sum $V = U \oplus W$ requires \emph{both} (i) every $\mathbf{v} \in V$
+decomposes as $\mathbf{u} + \mathbf{w}$ with $\mathbf{u} \in U$, $\mathbf{w} \in W$,
+and (ii) the decomposition is \emph{unique}. The hypothesis $U + W = V$ already
+gives existence, so uniqueness is the additional requirement.
+
+Why uniqueness is equivalent to $U \cap W = \{\mathbf{0}\}$: suppose
+$\mathbf{v} = \mathbf{u}_1 + \mathbf{w}_1 = \mathbf{u}_2 + \mathbf{w}_2$ are
+two decompositions. Rearranging, $\mathbf{u}_1 - \mathbf{u}_2 = \mathbf{w}_2 - \mathbf{w}_1$.
+The left side lies in $U$, the right in $W$, so this common vector lies in $U \cap W$.
+If $U \cap W = \{\mathbf{0}\}$, that common vector is $\mathbf{0}$ and the two
+decompositions coincide. Conversely, if the intersection contains a nonzero $\mathbf{x}$,
+then $\mathbf{0} = \mathbf{0} + \mathbf{0} = \mathbf{x} + (-\mathbf{x})$ gives two
+decompositions of the zero vector. So uniqueness $\Leftrightarrow$ trivial intersection.
+
+Why the dimension count is also equivalent: take a basis $\{\mathbf{u}_1, \ldots, \mathbf{u}_p\}$
+of $U$ and a basis $\{\mathbf{w}_1, \ldots, \mathbf{w}_q\}$ of $W$. Their union spans $U + W = V$,
+so it contains a basis of $V$ and hence has at least $\dim(V)$ vectors --- that is,
+$p + q \geq \dim(V)$. The union is itself a basis of $V$ exactly when no nontrivial
+linear relation $\sum a_i \mathbf{u}_i + \sum b_j \mathbf{w}_j = \mathbf{0}$ exists,
+which forces $\sum a_i \mathbf{u}_i = -\sum b_j \mathbf{w}_j \in U \cap W$. So:
+the union is a basis $\Leftrightarrow$ $U \cap W = \{\mathbf{0}\}$ $\Leftrightarrow$
+$\dim(U) + \dim(W) = \dim(V)$. The trivial-intersection condition and the
+dimension-count condition are two faces of the same fact: they are the conditions
+under which a basis of $U$ glued to a basis of $W$ is a basis of $V$.
+
+Students often treat ``direct sum'' as a synonym for ``sum,'' missing that
+the directness is precisely the uniqueness of decomposition. Recognizing that
+two seemingly different conditions --- one about intersection, one about
+dimensions --- describe the same structural fact is the FTLA-style pattern
+of equivalent characterizations applied at the level of subspaces.
+
+\textbf{Partial credit:}
+The dimension-count characterization alone --- this captures the right
+structural insight but misses that the trivial-intersection condition is
+equivalent under the stated hypothesis. One ladder rung below.
+
+\textbf{Partial credit:}
+The trivial-intersection characterization alone --- captures the other
+equivalent insight but misses that the dimension count is equivalent under
+the stated hypothesis. Same ladder rung as the partial above.
+
+\textbf{Trick answer:}
+``$U$ and $W$ together contain a basis for $V$'' sounds structurally
+relevant but is too loose --- $U \cup W$ contains a basis for $V$ whenever
+$U + W = V$, regardless of directness. The trap is pattern-matching on
+basis vocabulary.
+
+\textbf{Trick answer:}
+``Every vector decomposes as $\mathbf{u} + \mathbf{w}$'' is just a
+restatement of $U + W = V$, which was \emph{given} as a hypothesis ---
+picking this means the student did not recognize that something
+\emph{additional} is needed for directness. Existence without uniqueness.
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 3: LINEAR TRANSFORMATIONS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: Quotient space --- what is an element of $V/W$?}
+%----------------------------------------------------------
+
+Let $V$ be a finite-dimensional vector space and $W \subseteq V$ a nontrivial
+subspace ($W \neq V$ and $W \neq \{0\}$).
+Which of the following best describes an element of the quotient space $V/W$?
+
+\begin{enumerate}[(A)]
+\item The orthogonal projection of a vector in $V$ onto the complement of $W$
+\item \textcolor{blue}{\textbf{A set of vectors in $V$ that all differ from one another by an element of $W$}}
+\item A vector in $V$ paired with a vector in $W$
+\item A vector in $V$ that is not in $W$
+\item A vector in $V$ together with a choice of representative for $W$
+\end{enumerate}
+
+\textbf{Explanation:}
+An element of $V/W$ is an \emph{equivalence class}
+$$[\mathbf{v}] = \mathbf{v} + W = \{\mathbf{v} + \mathbf{w} : \mathbf{w} \in W\}.$$
+The relation in play is: $\mathbf{u} \sim \mathbf{v}$ iff $\mathbf{u} - \mathbf{v} \in W$.
+The equivalence class $[\mathbf{v}]$ is the set of \emph{all} vectors in $V$
+related to $\mathbf{v}$ in this sense --- equivalently, all vectors that
+differ from $\mathbf{v}$ by something in $W$. So an element of $V/W$ is
+genuinely a \emph{set} of vectors in $V$, all pairwise differing by elements
+of $W$ --- not a single vector, not a pair, not a projection.
+
+This is the structural shift students most often miss. The quotient
+construction does not pick out a ``preferred representative''; it identifies
+all vectors that differ by something in $W$. The zero element of $V/W$ is
+the equivalence class $[\mathbf{0}] = W$ itself --- every vector in $W$
+represents the zero element. Geometrically, in $V = \mathbb{R}^3$ with $W$
+a line through the origin, $V/W$ is a $2$-dimensional space whose
+``points'' are the parallel translates $\mathbf{v} + W$ of $W$ ---
+parallel lines in $\mathbb{R}^3$.
+
+\textbf{Trick answer:}
+``A vector in $V$ that is not in $W$'' captures the intuition that
+``quotienting kills $W$,'' and a non-$W$ representative does specify a
+nonzero equivalence class --- but conflates an equivalence class with a
+single representative and misses that vectors inside $W$ also represent
+an element of $V/W$, namely the zero class.
+
+\textbf{Trick answer:}
+``A vector in $V$ paired with a vector in $W$'' --- pairs sound like
+quotient-related structure, perhaps confused with direct sum $V \oplus W$ or
+a product construction. The quotient is a single object derived from $V$ and
+$W$, not a pair.
+
+\textbf{Trick answer:}
+``A vector in $V$ together with a choice of representative for $W$'' ---
+``representative'' is the right vocabulary for the wrong question: picking
+a representative describes how one \emph{names} an equivalence class, not
+what the class \emph{is}.
+
+\textbf{Trick answer:}
+``Orthogonal projection of a vector in $V$ onto the complement of $W$''
+imports an inner-product notion into the abstract quotient construction.
+Even when $V$ has an inner product, $V/W$ and $W^\perp$ are isomorphic but
+not equal --- and this problem makes no inner-product assumption.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: FTLA dimension count for a rank-3 transformation}
+%----------------------------------------------------------
+
+Let $T: V \to W$ be a rank 3 linear transformation between finite-dimensional
+vector spaces, with $\dim(V) = 7$, $\dim(W) = 4$.
+Which of the following must be TRUE?
+
+\begin{enumerate}[(A)]
+\item $\dim(\ker T) = 3$ and $\mathrm{coim}(T) \cong \mathrm{im}(T)$
+\item $\dim(\ker T) = 4$ and $\mathrm{coim}(T) \cong \ker(T)$
+\item $\dim(\mathrm{coim}\, T) = 4$ and $\mathrm{coker}(T) \cong \mathbb{R}^1$
+\item \textcolor{blue}{\textbf{$\dim(\mathrm{coim}\, T) = 3$ and $\mathrm{coker}(T) \cong \mathbb{R}^1$}}
+\item $\dim(\ker T) = 4$ and $\mathrm{coker}(T) \cong \ker(T)$
+\end{enumerate}
+
+\textbf{Explanation:}
+Three facts are in play:
+\begin{itemize}
+\item Rank-nullity: $\dim(\ker T) = \dim V - \dim(\mathrm{im}\, T) = 7 - 3 = 4$.
+\item FTLA punchline: $\mathrm{coim}(T) \cong \mathrm{im}(T)$, so $\dim(\mathrm{coim}\, T) = 3$.
+\item Cokernel dimension: $\dim(\mathrm{coker}\, T) = \dim W - \dim(\mathrm{im}\, T) = 4 - 3 = 1$, so $\mathrm{coker}(T) \cong \mathbb{R}^1$.
+\end{itemize}
+Only the choice giving $\dim(\mathrm{coim}\, T) = 3$ together with
+$\mathrm{coker}(T) \cong \mathbb{R}^1$ is consistent with all three.
+
+The FTLA gives a natural isomorphism $\mathrm{coim}(T) \cong \mathrm{im}(T)$,
+but \emph{not} $\mathrm{coker}(T) \cong \ker(T)$ in general --- those have
+the same dimension only when $\dim V = \dim W$, and even then the isomorphism
+is not natural. This distinction is the FTLA spine.
+
+\textbf{Partial credit:}
+The choice $\dim(\mathrm{coim}\, T) = 4$ with $\mathrm{coker}(T) \cong \mathbb{R}^1$
+gets the cokernel correct, but confuses $\mathrm{coim}\, T = V/\ker T$ with
+the wrong dimension count: the student remembered the quotient construction
+but lost the FTLA equivalence $\mathrm{coim}(T) \cong \mathrm{im}(T)$.
+Twin pair to the correct answer.
+
+\textbf{Trick answer:}
+$\dim \ker T = 4$ paired with $\mathrm{coim}(T) \cong \ker(T)$: correct
+kernel dimension, but pairs it with the wrong FTLA isomorphism. Coim is
+naturally isomorphic to \emph{image}, not kernel --- this is the FTLA
+confusion that swaps the two non-trivial pieces of the four-subspace picture.
+
+\textbf{Trick answer:}
+$\dim \ker T = 3$ paired with $\mathrm{coim}(T) \cong \mathrm{im}(T)$: has
+the correct FTLA isomorphism but pairs it with the wrong kernel dimension
+--- confusing $\dim \ker T$ with $\mathrm{rank}(T)$, or equivalently using
+$\dim W - \mathrm{rank}$ instead of $\dim V - \mathrm{rank}$.
+
+\textbf{Trick answer:}
+$\dim \ker T = 4$ paired with $\mathrm{coker}(T) \cong \ker(T)$: correct
+kernel dimension, but pairs it with the false isomorphism. The classic
+FTLA-misremembering trap: dimension counts can coincide for square
+domain/codomain cases, but here $\dim \ker T = 4 \neq 1 = \dim \mathrm{coker}\, T$.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Equal-dimension transformation --- which equivalences hold?}
+%----------------------------------------------------------
+
+Let $T: V \to W$ be a linear transformation between finite-dimensional
+vector spaces with $\dim(V) = \dim(W)$. Which of the following statements
+must be TRUE?
+
+\begin{enumerate}[(A)]
+\item The cokernel of $T$ is a subspace of $W$
+\item If $T$ is injective, then $T$ is an isomorphism
+\item If $\ker(T) = \{\mathbf{0}\}$, then $\mathrm{im}(T) = W$
+\item \textcolor{blue}{\textbf{Both ``injective $\Rightarrow$ isomorphism'' and ``trivial kernel $\Rightarrow$ image is $W$''}}
+\item All of the above
+\end{enumerate}
+
+\textbf{Explanation:}
+Under the hypothesis $\dim(V) = \dim(W)$, injectivity and surjectivity are
+equivalent --- and either, alone, implies $T$ is an isomorphism. By
+rank-nullity, $\dim(\mathrm{im}\, T) = \dim(V) - \dim(\ker T)$. If $T$ is
+injective then $\dim(\ker T) = 0$, so $\dim(\mathrm{im}\, T) = \dim(V) = \dim(W)$,
+forcing $\mathrm{im}(T) = W$ and giving surjectivity (and thus an isomorphism).
+The trivial-kernel statement says exactly this --- injective implies
+surjective --- using the kernel characterization of injectivity. So the two
+statements are equivalent statements of the same fact, and both hold.
+
+The equal-dimension hypothesis collapses injectivity and surjectivity into
+a single condition, just as it does for square matrices (where invertibility,
+injectivity, and surjectivity all coincide). Without equal dimensions, all
+three properties can come apart --- the differentiation operator
+$\mathcal{D}: \mathcal{P}_3 \to \mathcal{P}_2$ is surjective but not injective.
+Recognizing that the two correct statements describe the same fact via the
+FTLA is the conceptual payoff.
+
+\textbf{Trick answer:}
+``Cokernel is a subspace of $W$'' is a categorical confusion:
+$\mathrm{coker}(T) = W / \mathrm{im}(T)$ is a \emph{quotient} of $W$, not a
+subspace. The trap is the surface intuition ``cokernel lives on the
+$W$-side, so it must sit inside $W$.'' This conflates the quotient
+construction with subspace inclusion. Note that $\mathrm{coker}(T)$ \emph{is}
+isomorphic to a subspace of $W$ when an inner product is available, but as
+defined it is a quotient, not a subspace.
+
+\textbf{Partial credit:}
+``Injective $\Rightarrow$ isomorphism'' alone --- captures one ladder rung
+but misses that the trivial-kernel statement is the equivalent kernel-based
+statement of the same fact.
+
+\textbf{Partial credit:}
+``Trivial kernel $\Rightarrow$ full image'' alone --- captures the FTLA
+dimension count but misses that the injective-implies-isomorphism statement
+is the equivalent statement in injectivity language. Twin pair to the
+partial above.
+
+\textbf{Trick answer:}
+``All of the above'' would require the cokernel claim to be true; it is not.
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 4: BASES AND COORDINATES}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: Matrix representations in two bases --- relationship}
+%----------------------------------------------------------
+
+Let $T: V \to V$ be a linear transformation on a finite-dimensional vector
+space, and let $\mathcal{B}$ and $\mathcal{C}$ be two ordered bases of $V$.
+Let $[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$ denote the matrices of the
+same linear transformation $T$ in these two bases. Which of the following
+best describes the relationship between $[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$?
+
+\begin{enumerate}[(A)]
+\item They are equal, because they represent the same linear transformation.
+\item They are inverses of each other, because changing basis reverses coordinates.
+\item They have the same row-reduced echelon form, because row reduction does not depend on basis.
+\item \textcolor{blue}{\textbf{They are similar matrices.}}
+\item They have the same columns, but written in different coordinate systems.
+\end{enumerate}
+
+\textbf{Explanation:}
+The linear transformation $T$ is the same coordinate-free object in both
+bases, but its matrix representation depends on the choice of basis. The
+two matrices are related by a change of basis: if $S$ is the change-of-coordinates
+matrix from $\mathcal{C}$-coordinates to $\mathcal{B}$-coordinates, then
+$$[T]_{\mathcal{C}} = S^{-1}[T]_{\mathcal{B}}S.$$
+Thus $[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$ are similar matrices.
+
+\textbf{Trick answer:}
+``Equal'' confuses the linear transformation with its coordinate
+representation. The map $T$ is the same, but its matrix depends on the basis.
+
+\textbf{Trick answer:}
+``Inverses of each other'' confuses the coordinate-change matrices with the
+matrices representing $T$. The change-of-basis maps in opposite directions
+are inverses of each other; the two matrices representing $T$ are similar,
+not inverse.
+
+\textbf{Trick answer:}
+``Same columns, different coordinates'' --- the columns of a matrix
+representation are the coordinate vectors of the images of basis vectors.
+Changing basis changes both the input basis vectors and the coordinate
+system used to express their images, so the columns are not generally the
+same.
+
+\textbf{Trick answer:}
+``Same row-reduced echelon form'' is not the correct relationship between
+two coordinate representations of the same operator. Row reduction changes
+a matrix by left multiplication with elementary matrices; change of basis
+for an operator uses conjugation by an invertible matrix.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: The coordinate map and basis dependence}
+%----------------------------------------------------------
+
+Let $V$ be an $n$-dimensional vector space and fix an ordered basis $\mathcal{B}$.
+Consider the coordinate map
+$\Phi_{\mathcal{B}} : V \to \mathbb{R}^n$ defined by
+$\Phi_{\mathcal{B}}(\mathbf{v}) = [\mathbf{v}]_{\mathcal{B}}$.
+Which of the following must be true?
+
+\begin{enumerate}[(A)]
+\item $\Phi_{\mathcal{B}}$ is an isomorphism only if $V$ is literally $\mathbb{R}^n$ (not merely isomorphic to it).
+\item $\Phi_{\mathcal{B}}$ is a linear transformation but generally not invertible.
+\item $\Phi_{\mathcal{B}}$ is an isomorphism, and any two ordered bases $\mathcal{B}, \mathcal{C}$ produce the same coordinate map.
+\item \textcolor{blue}{\textbf{$\Phi_{\mathcal{B}}$ is an isomorphism, and a different ordered basis $\mathcal{C}$ gives a different coordinate map $\Phi_{\mathcal{C}}$.}}
+\item $\Phi_{\mathcal{B}}$ is an isomorphism only if $\mathcal{B}$ is orthonormal.
+\end{enumerate}
+
+\textbf{Explanation:}
+The coordinate map $\Phi_{\mathcal{B}}$ is linear (coordinates respect addition
+and scalar multiplication), injective (only the zero vector has all-zero
+coordinates), and surjective (every $(c_1, \ldots, c_n) \in \mathbb{R}^n$
+is the coordinate vector of $c_1 \mathbf{b}_1 + \cdots + c_n \mathbf{b}_n$).
+So $\Phi_{\mathcal{B}}$ is an isomorphism for \emph{any} ordered basis
+$\mathcal{B}$ of any $n$-dimensional $V$. But the isomorphism is \emph{not
+canonical} --- it depends on the basis choice. For any two distinct ordered
+bases $\mathcal{B} \neq \mathcal{C}$, the coordinate maps $\Phi_{\mathcal{B}}$
+and $\Phi_{\mathcal{C}}$ are different functions: they disagree on at least
+the basis vectors themselves, and in general they differ by the
+change-of-basis matrix $\Phi_{\mathcal{C}} = P \circ \Phi_{\mathcal{B}}$.
+
+Every finite-dimensional vector space ``becomes'' $\mathbb{R}^n$ after a
+basis choice. This is what justifies treating abstract vector spaces $V$
+via numerical computations on coordinates --- but the price is that
+\emph{the isomorphism depends on the basis}. Coordinate-free properties
+survive any basis choice; coordinate-dependent statements (like the matrix
+entries of a transformation) do not.
+
+\textbf{Trick answer:}
+``Linear but generally not invertible'' recognizes linearity but
+mis-remembers invertibility --- the answer for a student who has not
+internalized that a basis is, by definition, exactly the data needed to
+make the coordinate map bijective.
+
+\textbf{Trick answer:}
+``Two bases produce the same coordinate map'' collapses the basis-dependence
+of the coordinate map. Tempts students who remember ``coordinate maps are
+isomorphisms'' but treat the isomorphism as canonical --- the same conceptual
+error as treating $V \cong V^*$ via an unspecified isomorphism.
+
+\textbf{Trick answer:}
+``Only if $V$ is literally $\mathbb{R}^n$'' is the answer for the student
+who thinks $\mathbb{R}^n$ is special; misses that coordinate maps
+\emph{produce} the identification $V \cong \mathbb{R}^n$ rather than
+requiring it.
+
+\textbf{Trick answer:}
+``Only if $\mathcal{B}$ is orthonormal'' imports an inner-product condition
+that is irrelevant to the coordinate map. Surface match on ``orthonormal
+bases are nicer'' --- true in inner product spaces for computation, but
+the coordinate map exists and is an isomorphism without any inner product
+structure.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Similarity --- the fundamental description}
+%----------------------------------------------------------
+
+Square matrices $A$ and $B$ of the same size satisfy $B = P^{-1} A P$ for some
+invertible matrix $P$. Which statement most fundamentally describes the
+relationship between $A$ and $B$?
+
+\begin{enumerate}[(A)]
+\item $A$ and $B$ have the same determinant and trace.
+\item $A$ and $B$ have the same image as subspaces of $\mathbb{R}^n$.
+\item $A$ and $B$ have the same eigenvalues.
+\item $A$ is obtained from $B$ by a change of coordinates in the codomain only.
+\item \textcolor{blue}{\textbf{$A$ and $B$ represent the same linear transformation expressed in different bases.}}
+\end{enumerate}
+
+\textbf{Explanation:}
+The equation $B = P^{-1} A P$ is the change-of-basis formula for a linear
+transformation $T : V \to V$. If $A = [T]_{\mathcal{B}}$ and $\mathcal{C}$
+is another basis with change-of-basis matrix $P$ (so columns of $P$ express
+the $\mathcal{C}$-vectors in $\mathcal{B}$-coordinates), then
+$[T]_{\mathcal{C}} = P^{-1} A P = B$. The fundamental content of similarity
+is therefore: \textbf{same transformation, different bases}. Every other
+true statement about similar matrices --- equal eigenvalues, equal determinant,
+equal trace, equal rank --- is a \emph{consequence} of this fact, because
+these quantities are intrinsic to the transformation $T$ itself and do not
+depend on the basis chosen to represent it.
+
+This is the conceptual seed of diagonalization: an eigenbasis is a basis in
+which the matrix representation is diagonal, because in that basis $T$ acts
+as a pure stretch along each axis.
+
+\textbf{Trick answer:}
+``Same eigenvalues'' recognizes the strongest invariant of similarity ---
+eigenvalues are preserved because they are intrinsic to the transformation
+--- but identifies a consequence rather than the meaning.
+
+\textbf{Trick answer:}
+``Same determinant and trace'' recognizes two correct invariants of
+similarity, but a strictly weaker observation than the eigenvalue answer,
+since equal eigenvalues already imply equal determinant and trace.
+
+\textbf{Trick answer:}
+``Change of coordinates in the codomain only'' --- the change of basis
+affects \emph{both} the input and output sides, since the same basis is
+used for the domain and codomain of $T : V \to V$; this is why $P$ appears
+on both sides of $A$, not on one side. A change of coordinates ``on one
+side only'' would correspond to a different operation, not similarity.
+
+\textbf{Trick answer:}
+``Same image as subspaces of $\mathbb{R}^n$'' is the classic similarity
+trap: image, kernel, and column/row spaces depend on the choice of basis
+and are \emph{not} preserved under similarity. For example, $I$ and
+$P^{-1} I P = I$ are similar with identical image, but $A$ and $P^{-1} A P$
+for general $A$ have images that differ as concrete subspaces of $\mathbb{R}^n$.
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 5: INNER PRODUCTS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: Inner products on function spaces and parity}
+%----------------------------------------------------------
+
+Consider the vector space $C^\infty([a,b])$ of smooth functions on an interval
+$[a,b]$ with inner product $\langle \cdot, \cdot \rangle$. Under which of the
+following inner products (and intervals) is the vector $p = \cosh x$ orthogonal
+to the vector $q = \sinh x$?
+
+\begin{enumerate}[(A)]
+\item \textcolor{blue}{\textbf{$\displaystyle \langle p, q \rangle = \int_{-1}^{1} p(x)\, q(x)\, dx$, on $C^\infty([-1,1])$}}
+\item $\displaystyle \langle p, q \rangle = \int_{0}^{1} x\, p(x)\, q(x)\, dx$, on $C^\infty([0,1])$
+\item $\displaystyle \langle p, q \rangle = \int_{0}^{1} p(x)\, q(x)\, dx$, on $C^\infty([0,1])$
+\item $\displaystyle \langle p, q \rangle = \int_{-1}^{1} e^{x}\, p(x)\, q(x)\, dx$, on $C^\infty([-1,1])$
+\item None of the above
+\end{enumerate}
+
+\textbf{Explanation:}
+Each option is a genuine inner product on the stated function space, and
+orthogonality of the same pair $(\cosh, \sinh)$ depends on which inner
+product is in use. Computing each:
+\begin{itemize}
+\item Symmetric interval, unweighted: $\int_{-1}^{1} \cosh(x)\sinh(x)\, dx$. The integrand is odd ($\cosh$ even, $\sinh$ odd, product odd), and the interval is symmetric about $0$, so the integral is $0$. \emph{Orthogonal.}
+\item $[0,1]$, unweighted: $\int_{0}^{1} \cosh(x)\sinh(x)\, dx = \tfrac{1}{2}\sinh^2(1) \neq 0$. The interval $[0,1]$ breaks the symmetry that made the previous case vanish.
+\item $[0,1]$ with weight $x$: $\int_{0}^{1} x \cosh(x)\sinh(x)\, dx > 0$, since the integrand is positive on $(0,1]$.
+\item $[-1,1]$ with weight $e^x$: the interval is symmetric, but the weight is neither even nor odd, so the combined integrand $e^x \cosh(x) \sinh(x)$ is not odd. A direct computation gives $e^x \cosh(x)\sinh(x) = \tfrac{1}{2} e^x \sinh(2x)$, which evaluates to a nonzero quantity.
+\end{itemize}
+
+The conceptual point: orthogonality depends on the inner product. The same
+two functions can be orthogonal under one inner product and not under another.
+Symmetric integration interval together with an odd \emph{combined} integrand
+is the only mechanism that can force the integral to zero for free.
+
+\textbf{Trick answer:}
+The weighted symmetric option ($e^x$ on $[-1,1]$) catches students who use
+the heuristic ``odd function on symmetric interval gives zero'' without
+checking whether the \emph{combined} integrand (weight times product) is
+odd. Here $\cosh \sinh$ is odd and the interval is symmetric, but the
+weight $e^x$ is asymmetric, so the heuristic fails.
+
+\textbf{Trick answer:}
+The unweighted $[0,1]$ option matches the form of the correct answer except
+for the interval. Removing the symmetry destroys the parity argument; this
+catches students who pattern-match on ``$\cosh \sinh$ is odd'' without
+tracking the interval.
+
+\textbf{Trick answer:}
+The weighted $[0,1]$ option compounds two issues: the interval is asymmetric
+\emph{and} the weight is positive, so no cancellation can occur.
+
+\textbf{Trick answer:}
+``None of the above'' is the over-cautious choice; tempts students who fail
+to verify the parity argument on the symmetric unweighted case.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: QR decomposition --- why is $R$ upper triangular?}
+%----------------------------------------------------------
+
+Let $A$ be an $m \times n$ matrix with linearly independent columns, and let
+$A = QR$ be its QR decomposition. Why must $R$ be upper triangular rather
+than lower triangular?
+
+\begin{enumerate}[(A)]
+\item It is a convention; the decomposition $A = QR$ also admits a lower-triangular $R$
+\item \textcolor{blue}{\textbf{Because the $k$th column of $A$ is a linear combination of the first $k$ columns of $Q$}}
+\item Because $R = Q^T A$ and the transpose of a triangular matrix is upper triangular
+\item Because the columns of $Q$ are pairwise orthogonal
+\item Because the $k$th column of $A$ is orthogonal to the first $k-1$ columns of $Q$
+\end{enumerate}
+
+\textbf{Explanation:}
+The QR decomposition records exactly what Gram-Schmidt does to the columns
+of $A$. If $\mathbf{q}_1, \ldots, \mathbf{q}_n$ are the orthonormalized
+vectors and $\mathbf{a}_1, \ldots, \mathbf{a}_n$ are the columns of $A$,
+then the partial-span invariance of Gram-Schmidt gives
+$$\mathrm{span}\{\mathbf{a}_1, \ldots, \mathbf{a}_k\} = \mathrm{span}\{\mathbf{q}_1, \ldots, \mathbf{q}_k\} \quad \text{for every } k.$$
+Hence $\mathbf{a}_k$ is a linear combination of $\mathbf{q}_1, \ldots, \mathbf{q}_k$
+alone, with no contribution from $\mathbf{q}_{k+1}, \ldots, \mathbf{q}_n$.
+Reading $A = QR$ column-by-column, the $k$th column of $R$ has zeros below
+row $k$ --- precisely the upper-triangular structure.
+
+The $(k,k)$-entry of $R$ is the norm of the unnormalized Gram-Schmidt output
+at step $k$. The above-diagonal entries $R_{j,k}$ for $j < k$ are the
+projection coefficients $\langle \mathbf{a}_k, \mathbf{q}_j \rangle$ that
+Gram-Schmidt subtracts off. $R$ is the bookkeeping ledger of Gram-Schmidt;
+its triangularity is the recursion's visible fingerprint.
+
+\textbf{Trick answer:}
+``Columns of $Q$ are pairwise orthogonal'' is a true statement, but explains
+the structure of $Q$, not the triangularity of $R$. Surface match for the
+student who reaches for any QR fact without tracking which fact answers
+the question.
+
+\textbf{Trick answer:}
+``$k$th column of $A$ is orthogonal to the first $k-1$ columns of $Q$'' is
+a twin pair to the correct answer --- same surface (``$\mathbf{a}_k$ relates
+to the first $k-1$ columns of $Q$'') with the relationship swapped from
+\emph{linear combination} to \emph{orthogonality}. In fact the $k$th column
+of $A$ is generally \emph{not} orthogonal to the previous columns of $Q$
+--- it has nonzero components along them, which is exactly what
+Gram-Schmidt subtracts off.
+
+\textbf{Trick answer:}
+``$R = Q^T A$ and transpose of triangular is upper triangular'' --- the
+formula $R = Q^T A$ is correct, but the rest of the reasoning is nonsense:
+the transpose of an upper-triangular matrix is lower-triangular, not the
+other way around. Invokes a transpose identity that doesn't say what the
+student wants it to say.
+
+\textbf{Trick answer:}
+``Convention'' is the answer for the student who has not connected the
+triangularity of $R$ to anything structural and assumes it is arbitrary.
+In fact the partial-span structure of Gram-Schmidt \emph{forces} $R$
+upper-triangular; a lower-triangular $R$ would correspond to running
+Gram-Schmidt \emph{backwards} on the columns of $A$, which is a different
+decomposition.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Cosine similarity --- which operations are invariances?}
+%----------------------------------------------------------
+
+For nonzero vectors $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$, define
+$\mathrm{sim}(\mathbf{u}, \mathbf{v}) = \dfrac{\langle \mathbf{u}, \mathbf{v} \rangle}{\norm{\mathbf{u}}\,\norm{\mathbf{v}}}$.
+Which of the following operations is guaranteed to leave
+$\mathrm{sim}(\mathbf{u}, \mathbf{v})$ unchanged?
+
+\begin{enumerate}[(A)]
+\item \textcolor{blue}{\textbf{Replacing $\mathbf{u}$ with $5\mathbf{u}$}}
+\item Replacing $\mathbf{u}$ with $-\mathbf{u}$
+\item Replacing both $\mathbf{u}$ and $\mathbf{v}$ with $\mathbf{u} + \mathbf{c}$ and $\mathbf{v} + \mathbf{c}$ for a fixed $\mathbf{c} \in \mathbb{R}^n$
+\item All of the above
+\item None of the above
+\end{enumerate}
+
+\textbf{Explanation:}
+Cosine similarity depends only on the \emph{directions} of the input
+vectors, not their magnitudes --- but it is sensitive to the sign of each
+vector and to the choice of origin.
+
+For positive scaling: $\mathrm{sim}(c\mathbf{u}, \mathbf{v}) = \frac{c \langle \mathbf{u}, \mathbf{v}\rangle}{(c \norm{\mathbf{u}}) \norm{\mathbf{v}}} = \mathrm{sim}(\mathbf{u}, \mathbf{v})$.
+The factors of $c$ cancel.
+
+Negation flips the sign:
+$\mathrm{sim}(-\mathbf{u}, \mathbf{v}) = -\mathrm{sim}(\mathbf{u}, \mathbf{v})$.
+The numerator picks up a sign; the denominator does not (norm is positive).
+Cosine similarity is invariant under \emph{positive} scaling, not arbitrary
+scaling.
+
+Translation by a common vector $\mathbf{c}$ generally changes the similarity.
+The inner product $\langle \mathbf{u} + \mathbf{c}, \mathbf{v} + \mathbf{c} \rangle = \langle \mathbf{u}, \mathbf{v} \rangle + \langle \mathbf{u}, \mathbf{c} \rangle + \langle \mathbf{c}, \mathbf{v} \rangle + \norm{\mathbf{c}}^2$
+does not simplify, and the norms in the denominator change too. This is
+why PCA centers data \emph{before} computing similarities --- translation
+is not an invariance of cosine similarity, only of \emph{centered} cosine
+similarity (a.k.a.\ Pearson correlation).
+
+Geometrically: cosine similarity is the cosine of the angle the two vectors
+make at the origin. Sliding both vectors by $\mathbf{c}$ moves them away
+from the origin, which generally changes the angle they subtend at the
+origin even though their relative offset is unchanged. Negation rotates a
+vector by $180^\circ$, flipping the sign of the cosine.
+
+\textbf{Trick answer:}
+Negation is the naive ``scaling invariance'' answer that doesn't track the
+sign restriction. Tempting because $\norm{-\mathbf{u}} = \norm{\mathbf{u}}$
+--- students stop checking after the denominator.
+
+\textbf{Trick answer:}
+Translation is the deepest trap. Students who think ``cosine similarity is
+just relative geometry'' import a false translation invariance --- a mental
+model that confuses cosine similarity with Pearson correlation.
+
+\textbf{Trick answer:}
+``All of the above'' combines the correct positive-scaling invariance with
+two false ones; tempts students who recognize the scaling case and assume
+the ``more invariances the better.''
+
+\textbf{Trick answer:}
+``None of the above'' is the over-cautious answer; tempts students who,
+having spotted that negation and translation fail, conclude that nothing is
+safe and miss the positive-scaling case.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: The adjoint of a linear transformation}
+%----------------------------------------------------------
+
+Let $V$ and $W$ be inner product spaces and let $T: V \to W$ be a linear
+transformation. The adjoint $T^*$ is the linear transformation characterized
+by which of the following?
+
+\begin{enumerate}[(A)]
+\item $T^* : V \to W$ with $T^* \circ T = I_V$
+\item $T^* : W \to V$ with $T(T^*(\mathbf{w})) = \mathbf{w}$ for all $\mathbf{w} \in W$
+\item $T^* : W \to V$ with $\langle T(\mathbf{v}), T^*(\mathbf{w}) \rangle = \langle \mathbf{v}, \mathbf{w} \rangle$ for all $\mathbf{v} \in V$, $\mathbf{w} \in W$
+\item \textcolor{blue}{\textbf{$T^* : W \to V$ with $\langle T(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, T^*(\mathbf{w}) \rangle$ for all $\mathbf{v} \in V$, $\mathbf{w} \in W$}}
+\item $T^* : V \to W$ with $\langle T(\mathbf{v}), \mathbf{w} \rangle = \langle \mathbf{v}, T^*(\mathbf{w}) \rangle$ for all $\mathbf{v} \in V$, $\mathbf{w} \in W$
+\end{enumerate}
+
+\textbf{Explanation:}
+The adjoint $T^*$ goes in the opposite direction to $T$, so $T^* : W \to V$.
+Its defining property is the cross-pairing identity
+$$\langle T(\mathbf{v}), \mathbf{w} \rangle_W = \langle \mathbf{v}, T^*(\mathbf{w}) \rangle_V$$
+--- moving $T$ across the inner product produces $T^*$ on the other side.
+
+Type-signature picture: $T(\mathbf{v}) \in W$ pairs with $\mathbf{w} \in W$
+on the left, and $\mathbf{v} \in V$ pairs with $T^*(\mathbf{w}) \in V$ on
+the right. Each inner product is taken in the space where both arguments
+live.
+
+\textbf{Trick answer:}
+The same identity with $T^* : V \to W$ has the correct cross-pairing
+identity but the wrong direction. Catches students who memorize the
+identity but not which space $T^*$ acts between.
+
+\textbf{Trick answer:}
+$\langle T(\mathbf{v}), T^*(\mathbf{w}) \rangle = \langle \mathbf{v}, \mathbf{w} \rangle$
+is the \emph{isometry} condition --- preserving inner products --- not the
+adjoint condition. Surface match for students who confuse adjoint with the
+inverse of an orthogonal transformation.
+
+\textbf{Trick answer:}
+$T^* \circ T = I_V$ with $T^* : V \to W$ is the left-inverse property ---
+confuses adjoint with inverse, with the wrong type signature on top of it.
+
+\textbf{Trick answer:}
+$T(T^*(\mathbf{w})) = \mathbf{w}$ is the right-inverse property --- same
+confusion as the inverse trap with the right type signature; tempts
+students who got the direction right but think ``adjoint = inverse on the
+codomain side.''
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Gram-Schmidt --- partial-span invariance}
+%----------------------------------------------------------
+
+Let $\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$ be a linearly
+independent set in an inner product space $V$, and let
+$\{\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_n\}$ be the orthogonal set
+produced by applying the Gram-Schmidt process (in that order). Which of the
+following must be true for every $k$ with $1 \leq k \leq n$?
+
+\begin{enumerate}[(A)]
+\item $\mathbf{u}_k = \mathbf{v}_k$
+\item $\norm{\mathbf{u}_k} = \norm{\mathbf{v}_k}$
+\item \textcolor{blue}{\textbf{$\mathrm{span}\{\mathbf{u}_1, \ldots, \mathbf{u}_k\} = \mathrm{span}\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$}}
+\item $\mathbf{u}_k$ is a positive scalar multiple of $\mathbf{v}_k$
+\item $\mathbf{u}_k \perp \mathbf{v}_k$
+\end{enumerate}
+
+\textbf{Explanation:}
+The defining feature of Gram-Schmidt is that it builds the orthogonal vectors
+recursively by subtracting from $\mathbf{v}_k$ its projections onto
+$\mathbf{u}_1, \ldots, \mathbf{u}_{k-1}$:
+$$\mathbf{u}_k = \mathbf{v}_k - \sum_{j=1}^{k-1} \frac{\langle \mathbf{v}_k, \mathbf{u}_j\rangle}{\langle \mathbf{u}_j, \mathbf{u}_j\rangle}\, \mathbf{u}_j.$$
+Each $\mathbf{u}_k$ lies in $\mathrm{span}\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$,
+and conversely each $\mathbf{v}_k$ can be recovered from the $\mathbf{u}$'s.
+So the partial spans match for every $k$. This is why Gram-Schmidt produces
+a \emph{compatible} orthogonal basis --- it orthogonalizes without disturbing
+the nested-subspace structure of the original list.
+
+Geometric picture: at step $k$, Gram-Schmidt takes $\mathbf{v}_k$ and removes
+its component inside the subspace already spanned by $\mathbf{v}_1, \ldots, \mathbf{v}_{k-1}$.
+The leftover is $\mathbf{u}_k$, which lives in the same partial span as
+$\mathbf{v}_k$ but is now orthogonal to everything that came before. This
+nested-span invariance is exactly the structure that makes the QR decomposition
+$A = QR$ work, with $R$ upper-triangular precisely because $\mathbf{v}_k$
+involves only $\mathbf{u}_1, \ldots, \mathbf{u}_k$.
+
+\textbf{Trick answer:}
+$\mathbf{u}_k = \mathbf{v}_k$ is true only at $k=1$; in general
+$\mathbf{u}_k \neq \mathbf{v}_k$ because Gram-Schmidt subtracts the
+projections onto previous vectors. The naive answer for a student who
+treats Gram-Schmidt as ``relabeling.''
+
+\textbf{Trick answer:}
+$\norm{\mathbf{u}_k} = \norm{\mathbf{v}_k}$ --- norms are not preserved;
+subtracting projections strictly shortens the vector unless $\mathbf{v}_k$
+is already orthogonal to the previous span. Surface match on the QR fact
+that the diagonal of $R$ encodes these length changes.
+
+\textbf{Trick answer:}
+$\mathbf{u}_k \perp \mathbf{v}_k$ mixes up which vectors are orthogonal to
+which. Gram-Schmidt makes $\mathbf{u}_k \perp \mathbf{u}_j$ for $j < k$,
+not $\mathbf{u}_k \perp \mathbf{v}_k$. In fact
+$\langle \mathbf{u}_k, \mathbf{v}_k \rangle = \norm{\mathbf{u}_k}^2 > 0$
+since $\mathbf{v}_k = \mathbf{u}_k + (\text{stuff orthogonal to } \mathbf{u}_k)$.
+
+\textbf{Trick answer:}
+``$\mathbf{u}_k$ is a positive scalar multiple of $\mathbf{v}_k$'' is true
+at $k=1$ only; ignores that for $k \geq 2$, $\mathbf{u}_k$ is $\mathbf{v}_k$
+\emph{minus} other vectors, not a scalar multiple.
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 6: ORTHOGONAL DECOMPOSITION}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: The pseudoinverse --- minimum-norm least-squares}
+%----------------------------------------------------------
+
+Let $A$ be an $m \times n$ matrix, let $\mathbf{b} \in \mathbb{R}^m$, and let
+$\hat{\mathbf{x}} = A^\dagger \mathbf{b}$, where $A^\dagger$ denotes the
+pseudoinverse. Which of the following best characterizes $\hat{\mathbf{x}}$?
+
+\begin{enumerate}[(A)]
+\item $\hat{\mathbf{x}} = (A^T A)^{-1} A^T \mathbf{b}$.
+\item $\hat{\mathbf{x}}$ is the unique minimizer of $\norm{A\mathbf{x} - \mathbf{b}}$ in $\mathrm{im}(A)^\perp$.
+\item $\hat{\mathbf{x}}$ is the unique vector in $\mathbb{R}^n$ satisfying $A\hat{\mathbf{x}} = \mathbf{b}$.
+\item $\hat{\mathbf{x}}$ is the unique vector in $\mathbb{R}^n$ such that $A\hat{\mathbf{x}}$ is the orthogonal projection of $\mathbf{b}$ onto $\mathrm{im}(A)$.
+\item \textcolor{blue}{\textbf{$\hat{\mathbf{x}}$ is the unique minimizer of $\norm{A\mathbf{x} - \mathbf{b}}$ in $\ker(A)^\perp$.}}
+\end{enumerate}
+
+\textbf{Explanation:}
+The pseudoinverse $A^\dagger$ produces, for any $\mathbf{b}$, the unique
+vector $\hat{\mathbf{x}}$ that simultaneously (i) minimizes the residual
+$\norm{A\mathbf{x} - \mathbf{b}}$, and (ii) has minimum norm among all such
+minimizers. When $A$ has a nontrivial kernel, the set of residual minimizers
+is the affine subspace $\hat{\mathbf{x}}_0 + \ker(A)$; the minimum-norm
+choice is the unique representative in $\ker(A)^\perp$. Equivalently,
+$\hat{\mathbf{x}}$ is the unique minimizer of $\norm{A\mathbf{x} - \mathbf{b}}$
+that lies in $\ker(A)^\perp$ --- and existence-and-uniqueness on this
+subspace is the cleanest characterization, valid whether or not exact
+solutions to $A\mathbf{x} = \mathbf{b}$ exist.
+
+Geometric picture: $A$ collapses $\ker(A)$ to zero, so any component of
+$\mathbf{x}$ inside $\ker(A)$ adds norm without changing $A\mathbf{x}$.
+The minimum-norm solution lives where there is nothing to throw away ---
+perpendicular to the kernel. This is precisely the subspace
+$\mathrm{coim}(A) = \ker(A)^\perp$, on which $A$ acts as an isomorphism
+onto $\mathrm{im}(A)$.
+
+\textbf{Trick answer:}
+``Unique vector with $A\hat{\mathbf{x}} = \mathbf{b}$'' treats $A^\dagger$
+as if it were $A^{-1}$. Wrong on two counts --- there may be no solution
+to $A\mathbf{x} = \mathbf{b}$ at all (so the residual must be minimized
+rather than zeroed), and even when solutions exist they need not be unique.
+
+\textbf{Partial credit:}
+``Unique vector such that $A\hat{\mathbf{x}}$ is the projection of
+$\mathbf{b}$ onto $\mathrm{im}(A)$'' recognizes the projection geometry
+--- $A\hat{\mathbf{x}}$ \emph{is} the orthogonal projection of $\mathbf{b}$
+onto $\mathrm{im}(A)$ --- but misses the uniqueness issue when
+$\ker(A) \neq \{\mathbf{0}\}$. Many $\mathbf{x}$ satisfy
+$A\mathbf{x} = \Pi_{\mathrm{im}(A)}(\mathbf{b})$ (any two differ by an
+element of $\ker(A)$), so this characterization is non-unique in general.
+The student has the right geometric intuition but missed the
+minimum-norm refinement that picks out a single $\hat{\mathbf{x}}$ from
+the affine fiber.
+
+\textbf{Trick answer:}
+``Unique minimizer in $\mathrm{im}(A)^\perp$'' mixes domain and codomain
+subspaces: $\mathrm{im}(A)^\perp \subseteq \mathbb{R}^m$, the wrong space
+for $\hat{\mathbf{x}}$, which lives in $\mathbb{R}^n$. A vector in
+$\mathbb{R}^m$ cannot be a minimizer over inputs $\mathbf{x}$. Surface
+match on ``perp of im'' without tracking which space.
+
+\textbf{Partial credit:}
+The formula $(A^T A)^{-1} A^T \mathbf{b}$ is correct \emph{when $A$ has
+full column rank}, so it gives the right answer in that special case.
+Misses two structural points: the formula is conditional on full column
+rank (otherwise $A^T A$ is singular), and the formula doesn't describe
+what $\hat{\mathbf{x}}$ \emph{is}, only how to compute it in a special
+regime.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Solvability of $A\mathbf{x} = \mathbf{b}$}
+%----------------------------------------------------------
+
+\textbf{A note from prof-g:} A handful of you saw a printed version of this
+problem in which choice (A) read ``All three of (A), (B), (C) are equivalent
+to solvability'' --- a self-referential phrasing that resulted from a bug in
+the problem-shuffling script. The intent was for one option to assert that
+all three of the individual conditions are equivalent to solvability. I'm
+sorry for the confusion this caused. Grading on this problem will be lenient
+to reflect the issue, and any partial-credit answer will be marked accordingly.
+Below I describe the problem in its intended form.
+
+Let $A \in \mathbb{R}^{m \times n}$ and $\mathbf{b} \in \mathbb{R}^m$. Which
+of the following is equivalent to ``the system $A\mathbf{x} = \mathbf{b}$ has
+at least one solution''?
+
+\begin{enumerate}[(A)]
+\item \textcolor{blue}{\textbf{All three of: (i) $\mathbf{b} \in \mathrm{im}(A)$, (ii) the augmented matrix $[A \mid \mathbf{b}]$ has the same rank as $A$, and (iii) $\mathbf{b} \perp \ker(A^T)$ are equivalent to solvability}}
+\item The augmented matrix $[\,A \mid \mathbf{b}\,]$ has the same rank as $A$
+\item $\mathbf{b} \in \mathrm{im}(A)$
+\item $\mathbf{b} \perp \ker(A^T)$
+\item Only $\mathbf{b} \in \mathrm{im}(A)$ is equivalent to solvability; the rank condition is a separate, stronger condition
+\end{enumerate}
+
+\textbf{Explanation:}
+Three faces of the same fact:
+\begin{itemize}
+\item \emph{Definition.} $A\mathbf{x} = \mathbf{b}$ has a solution iff $\mathbf{b}$ lies in the image of $A$ --- this is just what ``has a solution'' means: $\mathbf{b}$ is some output of $A$.
+\item \emph{Orthogonality.} $\mathbf{b} \in \mathrm{im}(A)$ iff $\mathbf{b} \perp \ker(A^T)$. Why: $\mathrm{im}(A)$ is spanned by the columns of $A$, and $\mathbf{b} \perp \ker(A^T)$ says $\mathbf{b}$ is orthogonal to every vector $\mathbf{y}$ satisfying $A^T \mathbf{y} = \mathbf{0}$ --- which is the same as saying $\mathbf{b}$ is orthogonal to every vector orthogonal to all columns of $A$. A vector that is orthogonal to everything orthogonal to the column span lies in the column span itself. (This is the geometric content of the cokernel structure: $\ker(A^T)$ is the codomain-side natural complement of $\mathrm{im}(A)$, and ``$\mathbf{b}$ is in the image'' $\Leftrightarrow$ ``$\mathbf{b}$ has zero component in this complement.'')
+\item \emph{Rank criterion.} Appending $\mathbf{b}$ as an extra column to $A$ leaves the rank unchanged iff $\mathbf{b}$ is already in the span of the columns of $A$, i.e., iff $\mathbf{b} \in \mathrm{im}(A)$.
+\end{itemize}
+
+So all three statements are equivalent to solvability, and ``all three''
+is correct. This is the spine of the FTLA: the computational view
+(rank), the algebraic view (image), and the geometric view (orthogonality)
+of the same condition.
+
+The orthogonality version is the deepest of the three but the easiest to
+misread as a stronger condition. Students often think ``orthogonal to
+everything in $\ker(A^T)$'' is more demanding than ``in $\mathrm{im}(A)$''
+--- but the two are exactly the same condition.
+
+\textbf{Partial credit:}
+$\mathbf{b} \in \mathrm{im}(A)$ alone --- recognizes the definitional
+characterization, the most basic of the three views. Two rungs below
+correct.
+
+\textbf{Partial credit:}
+The rank condition alone --- recognizes the rank-based computational
+characterization, the workhorse for actually checking solvability by row
+reduction. Twin pair to the previous partial.
+
+\textbf{Partial credit:}
+$\mathbf{b} \perp \ker(A^T)$ alone --- recognizes the orthogonal-FTLA
+characterization, the deepest of the three views. One rung below correct;
+a student who picked this has identified the most informative single
+condition but missed that the others are equivalent restatements.
+
+\textbf{Trick answer:}
+``Only $\mathbf{b} \in \mathrm{im}(A)$ is equivalent; the rank condition is
+stronger'' treats orthogonality (or rank) conditions as ``stronger'' than
+image conditions because of the universal quantifier. The orthogonal FTLA
+is precisely the theorem that collapses this apparent gap.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: $\mathbf{b} \perp \mathrm{im}(A)$ --- which equation follows?}
+%----------------------------------------------------------
+
+Let $A$ be an $m \times n$ matrix. Suppose $\mathbf{b} \in \mathbb{R}^m$ has
+the property that $\mathbf{b} \perp \mathrm{im}(A)$. Which of the following
+must also be true of $\mathbf{b}$?
+
+\begin{enumerate}[(A)]
+\item $\mathbf{b} \in \mathrm{im}(A^T)$
+\item \textcolor{blue}{\textbf{$A^T \mathbf{b} = \mathbf{0}$}}
+\item $A \mathbf{b} = \mathbf{0}$
+\item $\mathbf{b} \in \ker(A)$
+\item Both of: $A^T \mathbf{b} = \mathbf{0}$ and $A\mathbf{b} = \mathbf{0}$
+\end{enumerate}
+
+\textbf{Explanation:}
+The condition $\mathbf{b} \perp \mathrm{im}(A)$ says $\mathbf{b}$ is orthogonal
+to every vector in the image of $A$. Since $\mathrm{im}(A)$ is spanned by the
+columns of $A$, this is equivalent to $\mathbf{b}$ being orthogonal to every
+column of $A$:
+$$\mathbf{b} \perp \mathbf{a}_j \;\Leftrightarrow\; \mathbf{a}_j^T \mathbf{b} = 0 \quad \text{for } j = 1, \ldots, n.$$
+Stacking these $n$ equations gives $A^T \mathbf{b} = \mathbf{0}$. So
+$\mathbf{b} \perp \mathrm{im}(A)$ if and only if $A^T \mathbf{b} = \mathbf{0}$.
+This is the direct, by-definition argument --- no FTLA machinery required.
+
+Where this fits with the FTLA picture we developed: $\mathrm{im}(A)^\perp$ is
+the natural representative of the \emph{cokernel} of $A$, and the pseudoinverse
+$A^\dagger$ acts on a vector $\mathbf{c} \in \mathbb{R}^m$ by first projecting
+it orthogonally onto $\mathrm{im}(A)$ --- discarding precisely the component
+that lies in $\mathrm{im}(A)^\perp$ --- and then pulling that projection back
+to $\ker(A)^\perp$. So the vectors in $\mathrm{im}(A)^\perp$ are exactly the
+vectors that the pseudoinverse \emph{annihilates} on the codomain side. The
+condition $A^T \mathbf{b} = \mathbf{0}$ is just the column-orthogonality
+restatement of ``$\mathbf{b}$ lies in this discarded direction.''
+
+Geometric picture: $\mathbf{b}$ lives in the codomain $\mathbb{R}^m$. The
+orthogonal complement of $\mathrm{im}(A)$ inside $\mathbb{R}^m$ is the
+codomain-side natural complement --- it does not involve the domain
+$\mathbb{R}^n$ at all.
+
+\textbf{Trick answer:}
+$\mathbf{b} \in \ker(A)$ --- $\ker(A)$ lives in the domain $\mathbb{R}^n$,
+not in $\mathbb{R}^m$ where $\mathbf{b}$ lives. A domain/codomain confusion.
+
+\textbf{Trick answer:}
+$\mathbf{b} \in \mathrm{im}(A^T)$ --- $\mathrm{im}(A^T) \subseteq \mathbb{R}^n$,
+the wrong space; this is the orthogonal complement of $\ker(A)$ in the
+domain, not of $\mathrm{im}(A)$ in the codomain.
+
+\textbf{Trick answer:}
+$A\mathbf{b} = \mathbf{0}$ --- $A\mathbf{b}$ is not even defined when
+$\mathbf{b} \in \mathbb{R}^m$ unless $m = n$. Surface match on
+``orthogonal $\Rightarrow$ kills under multiplication'' without tracking
+which matrix to multiply by.
+
+\textbf{Trick answer:}
+``Both equations'' combines a true statement ($A^T\mathbf{b} = \mathbf{0}$)
+with a wrong-domain statement ($A\mathbf{b} = \mathbf{0}$); tempts students
+who recognized the correct condition but also misremembered the other as
+a parallel fact.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Orthogonal complement --- which properties hold?}
+%----------------------------------------------------------
+
+Let $V$ be a finite-dimensional inner product space and let $W \subseteq V$
+be a subspace. Which of the following must be true?
+
+\begin{enumerate}[(A)]
+\item $\dim(W) + \dim(W^\perp) = \dim(V)$
+\item $W \cap W^\perp = \{\mathbf{0}\}$
+\item \textcolor{blue}{\textbf{All three of: $\dim(W) + \dim(W^\perp) = \dim(V)$, $\;W \cap W^\perp = \{\mathbf{0}\}$, and $(W^\perp)^\perp = W$}}
+\item $(W^\perp)^\perp = W$
+\item Only the dimension count and trivial-intersection conditions hold; $(W^\perp)^\perp = W$ requires additional structure
+\end{enumerate}
+
+\textbf{Explanation:}
+In a finite-dimensional inner product space, all three statements hold for
+every subspace $W$:
+\begin{itemize}
+\item The dimension count follows from the orthogonal decomposition $V = W \oplus W^\perp$.
+\item Trivial intersection is immediate: any $\mathbf{v} \in W \cap W^\perp$ satisfies $\langle \mathbf{v}, \mathbf{v} \rangle = 0$, hence $\mathbf{v} = \mathbf{0}$ by positive-definiteness of the inner product.
+\item Double complement follows from the dimension count applied twice: $\dim((W^\perp)^\perp) = \dim(V) - \dim(W^\perp) = \dim(W)$, and the inclusion $W \subseteq (W^\perp)^\perp$ is automatic, so equality of dimensions forces equality of subspaces.
+\end{itemize}
+
+The orthogonal complement $\perp$ is an involution on the lattice of
+subspaces of a finite-dimensional inner product space. The three properties
+above are not independent observations --- they are the three faces of the
+orthogonal decomposition theorem.
+
+\textbf{Partial credit:}
+The dimension-count statement alone --- correct, but the headline dimension
+count only --- misses the structural facts that make the complement
+well-behaved.
+
+\textbf{Partial credit:}
+The trivial-intersection statement alone --- correct, but the
+trivial-intersection fact alone recognizes the direct sum is internal but
+not the dimension count or the involution.
+
+\textbf{Trick answer:}
+$(W^\perp)^\perp = W$ alone --- correct as a standalone statement, but a
+student who picks this over the comprehensive option has missed the other
+two equivalent facts. The double-complement identity is the deepest of the
+three, and the pattern-matching student grabs it without checking the others.
+
+\textbf{Trick answer:}
+The ``additional structure required'' option is a twin pair to the
+double-complement choice under a fabricated caveat --- tempts the student
+who half-remembers that $(W^\perp)^\perp = W$ can fail in \emph{infinite}
+dimensions and overgeneralizes the caveat to the finite-dimensional setting
+where it does not apply.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Orthogonal projection --- the closest-point characterization}
+%----------------------------------------------------------
+
+Let $V$ be a finite-dimensional inner product space and let $W \subseteq V$
+be a subspace. For $\mathbf{v} \in V$, let $\Pi_W(\mathbf{v})$ denote the
+orthogonal projection of $\mathbf{v}$ onto $W$. Which of the following
+characterizes $\Pi_W(\mathbf{v})$?
+
+\begin{enumerate}[(A)]
+\item The unique vector $\mathbf{w} \in W$ with $\norm{\mathbf{w}} = \norm{\mathbf{v}}$
+\item The unique vector $\mathbf{w} \in W$ minimizing $\norm{\mathbf{w}}$
+\item The unique vector $\mathbf{w} \in V$ such that $\mathbf{v} - \mathbf{w} \in W^\perp$
+\item \textcolor{blue}{\textbf{The unique vector $\mathbf{w} \in W$ minimizing $\norm{\mathbf{v} - \mathbf{w}}$}}
+\item The unique vector $\mathbf{w} \in W$ such that $\mathbf{v} - \mathbf{w} \in W$
+\end{enumerate}
+
+\textbf{Explanation:}
+The orthogonal projection $\Pi_W(\mathbf{v})$ is the \emph{closest point in
+$W$ to $\mathbf{v}$}: it is the unique $\mathbf{w} \in W$ minimizing
+$\norm{\mathbf{v} - \mathbf{w}}$. Equivalently, it is the unique
+$\mathbf{w} \in W$ such that the residual $\mathbf{v} - \mathbf{w}$ lies
+in $W^\perp$.
+
+Geometric picture: drop a perpendicular from $\mathbf{v}$ to $W$; the foot
+of the perpendicular is $\Pi_W(\mathbf{v})$. The residual
+$\mathbf{v} - \Pi_W(\mathbf{v})$ is the perpendicular itself, lying in $W^\perp$.
+
+\textbf{Trick answer:}
+``Minimizing $\norm{\mathbf{w}}$'' --- the smallest-norm vector in $W$ is
+$\mathbf{0}$ for any subspace; this characterization ignores $\mathbf{v}$
+entirely. Surface match on ``minimization.''
+
+\textbf{Trick answer:}
+``$\mathbf{v} - \mathbf{w} \in W$'' instead of $W^\perp$ flips the
+orthogonality condition to the wrong subspace. Twin pair to the correct
+answer at the subspace level.
+
+\textbf{Trick answer:}
+``$\mathbf{w} \in V$ such that $\mathbf{v} - \mathbf{w} \in W^\perp$''
+gives the correct orthogonality condition, but $\mathbf{w}$ is allowed to
+range over $V$ rather than constrained to $W$. Without the constraint
+$\mathbf{w} \in W$ the equation $\mathbf{v} - \mathbf{w} \in W^\perp$ has
+many solutions --- every element of $\Pi_W(\mathbf{v}) + W^\perp$ --- so
+uniqueness fails.
+
+\textbf{Trick answer:}
+``$\norm{\mathbf{w}} = \norm{\mathbf{v}}$'' is norm-preservation: a property
+of \emph{isometries}, not projections. Projections shorten vectors in
+general --- surface match on ``$\mathbf{w}$ relates to $\mathbf{v}$ by some
+norm equation.''
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 7: DIAGONALIZATION AND DYNAMICS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: Eigenvalue --- equivalent characterization}
+%----------------------------------------------------------
+
+Let $A$ be an $n \times n$ matrix and $\lambda \in \mathbb{R}$ a scalar.
+Which of the following is equivalent to ``$\lambda$ is an eigenvalue of $A$''?
+
+\begin{enumerate}[(A)]
+\item $\det(A) = \lambda^n$
+\item $A\mathbf{v} = \lambda \mathbf{v}$ for every $\mathbf{v} \in \mathbb{R}^n$
+\item \textcolor{blue}{\textbf{$A - \lambda I$ is singular}}
+\item $(A - \lambda I)\mathbf{v} = \mathbf{0}$ has only the trivial solution $\mathbf{v} = \mathbf{0}$
+\item None of the above
+\end{enumerate}
+
+\textbf{Explanation:}
+The chain of equivalences that licenses eigenvalue computation:
+$$\lambda \text{ is an eigenvalue} \;\Leftrightarrow\; \exists\, \mathbf{v} \neq \mathbf{0} \text{ with } (A - \lambda I)\mathbf{v} = \mathbf{0} \;\Leftrightarrow\; A - \lambda I \text{ has nontrivial kernel} \;\Leftrightarrow\; A - \lambda I \text{ is singular} \;\Leftrightarrow\; \det(A - \lambda I) = 0.$$
+The bridge from the geometric definition (an invariant scaling direction) to
+the computational recipe (root of the characteristic polynomial) runs through
+the singularity of $A - \lambda I$. That is what ``$A - \lambda I$ is singular''
+names directly.
+
+Without this bridge, the characteristic polynomial feels like an unmotivated
+trick. With it, eigenvalues are exactly the scalars that ``collapse''
+$A - \lambda I$ --- every other property follows.
+
+\textbf{Trick answer:}
+``$(A - \lambda I)\mathbf{v} = \mathbf{0}$ has only the trivial solution''
+is the exact \emph{negation} of the eigenvalue condition. ``Only the trivial
+solution'' says $\ker(A - \lambda I) = \{\mathbf{0}\}$, i.e., $A - \lambda I$
+is \emph{invertible} --- which is precisely the condition under which
+$\lambda$ is \emph{not} an eigenvalue. Catches students who recognize that
+eigenvalues involve the equation $(A - \lambda I)\mathbf{v} = \mathbf{0}$
+but lose track of the nontriviality requirement on $\mathbf{v}$. The
+closest miss possible: right equation, wrong quantifier.
+
+\textbf{Trick answer:}
+``$A\mathbf{v} = \lambda \mathbf{v}$ for every $\mathbf{v}$'' replaces ``some
+nonzero $\mathbf{v}$'' with ``every $\mathbf{v}$.'' Universal quantification
+would mean $A = \lambda I$, a vastly stronger condition than having
+$\lambda$ as an eigenvalue. Catches students who don't read quantifiers
+carefully.
+
+\textbf{Trick answer:}
+$\det(A) = \lambda^n$ uses a false ``determinant is multiplicative across
+$\lambda I$'' rule: $\det(A - \lambda I) \neq \det(A) - \lambda^n$, and
+$\det(A) = \lambda^n$ has no general meaning. A student applying a phantom
+algebraic identity lands here.
+
+\textbf{Trick answer:}
+``None of the above'' rewards the second-guesser who reads the singular
+condition correctly but talks themselves out of it.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Spectral mapping for polynomials}
+%----------------------------------------------------------
+
+Let $A \in \mathbb{R}^{n \times n}$ and let $p(t) = c_k t^k + \cdots + c_1 t + c_0$
+be a polynomial. Suppose $A\mathbf{v} = \lambda \mathbf{v}$ for a nonzero
+$\mathbf{v}$. Which of the following must be TRUE?
+
+\begin{enumerate}[(A)]
+\item $p(A)$ has the same eigenvalues as $A$, since $p$ does not change the spectrum.
+\item $p(A)\mathbf{v} = p(\lambda)\,\mathbf{v}$, but the eigenvalues of $p(A)$ are unrelated to those of $A$.
+\item Eigenvalues of $p(A)$ are $p(\lambda_i)$ only when $A$ is diagonalizable.
+\item $p(A)\mathbf{v} = \lambda\, p(\mathbf{v})$, since polynomials commute with linear maps.
+\item \textcolor{blue}{\textbf{$p(A)\mathbf{v} = p(\lambda)\,\mathbf{v}$, and the eigenvectors of $A$ are eigenvectors of $p(A)$.}}
+\end{enumerate}
+
+\textbf{Explanation:}
+The \emph{spectral mapping theorem for polynomials}: if $A\mathbf{v} = \lambda \mathbf{v}$,
+then $A^j \mathbf{v} = \lambda^j \mathbf{v}$ for every $j \geq 0$ (induction:
+$A^{j+1}\mathbf{v} = A(A^j \mathbf{v}) = A(\lambda^j \mathbf{v}) = \lambda^{j+1}\mathbf{v}$),
+so applying $p$ termwise gives
+$$p(A)\mathbf{v} = \sum_{j=0}^{k} c_j A^j \mathbf{v} = \sum_{j=0}^{k} c_j \lambda^j \mathbf{v} = p(\lambda)\,\mathbf{v}.$$
+So $\mathbf{v}$ is an eigenvector of $p(A)$ with eigenvalue $p(\lambda)$.
+The eigenvectors of $A$ remain eigenvectors of $p(A)$; the eigenvalues
+transform by $p$.
+
+This single structural fact underlies an enormous amount of the course: the
+matrix exponential $e^{At} = \sum t^j A^j / j!$ has the same eigenvectors as
+$A$ with eigenvalues $e^{\lambda t}$; the resolvent $(zI - A)^{-1}$ has
+eigenvalues $1/(z - \lambda)$; powers $A^k$ have eigenvalues $\lambda^k$.
+The rule ``$A$ acts on its own eigenvectors as multiplication by $\lambda$''
+propagates through every analytic function of $A$ that the course encounters.
+
+The result holds without any diagonalizability hypothesis --- it is a
+per-eigenvector statement, not a global diagonalization statement.
+
+\textbf{Trick answer:}
+``$p(A)\mathbf{v} = p(\lambda)\mathbf{v}$, but spectra are unrelated'' gets
+the per-eigenvector identity correct but then claims the spectra are
+unrelated. The spectra are related precisely by $p$: every eigenvalue of
+$p(A)$ is of the form $p(\lambda)$ for some eigenvalue $\lambda$ of $A$.
+
+\textbf{Trick answer:}
+``$p(A)\mathbf{v} = \lambda\, p(\mathbf{v})$'' is type confusion: $p(\mathbf{v})$
+is undefined, since $p$ is a polynomial in a matrix variable, not in a
+vector variable. The expression $\lambda \cdot p(\mathbf{v})$ has no
+meaning. Catches students who reach for ``polynomials commute'' without
+checking what objects $p$ can be applied to.
+
+\textbf{Trick answer:}
+``Only when $A$ is diagonalizable'' --- thinks diagonalizability is needed
+for a per-eigenvector spectral identity. The identity holds
+eigenvector-by-eigenvector; whether the eigenvectors span $\mathbb{R}^n$
+is irrelevant for this single-eigenvector claim.
+
+\textbf{Trick answer:}
+``$p(A)$ has the same eigenvalues as $A$'' confuses ``preserves eigenvectors''
+with ``preserves eigenvalues.'' $A^2$ has the same eigenvectors as $A$ but
+eigenvalues $\lambda^2$, which generically differ from $\lambda$.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Matrix exponential of a nilpotent matrix}
+%----------------------------------------------------------
+
+Compute $e^{-N}$ for the matrix
+$N = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{bmatrix}.$
+
+\bigskip
+(A) $\begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix}$
+$\quad : \quad$
+(B) $\begin{bmatrix} 1 & -1 & -1/2 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}$
+$\quad : \quad$
+(C) \textcolor{blue}{\textbf{$\begin{bmatrix} 1 & -1 & 1/2 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}$}}
+
+(D) $\begin{bmatrix} 1 & -1 & 1 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}$
+$\quad : \quad$
+(E) $\begin{bmatrix} 1 & -1 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}$
+\bigskip
+
+\textbf{Explanation:}
+The matrix exponential is defined by the power series
+$e^A = I + A + \frac{A^2}{2!} + \frac{A^3}{3!} + \cdots$. Applied to $-N$:
+$$e^{-N} = I + (-N) + \frac{(-N)^2}{2!} + \frac{(-N)^3}{3!} + \cdots.$$
+Since $N$ is nilpotent with $N^3 = 0$, the series terminates after three
+terms. The key observation is that $(-N)^2 = N^2$ --- squaring cancels
+the sign --- so
+$$e^{-N} = I - N + \frac{N^2}{2}.$$
+Computing $N^2 = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$
+and assembling gives the matrix $\begin{bmatrix} 1 & -1 & 1/2 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}$.
+
+\emph{Alternative path:} since $e^N$ and $e^{-N}$ commute and their product
+is $e^{N + (-N)} = e^0 = I$, we have $e^{-N} = (e^N)^{-1}$. A student who
+computes $e^N$ and inverts the resulting upper-triangular matrix arrives
+at the same place. This route emphasizes that $e^A$ is always invertible
+--- a foundational fact about the matrix exponential.
+
+\textbf{Partial credit:}
+The matrix $\begin{bmatrix} 1 & -1 & 1 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}$
+forgets the $\frac{1}{2!}$ factorial coefficient on the $N^2$ term. Knows
+the series terminates and the signs are right; missed the coefficient.
+
+\textbf{Partial credit:}
+The matrix $\begin{bmatrix} 1 & -1 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}$
+truncates the series at $I - N$, missing the contribution from $N^2$.
+Diagnoses a student who computed the first two terms and didn't check
+whether higher powers vanish.
+
+\textbf{Trick answer:}
+The matrix $\begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix}$
+computes $e^{N}$ instead of $e^{-N}$, \emph{and} forgets the factorial.
+The student missed the negative sign in the question entirely. No partial
+credit; the sign error is fundamental.
+
+\textbf{Trick answer:}
+The matrix $\begin{bmatrix} 1 & -1 & -1/2 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{bmatrix}$
+negates the sign of \emph{every} term, including the $N^2$ term, missing
+that $(-N)^2 = +N^2$. A subtle but fundamental error: squaring cancels
+signs. Catches students who reflexively flip every sign rather than
+thinking term-by-term.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Solving a linear ODE system via eigendecomposition}
+%----------------------------------------------------------
+
+Let $A$ be a $2 \times 2$ matrix with eigenvalues $\lambda_1 = 2$ and
+$\lambda_2 = -1$ and corresponding eigenvectors
+$\mathbf{v}_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \mathbf{v}_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}$.
+What is the solution $\mathbf{x}(t)$ to the initial value problem
+\[
+\frac{d\mathbf{x}}{dt} = A\mathbf{x}, \qquad \mathbf{x}(0) = \begin{pmatrix} 3 \\ 1 \end{pmatrix}?
+\]
+
+\begin{enumerate}[(A)]
+\item \textcolor{blue}{\textbf{$2 e^{2t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} + e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$}}
+\item $2 e^{2t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} + e^{t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$
+\item $e^{2t} \begin{pmatrix} 3 \\ 1 \end{pmatrix} + e^{-t} \begin{pmatrix} 3 \\ 1 \end{pmatrix}$
+\item $e^{2t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} + 2 e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$
+\item $3 e^{2t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} + e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}$
+\end{enumerate}
+
+\textbf{Explanation:}
+For diagonalizable $A$, the general solution to $\dot{\mathbf{x}} = A\mathbf{x}$
+is
+\[
+\mathbf{x}(t) = c_1 e^{\lambda_1 t}\mathbf{v}_1 + c_2 e^{\lambda_2 t}\mathbf{v}_2,
+\]
+where the constants $c_1, c_2$ are the coordinates of $\mathbf{x}_0$ in the
+eigenbasis. Solving $\mathbf{x}(0) = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 = \begin{pmatrix} 3 \\ 1 \end{pmatrix}$:
+\[
+c_1 + c_2 = 3, \qquad c_1 - c_2 = 1 \quad \Longrightarrow \quad c_1 = 2, \; c_2 = 1.
+\]
+Hence $\mathbf{x}(t) = 2 e^{2t}\mathbf{v}_1 + e^{-t}\mathbf{v}_2$.
+
+Equivalently: $\mathbf{x}(t) = e^{At}\mathbf{x}_0 = V e^{\Lambda t} V^{-1}\mathbf{x}_0$.
+The vector $V^{-1}\mathbf{x}_0 = (c_1, c_2)^T$ is the initial condition
+expressed in the eigenbasis; $e^{\Lambda t}$ scales each coordinate by
+$e^{\lambda_i t}$; $V$ converts back to standard coordinates.
+
+\textbf{Partial credit:}
+The choice $e^{2t}\mathbf{v}_1 + 2 e^{-t}\mathbf{v}_2$ uses the correct
+solution form and correct eigenvalue placement, but swaps the eigencomponent
+coefficients --- gets $c_1 = 1, c_2 = 2$ instead of $c_1 = 2, c_2 = 1$.
+Right framework, arithmetic slip in solving the $2 \times 2$ coordinate
+system.
+
+\textbf{Trick answer:}
+The choice $3 e^{2t}\mathbf{v}_1 + e^{-t}\mathbf{v}_2$ uses the entries of
+$\mathbf{x}_0 = (3,1)^T$ directly as the eigencomponent coefficients
+$c_1 = 3, c_2 = 1$, skipping the eigenbasis change of coordinates. This is
+the most common mistake: forgetting that $c_i$ are coordinates \emph{in
+the eigenbasis}, not coordinates of $\mathbf{x}_0$ in the standard basis.
+
+\textbf{Trick answer:}
+The choice $2 e^{2t}\mathbf{v}_1 + e^{t}\mathbf{v}_2$ has a sign error on
+the second eigenvalue: $e^t$ instead of $e^{-t}$. Coefficients are correct
+but $\lambda_2 = -1$, not $+1$.
+
+\textbf{Trick answer:}
+The choice $e^{2t}\mathbf{x}_0 + e^{-t}\mathbf{x}_0$ is a wholesale
+conceptual error: treats $\mathbf{x}_0$ as if it were the eigenvector for
+both modes, replacing $\mathbf{v}_1$ and $\mathbf{v}_2$ with $\mathbf{x}_0$.
+Misses the fundamental role of eigenvectors as the directions of independent
+exponential evolution.
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 8: EIGENVALUE COMPLEXITIES}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: QR algorithm convergence for symmetric matrices}
+%----------------------------------------------------------
+
+Let $A \in \mathbb{R}^{n \times n}$ be a real symmetric matrix with distinct
+nonzero eigenvalues. The QR algorithm produces the iteration
+$$A_0 = A, \qquad A_k = Q_k R_k, \qquad A_{k+1} = R_k Q_k.$$
+Each iterate $A_{k+1}$ is similar to $A_k$ (and hence to $A$), so the
+eigenvalues are preserved at every step. To what does the sequence $A_k$
+converge as $k \to \infty$?
+
+\begin{enumerate}[(A)]
+\item $A_k$ converges to an upper-triangular matrix whose diagonal entries are the eigenvalues of $A$.
+\item $A_k$ converges to a diagonal matrix whose diagonal entries are the singular values of $A$.
+\item \textcolor{blue}{\textbf{$A_k$ converges to a diagonal matrix whose diagonal entries are the eigenvalues of $A$.}}
+\item $A_k$ converges to $A^T A$, since the QR iteration is built from products of $Q$ and $R$.
+\item $A_k$ converges to $A$ itself, since the iteration is a similarity transformation and $A$ is the unique fixed point.
+\end{enumerate}
+
+\textbf{Explanation:}
+The QR algorithm produces a sequence of matrices, each similar to $A$, that
+converges to a form displaying the eigenvalues of $A$ directly on the
+diagonal. For a general matrix the limit is upper-triangular (real Schur
+form, with the eigenvalues on the diagonal). For a symmetric matrix --- as
+here --- the limit is strictly stronger: $A_k$ converges to a \emph{diagonal}
+matrix whose diagonal entries are the eigenvalues of $A$ in (typically)
+descending magnitude order.
+
+Why diagonal in the symmetric case: each iterate $A_{k+1} = Q_k^T A_k Q_k$
+is itself symmetric (a similarity by an orthogonal matrix preserves
+symmetry), so the limit of a sequence of symmetric upper-triangular matrices
+is both symmetric and upper-triangular --- forcing all off-diagonal entries
+to vanish. So the symmetric case collapses the general upper-triangular
+limit to a diagonal limit.
+
+This is the conceptual purpose of the algorithm. Similarity preserves
+eigenvalues at each step; the limit, by being diagonal, \emph{displays}
+those eigenvalues. Together, the two halves explain how the QR algorithm
+extracts eigenvalues without ever computing a characteristic polynomial.
+
+\textbf{Partial credit:}
+``Upper-triangular with eigenvalues on the diagonal'' correctly identifies
+that the limit displays eigenvalues on its diagonal --- the conceptual
+heart of the convergence claim --- but states ``upper-triangular'' rather
+than ``diagonal.'' Upper-triangular is the right answer for general $A$,
+but the symmetric structure of this problem forces the off-diagonal entries
+to zero. A student picking this has the right idea about what the QR
+algorithm produces but did not exploit the symmetric hypothesis.
+
+\textbf{Trick answer:}
+``Converges to $A$ itself'' imagines the iteration as a ``settling'' that
+returns the original matrix. The iteration \emph{is} a similarity
+transformation at each step, but it does not fix $A$ --- instead, it
+transforms $A$ along a path through the orbit of similar matrices toward a
+canonical representative. The fixed points of QR iteration are the matrices
+that are already (block-)triangular, not $A$ itself.
+
+\textbf{Trick answer:}
+``Diagonal of singular values'' confuses singular values with eigenvalues.
+The QR algorithm extracts \emph{eigenvalues}, not singular values. For
+symmetric positive-definite $A$ these happen to coincide in absolute value,
+but the algorithm extracts signed eigenvalues regardless of definiteness
+--- so for symmetric $A$ with negative eigenvalues the diagonal limit will
+contain those negative values, not their absolute values.
+
+\textbf{Trick answer:}
+``$A^T A$'' --- $Q$ and $R$ appear in the iteration, and $A^T A = R_0^T Q_0^T Q_0 R_0 = R_0^T R_0$
+at the first step, so the symbols look related --- but the iteration does
+not converge to $A^T A$. For symmetric $A$, $A^T A = A^2$ has eigenvalues
+$\lambda_i^2$, not $\lambda_i$, so this answer is doubly wrong: wrong limit,
+wrong eigenvalue magnitudes.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Complex eigenvalues and oscillatory solutions}
+%----------------------------------------------------------
+
+A real matrix $A$ has a complex conjugate pair of eigenvalues $\lambda = \alpha \pm i\beta$
+with $\beta \neq 0$. The system $d\mathbf{x}/dt = A\mathbf{x}$ has real basis
+solutions involving $e^{\alpha t} \cos(\beta t)$ and $e^{\alpha t} \sin(\beta t)$.
+Which of the following is the most fundamental reason these trigonometric
+functions appear?
+
+\begin{enumerate}[(A)]
+\item \textcolor{blue}{\textbf{Euler's formula $e^{i\beta t} = \cos(\beta t) + i\sin(\beta t)$ converts the complex exponential solution into trigonometric form.}}
+\item Because $A$ is real, complex eigenvalues must occur in conjugate pairs, forcing the imaginary parts of solutions to cancel.
+\item The $2 \times 2$ real block associated with $\alpha \pm i\beta$ has the form $\begin{bmatrix} \alpha & -\beta \\ \beta & \alpha \end{bmatrix}$, which is a scaled rotation matrix.
+\item Complex numbers do not appear in physically meaningful solutions, so they must be replaced by trigonometric functions.
+\item The matrix exponential's Taylor series collapses into the series for sine and cosine when applied to the Jordan block.
+\end{enumerate}
+
+\textbf{Explanation:}
+The complex-valued function $e^{\lambda t}\mathbf{v} = e^{(\alpha + i\beta)t}\mathbf{v}$
+is a genuine solution to $d\mathbf{x}/dt = A\mathbf{x}$. Applying Euler's
+formula, $e^{(\alpha + i\beta)t} = e^{\alpha t}(\cos(\beta t) + i\sin(\beta t))$,
+so the complex solution splits into a real part and an imaginary part, each
+of which is itself a real solution by linearity. The trigonometric
+functions appear precisely because Euler's formula \emph{is} the bridge
+between complex exponentials and oscillation. Every other appearance of
+$\cos(\beta t)$ and $\sin(\beta t)$ in this setting --- in the $2 \times 2$
+block formula, in the matrix-exponential Taylor series, in the structure
+of damped oscillators --- derives from this single identity.
+
+The conjugate-pair structure explains why we end up with \emph{real}
+solutions, but does not by itself explain why those solutions are
+\emph{trigonometric}. The block-form and Taylor-series facts are correct
+\emph{consequences}: they are how Euler's formula manifests in matrix
+language, not the underlying reason. Pedagogically, when students see
+``where does $\cos(\beta t)$ come from?'', the answer should be Euler's
+formula first; the matrix-exponential derivation is a verification of what
+Euler already guarantees.
+
+\textbf{Trick answer:}
+``Real $A$ forces conjugate pairs'' is a correct fact, wrong question ---
+conjugate pairing explains real-valuedness, not trigonometric structure.
+A classic surface-match: ``complex conjugate'' is the right vocabulary for
+a different question.
+
+\textbf{Trick answer:}
+The $2 \times 2$ real-block form is a true fact about the real Jordan
+block, but the rotation interpretation is itself a consequence of Euler's
+formula applied to $e^{Jt}$. Catches students who pattern-match on
+``rotation'' without asking where the rotation came from.
+
+\textbf{Partial credit:}
+The Taylor-series derivation is a correct verification, but it appeals to
+the structural identity $N^2 = -\beta^2 I$ (for the appropriate $2\times 2$
+block) which is itself the matrix shadow of $i^2 = -1$ --- i.e., it reduces
+back to Euler's formula at the scalar level. A sophisticated student might
+pick this; partial credit is reasonable.
+
+\textbf{Trick answer:}
+``Complex numbers do not appear in physically meaningful solutions''
+confuses physical motivation with mathematical justification. Complex
+numbers do appear in solutions; we extract real solutions by linearity,
+not by fiat.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Jordan canonical form --- algebraic vs geometric multiplicity}
+%----------------------------------------------------------
+
+A $5 \times 5$ matrix $A$ has a single eigenvalue $\lambda = 3$ with algebraic
+multiplicity $5$ and geometric multiplicity $2$. Which of the following
+statements is most true about the Jordan canonical form of $A$?
+
+\begin{enumerate}[(A)]
+\item \textcolor{blue}{\textbf{The Jordan form has exactly $2$ Jordan blocks, but their sizes are not determined by the given information.}}
+\item The Jordan form has exactly $3$ Jordan blocks.
+\item The Jordan form is diagonal, since all eigenvalues equal $3$.
+\item The Jordan form is uniquely determined to be one $4 \times 4$ Jordan block plus one $1 \times 1$ block.
+\item None of the above.
+\end{enumerate}
+
+\textbf{Explanation:}
+This problem is about the Jordan form, but everything you need to answer it
+follows from what we know about eigenspaces and shared eigenvectors.
+
+\emph{Number of blocks = geometric multiplicity.} A Jordan block at $\lambda$
+has \emph{exactly one} eigenvector direction --- the first standard basis
+vector $\mathbf{e}_1$ of that block. So each Jordan block in the Jordan
+form contributes exactly one independent eigenvector, and across the whole
+matrix the total dimension of the eigenspace at $\lambda$ equals the number
+of Jordan blocks at $\lambda$. With geometric multiplicity $2$, there are
+exactly $2$ Jordan blocks.
+
+\emph{Total size of the blocks = algebraic multiplicity.} The Jordan form is
+similar to $A$, and similar matrices have the same characteristic polynomial.
+Reading the characteristic polynomial off the Jordan form: each Jordan block
+of size $k$ at $\lambda$ contributes a factor $(t - \lambda)^k$. So the
+algebraic multiplicity of $\lambda$ is the sum of the sizes of all Jordan
+blocks at $\lambda$. With algebraic multiplicity $5$, the two blocks must
+have sizes summing to $5$.
+
+\emph{Why the sizes are not pinned down.} The two ways to partition $5$
+into two positive parts are $5 = 4+1$ and $5 = 3+2$. Both give matrices with
+the same eigenvalue, the same algebraic multiplicity, and the same number
+of independent eigenvectors --- the geometric multiplicity is $2$ in either
+case --- so neither piece of information distinguishes them. The two
+candidate Jordan forms are
+\[
+J_4(3) \oplus J_1(3) \quad \text{and} \quad J_3(3) \oplus J_2(3).
+\]
+These matrices behave differently in higher iterations of $(A - 3I)$ ---
+$(A - 3I)^2$ and $(A - 3I)^3$ have different ranks for the two cases ---
+which is what an actual computation would use to tell them apart, but the
+problem doesn't give us that data.
+
+Rule of thumb: \emph{geometric multiplicity = number of blocks; algebraic
+multiplicity = total size}. The partition of block sizes is a finer
+invariant that knowing eigenvalues and their two multiplicities does not
+determine.
+
+\textbf{Partial credit:}
+The choice ``one $4 \times 4$ block plus one $1 \times 1$ block'' correctly
+identifies one of the two valid Jordan forms and the right block count,
+but asserts uniqueness; this is the ``picked the largest possible block''
+instinct, which is one consistent answer but not the only one.
+
+\textbf{Trick answer:}
+``$3$ Jordan blocks'' confuses the algebraic-minus-geometric gap
+($5 - 2 = 3$) with the number of blocks. That gap measures \emph{how far}
+the matrix is from being diagonalizable --- it is the number of independent
+directions ``missing'' from the eigenspace --- but the count of Jordan
+blocks is the geometric multiplicity itself, which is $2$, not $3$.
+
+\textbf{Trick answer:}
+``Diagonal'' asserts diagonalizability from a repeated eigenvalue without
+checking geometric multiplicity. With geom.\ mult.\ $= 2 \neq 5 =$ alg.\ mult.,
+$A$ is not diagonalizable, so $A \neq 3I_5$.
+
+\textbf{Trick answer:}
+``None of the above'' rewards the second-guesser; the correct option here
+is genuinely on the list.
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEKS 7--8 SYNTHESIS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: Higher-order linear ODE --- basis of solutions}
+%----------------------------------------------------------
+
+Consider the third-order linear differential equation $p(D)x = 0$, where
+$p(D) = (D - 2)^2 (D + 3)$ and $D = d/dt$. Which of the following is a basis
+for the solution space?
+
+\begin{enumerate}[(A)]
+\item $\{e^{2t},\ e^{2t},\ e^{-3t}\}$
+\item $\{e^{2t},\ e^{-3t}\}$
+\item \textcolor{blue}{\textbf{$\{e^{2t},\ t e^{2t},\ e^{-3t}\}$}}
+\item $\{e^{2t},\ e^{2t} \ln t,\ e^{-3t}\}$
+\item $\{e^{-2t},\ t e^{-2t},\ e^{3t}\}$
+\end{enumerate}
+
+\textbf{Explanation:}
+The characteristic polynomial $p(\lambda) = (\lambda - 2)^2 (\lambda + 3)$
+has roots $\lambda = 2$ (algebraic multiplicity $2$) and $\lambda = -3$
+(algebraic multiplicity $1$). Each simple root contributes one basis solution
+$e^{\lambda t}$; a root of multiplicity $k$ contributes $k$ basis solutions
+$e^{\lambda t}, t e^{\lambda t}, \ldots, t^{k-1} e^{\lambda t}$. So the
+basis is $\{e^{2t}, t e^{2t}, e^{-3t}\}$.
+
+Recipe: read the multiplicities off the factorization, then for each root
+of multiplicity $k$, generate $k$ basis solutions by multiplying $e^{\lambda t}$
+by powers of $t$ from $t^0$ to $t^{k-1}$. The total count must match the
+degree of $p$, which equals the dimension of the solution space.
+
+\textbf{Partial credit:}
+$\{e^{2t}, e^{-3t}\}$ correctly identifies the two distinct exponentials
+but fails to produce a \emph{basis} --- only two functions, not enough to
+span a $3$-dimensional solution space. Right framework, dimension count
+off by one. Captures a student who knows ``each distinct root gives an
+exponential'' but missed that a repeated root contributes additional
+independent solutions.
+
+\textbf{Trick answer:}
+$\{e^{2t}, e^{2t}, e^{-3t}\}$ writes $e^{2t}$ twice for the repeated root,
+producing a linearly \emph{dependent} set --- this set has rank $2$, not
+$3$. Diagnoses a student who knows the count must equal the multiplicity
+but doesn't know how independence is achieved.
+
+\textbf{Trick answer:}
+$\{e^{-2t}, t e^{-2t}, e^{3t}\}$ sign-flips both roots: reads the factor
+$(D - 2)$ as eigenvalue $-2$ and $(D + 3)$ as eigenvalue $3$. The factor
+$(D - \lambda)$ corresponds to root $\lambda$, not $-\lambda$.
+
+\textbf{Trick answer:}
+$\{e^{2t}, e^{2t} \ln t, e^{-3t}\}$ multiplies by $\ln t$ instead of $t$
+for the repeated root --- the polynomial ladder $1, t, t^2, \ldots$ comes
+from differentiation of $e^{\lambda t}$ and the structure of Jordan blocks,
+not from any logarithmic source.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Diagonalizability --- sufficient vs necessary conditions}
+%----------------------------------------------------------
+
+Let $A$ be an $n \times n$ matrix with real entries. Which of the following
+statements about $A$ is most true?
+
+\begin{enumerate}[(A)]
+\item $A$ is diagonalizable if and only if every eigenvalue of $A$ is real.
+\item If $A$ is diagonalizable, then $A$ has $n$ distinct eigenvalues, but the converse does not hold.
+\item \textcolor{blue}{\textbf{If $A$ has $n$ distinct real eigenvalues, then $A$ is diagonalizable, but the converse does not hold.}}
+\item $A$ is diagonalizable if and only if $A$ has $n$ distinct real eigenvalues.
+\item $A$ is diagonalizable if and only if $\det(A) \neq 0$.
+\end{enumerate}
+
+\textbf{Explanation:}
+Having $n$ distinct eigenvalues is \emph{sufficient} for diagonalizability:
+distinct eigenvalues guarantee linearly independent eigenvectors, giving a
+full eigenbasis. But it is \emph{not necessary}: the identity $I_n$ has
+the single repeated eigenvalue $1$ (multiplicity $n$) and is already
+diagonal. More generally, $A$ is diagonalizable iff for every eigenvalue,
+geometric multiplicity equals algebraic multiplicity --- i.e., the
+eigenspaces together span $\mathbb{R}^n$ (or $\mathbb{C}^n$). Distinct
+eigenvalues force this automatically; repeated eigenvalues may or may not.
+
+Geometric picture: distinct eigenvalues $\Rightarrow$ each eigenspace is
+$1$-dim and they pile up to $n$ independent directions. Repeated
+eigenvalues only obstruct diagonalization when the corresponding eigenspace
+is too small --- a Jordan block. The implication runs one way only.
+
+\textbf{Trick answer:}
+``Diagonalizable iff $n$ distinct real eigenvalues'' asserts the converse,
+the classic confusion of sufficient with necessary; the canonical
+counterexample is $I_n$ or any $cI$.
+
+\textbf{Trick answer:}
+``If diagonalizable, then $n$ distinct eigenvalues'' reverses the
+implication; this would mean $I$ is non-diagonalizable, which is absurd
+since $I$ is already diagonal.
+
+\textbf{Trick answer:}
+``Diagonalizable iff every eigenvalue real'' makes reality of eigenvalues
+independent of diagonalizability: a $2 \times 2$ rotation by
+$\theta \notin \pi\mathbb{Z}$ has complex eigenvalues and is diagonalizable
+over $\mathbb{C}$; a defective Jordan block can have all real eigenvalues
+and not be diagonalizable.
+
+\textbf{Trick answer:}
+``Diagonalizable iff $\det(A) \neq 0$'' confuses diagonalizability with
+invertibility: $I$ is diagonalizable and invertible; the zero matrix is
+diagonalizable but singular; a defective $2\times 2$ Jordan block at
+$\lambda = 1$ is invertible but not diagonalizable.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Matrix exponential of a Jordan block}
+%----------------------------------------------------------
+
+Let $J = \lambda I + N$ be a $k \times k$ Jordan block with eigenvalue
+$\lambda$ on the diagonal and a single superdiagonal of $1$'s, so that $N$
+is the $k \times k$ nilpotent matrix with $N^k = 0$. The matrix exponential
+$e^{Jt}$ controls the solution to $d\mathbf{x}/dt = J\mathbf{x}$. Which of
+the following is the most accurate description of $e^{Jt}$, and why?
+
+\begin{enumerate}[(A)]
+\item \textcolor{blue}{\textbf{$e^{Jt} = e^{\lambda t}\!\left(I + tN + \tfrac{t^2}{2!}N^2 + \cdots + \tfrac{t^{k-1}}{(k-1)!}N^{k-1}\right)$, because $\lambda I$ and $N$ commute and $N$ is nilpotent of index $k$.}}
+\item $e^{Jt} = e^{\lambda I t} + e^{Nt}$, since the matrix exponential is additive over a sum of commuting matrices.
+\item $e^{Jt}$ is undefined whenever $J$ is non-diagonalizable, since the matrix exponential requires an eigenbasis to compute.
+\item $e^{Jt} = e^{\lambda t}\!\left(I + tN + \tfrac{t^2}{2!}N^2 + \cdots\right)$ as an infinite series, since the superdiagonal contributions never terminate.
+\item $e^{Jt} = e^{\lambda t} I$, since the diagonal entry $\lambda$ governs the exponential growth rate.
+\end{enumerate}
+
+\textbf{Explanation:}
+The decomposition $J = \lambda I + N$ exhibits $J$ as a sum of two
+\emph{commuting} matrices --- $\lambda I$ commutes with everything --- so
+the matrix exponential factors as
+$$e^{Jt} = e^{(\lambda I + N) t} = e^{\lambda I t}\, e^{N t} = e^{\lambda t}\, e^{Nt}.$$
+The first factor is the scalar $e^{\lambda t}$ times $I$; the second factor
+is the matrix exponential of the nilpotent $N$, which by definition is the
+power series $e^{Nt} = \sum_{j \geq 0} \frac{t^j}{j!} N^j$. Because
+$N^k = 0$, this series terminates after $k$ terms:
+$$e^{Nt} = I + tN + \tfrac{t^2}{2!} N^2 + \cdots + \tfrac{t^{k-1}}{(k-1)!} N^{k-1}.$$
+Multiplying by $e^{\lambda t}$ gives the correct expression.
+
+This is the structural origin of the polynomial-times-exponential ladder
+$\{e^{\lambda t}, t e^{\lambda t}, t^2 e^{\lambda t}/2!, \ldots\}$ that
+appears as the basis of solutions to a higher-order linear ODE with a
+repeated root. The factor $e^{\lambda t}$ comes from $\lambda I$; the
+polynomial factors $1, t, t^2/2!, \ldots, t^{k-1}/(k-1)!$ are the entries
+that $N$ generates as it climbs the superdiagonal. The Jordan block is the
+matrix avatar of the repeated-root behavior --- Jordan structure and the
+polynomial ladder are the same phenomenon viewed from two angles.
+
+Conceptual through-line: matrix exponentials of diagonalizable matrices
+involve only $e^{\lambda t}$ scalings on each eigenvector. The \emph{new}
+content here is what happens when there are not enough eigenvectors --- the
+missing directions are filled in by the nilpotent $N$, and matrix
+exponentiation reaches into those directions through the polynomial
+$t^j N^j / j!$ ladder.
+
+\textbf{Trick answer:}
+$e^{Jt} = e^{\lambda t} I$ takes the diagonal-case answer and applies it to
+the non-diagonalizable case. This would be correct if $N = 0$, but the
+whole point of a Jordan block is that $N \neq 0$; ignoring $N$ ignores the
+entire Jordan-chain structure.
+
+\textbf{Trick answer:}
+$e^{Jt} = e^{\lambda I t} + e^{Nt}$ invokes a false ``additivity'' rule.
+The matrix exponential is multiplicative over commuting summands,
+$e^{A+B} = e^A e^B$ when $AB = BA$ --- never additive. The correct
+decomposition does start from $J = \lambda I + N$ with commutativity, but
+produces a \emph{product} $e^{\lambda I t} e^{Nt}$, not a sum. The student
+who picks this has the right ingredients but the wrong combinator.
+
+\textbf{Partial credit:}
+The infinite-series version gets the structural picture right ---
+$e^{Jt} = e^{\lambda t} e^{Nt}$ with $e^{Nt}$ as a series in $N$ --- but
+fails to register that $N^k = 0$ truncates the series. The student
+understands the decomposition but has not exploited nilpotency. One rung
+below correct: same framework, missing the finite-series payoff.
+
+\textbf{Trick answer:}
+``$e^{Jt}$ is undefined for non-diagonalizable $J$'' confuses ``computation
+by diagonalization'' with the existence of $e^{Jt}$. The matrix exponential
+is defined for \emph{any} square matrix via its power series; diagonalization
+is a convenient shortcut when available, not a precondition.
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 9: LINEAR ITERATIVE SYSTEMS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: Spectral Theorem for symmetric matrices}
+%----------------------------------------------------------
+
+\textbf{A note from prof-g:} A handful of you saw a printed version of this
+problem in which choice (B) read ``All three of (A), (B), and (C) are
+guaranteed, and each can fail for some non-symmetric real matrix'' --- a
+self-referential phrasing that resulted from a bug in the problem-shuffling
+script. The intent was for one option to assert that all three of the
+individually-listed Spectral Theorem guarantees hold simultaneously. I'm
+sorry for the confusion this caused. Grading on this problem will be lenient
+to reflect the issue, and any partial-credit answer will be marked accordingly.
+Below I describe the problem in its intended form.
+
+Let $A \in \mathbb{R}^{n \times n}$ be a real symmetric matrix. The Spectral
+Theorem asserts a package of structural facts about $A$ that can each fail
+for a general (non-symmetric) real $n \times n$ matrix. Which of the
+following is GUARANTEED by the Spectral Theorem for symmetric $A$?
+
+\begin{enumerate}[(A)]
+\item For every eigenvalue $\lambda$ of $A$, the geometric multiplicity of $\lambda$ equals its algebraic multiplicity.
+\item \textcolor{blue}{\textbf{All three of: real eigenvalues, full geometric multiplicity, and an orthonormal eigenbasis --- and each can fail for some non-symmetric real matrix.}}
+\item There exists an orthonormal basis of $\mathbb{R}^n$ consisting of eigenvectors of $A$.
+\item Every eigenvalue of $A$ is real.
+\item Only real eigenvalues and full geometric multiplicity are guaranteed; an orthonormal eigenbasis can fail when $A$ has repeated eigenvalues.
+\end{enumerate}
+
+\textbf{Explanation:}
+The Spectral Theorem for real symmetric matrices asserts that
+$A = Q\Lambda Q^T$ where $Q$ is orthogonal (real) and $\Lambda$ is diagonal
+(real). Reading off the three guarantees:
+\begin{itemize}
+\item \emph{Real eigenvalues}: the diagonal entries of $\Lambda$ are real.
+\item \emph{Full geometric multiplicity}: the columns of $Q$ form a basis of $\mathbb{R}^n$, so the eigenspaces collectively span $\mathbb{R}^n$ --- equivalently, geometric multiplicity equals algebraic multiplicity for every eigenvalue (no Jordan obstruction).
+\item \emph{Orthonormal eigenbasis}: the columns of $Q$ are not just an eigenbasis but an orthonormal one.
+\end{itemize}
+
+Each fails for some general real matrix: real eigenvalues fail for the
+rotation $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$, with eigenvalues
+$\pm i$; full geometric multiplicity fails for the Jordan block
+$\begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$, with algebraic multiplicity
+$2$ and geometric multiplicity $1$ at $\lambda = 2$; an orthonormal
+eigenbasis fails for $\begin{pmatrix} 1 & 1 \\ 0 & 2 \end{pmatrix}$, which
+has an eigenbasis $\{(1,0)^T, (1,1)^T\}$ --- so it is diagonalizable ---
+but no orthonormal eigenbasis. All three statements are independently
+nontrivial guarantees, all three are simultaneously delivered by the
+Spectral Theorem, and the comprehensive option is the only choice that
+captures the full content along with the contrast.
+
+The orthonormal-eigenbasis fact alone logically implies the other two ---
+if an orthonormal eigenbasis exists, then $A = Q\Lambda Q^T$ with real $Q$
+forces real $\Lambda$, and the existence of an eigenbasis is exactly full
+geometric multiplicity. So the orthonormal-eigenbasis fact is the
+strongest single statement on the list. The reason the comprehensive
+answer is still correct is that it names the contrast with general matrices
+--- the structural payoff of the theorem --- whereas the orthonormal-eigenbasis
+fact alone reads like a fact about a particular $A$. The Spectral Theorem's
+content is that \emph{symmetry forces this package}.
+
+\textbf{Trick answer:}
+``Orthonormal eigenbasis exists'' alone is the strongest single guarantee
+on the list, logically implying the other two; a student who picked it has
+identified the most informative individual fact but missed the synthesis
+and the contrast with general matrices.
+
+\textbf{Trick answer:}
+``Every eigenvalue is real'' alone captures a genuine guarantee of the
+theorem, but the weakest of the three on its own. Real eigenvalues alone
+do not yield diagonalizability, let alone orthogonal diagonalizability.
+
+\textbf{Trick answer:}
+``Full geometric multiplicity'' alone is equivalent to diagonalizability,
+a genuine guarantee, but does not address reality of the eigenvalues or
+orthogonality of the eigenbasis.
+
+\textbf{Trick answer:}
+``Only real eigenvalues and full geometric multiplicity are guaranteed;
+orthonormal eigenbasis can fail'' imports the Jordan-block intuition ---
+``repeated eigenvalues can cause geometric multiplicity to fall short''
+--- and applies it to symmetric matrices, where the Spectral Theorem
+precisely \emph{prevents} this. A student who picked this has correctly
+diagnosed the general behavior of Jordan blocks but failed to register
+that symmetry overrides it.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Perron-Frobenius theorem --- complete statement}
+%----------------------------------------------------------
+
+Suppose $A$ is a square matrix with all entries strictly positive. Which
+statement most completely captures what the Perron-Frobenius theorem
+guarantees about the eigenstructure of $A$?
+
+\begin{enumerate}[(A)]
+\item The spectral radius $\rho(A)$ is itself an eigenvalue of $A$.
+\item \textcolor{blue}{\textbf{There is a real positive eigenvalue, strictly greater in magnitude than every other eigenvalue, with a corresponding eigenvector having all strictly positive entries.}}
+\item The largest magnitude eigenvalue is dominant.
+\item There exists an eigenvector of $A$ with all strictly positive entries.
+\item All eigenvalues of $A$ are real and positive.
+\end{enumerate}
+
+\textbf{Explanation:}
+The Perron-Frobenius theorem (in its strictly-positive form) asserts a
+\textbf{bundle} of facts about the dominant eigenpair of a positive matrix:
+there is a single eigenvalue $\lambda_*$ that is (i) real and positive,
+(ii) equal to the spectral radius $\rho(A)$, (iii) \emph{strictly} dominant
+(no other eigenvalue has the same magnitude), and (iv) associated with an
+eigenvector $\mathbf{v}_*$ whose entries are all strictly positive. The
+correct choice packages all of these elements --- positive real, strictly
+dominant, positive eigenvector --- in a single statement.
+
+The positive eigenvector is what makes Perron-Frobenius indispensable in
+ranking applications: the entries of $\mathbf{v}_*$ can be interpreted as
+probabilities, populations, or scores.
+
+\textbf{Trick answer:}
+``$\rho(A)$ is itself an eigenvalue'' captures one consequence of
+Perron-Frobenius --- that $\rho(A)$ is realized as an actual eigenvalue
+rather than just a bound --- but says nothing about strict dominance or
+the positive eigenvector. One rung of the ladder.
+
+\textbf{Trick answer:}
+``Eigenvector with positive entries'' captures the positive-eigenvector
+half of the theorem but is silent about which eigenvalue this eigenvector
+corresponds to. A second rung of the ladder.
+
+\textbf{Trick answer:}
+``Largest magnitude eigenvalue is dominant'' captures strict dominance ---
+the gap between $\rho(A)$ and the next-largest magnitude --- but says
+nothing about the sign or reality of the dominant eigenvalue, nor about
+the positive eigenvector. A third rung of the ladder.
+
+\textbf{Trick answer:}
+``All eigenvalues real and positive'' over-generalizes ``positive matrix''
+to ``all eigenvalues positive.'' Perron-Frobenius guarantees only that the
+\emph{dominant} eigenvalue is real and positive; the other eigenvalues
+can be complex or negative, provided their magnitudes are strictly smaller.
+For example, the $3 \times 3$ positive matrix
+$\begin{bmatrix} 1 & 1 & 1 \\ 2 & 1 & 1 \\ 1 & 2 & 1 \end{bmatrix}$ has
+one dominant real eigenvalue near $3.4$ and a complex conjugate pair with
+magnitude near $0.6$.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Stationary distribution of a positive Markov chain}
+%----------------------------------------------------------
+
+Let $P$ be a positive column-stochastic $n \times n$ matrix governing a
+Markov chain
+\[
+\mathbf{x}_{k+1} = P \mathbf{x}_k
+\]
+on probability vectors in $\mathbb{R}^n$. A \emph{stationary distribution}
+for $P$ is a probability vector $\boldsymbol{\pi}$ satisfying
+$P\boldsymbol{\pi} = \boldsymbol{\pi}$. Which of the following is the best
+Perron-Frobenius description of the stationary distribution?
+
+\begin{enumerate}[(A)]
+\item A nonzero vector in $\ker(P-I)$.
+\item The limit $\lim_{k\to\infty} P^k\mathbf{x}_0$ for any probability vector $\mathbf{x}_0$.
+\item A probability vector $\boldsymbol{\pi}$ such that $\boldsymbol{\pi}^T P = \boldsymbol{\pi}^T$.
+\item An eigenvector of $P$ whose entries sum to $1$.
+\item \textcolor{blue}{\textbf{The probability eigenvector of $P$ corresponding to the dominant eigenvalue $\lambda = 1$.}}
+\end{enumerate}
+
+\textbf{Explanation:}
+Since $P$ is positive and column-stochastic, Perron-Frobenius applies cleanly.
+The eigenvalue $\lambda = 1$ is the dominant eigenvalue, and its eigenspace
+contains a positive eigenvector. Normalizing that positive eigenvector so
+that its entries sum to $1$ gives the stationary distribution.
+
+The correct choice captures both essential features: the vector is fixed by
+the dynamics, $P\boldsymbol{\pi} = \boldsymbol{\pi}$, and it is a probability
+vector. The word ``dominant'' identifies the Perron-Frobenius role of the
+eigenvalue $\lambda = 1$.
+
+\textbf{Partial credit:}
+``A nonzero vector in $\ker(P-I)$'' recognizes the fixed-point equation
+$P\boldsymbol{\pi} = \boldsymbol{\pi}$, equivalently
+$\boldsymbol{\pi} \in \ker(P-I)$, but misses the probability normalization
+and nonnegativity requirement.
+
+\textbf{Trick answer:}
+``$\boldsymbol{\pi}^T P = \boldsymbol{\pi}^T$'' uses the row-vector
+convention. Under the column-stochastic convention used here, stationary
+distributions are right eigenvectors of $P$, not left eigenvectors.
+
+\textbf{Partial credit:}
+``$\lim P^k \mathbf{x}_0$'' is true under the positivity hypothesis, but
+describes the long-term limiting behavior rather than the Perron-Frobenius
+eigenvector description of what the stationary distribution \emph{is}.
+
+\textbf{Trick answer:}
+``Eigenvector whose entries sum to $1$'' requires entries summing to $1$,
+but does not specify the eigenvalue $\lambda = 1$ and does not require
+nonnegative entries. So it need not describe a probability vector fixed
+by the dynamics.
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 10: SINGULAR VALUE DECOMPOSITION}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------
+\subsection*{Problem: Maximum stretch of a unit vector under the SVD}
+%----------------------------------------------------------
+
+A matrix $A \in \mathbb{R}^{4 \times 3}$ has singular values $\sigma_1 = 6$,
+$\sigma_2 = 3$, $\sigma_3 = 2$. Over all unit vectors
+$\mathbf{x} \in \mathbb{R}^3$, what is the largest possible value of
+$\norm{A\mathbf{x}}$?
+
+\begin{enumerate}[(A)]
+\item $\sqrt{6^2 + 3^2 + 2^2} = 7$
+\item $36$
+\item $11$
+\item \textcolor{blue}{\textbf{$6$}}
+\item Cannot be determined from the information given.
+\end{enumerate}
+
+\textbf{Explanation:}
+The SVD gives a complete geometric picture of how $A$ acts on the unit sphere.
+The right singular vectors $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ are
+an orthonormal basis of $\mathbb{R}^3$, and $A$ sends each $\mathbf{v}_i$
+to $\sigma_i \mathbf{u}_i$, where the $\mathbf{u}_i$ are an orthonormal set
+in $\mathbb{R}^4$. So $A$ takes the unit sphere in $\mathbb{R}^3$ to an
+ellipsoid in $\mathbb{R}^4$ whose three semi-axes have lengths
+$\sigma_1 = 6$, $\sigma_2 = 3$, $\sigma_3 = 2$, oriented along the
+$\mathbf{u}_i$.
+
+The largest possible value of $\norm{A\mathbf{x}}$ over the unit sphere is
+the longest semi-axis of this image ellipsoid. The longest semi-axis has
+length $\sigma_1 = 6$, attained when $\mathbf{x} = \mathbf{v}_1$ (since
+$A\mathbf{v}_1 = \sigma_1 \mathbf{u}_1$, which has norm $\sigma_1$). So
+the answer is $6$.
+
+To see directly that no other unit input does better: write any unit vector
+in the right-singular-vector basis as $\mathbf{x} = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + c_3 \mathbf{v}_3$
+with $c_1^2 + c_2^2 + c_3^2 = 1$. Then
+$A\mathbf{x} = c_1 \sigma_1 \mathbf{u}_1 + c_2 \sigma_2 \mathbf{u}_2 + c_3 \sigma_3 \mathbf{u}_3$,
+and because the $\mathbf{u}_i$ are orthonormal,
+$\norm{A\mathbf{x}}^2 = c_1^2 \sigma_1^2 + c_2^2 \sigma_2^2 + c_3^2 \sigma_3^2$.
+This is a weighted average of $\sigma_i^2$ with weights summing to $1$, so
+it is maximized when all the weight is on the largest $\sigma_i^2$ ---
+i.e., $c_1 = \pm 1$ --- giving $\norm{A\mathbf{x}}^2 = \sigma_1^2 = 36$,
+hence $\norm{A\mathbf{x}} = 6$.
+
+\textbf{Trick answer:}
+$\sqrt{6^2 + 3^2 + 2^2} = 7$ is the Frobenius norm $\norm{A}_F$, which
+aggregates stretching across \emph{all} singular directions at once ---
+it is a global measure of $A$'s ``size,'' not the maximum stretch of any
+single unit input. The unit input that lands on the longest semi-axis only
+gets stretched by $\sigma_1 = 6$, not by all three singular values
+simultaneously.
+
+\textbf{Trick answer:}
+$36 = \sigma_1^2$ is the largest of the $\sigma_i^2$ values, which appear
+as the squared semi-axis lengths in the formula
+$\norm{A\mathbf{x}}^2 = \sum c_i^2 \sigma_i^2$. The maximum of
+$\norm{A\mathbf{x}}^2$ is $\sigma_1^2 = 36$, but the question asks for
+the maximum of $\norm{A\mathbf{x}}$, which is $\sigma_1 = 6$. A student
+who picks this has confused the squared maximum with the maximum.
+
+\textbf{Trick answer:}
+$11$ just adds the singular values, $6 + 3 + 2 = 11$ --- treating them as
+if they combined additively for a single input vector. They don't: the
+three semi-axes lie along orthogonal directions $\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3$,
+so a single output vector can only ``use'' one of them at full strength
+at a time.
+
+\textbf{Trick answer:}
+``Cannot be determined'' --- the orthogonal matrices $U$ and $V$ are needed
+to find \emph{which} unit vector $\mathbf{v}_1$ achieves the maximum, but
+they are not needed to find the maximum \emph{value}. The semi-axis lengths
+are exactly the $\sigma_i$, and those are given.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Right vs left singular vectors}
+%----------------------------------------------------------
+
+A matrix $A \in \mathbb{R}^{m \times n}$ has SVD $A = U\Sigma V^T$. Which
+statement most fundamentally distinguishes a right singular vector
+$\mathbf{v}_i$ from a left singular vector $\mathbf{u}_i$?
+
+\begin{enumerate}[(A)]
+\item \textcolor{blue}{\textbf{$\mathbf{v}_i \in \mathbb{R}^n$ lives in the domain of $A$, while $\mathbf{u}_i \in \mathbb{R}^m$ lives in the codomain, and they are linked by $A\mathbf{v}_i = \sigma_i \mathbf{u}_i$.}}
+\item $\mathbf{v}_i$ is an eigenvector of $A^TA$, while $\mathbf{u}_i$ is an eigenvector of $AA^T$.
+\item $\mathbf{v}_i$ is mapped to $\sigma_i \mathbf{u}_i$ by $A$, while $\mathbf{u}_i$ is mapped to $\sigma_i \mathbf{v}_i$ by $A$.
+\item $\mathbf{v}_i$ identifies a principal input direction that gets stretched by $A$, while $\mathbf{u}_i$ identifies the corresponding output semi-axis of the image ellipsoid.
+\item $\mathbf{v}_i$ is the column of $V$, while $\mathbf{u}_i$ is the column of $U$.
+\end{enumerate}
+
+\textbf{Explanation:}
+The most fundamental distinction between $\mathbf{v}_i$ and $\mathbf{u}_i$
+is that they live in \emph{different vector spaces}:
+$\mathbf{v}_i \in \mathbb{R}^n$ is in the domain, and
+$\mathbf{u}_i \in \mathbb{R}^m$ is in the codomain. The relation
+$A\mathbf{v}_i = \sigma_i \mathbf{u}_i$ is precisely the statement that
+$A$ sends the $i$-th right singular vector to a scaled copy of the $i$-th
+left singular vector. Everything else (eigenvector characterizations,
+geometric stretching interpretation, columns of $U$ and $V$) is a
+\emph{consequence} of this domain/codomain structure.
+
+Geometrically: $\{\mathbf{v}_i\}$ is the orthonormal frame of input
+directions on the unit sphere in $\mathbb{R}^n$; $A$ scales each by
+$\sigma_i$ and sends it to $\mathbf{u}_i$, the corresponding semi-axis of
+the output ellipsoid in $\mathbb{R}^m$. Whenever $m \neq n$, no
+$\mathbf{v}_i$ can equal any $\mathbf{u}_j$ --- they live in spaces of
+different dimension.
+
+\textbf{Partial credit:}
+``$\mathbf{v}_i$ eigenvector of $A^TA$, $\mathbf{u}_i$ eigenvector of $AA^T$''
+is a true equivalent characterization, but it describes \emph{how to
+compute} the singular vectors via the symmetric matrices $A^TA$ and $AA^T$
+--- a derivative fact, not the fundamental distinction. A student who
+picked this has internalized the eigenvalue-problem viewpoint but missed
+the domain/codomain picture.
+
+\textbf{Partial credit:}
+``Principal input direction / output semi-axis'' is geometrically
+correct-but-derivative --- captures the picture of input stretching to
+output semi-axis, but doesn't explicitly name that the two vectors live
+in \emph{different} spaces.
+
+\textbf{Trick answer:}
+``$\mathbf{v}_i$ is the column of $V$, $\mathbf{u}_i$ is the column of $U$''
+is a true tautology that names \emph{where} the vectors sit in the matrices
+$V$ and $U$, but says nothing about what distinguishes them mathematically.
+It is the choice that ``looks right'' to a student pattern-matching on the
+formula $A = U\Sigma V^T$.
+
+\textbf{Trick answer:}
+``$A$ maps $\mathbf{u}_i$ to $\sigma_i \mathbf{v}_i$'' swaps the asymmetric
+mapping. The correct relation is $A\mathbf{v}_i = \sigma_i \mathbf{u}_i$
+\emph{and} $A^T\mathbf{u}_i = \sigma_i \mathbf{v}_i$; the operator that
+sends $\mathbf{u}_i$ back to $\sigma_i \mathbf{v}_i$ is $A^T$, not $A$.
+Students who pattern-match on symmetry without checking domain/codomain
+fall here.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Image of the unit sphere under a truncated SVD}
+%----------------------------------------------------------
+
+The matrix $A \in \mathbb{R}^{500 \times 200}$ has SVD $A = U\Sigma V^T$ with
+exactly $100$ nonzero singular values
+$\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_{100} > 0$ and
+$\sigma_{101} = \cdots = \sigma_{200} = 0$. Let $A_{50}$ denote the best
+rank-$50$ approximation to $A$. Which of the following best describes the
+image of the unit sphere in the domain under $A_{50}$?
+
+\begin{enumerate}[(A)]
+\item A solid $50$-dimensional ellipsoid in $\mathrm{span}(\mathbf{v}_{51}, \ldots, \mathbf{v}_{100}) \subset \mathbb{R}^{500}$, with semi-axis lengths $\sigma_{51}, \ldots, \sigma_{100}$.
+\item A solid $50$-dimensional ellipsoid in $\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_{50}) \subset \mathbb{R}^{200}$, with semi-axis lengths $\sigma_1, \ldots, \sigma_{50}$.
+\item A solid $50$-dimensional ellipsoid in $\mathrm{span}(\mathbf{u}_1, \ldots, \mathbf{u}_{50}) \subset \mathbb{R}^{500}$, with semi-axis lengths $\sigma_1^2, \ldots, \sigma_{50}^2$.
+\item \textcolor{blue}{\textbf{A solid $50$-dimensional ellipsoid in $\mathrm{span}(\mathbf{u}_1, \ldots, \mathbf{u}_{50}) \subset \mathbb{R}^{500}$, with semi-axis lengths $\sigma_1, \ldots, \sigma_{50}$.}}
+\item A solid $50$-dimensional ellipsoid in $\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_{50}) \subset \mathbb{R}^{200}$, with semi-axis lengths $\sigma_1^2, \ldots, \sigma_{50}^2$.
+\end{enumerate}
+
+\textbf{Explanation:}
+The truncated SVD is
+$A_{50} = \sum_{i=1}^{50} \sigma_i \mathbf{u}_i \mathbf{v}_i^T$, keeping
+the $50$ largest singular values. Its image is a solid $50$-dimensional
+subspace of the codomain --- namely $\mathrm{span}(\mathbf{u}_1, \ldots, \mathbf{u}_{50}) \subset \mathbb{R}^{500}$.
+On the unit sphere in the domain, the action of $A_{50}$ stretches the
+input direction $\mathbf{v}_i$ (for $i \leq 50$) by factor $\sigma_i$ and
+sends it to $\sigma_i \mathbf{u}_i$; all directions in
+$\ker(A_{50}) = \mathrm{span}(\mathbf{v}_{51}, \ldots, \mathbf{v}_{200})$
+are collapsed to zero. The image is a genuine $50$-dimensional ellipsoid
+with semi-axes $\sigma_1, \ldots, \sigma_{50}$.
+
+Geometrically: the full $A$ produces a $100$-dim image ellipsoid in
+$\mathbb{R}^{500}$. Truncation to rank $50$ \emph{further collapses} that
+ellipsoid by zeroing the $50$ shortest \emph{nonzero} semi-axes, leaving
+a solid $50$-dim ellipsoid spanned by the longest $50$ semi-axes. The $100$
+already-zero singular values play no role in the truncation --- they were
+already part of the kernel of $A$.
+
+\textbf{Trick answer:}
+The choice with $\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_{50})$ in
+$\mathbb{R}^{200}$ with semi-axes $\sigma_1^2, \ldots, \sigma_{50}^2$ is a
+compound error: swaps the ambient space (domain instead of codomain) AND
+uses $\sigma_i^2$ instead of $\sigma_i$. A student making both errors at
+once lands here. Notably, $\sigma_i^2$ are the eigenvalues of $A^TA$, whose
+eigenvectors \emph{do} live in the domain alongside the $\mathbf{v}_i$ ---
+so the two errors here are mutually reinforcing rather than independent.
+
+\textbf{Trick answer:}
+The choice with $\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_{50})$ in
+$\mathbb{R}^{200}$ with semi-axes $\sigma_1, \ldots, \sigma_{50}$ swaps
+$\mathbf{u}$ and $\mathbf{v}$. Right singular vectors $\mathbf{v}_i$ live
+in the domain $\mathbb{R}^{200}$, so this answer locates the image in the
+wrong space entirely. Classic domain-codomain confusion.
+
+\textbf{Trick answer:}
+The choice with semi-axes $\sigma_1^2, \ldots, \sigma_{50}^2$ in the
+correct ambient space confuses singular values with eigenvalues of $A^TA$.
+The semi-axis lengths are $\sigma_i$ themselves, not
+$\sigma_i^2 = \lambda_i(A^TA)$. Right ambient space, wrong scaling.
+
+\textbf{Trick answer:}
+The choice with $\mathrm{span}(\mathbf{v}_{51}, \ldots, \mathbf{v}_{100})$
+keeps the wrong half of the nonzero singular values --- the $50$ smallest
+nonzero ones rather than the $50$ largest. ``Best rank-$50$'' keeps the
+top $50$, not the next-best $50$.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: SVD block diagram --- locating the coimage}
+%----------------------------------------------------------
+
+A diagram is given as an abstract representation of the SVD of a linear
+transformation $M$, with five regions labeled (A) through (E): $U$ split
+into its first $r$ columns ((A), shaded) and remaining columns (B);
+$\Sigma$ as the rectangular middle block (C); $V^T$ split into its first
+$r$ rows ((D), shaded) and remaining rows (E), where $r = \mathrm{rank}(M)$.
+Which region best represents the \emph{coimage} of the transformation?
+
+\begin{enumerate}[(A)]
+\item Region A: shaded first $r$ columns of $U$.
+\item Region B: unshaded last $m - r$ columns of $U$.
+\item Region C: the diagonal $\Sigma$ block.
+\item \textcolor{blue}{\textbf{Region D: shaded first $r$ rows of $V^T$.}}
+\item Region E: unshaded last $n - r$ rows of $V^T$.
+\end{enumerate}
+
+\textbf{Explanation:}
+The coimage $\mathrm{coim}(M) = \mathbb{R}^n / \ker(M)$ is naturally
+represented in the domain by $\ker(M)^\perp$, which is spanned by the
+first $r$ right singular vectors $\mathbf{v}_1, \ldots, \mathbf{v}_r$.
+The rows of $V^T$ are exactly the $\mathbf{v}_i^T$, so the first $r$ rows
+of $V^T$ --- region D --- house the right singular vectors that span the
+coimage representative.
+
+FTLA spine: $\mathrm{coim}(M) \cong \mathrm{im}(M)$, so regions D (in the
+domain) and A (in the codomain) describe naturally isomorphic spaces. But
+the \emph{coimage itself lives in the domain}, where $V$ acts --- hence D,
+not A.
+
+\textbf{Partial credit:}
+Region A recognizes the rank-$r$ shaded structure and the FTLA isomorphism
+$\mathrm{coim} \cong \mathrm{im}$, but places coimage on the codomain side.
+A student who picked A understands the FTLA punchline but has not separated
+the natural location of $\mathrm{coim}(M)$ from that of $\mathrm{im}(M)$.
+
+\textbf{Trick answer:}
+Region E is the last $n - r$ rows of $V^T$, spanning $\ker(M)$ --- the
+orthogonal complement of the coimage representative. Classic
+kernel-vs-coimage swap.
+
+\textbf{Trick answer:}
+Region B (unshaded columns of $U$) spans $\ker(M^T) = \mathrm{im}(M)^\perp$,
+the natural representative of the \emph{cokernel}. Confuses coimage
+(domain side) with cokernel (codomain side).
+
+\textbf{Trick answer:}
+Region C (the $\Sigma$ block) holds the singular values --- stretching
+factors, not a subspace. A student who picks $C$ has read ``coimage'' as
+``somewhere on the diagonal'' rather than as a subspace.
+
+\divider
+
+%----------------------------------------------------------
+\subsection*{Problem: Polar decomposition --- geometric content}
+%----------------------------------------------------------
+
+A square matrix $A \in \mathbb{R}^{n \times n}$ admits a polar factorization
+$A = QH$, where $Q$ is orthogonal and $H$ is symmetric positive semidefinite.
+Which statement best describes the geometric content of this decomposition?
+
+\begin{enumerate}[(A)]
+\item $Q$ rotates $\mathbb{R}^n$ into the principal-axis frame, and $H$ stretches each coordinate by the corresponding singular value.
+\item $H = A^T A$ and $Q = A H^{-1}$, with $H$ symmetric positive semidefinite and $Q$ orthogonal.
+\item $H$ stretches by the eigenvalues of $A$ along the eigenvectors of $A$, and $Q$ realigns the result.
+\item $H$ is the symmetric part $(A + A^T)/2$ and $Q$ is the orthogonal part $(A - A^T)/2$ of $A$.
+\item \textcolor{blue}{\textbf{$H$ stretches along $n$ mutually orthogonal directions by the singular values of $A$, and $Q$ then rotates the stretched result.}}
+\end{enumerate}
+
+\textbf{Explanation:}
+Polar decomposition writes the action of $A$ as \emph{stretch first, rotate
+second}. The symmetric PSD factor $H = \sqrt{A^T A}$ is orthogonally
+diagonalizable; its eigenvalues are exactly the singular values $\sigma_i$
+of $A$, and its eigenvectors are the right singular vectors $\mathbf{v}_i$.
+So $H$ acts on $\mathbb{R}^n$ by stretching along $n$ mutually orthogonal
+axes (the $\mathbf{v}_i$) by factors $\sigma_i$. Then $Q$ rigidly rotates
+the result into the codomain. This is the \textbf{fundamental} description:
+$A$ is a stretch composed with a rotation, with singular values controlling
+the stretch.
+
+Cross-check via SVD: $A = U \Sigma V^T = (UV^T)(V \Sigma V^T) = QH$, with
+$Q = UV^T$ and $H = V \Sigma V^T$.
+
+\textbf{Partial credit:}
+The choice ``$Q$ rotates first, $H$ stretches in the principal-axis frame''
+has the right structural intuition --- rotate then stretch --- but reverses
+the order; this is the \emph{left} polar decomposition $A = H'Q$, a
+different factorization with a different $H'$.
+
+\textbf{Trick answer:}
+``$H$ stretches by eigenvalues of $A$ along eigenvectors of $A$'' confuses
+singular values with eigenvalues and right singular vectors with
+eigenvectors; $H$'s eigenvalues are $\sigma_i(A)$, not $\lambda_i(A)$, and
+these agree only when $A$ is symmetric PSD.
+
+\textbf{Trick answer:}
+``$H = A^T A$, $Q = A H^{-1}$'' gets $H = \sqrt{A^T A}$ wrong as $H = A^T A$.
+The matrix $A^T A$ has eigenvalues $\sigma_i^2$, not $\sigma_i$, so this
+$H$ stretches by the \emph{squares} of the singular values --- the wrong
+square root. Equivalently, $A H^{-1} = A (A^T A)^{-1}$ is not orthogonal
+in general; the formula for $Q$ inherits the same error.
+
+\textbf{Trick answer:}
+``Symmetric/skew-symmetric decomposition'' imports the
+$(A + A^T)/2 + (A - A^T)/2$ split, which has nothing to do with polar form;
+the polar decomposition is multiplicative, not additive, and $(A - A^T)/2$
+is skew-symmetric, not orthogonal.
+
+\divider
+
+\section*{WEEKS 10--11: SVD AND PCA SYNTHESIS}
+
+\subsection*{Problem: PCA via SVD --- relationship between principal components and singular vectors}
+
+Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix (each column has
+mean zero), with SVD $X = U \Sigma V^T$. The covariance matrix is
+$C = \frac{1}{n} X^T X$. Which of the following correctly describes the
+relationship between the SVD of $X$ and the principal components of the
+data?
+
+\begin{enumerate}[(A)]
+    \item \textcolor{blue}{\textbf{The columns of $V$ are the principal components, and the eigenvalues of $C$ are $\sigma_i^2 / n$.}}
+    \item The columns of $U$ are the principal components, and the eigenvalues of $C$ are $\sigma_i^2 / n$.
+    \item The columns of $V$ are the principal components, and the eigenvalues of $C$ are $\sigma_i$.
+    \item The columns of $V$ are the principal components, and the eigenvalues of $C$ are $\sigma_i^2$.
+    \item The columns of $U$ are the principal components, and the eigenvalues of $C$ are $\sigma_i^2$.
+\end{enumerate}
+
+\textbf{Explanation:}
+This is the fundamental bridge between Week 10 (SVD) and Week 11 (PCA).
+Computing directly:
+$$
+C = \frac{1}{n} X^T X = \frac{1}{n} (U \Sigma V^T)^T (U \Sigma V^T)
+= \frac{1}{n} V \Sigma^T U^T U \Sigma V^T
+= \frac{1}{n} V \Sigma^2 V^T.
+$$
+Reading off the eigendecomposition of $C$: the eigenvectors are the columns
+of $V$ (the right singular vectors of $X$) --- these are the principal
+components, the directions of maximum variance in feature space. The
+eigenvalues are the diagonal entries of $\frac{1}{n}\Sigma^2$, namely
+$\sigma_i^2/n$, which are precisely the variances along each PC.
+
+The principal components live in $\mathbb{R}^d$ (feature space), so they
+must be columns of $V \in \mathbb{R}^{d \times d}$, not $U \in \mathbb{R}^{n \times n}$.
+The columns of $U$ have a different interpretation (they are related to
+the principal component \emph{scores} after normalization).
+
+\textbf{Partial credit:}
+The choice ``columns of $V$ are PCs, eigenvalues are $\sigma_i^2$'' (without
+the $1/n$) gets the eigenvectors correct and gets the squaring correct
+(recognizing that $C$ involves $X^T X$, which squares singular values), but
+forgets the $1/n$ normalization in the definition of the sample covariance.
+
+\textbf{Partial credit:}
+The choice ``columns of $V$ are PCs, eigenvalues are $\sigma_i$'' identifies
+the principal components correctly but drops both the squaring and the
+$1/n$ --- this is the relationship for $X$ itself, not for $X^T X$.
+
+\textbf{Trick answer:}
+The choice ``columns of $U$ are PCs, eigenvalues are $\sigma_i^2 / n$'' gets
+the eigenvalues of $C$ correct but mislocates the principal components in
+sample space rather than feature space. The eigenvalues happen to match,
+which makes this distractor sticky --- but the eigenvectors are wrong
+because $U$ has the wrong shape ($n \times n$ rather than $d \times d$).
+
+\textbf{Trick answer:}
+The choice ``columns of $U$ are PCs, eigenvalues are $\sigma_i^2$'' swaps
+$U$ and $V$ (treating the SVD of $X$ as if it were the SVD of $X^T$) and
+also drops the $1/n$. This is the most thoroughly wrong option.
+
+\divider
+
+\section*{WEEK 11: PRINCIPAL COMPONENT ANALYSIS}
+
+\subsection*{Problem: Definition of the sample covariance matrix}
+
+Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix (rows are
+samples, columns are features). Which of the following expressions gives
+the $d \times d$ sample covariance matrix $C$?
+
+\begin{enumerate}[(A)]
+    \item $C = X X^T$
+    \item $C = \frac{1}{n} X X^T$
+    \item $C = X^T X$
+    \item \textcolor{blue}{\textbf{$C = \frac{1}{n} X^T X$}}
+    \item $C = \frac{1}{n-1} X X^T$
+\end{enumerate}
+
+\textbf{Explanation:}
+With rows as samples and columns as features, the $(i,j)$ entry of
+$X^T X$ is the inner product of the $i$th and $j$th feature columns:
+$$
+(X^T X)_{ij} = \sum_{k=1}^n X_{ki} X_{kj}.
+$$
+Since the data is centered ($\sum_k X_{ki} = 0$), this is exactly $n$ times
+the sample covariance between features $i$ and $j$. Dividing by $n$ gives
+the covariance: $C = \frac{1}{n} X^T X$. The shape is $d \times d$,
+matching the number of features.
+
+(Note: some texts use $\frac{1}{n-1}$ for the unbiased estimator, but this
+course adopts the $\frac{1}{n}$ convention --- and the question specifies
+the $d \times d$ shape, which rules out the $X X^T$ variants regardless
+of normalization.)
+
+\textbf{Partial credit:}
+The choice $X^T X$ has the correct shape ($d \times d$) and the correct
+structure (inner products between feature columns), but omits the $1/n$
+normalization. This is a standard partial-credit error: structurally
+correct but dimensionally off.
+
+\textbf{Trick answer:}
+The choice $\frac{1}{n} X X^T$ produces an $n \times n$ matrix --- this
+is the \emph{Gram matrix of samples}, which appears in kernel methods, but
+it is not the covariance. The trick exploits surface symmetry: it has the
+right $1/n$ but the wrong product order.
+
+\textbf{Trick answer:}
+$X X^T$ is the same shape error without the normalization --- doubly wrong.
+
+\textbf{Trick answer:}
+$\frac{1}{n-1} X X^T$ combines the unbiased-estimator normalization (a
+real convention, just not ours) with the wrong shape. This is sticky for
+students who have seen statistics elsewhere; the unfamiliar coefficient
+makes it look authoritative, but the shape betrays it.
+
+\divider
+
+\subsection*{Problem: Correlation as cosine similarity}
+
+Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix, and let $x_i$
+and $x_j$ denote the $i$th and $j$th columns of $X$ (i.e., the centered
+data for features $i$ and $j$). The Pearson correlation between features
+$i$ and $j$ is
+$$
+\rho_{ij} = \frac{x_i \cdot x_j}{\norm{x_i}\, \norm{x_j}}.
+$$
+Which of the following best describes the geometric meaning of $\rho_{ij}$?
+
+\begin{enumerate}[(A)]
+    \item \textcolor{blue}{\textbf{$\rho_{ij}$ is the cosine of the angle between the feature vectors $x_i$ and $x_j$ in $\mathbb{R}^n$.}}
+    \item $\rho_{ij}$ is the cosine of the angle between $x_i$ and $x_j$ in $\mathbb{R}^d$.
+    \item $\rho_{ij}$ is the projection of $x_i$ onto $x_j$.
+    \item $\rho_{ij}$ is the distance between $x_i$ and $x_j$ in feature space.
+    \item $\rho_{ij}$ is the variance of the joint distribution of features $i$ and $j$.
+\end{enumerate}
+
+\textbf{Explanation:}
+The formula $\rho_{ij} = (x_i \cdot x_j) / (\norm{x_i} \norm{x_j})$ is
+\emph{exactly} the cosine of the angle between $x_i$ and $x_j$ --- this is
+the definition of cosine similarity from Week 5. The feature vectors
+$x_i, x_j \in \mathbb{R}^n$ live in sample space (one component per sample),
+so the angle is measured in $\mathbb{R}^n$.
+
+This is the conceptual punchline of correlation: \emph{correlation is just
+cosine similarity applied to centered feature vectors.} Centering makes
+the inner product equal to the covariance (up to $n$); normalizing by the
+norms turns covariance into correlation, which is bounded in $[-1, 1]$
+exactly because cosine is.
+
+\textbf{Trick answer:}
+The choice with $\mathbb{R}^d$ instead of $\mathbb{R}^n$ swaps sample
+space and feature space --- a classic D7-style type confusion. Each $x_i$
+has one entry per sample, so it lives in $\mathbb{R}^n$, not $\mathbb{R}^d$.
+
+\textbf{Trick answer:}
+``Projection of $x_i$ onto $x_j$'' confuses correlation with the projection
+coefficient $(x_i \cdot x_j)/\norm{x_j}^2$. The projection coefficient is
+not symmetric in $i$ and $j$, but correlation is.
+
+\textbf{Trick answer:}
+``Distance between $x_i$ and $x_j$'' confuses inner products (angles) with
+norms of differences (distances). These are different geometric objects:
+$\rho_{ij} = 1$ does not mean $x_i = x_j$; it means they point in the
+same direction.
+
+\textbf{Trick answer:}
+``Variance of the joint distribution'' is the most thoroughly statistical
+distractor --- it sounds plausible because correlation is a statistical
+quantity, but variance is not bounded in $[-1, 1]$ and is a property of a
+single random variable, not a relationship between two.
+
+\divider
+
+\section*{WEEKS 5, 6, 12 SYNTHESIS}
+
+\subsection*{Problem: Geometric role of the perceptron weight vector}
+
+A perceptron with weights $\mathbf{w} \in \mathbb{R}^n$, bias
+$b \in \mathbb{R}$, and sigmoid activation $\sigma$ computes
+$y = \sigma(\mathbf{w}^T \mathbf{x} + b)$, with decision boundary
+$\{\mathbf{x} : \mathbf{w}^T \mathbf{x} + b = 0\}$. Which statement best
+and most fundamentally describes the geometric role of $\mathbf{w}$?
+
+\begin{enumerate}[(A)]
+    \item $\mathbf{w}$ points from the origin toward the centroid of the training inputs whose target label is close to $1$.
+    \item $\mathbf{w}$ lies in the decision boundary, since $\mathbf{w}$ and $\mathbf{x}$ are vectors in the same space $\mathbb{R}^n$.
+    \item \textcolor{blue}{\textbf{$\mathbf{w}$ is normal to the decision boundary, and $\mathbf{w}^T \mathbf{x} + b$ equals $\norm{\mathbf{w}}$ times the signed distance from $\mathbf{x}$ to that boundary.}}
+    \item $\mathbf{w}$ determines the decision boundary.
+    \item $\mathbf{w}$ is the direction of steepest ascent of the pre-activation $\mathbf{x} \mapsto \mathbf{w}^T \mathbf{x} + b$.
+\end{enumerate}
+
+\textbf{Explanation:}
+Two facts together pin down the geometric role of $\mathbf{w}$.
+
+\emph{(i) $\mathbf{w}$ is normal to the boundary.} The decision boundary
+is the affine hyperplane $\{\mathbf{x} : \mathbf{w}^T \mathbf{x} + b = 0\}$.
+For any two points $\mathbf{x}_1, \mathbf{x}_2$ on this boundary,
+$\mathbf{w}^T (\mathbf{x}_1 - \mathbf{x}_2) = 0$, so $\mathbf{w}$ is
+orthogonal to every direction \emph{along} the boundary --- i.e.,
+$\mathbf{w}$ is a normal vector to the hyperplane.
+
+\emph{(ii) The pre-activation magnitude has metric meaning.} Decompose
+any input as
+$\mathbf{x} = \mathbf{x}_\parallel + t \cdot \mathbf{w}/\norm{\mathbf{w}}$,
+where $\mathbf{x}_\parallel$ is the orthogonal projection of $\mathbf{x}$
+onto the boundary and $t$ is the signed distance from $\mathbf{x}$ to
+the boundary along $\mathbf{w}$. Then
+$$
+\mathbf{w}^T \mathbf{x} + b
+= \mathbf{w}^T \mathbf{x}_\parallel + b + t \norm{\mathbf{w}}
+= t \norm{\mathbf{w}},
+$$
+since $\mathbf{w}^T \mathbf{x}_\parallel + b = 0$ on the boundary. So the
+pre-activation is literally $\norm{\mathbf{w}}$ times the signed distance
+from $\mathbf{x}$ to the decision boundary.
+
+This is the synthesis. The perceptron is a geometric construction in
+disguise: the dot product $\mathbf{w}^T \mathbf{x}$ from Week 5, the
+orthogonal-projection picture from Week 6, and the affine-hyperplane
+picture all collapse together. ``Classify $\mathbf{x}$'' means ``compute
+the signed distance from $\mathbf{x}$ to a hyperplane and squash through
+$\sigma$.''
+
+\textbf{Partial credit:}
+``$\mathbf{w}$ determines the decision boundary'' is true but
+incomplete --- it captures only that $\mathbf{w}$ specifies the
+hyperplane, missing the second fact that the \emph{magnitude}
+$\mathbf{w}^T \mathbf{x} + b$ also has metric meaning as a scaled
+signed distance. One rung below the correct answer on the ladder of
+geometric content.
+
+\textbf{Trick answer:}
+``$\mathbf{w}$ is the direction of steepest ascent of the pre-activation''
+is \emph{true}, but it is a calculus consequence of the linear-algebraic
+fact that level sets of $\mathbf{w}^T \mathbf{x} + b$ are hyperplanes
+normal to $\mathbf{w}$. The gradient fact describes a consequence of
+$\mathbf{w}$'s geometric role; it does not capture what $\mathbf{w}$
+geometrically \emph{is}. A true statement that fails to be the
+\emph{best and most fundamental} description.
+
+\textbf{Trick answer:}
+``$\mathbf{w}$ lies in the decision boundary, since $\mathbf{w}$ and
+$\mathbf{x}$ are vectors in the same space'' is an input/weight-space
+confusion. Living in the same ambient $\mathbb{R}^n$ does not put
+$\mathbf{w}$ on the boundary --- $\mathbf{w}$ generically does not
+satisfy $\mathbf{w}^T \mathbf{w} + b = 0$. The fact that $\mathbf{w}$ is
+\emph{normal} to the boundary is precisely the opposite of lying in it.
+
+\textbf{Trick answer:}
+``$\mathbf{w}$ points toward the centroid of the positive class'' is the
+folk picture: the weight vector ``points toward the positive examples.''
+Directionally suggestive but mathematically false in general --- the
+centroid of positive examples need not lie along $\mathbf{w}$, and after
+training $\mathbf{w}$ is determined by margin geometry, not class
+centroids. This story is a half-remembered description of LDA or a
+class-mean classifier, not a perceptron.
+
+\divider
+
+\section*{WEEK 12: NEURAL NETWORKS}
+
+\subsection*{Problem: Backpropagation as the chain rule}
+
+In a feed-forward network, layer $k$ takes input $\mathbf{h}_{k-1}$ and
+produces $\mathbf{z}_k = W_k \mathbf{h}_{k-1} + \mathbf{b}_k$ followed by
+$\mathbf{h}_k = \sigma(\mathbf{z}_k)$, with $\sigma$ applied componentwise.
+Define $\boldsymbol{\delta}_k = \partial L / \partial \mathbf{z}_k$.
+
+Backpropagation produces a recursion that expresses $\boldsymbol{\delta}_k$
+in terms of $\boldsymbol{\delta}_{k+1}$. Which is the most accurate
+description of \emph{why} this recursion takes the form it does?
+
+\begin{enumerate}[(A)]
+\item Since the loss is computed at the output, a hidden layer's contribution decays geometrically with depth, and the recursion encodes that decay.
+\item \textcolor{blue}{\textbf{The map $\mathbf{z}_k \mapsto \mathbf{z}_{k+1}$ factors through $\mathbf{h}_k$, and its derivative is the product of the derivatives of the two pieces --- a diagonal matrix from componentwise $\sigma$ and the matrix $W_{k+1}$ from the affine step.}}
+\item The recursion is a consequence of gradient descent on the loss, in which the learning rate is replaced by $\mathrm{diag}(\sigma'(\mathbf{z}_k))$ to keep updates well-scaled across layers.
+\item Backpropagation distributes the output error $\mathbf{h}_{\text{out}} - \mathbf{t}$ across layers in proportion to each layer's share of the network's total weight magnitude.
+\item Each layer must be inverted to send information from the output back toward the input, so the recursion involves $W_{k+1}^{-1}$ acting on $\boldsymbol{\delta}_{k+1}$.
+\end{enumerate}
+
+\textbf{Explanation:}
+Backpropagation is the chain rule applied to a composition. The map from
+$\mathbf{z}_k$ to $\mathbf{z}_{k+1}$ factors through $\mathbf{h}_k$:
+componentwise activation $\sigma$ takes $\mathbf{z}_k$ to $\mathbf{h}_k$,
+and the affine map $W_{k+1} \cdot + \mathbf{b}_{k+1}$ takes $\mathbf{h}_k$
+to $\mathbf{z}_{k+1}$. The chain rule operates on \emph{derivatives}, and
+each piece has a well-defined linear-map derivative: the derivative of the
+componentwise $\sigma$ is a diagonal matrix (because applying $\sigma$
+componentwise has no cross-coordinate effect), and the derivative of the
+affine map is just the matrix $W_{k+1}$ (the bias is a constant and drops out).
+
+To pull the gradient $\boldsymbol{\delta}_{k+1} = \partial L / \partial \mathbf{z}_{k+1}$
+back through this composition, we apply the chain rule. The structurally
+important fact --- the linear-algebra heart of the entire course showing up
+in the deep-learning setting --- is that pulling a gradient back through a
+linear map multiplies by its \emph{transpose}, not its inverse. (This is
+the same transpose that drives least squares, the FTLA, and the
+pseudoinverse: forward through a linear map uses $W$; backward through it
+uses $W^T$.) Composing the transposes of the two pieces in reverse order
+recovers $\boldsymbol{\delta}_k$ in terms of $\boldsymbol{\delta}_{k+1}$,
+with the diagonal $\sigma'$ matrix and the matrix transpose $W_{k+1}^T$
+both appearing. This is what the correct answer states in words.
+
+\textbf{Trick answer:}
+``Geometric decay with depth'' is a possible \emph{training-dynamics}
+phenomenon (the vanishing-gradient effect), not a property of the
+recursion itself. The recursion can shrink, preserve, or amplify
+$\boldsymbol{\delta}$ depending on the weight matrix and the activation
+slopes; geometric decay is one specific regime, not the structural form.
+
+\textbf{Trick answer:}
+``Distributes the output error in proportion to weight magnitude'' is a
+folk picture of error ``flowing back'' --- no chain rule, and the
+proportional-to-weight-magnitude story is not what the recursion does.
+This is the kind of plausible-sounding pseudo-explanation that the chain
+rule replaces.
+
+\textbf{Trick answer:}
+``Replaces the learning rate with $\mathrm{diag}(\sigma'(\mathbf{z}_k))$''
+confuses the recursion with the gradient-descent update step. The gradient
+$\boldsymbol{\delta}_k$ is computed before any learning rate enters; the
+learning rate appears later, when $\boldsymbol{\delta}_k$ is used to form
+$\partial L / \partial W_k$ and update weights.
+
+\textbf{Trick answer:}
+``Each layer must be inverted, so the recursion involves $W_{k+1}^{-1}$'' is
+the naive ``to go backward, invert'' instinct. Wrong on the linear
+algebra: weight matrices are generally not square, so $W_{k+1}^{-1}$ is
+not even defined; and even when they are square, the chain rule produces
+the transpose, not the inverse. Adjoint and inverse coincide only for
+orthogonal matrices --- a very special case.
+
+\divider
+
+\subsection*{Problem: Why nonlinearity is required}
+
+A feed-forward neural network alternates affine layers
+$\mathbf{z}_k = W_k \mathbf{h}_{k-1} + \mathbf{b}_k$ with a componentwise
+nonlinear activation $\mathbf{h}_k = \sigma(\mathbf{z}_k)$. Removing the
+activations from such a network --- so each layer is purely affine and
+the layers are composed directly --- collapses the network's expressive
+power dramatically. Which of the following best describes the
+\emph{fundamental} reason a nonlinear $\sigma$ is required?
+
+\begin{enumerate}[(A)]
+\item Without $\sigma$, the Universal Approximation Theorem does not apply, so the network is not guaranteed to approximate arbitrary target functions.
+\item Without $\sigma$, gradients cannot flow back through the network during backpropagation, so the weights cannot be trained.
+\item Without $\sigma$, hidden activations are unbounded and the network's outputs cannot be interpreted as probabilities or classifications.
+\item Without $\sigma$, the network can only fit linear targets, and most real-world relationships between inputs and outputs are nonlinear.
+\item \textcolor{blue}{\textbf{Without $\sigma$, the entire network --- regardless of depth or width --- represents only an affine function of its input, so no amount of stacking enlarges the class of functions the network can compute.}}
+\end{enumerate}
+
+\textbf{Explanation:}
+The structural fact is that the composition of affine maps is affine.
+Writing two consecutive layers without activation,
+$$\mathbf{z}_2 = W_2(W_1 \mathbf{x} + \mathbf{b}_1) + \mathbf{b}_2 = (W_2 W_1) \mathbf{x} + (W_2 \mathbf{b}_1 + \mathbf{b}_2),$$
+the result is again of the form $W' \mathbf{x} + \mathbf{b}'$. Iterating,
+a network of any depth without $\sigma$ collapses to a single affine map.
+Depth gives no new expressive power; width gives no new expressive power;
+the function class is exactly the affine maps. The nonlinear $\sigma$ is
+the \emph{only} ingredient that breaks this collapse and makes depth
+meaningful. Every other consequence --- universal approximation, the
+ability to fit nonlinear targets, the bounded-output interpretation of
+sigmoid specifically --- is downstream of this structural fact.
+
+This is the foundational ``why $\sigma$ exists'' answer for the course.
+The other options each name something true \emph{about} networks with
+$\sigma$, but they describe consequences rather than the structural cause.
+
+\textbf{Trick answer:}
+``Gradients cannot flow back through the network'' imports a backpropagation
+concern. Affine maps are perfectly differentiable, and backpropagation
+through a network with no activations works mechanically: it just computes
+the gradient of an affine map, which exists and is well-defined. The
+training pathology if you removed $\sigma$ is not that gradients vanish
+but that the only function the network \emph{can} represent is affine.
+
+\textbf{Trick answer:}
+``Hidden activations are unbounded'' confuses the role of nonlinearity in
+general with the specific behavior of sigmoid. Sigmoid bounds outputs to
+$(0,1)$; tanh bounds to $(-1,1)$; ReLU does not bound at all. Boundedness
+is a feature of \emph{particular} activations, not the structural reason
+any nonlinearity is needed. A network using ReLU still escapes the
+affine-collapse problem despite ReLU being unbounded above.
+
+\textbf{Trick answer:}
+``UAT does not apply'' restates the question in different vocabulary. The
+Universal Approximation Theorem \emph{assumes} a nonlinear activation as
+a hypothesis, so saying ``without $\sigma$ UAT fails'' is just naming
+UAT's hypothesis, not explaining why $\sigma$ is needed. The genuine
+answer addresses the structural cause that makes UAT's hypothesis necessary
+in the first place.
+
+\textbf{Trick answer:}
+``Can only fit linear targets'' locates the problem in the world rather
+than in the network. Even if every target function in the universe were
+linear, removing $\sigma$ would still mean the network's depth and width
+are wasted: a 50-layer linear regressor would do exactly the same thing
+as a 1-layer linear regressor. The issue is intrinsic to the network
+architecture, not contingent on the target.
+
+\divider
+
+\end{document}

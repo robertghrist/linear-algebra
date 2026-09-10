@@ -1,8 +1,8 @@
 id: ESE2030-0123
 legacy_id: null
-week: null
+week: 10
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $A \in \mathbb{R}^{m \times n}$ have SVD $A = U\Sigma V^T$ with singular values $\sigma_1 > \sigma_2 > 0$ and $\sigma_k = 0$ for $k > 2$.

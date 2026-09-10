@@ -1,0 +1,753 @@
+\documentclass[12pt]{amsart}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{itemsep=6pt, topsep=6pt, parsep=0pt}
+\usepackage{xcolor}
+\usepackage[left=0.75in,right=1in,bottom=0.9in]{geometry}  
+\usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1}
+
+% SECTION DIVIDERS
+\newcommand{\divider}{
+  \vspace{-1em}
+  \noindent
+  \raisebox{-0.15ex}{\textbullet}%
+  \hspace{0.5em}%
+  \rule[0.5ex]{0.95\textwidth}{1.0pt}%
+  \hspace{0.5em}%
+  \raisebox{-0.15ex}{\textbullet}%
+  \vspace{0em}
+}
+
+\title{ESE 2030 QUIZZAM 1 : SOLUTIONS GUIDE}
+\author{prof-g}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+{\bf NOTE TO STUDENTS}
+\end{center}
+
+This solutions guide is organized by course week and topic. Since there are multiple versions of this quiz with permuted problem orders and answer choices, use the brief problem descriptions to locate your specific problem. Each solution includes:
+\begin{itemize}
+\item The correct answer (highlighted in color)
+\item Detailed mathematical explanation
+\item Analysis of partial credit options
+\item Identification of common misconceptions (``trick answers'')
+\end{itemize}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 1: SOLVING LINEAR SYSTEMS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Problem: RREF of $4 \times 5$ matrix, free variables}
+
+A $4 \times 5$ matrix $A$ row reduces to:
+$$\begin{bmatrix} 1 & 0 & 2 & 0 & -1 \\ 0 & 1 & 3 & 0 & 4 \\ 0 & 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}$$
+
+For the homogeneous system $A\mathbf{x} = \mathbf{0}$, which statement is correct?
+
+\begin{enumerate}[(A)]
+\item The solution set is a 1-dimensional subspace of $\mathbb{R}^5$
+\item The solution set is a 2-dimensional subspace of $\mathbb{R}^5$
+\item The solution set is a 3-dimensional subspace of $\mathbb{R}^4$
+\item The general solution has exactly three free parameters
+\item The system has only the trivial solution $\mathbf{x} = \mathbf{0}$
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(B)}}
+
+\textbf{Explanation:} The RREF has 3 pivots (in columns 1, 2, and 4), leaving 2 free variables (columns 3 and 5). The nullity equals the number of free variables, so the solution set is a 2-dimensional subspace of $\mathbb{R}^5$. This is the kernel of the associated linear transformation, which by rank-nullity has dimension $5 - 3 = 2$.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) counts only column 5 as free, missing column 3
+
+\textbf{Trick answer:} (C) has the correct dimension but wrong ambient space -- solutions live in $\mathbb{R}^5$, not $\mathbb{R}^4$
+
+\textbf{Trick answer:} (D) confuses pivots with free variables, or counts pivots instead
+
+\textbf{Trick answer:} (E) is only true when there are no free variables
+
+\divider
+
+\subsection*{Problem: PLU decomposition, permutation matrices}
+
+Consider a matrix $A$ that requires row swaps during Gaussian elimination. The PLU decomposition gives $PA = LU$ where $P$ is a permutation matrix, $L$ is unit lower triangular, and $U$ is upper triangular. Which statement is correct?
+
+\begin{enumerate}[(A)]
+\item $A = PLU$, so we solve $A\mathbf{x} = \mathbf{b}$ by computing $\mathbf{y} = L^{-1}(PLU)\mathbf{x}$.
+\item To solve $A\mathbf{x} = \mathbf{b}$, multiply both sides by $P$ to get $LU\mathbf{x} = P\mathbf{b}$, then use forward and backward substitution.
+\item $A = LPU$, with the permutation matrix sandwiched between the triangular factors.
+\item Since $P$ is a permutation matrix, $P^{-1} = -P$, so $A = -PLU$.
+\item The decomposition $PA = LU$ is only valid when $A$ is symmetric.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(B)}}
+
+\textbf{Explanation:} Given $PA = LU$ and the system $A\mathbf{x} = \mathbf{b}$, multiply both sides by $P$: $PA\mathbf{x} = P\mathbf{b}$. Substituting $PA = LU$ gives $LU\mathbf{x} = P\mathbf{b}$. Now solve in two steps: (1) Forward substitution: solve $L\mathbf{y} = P\mathbf{b}$ for $\mathbf{y}$. (2) Backward substitution: solve $U\mathbf{x} = \mathbf{y}$ for $\mathbf{x}$. The key insight is that $P$ acts on the right-hand side $\mathbf{b}$ (reordering the equations), not on the matrix factors.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) writes the factorization incorrectly as $A = PLU$ instead of $A = P^{-1}LU$; also the solving procedure is nonsensical
+
+\textbf{Trick answer:} (C) incorrectly places $P$ between $L$ and $U$; this doesn't arise from the elimination process. The correct form is $PA = LU$.
+
+\textbf{Trick answer:} (D) knows $P^{-1}$ is involved but incorrectly thinks $P^{-1} = -P$; confuses permutation matrices with other special matrices
+
+\textbf{Trick answer:} (E) PLU works for any matrix where elimination completes, not just symmetric ones; no such restriction exists
+
+\divider
+
+\subsection*{Problem: Rank, pivots, REF of $5 \times 4$ matrix}
+
+A $5 \times 4$ matrix $A$ has the following row echelon form (not necessarily reduced):
+$$\begin{bmatrix} 2 & 1 & 0 & 3 \\ 0 & 0 & 4 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
+
+Which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item The column space of $A$ is a 2-dimensional subspace of $\mathbb{R}^4$.
+\item Columns 1 and 3 of the row echelon form displayed above form a basis for the column space of $A$.
+\item The equation $A\mathbf{x} = \mathbf{0}$ has a 3-dimensional solution space.
+\item The rank of $A$ equals 2, which is the number of nonzero rows.
+\item The pivot columns are columns 1, 2, and 3.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(D)}}
+
+\textbf{Explanation:} The rank of a matrix equals the number of pivots, which equals the number of nonzero rows in any row echelon form. Here there are 2 pivots (in columns 1 and 3), so rank$(A) = 2$. This is a fundamental fact: row operations preserve rank, and in REF the rank is visible as the number of nonzero rows.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) the column space lives in $\mathbb{R}^5$, not $\mathbb{R}^4$! The column space is a subspace of the codomain, which has dimension 5 since $A$ has 5 rows. This is a common error: confusing row space and column space ambient dimensions.
+
+\textbf{Trick answer:} (B) This is a critical misconception! To form a basis for the column space of $A$, we must take the pivot columns from the ORIGINAL matrix $A$, not from its row echelon form. Row operations change the column space; the REF columns span a different space than $A$'s columns.
+
+\textbf{Trick answer:} (C) by rank-nullity, nullity $= 4 - 2 = 2$, not 3. The solution space to $A\mathbf{x} = \mathbf{0}$ is 2-dimensional.
+
+\textbf{Trick answer:} (E) column 2 is NOT a pivot column; it has no leading entry. Pivots are in columns 1 and 3 only.
+
+\divider
+
+\subsection*{Problem: LU decomposition with zero diagonal entry}
+
+Suppose a $4 \times 4$ matrix $A$ has the LU decomposition $A = LU$ where $L$ is unit lower triangular and $U$ is upper triangular. If the third diagonal entry of $U$ is zero (i.e., $u_{33} = 0$), which statement must be TRUE?
+
+\begin{enumerate}[(A)]
+\item The matrix $A$ is invertible, but $U$ is not.
+\item The system $A\mathbf{x} = \mathbf{b}$ has no solution for any $\mathbf{b}$.
+\item The matrix $A$ has rank exactly 2.
+\item The matrix $A$ is singular.
+\item The LU decomposition does not exist; this situation is impossible.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(D)}}
+
+\textbf{Explanation:} Since $L$ is unit lower triangular, $\det(L) = 1$, so $L$ is always invertible. We have $\det(A) = \det(L)\det(U) = \det(U)$. For an upper triangular matrix, the determinant is the product of diagonal entries. Since $u_{33} = 0$, we have $\det(U) = 0$, hence $\det(A) = 0$, so $A$ is singular.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) contradicts itself; if $U$ is singular then $A = LU$ must also be singular
+
+\textbf{Trick answer:} (B) singular matrices can still have solutions for some $\mathbf{b}$ (just not all)
+
+\textbf{Trick answer:} (C) rank could be 2 or 3 depending on $u_{44}$; we only know rank $\leq 3$
+
+\textbf{Trick answer:} (E) the decomposition can exist with zero pivots; it just means $A$ is singular
+
+\divider
+
+\subsection*{Problem: LU computational efficiency for multiple systems}
+
+An engineer needs to solve the systems $A\mathbf{x}_1 = \mathbf{b}_1$, $A\mathbf{x}_2 = \mathbf{b}_2$, \ldots, $A\mathbf{x}_{100} = \mathbf{b}_{100}$, where $A$ is a fixed $500 \times 500$ invertible matrix and the right-hand sides $\mathbf{b}_i$ arrive sequentially over time. Why is computing the LU decomposition of $A$ advantageous compared to other approaches?
+
+\begin{enumerate}[(A)]
+\item Computing $A^{-1}$ once and multiplying $\mathbf{x}_i = A^{-1}\mathbf{b}_i$ requires storing a dense matrix, while LU requires less memory since $L$ and $U$ are sparse
+\item LU decomposition is the only factorization method that works when $A$ is not symmetric
+\item The diagonal entries of $U$ directly give the solutions $\mathbf{x}_i$ without further computation
+\item Row reducing the augmented matrix $[A | \mathbf{b}_i]$ for each new $\mathbf{b}_i$ repeats $O(n^3)$ work; with LU, the $O(n^3)$ factorization is done once, and each solve is only $O(n^2)$
+\item None of the above
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(D)}}
+
+\textbf{Explanation:} The key computational advantage of LU decomposition is separating the expensive factorization from the cheap solves. Gaussian elimination on an $n \times n$ system costs $O(n^3)$ operations. If we row reduce $[A | \mathbf{b}_i]$ separately for each of 100 right-hand sides, we do $100 \times O(n^3)$ work. With LU, we factor $A = LU$ once ($O(n^3)$), then each system $LU\mathbf{x}_i = \mathbf{b}_i$ requires only forward and backward substitution ($O(n^2)$ each). Total: $O(n^3) + 100 \times O(n^2)$, a massive savings.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) $L$ and $U$ are generally NOT sparse for a dense $A$; they have the same storage cost as $A$. The memory argument is wrong.
+
+\textbf{Trick answer:} (B) False; many methods work for non-symmetric matrices: QR, direct row reduction, computing $A^{-1}$, etc.
+
+\textbf{Trick answer:} (C) The diagonal of $U$ contains pivots from elimination, not solutions; we still need forward/backward substitution.
+
+\textbf{Trick answer:} (E) (D) is correct, so ``none of the above'' is wrong here
+
+\divider
+
+\subsection*{Problem: Elementary matrices and row operations}
+
+Let $A$ be a $3 \times 3$ matrix. The following row operations are performed in sequence:
+\begin{itemize}
+\item Step 1: Add $-2$ times row 1 to row 2
+\item Step 2: Swap rows 2 and 3
+\item Step 3: Multiply row 3 by $5$
+\end{itemize}
+Let $E_1, E_2, E_3$ be the elementary matrices corresponding to Steps 1, 2, 3 respectively. Which expression gives the resulting matrix?
+
+\begin{enumerate}[(A)]
+\item $E_1 E_2 E_3 A$
+\item $E_3 E_2 E_1 A$
+\item $A E_1 E_2 E_3$
+\item $A E_3 E_2 E_1$
+\item $(E_1 E_2 E_3)^{-1} A$
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(B)}}
+
+\textbf{Explanation:} Each row operation on $A$ corresponds to left-multiplication by an elementary matrix. If we start with $A$ and apply Step 1, we get $E_1 A$. Then applying Step 2 gives $E_2(E_1 A) = E_2 E_1 A$. Finally, Step 3 gives $E_3(E_2 E_1 A) = E_3 E_2 E_1 A$. The key insight: the most recent operation becomes the leftmost factor. This is because matrix multiplication is applied ``from the inside out.''
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) writes the matrices in the order the operations were performed, left-to-right; this is the most common error and reflects misunderstanding of how composition works
+
+\textbf{Trick answer:} (C) right-multiplication performs column operations, not row operations; this confuses the two
+
+\textbf{Trick answer:} (D) combines both errors: right-multiplication AND reversed order
+
+\textbf{Trick answer:} (E) confuses the forward elimination process with the inverse; $(E_1 E_2 E_3)^{-1}$ would undo these operations, not perform them
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 2: ABSTRACT VECTOR SPACES}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Problem: Linear independence with three vectors in $\mathbb{R}^3$}
+
+Consider the vectors in $\mathbb{R}^3$:
+$$\mathbf{v}_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad \mathbf{v}_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, \quad \mathbf{v}_3 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}$$
+
+Which statement is TRUE about the set $S = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$?
+
+\begin{enumerate}[(A)]
+\item $S$ is a basis for $\mathbb{R}^3$
+\item $S$ is linearly independent but does not span $\mathbb{R}^3$
+\item $S$ spans $\mathbb{R}^3$ but is linearly dependent
+\item $S$ is linearly dependent and does not span $\mathbb{R}^3$
+\item None of the above
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(D)}}
+
+\textbf{Explanation:} Observe that $\mathbf{v}_1 - \mathbf{v}_2 = (1-0, 1-1, 0-1) = (1, 0, -1) = \mathbf{v}_3$. This dependence relation $\mathbf{v}_1 - \mathbf{v}_2 - \mathbf{v}_3 = \mathbf{0}$ shows the vectors are linearly dependent. Since $S$ is dependent, $\text{span}(S) = \text{span}\{\mathbf{v}_1, \mathbf{v}_2\}$, which is a 2-dimensional plane in $\mathbb{R}^3$. Thus $S$ does not span $\mathbb{R}^3$.
+
+\textbf{Partial credit:} (C) correctly identifies dependence but incorrectly concludes that 3 vectors in $\mathbb{R}^3$ must span
+
+\textbf{Trick answer:} (A) students may not check for dependence and assume 3 vectors in $\mathbb{R}^3$ form a basis
+
+\textbf{Trick answer:} (B) impossible: 3 linearly independent vectors in $\mathbb{R}^3$ always span $\mathbb{R}^3$
+
+\textbf{Trick answer:} (C) targets the misconception that ``3 vectors in $\mathbb{R}^3$'' guarantees spanning; in fact, dependence means the span has dimension $< 3$
+
+\divider
+
+\subsection*{Problem: Subspaces of function space $\mathcal{F}$}
+
+Consider the vector space $\mathcal{F}$ of all functions $f: \mathbb{R} \to \mathbb{R}$ with standard addition and scalar multiplication. Which of the following subsets is a subspace of $\mathcal{F}$?
+
+\begin{enumerate}[(A)]
+\item $\{f \in \mathcal{F} : f(0) = 1\}$
+\item $\{f \in \mathcal{F} : f(x) \geq 0 \text{ for all } x \in \mathbb{R}\}$
+\item $\{f \in \mathcal{F} : f(1) = 2f(0)\}$
+\item $\{f \in \mathcal{F} : f(x) = f(-x) \text{ for all } x \in \mathbb{R}\}$
+\item More than one of the above is a subspace
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(E)}}
+
+\textbf{Explanation:} Both (C) and (D) are subspaces:
+\begin{itemize}
+\item (C): The zero function satisfies $0 = 2(0)$. If $f(1) = 2f(0)$ and $g(1) = 2g(0)$, then $(f+g)(1) = f(1)+g(1) = 2f(0)+2g(0) = 2(f+g)(0)$. Similarly for scalar multiplication. This is a subspace.
+\item (D): These are the even functions. The zero function is even. If $f$ and $g$ are even, so is $f+g$ and $cf$. This is a subspace.
+\end{itemize}
+Meanwhile:
+\begin{itemize}
+\item (A) fails: the zero function has $f(0) = 0 \neq 1$
+\item (B) fails: if $f(x) \geq 0$ for all $x$, then $(-1)f(x) \leq 0$, so not closed under scalar multiplication
+\end{itemize}
+
+\textbf{Partial credit:} (C) or (D) alone identifies one subspace but misses the other
+
+\textbf{Trick answer:} (A) students may forget to check that the zero function must be in the set
+
+\textbf{Trick answer:} (B) inequality constraints typically fail scalar multiplication closure
+
+\divider
+
+\subsection*{Problem: Differential equation solution space}
+
+Let $V$ be the set of all smooth functions $f: \mathbb{R} \to \mathbb{R}$ satisfying the differential equation $$\frac{d^2x}{dt^2} + x = 0$$. Every such solution $x(t)$ is a linear combination of $\sin(t)$ and $\cos(t)$. Under standard function addition and scalar multiplication, which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item $V$ is not a vector space because it does not contain the zero function.
+\item $V$ is a vector space of dimension 1.
+\item $V$ is a vector space of dimension 2.
+\item $V$ is a vector space of infinite dimension.
+\item $V$ is not a vector space because $\sin$ and $\cos$ are not linear.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(C)}}
+
+\textbf{Explanation:} The zero function corresponds to $c_1 = c_2 = 0$, so the zero function is in $V$. The set $\{\cos, \sin\}$ is linearly independent (neither is a scalar multiple of the other), and every element of $V$ is a linear combination of these two functions. Thus $\{\cos, \sin\}$ is a basis for $V$, giving $\dim(V) = 2$.
+
+\textbf{Partial credit:} (B) recognizes $V$ is a finite-dimensional vector space but miscounts
+
+\textbf{Trick answer:} (A) the zero function does satisfy $0'' + 0 = 0$
+
+\textbf{Trick answer:} (B) might think only $\cos$ or only $\sin$ is needed, or confuse the two parameters with one degree of freedom
+
+\textbf{Trick answer:} (D) confuses the solution space with the infinite-dimensional space of all smooth functions
+
+\textbf{Trick answer:} (E) the equation is linear
+
+\divider
+
+\subsection*{Problem: Matrix space with constraint, dimension}
+
+Let $V = \mathbb{R}^{2 \times 2}$ be the vector space of all $2 \times 2$ real matrices. Define the subset 
+$$W = \left\{ A \in V : A \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \right\}.$$
+What is the dimension of $W$?
+
+\begin{enumerate}[(A)]
+\item 1
+\item 2
+\item 3
+\item 4
+\item Undefined: $W$ is not a subspace of $V$.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(B)}}
+
+\textbf{Explanation:} A matrix $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ is in $W$ iff $A\begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}a+b\\c+d\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix}$. This gives two constraints: $a + b = 0$ and $c + d = 0$, i.e., $b = -a$ and $d = -c$. So $W = \left\{ \begin{pmatrix} a & -a \\ c & -c \end{pmatrix} : a, c \in \mathbb{R} \right\}$, which has basis $\left\{ \begin{pmatrix} 1 & -1 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 1 & -1 \end{pmatrix} \right\}$. Thus $\dim(W) = 2$.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) miscounts the degrees of freedom
+
+\textbf{Trick answer:} (C) treats the two constraints as one, or miscounts free parameters
+
+\textbf{Trick answer:} (D) ignores the constraints entirely
+
+\textbf{Trick answer:} (E) $W$ is the kernel of the linear map $A \mapsto A\begin{pmatrix}1\\1\end{pmatrix}$, hence is a subspace
+
+\divider
+
+\subsection*{Problem: Linear independence of vector combinations}
+
+In $\mathbb{R}^4$, let $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ be linearly independent vectors. Define $\mathbf{w}_1 = \mathbf{v}_1 + \mathbf{v}_2$, $\mathbf{w}_2 = \mathbf{v}_2 + \mathbf{v}_3$, and $\mathbf{w}_3 = \mathbf{v}_3 + \mathbf{v}_1$. Which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item $\{\mathbf{w}_1, \mathbf{w}_2, \mathbf{w}_3\}$ is always linearly independent.
+\item $\{\mathbf{w}_1, \mathbf{w}_2, \mathbf{w}_3\}$ is always linearly dependent.
+\item $\{\mathbf{w}_1, \mathbf{w}_2, \mathbf{w}_3\}$ is linearly independent if and only if $\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3 \neq \mathbf{0}$.
+\item $\{\mathbf{w}_1, \mathbf{w}_2, \mathbf{w}_3\}$ spans $\mathbb{R}^4$.
+\item None of the above.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(A)}}
+
+\textbf{Explanation:} Suppose $a\mathbf{w}_1 + b\mathbf{w}_2 + c\mathbf{w}_3 = \mathbf{0}$. Substituting:
+$$a(\mathbf{v}_1 + \mathbf{v}_2) + b(\mathbf{v}_2 + \mathbf{v}_3) + c(\mathbf{v}_3 + \mathbf{v}_1) = \mathbf{0}$$
+$$(a+c)\mathbf{v}_1 + (a+b)\mathbf{v}_2 + (b+c)\mathbf{v}_3 = \mathbf{0}$$
+Since $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ are linearly independent, we need $a+c = 0$, $a+b = 0$, and $b+c = 0$.
+From the first two: $c = -a$ and $b = -a$. Substituting into the third: $-a + (-a) = -2a = 0$, so $a = 0$.
+Thus $a = b = c = 0$, proving linear independence.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (B) students may guess dependence because $\mathbf{w}_1 + \mathbf{w}_2 + \mathbf{w}_3 = 2(\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3)$, but this sum being nonzero doesn't create dependence
+
+\textbf{Trick answer:} (C) the sum $\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3$ is irrelevant to independence of the $\mathbf{w}$'s
+
+\textbf{Trick answer:} (D) three vectors cannot span $\mathbb{R}^4$
+
+\textbf{Trick answer:} (E) there is a definitive answer
+
+\divider
+
+\subsection*{Problem: Span of polynomial set}
+
+Let $S = \{p_1, p_2, p_3\}$ be a set of polynomials in $\mathcal{P}_3$ where
+$$p_1(x) = x^3 - x, \quad p_2(x) = x^3 + x^2, \quad p_3(x) = x^3 - x^2 - 2x.$$
+Which polynomial is in $\text{span}(S)$?
+
+\begin{enumerate}[(A)]
+\item $q(x) = 1$
+\item $q(x) = x^2 + x$
+\item $q(x) = x^3$
+\item $q(x) = x$
+\item None of the above.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(B)}}
+
+\textbf{Explanation:} Every polynomial in span$(S)$ has the form $ax^3 + bx^2 + cx$ (no constant term), which rules out (A). To test (B): we compute $-p_1 + p_2 = -(x^3-x) + (x^3+x^2) = x^2 + x$, confirming (B) is in the span.
+
+For (C): setting $\alpha p_1 + \beta p_2 + \gamma p_3 = x^3$ requires $\alpha + \beta + \gamma = 1$ (for $x^3$), $\beta - \gamma = 0$ (for $x^2$), and $-\alpha - 2\gamma = 0$ (for $x$). From these: $\beta = \gamma$ and $\alpha = -2\gamma$, so $-2\gamma + \gamma + \gamma = 0 \neq 1$. No solution exists.
+
+For (D): $x$ alone would require $\alpha + \beta + \gamma = 0$, $\beta - \gamma = 0$, $-\alpha - 2\gamma = 1$. This gives $\alpha = -2\gamma$, $\beta = \gamma$, so $0 = 0$ (consistent), but then $-(-2\gamma) - 2\gamma = 0 \neq 1$. Impossible.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) no constant terms can be produced from $S$
+
+\textbf{Trick answer:} (C) plausible since all three polynomials contain $x^3$, but the constraints are inconsistent
+
+\textbf{Trick answer:} (D) students might think lower-degree terms are easier to isolate
+
+\divider
+
+\subsection*{Problem: Subspaces of $\mathbb{R}^2$}
+
+Which of the following subsets of $\mathbb{R}^2$ is a subspace?
+
+\begin{enumerate}[(A)]
+\item $\{(x, y) : x \geq 0\}$
+\item $\{(x, y) : x + y = 1\}$
+\item $\{(x, y) : xy = 0\}$ 
+\item $\{(x, y) : x^2 + y^2 \leq 1\}$ 
+\item None of the above
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(E)}}
+
+\textbf{Explanation:} Each subset fails at least one subspace criterion:
+\begin{itemize}
+\item (A) Fails closure under scalar multiplication: $(1, 0)$ is in the set, but $(-1)(1, 0) = (-1, 0)$ has $x = -1 < 0$, so it's not in the set.
+\item (B) Fails to contain the zero vector: $(0, 0)$ has $0 + 0 = 0 \neq 1$.
+\item (C) Fails closure under addition: $(1, 0)$ and $(0, 1)$ are both in the set (since $1 \cdot 0 = 0$ and $0 \cdot 1 = 0$), but $(1, 0) + (0, 1) = (1, 1)$ has $1 \cdot 1 = 1 \neq 0$.
+\item (D) Fails closure under scalar multiplication: $(1, 0)$ is in the set, but $2(1, 0) = (2, 0)$ has $4 + 0 = 4 > 1$, so it's not in the set.
+\end{itemize}
+
+\textbf{Partial credit:} (C) this set contains the zero vector AND is closed under scalar multiplication, so it passes two of the three tests; it only fails closure under addition, which is the subtlest criterion to check
+
+\textbf{Trick answer:} (A) students may think ``half of $\mathbb{R}^2$'' is a subspace, forgetting that subspaces must be symmetric about the origin
+
+\textbf{Trick answer:} (B) a line, which looks like a subspace, but this line doesn't pass through the origin
+
+\textbf{Trick answer:} (D) a ``nice'' geometric region, but bounded sets other than $\{0\}$ cannot be subspaces
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{WEEK 3: LINEAR TRANSFORMATIONS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Problem: Kernel of $T(X) = X - X^T$}
+
+Define the linear transformation $T: \mathbb{R}^{2 \times 2} \to \mathbb{R}^{2 \times 2}$ by $T(X) = X - X^T$ (where $X^T$ denotes the transpose of $X$). Which of the following correctly describes $\ker(T)$?
+
+\begin{enumerate}[(A)]
+\item $\ker(T) = \{\mathbf{0}\}$, the zero matrix 
+\item $\ker(T)$ is the set of all diagonal matrices
+\item $\ker(T)$ is the set of all symmetric matrices
+\item $\ker(T)$ is the set of all triangular matrices (upper or lower)
+\item $\ker(T) = \mathbb{R}^{2 \times 2}$, the entire space
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(C)}}
+
+\textbf{Explanation:} The kernel consists of all $X$ such that $T(X) = X - X^T = \mathbf{0}$, which means $X = X^T$. This is precisely the definition of a symmetric matrix. The space of $2 \times 2$ symmetric matrices has dimension 3 (entries $a, b, d$ in $\begin{pmatrix} a & b \\ b & d \end{pmatrix}$), so $\dim(\ker(T)) = 3$.
+
+\textbf{Partial credit:} (B) diagonal matrices ARE symmetric, so this is a subset of the kernel, but not all of it
+
+\textbf{Trick answer:} (A) would mean $T$ is injective, but symmetric matrices map to zero
+
+\textbf{Trick answer:} (D) triangular matrices (other than diagonal) are not symmetric
+
+\textbf{Trick answer:} (E) would mean $T$ is the zero map, but $T(X) = 0$ only when $X$ is symmetric
+
+\divider
+
+\subsection*{Problem: Fundamental Theorem of Linear Algebra}
+
+Let $T: V \to W$ be a linear transformation with $\dim(V) = 7$ and $\dim(W) = 5$. Suppose $\dim(\ker(T)) = 3$.
+
+According to the Fundamental Theorem of Linear Algebra, which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item $\ker(T) \cong \text{coker}(T)$, since both measure ``what $T$ misses.''
+\item $\text{coim}(T) \cong \text{im}(T)$, with $\dim(\text{coim}(T)) = \dim(\text{im}(T)) = 4$.
+\item $V \cong W$, since every linear transformation induces an isomorphism between domain and codomain.
+\item $\ker(T) \cong \text{im}(T)$, since the dimensions must add up to $\dim(V)$.
+\item $\text{coker}(T)$ has dimension 3 because it is isomorphic to $\ker(T)$.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(B)}}
+
+\textbf{Explanation:} The Fundamental Theorem of Linear Algebra states that $\text{coim}(T) \cong \text{im}(T)$. Computing dimensions: by rank-nullity, $\dim(\text{im}(T)) = \dim(V) - \dim(\ker(T)) = 7 - 3 = 4$. The coimage is $V/\ker(T)$, so $\dim(\text{coim}(T)) = \dim(V) - \dim(\ker(T)) = 7 - 3 = 4$. Both have dimension 4, and the FTLA says they are isomorphic via the map induced by $T$: if $[\mathbf{v}] \in V/\ker(T)$, we map $[\mathbf{v}] \mapsto T(\mathbf{v})$, which is well-defined precisely because $\ker(T)$ is modded out.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) kernel and cokernel both measure defects, but in different spaces: kernel is in the domain, cokernel is a quotient of the codomain. They have dimensions $\dim(\ker(T)) = 3$ and $\dim(\text{coker}(T)) = \dim(W) - \dim(\text{im}(T)) = 5 - 4 = 1$. Not isomorphic.
+
+\textbf{Trick answer:} (C) completely false; a linear transformation does not imply the domain and codomain are isomorphic. Here $\dim(V) = 7 \neq 5 = \dim(W)$.
+
+\textbf{Trick answer:} (D) rank-nullity says $\dim(\ker(T)) + \dim(\text{im}(T)) = \dim(V)$, but equal dimensions don't mean isomorphic in any natural way. Here $\dim(\ker(T)) = 3$ and $\dim(\text{im}(T)) = 4$, so they don't even have equal dimension!
+
+\textbf{Trick answer:} (E) the cokernel has dimension $\dim(W) - \dim(\text{im}(T)) = 5 - 4 = 1$, not 3. The kernel and cokernel are generally NOT isomorphic.
+
+\divider
+
+\subsection*{Problem: Injectivity and surjectivity constraints}
+
+Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces with $\dim(V) = 4$ and $\dim(W) = 6$. Which statement is correct?
+
+\begin{enumerate}[(A)]
+\item $T$ can be surjective but cannot be injective.
+\item $T$ can be injective but cannot be surjective.
+\item $T$ can be both injective and surjective (an isomorphism).
+\item $T$ cannot be injective because $\dim(\ker(T)) \geq 2$ by rank-nullity.
+\item $T$ must be injective because there is ``room'' in $W$ for all of $V$.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(B)}}
+
+\textbf{Explanation:} By rank-nullity, $\dim(\ker(T)) + \dim(\text{im}(T)) = 4$. For injectivity, we need $\ker(T) = \{\mathbf{0}\}$, i.e., $\dim(\ker(T)) = 0$, which gives $\dim(\text{im}(T)) = 4$. This is achievable since $\dim(\text{im}(T)) \leq \min(4, 6) = 4$. For surjectivity, we need $\text{im}(T) = W$, i.e., $\dim(\text{im}(T)) = 6$. But $\dim(\text{im}(T)) \leq 4 < 6$, so surjectivity is impossible. Summary: $T$ \emph{can} be injective (if rank = 4), \emph{cannot} be surjective (rank $\leq 4 < 6$).
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) reverses the constraints; students confuse ``larger codomain'' with ``can be surjective''
+
+\textbf{Trick answer:} (D) misapplies rank-nullity; with $\dim(V) = 4$ and $\dim(W) = 6$, we have $\dim(\ker(T)) = 4 - \text{rank}(T)$, which can be 0
+
+\textbf{Trick answer:} (E) having ``room'' doesn't force injectivity; it merely permits it. The map could still have a nontrivial kernel.
+
+\textbf{Trick answer:} (C) isomorphism requires $\dim(V) = \dim(W)$
+
+\divider
+
+\subsection*{Problem: Isomorphisms of vector spaces}
+
+Which statement about isomorphisms of vector spaces is TRUE?
+
+\begin{enumerate}[(A)]
+\item $\mathbb{R}^{2 \times 2}$ (the space of $2 \times 2$ matrices) is isomorphic to $\mathbb{R}^4$.
+\item $\mathcal{P}_3$ (polynomials of degree $\leq 3$) is isomorphic to $\mathbb{R}^3$.
+\item $\mathbb{R}^3$ and $\mathbb{R}^2 \times \mathbb{R}$ are not isomorphic because one is a vector space and the other is a Cartesian product.
+\item Two finite-dimensional vector spaces are isomorphic if and only if they have bases whose elements are identical.
+\item $\mathcal{P}_2$ is not isomorphic to $\mathbb{R}^3$ because polynomials and tuples are fundamentally different objects.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(A)}}
+
+\textbf{Explanation:} Two finite-dimensional vector spaces (over the same field) are isomorphic if and only if they have the same dimension. $\mathbb{R}^{2 \times 2}$ has dimension 4 (basis: $E_{11}, E_{12}, E_{21}, E_{22}$), and $\mathbb{R}^4$ has dimension 4. Therefore they are isomorphic. An explicit isomorphism is $T\begin{pmatrix} a & b \\ c & d \end{pmatrix} = (a, b, c, d)$.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (B) $\mathcal{P}_3$ has dimension 4, not 3! Basis is $\{1, x, x^2, x^3\}$. This targets the common error of confusing ``degree 3'' with ``3 basis elements.''
+
+\textbf{Trick answer:} (C) $\mathbb{R}^2 \times \mathbb{R}$ is naturally identified with $\mathbb{R}^3$; they are isomorphic. The ``product'' notation is just another way to write a 3-dimensional space.
+
+\textbf{Trick answer:} (D) Isomorphism depends only on dimension, not on the elements themselves being ``identical.'' Bases need the same cardinality, not the same elements.
+
+\textbf{Trick answer:} (E) The ``type'' of object doesn't matter—only the vector space structure. $\mathcal{P}_2$ and $\mathbb{R}^3$ are both 3-dimensional, hence isomorphic.
+
+\divider
+
+\subsection*{Problem: Quotient spaces, polynomial Taylor polynomials}
+
+Consider the linear transformation $T: \mathcal{P}_3 \to \mathbb{R}^2$ defined by
+$$T(p) = \begin{pmatrix} p(0) \\ p'(0) \end{pmatrix}$$
+which extracts the constant and linear coefficients of a polynomial (equivalently, the degree-1 Taylor polynomial at $x = 0$).
+
+Two polynomials $p$ and $q$ are defined to be \emph{equivalent} if $T(p) = T(q)$, i.e., if they have the same constant and linear terms. The quotient space $\mathcal{P}_3 / \ker(T)$ consists of these equivalence classes.
+
+Which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item $\ker(T) = \{0\}$, so the quotient space is isomorphic to $\mathcal{P}_3$.
+\item $\ker(T) = \text{span}\{x^2, x^3\}$, and $\dim(\mathcal{P}_3/\ker(T)) = 2$.
+\item $\ker(T) = \text{span}\{1, x\}$, and $\dim(\mathcal{P}_3/\ker(T)) = 2$.
+\item The polynomials $p(x) = 1 + x + x^2$ and $q(x) = 1 + x + 5x^3$ are in different equivalence classes.
+\item None of the above.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(B)}}
+
+\textbf{Explanation:} The kernel of $T$ consists of all polynomials $p(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3$ such that $p(0) = a_0 = 0$ and $p'(0) = a_1 = 0$. This means $\ker(T) = \{a_2 x^2 + a_3 x^3 : a_2, a_3 \in \mathbb{R}\} = \text{span}\{x^2, x^3\}$. So $\dim(\ker(T)) = 2$. By the dimension formula for quotient spaces, $\dim(\mathcal{P}_3/\ker(T)) = \dim(\mathcal{P}_3) - \dim(\ker(T)) = 4 - 2 = 2$. Alternatively, by the Fundamental Theorem, $\mathcal{P}_3/\ker(T) \cong \text{im}(T) = \mathbb{R}^2$, confirming dimension 2.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) ignores that polynomials with zero constant and linear terms are in the kernel; $T$ is not injective
+
+\textbf{Trick answer:} (C) confuses the kernel with the image. The kernel consists of polynomials that map to zero, not the polynomials that span the output. $\text{span}\{1, x\}$ would be relevant if we asked what polynomials have nonzero image components.
+
+\textbf{Trick answer:} (D) these polynomials satisfy $p(0) = q(0) = 1$ and $p'(0) = q'(0) = 1$, so $T(p) = T(q) = (1, 1)^T$. They ARE in the same equivalence class. The difference $p - q = x^2 - 5x^3 \in \ker(T)$.
+
+\divider
+
+\subsection*{Problem: Differential operators as linear maps, kernel}
+
+Let $\mathcal{C}^\infty(\mathbb{R})$ denote the vector space of all infinitely differentiable functions $f: \mathbb{R} \to \mathbb{R}$. Consider the set
+$$S = \left\{ f \in \mathcal{C}^\infty(\mathbb{R}) : f'' - 3f' + 2f = 0 \right\}.$$
+
+Which statement best explains why $S$ is a subspace of smooth functions $\mathcal{C}^\infty(\mathbb{R})$?
+
+\begin{enumerate}[(A)]
+\item $S$ is nonempty because the functions $e^x$ and $e^{2x}$ are both solutions.
+\item The zero function satisfies $0'' - 3(0') + 2(0) = 0$, and any scalar multiple of a solution is again a solution.
+\item $S$ is the kernel of the linear operator $T = D^2 - 3D + 2I$, where $D$ denotes differentiation, and the kernel of any linear operator is a subspace.
+\item Differential equations always have solution sets that form vector spaces.
+\item The equation is second-order, so its solution set is 2-dimensional and therefore a subspace.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(C)}}
+
+\textbf{Explanation:} Define $T: \mathcal{C}^\infty(\mathbb{R}) \to \mathcal{C}^\infty(\mathbb{R})$ by $T(f) = f'' - 3f' + 2f$. This can be written as $T = D^2 - 3D + 2I$, where $D$ is the differentiation operator and $I$ is the identity. Since $D$ is linear and linear combinations of linear operators are linear, $T$ is linear. The set $S$ is precisely $\ker(T) = \{f : T(f) = 0\}$. By a general theorem, the kernel of any linear transformation is a subspace. This structural reasoning is the best explanation.
+
+\textbf{Partial credit:} (B) correctly verifies two of the three subspace axioms—contains zero and closed under scalar multiplication—but omits closure under addition; also, this is verification rather than structural explanation
+
+\textbf{Trick answer:} (A) identifying specific solutions shows $S$ is nonempty, but being nonempty is far from sufficient for being a subspace; this is a necessary condition, not an explanation
+
+\textbf{Trick answer:} (D) false in general: nonhomogeneous equations like $f'' - 3f' + 2f = 1$ do NOT have solution sets that are subspaces, since the zero function is not a solution
+
+\textbf{Trick answer:} (E) the dimension is a property of the subspace, not an explanation of why it's a subspace; also, ``2-dimensional therefore a subspace'' is backwards reasoning
+
+\divider
+
+\subsection*{Problem: Linear transformation on $\mathcal{P}_2$, kernel dimension}
+
+Define $T: \mathcal{P}_2 \to \mathbb{R}^2$ by $T(p) = \begin{pmatrix} p(0) \\ p(1) - p(0) \end{pmatrix}$. Which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item $T$ is not a linear transformation because evaluation at a point is not a linear operation.
+\item $T$ is a linear transformation with $\dim(\ker(T)) = 1$.
+\item $T$ is a linear transformation with $\dim(\ker(T)) = 2$.
+\item $T$ is a linear transformation that is injective.
+\item $T$ is not a linear transformation because the codomain has smaller dimension than the domain.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(B)}}
+
+\textbf{Explanation:} First verify linearity. For $p, q \in \mathcal{P}_2$ and scalar $c$:
+$$T(p+q) = \begin{pmatrix} (p+q)(0) \\ (p+q)(1) - (p+q)(0) \end{pmatrix} = \begin{pmatrix} p(0)+q(0) \\ p(1)-p(0) + q(1)-q(0) \end{pmatrix} = T(p) + T(q)$$
+Similarly $T(cp) = cT(p)$. So $T$ is linear.
+
+For the kernel: $p(x) = a + bx + cx^2$ is in $\ker(T)$ iff $p(0) = 0$ and $p(1) - p(0) = 0$.
+We have $p(0) = a = 0$ and $p(1) - p(0) = (a + b + c) - a = b + c = 0$, so $c = -b$.
+Thus $\ker(T) = \{bx - bx^2 : b \in \mathbb{R}\} = \text{span}\{x - x^2\}$, giving $\dim(\ker(T)) = 1$.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) evaluation IS linear: $(p+q)(0) = p(0) + q(0)$ and $(cp)(0) = c \cdot p(0)$
+
+\textbf{Trick answer:} (C) miscounts the constraints or free parameters
+
+\textbf{Trick answer:} (D) by rank-nullity, $\dim(\ker(T)) = 3 - \dim(\text{im}(T)) \geq 3 - 2 = 1$, so $T$ cannot be injective
+
+\textbf{Trick answer:} (E) dimension mismatch does not preclude linearity
+
+\divider
+
+\subsection*{Problem: Differentiation on polynomial spaces, surjectivity}
+
+Consider differentiation as a linear transformation on polynomial spaces. Define:
+\begin{align*}
+S &: \mathcal{P}_5 \to \mathcal{P}_5 \quad \text{by} \quad S(p) = p' \\
+T &: \mathcal{P}_5 \to \mathcal{P}_4 \quad \text{by} \quad T(p) = p'
+\end{align*}
+Both maps send a polynomial to its derivative; they differ only in their declared codomains.
+
+Which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item $S$ is surjective because every polynomial in $\mathcal{P}_5$ is the derivative of some polynomial.
+\item $T$ is injective because different polynomials have different derivatives.
+\item $S$ and $T$ have kernels of different dimensions.
+\item $T$ is surjective but $S$ is not.
+\item $S$ and $T$ are both isomorphisms since differentiation is invertible via integration.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(D)}}
+
+\textbf{Explanation:} The image of differentiation on $\mathcal{P}_5$ is $\mathcal{P}_4$ (derivatives of degree-5 polynomials have degree at most 4). For $S: \mathcal{P}_5 \to \mathcal{P}_5$, the image is $\mathcal{P}_4 \subsetneq \mathcal{P}_5$, so $S$ is NOT surjective (e.g., $x^5$ is not the derivative of any polynomial in $\mathcal{P}_5$). For $T: \mathcal{P}_5 \to \mathcal{P}_4$, the image equals the codomain $\mathcal{P}_4$, so $T$ IS surjective. This illustrates how surjectivity depends on the choice of codomain, not just the rule.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) the image of $S$ is $\mathcal{P}_4$, not $\mathcal{P}_5$; for example, $x^5$ cannot be obtained as a derivative of any polynomial of degree $\leq 5$
+
+\textbf{Trick answer:} (B) false: $p(x) = x$ and $q(x) = x + 7$ have the same derivative $p' = q' = 1$. The kernel of differentiation is the constant polynomials, which is nontrivial, so differentiation is never injective on polynomial spaces.
+
+\textbf{Trick answer:} (C) both have the same kernel: constant polynomials. The kernel depends only on the map's rule, not on the declared codomain. $\ker(S) = \ker(T) = \mathcal{P}_0$, with dimension 1.
+
+\textbf{Trick answer:} (E) differentiation is NOT invertible! Integration is only a right inverse: $\frac{d}{dx}(\int p) = p$, but $\int(\frac{d}{dx}p) = p + C \neq p$. The kernel is nontrivial, so neither $S$ nor $T$ can be an isomorphism.
+
+\divider
+
+\subsection*{Problem: Cokernel definition}
+
+Let $T: V \to W$ be a linear transformation. Which of the following best describes what the \emph{cokernel} of $T$ is?
+
+\begin{enumerate}[(A)]
+\item The subspace of the domain consisting of vectors that $T$ collapses to zero.
+
+\item A quotient space that measures what portion of the codomain $W$ is ``missed'' by $T$.
+
+\item The subspace of $W$ consisting of all possible outputs $T(\mathbf{v})$.
+
+\item A quotient space formed from the domain by identifying vectors that have the same image under $T$.
+
+\item The subspace of $W$ consisting of vectors that cannot be expressed as $T(\mathbf{v})$ for any $\mathbf{v} \in V$.
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(B)}}
+
+\textbf{Explanation:} The cokernel of $T$ is $\text{coker}(T) = W / \text{im}(T)$, the quotient of the codomain by the image. Intuitively, it measures ``what $T$ fails to hit'' in the codomain. If $T$ is surjective, $\text{im}(T) = W$, so the cokernel is trivial. If $T$ is not surjective, the cokernel has positive dimension equal to $\dim(W) - \text{rank}(T)$.
+
+\textbf{Partial credit:} (D) this correctly describes the coIMAGE $V/\ker(T)$, not the coKERNEL; a student who understands quotient constructions but confuses coimage/cokernel deserves partial credit. Note: coimage is trivial when $T$ is injective, i.e., $\ker(T) = \{0\}$.
+
+\textbf{Trick answer:} (A) this describes the KERNEL, not the cokernel
+
+\textbf{Trick answer:} (C) this describes the IMAGE, not the cokernel
+
+\textbf{Trick answer:} (E) tempting but wrong: the set of ``missed'' vectors is NOT a subspace! If $\mathbf{w}_1$ and $\mathbf{w}_2$ are not in the image, their sum $\mathbf{w}_1 + \mathbf{w}_2$ might still be in the image. The cokernel captures ``what's missed'' via equivalence classes, not as a subspace of $W$.
+
+\divider
+
+\subsection*{Problem: Which is NOT a linear transformation}
+
+Which of the following is NOT a linear transformation?
+
+\begin{enumerate}[(A)]
+\item $T: \mathbb{R}^2 \to \mathbb{R}^2$ defined by $T(x,y) = (y, x)$
+\item $S: \mathcal{P}_2 \to \mathbb{R}$ defined by $S(p) = p(1)$
+\item $R: \mathcal{P}_2 \to \mathcal{P}_3$ defined by $R(p)(x) = x \cdot p(x)$
+\item $F: \mathbb{R}^{2 \times 2} \to \mathbb{R}^{2 \times 2}$ defined by $F(A) = A^2$
+\item $G: \mathbb{R}^3 \to \mathbb{R}^3$ defined by $G(x,y,z) = (x,\, x+y,\, x+y+z)$
+\end{enumerate}
+
+\textbf{Correct Answer:} \textcolor{blue}{\textbf{(D)}}
+
+\textbf{Explanation:} $F(A) = A^2$ is not linear. It fails homogeneity: $F(cA) = (cA)^2 = c^2 A^2 \neq c A^2 = cF(A)$ for $c \neq 0, 1$. It also fails additivity: $F(A+B) = (A+B)^2 = A^2 + AB + BA + B^2 \neq A^2 + B^2$ in general (matrix multiplication is not commutative, so the cross terms don't cancel). Importantly, $F(\mathbf{0}) = \mathbf{0}^2 = \mathbf{0}$, so the simplest check doesn't catch this failure.
+
+\textbf{Partial credit:} None
+
+\textbf{Trick answer:} (A) swapping coordinates looks like ``rearrangement,'' but $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$ holds; this is a permutation matrix transformation
+
+\textbf{Trick answer:} (B) evaluation at a point seems computational/nonlinear, but $(p+q)(1) = p(1) + q(1)$ and $(cp)(1) = c \cdot p(1)$; evaluation functionals are linear
+
+\textbf{Trick answer:} (C) multiplying by $x$ seems to ``add a variable,'' but $R$ is linear \emph{in $p$}: $R(p+q) = x(p+q) = xp + xq = R(p) + R(q)$
+
+\textbf{Trick answer:} (E) the cumulative-sum pattern might look suspicious, but this is exactly the lower triangular matrix $\begin{bmatrix} 1 & 0 & 0 \\ 1 & 1 & 0 \\ 1 & 1 & 1 \end{bmatrix}$ acting on $(x,y,z)^T$
+
+\end{document}

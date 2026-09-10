@@ -1,8 +1,8 @@
 id: ESE2030-0038
 legacy_id: Q2-P13
-week: null
+week: 5
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$ be nonzero vectors with angle $\theta$ between them.

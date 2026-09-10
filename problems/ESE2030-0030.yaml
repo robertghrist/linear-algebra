@@ -1,8 +1,8 @@
 id: ESE2030-0030
 legacy_id: Q2-P05
-week: null
+week: 4
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Which of the following properties is not necessarily preserved under similarity? (Recall, square matrices $A$ and $B$ are similar if $B = P^{-1}AP$ for some $P$).

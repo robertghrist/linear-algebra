@@ -1,8 +1,8 @@
 id: ESE2030-0147
 legacy_id: null
-week: null
+week: 10
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $A$ be a real symmetric $4 \times 4$ matrix with eigenvalues $\lambda_1 = 5$, $\lambda_2 = 5$, $\lambda_3 = -1$, and $\lambda_4 = -1$.

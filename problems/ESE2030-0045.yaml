@@ -1,8 +1,8 @@
 id: ESE2030-0045
 legacy_id: Q2-P20
-week: null
+week: 5
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   In a document retrieval system, documents are represented as vectors in $\mathbb{R}^{1000}$

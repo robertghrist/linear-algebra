@@ -1,8 +1,8 @@
 id: ESE2030-0146
 legacy_id: null
-week: null
+week: 8
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   What is $e^{Jt}$ where $J$ is the $3 \times 3$ Jordan block

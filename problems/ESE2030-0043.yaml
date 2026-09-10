@@ -1,8 +1,8 @@
 id: ESE2030-0043
 legacy_id: Q2-P18
-week: null
+week: 5
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   For a linear transformation $T:V\to V$, which of the following requires an inner product on $V$?

@@ -1,8 +1,8 @@
 id: ESE2030-0125
 legacy_id: null
-week: null
+week: 8
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   A real $4 \times 4$ matrix $A$ has eigenvalues $\lambda_1 = 5$, $\lambda_2 = -2$, and $\lambda_{3,4} = 3 \pm 4i$.

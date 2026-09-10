@@ -1,8 +1,8 @@
 id: ESE2030-0130
 legacy_id: null
-week: null
+week: 6
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $A$ be an $m \times n$ matrix with $\text{rank}(A) = r$.

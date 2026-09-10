@@ -1,8 +1,8 @@
 id: ESE2030-0132
 legacy_id: null
-week: null
+week: 13
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Training a neural network requires computing the gradient of the loss function $L$ with respect to all weight matrices $W_1, W_2, \ldots, W_k$ in the network. The backpropagation algorithm accomplishes this efficiently by working backward from the output layer to the input layer.

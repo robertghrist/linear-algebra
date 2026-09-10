@@ -1,8 +1,8 @@
 id: ESE2030-0138
 legacy_id: null
-week: null
+week: 9
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   A transition matrix $P$ models customer movement between three competing brands. The state vector $\mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}$ represents the fraction of customers at each brand, and the system evolves as $\mathbf{x}_{k+1} = P\mathbf{x}_k$.

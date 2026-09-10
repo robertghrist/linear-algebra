@@ -1,8 +1,8 @@
 id: ESE2030-0156
 legacy_id: null
-week: null
+week: 6
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Orthogonal projection $\Pi_W(\mathbf{v})$ is used to find the ``best approximation'' of a vector $\mathbf{v}$ within a subspace $W$.

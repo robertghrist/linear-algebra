@@ -1,8 +1,8 @@
 id: ESE2030-0119
 legacy_id: null
-week: null
+week: 10
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   A matrix $A \in \mathbb{R}^{5 \times 3}$ has singular values $\sigma_1 = 6$, $\sigma_2 = 3$, $\sigma_3 = 2$.

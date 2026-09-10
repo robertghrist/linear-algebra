@@ -1,8 +1,8 @@
 id: ESE2030-0023
 legacy_id: Q1-P23
-week: null
+week: 3
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $V = \mathbb{R}^3$ and let $W$ be the subspace defined by the $xy$-plane, i.e., $W = \{(x, y, 0) \mid x, y \in \mathbb{R}\}$. An equivalence relation is defined on $V$ where two vectors $\mathbf{u}$ and $\mathbf{v}$ are equivalent if their difference $\mathbf{u - v}$ is an element of $W$.

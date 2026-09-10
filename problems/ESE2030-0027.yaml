@@ -1,8 +1,8 @@
 id: ESE2030-0027
 legacy_id: Q2-P02
-week: null
+week: 5
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Suppose ${\mathcal S} = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is an orthonormal set in an inner product space $V$. Which of the following must be true?

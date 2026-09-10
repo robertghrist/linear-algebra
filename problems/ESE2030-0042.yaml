@@ -1,8 +1,8 @@
 id: ESE2030-0042
 legacy_id: Q2-P17
-week: null
+week: 3
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $T: V \to W$ be a linear transformation. Two vectors $\mathbf{u}, \mathbf{v} \in V$ represent the same equivalence class in the coimage

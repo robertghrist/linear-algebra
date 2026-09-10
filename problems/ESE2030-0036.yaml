@@ -1,8 +1,8 @@
 id: ESE2030-0036
 legacy_id: Q2-P11
-week: null
+week: 5
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $Q$ be an $n \times n$ orthogonal matrix. Which of the following statements is false?

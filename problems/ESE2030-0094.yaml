@@ -1,8 +1,8 @@
 id: ESE2030-0094
 legacy_id: Q4-P21
-week: null
+week: 8
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   A $5 \times 5$ matrix $A$ has characteristic polynomial $p(\lambda) = (\lambda - 2)^3(\lambda + 1)^2$. Suppose you compute $\dim(\ker(A - 2I)) = 2$ and $\dim(\ker(A + I)) = 2$.

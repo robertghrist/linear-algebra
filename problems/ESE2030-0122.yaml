@@ -1,8 +1,8 @@
 id: ESE2030-0122
 legacy_id: null
-week: null
+week: 3
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $T: \mathbb{R}^6 \to \mathbb{R}^4$ be a linear transformation.

@@ -1,8 +1,8 @@
 id: ESE2030-0039
 legacy_id: Q2-P14
-week: null
+week: 3
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $T: \mathbb{R}^4 \to \mathbb{R}^3$ be a linear transformation with $\text{rank}(T) = 2$.

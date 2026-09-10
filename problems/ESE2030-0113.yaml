@@ -1,8 +1,8 @@
 id: ESE2030-0113
 legacy_id: Q5-P18
-week: null
+week: 10
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   A centered data matrix $X \in \mathbb{R}^{100 \times 3}$ represents 100 observations of three variables. The matrix $X^TX$ has eigenvalues:

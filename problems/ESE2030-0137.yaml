@@ -1,8 +1,8 @@
 id: ESE2030-0137
 legacy_id: null
-week: null
+week: 5
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   {\em ``To get an orthonormal basis from a basis $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$, just normalize each vector: $\mathbf{e}_i = \mathbf{v}_i/\|\mathbf{v}_i\|$.''}

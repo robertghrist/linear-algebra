@@ -1,8 +1,8 @@
 id: ESE2030-0142
 legacy_id: null
-week: null
+week: 5
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $A$ be an $n \times n$ matrix and let $A = QR$ be its QR decomposition.

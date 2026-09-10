@@ -1,8 +1,8 @@
 id: ESE2030-0098
 legacy_id: Q5-P03
-week: null
+week: 11
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   A centered data matrix $X \in \mathbb{R}^{n \times d}$ has SVD $X = U\Sigma V^T$ with singular values $\sigma_1 = 100, \sigma_2 = 50, \sigma_3 = 25, \ldots$ A researcher wants a 2-dimensional representation of the $n$ observations and considers two approaches:

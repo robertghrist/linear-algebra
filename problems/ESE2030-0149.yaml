@@ -1,8 +1,8 @@
 id: ESE2030-0149
 legacy_id: null
-week: null
+week: 1
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $A$ be a $4 \times 4$ invertible matrix. During row reduction (i.e., Gaussian elimination) on $A$, a row exchange

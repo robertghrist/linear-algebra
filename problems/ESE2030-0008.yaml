@@ -1,8 +1,8 @@
 id: ESE2030-0008
 legacy_id: Q1-P08
-week: null
+week: 1
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Consider the permutation matrix $P = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{bmatrix}$. Which of the following statements about $P$ is TRUE?

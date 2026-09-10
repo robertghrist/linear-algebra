@@ -1,8 +1,8 @@
 id: ESE2030-0031
 legacy_id: Q2-P06
-week: null
+week: 4
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $T: V \to V$ be a finite-dimensional linear transformation. If we change from basis $\mathcal{B}$ to basis $\mathcal{C}$, which statement about the matrix representations $[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$ must be true?

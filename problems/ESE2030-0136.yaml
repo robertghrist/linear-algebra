@@ -1,8 +1,8 @@
 id: ESE2030-0136
 legacy_id: null
-week: null
+week: 7
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   A $3 \times 3$ matrix $A$ is diagonalizable with $A = P\Lambda P^{-1}$, where $\Lambda  = \text{diag}(2, -1, 4)$ and $P$ is the matrix of eigenvectors.

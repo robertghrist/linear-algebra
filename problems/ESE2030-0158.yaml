@@ -1,8 +1,8 @@
 id: ESE2030-0158
 legacy_id: null
-week: null
+week: 7
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Consider the differential equation given in factored operator form ($D = \frac{d}{dt}$):

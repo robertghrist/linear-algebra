@@ -1,8 +1,8 @@
 id: ESE2030-0046
 legacy_id: Q2-P21
-week: null
+week: 4
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $T: \mathcal{P}_2 \to \mathcal{P}_1$ be the differentiation operator defined by $T(p) = p'$.

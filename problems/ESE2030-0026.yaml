@@ -1,8 +1,8 @@
 id: ESE2030-0026
 legacy_id: Q2-P01
-week: null
+week: 3
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces where $\dim(V) = 9$ and $\dim(W) = 4$.

@@ -1,8 +1,8 @@
 id: ESE2030-0032
 legacy_id: Q2-P07
-week: null
+week: 3
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $T: \mathbb{R}^5 \to \mathbb{R}^5$ be a linear transformation.

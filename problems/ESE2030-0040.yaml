@@ -1,8 +1,8 @@
 id: ESE2030-0040
 legacy_id: Q2-P15
-week: null
+week: 5
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $T: \mathbb{R}^3 \to \mathbb{R}^3$ be a linear transformation whose matrix representation in the standard Euclidean basis is $A$.

@@ -1,8 +1,8 @@
 id: ESE2030-0150
 legacy_id: null
-week: null
+week: 3
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces with $\dim(V) = 7$, $\dim(W) = 5$, and $\text{rank}(T) = 3$.

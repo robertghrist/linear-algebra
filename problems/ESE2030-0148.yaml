@@ -1,8 +1,8 @@
 id: ESE2030-0148
 legacy_id: null
-week: null
+week: 10
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $A \in \mathbb{R}^{n \times n}$ be a square matrix with eigenvalues $\lambda_1, \ldots, \lambda_n$ and singular values $\sigma_1 \geq \cdots \geq \sigma_n \geq 0$.

@@ -1,8 +1,8 @@
 id: ESE2030-0152
 legacy_id: null
-week: null
+week: 7
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Consider the linear system $\displaystyle \frac{d\mathbf{x}}{dt} = A\mathbf{x}$ where $A$ is a constant $n \times n$ matrix.

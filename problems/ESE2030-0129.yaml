@@ -1,8 +1,8 @@
 id: ESE2030-0129
 legacy_id: null
-week: null
+week: 7
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 2$, $\lambda_2 = -1$, and $\lambda_3 = 3$.

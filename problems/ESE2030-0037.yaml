@@ -1,8 +1,8 @@
 id: ESE2030-0037
 legacy_id: Q2-P12
-week: null
+week: 5
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Consider the vector space $C[0,1]$ of continuous functions on $[0,1]$ with the inner product $\langle f, g \rangle = \int_0^1 e^x\,f(x)g(x)\,dx$.

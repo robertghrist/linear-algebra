@@ -1,8 +1,8 @@
 id: ESE2030-0151
 legacy_id: null
-week: null
+week: 11
 skills: []
-status: needs-review
+status: active
 problem_type: null
 statement: |
   Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix, and let $\tilde{X}$ be obtained by multiplying the third column of $X$ by 1000 (i.e., rescaling variable $X_3$).
