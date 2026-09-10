@@ -6,21 +6,21 @@
 
 | week | title | active | needs-review | retired |
 |---|---|---|---|---|
-| 1 | Solving Linear Systems | 17 | 0 | 0 |
-| 2 | Abstract Vector Spaces | 23 | 0 | 0 |
-| 3 | Linear Transformations | 29 | 0 | 0 |
-| 4 | Bases & Coordinates | 13 | 0 | 0 |
-| 5 | Inner Products & Orthogonality | 37 | 3 | 0 |
-| 6 | Orthogonal Decomposition & Data | 20 | 0 | 0 |
+| 1 | Solving Linear Systems | 21 | 0 | 0 |
+| 2 | Abstract Vector Spaces | 24 | 0 | 0 |
+| 3 | Linear Transformations | 32 | 0 | 0 |
+| 4 | Bases & Coordinates | 16 | 0 | 0 |
+| 5 | Inner Products & Orthogonality | 39 | 3 | 0 |
+| 6 | Orthogonal Decomposition & Data | 22 | 0 | 0 |
 | 7 | Diagonalization & Dynamics | 33 | 1 | 0 |
-| 8 | Eigenvalue Complexities | 22 | 0 | 0 |
-| 9 | Linear Iterative Systems | 23 | 2 | 0 |
+| 8 | Eigenvalue Complexities | 24 | 0 | 0 |
+| 9 | Linear Iterative Systems | 25 | 2 | 0 |
 | 10 | Singular Value Decomposition | 28 | 2 | 2 |
-| 11 | Principal Components & Low-Rank Structure | 21 | 1 | 0 |
+| 11 | Principal Components & Low-Rank Structure | 23 | 1 | 0 |
 | 12 | Probability & High Dimension | 21 | 0 | 0 |
 | 13 | Neural Networks & AI | 24 | 1 | 0 |
 
-## Skills (320/325 problems tagged)
+## Skills (341/346 problems tagged)
 
 ### Week 1: Solving Linear Systems
 
@@ -32,8 +32,8 @@
 - `W01.S06` (1) Know what row operations preserve (solution set, row space, null space) and what they do not (column space)
 - `W01.S07` (5) Recognize an LU or PA = LU factorization and say what each factor records; know when the permutation is required
 - `W01.S08` (3) Explain WHY one factors: one elimination, many right-hand sides; forward then back substitution; the O(n³) vs O(n²) asymmetry
-- `W01.S09` (0) Recognize when permutation or block structure decouples a system **← untested**
-- `W01.S10` (0) Say what conditioning warns about and what it does not — and that a small determinant is not the diagnostic **← untested**
+- `W01.S09` (2) Recognize when permutation or block structure decouples a system
+- `W01.S10` (2) Say what conditioning warns about and what it does not — and that a small determinant is not the diagnostic
 
 ### Week 2: Abstract Vector Spaces
 
@@ -45,7 +45,7 @@
 - `W02.S06` (2) Recognize the sum U + W and the intersection U ∩ W as subspaces, and use dim(U + W) = dim U + dim W − dim(U ∩ W)
 - `W02.S07` (1) Recognize a direct sum U ⊕ W (trivial intersection, or the dimension count, or unique decomposition) and know that a complement is a CHOICE, not canonical
 - `W02.S08` (3) Apply the Exchange Bound: more vectors than the dimension must be dependent; fewer cannot span
-- `W02.S09` (0) Recognize an infinite-dimensional space and say why it is one **← untested**
+- `W02.S09` (1) Recognize an infinite-dimensional space and say why it is one
 
 ### Week 3: Linear Transformations
 
@@ -55,10 +55,10 @@
 - `W03.S04` (5) Decide injectivity, surjectivity, and bijectivity from the dimensions alone, and know which is impossible when dim V > dim W or dim V < dim W
 - `W03.S05` (4) Place each of the four fundamental spaces in the domain or the codomain, and say what lives in each
 - `W03.S06` (5) Recognize a quotient space: when two vectors represent the same coset, what V/U "remembers," and dim(V/U) = dim V − dim U
-- `W03.S07` (0) Distinguish the quotient V/U from a complement of U, and know how a direct-sum decomposition V = U ⊕ U′ makes U′ a model for V/U **← untested**
+- `W03.S07` (2) Distinguish the quotient V/U from a complement of U, and know how a direct-sum decomposition V = U ⊕ U′ makes U′ a model for V/U
 - `W03.S08` (8) State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply
 - `W03.S09` (2) Recognize an isomorphism, know that equal finite dimension is the whole criterion, and know what it preserves
-- `W03.S10` (0) Recognize that rank(A) = rank(Aᵀ) is a theorem (the FTLA), not a definition **← untested**
+- `W03.S10` (1) Recognize that rank(A) = rank(Aᵀ) is a theorem (the FTLA), not a definition
 
 ### Week 4: Bases & Coordinates
 
@@ -68,8 +68,8 @@
 - `W04.S04` (4) Recognize similarity B = P⁻¹AP as the same operator in two frames, and know which direction P goes
 - `W04.S05` (2) Decide whether a stated property is coordinate-free (rank, nullity, trace, determinant, eigenvalues, characteristic polynomial) or a basis artifact (entries, columns, orthogonality, singular values)
 - `W04.S06` (2) Know that the coordinate map is an isomorphism V → Rⁿ, so linear relations among vectors can be read off their coordinate vectors — in any basis
-- `W04.S07` (0) Extend an independent set to a basis and trim a spanning set to one; use dimension counting as a proof technique **← untested**
-- `W04.S08` (0) Recognize which questions require a basis and which do not (dimension and quotient do not; coordinates and matrices do) **← untested**
+- `W04.S07` (2) Extend an independent set to a basis and trim a spanning set to one; use dimension counting as a proof technique
+- `W04.S08` (1) Recognize which questions require a basis and which do not (dimension and quotient do not; coordinates and matrices do)
 
 ### Week 5: Inner Products & Orthogonality
 
@@ -81,7 +81,7 @@
 - `W05.S06` (5) Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME nested spans), and why "just normalize each vector" fails
 - `W05.S07` (5) Know the defining property of the adjoint ⟨Tv, w⟩ = ⟨v, T*w⟩, its domain and codomain, and that T* is the transpose only in the standard inner product with standard bases
 - `W05.S08` (8) Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)
-- `W05.S09` (0) Recognize the Gram matrix AᵀA: symmetric, positive semidefinite, ker(AᵀA) = ker A, and invertible exactly when the columns of A are independent **← untested**
+- `W05.S09` (2) Recognize the Gram matrix AᵀA: symmetric, positive semidefinite, ker(AᵀA) = ker A, and invertible exactly when the columns of A are independent
 - `W05.S10` (8) Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A
 - `W05.S11` (2) Recognize the geometry of preservation: which transformations preserve angles but not lengths (scalings), lengths and angles (orthogonal), neither
 
@@ -96,7 +96,7 @@
 - `W06.S07` (2) Say what A⁺A and AA⁺ are (projections onto coimage and image) and why neither is the identity in general; know the special cases where A⁺ = A⁻¹, (AᵀA)⁻¹Aᵀ, Aᵀ(AAᵀ)⁻¹
 - `W06.S08` (1) Recognize least squares as projection onto the column space, the normal equations AᵀAx = Aᵀb, and when the solution is unique (independent columns ⇔ Gram matrix invertible)
 - `W06.S09` (2) Identify the minimum-norm least squares solution as x = A⁺b among the infinitely many
-- `W06.S10` (0) Know what ridge regularization does (shrinks the solution, not the residual; unique for every λ > 0; tends to A⁺b as λ → 0) **← untested**
+- `W06.S10` (2) Know what ridge regularization does (shrinks the solution, not the residual; unique for every λ > 0; tends to A⁺b as λ → 0)
 
 ### Week 7: Diagonalization & Dynamics
 
@@ -116,11 +116,11 @@
 - `W08.S01` (8) Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ
 - `W08.S02` (4) Distinguish algebraic from geometric multiplicity, know geometric ≤ algebraic, and diagnose defectiveness as the gap
 - `W08.S03` (6) Determine Jordan block structure from multiplicities: one block per independent eigenvector, and what block sizes mean
-- `W08.S04` (0) Know what a generalized eigenvector is ((A − λI)w = v) and what it buys — the t e^{λt} terms — without constructing chains by hand **← untested**
+- `W08.S04` (1) Know what a generalized eigenvector is ((A − λI)w = v) and what it buys — the t e^{λt} terms — without constructing chains by hand
 - `W08.S05` (4) Recognize e^{tJ} for a Jordan block: the polynomial-times-exponential structure via the commuting split λI + N
 - `W08.S06` (5) Write the basis of solutions for an ODE with repeated or complex characteristic roots, and recognize the polynomial factor as the signature of a defective matrix
 - `W08.S07` (5) Explain what one QR-algorithm step does (A → RQ is similar to A), why the spectrum is unchanged, and what the iteration converges to (triangular; block-triangular for complex pairs)
-- `W08.S08` (0) Distinguish the QR ALGORITHM (eigenvalues, Week 8) from the QR DECOMPOSITION (factorization, Week 5), and know that Jordan form is a theorem, not what software computes **← untested**
+- `W08.S08` (1) Distinguish the QR ALGORITHM (eigenvalues, Week 8) from the QR DECOMPOSITION (factorization, Week 5), and know that Jordan form is a theorem, not what software computes
 
 ### Week 9: Linear Iterative Systems
 
@@ -131,7 +131,7 @@
 - `W09.S05` (8) Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it
 - `W09.S06` (5) Know what symmetry buys: real eigenvalues, orthogonal eigenvectors for DISTINCT eigenvalues, and an orthonormal eigenbasis that can be chosen (not automatic within a repeated eigenspace)
 - `W09.S07` (1) Recognize a Gram matrix XᵀX or a covariance matrix as symmetric positive semidefinite (positive definite iff independent columns), with eigenvalues ≥ 0
-- `W09.S08` (0) Know what the Rayleigh quotient measures and that its extremes are λ_max and λ_min at the eigenvectors **← untested**
+- `W09.S08` (2) Know what the Rayleigh quotient measures and that its extremes are λ_max and λ_min at the eigenvectors
 - `W09.S09` (3) Recognize the Graph Laplacian, read the number of components off its kernel, and know what the Fiedler vector splits
 
 ### Week 10: Singular Value Decomposition
@@ -158,7 +158,7 @@
 - `W11.S07` (3) Read a scree plot and explained-variance ratios; distinguish effective dimensionality from mathematical rank
 - `W11.S08` (5) State Eckart–Young–Mirsky: the truncated SVD is THE best rank-k approximation, in both norms, with errors σ_{k+1} and √Σ_{i>k}σ_i²
 - `W11.S09` (3) Interpret loadings: which variables drive which component, and the sign ambiguity
-- `W11.S10` (0) Know what the nuclear norm is and why it stands in for rank; recognize the low-rank- plus-sparse decomposition and what "sparse" means there **← untested**
+- `W11.S10` (2) Know what the nuclear norm is and why it stands in for rank; recognize the low-rank- plus-sparse decomposition and what "sparse" means there
 
 ### Week 12: Probability & High Dimension
 
@@ -187,4 +187,4 @@
 - `W13.S11` (2) Identify kernel and image of a linearized autoencoder round trip D∘E (discarded variation; the learned model of the data), and why the encoder alone reveals little
 - `W13.S12` (1) Explain the sense in which a linear autoencoder reproduces PCA, and what a nonlinear one adds
 
-**Untested skills: 13** — W01.S09, W01.S10, W02.S09, W03.S07, W03.S10, W04.S07, W04.S08, W05.S09, W06.S10, W08.S04, W08.S08, W09.S08, W11.S10
+**Untested skills: 0**
