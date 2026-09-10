@@ -1,7 +1,8 @@
 id: ESE2030-0024
 legacy_id: Q1-P24
 week: 1
-skills: []
+skills:
+- W01.S05
 status: active
 problem_type: null
 statement: |
@@ -40,6 +41,4 @@ topics:
 - Elementary matrices
 - row operations
 - matrix multiplication order
-notes: 'trap (Q24 answers): Matrix multiplication is right-to-left, but we describe operations left-to-right!
-  | tagging: Tests order of composition of elementary matrices (left multiplication, right-to-left); no
-  listed skill names this.'
+notes: 'trap (Q24 answers): Matrix multiplication is right-to-left, but we describe operations left-to-right!'

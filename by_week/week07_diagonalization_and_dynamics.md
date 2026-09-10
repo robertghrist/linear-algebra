@@ -4,7 +4,7 @@
 
 ## ESE2030-0050
 *week 7 · 2025C quiz3 #1 · active · legacy Q3-P01*  
-skills: `W07.S01` Compute eigenvalues and eigenvectors for 2x2 and 3x3 matrices, including triangular ones  
+skills: `W07.S01` Recognize eigenvalues and eigenvectors from the definition Av = λv (v ≠ 0), and the geometric reading: directions the map only stretches  
 topics: Eigenvalues, eigenvectors, basic definition
 
 If $\mathbf{v}$ is an eigenvector of matrix $A$ with eigenvalue $\lambda = 3$, what is $A(2\mathbf{v})$?
@@ -33,7 +33,7 @@ Why the distractors tempt:
 
 ## ESE2030-0051
 *week 7 · 2025C quiz3 #2 · active · legacy Q3-P02*  
-skills: `W07.S02` Use trace and determinant to check or to shortcut an eigenvalue computation  
+skills: `W07.S03` Use trace and determinant to check or shortcut an eigenvalue computation  
 topics: Eigenvalues, determinant, trace, properties of eigenvalues
 
 A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 2$, $\lambda_2 = -3$, and $\lambda_3$ unknown.
@@ -63,7 +63,7 @@ Why the distractors tempt:
 
 ## ESE2030-0052
 *week 7 · 2025C quiz3 #3 · needs-review · legacy Q3-P03*  
-skills: `W07.S07` Convert a higher-order scalar ODE to a first-order system and back  
+skills: `W07.S09` Recognize the equivalence of a higher-order scalar ODE and a first-order system: the companion matrix, its characteristic polynomial p(λ), and the roots of p(D) as eigenvalues  
 topics: Companion matrix, characteristic polynomial, polynomial differential operators
 
 The second-order differential equation
@@ -95,7 +95,7 @@ Why the distractors tempt:
 
 ## ESE2030-0055
 *week 7 · 2025C quiz3 #6 · active · legacy Q3-P06*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix; `W07.S02` Use trace and determinant to check or to shortcut an eigenvalue computation  
+skills: `W07.S06` Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping); `W07.S03` Use trace and determinant to check or shortcut an eigenvalue computation  
 topics: Matrix exponentials, eigenvalues, diagonalization, determinant
 
 Let $A$ be a $3 \times 3$ diagonalizable matrix with eigenvalues $\lambda_1 = 1$, $\lambda_2 = -2$, and $\lambda_3 = 0$.
@@ -125,7 +125,7 @@ Why the distractors tempt:
 
 ## ESE2030-0058
 *week 7 · 2025C quiz3 #9 · active · legacy Q3-P09*  
-skills: `W07.S04` Assemble V and D and verify A = V D V^{-1}  
+skills: `W07.S05` Recognize A = VDV⁻¹ as a change of basis to an eigenbasis, with the correct order of factors, and what V and D record  
 topics: Eigenbasis, coordinates, change of basis, diagonalization
 
 Let $A = \begin{bmatrix} 5 & 2 \\ 2 & 2 \end{bmatrix}$ have eigenvectors $\mathbf{v}_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$ (with eigenvalue $\lambda_1 = 6$) and $\mathbf{v}_2 = \begin{pmatrix} -1 \\ 2 \end{pmatrix}$ (with eigenvalue $\lambda_2 = 1$).
@@ -152,7 +152,7 @@ The power of the eigenbasis is that the matrix $A$ acts simply by scaling each e
 
 ## ESE2030-0059
 *week 7 · 2025C quiz3 #10 · active · legacy Q3-P10*  
-skills: `W07.S04` Assemble V and D and verify A = V D V^{-1}  
+skills: `W07.S05` Recognize A = VDV⁻¹ as a change of basis to an eigenbasis, with the correct order of factors, and what V and D record  
 topics: Eigenbasis, similarity, change of basis, diagonalization, matrix representation
 
 A $3 \times 3$ matrix $A$ has three distinct real eigenvalues. Let $V = [\mathbf{v}_1 \; \mathbf{v}_2 \; \mathbf{v}_3]$ be the matrix whose columns are corresponding eigenvectors, forming an eigenbasis for $\mathbb{R}^3$.
@@ -183,7 +183,7 @@ Why the distractors tempt:
 
 ## ESE2030-0060
 *week 7 · 2025C quiz3 #11 · active · legacy Q3-P11*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S07` Know what e^{tA} is (the power series), what it is not (entrywise exponential), when e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax; `W07.S06` Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping)  
 topics: Matrix exponentials, invertibility, eigenvalues, properties
 
 Let $A$ be a square singular matrix with real distinct eigenvalues.
@@ -212,7 +212,7 @@ Why the distractors tempt:
 
 ## ESE2030-0062
 *week 7 · 2025C quiz3 #13 · active · legacy Q3-P13*  
-skills: `W07.S01` Compute eigenvalues and eigenvectors for 2x2 and 3x3 matrices, including triangular ones  
+skills: `W07.S01` Recognize eigenvalues and eigenvectors from the definition Av = λv (v ≠ 0), and the geometric reading: directions the map only stretches  
 topics: Eigenvalues, geometric interpretation, fundamental definition
 
 Which of the following provides the best fundamental description of what an eigenvalue $\lambda$ of a matrix $A$ represents?
@@ -240,7 +240,7 @@ Why the distractors tempt:
 
 ## ESE2030-0064
 *week 7 · 2025C quiz3 #15 · active · legacy Q3-P15*  
-skills: `W07.S02` Use trace and determinant to check or to shortcut an eigenvalue computation  
+skills: `W07.S03` Use trace and determinant to check or shortcut an eigenvalue computation  
 topics: Trace, eigenvalues, determinant, relationship
 
 Consider a $3 \times 3$ matrix $B$ with eigenvalues $2$, $3$, and $\lambda$. Which of the following statements is most true?
@@ -269,7 +269,7 @@ Why the distractors tempt:
 
 ## ESE2030-0066
 *week 7 · 2025C quiz3 #17 · active · legacy Q3-P17*  
-skills: `W07.S06` Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum  
+skills: `W07.S07` Know what e^{tA} is (the power series), what it is not (entrywise exponential), when e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax  
 topics: Matrix exponentials, ODEs, solution structure, initial conditions
 
 Consider the initial value problem $\frac{d\mathbf{x}}{dt} = A\mathbf{x}$ with $\mathbf{x}(0) = \mathbf{x}_0$, where $A$ is an $n \times n$ matrix. The solution is given by $\mathbf{x}(t) = e^{At}\mathbf{x}_0$.
@@ -299,7 +299,7 @@ Why the distractors tempt:
 
 ## ESE2030-0068
 *week 7 · 2025C quiz3 #19 · active · legacy Q3-P19*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S07` Know what e^{tA} is (the power series), what it is not (entrywise exponential), when e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax  
 topics: Matrix exponentials, basic properties
 
 Which of the following properties holds for the matrix exponential $e^{At}$ where $A$ is an $n \times n$ matrix and $t$ is a scalar?
@@ -327,7 +327,7 @@ Why the distractors tempt:
 
 ## ESE2030-0070
 *week 7 · 2025C quiz3 #21 · active · legacy Q3-P21*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S06` Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping)  
 topics: Eigenvalues, matrix powers, diagonalization
 
 Suppose a $2 \times 2$ matrix $A$ has eigenvalues $\lambda_1 = 2$ and $\lambda_2 = -1$. What are the eigenvalues of $A^3$?
@@ -356,7 +356,7 @@ Why the distractors tempt:
 
 ## ESE2030-0072
 *week 7 · 2025C quiz3 #23 · active · legacy Q3-P23*  
-skills: `W07.S08` Write a basis of solutions from distinct characteristic roots  
+skills: `W07.S10` Know that the solution space of an n-th order linear ODE has dimension n, and write the basis of solutions for distinct roots  
 topics: Higher-order ODEs, solution spaces, dimension, vector space structure
 
 Consider the linear differential equation
@@ -387,7 +387,7 @@ Why the distractors tempt:
 
 ## ESE2030-0073
 *week 7 · 2025C quiz3 #24 · active · legacy Q3-P24*  
-skills: `W07.S02` Use trace and determinant to check or to shortcut an eigenvalue computation  
+skills: `W07.S03` Use trace and determinant to check or shortcut an eigenvalue computation  
 topics: Trace, eigenvalues, sum property
 
 A $4 \times 4$ matrix $A$ has eigenvalues $\lambda_1 = 3$, $\lambda_2 = -2$, $\lambda_3 = 5$, and $\lambda_4$ is unknown. If $\text{tr}(A) = 8$, what is $\lambda_4$?
@@ -416,7 +416,7 @@ Why the distractors tempt:
 
 ## ESE2030-0078
 *week 7 · 2025C quiz4 #5 · active · legacy Q4-P05*  
-skills: `W07.S07` Convert a higher-order scalar ODE to a first-order system and back  
+skills: `W07.S09` Recognize the equivalence of a higher-order scalar ODE and a first-order system: the companion matrix, its characteristic polynomial p(λ), and the roots of p(D) as eigenvalues  
 topics: Higher-order ODEs, companion matrices, characteristic polynomial, basis solutions
 
 A third-order differential equation is given by:
@@ -450,7 +450,7 @@ Why the distractors tempt:
 
 ## ESE2030-0116
 *week 7 · 2025C final #1 · active*  
-skills: `W07.S08` Write a basis of solutions from distinct characteristic roots  
+skills: `W07.S10` Know that the solution space of an n-th order linear ODE has dimension n, and write the basis of solutions for distinct roots; `W07.S09` Recognize the equivalence of a higher-order scalar ODE and a first-order system: the companion matrix, its characteristic polynomial p(λ), and the roots of p(D) as eigenvalues  
 
 Consider the third-order linear differential equation given in operator ($D = \frac{d}{dt}$) form:
 $$(D^3 - 6D^2 + 3D + 10I)x = 0 = (D-2)(D+1)(D-5)x $$
@@ -480,7 +480,7 @@ Why the distractors tempt:
 
 ## ESE2030-0129
 *week 7 · 2025C final #14 · active*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S06` Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping)  
 
 A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 2$, $\lambda_2 = -1$, and $\lambda_3 = 3$.
 What are the eigenvalues of $A^4$?
@@ -509,7 +509,7 @@ Why the distractors tempt:
 
 ## ESE2030-0136
 *week 7 · 2025C final #21 · active*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix; `W07.S04` Assemble V and D and verify A = V D V^{-1}  
+skills: `W07.S06` Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping)  
 
 A $3 \times 3$ matrix $A$ is diagonalizable with $A = P\Lambda P^{-1}$, where $\Lambda  = \text{diag}(2, -1, 4)$ and $P$ is the matrix of eigenvectors.
 To compute $A^{100}$, which approach is correct?
@@ -538,7 +538,7 @@ Why the distractors tempt:
 
 ## ESE2030-0152
 *week 7 · 2025C final #37 · active*  
-skills: `W07.S06` Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum  
+skills: `W07.S07` Know what e^{tA} is (the power series), what it is not (entrywise exponential), when e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax  
 
 Consider the linear system $\displaystyle \frac{d\mathbf{x}}{dt} = A\mathbf{x}$ where $A$ is a constant $n \times n$ matrix.
 
@@ -566,7 +566,7 @@ Why the distractors tempt:
 
 ## ESE2030-0158
 *week 7 · 2025C final #43 · active*  
-skills: `W07.S08` Write a basis of solutions from distinct characteristic roots  
+skills: `W07.S10` Know that the solution space of an n-th order linear ODE has dimension n, and write the basis of solutions for distinct roots  
 
 Consider the differential equation given in factored operator form ($D = \frac{d}{dt}$):
 $$D(D-4)(D+2)(D-3)x = 0$$
@@ -598,7 +598,7 @@ Why the distractors tempt:
 
 ## ESE2030-0204
 *week 7 · 2026A quiz3 #1 · active*  
-skills: `W07.S06` Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum  
+skills: `W07.S08` Predict the qualitative behavior of x′ = Ax (growth, decay, stability) from the sign of Re λ, and recognize superposition and decoupling as the mechanism; `W07.S07` Know what e^{tA} is (the power series), what it is not (entrywise exponential), when e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax  
 topics: Matrix exponential, initial value problem, linearity of solutions, superposition
 
 Consider the system $\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}$ where $A$ is a
@@ -633,7 +633,7 @@ Why the distractors tempt:
 
 ## ESE2030-0208
 *week 7 · 2026A quiz3 #5 · active*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S07` Know what e^{tA} is (the power series), what it is not (entrywise exponential), when e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax  
 topics: Matrix exponential, power series definition, nilpotent matrices
 
 Which of the following is $e^{A}$ where
@@ -666,7 +666,7 @@ Why the distractors tempt:
 
 ## ESE2030-0212
 *week 7 · 2026A quiz3 #9 · active*  
-skills: `W07.S03` Decide diagonalizability from eigenvector counts, not from distinctness alone  
+skills: `W07.S04` Decide diagonalizability from eigenvector counts, and know that n distinct eigenvalues is sufficient but not necessary; `W07.S01` Recognize eigenvalues and eigenvectors from the definition Av = λv (v ≠ 0), and the geometric reading: directions the map only stretches  
 topics: Eigenvectors, linear independence, eigenvalues, scalar multiples, sums of eigenvectors
 
 Let $A$ be a $3 \times 3$ matrix with eigenvalues $\lambda_1 = 5$,
@@ -699,7 +699,7 @@ Why the distractors tempt:
 
 ## ESE2030-0213
 *week 7 · 2026A quiz3 #10 · active*  
-skills: `W07.S03` Decide diagonalizability from eigenvector counts, not from distinctness alone  
+skills: `W07.S04` Decide diagonalizability from eigenvector counts, and know that n distinct eigenvalues is sufficient but not necessary  
 topics: Diagonalization, eigenvalues, geometric vs algebraic multiplicity, eigenbasis, geometric interpretation
 
 A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 3$, $\lambda_2 = 3$, and $\lambda_3 = -1$.
@@ -730,7 +730,7 @@ Why the distractors tempt:
 
 ## ESE2030-0219
 *week 7 · 2026A quiz3 #16 · active*  
-skills: `W07.S06` Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum; `W07.S04` Assemble V and D and verify A = V D V^{-1}  
+skills: `W07.S08` Predict the qualitative behavior of x′ = Ax (growth, decay, stability) from the sign of Re λ, and recognize superposition and decoupling as the mechanism; `W07.S05` Recognize A = VDV⁻¹ as a change of basis to an eigenbasis, with the correct order of factors, and what V and D record  
 topics: Coupled systems, diagonalization, decoupling, matrix exponential, eigenbasis
 
 Consider the coupled system $\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}$ where
@@ -767,7 +767,7 @@ Why the distractors tempt:
 
 ## ESE2030-0221
 *week 7 · 2026A quiz3 #18 · active*  
-skills: `W07.S02` Use trace and determinant to check or to shortcut an eigenvalue computation; `W07.S03` Decide diagonalizability from eigenvector counts, not from distinctness alone  
+skills: `W07.S02` Know why det(A − λI) = 0 characterizes eigenvalues (singularity of A − λI), and read eigenvalues off triangular matrices  
 topics: Eigenvalue zero, singularity, invertibility, ker(A), matrix exponential
 
 A $4 \times 4$ matrix $A$ has characteristic polynomial $p(\lambda) = \lambda^2(\lambda - 3)(\lambda + 1)$.
@@ -795,7 +795,7 @@ Why the distractors tempt:
 
 ## ESE2030-0222
 *week 7 · 2026A quiz3 #19 · active*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S06` Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping)  
 topics: Matrix powers via diagonalization, eigendecomposition of vectors
 
 A diagonalizable $2 \times 2$ matrix $A$ has eigenvalues $\lambda_1 = 2$
@@ -829,7 +829,7 @@ Why the distractors tempt:
 
 ## ESE2030-0224
 *week 7 · 2026A quiz3 #21 · active*  
-skills: `W07.S02` Use trace and determinant to check or to shortcut an eigenvalue computation  
+skills: `W07.S03` Use trace and determinant to check or shortcut an eigenvalue computation  
 topics: Eigenvalues, trace, determinant, characteristic polynomial, properties of eigenvalues
 
 A $3 \times 3$ real matrix $A$ satisfies $\operatorname{tr}(A) = 7$, $\det(A) = 0$, and is known to have an eigenvalue $\lambda_1 = 3$.
@@ -859,7 +859,7 @@ Why the distractors tempt:
 
 ## ESE2030-0225
 *week 7 · 2026A quiz3 #22 · active*  
-skills: `W07.S03` Decide diagonalizability from eigenvector counts, not from distinctness alone  
+skills: `W07.S04` Decide diagonalizability from eigenvector counts, and know that n distinct eigenvalues is sufficient but not necessary  
 topics: Diagonalizability, algebraic vs geometric multiplicity
 
 A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 4$,
@@ -891,7 +891,7 @@ Why the distractors tempt:
 
 ## ESE2030-0267
 *week 7 · 2026A final #18 · active · Deeper*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S06` Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping)  
 topics: Spectral mapping, eigenvalues of polynomials in A, eigenvectors preserved
 
 Let $A \in \mathbb{R}^{n \times n}$ and let $p(t) = c_k t^k + \cdots + c_1 t
@@ -922,7 +922,7 @@ Why the distractors tempt:
 
 ## ESE2030-0270
 *week 7 · 2026A final #21 · active · Core*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S07` Know what e^{tA} is (the power series), what it is not (entrywise exponential), when e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax  
 topics: Matrix exponential, definition via power series, nilpotent matrix
 
 Compute $e^{-N}$ for the matrix
@@ -950,7 +950,7 @@ Why the distractors tempt:
 
 ## ESE2030-0280
 *week 7 · 2026A final #31 · active*  
-skills: `W07.S03` Decide diagonalizability from eigenvector counts, not from distinctness alone  
+skills: `W07.S04` Decide diagonalizability from eigenvector counts, and know that n distinct eigenvalues is sufficient but not necessary  
 topics: Diagonalizability, distinct eigenvalues, sufficient vs. necessary conditions, eigenspace dimension
 
 Let $A$ be an $n \times n$ matrix with real entries. Which of the following statements about $A$ is most true?
@@ -979,7 +979,7 @@ Why the distractors tempt:
 
 ## ESE2030-0285
 *week 7 · 2026A final #36 · active*  
-skills: `W07.S06` Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum  
+skills: `W07.S08` Predict the qualitative behavior of x′ = Ax (growth, decay, stability) from the sign of Re λ, and recognize superposition and decoupling as the mechanism; `W07.S05` Recognize A = VDV⁻¹ as a change of basis to an eigenbasis, with the correct order of factors, and what V and D record  
 topics: Linear ODE systems, matrix exponential, eigencomponent solution, initial conditions
 
 Let $A$ be a $2 \times 2$ matrix with eigenvalues $\lambda_1 = 2$ and $\lambda_2 = -1$ and corresponding eigenvectors
@@ -1012,7 +1012,7 @@ Why the distractors tempt:
 
 ## ESE2030-0292
 *week 7 · 2026A final #43 · active · Core*  
-skills: `W07.S01` Compute eigenvalues and eigenvectors for 2x2 and 3x3 matrices, including triangular ones  
+skills: `W07.S02` Know why det(A − λI) = 0 characterizes eigenvalues (singularity of A − λI), and read eigenvalues off triangular matrices  
 topics: Eigenvalue characterization, singularity of A - lambda I
 
 Let $A$ be an $n \times n$ matrix and $\lambda \in \mathbb{R}$ a scalar. Which of the following is equivalent to ``$\lambda$ is an eigenvalue of $A$''?

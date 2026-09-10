@@ -1,7 +1,9 @@
 id: ESE2030-0006
 legacy_id: Q1-P06
 week: 1
-skills: []
+skills:
+- W01.S05
+- W01.S04
 status: active
 problem_type: null
 statement: |
@@ -42,5 +44,4 @@ topics:
 - determinants
 - invertibility
 notes: 'trap (Q6 answers): Not all elementary matrices have $\det = \pm 1$; row scaling can give any nonzero
-  determinant. | tagging: Tests determinant values of elementary matrices / their invertibility; no listed
-  skill covers elementary-matrix determinants.'
+  determinant.'

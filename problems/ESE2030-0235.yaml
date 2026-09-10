@@ -1,7 +1,8 @@
 id: ESE2030-0235
 legacy_id: null
 week: 11
-skills: []
+skills:
+- W11.S02
 status: active
 problem_type: null
 statement: |
@@ -48,4 +49,4 @@ variant_of: null
 topics:
 - Correlation as cosine similarity
 - geometric interpretation
-notes: 'difficulty: Core | tagging: Tests correlation as cosine; no W11 skill names this (W12.S01 does).'
+notes: 'difficulty: Core'

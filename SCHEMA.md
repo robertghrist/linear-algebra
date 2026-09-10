@@ -9,7 +9,7 @@ LAEF project.
 | `problems/ESE2030-NNNN.yaml` | one problem per file — **the source of truth**, hand-editable |
 | `problems.json` | compiled from `problems/` by `scripts/compile.py`, **generated**, never hand-edited |
 | `schema/problem.schema.json` | JSON Schema; every record must validate |
-| `schema/skills.json` | generated index of the 113 essential skills, by id |
+| `schema/skills.json` | generated index of the 126 essential skills (v2), by id |
 | `schema/EXAMPLE-problem.yaml` | worked template, validates against the schema |
 | `weekly_topics/*.txt` | human-authored source of the skill ids |
 | `by_week/`, `by_source/`, `COVERAGE.md` | **generated** study views and the skill-coverage report (`scripts/compile.py`) |
@@ -147,11 +147,16 @@ students.
 
 ## 4. Skill ids
 
-113 skills across 13 weeks, 6–11 per week:
+**v2 (2026-09-10).** The v1 lists (113 skills) were computational; the exams are conceptual.
+v2 rewrote every week's ESSENTIAL SKILLS block as things a student does on a conceptual
+multiple-choice item — recognize, decide, distinguish, predict, explain why, know when — and
+dropped pure procedures (inverting by hand, computing an SVD, Cauchy–Schwarz, Mahalanobis,
+Markov/Chebyshev, Marchenko–Pastur arithmetic). Ids were renumbered and the bank re-tagged;
+v1 ids are not comparable. 126 skills across 13 weeks, 8–12 per week:
 
 ```
-W01 9   W02 6   W03 8   W04 7   W05 9   W06 9   W07 8
-W08 8   W09 9   W10 9   W11 10  W12 10  W13 11
+W01 10  W02 9   W03 10  W04 8   W05 11  W06 10  W07 10
+W08 8   W09 9   W10 10  W11 10  W12 9   W13 12
 ```
 
 Ids are **positional within a week's ESSENTIAL SKILLS list**, so inserting a skill in the

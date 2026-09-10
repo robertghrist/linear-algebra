@@ -1,7 +1,8 @@
 id: ESE2030-0258
 legacy_id: null
 week: 2
-skills: []
+skills:
+- W02.S02
 status: active
 problem_type: null
 statement: |
@@ -52,5 +53,4 @@ topics:
 - derived properties
 - distributivity
 - scalar multiplication
-notes: 'difficulty: Deeper | tagging: Tests vector space axioms vs derived properties (0v=0 is a theorem);
-  no listed skill covers axiom recall.'
+notes: 'difficulty: Deeper'

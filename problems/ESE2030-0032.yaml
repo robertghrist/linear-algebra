@@ -2,8 +2,8 @@ id: ESE2030-0032
 legacy_id: Q2-P07
 week: 3
 skills:
-- W03.S06
-- W03.S07
+- W03.S08
+- W03.S09
 status: active
 problem_type: null
 statement: |
@@ -42,4 +42,5 @@ sources:
   line: 238
 variant_of: null
 topics: []
-notes: null
+notes: 'KEY CHECK (soft): key C rests on natural vs. non-natural isomorphism; (B) is defensible under
+  "equal dimension => isomorphic"'

@@ -17,7 +17,7 @@ by_source/           study views, one per exam instrument (2025C-quiz3) -- GENER
 COVERAGE.md          problems per week and per skill; untested skills   -- GENERATED
 schema/
   problem.schema.json   JSON Schema every record must satisfy
-  skills.json           index of the 113 essential skills, by id        -- GENERATED
+  skills.json           index of the 126 essential skills (v2, conceptual), by id        -- GENERATED
   EXAMPLE-problem.yaml  worked template
 weekly_topics/       one file per week: concepts, ESSENTIAL SKILLS, MCQ traps -- the spec
 quizzes-exams/       source .tex files, by semester (2025-C, 2026-A), with answer keys / guides
@@ -160,7 +160,7 @@ sources:                    # every appearance; a reused problem is ONE problem
 | records | 292 — all of 2025-C (Q1–Q5 + final) and 2026-A (Q1–Q4 + final) |
 | answer keys | 0 conflicts; 2026-A keys 92% double-verified against the solutions guides |
 | weeks | assigned everywhere except the two end-of-quiz survey items |
-| skills | not yet tagged — the next phase; `COVERAGE.md` will then show untested skills |
+| skills | tagged against the v2 (conceptual) lists; 27 of 126 skills untested — see `COVERAGE.md` |
 | retired-2e | 2 (polar decomposition, 2026-A) |
 | thin weeks | Week 12 has one problem, Week 13 eleven — the generation targets |
 

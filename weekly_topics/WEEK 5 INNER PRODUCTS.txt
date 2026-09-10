@@ -49,16 +49,31 @@ CORE CONCEPTS:
      definition; the independence hypothesis buys uniqueness with positive diagonal
    - Simple QR forms (Ex 5.23); handwritten digits (Ex 5.25); color compression (Ex 5.26)
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W05.S01] Verify the inner product axioms for a proposed pairing, and find the axiom that fails
-- [W05.S02] Compute norms, angles, and cosine similarity in weighted and function inner products
-- [W05.S03] Apply Cauchy-Schwarz to bound an inner product
-- [W05.S04] Find an orthogonal complement and its dimension
-- [W05.S05] Run Gram-Schmidt on two or three vectors and normalize correctly
-- [W05.S06] Expand a vector against an orthonormal basis using inner products alone
-- [W05.S07] Compute an adjoint, and recognize when the adjoint differs from the transpose
-- [W05.S08] Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does
-- [W05.S09] Read off Q and R from a small QR, and use QR to solve or to compute a projection
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W05.S01] Verify the inner product axioms for a proposed pairing and identify the axiom that
+  fails
+- [W05.S02] Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius,
+  and function inner products — and know that orthogonality is RELATIVE to the inner product
+  chosen
+- [W05.S03] Decide which operations require an inner product (angle, orthogonality, projection,
+  adjoint, orthogonal complement) and which are purely algebraic (span, kernel, dimension,
+  quotient, invertibility)
+- [W05.S04] Recognize an orthogonal complement and its dimension; know Pythagoras and the
+  orthogonal-decomposition lemma
+- [W05.S05] Know why an orthonormal basis is special: coordinates are inner products, ‖v‖² is
+  the sum of squared coordinates, and no system need be solved
+- [W05.S06] Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME
+  nested spans), and why "just normalize each vector" fails
+- [W05.S07] Know the defining property of the adjoint ⟨Tv, w⟩ = ⟨v, T*w⟩, its domain and
+  codomain, and that T* is the transpose only in the standard inner product with standard bases
+- [W05.S08] Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products,
+  lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)
+- [W05.S09] Recognize the Gram matrix AᵀA: symmetric, positive semidefinite, ker(AᵀA) = ker A,
+  and invertible exactly when the columns of A are independent
+- [W05.S10] Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal
+  of R says about the columns of A
+- [W05.S11] Recognize the geometry of preservation: which transformations preserve angles but
+  not lengths (scalings), lengths and angles (orthogonal), neither
 
 TYPICAL MCQ TRAPS:
 - Asserting Q Q^T = I for a tall matrix with orthonormal columns

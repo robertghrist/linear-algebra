@@ -54,16 +54,27 @@ CORE CONCEPTS:
    - Redistribution and consensus: averaging dynamics converge to a common value (Thm 9.25)
    - Five cohorts (Ex 9.24); robotic flocking (Ex 9.26); supply chains (Ex 9.27)
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W09.S01] Determine whether A^k converges, diverges, or oscillates, from the spectrum alone
-- [W09.S02] Compute the spectral radius and identify the dominant eigenvalue and eigenvector
-- [W09.S03] Predict the limiting direction of an iterate and the rate of approach
-- [W09.S04] Run two or three steps of the power method and normalize sensibly
-- [W09.S05] Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem
-- [W09.S06] Verify a matrix is stochastic and find its stationary distribution
-- [W09.S07] Orthogonally diagonalize a small symmetric matrix
-- [W09.S08] Bound x^T A x using the Rayleigh quotient
-- [W09.S09] Build a Graph Laplacian and read the number of components off its kernel
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W09.S01] Determine whether A^k x₀ converges, diverges, or oscillates from the spectrum alone,
+  and contrast |λ| < 1 (iteration) with Re λ < 0 (ODE)
+- [W09.S02] Identify the spectral radius and the dominant eigenvalue/eigenvector, and predict
+  the limiting direction of an iterate and its rate (|λ₂|/|λ₁|)
+- [W09.S03] Recognize the power method as dominant convergence turned into an algorithm — what
+  it finds and when it fails
+- [W09.S04] Classify a nonnegative matrix as irreducible and/or primitive, and know which
+  Perron–Frobenius conclusion each hypothesis buys (simple dominant eigenvalue, positive
+  eigenvector, strict dominance)
+- [W09.S05] Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ
+  = 1, identify the stationary distribution, and know the hypotheses for convergence to it
+- [W09.S06] Know what symmetry buys: real eigenvalues, orthogonal eigenvectors for DISTINCT
+  eigenvalues, and an orthonormal eigenbasis that can be chosen (not automatic within a repeated
+  eigenspace)
+- [W09.S07] Recognize a Gram matrix XᵀX or a covariance matrix as symmetric positive
+  semidefinite (positive definite iff independent columns), with eigenvalues ≥ 0
+- [W09.S08] Know what the Rayleigh quotient measures and that its extremes are λ_max and λ_min
+  at the eigenvectors
+- [W09.S09] Recognize the Graph Laplacian, read the number of components off its kernel, and
+  know what the Fiedler vector splits
 
 TYPICAL MCQ TRAPS:
 - Using Re(lambda) < 0 (the ODE criterion) as the convergence test for an iteration

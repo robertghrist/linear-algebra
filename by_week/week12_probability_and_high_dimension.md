@@ -4,7 +4,7 @@
 
 ## ESE2030-0245
 *week 12 · 2026A quiz4 #20 · active · Core*  
-skills: `W12.S08` Use Johnson-Lindenstrauss to compute a sufficient target dimension k from m and epsilon, and read off the stated success probability; `W12.S09` State exactly what JL preserves (pairwise squared distances, up to relative error) and what it does not  
+skills: `W12.S08` State what Johnson–Lindenstrauss preserves (pairwise SQUARED distances to relative error ε) and what the target dimension depends on (number of points and ε — NOT the ambient dimension); recognize the random projection's calibration  
 topics: Johnson-Lindenstrauss lemma, target dimension independent of ambient dimension
 
 The Johnson-Lindenstrauss lemma states that for any set of $n$ points $\{\mathbf{x}_1, \ldots,

@@ -1,7 +1,8 @@
 id: ESE2030-0118
 legacy_id: null
 week: 13
-skills: []
+skills:
+- W13.S02
 status: needs-review
 problem_type: null
 statement: |
@@ -53,4 +54,4 @@ sources:
   line: 145
 variant_of: null
 topics: []
-notes: 'tagging: Tests linear separability / perceptron decision boundaries; no W13 skill names this.'
+notes: null

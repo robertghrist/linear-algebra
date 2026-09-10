@@ -59,16 +59,26 @@ CORE CONCEPTS:
    - Effect of lambda: bias against variance; behavior as lambda -> 0 and lambda -> infinity
    - As lambda -> 0+ the ridge solution tends to the pseudoinverse solution
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W06.S01] Compute an orthogonal complement and verify a dimension count
-- [W06.S02] Project a vector onto a line, a plane, or the column space of a small matrix
-- [W06.S03] Recognize a projection matrix from P^2 = P and P^T = P, and identify its image and kernel
-- [W06.S04] State which fundamental subspace is the orthogonal complement of which
-- [W06.S05] Write down A^+ for a diagonal, a rank-one, a projection, and an invertible matrix
-- [W06.S06] Say what A^+ A and A A^+ are, and why they are generally not the identity
-- [W06.S07] Set up and solve small normal equations; identify the residual and check its orthogonality
-- [W06.S08] Identify the minimum-norm solution among the infinitely many least squares solutions
-- [W06.S09] Write the ridge system and describe the effect of lambda
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W06.S01] Recognize an orthogonal complement, its dimension count, and (U^⊥)^⊥ = U
+- [W06.S02] Recognize orthogonal projection as the unique nearest point in a subspace, and the
+  residual as orthogonal to that subspace
+- [W06.S03] Recognize a projection matrix from P² = P and Pᵀ = P, identify its image and kernel,
+  and know its matrix forms (QQᵀ; A(AᵀA)⁻¹Aᵀ)
+- [W06.S04] Identify which fundamental subspace is the orthogonal complement of which: coim =
+  (ker)^⊥ = row space, coker = (im)^⊥
+- [W06.S05] Recognize how a projection realizes a quotient: the coset acquires a canonical
+  representative in U^⊥
+- [W06.S06] Know what the pseudoinverse IS (invert the isomorphism (ker T)^⊥ → im T, extend by
+  zero on the cokernel) and read off its kernel, image, and domain/codomain
+- [W06.S07] Say what A⁺A and AA⁺ are (projections onto coimage and image) and why neither is the
+  identity in general; know the special cases where A⁺ = A⁻¹, (AᵀA)⁻¹Aᵀ, Aᵀ(AAᵀ)⁻¹
+- [W06.S08] Recognize least squares as projection onto the column space, the normal equations
+  AᵀAx = Aᵀb, and when the solution is unique (independent columns ⇔ Gram matrix invertible)
+- [W06.S09] Identify the minimum-norm least squares solution as x = A⁺b among the infinitely
+  many
+- [W06.S10] Know what ridge regularization does (shrinks the solution, not the residual; unique
+  for every λ > 0; tends to A⁺b as λ → 0)
 
 TYPICAL MCQ TRAPS:
 - Asserting A^+ A = I or A A^+ = I in general (both are projections, not identities)

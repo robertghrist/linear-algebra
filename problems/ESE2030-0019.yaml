@@ -3,7 +3,6 @@ legacy_id: Q1-P19
 week: 3
 skills:
 - W03.S05
-- W03.S04
 status: active
 problem_type: null
 statement: |
@@ -43,4 +42,4 @@ topics:
 - Isomorphism
 - dimension
 - vector space equivalence
-notes: 'tagging: topics field mismatches content'
+notes: null

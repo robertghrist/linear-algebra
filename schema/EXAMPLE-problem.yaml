@@ -10,7 +10,7 @@ id: ESE2030-0001
 legacy_id: Q1-P01
 week: 2
 skills:
-  - W02.S04          # Compute the dimension of a described subspace
+  - W02.S05          # Determine the dimension of a described subspace
 status: active
 problem_type: definitional
 

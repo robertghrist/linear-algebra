@@ -45,15 +45,26 @@ CORE CONCEPTS:
    - Rank-Nullity as a corollary, not the headline (Cor 3.26)
    - The theorem is algebraic here; it becomes geometric (orthogonal) in Chapter 6
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W03.S01] Verify or refute linearity of a described map
-- [W03.S02] Compute the kernel and image of a matrix or of a simple operator on polynomials
-- [W03.S03] Apply Rank-Nullity to deduce one dimension from the other two
-- [W03.S04] Decide injectivity/surjectivity from rank and nullity alone
-- [W03.S05] Identify which of the four spaces a given vector or subspace belongs to
-- [W03.S06] Describe a quotient space and give its dimension
-- [W03.S07] State the Fundamental Theorem correctly, including which space each summand lives in
-- [W03.S08] Recognize an isomorphism and produce its inverse on a small example
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W03.S01] Verify or refute linearity of a described map, and know that T(0) = 0 is necessary
+  but not sufficient
+- [W03.S02] Identify the kernel and image of a matrix or of a calculus operator on polynomials,
+  and their dimensions
+- [W03.S03] Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN
+  dimension
+- [W03.S04] Decide injectivity, surjectivity, and bijectivity from the dimensions alone, and
+  know which is impossible when dim V > dim W or dim V < dim W
+- [W03.S05] Place each of the four fundamental spaces in the domain or the codomain, and say
+  what lives in each
+- [W03.S06] Recognize a quotient space: when two vectors represent the same coset, what V/U
+  "remembers," and dim(V/U) = dim V − dim U
+- [W03.S07] Distinguish the quotient V/U from a complement of U, and know how a direct-sum
+  decomposition V = U ⊕ U′ makes U′ a model for V/U
+- [W03.S08] State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅
+  im T — and recognize which statements it does and does not imply
+- [W03.S09] Recognize an isomorphism, know that equal finite dimension is the whole criterion,
+  and know what it preserves
+- [W03.S10] Recognize that rank(A) = rank(Aᵀ) is a theorem (the FTLA), not a definition
 
 TYPICAL MCQ TRAPS:
 - Placing the cokernel in the domain, or the coimage in the codomain

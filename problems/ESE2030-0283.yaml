@@ -1,7 +1,8 @@
 id: ESE2030-0283
 legacy_id: null
 week: 13
-skills: []
+skills:
+- W13.S02
 status: active
 problem_type: null
 statement: |

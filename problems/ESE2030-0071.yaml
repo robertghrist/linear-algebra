@@ -1,7 +1,8 @@
 id: ESE2030-0071
 legacy_id: Q3-P22
 week: 6
-skills: []
+skills:
+- W06.S05
 status: active
 problem_type: null
 statement: |
@@ -50,5 +51,4 @@ topics:
 - orthogonal complements
 - isomorphism
 - inner product geometry
-notes: 'tagging: Tests quotient-space representative via projection onto W^perp (Sec 6.2); no listed skill
-  names it.'
+notes: null

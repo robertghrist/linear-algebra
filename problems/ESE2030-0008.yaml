@@ -42,5 +42,5 @@ topics:
 - Permutation matrices
 - properties
 - PLU decomposition
-notes: 'tagging: Tests permutation-matrix algebra (order of a 3-cycle, P^3 = I); not decoupling, so S08
-  does not fit.'
+notes: 'tagging: permutation-matrix algebra (P^3 = I, P^{-1} = P^T); no v2 skill names it -- candidate
+  W01 addition'

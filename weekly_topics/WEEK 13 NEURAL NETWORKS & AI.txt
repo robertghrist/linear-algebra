@@ -90,18 +90,33 @@ CORE CONCEPTS:
    - ker(D o E) is the variation discarded; im(D o E) is the learned model of where data lives
    - The linear autoencoder recovers the principal subspace -- Week 11, learned rather than computed
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W13.S01] Count parameters in a stated architecture
-- [W13.S02] Evaluate a small network forward by hand
-- [W13.S03] State why depth without nonlinearity collapses to a single linear map
-- [W13.S04] Identify the shapes of W_l, h_l, b_l, and delta_l and check conformability
-- [W13.S05] Apply the backpropagation rule for one layer and identify where the TRANSPOSE enters
-- [W13.S06] Recognize the output-layer error signal as the negated least squares residual
-- [W13.S07] Compare the cost of backpropagation to finite differences
-- [W13.S08] Compute a softmax and an attention weight COLUMN; verify it sums to one
-- [W13.S09] Explain what attention learns that a fixed inner product cannot
-- [W13.S10] Identify kernel and image of a linearized autoencoder round trip and say what each means
-- [W13.S11] Explain the sense in which a linear autoencoder reproduces PCA
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W13.S01] Explain why depth without nonlinearity collapses to a single affine map, and what an
+  elementwise activation adds
+- [W13.S02] Recognize a single perceptron as a half-space classifier: w is normal to the
+  decision boundary, wᵀx + b is a scaled signed distance, and only linearly separable regions
+  are representable (XOR is not)
+- [W13.S03] State universal approximation as an existence claim about WIDTH, and recognize what
+  it does not say (trainability, depth efficiency, sample complexity)
+- [W13.S04] Recognize the feedforward architecture as alternating affine maps and elementwise
+  nonlinearities with a linear last layer; identify the shapes of W_l, b_l, h_l and count
+  parameters
+- [W13.S05] Know what the error signal δ_l IS (the sensitivity ∂L/∂z_l), that hidden layers have
+  no targets, and that backpropagation derives δ_l from δ_{l+1}
+- [W13.S06] Recognize backpropagation as the chain rule on a composition, and identify where the
+  TRANSPOSE enters (forward W, backward Wᵀ — the adjoint of Week 5)
+- [W13.S07] Recognize the output-layer error signal as the negated least squares residual
+- [W13.S08] Know why backpropagation is cheap (a constant multiple of one forward pass) versus
+  finite differences (one pass per parameter)
+- [W13.S09] Recognize SGD as estimating an expectation by a sample: unbiased mini-batch
+  gradients, variance falling with batch size
+- [W13.S10] Recognize attention as a LEARNED inner product (query/key bilinear form), softmax to
+  a column-stochastic S, outputs in the convex hull of the values; know permutation equivariance
+  and the quadratic cost
+- [W13.S11] Identify kernel and image of a linearized autoencoder round trip D∘E (discarded
+  variation; the learned model of the data), and why the encoder alone reveals little
+- [W13.S12] Explain the sense in which a linear autoencoder reproduces PCA, and what a nonlinear
+  one adds
 
 TYPICAL MCQ TRAPS:
 - Claiming universal approximation implies a network can be TRAINED to the function

@@ -71,17 +71,27 @@ CORE CONCEPTS:
      and run the same machinery in an implicit feature space
    - Autoencoders as the nonlinear successor (forward link to Week 13)
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W11.S01] Center a small data matrix and compute its covariance matrix
-- [W11.S02] Identify principal components as eigenvectors of C or right singular vectors of X
-- [W11.S03] Compute variance captured and explained-variance ratios from eigenvalues or singular values
-- [W11.S04] Read a scree plot and defend a choice of k
-- [W11.S05] Decide between covariance PCA and correlation PCA from the units and scales given
-- [W11.S06] Produce the best rank-k approximation from a given SVD and state its error in both norms
-- [W11.S07] Compute a Mahalanobis distance and use it to flag an outlier
-- [W11.S08] Project data onto the top two components and interpret the resulting plot
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W11.S01] Know what the covariance matrix is — (1/n)XᵀX for centered data, a Gram matrix — and
+  read variances and covariances off its entries; know why centering is mandatory
+- [W11.S02] Recognize correlation as the cosine of the angle between centered variables, and
+  read ρ = ±1 and ρ = 0 geometrically
+- [W11.S03] Identify principal components as eigenvectors of C, equivalently right singular
+  vectors of X, and know the dictionary: eigenvalues of C = σ_i²/n = variance captured
+- [W11.S04] Recognize the sequential characterization: each component maximizes remaining
+  variance subject to orthogonality (the Rayleigh quotient at work), and the non-uniqueness when
+  an eigenvalue repeats
+- [W11.S05] Recognize PC scores as the data's coordinates in the principal basis (XV_k =
+  U_kΣ_k), and interpret a projection onto the top two components
+- [W11.S06] Decide between covariance PCA and correlation PCA from the units and scales given,
+  and predict the effect of rescaling one variable on each
+- [W11.S07] Read a scree plot and explained-variance ratios; distinguish effective
+  dimensionality from mathematical rank
+- [W11.S08] State Eckart–Young–Mirsky: the truncated SVD is THE best rank-k approximation, in
+  both norms, with errors σ_{k+1} and √Σ_{i>k}σ_i²
 - [W11.S09] Interpret loadings: which variables drive which component, and the sign ambiguity
-- [W11.S10] State the nuclear norm and say why it stands in for rank
+- [W11.S10] Know what the nuclear norm is and why it stands in for rank; recognize the low-rank-
+  plus-sparse decomposition and what "sparse" means there
 
 TYPICAL MCQ TRAPS:
 - Omitting the centering step and reporting the leading component as the mean direction

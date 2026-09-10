@@ -4,7 +4,7 @@
 
 ## ESE2030-0116
 *week 7 · 2025C final #1 · active*  
-skills: `W07.S08` Write a basis of solutions from distinct characteristic roots  
+skills: `W07.S10` Know that the solution space of an n-th order linear ODE has dimension n, and write the basis of solutions for distinct roots; `W07.S09` Recognize the equivalence of a higher-order scalar ODE and a first-order system: the companion matrix, its characteristic polynomial p(λ), and the roots of p(D) as eigenvalues  
 
 Consider the third-order linear differential equation given in operator ($D = \frac{d}{dt}$) form:
 $$(D^3 - 6D^2 + 3D + 10I)x = 0 = (D-2)(D+1)(D-5)x $$
@@ -34,7 +34,7 @@ Why the distractors tempt:
 
 ## ESE2030-0117
 *week 2 · 2025C final #2 · active*  
-skills: `W02.S04` Compute the dimension of a described subspace (null space, column space, symmetric matrices, polynomials of bounded degree, solution sets of homogeneous systems)  
+skills: `W02.S05` Determine the dimension of a described subspace (null space, column space, symmetric or triangular matrices, polynomials of bounded degree, solutions of a homogeneous ODE) and explain why n generators need not mean dimension n  
 
 Let $V$ be the vector space of all $4 \times 4$ upper triangular matrices. What is $\dim(V)$?
 
@@ -61,6 +61,7 @@ Why the distractors tempt:
 
 ## ESE2030-0118
 *week 13 · 2025C final #3 · needs-review*  
+skills: `W13.S02` Recognize a single perceptron as a half-space classifier: w is normal to the decision boundary, wᵀx + b is a scaled signed distance, and only linearly separable regions are representable (XOR is not)  
 
 A single perceptron computes $f(\mathbf{x}) = \text{sign}(\mathbf{w} \cdot \mathbf{x} + b)$ where $\mathbf{w} \in \mathbb{R}^n$ is a weight vector and $b$ is a bias. Four classification tasks in $\mathbb{R}^2$ are proposed:
 
@@ -96,7 +97,7 @@ Why the distractors tempt:
 
 ## ESE2030-0119
 *week 10 · 2025C final #4 · active*  
-skills: `W10.S07` Build A^+ from a given SVD and use it to solve a least squares problem  
+skills: `W10.S09` Recognize A⁺ = VΣ⁺Uᵀ from a given SVD, with Σ⁺ inverting nonzero singular values AND transposing, and never inverting a zero  
 
 A matrix $A \in \mathbb{R}^{5 \times 3}$ has singular values $\sigma_1 = 6$, $\sigma_2 = 3$, $\sigma_3 = 2$.
 
@@ -125,7 +126,7 @@ Why the distractors tempt:
 
 ## ESE2030-0120
 *week 3 · 2025C final #5 · active*  
-skills: `W03.S01` Verify or refute linearity of a described map  
+skills: `W03.S01` Verify or refute linearity of a described map, and know that T(0) = 0 is necessary but not sufficient  
 
 Let $T: V \to W$ be a function between vector spaces. Which statement about
 the following three properties of $T$ being linear is most correct?
@@ -159,7 +160,7 @@ Why the distractors tempt:
 
 ## ESE2030-0121
 *week 5 · 2025C final #6 · active*  
-skills: `W05.S06` Expand a vector against an orthonormal basis using inner products alone  
+skills: `W05.S05` Know why an orthonormal basis is special: coordinates are inner products, ‖v‖² is the sum of squared coordinates, and no system need be solved  
 
 Let $V$ be a finite-dimensional inner product space. An engineer claims:
 {\em ``Finding coordinates relative to an orthonormal basis is easier than for a general basis.''}
@@ -189,7 +190,7 @@ Why the distractors tempt:
 
 ## ESE2030-0122
 *week 3 · 2025C final #7 · active*  
-skills: `W03.S04` Decide injectivity/surjectivity from rank and nullity alone; `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two  
+skills: `W03.S04` Decide injectivity, surjectivity, and bijectivity from the dimensions alone, and know which is impossible when dim V > dim W or dim V < dim W  
 
 Let $T: \mathbb{R}^6 \to \mathbb{R}^4$ be a linear transformation.
 
@@ -218,7 +219,7 @@ Why the distractors tempt:
 
 ## ESE2030-0123
 *week 10 · 2025C final #8 · active*  
-skills: `W10.S03` Read rank, and bases for all four fundamental subspaces, off a GIVEN SVD  
+skills: `W10.S03` Read the defining relations Av_i = σ_i u_i and Aᵀu_i = σ_i v_i, and place the v's in the domain and the u's in the codomain  
 
 Let $A \in \mathbb{R}^{m \times n}$ have SVD $A = U\Sigma V^T$ with singular values $\sigma_1 > \sigma_2 > 0$ and $\sigma_k = 0$ for $k > 2$.
 
@@ -246,7 +247,7 @@ Why the distractors tempt:
 
 ## ESE2030-0124
 *week 3 · 2025C final #9 · active*  
-skills: `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply  
 
 Let $T: V \to W$ be a linear transformation. The Fundamental Theorem of Linear Algebra establishes an isomorphism between two of the four fundamental spaces. Which pair of spaces are isomorphic?
 
@@ -274,7 +275,7 @@ Why the distractors tempt:
 
 ## ESE2030-0125
 *week 8 · 2025C final #10 · active*  
-skills: `W08.S08` Explain what one QR step does and why the spectrum is unchanged  
+skills: `W08.S07` Explain what one QR-algorithm step does (A → RQ is similar to A), why the spectrum is unchanged, and what the iteration converges to (triangular; block-triangular for complex pairs)  
 
 A real $4 \times 4$ matrix $A$ has eigenvalues $\lambda_1 = 5$, $\lambda_2 = -2$, and $\lambda_{3,4} = 3 \pm 4i$.
 
@@ -304,7 +305,7 @@ Why the distractors tempt:
 
 ## ESE2030-0126
 *week 2 · 2025C final #11 · active*  
-skills: `W02.S03` Test a finite set of vectors, matrices, or polynomials for linear independence  
+skills: `W02.S08` Apply the Exchange Bound: more vectors than the dimension must be dependent; fewer cannot span  
 
 Let $V$ be a vector space with $\dim(V) = 4$, and let $S = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3, \mathbf{v}_4, \mathbf{v}_5\}$ be a set of five vectors in $V$.
 
@@ -334,6 +335,7 @@ Why the distractors tempt:
 
 ## ESE2030-0127
 *week 5 · 2025C final #12 · needs-review*  
+skills: `W05.S03` Decide which operations require an inner product (angle, orthogonality, projection, adjoint, orthogonal complement) and which are purely algebraic (span, kernel, dimension, quotient, invertibility)  
 
 A mathematician working in an abstract vector space $V$ with subspace $W<V$ wants to perform several operations.
 She has chosen a basis for $V$ but has not specified an inner product.
@@ -358,6 +360,7 @@ Orthogonality is defined via inner products: $W^{\perp} = \{\mathbf{v} \in V : \
 
 ## ESE2030-0128
 *week 11 · 2025C final #13 · needs-review*  
+skills: `W11.S02` Recognize correlation as the cosine of the angle between centered variables, and read ρ = ±1 and ρ = 0 geometrically  
 
 {\em ``Correlation is not causation, but it is a cosine.''}
 Which statement best explains the mathematical content of this remark?
@@ -383,7 +386,7 @@ Why the distractors tempt:
 
 ## ESE2030-0129
 *week 7 · 2025C final #14 · active*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S06` Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping)  
 
 A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 2$, $\lambda_2 = -1$, and $\lambda_3 = 3$.
 What are the eigenvalues of $A^4$?
@@ -412,7 +415,7 @@ Why the distractors tempt:
 
 ## ESE2030-0130
 *week 6 · 2025C final #15 · active*  
-skills: `W06.S04` State which fundamental subspace is the orthogonal complement of which  
+skills: `W06.S04` Identify which fundamental subspace is the orthogonal complement of which: coim = (ker)^⊥ = row space, coker = (im)^⊥  
 
 Let $A$ be an $m \times n$ matrix with $\text{rank}(A) = r$.
 Consider the following three spaces:
@@ -448,7 +451,7 @@ Why the distractors tempt:
 
 ## ESE2030-0131
 *week 5 · 2025C final #16 · active*  
-skills: `W05.S07` Compute an adjoint, and recognize when the adjoint differs from the transpose  
+skills: `W05.S07` Know the defining property of the adjoint ⟨Tv, w⟩ = ⟨v, T*w⟩, its domain and codomain, and that T* is the transpose only in the standard inner product with standard bases  
 
 Let $V$ be a finite-dimensional real inner product space and let $T: V \to V$ be a linear operator.
 Recall that the adjoint $T^*$ is defined via the inner product and generalizes the notion of a transpose.
@@ -478,7 +481,7 @@ Why the distractors tempt:
 
 ## ESE2030-0132
 *week 13 · 2025C final #17 · active*  
-skills: `W13.S05` Apply the backpropagation rule for one layer and identify where the TRANSPOSE enters  
+skills: `W13.S06` Recognize backpropagation as the chain rule on a composition, and identify where the TRANSPOSE enters (forward W, backward Wᵀ — the adjoint of Week 5)  
 
 Training a neural network requires computing the gradient of the loss function $L$ with respect to all weight matrices $W_1, W_2, \ldots, W_k$ in the network. The backpropagation algorithm accomplishes this efficiently by working backward from the output layer to the input layer.
 
@@ -508,7 +511,7 @@ Why the distractors tempt:
 
 ## ESE2030-0133
 *week 5 · 2025C final #18 · active*  
-skills: `W05.S06` Expand a vector against an orthonormal basis using inner products alone  
+skills: `W05.S05` Know why an orthonormal basis is special: coordinates are inner products, ‖v‖² is the sum of squared coordinates, and no system need be solved  
 
 Let $B = \{\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3, \mathbf{e}_4\}$ be an orthonormal basis for $\mathbb{R}^4$, and suppose
 $$\mathbf{v} = 3\mathbf{e}_1 - 2\mathbf{e}_2 + \mathbf{e}_3 - 4\mathbf{e}_4$$
@@ -537,7 +540,7 @@ Why the distractors tempt:
 
 ## ESE2030-0134
 *week 2 · 2025C final #19 · active*  
-skills: `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S01` Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)  
 
 Consider the set $W = \{(x, y, z) \in \mathbb{R}^3 : x^2 + y^2 \leq z^2\}$ (a double cone centered at the origin).
 Which statement best describes why $W$ is \emph{not} a subspace of $\mathbb{R}^3$?
@@ -565,7 +568,7 @@ Why the distractors tempt:
 
 ## ESE2030-0135
 *week 1 · 2025C final #20 · active*  
-skills: `W01.S03` Write a general solution as particular + homogeneous  
+skills: `W01.S03` Recognize the solution set as particular + homogeneous: an affine translate of the null space, and know its dimension  
 
 Consider a linear system $A\mathbf{x} = \mathbf{b}$ where $A$ is a $5 \times 8$ matrix of rank $3$. Suppose the system is consistent (has at least one solution). Which statement best describes the solution set?
 
@@ -592,7 +595,7 @@ Why the distractors tempt:
 
 ## ESE2030-0136
 *week 7 · 2025C final #21 · active*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix; `W07.S04` Assemble V and D and verify A = V D V^{-1}  
+skills: `W07.S06` Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping)  
 
 A $3 \times 3$ matrix $A$ is diagonalizable with $A = P\Lambda P^{-1}$, where $\Lambda  = \text{diag}(2, -1, 4)$ and $P$ is the matrix of eigenvectors.
 To compute $A^{100}$, which approach is correct?
@@ -621,7 +624,7 @@ Why the distractors tempt:
 
 ## ESE2030-0137
 *week 5 · 2025C final #22 · active*  
-skills: `W05.S05` Run Gram-Schmidt on two or three vectors and normalize correctly  
+skills: `W05.S06` Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME nested spans), and why "just normalize each vector" fails  
 
 {\em ``To get an orthonormal basis from a basis $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$, just normalize each vector: $\mathbf{e}_i = \mathbf{v}_i/\|\mathbf{v}_i\|$.''}
 Why does this fail to produce an orthonormal basis in general?
@@ -648,7 +651,7 @@ Why the distractors tempt:
 
 ## ESE2030-0138
 *week 9 · 2025C final #23 · active*  
-skills: `W09.S06` Verify a matrix is stochastic and find its stationary distribution  
+skills: `W09.S05` Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it  
 
 A transition matrix $P$ models customer movement between three competing brands. The state vector $\mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}$ represents the fraction of customers at each brand, and the system evolves as $\mathbf{x}_{k+1} = P\mathbf{x}_k$.
 
@@ -679,7 +682,7 @@ Why the distractors tempt:
 
 ## ESE2030-0139
 *week 5 · 2025C final #24 · needs-review*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 
 In data science, \emph{cosine similarity} between vectors $\mathbf{u}$ and $\mathbf{v}$ tends to be preferred over the inner product $\langle \mathbf{u}, \mathbf{v} \rangle$. Why?
 
@@ -705,6 +708,7 @@ Why the distractors tempt:
 
 ## ESE2030-0140
 *week 10 · 2025C final #25 · needs-review*  
+skills: `W10.S10` Know that singular values are invariant under orthogonal transformations on either side (A → Q₁AQ₂ᵀ) but NOT under similarity  
 
 Let $A \in \mathbb{R}^{m \times n}$ have singular values $\sigma_1, \ldots, \sigma_r > 0$. Let $Q \in \mathbb{R}^{m \times m}$ and $P \in \mathbb{R}^{n \times n}$ be orthogonal matrices.
 
@@ -732,7 +736,7 @@ Why the distractors tempt:
 
 ## ESE2030-0141
 *week 8 · 2025C final #26 · active*  
-skills: `W08.S07` Write the basis of solutions for an ODE with repeated or complex characteristic roots  
+skills: `W08.S06` Write the basis of solutions for an ODE with repeated or complex characteristic roots, and recognize the polynomial factor as the signature of a defective matrix; `W08.S01` Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ  
 
 A fourth-order linear ODE with constant coefficients has the general solution:
 $$x(t) = C_1 e^{-t} + C_2 te^{-t} + C_3 e^{2t}\cos(5t) + C_4 e^{2t}\sin(5t)$$
@@ -763,7 +767,7 @@ Why the distractors tempt:
 
 ## ESE2030-0142
 *week 5 · 2025C final #27 · active*  
-skills: `W05.S09` Read off Q and R from a small QR, and use QR to solve or to compute a projection  
+skills: `W05.S10` Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A  
 
 Let $A$ be an $n \times n$ matrix and let $A = QR$ be its QR decomposition.
 If $R$ has a zero on its diagonal, what can be concluded?
@@ -816,7 +820,7 @@ Why the distractors tempt:
 
 ## ESE2030-0144
 *week 9 · 2025C final #29 · active*  
-skills: `W09.S09` Build a Graph Laplacian and read the number of components off its kernel  
+skills: `W09.S09` Recognize the Graph Laplacian, read the number of components off its kernel, and know what the Fiedler vector splits  
 
 The graph Laplacian $L = D - A$ for a network of 8 users has eigenvalues:
 $$\lambda_1 = 0, \quad \lambda_2 = 0, \quad \lambda_3 = 0, \quad \lambda_4 = 1, \quad \lambda_5 = 2, \quad \lambda_6 = 3, \quad \lambda_7 = 4, \quad \lambda_8 = 5$$
@@ -846,7 +850,7 @@ Why the distractors tempt:
 
 ## ESE2030-0145
 *week 6 · 2025C final #30 · active*  
-skills: `W06.S08` Identify the minimum-norm solution among the infinitely many least squares solutions  
+skills: `W06.S09` Identify the minimum-norm least squares solution as x = A⁺b among the infinitely many  
 
 Consider the linear system $A\mathbf{x} = \mathbf{b}$, where $A$ is an $m \times n$ matrix and $\mathbf{b} \in \mathbb{R}^m$. The system may be overdetermined, underdetermined, or inconsistent. The pseudoinverse solution is defined as $\hat{\mathbf{x}} = A^{\dagger}\mathbf{b}$.
 
@@ -875,7 +879,7 @@ Why the distractors tempt:
 
 ## ESE2030-0146
 *week 8 · 2025C final #31 · active*  
-skills: `W08.S06` Exponentiate a 2x2 or 3x3 Jordan block  
+skills: `W08.S05` Recognize e^{tJ} for a Jordan block: the polynomial-times-exponential structure via the commuting split λI + N  
 
 What is $e^{Jt}$ where $J$ is the $3 \times 3$ Jordan block
 $$J = \begin{bmatrix} 2 & 1 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{bmatrix}$$
@@ -905,7 +909,7 @@ Why the distractors tempt:
 
 ## ESE2030-0147
 *week 10 · 2025C final #32 · active*  
-skills: `W10.S01` Orthogonally diagonalize a small symmetric matrix and write its spectral decomposition  
+skills: `W10.S01` State the Spectral Theorem for symmetric matrices (A = QDQᵀ, real eigenvalues, orthonormal eigenbasis) and recognize which of its guarantees fail for non-symmetric matrices  
 
 Let $A$ be a real symmetric $4 \times 4$ matrix with eigenvalues $\lambda_1 = 5$, $\lambda_2 = 5$, $\lambda_3 = -1$, and $\lambda_4 = -1$.
 Let $\mathbf{v}_1, \mathbf{v}_2$ be eigenvectors for $\lambda = 5$ and $\mathbf{v}_3, \mathbf{v}_4$ be eigenvectors for $\lambda = -1$.
@@ -935,7 +939,7 @@ Why the distractors tempt:
 
 ## ESE2030-0148
 *week 10 · 2025C final #33 · active*  
-skills: `W10.S08` Relate singular values of A to eigenvalues of A^T A without conflating them  
+skills: `W10.S06` Relate singular values of A to eigenvalues of AᵀA and AAᵀ (σ_i² = λ_i, shared nonzero eigenvalues) without conflating them; know σ_i ≥ 0 while eigenvalues need not be, and when σ_i = |λ_i|  
 
 Let $A \in \mathbb{R}^{n \times n}$ be a square matrix with eigenvalues $\lambda_1, \ldots, \lambda_n$ and singular values $\sigma_1 \geq \cdots \geq \sigma_n \geq 0$.
 
@@ -964,7 +968,7 @@ Why the distractors tempt:
 
 ## ESE2030-0149
 *week 1 · 2025C final #34 · active*  
-skills: `W01.S06` Extract L and U from elimination multipliers; produce PA = LU when a swap is needed  
+skills: `W01.S07` Recognize an LU or PA = LU factorization and say what each factor records; know when the permutation is required  
 
 Let $A$ be a $4 \times 4$ invertible matrix. During row reduction (i.e., Gaussian elimination) on $A$, a row exchange
 is required at the third step (but not before). Which statement is TRUE?
@@ -993,7 +997,7 @@ Why the distractors tempt:
 
 ## ESE2030-0150
 *week 3 · 2025C final #35 · active*  
-skills: `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two; `W03.S06` Describe a quotient space and give its dimension; `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply; `W03.S03` Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN dimension  
 
 Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces with $\dim(V) = 7$, $\dim(W) = 5$, and $\text{rank}(T) = 3$.
 
@@ -1024,7 +1028,7 @@ Why the distractors tempt:
 
 ## ESE2030-0151
 *week 11 · 2025C final #36 · active*  
-skills: `W11.S05` Decide between covariance PCA and correlation PCA from the units and scales given  
+skills: `W11.S06` Decide between covariance PCA and correlation PCA from the units and scales given, and predict the effect of rescaling one variable on each  
 
 Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix, and let $\tilde{X}$ be obtained by multiplying the third column of $X$ by 1000 (i.e., rescaling variable $X_3$).
 
@@ -1052,7 +1056,7 @@ Why the distractors tempt:
 
 ## ESE2030-0152
 *week 7 · 2025C final #37 · active*  
-skills: `W07.S06` Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum  
+skills: `W07.S07` Know what e^{tA} is (the power series), what it is not (entrywise exponential), when e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax  
 
 Consider the linear system $\displaystyle \frac{d\mathbf{x}}{dt} = A\mathbf{x}$ where $A$ is a constant $n \times n$ matrix.
 
@@ -1080,7 +1084,7 @@ Why the distractors tempt:
 
 ## ESE2030-0153
 *week 2 · 2025C final #38 · active*  
-skills: `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S01` Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)  
 
 Consider the following sets with standard addition and scalar multiplication.
 Which one is \textbf{NOT} a vector space?
@@ -1109,7 +1113,7 @@ Why the distractors tempt:
 
 ## ESE2030-0154
 *week 13 · 2025C final #39 · active*  
-skills: `W13.S03` State why depth without nonlinearity collapses to a single linear map  
+skills: `W13.S01` Explain why depth without nonlinearity collapses to a single affine map, and what an elementwise activation adds  
 
 Consider a neural network with input dimension 10, three hidden layers of dimensions 20, 15, and 8 respectively, and output dimension 3. All connections are fully connected (dense layers). If the network uses NO activation functions (i.e., each layer computes only an affine transformation $\mathbf{y} = W\mathbf{x} + \mathbf{b}$), what is the network's effective computational power?
 
@@ -1136,7 +1140,7 @@ Why the distractors tempt:
 
 ## ESE2030-0155
 *week 5 · 2025C final #40 · active*  
-skills: `W05.S08` Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does  
+skills: `W05.S08` Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)  
 
 Let $Q$ be an $n \times n$ orthogonal matrix.
 Which property is false (more precisely, not necessarily true)?
@@ -1159,7 +1163,7 @@ Consider $Q = -I$ (which is orthogonal: $Q^TQ = I$). Then $Q + Q^T = -I + (-I)^T
 
 ## ESE2030-0156
 *week 6 · 2025C final #41 · active*  
-skills: `W06.S02` Project a vector onto a line, a plane, or the column space of a small matrix  
+skills: `W06.S02` Recognize orthogonal projection as the unique nearest point in a subspace, and the residual as orthogonal to that subspace  
 
 Orthogonal projection $\Pi_W(\mathbf{v})$ is used to find the ``best approximation'' of a vector $\mathbf{v}$ within a subspace $W$.
 What makes $\Pi_W(\mathbf{v})$ the ``best'' approximation?
@@ -1188,7 +1192,7 @@ Why the distractors tempt:
 
 ## ESE2030-0157
 *week 10 · 2025C final #42 · active*  
-skills: `W10.S03` Read rank, and bases for all four fundamental subspaces, off a GIVEN SVD  
+skills: `W10.S04` Read rank and bases for all four fundamental subspaces off a GIVEN SVD (v's beyond r span the kernel; u's beyond r span the cokernel)  
 
 A matrix $A \in \mathbb{R}^{8 \times 6}$ has SVD $A = U\Sigma V^T$ with singular values
 $$\sigma_1 = 7, \quad \sigma_2 = 4, \quad \sigma_3 = 2, \quad \sigma_4 = \sigma_5 = \sigma_6 = 0$$
@@ -1217,7 +1221,7 @@ Why the distractors tempt:
 
 ## ESE2030-0158
 *week 7 · 2025C final #43 · active*  
-skills: `W07.S08` Write a basis of solutions from distinct characteristic roots  
+skills: `W07.S10` Know that the solution space of an n-th order linear ODE has dimension n, and write the basis of solutions for distinct roots  
 
 Consider the differential equation given in factored operator form ($D = \frac{d}{dt}$):
 $$D(D-4)(D+2)(D-3)x = 0$$

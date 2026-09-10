@@ -40,15 +40,24 @@ CORE CONCEPTS:
    - Repeated real root (Ex 8.15); critical damping (Ex 8.16); repeated complex roots (Ex 8.17)
    - The polynomial factor is the ODE's signature of a defective matrix
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W08.S01] Find complex eigenvalues and produce REAL solutions from them
-- [W08.S02] Read frequency and growth rate off a complex eigenvalue
-- [W08.S03] Compute algebraic and geometric multiplicity, and diagnose defectiveness
-- [W08.S04] Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I)
-- [W08.S05] Find a generalized eigenvector by solving (A - lambda I) w = v
-- [W08.S06] Exponentiate a 2x2 or 3x3 Jordan block
-- [W08.S07] Write the basis of solutions for an ODE with repeated or complex characteristic roots
-- [W08.S08] Explain what one QR step does and why the spectrum is unchanged
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W08.S01] Recognize that complex eigenvalues of a real matrix come in conjugate pairs and
+  produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ
+- [W08.S02] Distinguish algebraic from geometric multiplicity, know geometric ≤ algebraic, and
+  diagnose defectiveness as the gap
+- [W08.S03] Determine Jordan block structure from multiplicities: one block per independent
+  eigenvector, and what block sizes mean
+- [W08.S04] Know what a generalized eigenvector is ((A − λI)w = v) and what it buys — the t
+  e^{λt} terms — without constructing chains by hand
+- [W08.S05] Recognize e^{tJ} for a Jordan block: the polynomial-times-exponential structure via
+  the commuting split λI + N
+- [W08.S06] Write the basis of solutions for an ODE with repeated or complex characteristic
+  roots, and recognize the polynomial factor as the signature of a defective matrix
+- [W08.S07] Explain what one QR-algorithm step does (A → RQ is similar to A), why the spectrum
+  is unchanged, and what the iteration converges to (triangular; block-triangular for complex
+  pairs)
+- [W08.S08] Distinguish the QR ALGORITHM (eigenvalues, Week 8) from the QR DECOMPOSITION
+  (factorization, Week 5), and know that Jordan form is a theorem, not what software computes
 
 TYPICAL MCQ TRAPS:
 - Reporting geometric multiplicity greater than algebraic

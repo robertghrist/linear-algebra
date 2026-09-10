@@ -52,5 +52,5 @@ topics:
 - consistency
 - fundamental subspaces
 notes: 'difficulty: Core | solutions guide matched ("Solvability of $A\mathbf{x} = \mathbf{b}$") but its
-  correct choice could not be mapped to a letter here | tagging: Likely wrong week: relies on im(A), ker(A^T)
-  and FTLA/Fredholm alternative (Week 3/Week 6 content).'
+  correct choice could not be mapped to a letter here | tagging: taggers twice suggested Week 6 (Fredholm
+  alternative, im(A)^perp = ker(A^T)); kept in Week 1 per the 2026-A solutions guide'

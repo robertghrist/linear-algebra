@@ -2,9 +2,8 @@ id: ESE2030-0279
 legacy_id: null
 week: 3
 skills:
+- W03.S08
 - W03.S03
-- W03.S07
-- W03.S06
 status: active
 problem_type: null
 statement: |

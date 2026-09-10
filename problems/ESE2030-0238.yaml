@@ -1,7 +1,8 @@
 id: ESE2030-0238
 legacy_id: null
 week: 13
-skills: []
+skills:
+- W13.S03
 status: active
 problem_type: null
 statement: |
@@ -55,5 +56,4 @@ topics:
 - Universal approximation theorem
 - expressive power vs trainability
 notes: 'difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts
-  them in Chapter 13 | tagging: Tests universal approximation (existence vs trainability); no W13 skill
-  names this.'
+  them in Chapter 13'

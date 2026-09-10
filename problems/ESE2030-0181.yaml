@@ -1,7 +1,8 @@
 id: ESE2030-0181
 legacy_id: null
 week: 1
-skills: []
+skills:
+- W01.S05
 status: active
 problem_type: null
 statement: |
@@ -56,4 +57,4 @@ topics:
 - Elementary matrices
 - row operations
 - matrix multiplication order
-notes: 'tagging: Tests order of composition of elementary matrices; same gap as 0024.'
+notes: null

@@ -2,8 +2,8 @@ id: ESE2030-0215
 legacy_id: null
 week: 9
 skills:
+- W09.S04
 - W09.S05
-- W09.S06
 status: active
 problem_type: null
 statement: |
@@ -55,4 +55,5 @@ topics:
 - Perron-Frobenius theorem
 - positive matrices
 - uniqueness of
-notes: null
+notes: 'EXPLANATION: excerpt reads as if written for a different key; key E consistent with choices as
+  written'

@@ -4,7 +4,7 @@
 
 ## ESE2030-0074
 *week 9 · 2025C quiz4 #1 · active · legacy Q4-P01*  
-skills: `W09.S02` Compute the spectral radius and identify the dominant eigenvalue and eigenvector  
+skills: `W09.S02` Identify the spectral radius and the dominant eigenvalue/eigenvector, and predict the limiting direction of an iterate and its rate (|λ₂|/|λ₁|)  
 topics: Dominant eigenvalue, spectral radius, convergence rate
 
 A matrix $B$ has eigenvalues $\lambda_1 = 3$, $\lambda_2 = -4$, $\lambda_3 = 0$, and $\lambda_{4,5} = 1 \pm 2i$.
@@ -29,7 +29,7 @@ The dominant eigenvalue is the one with largest magnitude (absolute value). Comp
 
 ## ESE2030-0076
 *week 9 · 2025C quiz4 #3 · active · legacy Q4-P03*  
-skills: `W09.S07` Orthogonally diagonalize a small symmetric matrix  
+skills: `W09.S06` Know what symmetry buys: real eigenvalues, orthogonal eigenvectors for DISTINCT eigenvalues, and an orthonormal eigenbasis that can be chosen (not automatic within a repeated eigenspace)  
 topics: Spectral Theorem, symmetric matrices, orthogonal diagonalization
 
 Let $A$ be a real symmetric $n \times n$ matrix with eigenvalues $\lambda_1, \ldots, \lambda_n$ and corresponding orthonormal eigenvectors $\mathbf{q}_1, \ldots, \mathbf{q}_n$.
@@ -62,7 +62,7 @@ Why the distractors tempt:
 
 ## ESE2030-0080
 *week 9 · 2025C quiz4 #7 · active · legacy Q4-P07*  
-skills: `W09.S06` Verify a matrix is stochastic and find its stationary distribution; `W09.S03` Predict the limiting direction of an iterate and the rate of approach  
+skills: `W09.S05` Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it; `W09.S02` Identify the spectral radius and the dominant eigenvalue/eigenvector, and predict the limiting direction of an iterate and its rate (|λ₂|/|λ₁|)  
 topics: Stochastic matrices, Markov chains, eigenvalues, stationary distributions
 
 A population model tracks the number of individuals in three age groups: juvenile, adult, and senior. The transition matrix $P$ describes how the population distribution changes each year, where column $j$ shows the probability of transitioning into each age group from group $j$.
@@ -95,7 +95,7 @@ Why the distractors tempt:
 
 ## ESE2030-0081
 *week 9 · 2025C quiz4 #8 · active · legacy Q4-P08*  
-skills: `W09.S09` Build a Graph Laplacian and read the number of components off its kernel  
+skills: `W09.S09` Recognize the Graph Laplacian, read the number of components off its kernel, and know what the Fiedler vector splits  
 topics: Graph Laplacian, eigenvalues, connected components, network structure
 
 Consider a network of six computer servers. The graph Laplacian matrix $L = D - A$ (where $D$ is the degree matrix and $A$ is the adjacency matrix) is computed and found to have eigenvalues:
@@ -127,7 +127,7 @@ Why the distractors tempt:
 
 ## ESE2030-0083
 *week 9 · 2025C quiz4 #10 · active · legacy Q4-P10*  
-skills: `W09.S03` Predict the limiting direction of an iterate and the rate of approach; `W09.S02` Compute the spectral radius and identify the dominant eigenvalue and eigenvector  
+skills: `W09.S02` Identify the spectral radius and the dominant eigenvalue/eigenvector, and predict the limiting direction of an iterate and its rate (|λ₂|/|λ₁|); `W09.S01` Determine whether A^k x₀ converges, diverges, or oscillates from the spectrum alone, and contrast |λ| < 1 (iteration) with Re λ < 0 (ODE)  
 topics: Linear iteration, convergence, long-term behavior, dominant eigenvalue
 
 A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 0.6$, $\lambda_2 = -0.8$, and $\lambda_3 = 0.4$, with corresponding linearly independent eigenvectors $\mathbf{v}_1$, $\mathbf{v}_2$, and $\mathbf{v}_3$.
@@ -157,7 +157,7 @@ Why the distractors tempt:
 
 ## ESE2030-0084
 *week 9 · 2025C quiz4 #11 · active · legacy Q4-P11*  
-skills: `W09.S05` Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem; `W09.S02` Compute the spectral radius and identify the dominant eigenvalue and eigenvector  
+skills: `W09.S04` Classify a nonnegative matrix as irreducible and/or primitive, and know which Perron–Frobenius conclusion each hypothesis buys (simple dominant eigenvalue, positive eigenvector, strict dominance)  
 topics: Perron-Frobenius theorem, positive matrices, dominant eigenvalue
 
 Let $A$ be a square matrix with all entries strictly positive, to which the Perron-Frobenius theorem applies. Now consider the matrix $-A$ (all entries strictly negative). Which statement about $-A$ does Perron-Frobenius imply?
@@ -186,7 +186,7 @@ Why the distractors tempt:
 
 ## ESE2030-0086
 *week 9 · 2025C quiz4 #13 · active · legacy Q4-P13*  
-skills: `W09.S03` Predict the limiting direction of an iterate and the rate of approach  
+skills: `W09.S02` Identify the spectral radius and the dominant eigenvalue/eigenvector, and predict the limiting direction of an iterate and its rate (|λ₂|/|λ₁|); `W09.S03` Recognize the power method as dominant convergence turned into an algorithm — what it finds and when it fails  
 topics: Power method, convergence rate, eigenvalue ratios
 
 Two matrices have the following eigenvalue structures:
@@ -223,7 +223,7 @@ Why the distractors tempt:
 
 ## ESE2030-0087
 *week 9 · 2025C quiz4 #14 · active · legacy Q4-P14*  
-skills: `W09.S06` Verify a matrix is stochastic and find its stationary distribution  
+skills: `W09.S05` Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it  
 topics: Stochastic matrices, Markov chains, stationary distribution applications
 
 A simplified model of customer loyalty tracks subscribers between three streaming services. Each month, customers switch services according to a transition matrix $P$ where column $j$ represents the probability distribution of where service $j$'s customers go:
@@ -252,7 +252,7 @@ Stochastic matrices (where columns sum to 1 and entries are non-negative) always
 
 ## ESE2030-0088
 *week 9 · 2025C quiz4 #15 · needs-review · legacy Q4-P15*  
-skills: `W09.S06` Verify a matrix is stochastic and find its stationary distribution  
+skills: `W09.S05` Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it  
 topics: Random walks, graph structure, symmetric matrices, Markov chains
 
 A robot performs a random walk on a network of four rooms connected by doorways. At each time step, the robot moves to a randomly chosen adjacent room with equal probability. The transition matrix is:
@@ -285,7 +285,7 @@ Why the distractors tempt:
 
 ## ESE2030-0091
 *week 9 · 2025C quiz4 #18 · active · legacy Q4-P18*  
-skills: `W09.S07` Orthogonally diagonalize a small symmetric matrix  
+skills: `W09.S07` Recognize a Gram matrix XᵀX or a covariance matrix as symmetric positive semidefinite (positive definite iff independent columns), with eigenvalues ≥ 0  
 
 Let $X$ be a $5 \times 3$ matrix with linearly independent columns. Consider the square matrix $A = X^TX$. Which statement about the eigenvalues of $A$ must be true?
 
@@ -313,7 +313,7 @@ Why the distractors tempt:
 
 ## ESE2030-0092
 *week 9 · 2025C quiz4 #19 · needs-review · legacy Q4-P19*  
-skills: `W09.S07` Orthogonally diagonalize a small symmetric matrix  
+skills: `W09.S06` Know what symmetry buys: real eigenvalues, orthogonal eigenvectors for DISTINCT eigenvalues, and an orthonormal eigenbasis that can be chosen (not automatic within a repeated eigenspace)  
 topics: Spectral Theorem, orthogonality of eigenvectors, symmetric matrices
 
 Let $A$ be a \textit{symmetric} $3 \times 3$ matrix with eigenvalues $\lambda_1 = 5$, $\lambda_2 = 3$, and $\lambda_3 = 3$. Using the convention that an eigenvector $\mathbf{v}_i$ always goes with the eigenvalue $\lambda_i$, which of the following statements is most correct?
@@ -341,7 +341,7 @@ Why the distractors tempt:
 
 ## ESE2030-0093
 *week 9 · 2025C quiz4 #20 · active · legacy Q4-P20*  
-skills: `W09.S02` Compute the spectral radius and identify the dominant eigenvalue and eigenvector  
+skills: `W09.S02` Identify the spectral radius and the dominant eigenvalue/eigenvector, and predict the limiting direction of an iterate and its rate (|λ₂|/|λ₁|)  
 topics: Spectral radius, eigenvalue magnitudes, complex eigenvalues
 
 A $4 \times 4$ matrix $A$ has eigenvalues:
@@ -367,7 +367,7 @@ The spectral radius is the maximum magnitude among all eigenvalues: $\rho(A) = \
 
 ## ESE2030-0138
 *week 9 · 2025C final #23 · active*  
-skills: `W09.S06` Verify a matrix is stochastic and find its stationary distribution  
+skills: `W09.S05` Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it  
 
 A transition matrix $P$ models customer movement between three competing brands. The state vector $\mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}$ represents the fraction of customers at each brand, and the system evolves as $\mathbf{x}_{k+1} = P\mathbf{x}_k$.
 
@@ -398,7 +398,7 @@ Why the distractors tempt:
 
 ## ESE2030-0144
 *week 9 · 2025C final #29 · active*  
-skills: `W09.S09` Build a Graph Laplacian and read the number of components off its kernel  
+skills: `W09.S09` Recognize the Graph Laplacian, read the number of components off its kernel, and know what the Fiedler vector splits  
 
 The graph Laplacian $L = D - A$ for a network of 8 users has eigenvalues:
 $$\lambda_1 = 0, \quad \lambda_2 = 0, \quad \lambda_3 = 0, \quad \lambda_4 = 1, \quad \lambda_5 = 2, \quad \lambda_6 = 3, \quad \lambda_7 = 4, \quad \lambda_8 = 5$$
@@ -428,7 +428,7 @@ Why the distractors tempt:
 
 ## ESE2030-0205
 *week 9 · 2026A quiz3 #2 · active*  
-skills: `W09.S01` Determine whether A^k converges, diverges, or oscillates, from the spectrum alone  
+skills: `W09.S01` Determine whether A^k x₀ converges, diverges, or oscillates from the spectrum alone, and contrast |λ| < 1 (iteration) with Re λ < 0 (ODE)  
 topics: Spectral radius, linear iteration, convergence to zero, eigenvalue magnitude vs sign
 
 A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 0.7$,
@@ -461,7 +461,7 @@ Why the distractors tempt:
 
 ## ESE2030-0207
 *week 9 · 2026A quiz3 #4 · active*  
-skills: `W09.S09` Build a Graph Laplacian and read the number of components off its kernel  
+skills: `W09.S09` Recognize the Graph Laplacian, read the number of components off its kernel, and know what the Fiedler vector splits  
 topics: Graph Laplacian, symmetry, Spectral Theorem, kernel structure
 
 Let $G$ be an undirected graph on $n$ vertices with adjacency matrix $A$
@@ -495,7 +495,7 @@ Why the distractors tempt:
 
 ## ESE2030-0209
 *week 9 · 2026A quiz3 #6 · active*  
-skills: `W09.S07` Orthogonally diagonalize a small symmetric matrix  
+skills: `W09.S06` Know what symmetry buys: real eigenvalues, orthogonal eigenvectors for DISTINCT eigenvalues, and an orthonormal eigenbasis that can be chosen (not automatic within a repeated eigenspace)  
 topics: Spectral Theorem, symmetric vs diagonalizable, real eigenvalues
 
 A real $n \times n$ matrix $A$ is known to be symmetric.
@@ -526,7 +526,7 @@ Why the distractors tempt:
 
 ## ESE2030-0211
 *week 9 · 2026A quiz3 #8 · active*  
-skills: `W09.S06` Verify a matrix is stochastic and find its stationary distribution; `W09.S03` Predict the limiting direction of an iterate and the rate of approach  
+skills: `W09.S05` Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it  
 topics: Stochastic matrices, stationary distribution, convergence
 
 Consider the $3 \times 3$ positive stochastic matrix with stationary distribution:
@@ -564,7 +564,7 @@ Why the distractors tempt:
 
 ## ESE2030-0214
 *week 9 · 2026A quiz3 #11 · active*  
-skills: `W09.S06` Verify a matrix is stochastic and find its stationary distribution  
+skills: `W09.S05` Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it  
 topics: Stochastic matrices, eigenvalue properties, column sums
 
 A $3 \times 3$ matrix $P$ has non-negative entries and every column
@@ -595,7 +595,7 @@ Why the distractors tempt:
 
 ## ESE2030-0215
 *week 9 · 2026A quiz3 #12 · active*  
-skills: `W09.S05` Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem; `W09.S06` Verify a matrix is stochastic and find its stationary distribution  
+skills: `W09.S04` Classify a nonnegative matrix as irreducible and/or primitive, and know which Perron–Frobenius conclusion each hypothesis buys (simple dominant eigenvalue, positive eigenvector, strict dominance); `W09.S05` Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it  
 topics: Perron-Frobenius theorem, positive matrices, uniqueness of
 
 A positive stochastic matrix $P$ (all entries strictly positive, columns
@@ -627,7 +627,7 @@ Why the distractors tempt:
 
 ## ESE2030-0216
 *week 9 · 2026A quiz3 #13 · active*  
-skills: `W09.S07` Orthogonally diagonalize a small symmetric matrix  
+skills: `W09.S06` Know what symmetry buys: real eigenvalues, orthogonal eigenvectors for DISTINCT eigenvalues, and an orthonormal eigenbasis that can be chosen (not automatic within a repeated eigenspace)  
 topics: Spectral Theorem (unstated), symmetric matrices, orthogonal
 
 Let $A$ be a real symmetric $n \times n$ matrix, and let $B$ be a
@@ -659,7 +659,7 @@ Why the distractors tempt:
 
 ## ESE2030-0217
 *week 9 · 2026A quiz3 #14 · active*  
-skills: `W09.S03` Predict the limiting direction of an iterate and the rate of approach  
+skills: `W09.S02` Identify the spectral radius and the dominant eigenvalue/eigenvector, and predict the limiting direction of an iterate and its rate (|λ₂|/|λ₁|); `W09.S01` Determine whether A^k x₀ converges, diverges, or oscillates from the spectrum alone, and contrast |λ| < 1 (iteration) with Re λ < 0 (ODE)  
 topics: Dominant eigenvalue, linear recurrence as matrix iteration
 
 The Fibonacci sequence $F_0 = 0, \; F_1 = 1, \; F_{k+1} = F_k + F_{k-1}$
@@ -697,7 +697,7 @@ Why the distractors tempt:
 
 ## ESE2030-0269
 *week 9 · 2026A final #20 · active · Deeper*  
-skills: `W09.S07` Orthogonally diagonalize a small symmetric matrix  
+skills: `W09.S06` Know what symmetry buys: real eigenvalues, orthogonal eigenvectors for DISTINCT eigenvalues, and an orthonormal eigenbasis that can be chosen (not automatic within a repeated eigenspace)  
 topics: Spectral Theorem for symmetric matrices, real eigenvalues
 
 Let $A \in \mathbb{R}^{n \times n}$ be a real symmetric matrix. The Spectral
@@ -729,7 +729,7 @@ Why the distractors tempt:
 
 ## ESE2030-0273
 *week 9 · 2026A final #24 · active · Core*  
-skills: `W09.S05` Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem  
+skills: `W09.S04` Classify a nonnegative matrix as irreducible and/or primitive, and know which Perron–Frobenius conclusion each hypothesis buys (simple dominant eigenvalue, positive eigenvector, strict dominance)  
 topics: Perron-Frobenius theorem, dominant eigenvalue, positive eigenvector
 
 Suppose $A$ is a square matrix with all entries strictly positive. Which statement most completely captures what the Perron-Frobenius theorem guarantees about the eigenstructure of $A$?
@@ -758,7 +758,7 @@ Why the distractors tempt:
 
 ## ESE2030-0286
 *week 9 · 2026A final #37 · active*  
-skills: `W09.S06` Verify a matrix is stochastic and find its stationary distribution; `W09.S05` Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem  
+skills: `W09.S05` Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it; `W09.S04` Classify a nonnegative matrix as irreducible and/or primitive, and know which Perron–Frobenius conclusion each hypothesis buys (simple dominant eigenvalue, positive eigenvector, strict dominance)  
 topics: Positive stochastic matrices, Markov chains, stationary distribution
 
 Let $P$ be a positive column-stochastic $n \times n$ matrix governing a Markov chain

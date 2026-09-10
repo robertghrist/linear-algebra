@@ -4,7 +4,7 @@
 
 ## ESE2030-0002
 *week 1 · 2025C quiz1 #2 · active · legacy Q1-P02*  
-skills: `W01.S07` Solve a triangular system by forward or back substitution  
+skills: `W01.S08` Explain WHY one factors: one elimination, many right-hand sides; forward then back substitution; the O(n³) vs O(n²) asymmetry; `W01.S04` Recognize nonsingularity from any one of its equivalent conditions (pivot count, trivial null space, unique solutions, nonzero determinant) and move between them  
 topics: Triangular systems, forward substitution, computational efficiency
 
 For the lower triangular system $L\mathbf{x} = \mathbf{b}$ where $L = \begin{bmatrix} 2 & 0 & 0 \\ 1 & 3 & 0 \\ 4 & -1 & 5 \end{bmatrix}$, which statement about solving this system is most accurate?
@@ -29,6 +29,7 @@ For a lower triangular system $L\mathbf{x} = \mathbf{b}$: \begin{itemize} \item 
 
 ## ESE2030-0006
 *week 1 · 2025C quiz1 #6 · active · legacy Q1-P06*  
+skills: `W01.S05` Know what elementary matrices do: row operations as LEFT multiplication, and the order in which a sequence of them composes; `W01.S04` Recognize nonsingularity from any one of its equivalent conditions (pivot count, trivial null space, unique solutions, nonzero determinant) and move between them  
 topics: Elementary matrices, determinants, invertibility
 
 Let $E$ be an elementary matrix used for row reduction. Which statement must be TRUE?
@@ -75,7 +76,7 @@ This permutation matrix cycles rows: $1 \to 2 \to 3 \to 1$. Computing powers: \b
 
 ## ESE2030-0013
 *week 1 · 2025C quiz1 #13 · active · legacy Q1-P13*  
-skills: `W01.S04` Decide invertibility from pivot count; `W01.S06` Extract L and U from elimination multipliers; produce PA = LU when a swap is needed  
+skills: `W01.S07` Recognize an LU or PA = LU factorization and say what each factor records; know when the permutation is required; `W01.S04` Recognize nonsingularity from any one of its equivalent conditions (pivot count, trivial null space, unique solutions, nonzero determinant) and move between them  
 topics: LU decomposition, matrix factorization, nonsingularity
 
 Consider a square matrix $A$ that has an LU decomposition $A = LU$. Which of the following statements is necessarily TRUE?
@@ -98,7 +99,7 @@ Consider a square matrix $A$ that has an LU decomposition $A = LU$. Which of the
 
 ## ESE2030-0014
 *week 1 · 2025C quiz1 #14 · active · legacy Q1-P14*  
-skills: `W01.S06` Extract L and U from elimination multipliers; produce PA = LU when a swap is needed; `W01.S04` Decide invertibility from pivot count  
+skills: `W01.S07` Recognize an LU or PA = LU factorization and say what each factor records; know when the permutation is required  
 topics: LU decomposition, matrix factorization, system solvability
 
 For a square matrix $A$ with LU decomposition $A = LU$, which statement is always true?
@@ -123,7 +124,7 @@ By convention in LU decomposition: \begin{itemize} \item $L$ is lower triangular
 
 ## ESE2030-0016
 *week 1 · 2025C quiz1 #16 · active · legacy Q1-P16*  
-skills: `W01.S02` Classify a solution set as unique / none / infinite WITHOUT solving the system  
+skills: `W01.S02` Classify a system as having no, one, or infinitely many solutions from rank and augmented-rank alone, without solving; `W01.S01` Read rank, pivot columns, and the number of free variables off an echelon form, and know why rank is the number of pivots and not the number of rows  
 topics: Linear systems, row reduction, pivots
 
 Consider the system $A\mathbf{x} = \mathbf{b}$ where $A$ is a $3 \times 3$ matrix. If row reduction of the augmented matrix $[\, A\, |\, \mathbf{b}\, ]$ yields exactly two pivots, which statement must be TRUE?
@@ -148,6 +149,7 @@ With 2 pivots in a $3 \times 3$ system: \begin{itemize} \item One row lacks a pi
 
 ## ESE2030-0024
 *week 1 · 2025C quiz1 #24 · active · legacy Q1-P24*  
+skills: `W01.S05` Know what elementary matrices do: row operations as LEFT multiplication, and the order in which a sequence of them composes  
 topics: Elementary matrices, row operations, matrix multiplication order
 
 If $B$ is obtained from matrix $A$ by first swapping rows 1 and 2, then adding 2 times row 1 to row 3, which equation correctly relates them?
@@ -170,7 +172,7 @@ Elementary matrices apply from right to left: \begin{enumerate} \item First oper
 
 ## ESE2030-0135
 *week 1 · 2025C final #20 · active*  
-skills: `W01.S03` Write a general solution as particular + homogeneous  
+skills: `W01.S03` Recognize the solution set as particular + homogeneous: an affine translate of the null space, and know its dimension  
 
 Consider a linear system $A\mathbf{x} = \mathbf{b}$ where $A$ is a $5 \times 8$ matrix of rank $3$. Suppose the system is consistent (has at least one solution). Which statement best describes the solution set?
 
@@ -197,7 +199,7 @@ Why the distractors tempt:
 
 ## ESE2030-0149
 *week 1 · 2025C final #34 · active*  
-skills: `W01.S06` Extract L and U from elimination multipliers; produce PA = LU when a swap is needed  
+skills: `W01.S07` Recognize an LU or PA = LU factorization and say what each factor records; know when the permutation is required  
 
 Let $A$ be a $4 \times 4$ invertible matrix. During row reduction (i.e., Gaussian elimination) on $A$, a row exchange
 is required at the third step (but not before). Which statement is TRUE?
@@ -226,7 +228,7 @@ Why the distractors tempt:
 
 ## ESE2030-0159
 *week 1 · 2026A quiz1 #1 · active*  
-skills: `W01.S01` Row-reduce a small matrix and read off pivots, rank, and free variables  
+skills: `W01.S01` Read rank, pivot columns, and the number of free variables off an echelon form, and know why rank is the number of pivots and not the number of rows; `W01.S03` Recognize the solution set as particular + homogeneous: an affine translate of the null space, and know its dimension  
 topics: Row reduction, RREF, solution structure, free variables, pivots
 
 A $4 \times 5$ matrix $A$ row reduces to the following reduced row echelon form:
@@ -258,7 +260,7 @@ Why the distractors tempt:
 
 ## ESE2030-0163
 *week 1 · 2026A quiz1 #5 · active*  
-skills: `W01.S06` Extract L and U from elimination multipliers; produce PA = LU when a swap is needed  
+skills: `W01.S07` Recognize an LU or PA = LU factorization and say what each factor records; know when the permutation is required  
 topics: PLU decomposition, permutation matrices, row swaps, factorization
 
 Consider a matrix $A$ that requires row swaps during Gaussian elimination. The PLU decomposition gives $PA = LU$ where $P$ is a permutation matrix. Which statement is correct?
@@ -287,7 +289,7 @@ Why the distractors tempt:
 
 ## ESE2030-0164
 *week 1 · 2026A quiz1 #6 · active*  
-skills: `W01.S01` Row-reduce a small matrix and read off pivots, rank, and free variables  
+skills: `W01.S01` Read rank, pivot columns, and the number of free variables off an echelon form, and know why rank is the number of pivots and not the number of rows; `W01.S06` Know what row operations preserve (solution set, row space, null space) and what they do not (column space)  
 topics: Rank, pivots, row echelon form, column space, linear independence
 
 A $5 \times 4$ matrix $A$ has the following row echelon form (not necessarily reduced):
@@ -319,7 +321,7 @@ Why the distractors tempt:
 
 ## ESE2030-0165
 *week 1 · 2026A quiz1 #7 · active*  
-skills: `W01.S04` Decide invertibility from pivot count; `W01.S06` Extract L and U from elimination multipliers; produce PA = LU when a swap is needed  
+skills: `W01.S07` Recognize an LU or PA = LU factorization and say what each factor records; know when the permutation is required; `W01.S04` Recognize nonsingularity from any one of its equivalent conditions (pivot count, trivial null space, unique solutions, nonzero determinant) and move between them  
 topics: LU DECOMPOSITION
 
 Suppose a $4 \times 4$ matrix $A$ has the LU decomposition $A = LU$ where $L$ is unit lower triangular and $U$ is upper triangular. If the third diagonal entry of $U$ is zero (i.e., $u_{33} = 0$), which statement must be TRUE?
@@ -348,6 +350,7 @@ Why the distractors tempt:
 
 ## ESE2030-0173
 *week 1 · 2026A quiz1 #15 · active*  
+skills: `W01.S08` Explain WHY one factors: one elimination, many right-hand sides; forward then back substitution; the O(n³) vs O(n²) asymmetry  
 topics: LU decomposition, computational efficiency, solving multiple systems
 
 An engineer needs to solve the systems $A\mathbf{x}_1 = \mathbf{b}_1$, $A\mathbf{x}_2 = \mathbf{b}_2$, \ldots, $A\mathbf{x}_{100} = \mathbf{b}_{100}$, where $A$ is a fixed $500 \times 500$ invertible matrix and the right-hand sides $\mathbf{b}_i$ arrive sequentially over time. Why is computing the LU decomposition of $A$ advantageous compared to other approaches?
@@ -376,6 +379,7 @@ Why the distractors tempt:
 
 ## ESE2030-0181
 *week 1 · 2026A quiz1 #23 · active*  
+skills: `W01.S05` Know what elementary matrices do: row operations as LEFT multiplication, and the order in which a sequence of them composes  
 topics: Elementary matrices, row operations, matrix multiplication order
 
 Let $A$ be a $3 \times 3$ matrix. The following row operations are performed in sequence:
@@ -410,7 +414,7 @@ Why the distractors tempt:
 
 ## ESE2030-0262
 *week 1 · 2026A final #13 · active · Core*  
-skills: `W01.S07` Solve a triangular system by forward or back substitution; `W01.S06` Extract L and U from elimination multipliers; produce PA = LU when a swap is needed  
+skills: `W01.S08` Explain WHY one factors: one elimination, many right-hand sides; forward then back substitution; the O(n³) vs O(n²) asymmetry  
 topics: LU decomposition, computational re-use, triangular solves
 
 Suppose a square matrix $A$ has been factored as $A = LU$. Which statement best describes the principal practical advantage of having this factorization in hand?
@@ -439,7 +443,7 @@ Why the distractors tempt:
 
 ## ESE2030-0264
 *week 1 · 2026A final #15 · active · Core*  
-skills: `W01.S02` Classify a solution set as unique / none / infinite WITHOUT solving the system  
+skills: `W01.S02` Classify a system as having no, one, or infinitely many solutions from rank and augmented-rank alone, without solving  
 topics: Solvability of Ax = b, consistency, fundamental subspaces
 
 Let $A \in \mathbb{R}^{m \times n}$ and $\mathbf{b} \in \mathbb{R}^m$. Which

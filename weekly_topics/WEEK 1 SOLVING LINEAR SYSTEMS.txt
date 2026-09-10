@@ -56,16 +56,26 @@ ESSENTIAL MATRIX TYPES (1.2):
 - Block and block-diagonal structure (Ex 1.4)
 - Symmetric matrices
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W01.S01] Row-reduce a small matrix and read off pivots, rank, and free variables
-- [W01.S02] Classify a solution set as unique / none / infinite WITHOUT solving the system
-- [W01.S03] Write a general solution as particular + homogeneous
-- [W01.S04] Decide invertibility from pivot count
-- [W01.S05] Invert a 2x2 or 3x3 by row reduction
-- [W01.S06] Extract L and U from elimination multipliers; produce PA = LU when a swap is needed
-- [W01.S07] Solve a triangular system by forward or back substitution
-- [W01.S08] Recognize when permutation or block structure decouples a system
-- [W01.S09] State what conditioning measures and what it does not
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W01.S01] Read rank, pivot columns, and the number of free variables off an echelon form, and
+  know why rank is the number of pivots and not the number of rows
+- [W01.S02] Classify a system as having no, one, or infinitely many solutions from rank and
+  augmented-rank alone, without solving
+- [W01.S03] Recognize the solution set as particular + homogeneous: an affine translate of the
+  null space, and know its dimension
+- [W01.S04] Recognize nonsingularity from any one of its equivalent conditions (pivot count,
+  trivial null space, unique solutions, nonzero determinant) and move between them
+- [W01.S05] Know what elementary matrices do: row operations as LEFT multiplication, and the
+  order in which a sequence of them composes
+- [W01.S06] Know what row operations preserve (solution set, row space, null space) and what
+  they do not (column space)
+- [W01.S07] Recognize an LU or PA = LU factorization and say what each factor records; know when
+  the permutation is required
+- [W01.S08] Explain WHY one factors: one elimination, many right-hand sides; forward then back
+  substitution; the O(n³) vs O(n²) asymmetry
+- [W01.S09] Recognize when permutation or block structure decouples a system
+- [W01.S10] Say what conditioning warns about and what it does not — and that a small
+  determinant is not the diagnostic
 
 TYPICAL MCQ TRAPS:
 - Reporting the number of rows (or nonzero entries) instead of the number of pivots as rank

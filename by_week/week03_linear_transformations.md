@@ -4,7 +4,7 @@
 
 ## ESE2030-0003
 *week 3 · 2025C quiz1 #3 · active · legacy Q1-P03*  
-skills: `W03.S02` Compute the kernel and image of a matrix or of a simple operator on polynomials; `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two  
+skills: `W03.S02` Identify the kernel and image of a matrix or of a calculus operator on polynomials, and their dimensions; `W03.S03` Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN dimension  
 topics: Linear transformations, kernel, matrix representation
 
 Let $T: \mathbb{R}^3 \to \mathbb{R}^3$ be the linear transformation with matrix representation $A = \begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ -1 & -2 & -3 \end{bmatrix}$. What is the dimension of $\ker(T)$?
@@ -29,7 +29,7 @@ Observe that all three rows of $A$ are scalar multiples: \begin{align} \text{Row
 
 ## ESE2030-0005
 *week 3 · 2025C quiz1 #5 · active · legacy Q1-P05*  
-skills: `W03.S02` Compute the kernel and image of a matrix or of a simple operator on polynomials  
+skills: `W03.S02` Identify the kernel and image of a matrix or of a calculus operator on polynomials, and their dimensions  
 topics: Rank, nullity, Fundamental Theorem of Linear Algebra
 
 Let ${\mathcal D}: \mathcal{P}_3 \to \mathcal{P}_2$ be the differentiation operator taking cubic to quadratic polynomials.
@@ -55,7 +55,7 @@ The differentiation operator $\mathcal{D}: \mathcal{P}_3 \to \mathcal{P}_2$ work
 
 ## ESE2030-0007
 *week 3 · 2025C quiz1 #7 · active · legacy Q1-P07*  
-skills: `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in; `W03.S06` Describe a quotient space and give its dimension  
+skills: `W03.S05` Place each of the four fundamental spaces in the domain or the codomain, and say what lives in each  
 topics: Coimage, cokernel, quotient spaces, kernel, image
 
 Let $T: V \to W$ be a linear transformation. Which statement correctly describes the coimage and cokernel of $T$?
@@ -80,7 +80,7 @@ By definition: \begin{itemize} \item \textbf{Coimage:} The quotient of the domai
 
 ## ESE2030-0012
 *week 3 · 2025C quiz1 #12 · active · legacy Q1-P12*  
-skills: `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two; `W03.S04` Decide injectivity/surjectivity from rank and nullity alone  
+skills: `W03.S04` Decide injectivity, surjectivity, and bijectivity from the dimensions alone, and know which is impossible when dim V > dim W or dim V < dim W; `W03.S03` Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN dimension  
 topics: Linear transformations, kernel, image, rank-nullity theorem
 
 Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces. If $\dim(V) = 5$ and $\dim(W) = 3$, which statement about $T$ must be TRUE?
@@ -105,7 +105,7 @@ By the Rank-Nullity Theorem: $$\dim(V) = \dim(\ker T) + \dim(\text{im } T)$$ Sin
 
 ## ESE2030-0017
 *week 3 · 2025C quiz1 #17 · active · legacy Q1-P17*  
-skills: `W03.S01` Verify or refute linearity of a described map  
+skills: `W03.S01` Verify or refute linearity of a described map, and know that T(0) = 0 is necessary but not sufficient  
 topics: Linear transformations, additivity, homogeneity, definition
 
 Which one of the following is NOT a linear transformation?
@@ -128,7 +128,7 @@ For a transformation to be linear, it must satisfy $T(\mathbf{0}) = \mathbf{0}$.
 
 ## ESE2030-0018
 *week 3 · 2025C quiz1 #18 · active · legacy Q1-P18*  
-skills: `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply  
 topics: Differentiation operator, kernel, polynomial spaces
 
 The Fundamental Theorem of Linear Algebra says that for a linear transformation $T:V\to W$
@@ -153,7 +153,7 @@ The Fundamental Theorem of Linear Algebra states: $$\text{coim}(T) \cong \text{i
 
 ## ESE2030-0019
 *week 3 · 2025C quiz1 #19 · active · legacy Q1-P19*  
-skills: `W03.S05` Identify which of the four spaces a given vector or subspace belongs to; `W03.S04` Decide injectivity/surjectivity from rank and nullity alone  
+skills: `W03.S05` Place each of the four fundamental spaces in the domain or the codomain, and say what lives in each  
 topics: Isomorphism, dimension, vector space equivalence
 
 Consider an $m$-by-$n$ matrix $A$ and the associated linear transformation $T_A:\mathbb{R}^n\to\mathbb{R}^m$. Which of the following is true?
@@ -176,7 +176,7 @@ By definition: \begin{itemize} \item The null space of $A$ = $\{\mathbf{x} : A\m
 
 ## ESE2030-0022
 *week 3 · 2025C quiz1 #22 · active · legacy Q1-P22*  
-skills: `W03.S06` Describe a quotient space and give its dimension; `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two  
+skills: `W03.S03` Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN dimension; `W03.S06` Recognize a quotient space: when two vectors represent the same coset, what V/U "remembers," and dim(V/U) = dim V − dim U  
 topics: Coimage, quotient spaces, fundamental theorem
 
 Let $T: \mathbb{R}^5 \to \mathbb{R}^6$ be a linear transformation with $\dim(\ker(T)) = 2$. The cokernel of $T$ is isomorphic to which space?
@@ -201,7 +201,7 @@ Given: $T: \mathbb{R}^5 \to \mathbb{R}^6$ with $\dim(\ker(T)) = 2$ By Rank-Nulli
 
 ## ESE2030-0023
 *week 3 · 2025C quiz1 #23 · active · legacy Q1-P23*  
-skills: `W03.S06` Describe a quotient space and give its dimension  
+skills: `W03.S06` Recognize a quotient space: when two vectors represent the same coset, what V/U "remembers," and dim(V/U) = dim V − dim U  
 topics: Quotient spaces, equivalence classes, vector equivalence
 
 Let $V = \mathbb{R}^3$ and let $W$ be the subspace defined by the $xy$-plane, i.e., $W = \{(x, y, 0) \mid x, y \in \mathbb{R}\}$. An equivalence relation is defined on $V$ where two vectors $\mathbf{u}$ and $\mathbf{v}$ are equivalent if their difference $\mathbf{u - v}$ is an element of $W$.
@@ -228,7 +228,7 @@ Two vectors are equivalent if their difference lies in $W$ (the $xy$-plane). For
 
 ## ESE2030-0026
 *week 3 · 2025C quiz2 #1 · active · legacy Q2-P01*  
-skills: `W03.S06` Describe a quotient space and give its dimension; `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply; `W03.S03` Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN dimension  
 
 Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces where $\dim(V) = 9$ and $\dim(W) = 4$.
 If the rank of $T$ is $3$, what is the dimension of the coimage $\text{coim}(T)$?
@@ -253,7 +253,7 @@ The coimage is defined as $\text{coim}(T) = V/\ker(T)$. Using the Rank-Nullity T
 
 ## ESE2030-0032
 *week 3 · 2025C quiz2 #7 · active · legacy Q2-P07*  
-skills: `W03.S06` Describe a quotient space and give its dimension; `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply; `W03.S09` Recognize an isomorphism, know that equal finite dimension is the whole criterion, and know what it preserves  
 
 Let $T: \mathbb{R}^5 \to \mathbb{R}^5$ be a linear transformation.
 Given that $\dim(\ker(T)) = 2$ and $\dim(\text{im}(T)) = 3$, which statement about the cokernel $\text{coker}(T)$ must be true?
@@ -276,7 +276,7 @@ The cokernel has dimension $\dim(\mathbb{R}^5) - \dim(\text{im}(T)) = 5 - 3 = 2$
 
 ## ESE2030-0039
 *week 3 · 2025C quiz2 #14 · active · legacy Q2-P14*  
-skills: `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply  
 
 Let $T: \mathbb{R}^4 \to \mathbb{R}^3$ be a linear transformation with $\text{rank}(T) = 2$.
 Consider the quotient space $\mathbb{R}^4/\ker(T)$ and the image $\text{im}(T)$.
@@ -300,7 +300,7 @@ By the First Isomorphism Theorem (fundamental theorem), $\mathbb{R}^4/\ker(T) \c
 
 ## ESE2030-0042
 *week 3 · 2025C quiz2 #17 · active · legacy Q2-P17*  
-skills: `W03.S06` Describe a quotient space and give its dimension  
+skills: `W03.S06` Recognize a quotient space: when two vectors represent the same coset, what V/U "remembers," and dim(V/U) = dim V − dim U  
 
 Let $T: V \to W$ be a linear transformation. Two vectors $\mathbf{u}, \mathbf{v} \in V$ represent the same equivalence class in the coimage
 $\text{coim}(T)$ if and only if:
@@ -323,7 +323,7 @@ Two vectors $\mathbf{u}, \mathbf{v}$ are in the same equivalence class of $\text
 
 ## ESE2030-0120
 *week 3 · 2025C final #5 · active*  
-skills: `W03.S01` Verify or refute linearity of a described map  
+skills: `W03.S01` Verify or refute linearity of a described map, and know that T(0) = 0 is necessary but not sufficient  
 
 Let $T: V \to W$ be a function between vector spaces. Which statement about
 the following three properties of $T$ being linear is most correct?
@@ -357,7 +357,7 @@ Why the distractors tempt:
 
 ## ESE2030-0122
 *week 3 · 2025C final #7 · active*  
-skills: `W03.S04` Decide injectivity/surjectivity from rank and nullity alone; `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two  
+skills: `W03.S04` Decide injectivity, surjectivity, and bijectivity from the dimensions alone, and know which is impossible when dim V > dim W or dim V < dim W  
 
 Let $T: \mathbb{R}^6 \to \mathbb{R}^4$ be a linear transformation.
 
@@ -386,7 +386,7 @@ Why the distractors tempt:
 
 ## ESE2030-0124
 *week 3 · 2025C final #9 · active*  
-skills: `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply  
 
 Let $T: V \to W$ be a linear transformation. The Fundamental Theorem of Linear Algebra establishes an isomorphism between two of the four fundamental spaces. Which pair of spaces are isomorphic?
 
@@ -414,7 +414,7 @@ Why the distractors tempt:
 
 ## ESE2030-0150
 *week 3 · 2025C final #35 · active*  
-skills: `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two; `W03.S06` Describe a quotient space and give its dimension; `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply; `W03.S03` Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN dimension  
 
 Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces with $\dim(V) = 7$, $\dim(W) = 5$, and $\text{rank}(T) = 3$.
 
@@ -445,7 +445,7 @@ Why the distractors tempt:
 
 ## ESE2030-0160
 *week 3 · 2026A quiz1 #2 · active*  
-skills: `W03.S02` Compute the kernel and image of a matrix or of a simple operator on polynomials  
+skills: `W03.S02` Identify the kernel and image of a matrix or of a calculus operator on polynomials, and their dimensions  
 topics: Kernel, linear transformation, matrix spaces, nullity
 
 Define the linear transformation $T: \mathbb{R}^{2 \times 2} \to \mathbb{R}^{2 \times 2}$ by $T(X) = X - X^T$ (where $X^T$ denotes the transpose of $X$). Which of the following correctly describes $\ker(T)$?
@@ -474,7 +474,7 @@ Why the distractors tempt:
 
 ## ESE2030-0170
 *week 3 · 2026A quiz1 #12 · active*  
-skills: `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in; `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply; `W03.S03` Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN dimension  
 topics: Fundamental Theorem of Linear Algebra, four subspaces, dimensional relationships, induced isomorphism
 
 Let $T: V \to W$ be a linear transformation with $\dim(V) = 7$ and $\dim(W) = 5$. Suppose $\dim(\ker(T)) = 3$.
@@ -505,7 +505,7 @@ Why the distractors tempt:
 
 ## ESE2030-0171
 *week 3 · 2026A quiz1 #13 · active*  
-skills: `W03.S04` Decide injectivity/surjectivity from rank and nullity alone; `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two  
+skills: `W03.S04` Decide injectivity, surjectivity, and bijectivity from the dimensions alone, and know which is impossible when dim V > dim W or dim V < dim W  
 topics: Injectivity, surjectivity, rank-nullity, dimension constraints
 
 Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces with $\dim(V) = 4$ and $\dim(W) = 6$. Which statement is correct?
@@ -534,7 +534,7 @@ Why the distractors tempt:
 
 ## ESE2030-0172
 *week 3 · 2026A quiz1 #14 · active*  
-skills: `W03.S08` Recognize an isomorphism and produce its inverse on a small example  
+skills: `W03.S09` Recognize an isomorphism, know that equal finite dimension is the whole criterion, and know what it preserves  
 topics: Isomorphism, vector space structure, dimension, abstract spaces
 
 Which statement about isomorphisms of vector spaces is TRUE?
@@ -563,7 +563,7 @@ Why the distractors tempt:
 
 ## ESE2030-0174
 *week 3 · 2026A quiz1 #16 · active*  
-skills: `W03.S02` Compute the kernel and image of a matrix or of a simple operator on polynomials; `W03.S06` Describe a quotient space and give its dimension  
+skills: `W03.S02` Identify the kernel and image of a matrix or of a calculus operator on polynomials, and their dimensions; `W03.S06` Recognize a quotient space: when two vectors represent the same coset, what V/U "remembers," and dim(V/U) = dim V − dim U  
 topics: Quotient spaces, equivalence classes, polynomial spaces, Taylor polynomials, kernel
 
 Consider the linear transformation $T: \mathcal{P}_3 \to \mathbb{R}^2$ defined by
@@ -597,7 +597,7 @@ Why the distractors tempt:
 
 ## ESE2030-0176
 *week 3 · 2026A quiz1 #18 · active*  
-skills: `W03.S02` Compute the kernel and image of a matrix or of a simple operator on polynomials; `W03.S01` Verify or refute linearity of a described map  
+skills: `W03.S02` Identify the kernel and image of a matrix or of a calculus operator on polynomials, and their dimensions; `W03.S01` Verify or refute linearity of a described map, and know that T(0) = 0 is necessary but not sufficient  
 
 Define $T: \mathcal{P}_2 \to \mathbb{R}^2$ by $T(p) = \begin{pmatrix} p(0) \\ p(1) - p(0) \end{pmatrix}$. Which statement is TRUE?
 
@@ -625,7 +625,7 @@ Why the distractors tempt:
 
 ## ESE2030-0177
 *week 3 · 2026A quiz1 #19 · active*  
-skills: `W03.S02` Compute the kernel and image of a matrix or of a simple operator on polynomials; `W03.S04` Decide injectivity/surjectivity from rank and nullity alone  
+skills: `W03.S02` Identify the kernel and image of a matrix or of a calculus operator on polynomials, and their dimensions; `W03.S04` Decide injectivity, surjectivity, and bijectivity from the dimensions alone, and know which is impossible when dim V > dim W or dim V < dim W  
 topics: Differentiation operator, linear transformation, injectivity, surjectivity, kernel, image
 
 Consider differentiation as a linear transformation on polynomial spaces. Define:
@@ -661,7 +661,7 @@ Why the distractors tempt:
 
 ## ESE2030-0179
 *week 3 · 2026A quiz1 #21 · active*  
-skills: `W03.S06` Describe a quotient space and give its dimension; `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in  
+skills: `W03.S05` Place each of the four fundamental spaces in the domain or the codomain, and say what lives in each  
 topics: Cokernel, quotient spaces, four fundamental subspaces, conceptual understanding
 
 Let $T: V \to W$ be a linear transformation. Which of the following best describes what the \emph{cokernel} of $T$ is?
@@ -690,7 +690,7 @@ Why the distractors tempt:
 
 ## ESE2030-0180
 *week 3 · 2026A quiz1 #22 · active*  
-skills: `W03.S01` Verify or refute linearity of a described map  
+skills: `W03.S01` Verify or refute linearity of a described map, and know that T(0) = 0 is necessary but not sufficient  
 topics: Linear transformations, additivity, homogeneity, verifying linearity
 
 Which of the following is NOT a linear transformation?
@@ -719,7 +719,7 @@ Why the distractors tempt:
 
 ## ESE2030-0263
 *week 3 · 2026A final #14 · active · Deeper*  
-skills: `W03.S06` Describe a quotient space and give its dimension  
+skills: `W03.S06` Recognize a quotient space: when two vectors represent the same coset, what V/U "remembers," and dim(V/U) = dim V − dim U  
 topics: Quotient spaces, equivalence classes, cosets, dimension
 
 Let $V$ be a finite-dimensional vector space and $W \subseteq V$ a nontrivial subspace ($W\neq V$ and $W\neq\{0\}$).
@@ -749,7 +749,7 @@ Why the distractors tempt:
 
 ## ESE2030-0279
 *week 3 · 2026A final #30 · active · Deeper*  
-skills: `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two; `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in; `W03.S06` Describe a quotient space and give its dimension  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply; `W03.S03` Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN dimension  
 topics: FTLA, coimage, image, cokernel, quotient spaces, dimension count
 
 Let $T: V \to W$ be a rank 3 linear transformation between finite-dimensional vector
@@ -779,7 +779,7 @@ Why the distractors tempt:
 
 ## ESE2030-0282
 *week 3 · 2026A final #33 · active · Deeper*  
-skills: `W03.S04` Decide injectivity/surjectivity from rank and nullity alone; `W03.S08` Recognize an isomorphism and produce its inverse on a small example  
+skills: `W03.S04` Decide injectivity, surjectivity, and bijectivity from the dimensions alone, and know which is impossible when dim V > dim W or dim V < dim W; `W03.S05` Place each of the four fundamental spaces in the domain or the codomain, and say what lives in each  
 topics: Linear transformations, isomorphism, injectivity, surjectivity, cokernel, FTLA
 
 Let $T: V \to W$ be a linear transformation between finite-dimensional

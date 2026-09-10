@@ -38,14 +38,24 @@ CORE CONCEPTS:
    - Geometric reading of similarity (Ex 4.15)
    - Which statements about an operator are coordinate-free and which are artifacts of a basis
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W04.S01] Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis
-- [W04.S02] Build P_{B <- B'} and use it in the correct direction
-- [W04.S03] Convert coordinates between two non-standard bases
-- [W04.S04] Write the matrix of a linear map relative to given bases in domain and codomain
-- [W04.S05] Re-express a matrix in a new basis via P^{-1} A P
-- [W04.S06] Decide whether a stated property is preserved under similarity
-- [W04.S07] Extend an independent set to a basis and trim a spanning set to one
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W04.S01] Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis,
+  and know that a vector is NOT its coordinates
+- [W04.S02] Know what the change-of-basis matrix P_{B←B′} is (its columns), which direction it
+  acts, and that its inverse acts the other way
+- [W04.S03] Recognize the matrix of a linear map relative to given bases (columns are images of
+  basis vectors, in codomain coordinates) and read kernel/image facts off it
+- [W04.S04] Recognize similarity B = P⁻¹AP as the same operator in two frames, and know which
+  direction P goes
+- [W04.S05] Decide whether a stated property is coordinate-free (rank, nullity, trace,
+  determinant, eigenvalues, characteristic polynomial) or a basis artifact (entries, columns,
+  orthogonality, singular values)
+- [W04.S06] Know that the coordinate map is an isomorphism V → Rⁿ, so linear relations among
+  vectors can be read off their coordinate vectors — in any basis
+- [W04.S07] Extend an independent set to a basis and trim a spanning set to one; use dimension
+  counting as a proof technique
+- [W04.S08] Recognize which questions require a basis and which do not (dimension and quotient
+  do not; coordinates and matrices do)
 
 TYPICAL MCQ TRAPS:
 - Inverting the direction of the change of basis matrix (the single most common error)

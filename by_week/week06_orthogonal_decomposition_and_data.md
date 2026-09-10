@@ -4,7 +4,7 @@
 
 ## ESE2030-0053
 *week 6 · 2025C quiz3 #4 · active · legacy Q3-P04*  
-skills: `W06.S04` State which fundamental subspace is the orthogonal complement of which; `W06.S08` Identify the minimum-norm solution among the infinitely many least squares solutions  
+skills: `W06.S06` Know what the pseudoinverse IS (invert the isomorphism (ker T)^⊥ → im T, extend by zero on the cokernel) and read off its kernel, image, and domain/codomain; `W06.S04` Identify which fundamental subspace is the orthogonal complement of which: coim = (ker)^⊥ = row space, coker = (im)^⊥  
 topics: Pseudoinverse, fundamental subspaces, minimum norm solution
 
 Let $A \in \mathbb{R}^{m \times n}$ with $m > n$ have full column rank. For a vector $\mathbf{b} \in \mathbb{R}^m$, consider the system $A\mathbf{x} = \mathbf{b}$.
@@ -33,7 +33,7 @@ Why the distractors tempt:
 
 ## ESE2030-0054
 *week 6 · 2025C quiz3 #5 · active · legacy Q3-P05*  
-skills: `W06.S03` Recognize a projection matrix from P^2 = P and P^T = P, and identify its image and kernel  
+skills: `W06.S03` Recognize a projection matrix from P² = P and Pᵀ = P, identify its image and kernel, and know its matrix forms (QQᵀ; A(AᵀA)⁻¹Aᵀ)  
 topics: Orthogonal projections, projection operators, idempotent property
 
 Let $\Pi_W: V \to V$ be an orthogonal projection operator onto a subspace $W$ of an inner product space $V$. For a particular vector $\mathbf{v} \in V$, the projection satisfies $\Pi_W(\mathbf{v}) = \mathbf{w}$ where $\mathbf{w} \neq \mathbf{0}$.
@@ -64,7 +64,7 @@ Why the distractors tempt:
 
 ## ESE2030-0057
 *week 6 · 2025C quiz3 #8 · active · legacy Q3-P08*  
-skills: `W06.S05` Write down A^+ for a diagonal, a rank-one, a projection, and an invertible matrix  
+skills: `W06.S07` Say what A⁺A and AA⁺ are (projections onto coimage and image) and why neither is the identity in general; know the special cases where A⁺ = A⁻¹, (AᵀA)⁻¹Aᵀ, Aᵀ(AAᵀ)⁻¹  
 topics: Pseudoinverse, inverse, square matrices, relationship
 
 Let $A$ be a nonsingular matrix. Which statement best represents the relationship between the pseudoinverse $A^{\dagger}$ and the inverse $A^{-1}$?
@@ -93,7 +93,7 @@ Why the distractors tempt:
 
 ## ESE2030-0061
 *week 6 · 2025C quiz3 #12 · active · legacy Q3-P12*  
-skills: `W06.S01` Compute an orthogonal complement and verify a dimension count  
+skills: `W06.S01` Recognize an orthogonal complement, its dimension count, and (U^⊥)^⊥ = U  
 topics: Orthogonal decomposition, direct sum, fundamental theorem
 
 Let $V$ be a finite-dimensional inner product space and $W$ a subspace of $V$. The orthogonal complement $W^{\perp}$ consists of all vectors in $V$ that are orthogonal to every vector in $W$.
@@ -123,7 +123,7 @@ Why the distractors tempt:
 
 ## ESE2030-0063
 *week 6 · 2025C quiz3 #14 · active · legacy Q3-P14*  
-skills: `W06.S02` Project a vector onto a line, a plane, or the column space of a small matrix  
+skills: `W06.S02` Recognize orthogonal projection as the unique nearest point in a subspace, and the residual as orthogonal to that subspace  
 topics: Orthogonal projection, best approximation property, geometric meaning
 
 Which of the following provides the best fundamental description of the orthogonal projection $\Pi_W(\mathbf{v})$ of a vector $\mathbf{v}$ onto a subspace $W$?
@@ -151,7 +151,7 @@ Why the distractors tempt:
 
 ## ESE2030-0065
 *week 6 · 2025C quiz3 #16 · active · legacy Q3-P16*  
-skills: `W06.S06` Say what A^+ A and A A^+ are, and why they are generally not the identity; `W06.S04` State which fundamental subspace is the orthogonal complement of which  
+skills: `W06.S06` Know what the pseudoinverse IS (invert the isomorphism (ker T)^⊥ → im T, extend by zero on the cokernel) and read off its kernel, image, and domain/codomain  
 topics: Pseudoinverse, geometric interpretation, FTLA, orthogonal projections
 
 Consider a matrix $A \in \mathbb{R}^{m \times n}$ with $m > n$ and full column rank. The pseudoinverse $A^{\dagger} = (A^TA)^{-1}A^T$ can be understood geometrically through the Fundamental Theorem of Linear Algebra.
@@ -182,7 +182,7 @@ Why the distractors tempt:
 
 ## ESE2030-0067
 *week 6 · 2025C quiz3 #18 · active · legacy Q3-P18*  
-skills: `W06.S07` Set up and solve small normal equations; identify the residual and check its orthogonality  
+skills: `W06.S08` Recognize least squares as projection onto the column space, the normal equations AᵀAx = Aᵀb, and when the solution is unique (independent columns ⇔ Gram matrix invertible)  
 topics: Least squares, normal equations, overdetermined systems
 
 Consider the overdetermined linear system $A\mathbf{x} = \mathbf{b}$ where $A \in \mathbb{R}^{m \times n}$ with $m > n$ (more equations than unknowns) and $A$ has full column rank. If the system is inconsistent (no exact solution exists), what function does the least squares solution $\hat{\mathbf{x}}$ minimize?
@@ -211,6 +211,7 @@ Why the distractors tempt:
 
 ## ESE2030-0071
 *week 6 · 2025C quiz3 #22 · active · legacy Q3-P22*  
+skills: `W06.S05` Recognize how a projection realizes a quotient: the coset acquires a canonical representative in U^⊥  
 topics: Quotient spaces, orthogonal complements, isomorphism, inner product geometry
 
 Let $V$ be a finite-dimensional inner product space and $W$ a subspace of $V$. Consider the quotient space $V/W$, whose elements are equivalence classes $[\mathbf{v}] = \{\mathbf{v} + \mathbf{w} : \mathbf{w} \in W\}$.
@@ -239,7 +240,7 @@ Why the distractors tempt:
 
 ## ESE2030-0130
 *week 6 · 2025C final #15 · active*  
-skills: `W06.S04` State which fundamental subspace is the orthogonal complement of which  
+skills: `W06.S04` Identify which fundamental subspace is the orthogonal complement of which: coim = (ker)^⊥ = row space, coker = (im)^⊥  
 
 Let $A$ be an $m \times n$ matrix with $\text{rank}(A) = r$.
 Consider the following three spaces:
@@ -275,7 +276,7 @@ Why the distractors tempt:
 
 ## ESE2030-0145
 *week 6 · 2025C final #30 · active*  
-skills: `W06.S08` Identify the minimum-norm solution among the infinitely many least squares solutions  
+skills: `W06.S09` Identify the minimum-norm least squares solution as x = A⁺b among the infinitely many  
 
 Consider the linear system $A\mathbf{x} = \mathbf{b}$, where $A$ is an $m \times n$ matrix and $\mathbf{b} \in \mathbb{R}^m$. The system may be overdetermined, underdetermined, or inconsistent. The pseudoinverse solution is defined as $\hat{\mathbf{x}} = A^{\dagger}\mathbf{b}$.
 
@@ -304,7 +305,7 @@ Why the distractors tempt:
 
 ## ESE2030-0156
 *week 6 · 2025C final #41 · active*  
-skills: `W06.S02` Project a vector onto a line, a plane, or the column space of a small matrix  
+skills: `W06.S02` Recognize orthogonal projection as the unique nearest point in a subspace, and the residual as orthogonal to that subspace  
 
 Orthogonal projection $\Pi_W(\mathbf{v})$ is used to find the ``best approximation'' of a vector $\mathbf{v}$ within a subspace $W$.
 What makes $\Pi_W(\mathbf{v})$ the ``best'' approximation?
@@ -333,7 +334,7 @@ Why the distractors tempt:
 
 ## ESE2030-0188
 *week 6 · 2026A quiz2 #7 · active*  
-skills: `W06.S06` Say what A^+ A and A A^+ are, and why they are generally not the identity; `W06.S04` State which fundamental subspace is the orthogonal complement of which  
+skills: `W06.S06` Know what the pseudoinverse IS (invert the isomorphism (ker T)^⊥ → im T, extend by zero on the cokernel) and read off its kernel, image, and domain/codomain  
 
 Let $T: V \to W$ be a linear transformation between inner product spaces (not necessarily injective or surjective). Given $\mathbf{b} \in W$, which description of $T^\dagger \mathbf{b}$ is correct?
 
@@ -361,7 +362,7 @@ Why the distractors tempt:
 
 ## ESE2030-0189
 *week 6 · 2026A quiz2 #8 · active*  
-skills: `W06.S03` Recognize a projection matrix from P^2 = P and P^T = P, and identify its image and kernel  
+skills: `W06.S03` Recognize a projection matrix from P² = P and Pᵀ = P, identify its image and kernel, and know its matrix forms (QQᵀ; A(AᵀA)⁻¹Aᵀ)  
 
 Let $P$ be the matrix that orthogonally projects $\mathbb{R}^n$ onto a subspace $W$ with $\dim(W) = k$, where $0 < k < n$. Which of the following is \emph{false}?
 
@@ -383,7 +384,7 @@ Since $0 < k < n$, the projection has a nontrivial kernel ($W^\perp \neq \{\math
 
 ## ESE2030-0191
 *week 6 · 2026A quiz2 #10 · active*  
-skills: `W06.S04` State which fundamental subspace is the orthogonal complement of which; `W06.S01` Compute an orthogonal complement and verify a dimension count  
+skills: `W06.S04` Identify which fundamental subspace is the orthogonal complement of which: coim = (ker)^⊥ = row space, coker = (im)^⊥; `W06.S01` Recognize an orthogonal complement, its dimension count, and (U^⊥)^⊥ = U  
 
 Let $A$ be a $5 \times 8$ matrix with $\operatorname{rank}(A) = 3$. Consider the four fundamental subspaces of $A$: $\ker(A)$, $\operatorname{im}(A)$, $\ker(A)^\perp$, and $\operatorname{im}(A)^\perp$. Which of the following is true?
 
@@ -410,7 +411,7 @@ Why the distractors tempt:
 
 ## ESE2030-0197
 *week 6 · 2026A quiz2 #16 · active*  
-skills: `W06.S06` Say what A^+ A and A A^+ are, and why they are generally not the identity; `W06.S05` Write down A^+ for a diagonal, a rank-one, a projection, and an invertible matrix  
+skills: `W06.S07` Say what A⁺A and AA⁺ are (projections onto coimage and image) and why neither is the identity in general; know the special cases where A⁺ = A⁻¹, (AᵀA)⁻¹Aᵀ, Aᵀ(AAᵀ)⁻¹  
 
 Let $A$ be an $m \times n$ matrix with $m > n$ and $\operatorname{rank}(A) = n$ (full column rank). The pseudoinverse is $A^\dagger = (A^TA)^{-1}A^T$. Which of the following statements is TRUE?
 
@@ -437,7 +438,7 @@ Why the distractors tempt:
 
 ## ESE2030-0202
 *week 6 · 2026A quiz2 #21 · active*  
-skills: `W06.S07` Set up and solve small normal equations; identify the residual and check its orthogonality; `W06.S02` Project a vector onto a line, a plane, or the column space of a small matrix  
+skills: `W06.S02` Recognize orthogonal projection as the unique nearest point in a subspace, and the residual as orthogonal to that subspace  
 
 Let $W$ be a subspace of an inner product space $V$, and let $\mathbf{v} \in V$. Define $\hat{\mathbf{v}} = \Pi_W(\mathbf{v})$ (the orthogonal projection onto $W$) and $\mathbf{r} = \mathbf{v} - \hat{\mathbf{v}}$ (the ``error''). Which of the following is guaranteed to be true?
 
@@ -464,7 +465,7 @@ Why the distractors tempt:
 
 ## ESE2030-0251
 *week 6 · 2026A final #2 · active · Deeper*  
-skills: `W06.S08` Identify the minimum-norm solution among the infinitely many least squares solutions  
+skills: `W06.S09` Identify the minimum-norm least squares solution as x = A⁺b among the infinitely many; `W06.S06` Know what the pseudoinverse IS (invert the isomorphism (ker T)^⊥ → im T, extend by zero on the cokernel) and read off its kernel, image, and domain/codomain  
 topics: Pseudoinverse, minimum-norm least-squares characterization
 
 Let $A$ be an $m \times n$ matrix, let $\mathbf{b} \in \mathbb{R}^m$, and
@@ -494,7 +495,7 @@ Why the distractors tempt:
 
 ## ESE2030-0268
 *week 6 · 2026A final #19 · active*  
-skills: `W06.S04` State which fundamental subspace is the orthogonal complement of which  
+skills: `W06.S04` Identify which fundamental subspace is the orthogonal complement of which: coim = (ker)^⊥ = row space, coker = (im)^⊥  
 topics: Orthogonal FTLA, fundamental subspace relations, ker/im perp characterization
 
 Let $A$ be an $m \times n$ matrix.
@@ -525,7 +526,7 @@ Why the distractors tempt:
 
 ## ESE2030-0272
 *week 6 · 2026A final #23 · active*  
-skills: `W06.S01` Compute an orthogonal complement and verify a dimension count  
+skills: `W06.S01` Recognize an orthogonal complement, its dimension count, and (U^⊥)^⊥ = U  
 topics: Orthogonal complements, dimension formula, double complement, finite-dimensional inner product spaces
 
 Let $V$ be a finite-dimensional inner product space and let $W \subseteq V$
@@ -553,7 +554,7 @@ Why the distractors tempt:
 
 ## ESE2030-0284
 *week 6 · 2026A final #35 · active*  
-skills: `W06.S02` Project a vector onto a line, a plane, or the column space of a small matrix  
+skills: `W06.S02` Recognize orthogonal projection as the unique nearest point in a subspace, and the residual as orthogonal to that subspace  
 topics: Orthogonal projection, best approximation, closest point in a subspace
 
 Let $V$ be a finite-dimensional inner product space and let $W \subseteq V$

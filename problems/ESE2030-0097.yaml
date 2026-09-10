@@ -2,7 +2,8 @@ id: ESE2030-0097
 legacy_id: Q5-P02
 week: 10
 skills:
-- W10.S08
+- W10.S05
+- W10.S06
 status: active
 problem_type: null
 statement: |
@@ -54,4 +55,4 @@ topics:
 - Geometric foundations of SVD
 - sphere to ellipsoid transformation
 - role of A^TA
-notes: null
+notes: 'KEY CHECK (soft): choice (B) is also essentially true; consider tightening'

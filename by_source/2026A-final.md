@@ -4,7 +4,7 @@
 
 ## ESE2030-0250
 *week 10 · 2026A final #1 · active · Core*  
-skills: `W10.S05` Compute spectral and Frobenius norms from singular values  
+skills: `W10.S08` Recognize the spectral norm (σ₁) and the Frobenius norm (√Σσ_i²), and the condition number σ₁/σ_r as Week 1's warning made exact — small σ_min, not small determinant; `W10.S05` Recognize the sphere-to-ellipsoid geometry: semi-axes are singular values, directions are left singular vectors, and what rank deficiency does to the picture  
 topics: Operator 2-norm, geometric meaning of largest singular value, extremal characterization
 
 A matrix $A \in \mathbb{R}^{4 \times 3}$ has singular values $\sigma_1 = 6$, $\sigma_2 = 3$, $\sigma_3 = 2$.
@@ -34,7 +34,7 @@ Why the distractors tempt:
 
 ## ESE2030-0251
 *week 6 · 2026A final #2 · active · Deeper*  
-skills: `W06.S08` Identify the minimum-norm solution among the infinitely many least squares solutions  
+skills: `W06.S09` Identify the minimum-norm least squares solution as x = A⁺b among the infinitely many; `W06.S06` Know what the pseudoinverse IS (invert the isomorphism (ker T)^⊥ → im T, extend by zero on the cokernel) and read off its kernel, image, and domain/codomain  
 topics: Pseudoinverse, minimum-norm least-squares characterization
 
 Let $A$ be an $m \times n$ matrix, let $\mathbf{b} \in \mathbb{R}^m$, and
@@ -64,7 +64,7 @@ Why the distractors tempt:
 
 ## ESE2030-0252
 *week 10 · 2026A final #3 · active · Deeper*  
-skills: `W10.S03` Read rank, and bases for all four fundamental subspaces, off a GIVEN SVD  
+skills: `W10.S03` Read the defining relations Av_i = σ_i u_i and Aᵀu_i = σ_i v_i, and place the v's in the domain and the u's in the codomain  
 topics: SVD structure, left vs right singular vectors, domain vs codomain
 
 A matrix $A \in \mathbb{R}^{m \times n}$ has SVD $A = U\Sigma V^T$. Which statement most fundamentally distinguishes a right singular vector $\mathbf{v}_i$ from a left singular vector $\mathbf{u}_i$?
@@ -91,7 +91,7 @@ Why the distractors tempt:
 
 ## ESE2030-0253
 *week 13 · 2026A final #4 · active · Core (conceptual)*  
-skills: `W13.S05` Apply the backpropagation rule for one layer and identify where the TRANSPOSE enters  
+skills: `W13.S06` Recognize backpropagation as the chain rule on a composition, and identify where the TRANSPOSE enters (forward W, backward Wᵀ — the adjoint of Week 5); `W13.S05` Know what the error signal δ_l IS (the sensitivity ∂L/∂z_l), that hidden layers have no targets, and that backpropagation derives δ_l from δ_{l+1}  
 topics: Backpropagation, chain rule as composition of derivatives
 
 In a feed-forward network, layer $k$ takes input $\mathbf{h}_{k-1}$ and produces $\mathbf{z}_k = W_k \mathbf{h}_{k-1} + \mathbf{b}_k$ followed by $\mathbf{h}_k = \sigma(\mathbf{z}_k)$, with $\sigma$ applied componentwise. Define $\boldsymbol{\delta}_k = \partial L / \partial \mathbf{z}_k$.
@@ -121,7 +121,7 @@ Why the distractors tempt:
 
 ## ESE2030-0254
 *week 4 · 2026A final #5 · active · Core*  
-skills: `W04.S05` Re-express a matrix in a new basis via P^{-1} A P  
+skills: `W04.S04` Recognize similarity B = P⁻¹AP as the same operator in two frames, and know which direction P goes  
 topics: Change of basis, matrix representation of a linear transformation
 
 Let $T:V\to V$ be a linear transformation on a finite-dimensional vector space,
@@ -155,7 +155,7 @@ Why the distractors tempt:
 
 ## ESE2030-0255
 *week 5 · 2026A final #6 · active · Core (synthesis)*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 topics: Inner products on function spaces, parity on symmetric
 
 Consider a vector space $C^\infty([a,b])$ of smooth functions on an
@@ -186,7 +186,7 @@ Why the distractors tempt:
 
 ## ESE2030-0256
 *week 8 · 2026A final #7 · active · Deeper*  
-skills: `W08.S08` Explain what one QR step does and why the spectrum is unchanged  
+skills: `W08.S07` Explain what one QR-algorithm step does (A → RQ is similar to A), why the spectrum is unchanged, and what the iteration converges to (triangular; block-triangular for complex pairs)  
 topics: QR algorithm convergence, what the iterates approach, eigenvalue
 
 Let $A \in \mathbb{R}^{n \times n}$ be a real symmetric matrix with distinct
@@ -218,7 +218,7 @@ Why the distractors tempt:
 
 ## ESE2030-0257
 *week 11 · 2026A final #8 · active · Deeper*  
-skills: `W11.S06` Produce the best rank-k approximation from a given SVD and state its error in both norms  
+skills: `W11.S08` State Eckart–Young–Mirsky: the truncated SVD is THE best rank-k approximation, in both norms, with errors σ_{k+1} and √Σ_{i>k}σ_i²  
 topics: Best rank-k approximation, image of truncated SVD, geometric structure
 
 The matrix $A \in \mathbb{R}^{500 \times 200}$ has SVD $A = U\Sigma V^T$ with exactly $100$ nonzero singular values $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_{100} > 0$ and $\sigma_{101} = \cdots = \sigma_{200} = 0$.
@@ -249,6 +249,7 @@ Why the distractors tempt:
 
 ## ESE2030-0258
 *week 2 · 2026A final #9 · active · Deeper*  
+skills: `W02.S02` Distinguish the axioms from their consequences (0v = 0, uniqueness of zero, (−1)v = −v are theorems), and recognize a non-example that satisfies closure but breaks an axiom  
 topics: Vector space axioms, derived properties, distributivity, scalar multiplication
 
 Which of the following properties is NOT one of the axioms of a vector space?
@@ -277,7 +278,7 @@ Why the distractors tempt:
 
 ## ESE2030-0259
 *week 8 · 2026A final #10 · active*  
-skills: `W08.S07` Write the basis of solutions for an ODE with repeated or complex characteristic roots  
+skills: `W08.S06` Write the basis of solutions for an ODE with repeated or complex characteristic roots, and recognize the polynomial factor as the signature of a defective matrix  
 topics: Higher-order linear ODEs, polynomial differential operator, basis of solution space, repeated roots
 
 Consider the third-order linear differential equation $p(D)x = 0$, where
@@ -306,7 +307,7 @@ Why the distractors tempt:
 
 ## ESE2030-0260
 *week 5 · 2026A final #11 · active*  
-skills: `W05.S09` Read off Q and R from a small QR, and use QR to solve or to compute a projection; `W05.S05` Run Gram-Schmidt on two or three vectors and normalize correctly  
+skills: `W05.S10` Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A; `W05.S06` Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME nested spans), and why "just normalize each vector" fails  
 topics: QR decomposition, upper-triangular R, Gram-Schmidt, partial span structure
 
 Let $A$ be an $m \times n$ matrix with linearly independent columns,
@@ -337,7 +338,7 @@ Why the distractors tempt:
 
 ## ESE2030-0261
 *week 11 · 2026A final #12 · active · Deeper*  
-skills: `W11.S02` Identify principal components as eigenvectors of C or right singular vectors of X; `W11.S03` Compute variance captured and explained-variance ratios from eigenvalues or singular values  
+skills: `W11.S03` Identify principal components as eigenvectors of C, equivalently right singular vectors of X, and know the dictionary: eigenvalues of C = σ_i²/n = variance captured  
 topics: PCA via SVD of centered data, equivalence of two computational
 
 Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix ($n$
@@ -370,7 +371,7 @@ Why the distractors tempt:
 
 ## ESE2030-0262
 *week 1 · 2026A final #13 · active · Core*  
-skills: `W01.S07` Solve a triangular system by forward or back substitution; `W01.S06` Extract L and U from elimination multipliers; produce PA = LU when a swap is needed  
+skills: `W01.S08` Explain WHY one factors: one elimination, many right-hand sides; forward then back substitution; the O(n³) vs O(n²) asymmetry  
 topics: LU decomposition, computational re-use, triangular solves
 
 Suppose a square matrix $A$ has been factored as $A = LU$. Which statement best describes the principal practical advantage of having this factorization in hand?
@@ -399,7 +400,7 @@ Why the distractors tempt:
 
 ## ESE2030-0263
 *week 3 · 2026A final #14 · active · Deeper*  
-skills: `W03.S06` Describe a quotient space and give its dimension  
+skills: `W03.S06` Recognize a quotient space: when two vectors represent the same coset, what V/U "remembers," and dim(V/U) = dim V − dim U  
 topics: Quotient spaces, equivalence classes, cosets, dimension
 
 Let $V$ be a finite-dimensional vector space and $W \subseteq V$ a nontrivial subspace ($W\neq V$ and $W\neq\{0\}$).
@@ -429,7 +430,7 @@ Why the distractors tempt:
 
 ## ESE2030-0264
 *week 1 · 2026A final #15 · active · Core*  
-skills: `W01.S02` Classify a solution set as unique / none / infinite WITHOUT solving the system  
+skills: `W01.S02` Classify a system as having no, one, or infinitely many solutions from rank and augmented-rank alone, without solving  
 topics: Solvability of Ax = b, consistency, fundamental subspaces
 
 Let $A \in \mathbb{R}^{m \times n}$ and $\mathbf{b} \in \mathbb{R}^m$. Which
@@ -460,7 +461,7 @@ Why the distractors tempt:
 
 ## ESE2030-0265
 *week 5 · 2026A final #16 · active*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 topics: Cosine similarity, scale invariance, normalization, inner product geometry
 
 For nonzero vectors $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$, define
@@ -492,7 +493,7 @@ Why the distractors tempt:
 
 ## ESE2030-0266
 *week 2 · 2026A final #17 · active · Deeper*  
-skills: `W02.S05` Compare dim of a sum and an intersection of two subspaces  
+skills: `W02.S07` Recognize a direct sum U ⊕ W (trivial intersection, or the dimension count, or unique decomposition) and know that a complement is a CHOICE, not canonical; `W02.S06` Recognize the sum U + W and the intersection U ∩ W as subspaces, and use dim(U + W) = dim U + dim W − dim(U ∩ W)  
 topics: Direct sum decomposition, subspace sum, intersection, dimension
 
 Let $V$ be a finite-dimensional vector space, and let $U, W \subseteq V$ be
@@ -520,7 +521,7 @@ Why the distractors tempt:
 
 ## ESE2030-0267
 *week 7 · 2026A final #18 · active · Deeper*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S06` Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping)  
 topics: Spectral mapping, eigenvalues of polynomials in A, eigenvectors preserved
 
 Let $A \in \mathbb{R}^{n \times n}$ and let $p(t) = c_k t^k + \cdots + c_1 t
@@ -551,7 +552,7 @@ Why the distractors tempt:
 
 ## ESE2030-0268
 *week 6 · 2026A final #19 · active*  
-skills: `W06.S04` State which fundamental subspace is the orthogonal complement of which  
+skills: `W06.S04` Identify which fundamental subspace is the orthogonal complement of which: coim = (ker)^⊥ = row space, coker = (im)^⊥  
 topics: Orthogonal FTLA, fundamental subspace relations, ker/im perp characterization
 
 Let $A$ be an $m \times n$ matrix.
@@ -582,7 +583,7 @@ Why the distractors tempt:
 
 ## ESE2030-0269
 *week 9 · 2026A final #20 · active · Deeper*  
-skills: `W09.S07` Orthogonally diagonalize a small symmetric matrix  
+skills: `W09.S06` Know what symmetry buys: real eigenvalues, orthogonal eigenvectors for DISTINCT eigenvalues, and an orthonormal eigenbasis that can be chosen (not automatic within a repeated eigenspace)  
 topics: Spectral Theorem for symmetric matrices, real eigenvalues
 
 Let $A \in \mathbb{R}^{n \times n}$ be a real symmetric matrix. The Spectral
@@ -614,7 +615,7 @@ Why the distractors tempt:
 
 ## ESE2030-0270
 *week 7 · 2026A final #21 · active · Core*  
-skills: `W07.S05` Compute A^k and e^{tA} for a diagonalizable matrix  
+skills: `W07.S07` Know what e^{tA} is (the power series), what it is not (entrywise exponential), when e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax  
 topics: Matrix exponential, definition via power series, nilpotent matrix
 
 Compute $e^{-N}$ for the matrix
@@ -642,7 +643,7 @@ Why the distractors tempt:
 
 ## ESE2030-0271
 *week 5 · 2026A final #22 · active*  
-skills: `W05.S07` Compute an adjoint, and recognize when the adjoint differs from the transpose  
+skills: `W05.S07` Know the defining property of the adjoint ⟨Tv, w⟩ = ⟨v, T*w⟩, its domain and codomain, and that T* is the transpose only in the standard inner product with standard bases  
 topics: Adjoint, definition, type signature, inner product spaces
 
 Let $V$ and $W$ be inner product spaces and let $T : V \to W$ be a linear
@@ -673,7 +674,7 @@ Why the distractors tempt:
 
 ## ESE2030-0272
 *week 6 · 2026A final #23 · active*  
-skills: `W06.S01` Compute an orthogonal complement and verify a dimension count  
+skills: `W06.S01` Recognize an orthogonal complement, its dimension count, and (U^⊥)^⊥ = U  
 topics: Orthogonal complements, dimension formula, double complement, finite-dimensional inner product spaces
 
 Let $V$ be a finite-dimensional inner product space and let $W \subseteq V$
@@ -701,7 +702,7 @@ Why the distractors tempt:
 
 ## ESE2030-0273
 *week 9 · 2026A final #24 · active · Core*  
-skills: `W09.S05` Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem  
+skills: `W09.S04` Classify a nonnegative matrix as irreducible and/or primitive, and know which Perron–Frobenius conclusion each hypothesis buys (simple dominant eigenvalue, positive eigenvector, strict dominance)  
 topics: Perron-Frobenius theorem, dominant eigenvalue, positive eigenvector
 
 Suppose $A$ is a square matrix with all entries strictly positive. Which statement most completely captures what the Perron-Frobenius theorem guarantees about the eigenstructure of $A$?
@@ -730,7 +731,7 @@ Why the distractors tempt:
 
 ## ESE2030-0274
 *week 11 · 2026A final #25 · active · Core*  
-skills: `W11.S01` Center a small data matrix and compute its covariance matrix  
+skills: `W11.S01` Know what the covariance matrix is — (1/n)XᵀX for centered data, a Gram matrix — and read variances and covariances off its entries; know why centering is mandatory  
 topics: Covariance matrix, definition, statistical structure, centered data
 
 Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix: $n$ observations of $d$ features, with each column having mean zero. Which statement best describes the covariance matrix of $X$?
@@ -759,7 +760,7 @@ Why the distractors tempt:
 
 ## ESE2030-0275
 *week 10 · 2026A final #26 · active · Deeper*  
-skills: `W10.S03` Read rank, and bases for all four fundamental subspaces, off a GIVEN SVD  
+skills: `W10.S04` Read rank and bases for all four fundamental subspaces off a GIVEN SVD (v's beyond r span the kernel; u's beyond r span the cokernel)  
 topics: SVD block structure, four fundamental subspaces, coimage, FTLA
 
 The diagram below is an abstract representation of the SVD of a linear transformation $M$, with five regions labeled (A) through (E). Which region best represents the {\em coimage} of the transformation? (choose (A) - (E))
@@ -790,7 +791,7 @@ Why the distractors tempt:
 
 ## ESE2030-0276
 *week 13 · 2026A final #27 · active · Deeper*  
-skills: `W13.S03` State why depth without nonlinearity collapses to a single linear map  
+skills: `W13.S01` Explain why depth without nonlinearity collapses to a single affine map, and what an elementwise activation adds  
 topics: Role of nonlinear activation, expressive power, why sigma is essential
 
 A feed-forward neural network alternates affine layers $\mathbf{z}_k = W_k \mathbf{h}_{k-1} +
@@ -823,7 +824,7 @@ Why the distractors tempt:
 
 ## ESE2030-0277
 *week 8 · 2026A final #28 · active · Core*  
-skills: `W08.S01` Find complex eigenvalues and produce REAL solutions from them  
+skills: `W08.S01` Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ  
 topics: Complex eigenvalues, oscillatory ODE solutions, Euler's formula
 
 A real matrix $A$ has a complex conjugate pair of eigenvalues $\lambda = \alpha \pm i\beta$ with $\beta \neq 0$. The system $d\mathbf{x}/dt = A\mathbf{x}$ has real basis solutions involving $e^{\alpha t} \cos(\beta t)$ and $e^{\alpha t} \sin(\beta t)$. Which of the following is the most fundamental reason these trigonometric functions appear?
@@ -851,7 +852,7 @@ Why the distractors tempt:
 
 ## ESE2030-0278
 *week 5 · 2026A final #29 · active*  
-skills: `W05.S05` Run Gram-Schmidt on two or three vectors and normalize correctly  
+skills: `W05.S06` Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME nested spans), and why "just normalize each vector" fails  
 topics: Gram-Schmidt, partial-span invariance, orthogonal basis construction
 
 Let $\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$ be a linearly
@@ -884,7 +885,7 @@ Why the distractors tempt:
 
 ## ESE2030-0279
 *week 3 · 2026A final #30 · active · Deeper*  
-skills: `W03.S03` Apply Rank-Nullity to deduce one dimension from the other two; `W03.S07` State the Fundamental Theorem correctly, including which space each summand lives in; `W03.S06` Describe a quotient space and give its dimension  
+skills: `W03.S08` State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply; `W03.S03` Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN dimension  
 topics: FTLA, coimage, image, cokernel, quotient spaces, dimension count
 
 Let $T: V \to W$ be a rank 3 linear transformation between finite-dimensional vector
@@ -914,7 +915,7 @@ Why the distractors tempt:
 
 ## ESE2030-0280
 *week 7 · 2026A final #31 · active*  
-skills: `W07.S03` Decide diagonalizability from eigenvector counts, not from distinctness alone  
+skills: `W07.S04` Decide diagonalizability from eigenvector counts, and know that n distinct eigenvalues is sufficient but not necessary  
 topics: Diagonalizability, distinct eigenvalues, sufficient vs. necessary conditions, eigenspace dimension
 
 Let $A$ be an $n \times n$ matrix with real entries. Which of the following statements about $A$ is most true?
@@ -972,7 +973,7 @@ Why the distractors tempt:
 
 ## ESE2030-0282
 *week 3 · 2026A final #33 · active · Deeper*  
-skills: `W03.S04` Decide injectivity/surjectivity from rank and nullity alone; `W03.S08` Recognize an isomorphism and produce its inverse on a small example  
+skills: `W03.S04` Decide injectivity, surjectivity, and bijectivity from the dimensions alone, and know which is impossible when dim V > dim W or dim V < dim W; `W03.S05` Place each of the four fundamental spaces in the domain or the codomain, and say what lives in each  
 topics: Linear transformations, isomorphism, injectivity, surjectivity, cokernel, FTLA
 
 Let $T: V \to W$ be a linear transformation between finite-dimensional
@@ -1001,6 +1002,7 @@ Why the distractors tempt:
 
 ## ESE2030-0283
 *week 13 · 2026A final #34 · active · Core (conceptual, synthesis)*  
+skills: `W13.S02` Recognize a single perceptron as a half-space classifier: w is normal to the decision boundary, wᵀx + b is a scaled signed distance, and only linearly separable regions are representable (XOR is not)  
 topics: Perceptron geometry, decision boundary, normal vector
 
 A perceptron with weights $\mathbf{w} \in \mathbb{R}^n$, bias $b \in \mathbb{R}$, and sigmoid activation $\sigma$ computes $y = \sigma(\mathbf{w}^T \mathbf{x} + b)$, with decision boundary $\{\mathbf{x} : \mathbf{w}^T \mathbf{x} + b = 0\}$.
@@ -1030,7 +1032,7 @@ Why the distractors tempt:
 
 ## ESE2030-0284
 *week 6 · 2026A final #35 · active*  
-skills: `W06.S02` Project a vector onto a line, a plane, or the column space of a small matrix  
+skills: `W06.S02` Recognize orthogonal projection as the unique nearest point in a subspace, and the residual as orthogonal to that subspace  
 topics: Orthogonal projection, best approximation, closest point in a subspace
 
 Let $V$ be a finite-dimensional inner product space and let $W \subseteq V$
@@ -1062,7 +1064,7 @@ Why the distractors tempt:
 
 ## ESE2030-0285
 *week 7 · 2026A final #36 · active*  
-skills: `W07.S06` Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum  
+skills: `W07.S08` Predict the qualitative behavior of x′ = Ax (growth, decay, stability) from the sign of Re λ, and recognize superposition and decoupling as the mechanism; `W07.S05` Recognize A = VDV⁻¹ as a change of basis to an eigenbasis, with the correct order of factors, and what V and D record  
 topics: Linear ODE systems, matrix exponential, eigencomponent solution, initial conditions
 
 Let $A$ be a $2 \times 2$ matrix with eigenvalues $\lambda_1 = 2$ and $\lambda_2 = -1$ and corresponding eigenvectors
@@ -1095,7 +1097,7 @@ Why the distractors tempt:
 
 ## ESE2030-0286
 *week 9 · 2026A final #37 · active*  
-skills: `W09.S06` Verify a matrix is stochastic and find its stationary distribution; `W09.S05` Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem  
+skills: `W09.S05` Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it; `W09.S04` Classify a nonnegative matrix as irreducible and/or primitive, and know which Perron–Frobenius conclusion each hypothesis buys (simple dominant eigenvalue, positive eigenvector, strict dominance)  
 topics: Positive stochastic matrices, Markov chains, stationary distribution
 
 Let $P$ be a positive column-stochastic $n \times n$ matrix governing a Markov chain
@@ -1133,7 +1135,7 @@ Why the distractors tempt:
 
 ## ESE2030-0287
 *week 4 · 2026A final #38 · active*  
-skills: `W04.S01` Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis  
+skills: `W04.S06` Know that the coordinate map is an isomorphism V → Rⁿ, so linear relations among vectors can be read off their coordinate vectors — in any basis  
 topics: Coordinate map, isomorphism via basis choice, abstract vs concrete vector spaces
 
 Let $V$ be an $n$-dimensional vector space and fix
@@ -1166,7 +1168,7 @@ Why the distractors tempt:
 
 ## ESE2030-0288
 *week 4 · 2026A final #39 · active · Core*  
-skills: `W04.S05` Re-express a matrix in a new basis via P^{-1} A P  
+skills: `W04.S04` Recognize similarity B = P⁻¹AP as the same operator in two frames, and know which direction P goes  
 topics: Similarity, change of basis, matrix representations of a linear transformation
 
 Square matrices $A$ and $B$ of the same size satisfy $B = P^{-1} A P$ for some invertible matrix $P$. Which statement most fundamentally describes the relationship between $A$ and $B$?
@@ -1195,7 +1197,7 @@ Why the distractors tempt:
 
 ## ESE2030-0289
 *week 8 · 2026A final #40 · active*  
-skills: `W08.S04` Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I); `W08.S03` Compute algebraic and geometric multiplicity, and diagnose defectiveness  
+skills: `W08.S03` Determine Jordan block structure from multiplicities: one block per independent eigenvector, and what block sizes mean; `W08.S02` Distinguish algebraic from geometric multiplicity, know geometric ≤ algebraic, and diagnose defectiveness as the gap  
 topics: Jordan canonical form, algebraic multiplicity, geometric multiplicity, block-size partition
 
 A $5 \times 5$ matrix $A$ has a single eigenvalue $\lambda = 3$ with algebraic multiplicity $5$ and geometric multiplicity $2$. Which of the following statements is most true about the Jordan canonical form of $A$?
@@ -1223,7 +1225,7 @@ Why the distractors tempt:
 
 ## ESE2030-0290
 *week 8 · 2026A final #41 · active · Deeper*  
-skills: `W08.S06` Exponentiate a 2x2 or 3x3 Jordan block  
+skills: `W08.S05` Recognize e^{tJ} for a Jordan block: the polynomial-times-exponential structure via the commuting split λI + N  
 topics: Matrix exponential of a Jordan block, nilpotent decomposition
 
 Let $J = \lambda I + N$ be a $k \times k$ Jordan block with eigenvalue
@@ -1256,6 +1258,7 @@ Why the distractors tempt:
 
 ## ESE2030-0291
 *week 11 · 2026A final #42 · active · Deeper*  
+skills: `W11.S02` Recognize correlation as the cosine of the angle between centered variables, and read ρ = ±1 and ρ = 0 geometrically  
 topics: Correlation as cosine similarity, centered data, geometric interpretation
 
 A data matrix $X \in \mathbb{R}^{n \times d}$ has $n$ observations of $d$ features
@@ -1288,7 +1291,7 @@ Why the distractors tempt:
 
 ## ESE2030-0292
 *week 7 · 2026A final #43 · active · Core*  
-skills: `W07.S01` Compute eigenvalues and eigenvectors for 2x2 and 3x3 matrices, including triangular ones  
+skills: `W07.S02` Know why det(A − λI) = 0 characterizes eigenvalues (singularity of A − λI), and read eigenvalues off triangular matrices  
 topics: Eigenvalue characterization, singularity of A - lambda I
 
 Let $A$ be an $n \times n$ matrix and $\lambda \in \mathbb{R}$ a scalar. Which of the following is equivalent to ``$\lambda$ is an eigenvalue of $A$''?

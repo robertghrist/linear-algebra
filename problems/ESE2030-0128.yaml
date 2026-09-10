@@ -1,7 +1,8 @@
 id: ESE2030-0128
 legacy_id: null
 week: 11
-skills: []
+skills:
+- W11.S02
 status: needs-review
 problem_type: null
 statement: |
@@ -45,4 +46,4 @@ sources:
   line: 482
 variant_of: null
 topics: []
-notes: 'tagging: Tests correlation as cosine; no W11 skill names this (W12.S01 does).'
+notes: null

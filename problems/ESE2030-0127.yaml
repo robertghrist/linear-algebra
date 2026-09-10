@@ -1,7 +1,8 @@
 id: ESE2030-0127
 legacy_id: null
 week: 5
-skills: []
+skills:
+- W05.S03
 status: needs-review
 problem_type: null
 statement: |
@@ -40,4 +41,4 @@ sources:
   line: 453
 variant_of: null
 topics: []
-notes: 'tagging: Tests that orthogonal projection needs an inner product; conceptual, no listed skill'
+notes: null

@@ -48,14 +48,25 @@ FUNDAMENTAL PRINCIPLES:
 - Spanning is about coverage; independence is about non-redundancy; dimension is where they meet
 - The Exchange Bound is the engine behind every dimension claim in the book
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W02.S01] Verify or refute the subspace property for a described set
-- [W02.S02] Decide whether a given set spans a stated space
-- [W02.S03] Test a finite set of vectors, matrices, or polynomials for linear independence
-- [W02.S04] Compute the dimension of a described subspace (null space, column space, symmetric matrices,
-  polynomials of bounded degree, solution sets of homogeneous systems)
-- [W02.S05] Compare dim of a sum and an intersection of two subspaces
-- [W02.S06] Recognize an infinite-dimensional space and say why it is one
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W02.S01] Verify or refute the subspace property for a described set, and name the failing
+  condition (usually: does not contain 0, or an affine set, or not closed under scaling)
+- [W02.S02] Distinguish the axioms from their consequences (0v = 0, uniqueness of zero, (−1)v =
+  −v are theorems), and recognize a non-example that satisfies closure but breaks an axiom
+- [W02.S03] Decide whether a set spans a stated space, and distinguish spanning (coverage) from
+  independence (non-redundancy)
+- [W02.S04] Recognize linear dependence and independence in R^n, in matrix spaces, in polynomial
+  and function spaces — including by exhibiting the dependence relation
+- [W02.S05] Determine the dimension of a described subspace (null space, column space, symmetric
+  or triangular matrices, polynomials of bounded degree, solutions of a homogeneous ODE) and
+  explain why n generators need not mean dimension n
+- [W02.S06] Recognize the sum U + W and the intersection U ∩ W as subspaces, and use dim(U + W)
+  = dim U + dim W − dim(U ∩ W)
+- [W02.S07] Recognize a direct sum U ⊕ W (trivial intersection, or the dimension count, or
+  unique decomposition) and know that a complement is a CHOICE, not canonical
+- [W02.S08] Apply the Exchange Bound: more vectors than the dimension must be dependent; fewer
+  cannot span
+- [W02.S09] Recognize an infinite-dimensional space and say why it is one
 
 TYPICAL MCQ TRAPS:
 - Accepting a set that is closed under addition but not scalar multiplication (or vice versa)
@@ -67,7 +78,8 @@ TYPICAL MCQ TRAPS:
 
 PERIPHERAL -- CONTEXT ONLY (de-emphasized):
 - Independence of the axioms from one another
-- Proofs of Exchange Bound
+- Sequence spaces and convergence questions
+- The signals and ODE application sections
 
 CONNECTIONS FORWARD:
 - Kernel and image are subspaces defined by a map, not by equations (Week 3)

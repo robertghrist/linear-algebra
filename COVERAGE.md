@@ -15,163 +15,176 @@
 | 7 | Diagonalization & Dynamics | 33 | 1 | 0 |
 | 8 | Eigenvalue Complexities | 22 | 0 | 0 |
 | 9 | Linear Iterative Systems | 23 | 2 | 0 |
-| 10 | Singular Value Decomposition | 28 | 1 | 2 |
-| 11 | Principal Components & Low-Rank Structure | 21 | 2 | 0 |
+| 10 | Singular Value Decomposition | 28 | 2 | 2 |
+| 11 | Principal Components & Low-Rank Structure | 21 | 1 | 0 |
 | 12 | Probability & High Dimension | 1 | 0 | 0 |
 | 13 | Neural Networks & AI | 11 | 1 | 0 |
 
-## Skills (269/292 problems tagged)
+## Skills (287/292 problems tagged)
 
 ### Week 1: Solving Linear Systems
 
-- `W01.S01` (2) Row-reduce a small matrix and read off pivots, rank, and free variables
-- `W01.S02` (2) Classify a solution set as unique / none / infinite WITHOUT solving the system
-- `W01.S03` (1) Write a general solution as particular + homogeneous
-- `W01.S04` (3) Decide invertibility from pivot count
-- `W01.S05` (0) Invert a 2x2 or 3x3 by row reduction **← untested**
-- `W01.S06` (6) Extract L and U from elimination multipliers; produce PA = LU when a swap is needed
-- `W01.S07` (2) Solve a triangular system by forward or back substitution
-- `W01.S08` (0) Recognize when permutation or block structure decouples a system **← untested**
-- `W01.S09` (0) State what conditioning measures and what it does not **← untested**
+- `W01.S01` (3) Read rank, pivot columns, and the number of free variables off an echelon form, and know why rank is the number of pivots and not the number of rows
+- `W01.S02` (2) Classify a system as having no, one, or infinitely many solutions from rank and augmented-rank alone, without solving
+- `W01.S03` (2) Recognize the solution set as particular + homogeneous: an affine translate of the null space, and know its dimension
+- `W01.S04` (4) Recognize nonsingularity from any one of its equivalent conditions (pivot count, trivial null space, unique solutions, nonzero determinant) and move between them
+- `W01.S05` (3) Know what elementary matrices do: row operations as LEFT multiplication, and the order in which a sequence of them composes
+- `W01.S06` (1) Know what row operations preserve (solution set, row space, null space) and what they do not (column space)
+- `W01.S07` (5) Recognize an LU or PA = LU factorization and say what each factor records; know when the permutation is required
+- `W01.S08` (3) Explain WHY one factors: one elimination, many right-hand sides; forward then back substitution; the O(n³) vs O(n²) asymmetry
+- `W01.S09` (0) Recognize when permutation or block structure decouples a system **← untested**
+- `W01.S10` (0) Say what conditioning warns about and what it does not — and that a small determinant is not the diagnostic **← untested**
 
 ### Week 2: Abstract Vector Spaces
 
-- `W02.S01` (9) Verify or refute the subspace property for a described set
-- `W02.S02` (5) Decide whether a given set spans a stated space
-- `W02.S03` (6) Test a finite set of vectors, matrices, or polynomials for linear independence
-- `W02.S04` (5) Compute the dimension of a described subspace (null space, column space, symmetric matrices, polynomials of bounded degree, solution sets of homogeneous systems)
-- `W02.S05` (1) Compare dim of a sum and an intersection of two subspaces
-- `W02.S06` (0) Recognize an infinite-dimensional space and say why it is one **← untested**
+- `W02.S01` (8) Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)
+- `W02.S02` (1) Distinguish the axioms from their consequences (0v = 0, uniqueness of zero, (−1)v = −v are theorems), and recognize a non-example that satisfies closure but breaks an axiom
+- `W02.S03` (5) Decide whether a set spans a stated space, and distinguish spanning (coverage) from independence (non-redundancy)
+- `W02.S04` (4) Recognize linear dependence and independence in R^n, in matrix spaces, in polynomial and function spaces — including by exhibiting the dependence relation
+- `W02.S05` (5) Determine the dimension of a described subspace (null space, column space, symmetric or triangular matrices, polynomials of bounded degree, solutions of a homogeneous ODE) and explain why n generators need not mean dimension n
+- `W02.S06` (2) Recognize the sum U + W and the intersection U ∩ W as subspaces, and use dim(U + W) = dim U + dim W − dim(U ∩ W)
+- `W02.S07` (1) Recognize a direct sum U ⊕ W (trivial intersection, or the dimension count, or unique decomposition) and know that a complement is a CHOICE, not canonical
+- `W02.S08` (3) Apply the Exchange Bound: more vectors than the dimension must be dependent; fewer cannot span
+- `W02.S09` (0) Recognize an infinite-dimensional space and say why it is one **← untested**
 
 ### Week 3: Linear Transformations
 
-- `W03.S01` (4) Verify or refute linearity of a described map
-- `W03.S02` (6) Compute the kernel and image of a matrix or of a simple operator on polynomials
-- `W03.S03` (9) Apply Rank-Nullity to deduce one dimension from the other two
-- `W03.S04` (6) Decide injectivity/surjectivity from rank and nullity alone
-- `W03.S05` (1) Identify which of the four spaces a given vector or subspace belongs to
-- `W03.S06` (11) Describe a quotient space and give its dimension
-- `W03.S07` (9) State the Fundamental Theorem correctly, including which space each summand lives in
-- `W03.S08` (2) Recognize an isomorphism and produce its inverse on a small example
+- `W03.S01` (4) Verify or refute linearity of a described map, and know that T(0) = 0 is necessary but not sufficient
+- `W03.S02` (6) Identify the kernel and image of a matrix or of a calculus operator on polynomials, and their dimensions
+- `W03.S03` (7) Apply Rank–Nullity to deduce one dimension from the other two, with the DOMAIN dimension
+- `W03.S04` (5) Decide injectivity, surjectivity, and bijectivity from the dimensions alone, and know which is impossible when dim V > dim W or dim V < dim W
+- `W03.S05` (4) Place each of the four fundamental spaces in the domain or the codomain, and say what lives in each
+- `W03.S06` (5) Recognize a quotient space: when two vectors represent the same coset, what V/U "remembers," and dim(V/U) = dim V − dim U
+- `W03.S07` (0) Distinguish the quotient V/U from a complement of U, and know how a direct-sum decomposition V = U ⊕ U′ makes U′ a model for V/U **← untested**
+- `W03.S08` (8) State the Fundamental Theorem: V = ker T ⊕ coim T, W = im T ⊕ coker T, with coim T ≅ im T — and recognize which statements it does and does not imply
+- `W03.S09` (2) Recognize an isomorphism, know that equal finite dimension is the whole criterion, and know what it preserves
+- `W03.S10` (0) Recognize that rank(A) = rank(Aᵀ) is a theorem (the FTLA), not a definition **← untested**
 
 ### Week 4: Bases & Coordinates
 
-- `W04.S01` (5) Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis
-- `W04.S02` (1) Build P_{B <- B'} and use it in the correct direction
-- `W04.S03` (0) Convert coordinates between two non-standard bases **← untested**
-- `W04.S04` (2) Write the matrix of a linear map relative to given bases in domain and codomain
-- `W04.S05` (3) Re-express a matrix in a new basis via P^{-1} A P
-- `W04.S06` (3) Decide whether a stated property is preserved under similarity
-- `W04.S07` (0) Extend an independent set to a basis and trim a spanning set to one **← untested**
+- `W04.S01` (3) Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis, and know that a vector is NOT its coordinates
+- `W04.S02` (1) Know what the change-of-basis matrix P_{B←B′} is (its columns), which direction it acts, and that its inverse acts the other way
+- `W04.S03` (2) Recognize the matrix of a linear map relative to given bases (columns are images of basis vectors, in codomain coordinates) and read kernel/image facts off it
+- `W04.S04` (4) Recognize similarity B = P⁻¹AP as the same operator in two frames, and know which direction P goes
+- `W04.S05` (2) Decide whether a stated property is coordinate-free (rank, nullity, trace, determinant, eigenvalues, characteristic polynomial) or a basis artifact (entries, columns, orthogonality, singular values)
+- `W04.S06` (2) Know that the coordinate map is an isomorphism V → Rⁿ, so linear relations among vectors can be read off their coordinate vectors — in any basis
+- `W04.S07` (0) Extend an independent set to a basis and trim a spanning set to one; use dimension counting as a proof technique **← untested**
+- `W04.S08` (0) Recognize which questions require a basis and which do not (dimension and quotient do not; coordinates and matrices do) **← untested**
 
 ### Week 5: Inner Products & Orthogonality
 
-- `W05.S01` (1) Verify the inner product axioms for a proposed pairing, and find the axiom that fails
-- `W05.S02` (9) Compute norms, angles, and cosine similarity in weighted and function inner products
-- `W05.S03` (0) Apply Cauchy-Schwarz to bound an inner product **← untested**
-- `W05.S04` (1) Find an orthogonal complement and its dimension
-- `W05.S05` (5) Run Gram-Schmidt on two or three vectors and normalize correctly
-- `W05.S06` (5) Expand a vector against an orthonormal basis using inner products alone
-- `W05.S07` (6) Compute an adjoint, and recognize when the adjoint differs from the transpose
-- `W05.S08` (6) Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does
-- `W05.S09` (7) Read off Q and R from a small QR, and use QR to solve or to compute a projection
+- `W05.S01` (1) Verify the inner product axioms for a proposed pairing and identify the axiom that fails
+- `W05.S02` (8) Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen
+- `W05.S03` (3) Decide which operations require an inner product (angle, orthogonality, projection, adjoint, orthogonal complement) and which are purely algebraic (span, kernel, dimension, quotient, invertibility)
+- `W05.S04` (1) Recognize an orthogonal complement and its dimension; know Pythagoras and the orthogonal-decomposition lemma
+- `W05.S05` (5) Know why an orthonormal basis is special: coordinates are inner products, ‖v‖² is the sum of squared coordinates, and no system need be solved
+- `W05.S06` (5) Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME nested spans), and why "just normalize each vector" fails
+- `W05.S07` (5) Know the defining property of the adjoint ⟨Tv, w⟩ = ⟨v, T*w⟩, its domain and codomain, and that T* is the transpose only in the standard inner product with standard bases
+- `W05.S08` (8) Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)
+- `W05.S09` (0) Recognize the Gram matrix AᵀA: symmetric, positive semidefinite, ker(AᵀA) = ker A, and invertible exactly when the columns of A are independent **← untested**
+- `W05.S10` (8) Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A
+- `W05.S11` (2) Recognize the geometry of preservation: which transformations preserve angles but not lengths (scalings), lengths and angles (orthogonal), neither
 
 ### Week 6: Orthogonal Decomposition & Data
 
-- `W06.S01` (3) Compute an orthogonal complement and verify a dimension count
-- `W06.S02` (4) Project a vector onto a line, a plane, or the column space of a small matrix
-- `W06.S03` (2) Recognize a projection matrix from P^2 = P and P^T = P, and identify its image and kernel
-- `W06.S04` (6) State which fundamental subspace is the orthogonal complement of which
-- `W06.S05` (2) Write down A^+ for a diagonal, a rank-one, a projection, and an invertible matrix
-- `W06.S06` (3) Say what A^+ A and A A^+ are, and why they are generally not the identity
-- `W06.S07` (2) Set up and solve small normal equations; identify the residual and check its orthogonality
-- `W06.S08` (3) Identify the minimum-norm solution among the infinitely many least squares solutions
-- `W06.S09` (0) Write the ridge system and describe the effect of lambda **← untested**
+- `W06.S01` (3) Recognize an orthogonal complement, its dimension count, and (U^⊥)^⊥ = U
+- `W06.S02` (4) Recognize orthogonal projection as the unique nearest point in a subspace, and the residual as orthogonal to that subspace
+- `W06.S03` (2) Recognize a projection matrix from P² = P and Pᵀ = P, identify its image and kernel, and know its matrix forms (QQᵀ; A(AᵀA)⁻¹Aᵀ)
+- `W06.S04` (4) Identify which fundamental subspace is the orthogonal complement of which: coim = (ker)^⊥ = row space, coker = (im)^⊥
+- `W06.S05` (1) Recognize how a projection realizes a quotient: the coset acquires a canonical representative in U^⊥
+- `W06.S06` (4) Know what the pseudoinverse IS (invert the isomorphism (ker T)^⊥ → im T, extend by zero on the cokernel) and read off its kernel, image, and domain/codomain
+- `W06.S07` (2) Say what A⁺A and AA⁺ are (projections onto coimage and image) and why neither is the identity in general; know the special cases where A⁺ = A⁻¹, (AᵀA)⁻¹Aᵀ, Aᵀ(AAᵀ)⁻¹
+- `W06.S08` (1) Recognize least squares as projection onto the column space, the normal equations AᵀAx = Aᵀb, and when the solution is unique (independent columns ⇔ Gram matrix invertible)
+- `W06.S09` (2) Identify the minimum-norm least squares solution as x = A⁺b among the infinitely many
+- `W06.S10` (0) Know what ridge regularization does (shrinks the solution, not the residual; unique for every λ > 0; tends to A⁺b as λ → 0) **← untested**
 
 ### Week 7: Diagonalization & Dynamics
 
-- `W07.S01` (3) Compute eigenvalues and eigenvectors for 2x2 and 3x3 matrices, including triangular ones
-- `W07.S02` (6) Use trace and determinant to check or to shortcut an eigenvalue computation
-- `W07.S03` (5) Decide diagonalizability from eigenvector counts, not from distinctness alone
-- `W07.S04` (4) Assemble V and D and verify A = V D V^{-1}
-- `W07.S05` (10) Compute A^k and e^{tA} for a diagonalizable matrix
-- `W07.S06` (5) Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum
-- `W07.S07` (2) Convert a higher-order scalar ODE to a first-order system and back
-- `W07.S08` (3) Write a basis of solutions from distinct characteristic roots
+- `W07.S01` (3) Recognize eigenvalues and eigenvectors from the definition Av = λv (v ≠ 0), and the geometric reading: directions the map only stretches
+- `W07.S02` (2) Know why det(A − λI) = 0 characterizes eigenvalues (singularity of A − λI), and read eigenvalues off triangular matrices
+- `W07.S03` (5) Use trace and determinant to check or shortcut an eigenvalue computation
+- `W07.S04` (4) Decide diagonalizability from eigenvector counts, and know that n distinct eigenvalues is sufficient but not necessary
+- `W07.S05` (4) Recognize A = VDV⁻¹ as a change of basis to an eigenbasis, with the correct order of factors, and what V and D record
+- `W07.S06` (7) Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of A via eigenvalues (spectral mapping)
+- `W07.S07` (7) Know what e^{tA} is (the power series), what it is not (entrywise exponential), when e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax
+- `W07.S08` (3) Predict the qualitative behavior of x′ = Ax (growth, decay, stability) from the sign of Re λ, and recognize superposition and decoupling as the mechanism
+- `W07.S09` (3) Recognize the equivalence of a higher-order scalar ODE and a first-order system: the companion matrix, its characteristic polynomial p(λ), and the roots of p(D) as eigenvalues
+- `W07.S10` (3) Know that the solution space of an n-th order linear ODE has dimension n, and write the basis of solutions for distinct roots
 
 ### Week 8: Eigenvalue Complexities
 
-- `W08.S01` (2) Find complex eigenvalues and produce REAL solutions from them
-- `W08.S02` (2) Read frequency and growth rate off a complex eigenvalue
-- `W08.S03` (4) Compute algebraic and geometric multiplicity, and diagnose defectiveness
-- `W08.S04` (6) Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I)
-- `W08.S05` (0) Find a generalized eigenvector by solving (A - lambda I) w = v **← untested**
-- `W08.S06` (4) Exponentiate a 2x2 or 3x3 Jordan block
-- `W08.S07` (5) Write the basis of solutions for an ODE with repeated or complex characteristic roots
-- `W08.S08` (5) Explain what one QR step does and why the spectrum is unchanged
+- `W08.S01` (8) Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ
+- `W08.S02` (4) Distinguish algebraic from geometric multiplicity, know geometric ≤ algebraic, and diagnose defectiveness as the gap
+- `W08.S03` (6) Determine Jordan block structure from multiplicities: one block per independent eigenvector, and what block sizes mean
+- `W08.S04` (0) Know what a generalized eigenvector is ((A − λI)w = v) and what it buys — the t e^{λt} terms — without constructing chains by hand **← untested**
+- `W08.S05` (4) Recognize e^{tJ} for a Jordan block: the polynomial-times-exponential structure via the commuting split λI + N
+- `W08.S06` (5) Write the basis of solutions for an ODE with repeated or complex characteristic roots, and recognize the polynomial factor as the signature of a defective matrix
+- `W08.S07` (5) Explain what one QR-algorithm step does (A → RQ is similar to A), why the spectrum is unchanged, and what the iteration converges to (triangular; block-triangular for complex pairs)
+- `W08.S08` (0) Distinguish the QR ALGORITHM (eigenvalues, Week 8) from the QR DECOMPOSITION (factorization, Week 5), and know that Jordan form is a theorem, not what software computes **← untested**
 
 ### Week 9: Linear Iterative Systems
 
-- `W09.S01` (1) Determine whether A^k converges, diverges, or oscillates, from the spectrum alone
-- `W09.S02` (4) Compute the spectral radius and identify the dominant eigenvalue and eigenvector
-- `W09.S03` (5) Predict the limiting direction of an iterate and the rate of approach
-- `W09.S04` (0) Run two or three steps of the power method and normalize sensibly **← untested**
-- `W09.S05` (4) Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem
-- `W09.S06` (8) Verify a matrix is stochastic and find its stationary distribution
-- `W09.S07` (6) Orthogonally diagonalize a small symmetric matrix
-- `W09.S08` (0) Bound x^T A x using the Rayleigh quotient **← untested**
-- `W09.S09` (3) Build a Graph Laplacian and read the number of components off its kernel
+- `W09.S01` (3) Determine whether A^k x₀ converges, diverges, or oscillates from the spectrum alone, and contrast |λ| < 1 (iteration) with Re λ < 0 (ODE)
+- `W09.S02` (6) Identify the spectral radius and the dominant eigenvalue/eigenvector, and predict the limiting direction of an iterate and its rate (|λ₂|/|λ₁|)
+- `W09.S03` (1) Recognize the power method as dominant convergence turned into an algorithm — what it finds and when it fails
+- `W09.S04` (4) Classify a nonnegative matrix as irreducible and/or primitive, and know which Perron–Frobenius conclusion each hypothesis buys (simple dominant eigenvalue, positive eigenvector, strict dominance)
+- `W09.S05` (8) Recognize a (column-)stochastic matrix, know why λ = 1 is always an eigenvalue and ρ = 1, identify the stationary distribution, and know the hypotheses for convergence to it
+- `W09.S06` (5) Know what symmetry buys: real eigenvalues, orthogonal eigenvectors for DISTINCT eigenvalues, and an orthonormal eigenbasis that can be chosen (not automatic within a repeated eigenspace)
+- `W09.S07` (1) Recognize a Gram matrix XᵀX or a covariance matrix as symmetric positive semidefinite (positive definite iff independent columns), with eigenvalues ≥ 0
+- `W09.S08` (0) Know what the Rayleigh quotient measures and that its extremes are λ_max and λ_min at the eigenvectors **← untested**
+- `W09.S09` (3) Recognize the Graph Laplacian, read the number of components off its kernel, and know what the Fiedler vector splits
 
 ### Week 10: Singular Value Decomposition
 
-- `W10.S01` (2) Orthogonally diagonalize a small symmetric matrix and write its spectral decomposition
-- `W10.S02` (1) Compute the SVD of a 2x2 or a simple 2x3 / 3x2 matrix
-- `W10.S03` (10) Read rank, and bases for all four fundamental subspaces, off a GIVEN SVD
-- `W10.S04` (2) Write A as a sum of rank-one terms and identify the dominant one
-- `W10.S05` (3) Compute spectral and Frobenius norms from singular values
-- `W10.S06` (0) Compute the condition number and interpret it **← untested**
-- `W10.S07` (3) Build A^+ from a given SVD and use it to solve a least squares problem
-- `W10.S08` (7) Relate singular values of A to eigenvalues of A^T A without conflating them
-- `W10.S09` (1) Explain why singular values are nonnegative while eigenvalues need not be
+- `W10.S01` (1) State the Spectral Theorem for symmetric matrices (A = QDQᵀ, real eigenvalues, orthonormal eigenbasis) and recognize which of its guarantees fail for non-symmetric matrices
+- `W10.S02` (1) Recognize the SVD as TWO orthonormal frames, not one — the essential contrast with diagonalization — and know when an eigendecomposition is also an SVD (symmetric positive semidefinite)
+- `W10.S03` (6) Read the defining relations Av_i = σ_i u_i and Aᵀu_i = σ_i v_i, and place the v's in the domain and the u's in the codomain
+- `W10.S04` (7) Read rank and bases for all four fundamental subspaces off a GIVEN SVD (v's beyond r span the kernel; u's beyond r span the cokernel)
+- `W10.S05` (5) Recognize the sphere-to-ellipsoid geometry: semi-axes are singular values, directions are left singular vectors, and what rank deficiency does to the picture
+- `W10.S06` (7) Relate singular values of A to eigenvalues of AᵀA and AAᵀ (σ_i² = λ_i, shared nonzero eigenvalues) without conflating them; know σ_i ≥ 0 while eigenvalues need not be, and when σ_i = |λ_i|
+- `W10.S07` (2) Recognize A = Σσ_i u_i v_iᵀ as a sum of rank-one pieces in decreasing importance, and identify the dominant one
+- `W10.S08` (3) Recognize the spectral norm (σ₁) and the Frobenius norm (√Σσ_i²), and the condition number σ₁/σ_r as Week 1's warning made exact — small σ_min, not small determinant
+- `W10.S09` (3) Recognize A⁺ = VΣ⁺Uᵀ from a given SVD, with Σ⁺ inverting nonzero singular values AND transposing, and never inverting a zero
+- `W10.S10` (2) Know that singular values are invariant under orthogonal transformations on either side (A → Q₁AQ₂ᵀ) but NOT under similarity
 
 ### Week 11: Principal Components & Low-Rank Structure
 
-- `W11.S01` (2) Center a small data matrix and compute its covariance matrix
-- `W11.S02` (4) Identify principal components as eigenvectors of C or right singular vectors of X
-- `W11.S03` (4) Compute variance captured and explained-variance ratios from eigenvalues or singular values
-- `W11.S04` (3) Read a scree plot and defend a choice of k
-- `W11.S05` (4) Decide between covariance PCA and correlation PCA from the units and scales given
-- `W11.S06` (5) Produce the best rank-k approximation from a given SVD and state its error in both norms
-- `W11.S07` (0) Compute a Mahalanobis distance and use it to flag an outlier **← untested**
-- `W11.S08` (1) Project data onto the top two components and interpret the resulting plot
-- `W11.S09` (4) Interpret loadings: which variables drive which component, and the sign ambiguity
-- `W11.S10` (0) State the nuclear norm and say why it stands in for rank **← untested**
+- `W11.S01` (2) Know what the covariance matrix is — (1/n)XᵀX for centered data, a Gram matrix — and read variances and covariances off its entries; know why centering is mandatory
+- `W11.S02` (4) Recognize correlation as the cosine of the angle between centered variables, and read ρ = ±1 and ρ = 0 geometrically
+- `W11.S03` (4) Identify principal components as eigenvectors of C, equivalently right singular vectors of X, and know the dictionary: eigenvalues of C = σ_i²/n = variance captured
+- `W11.S04` (2) Recognize the sequential characterization: each component maximizes remaining variance subject to orthogonality (the Rayleigh quotient at work), and the non-uniqueness when an eigenvalue repeats
+- `W11.S05` (1) Recognize PC scores as the data's coordinates in the principal basis (XV_k = U_kΣ_k), and interpret a projection onto the top two components
+- `W11.S06` (4) Decide between covariance PCA and correlation PCA from the units and scales given, and predict the effect of rescaling one variable on each
+- `W11.S07` (3) Read a scree plot and explained-variance ratios; distinguish effective dimensionality from mathematical rank
+- `W11.S08` (5) State Eckart–Young–Mirsky: the truncated SVD is THE best rank-k approximation, in both norms, with errors σ_{k+1} and √Σ_{i>k}σ_i²
+- `W11.S09` (3) Interpret loadings: which variables drive which component, and the sign ambiguity
+- `W11.S10` (0) Know what the nuclear norm is and why it stands in for rank; recognize the low-rank- plus-sparse decomposition and what "sparse" means there **← untested**
 
 ### Week 12: Probability & High Dimension
 
-- `W12.S01` (0) Translate between statistical and geometric vocabulary: expectation/projection, variance/squared length, covariance/inner product, correlation/cosine **← untested**
-- `W12.S02` (0) Verify that a proposed weighting gives a valid inner product on random variables **← untested**
-- `W12.S03` (0) Apply Markov and Chebyshev to bound a tail probability **← untested**
-- `W12.S04` (0) Decide whether a point lies in the simplex; compute a softmax output and check it sums to one **← untested**
-- `W12.S05` (0) Compute the expected inner product and variance for random unit vectors and explain near-orthogonality in R^n **← untested**
-- `W12.S06` (0) Apply the union bound to a stated collection of events **← untested**
-- `W12.S07` (0) Place the Marchenko-Pastur edges given n and d, and classify a singular value as signal or noise **← untested**
-- `W12.S08` (1) Use Johnson-Lindenstrauss to compute a sufficient target dimension k from m and epsilon, and read off the stated success probability
-- `W12.S09` (1) State exactly what JL preserves (pairwise squared distances, up to relative error) and what it does not
-- `W12.S10` (0) Describe the randomized SVD pipeline in order: probe, sketch, orthonormalize, project, factor **← untested**
+- `W12.S01` (0) Translate between statistical and geometric vocabulary: expectation / projection onto constants, variance / squared length, covariance / inner product, correlation / cosine, centering / projection onto 1^⊥ **← untested**
+- `W12.S02` (0) Recognize the probability inner product ⟨f,g⟩_ρ, why the constant vector has unit length (total probability), and why linearity of expectation needs no independence **← untested**
+- `W12.S03` (0) Recognize conditional expectation as an orthogonal projection, and when variances add (orthogonal residuals — Pythagoras) **← untested**
+- `W12.S04` (0) Recognize the simplex, decide whether a point lies in it, and know what softmax does (a density on the simplex; shift-invariant; not a probability of correctness) and that stochastic matrices preserve the simplex **← untested**
+- `W12.S05` (0) Explain near-orthogonality in high dimension: random inner products have mean 0 and variance 1/n; lengths concentrate; exponentially many nearly-orthogonal directions **← untested**
+- `W12.S06` (0) Know what the union bound and the probabilistic method do, and recognize an argument of the shape "one-point concentration plus a union bound over pairs" **← untested**
+- `W12.S07` (0) Know that pure noise has a predictable spectrum (a bulk with an edge), so a singular value is signal only if it clears the noise floor — and that this is what makes a scree plot readable **← untested**
+- `W12.S08` (1) State what Johnson–Lindenstrauss preserves (pairwise SQUARED distances to relative error ε) and what the target dimension depends on (number of points and ε — NOT the ambient dimension); recognize the random projection's calibration
+- `W12.S09` (0) Describe the randomized SVD in order (probe, sketch, orthonormalize, project, factor) and say why it is cheap and approximate **← untested**
 
 ### Week 13: Neural Networks & AI
 
-- `W13.S01` (0) Count parameters in a stated architecture **← untested**
-- `W13.S02` (0) Evaluate a small network forward by hand **← untested**
-- `W13.S03` (3) State why depth without nonlinearity collapses to a single linear map
-- `W13.S04` (0) Identify the shapes of W_l, h_l, b_l, and delta_l and check conformability **← untested**
-- `W13.S05` (3) Apply the backpropagation rule for one layer and identify where the TRANSPOSE enters
-- `W13.S06` (0) Recognize the output-layer error signal as the negated least squares residual **← untested**
-- `W13.S07` (0) Compare the cost of backpropagation to finite differences **← untested**
-- `W13.S08` (0) Compute a softmax and an attention weight COLUMN; verify it sums to one **← untested**
-- `W13.S09` (0) Explain what attention learns that a fixed inner product cannot **← untested**
-- `W13.S10` (0) Identify kernel and image of a linearized autoencoder round trip and say what each means **← untested**
-- `W13.S11` (1) Explain the sense in which a linear autoencoder reproduces PCA
+- `W13.S01` (3) Explain why depth without nonlinearity collapses to a single affine map, and what an elementwise activation adds
+- `W13.S02` (4) Recognize a single perceptron as a half-space classifier: w is normal to the decision boundary, wᵀx + b is a scaled signed distance, and only linearly separable regions are representable (XOR is not)
+- `W13.S03` (1) State universal approximation as an existence claim about WIDTH, and recognize what it does not say (trainability, depth efficiency, sample complexity)
+- `W13.S04` (0) Recognize the feedforward architecture as alternating affine maps and elementwise nonlinearities with a linear last layer; identify the shapes of W_l, b_l, h_l and count parameters **← untested**
+- `W13.S05` (2) Know what the error signal δ_l IS (the sensitivity ∂L/∂z_l), that hidden layers have no targets, and that backpropagation derives δ_l from δ_{l+1}
+- `W13.S06` (2) Recognize backpropagation as the chain rule on a composition, and identify where the TRANSPOSE enters (forward W, backward Wᵀ — the adjoint of Week 5)
+- `W13.S07` (0) Recognize the output-layer error signal as the negated least squares residual **← untested**
+- `W13.S08` (0) Know why backpropagation is cheap (a constant multiple of one forward pass) versus finite differences (one pass per parameter) **← untested**
+- `W13.S09` (0) Recognize SGD as estimating an expectation by a sample: unbiased mini-batch gradients, variance falling with batch size **← untested**
+- `W13.S10` (0) Recognize attention as a LEARNED inner product (query/key bilinear form), softmax to a column-stochastic S, outputs in the convex hull of the values; know permutation equivariance and the quadratic cost **← untested**
+- `W13.S11` (0) Identify kernel and image of a linearized autoencoder round trip D∘E (discarded variation; the learned model of the data), and why the encoder alone reveals little **← untested**
+- `W13.S12` (1) Explain the sense in which a linear autoencoder reproduces PCA, and what a nonlinear one adds
 
-**Untested skills: 30** — W01.S05, W01.S08, W01.S09, W02.S06, W04.S03, W04.S07, W05.S03, W06.S09, W08.S05, W09.S04, W09.S08, W10.S06, W11.S07, W11.S10, W12.S01, W12.S02, W12.S03, W12.S04, W12.S05, W12.S06, W12.S07, W12.S10, W13.S01, W13.S02, W13.S04, W13.S06, W13.S07, W13.S08, W13.S09, W13.S10
+**Untested skills: 27** — W01.S09, W01.S10, W02.S09, W03.S07, W03.S10, W04.S07, W04.S08, W05.S09, W06.S10, W08.S04, W08.S08, W09.S08, W11.S10, W12.S01, W12.S02, W12.S03, W12.S04, W12.S05, W12.S06, W12.S07, W12.S09, W13.S04, W13.S07, W13.S08, W13.S09, W13.S10, W13.S11

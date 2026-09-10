@@ -1,7 +1,8 @@
 id: ESE2030-0112
 legacy_id: Q5-P17
 week: 11
-skills: []
+skills:
+- W11.S02
 status: active
 problem_type: null
 statement: |
@@ -63,5 +64,4 @@ topics:
 - Correlation as cosine similarity
 - orthogonality
 - angle interpretation
-notes: 'tagging: Tests correlation as cosine of the angle between centered columns; no W11 skill names
-  this (W12.S01 does).'
+notes: null

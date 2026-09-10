@@ -4,7 +4,7 @@
 
 ## ESE2030-0075
 *week 8 · 2025C quiz4 #2 · active · legacy Q4-P02*  
-skills: `W08.S07` Write the basis of solutions for an ODE with repeated or complex characteristic roots  
+skills: `W08.S06` Write the basis of solutions for an ODE with repeated or complex characteristic roots, and recognize the polynomial factor as the signature of a defective matrix; `W08.S01` Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ  
 topics: Basis solutions for ODEs, complex eigenvalues, repeated eigenvalues, solution structure
 
 The linear differential equation $\displaystyle \frac{d^3x}{dt^3} + a\frac{d^2x}{dt^2} + b\frac{dx}{dt} + cx = 0$ has companion matrix with eigenvalues $\lambda_1 = 2$ and $\lambda_{2,3} = -1 \pm 3i$.
@@ -29,7 +29,7 @@ Complex conjugate eigenvalues $\alpha \pm i\beta$ produce real basis solutions $
 
 ## ESE2030-0077
 *week 8 · 2025C quiz4 #4 · active · legacy Q4-P04*  
-skills: `W08.S06` Exponentiate a 2x2 or 3x3 Jordan block; `W08.S04` Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I)  
+skills: `W08.S05` Recognize e^{tJ} for a Jordan block: the polynomial-times-exponential structure via the commuting split λI + N; `W08.S03` Determine Jordan block structure from multiplicities: one block per independent eigenvector, and what block sizes mean  
 topics: Matrix exponentials, Jordan form, repeated eigenvalues, nilpotent structure
 
 Consider a $4 \times 4$ matrix in Jordan canonical form where all eigenvalues equal 2. Which of the following matrices can be $e^{Jt}$ for some such Jordan form $J$?
@@ -69,7 +69,7 @@ Why the distractors tempt:
 
 ## ESE2030-0079
 *week 8 · 2025C quiz4 #6 · active · legacy Q4-P06*  
-skills: `W08.S04` Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I)  
+skills: `W08.S03` Determine Jordan block structure from multiplicities: one block per independent eigenvector, and what block sizes mean; `W08.S01` Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ  
 topics: Jordan canonical form, complex eigenvalues, repeated eigenvalues, block structure
 
 Consider the following three $6 \times 6$ matrices. Which of them are in (real) Jordan canonical form?
@@ -121,7 +121,7 @@ Consider the following three $6 \times 6$ matrices. Which of them are in (real) 
 
 ## ESE2030-0082
 *week 8 · 2025C quiz4 #9 · active · legacy Q4-P09*  
-skills: `W08.S06` Exponentiate a 2x2 or 3x3 Jordan block; `W08.S01` Find complex eigenvalues and produce REAL solutions from them  
+skills: `W08.S05` Recognize e^{tJ} for a Jordan block: the polynomial-times-exponential structure via the commuting split λI + N; `W08.S01` Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ  
 topics: Matrix exponentials, complex eigenvalues, Taylor series, 2x2 blocks
 
 Consider the $2 \times 2$ real Jordan block corresponding to complex eigenvalues $\alpha \pm i\beta$:
@@ -156,7 +156,7 @@ Why the distractors tempt:
 
 ## ESE2030-0085
 *week 8 · 2025C quiz4 #12 · active · legacy Q4-P12*  
-skills: `W08.S08` Explain what one QR step does and why the spectrum is unchanged  
+skills: `W08.S07` Explain what one QR-algorithm step does (A → RQ is similar to A), why the spectrum is unchanged, and what the iteration converges to (triangular; block-triangular for complex pairs)  
 topics: QR algorithm, similarity transformations, eigenvalue computation
 
 The QR algorithm for computing eigenvalues proceeds iteratively: given $A_k$, we factor $A_k = Q_k R_k$ (QR decomposition), then form $A_{k+1} = R_k Q_k$ (reverse the order).
@@ -186,7 +186,7 @@ Why the distractors tempt:
 
 ## ESE2030-0089
 *week 8 · 2025C quiz4 #16 · active · legacy Q4-P16*  
-skills: `W08.S07` Write the basis of solutions for an ODE with repeated or complex characteristic roots; `W08.S03` Compute algebraic and geometric multiplicity, and diagnose defectiveness  
+skills: `W08.S06` Write the basis of solutions for an ODE with repeated or complex characteristic roots, and recognize the polynomial factor as the signature of a defective matrix; `W08.S02` Distinguish algebraic from geometric multiplicity, know geometric ≤ algebraic, and diagnose defectiveness as the gap  
 topics: Higher-order ODEs, repeated eigenvalues, basis solutions, polynomial-exponential terms
 
 The general solution to a third-order linear differential equation
@@ -220,7 +220,7 @@ Why the distractors tempt:
 
 ## ESE2030-0090
 *week 8 · 2025C quiz4 #17 · active · legacy Q4-P17*  
-skills: `W08.S08` Explain what one QR step does and why the spectrum is unchanged  
+skills: `W08.S07` Explain what one QR-algorithm step does (A → RQ is similar to A), why the spectrum is unchanged, and what the iteration converges to (triangular; block-triangular for complex pairs)  
 topics: QR algorithm, convergence, Schur form, repeated and complex eigenvalues
 
 A real $5 \times 5$ matrix $A$ has eigenvalues $\lambda_{1,2} = 3$ (sharing an eigenvector), $\lambda_{3,4} = 1 \pm 2i$, and $\lambda_5 = -1$.
@@ -251,7 +251,7 @@ Why the distractors tempt:
 
 ## ESE2030-0094
 *week 8 · 2025C quiz4 #21 · active · legacy Q4-P21*  
-skills: `W08.S03` Compute algebraic and geometric multiplicity, and diagnose defectiveness; `W08.S04` Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I)  
+skills: `W08.S02` Distinguish algebraic from geometric multiplicity, know geometric ≤ algebraic, and diagnose defectiveness as the gap; `W08.S03` Determine Jordan block structure from multiplicities: one block per independent eigenvector, and what block sizes mean  
 
 A $5 \times 5$ matrix $A$ has characteristic polynomial $p(\lambda) = (\lambda - 2)^3(\lambda + 1)^2$. Suppose you compute $\dim(\ker(A - 2I)) = 2$ and $\dim(\ker(A + I)) = 2$.
 
@@ -279,7 +279,7 @@ Why the distractors tempt:
 
 ## ESE2030-0095
 *week 8 · 2025C quiz4 #22 · active · legacy Q4-P22*  
-skills: `W08.S02` Read frequency and growth rate off a complex eigenvalue  
+skills: `W08.S01` Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ  
 topics: ODEs, eigenvalues, stability, behavior classification
 
 A damped harmonic oscillator is described by the second-order differential equation:
@@ -311,7 +311,7 @@ Why the distractors tempt:
 
 ## ESE2030-0125
 *week 8 · 2025C final #10 · active*  
-skills: `W08.S08` Explain what one QR step does and why the spectrum is unchanged  
+skills: `W08.S07` Explain what one QR-algorithm step does (A → RQ is similar to A), why the spectrum is unchanged, and what the iteration converges to (triangular; block-triangular for complex pairs)  
 
 A real $4 \times 4$ matrix $A$ has eigenvalues $\lambda_1 = 5$, $\lambda_2 = -2$, and $\lambda_{3,4} = 3 \pm 4i$.
 
@@ -341,7 +341,7 @@ Why the distractors tempt:
 
 ## ESE2030-0141
 *week 8 · 2025C final #26 · active*  
-skills: `W08.S07` Write the basis of solutions for an ODE with repeated or complex characteristic roots  
+skills: `W08.S06` Write the basis of solutions for an ODE with repeated or complex characteristic roots, and recognize the polynomial factor as the signature of a defective matrix; `W08.S01` Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ  
 
 A fourth-order linear ODE with constant coefficients has the general solution:
 $$x(t) = C_1 e^{-t} + C_2 te^{-t} + C_3 e^{2t}\cos(5t) + C_4 e^{2t}\sin(5t)$$
@@ -372,7 +372,7 @@ Why the distractors tempt:
 
 ## ESE2030-0146
 *week 8 · 2025C final #31 · active*  
-skills: `W08.S06` Exponentiate a 2x2 or 3x3 Jordan block  
+skills: `W08.S05` Recognize e^{tJ} for a Jordan block: the polynomial-times-exponential structure via the commuting split λI + N  
 
 What is $e^{Jt}$ where $J$ is the $3 \times 3$ Jordan block
 $$J = \begin{bmatrix} 2 & 1 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{bmatrix}$$
@@ -402,7 +402,7 @@ Why the distractors tempt:
 
 ## ESE2030-0206
 *week 8 · 2026A quiz3 #3 · active*  
-skills: `W08.S04` Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I)  
+skills: `W08.S03` Determine Jordan block structure from multiplicities: one block per independent eigenvector, and what block sizes mean; `W08.S01` Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ  
 topics: Real Jordan canonical form, block structure, complex conjugate
 
 The $6 \times 6$ matrix ${\mathcal J}$ below is in real Jordan canonical form:
@@ -440,7 +440,7 @@ Why the distractors tempt:
 
 ## ESE2030-0210
 *week 8 · 2026A quiz3 #7 · active*  
-skills: `W08.S04` Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I); `W08.S03` Compute algebraic and geometric multiplicity, and diagnose defectiveness  
+skills: `W08.S03` Determine Jordan block structure from multiplicities: one block per independent eigenvector, and what block sizes mean; `W08.S02` Distinguish algebraic from geometric multiplicity, know geometric ≤ algebraic, and diagnose defectiveness as the gap  
 topics: Jordan canonical form, eigenvalues, algebraic/geometric multiplicity, block structure
 
 A $4 \times 4$ matrix $A$ has only one eigenvalue, $\lambda = 3$, with
@@ -470,7 +470,7 @@ Why the distractors tempt:
 
 ## ESE2030-0218
 *week 8 · 2026A quiz3 #15 · active*  
-skills: `W08.S02` Read frequency and growth rate off a complex eigenvalue  
+skills: `W08.S01` Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ  
 topics: Complex eigenvalues, real/imaginary parts, ODE solution behavior, oscillation frequency, growth/decay
 
 A $2 \times 2$ real matrix $A$ has complex eigenvalues $\lambda = \alpha \pm i\beta$
@@ -503,7 +503,7 @@ Why the distractors tempt:
 
 ## ESE2030-0220
 *week 8 · 2026A quiz3 #17 · active*  
-skills: `W08.S07` Write the basis of solutions for an ODE with repeated or complex characteristic roots  
+skills: `W08.S06` Write the basis of solutions for an ODE with repeated or complex characteristic roots, and recognize the polynomial factor as the signature of a defective matrix  
 topics: Higher-order ODEs, characteristic polynomial, basis solutions, complex eigenvalues, repeated eigenvalues
 
 A fourth-order linear homogeneous ODE has characteristic polynomial
@@ -534,7 +534,7 @@ Why the distractors tempt:
 
 ## ESE2030-0223
 *week 8 · 2026A quiz3 #20 · active*  
-skills: `W08.S08` Explain what one QR step does and why the spectrum is unchanged  
+skills: `W08.S07` Explain what one QR-algorithm step does (A → RQ is similar to A), why the spectrum is unchanged, and what the iteration converges to (triangular; block-triangular for complex pairs)  
 topics: QR algorithm, similarity transformation, eigenvalue preservation
 
 The QR algorithm computes $A_{k+1} = R_k Q_k$ from the QR factorization
@@ -567,7 +567,7 @@ Why the distractors tempt:
 
 ## ESE2030-0256
 *week 8 · 2026A final #7 · active · Deeper*  
-skills: `W08.S08` Explain what one QR step does and why the spectrum is unchanged  
+skills: `W08.S07` Explain what one QR-algorithm step does (A → RQ is similar to A), why the spectrum is unchanged, and what the iteration converges to (triangular; block-triangular for complex pairs)  
 topics: QR algorithm convergence, what the iterates approach, eigenvalue
 
 Let $A \in \mathbb{R}^{n \times n}$ be a real symmetric matrix with distinct
@@ -599,7 +599,7 @@ Why the distractors tempt:
 
 ## ESE2030-0259
 *week 8 · 2026A final #10 · active*  
-skills: `W08.S07` Write the basis of solutions for an ODE with repeated or complex characteristic roots  
+skills: `W08.S06` Write the basis of solutions for an ODE with repeated or complex characteristic roots, and recognize the polynomial factor as the signature of a defective matrix  
 topics: Higher-order linear ODEs, polynomial differential operator, basis of solution space, repeated roots
 
 Consider the third-order linear differential equation $p(D)x = 0$, where
@@ -628,7 +628,7 @@ Why the distractors tempt:
 
 ## ESE2030-0277
 *week 8 · 2026A final #28 · active · Core*  
-skills: `W08.S01` Find complex eigenvalues and produce REAL solutions from them  
+skills: `W08.S01` Recognize that complex eigenvalues of a real matrix come in conjugate pairs and produce real oscillatory behavior; read growth/decay from Re λ and frequency from Im λ  
 topics: Complex eigenvalues, oscillatory ODE solutions, Euler's formula
 
 A real matrix $A$ has a complex conjugate pair of eigenvalues $\lambda = \alpha \pm i\beta$ with $\beta \neq 0$. The system $d\mathbf{x}/dt = A\mathbf{x}$ has real basis solutions involving $e^{\alpha t} \cos(\beta t)$ and $e^{\alpha t} \sin(\beta t)$. Which of the following is the most fundamental reason these trigonometric functions appear?
@@ -656,7 +656,7 @@ Why the distractors tempt:
 
 ## ESE2030-0289
 *week 8 · 2026A final #40 · active*  
-skills: `W08.S04` Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I); `W08.S03` Compute algebraic and geometric multiplicity, and diagnose defectiveness  
+skills: `W08.S03` Determine Jordan block structure from multiplicities: one block per independent eigenvector, and what block sizes mean; `W08.S02` Distinguish algebraic from geometric multiplicity, know geometric ≤ algebraic, and diagnose defectiveness as the gap  
 topics: Jordan canonical form, algebraic multiplicity, geometric multiplicity, block-size partition
 
 A $5 \times 5$ matrix $A$ has a single eigenvalue $\lambda = 3$ with algebraic multiplicity $5$ and geometric multiplicity $2$. Which of the following statements is most true about the Jordan canonical form of $A$?
@@ -684,7 +684,7 @@ Why the distractors tempt:
 
 ## ESE2030-0290
 *week 8 · 2026A final #41 · active · Deeper*  
-skills: `W08.S06` Exponentiate a 2x2 or 3x3 Jordan block  
+skills: `W08.S05` Recognize e^{tJ} for a Jordan block: the polynomial-times-exponential structure via the commuting split λI + N  
 topics: Matrix exponential of a Jordan block, nilpotent decomposition
 
 Let $J = \lambda I + N$ be a $k \times k$ Jordan block with eigenvalue

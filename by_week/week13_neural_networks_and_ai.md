@@ -4,6 +4,7 @@
 
 ## ESE2030-0118
 *week 13 · 2025C final #3 · needs-review*  
+skills: `W13.S02` Recognize a single perceptron as a half-space classifier: w is normal to the decision boundary, wᵀx + b is a scaled signed distance, and only linearly separable regions are representable (XOR is not)  
 
 A single perceptron computes $f(\mathbf{x}) = \text{sign}(\mathbf{w} \cdot \mathbf{x} + b)$ where $\mathbf{w} \in \mathbb{R}^n$ is a weight vector and $b$ is a bias. Four classification tasks in $\mathbb{R}^2$ are proposed:
 
@@ -39,7 +40,7 @@ Why the distractors tempt:
 
 ## ESE2030-0132
 *week 13 · 2025C final #17 · active*  
-skills: `W13.S05` Apply the backpropagation rule for one layer and identify where the TRANSPOSE enters  
+skills: `W13.S06` Recognize backpropagation as the chain rule on a composition, and identify where the TRANSPOSE enters (forward W, backward Wᵀ — the adjoint of Week 5)  
 
 Training a neural network requires computing the gradient of the loss function $L$ with respect to all weight matrices $W_1, W_2, \ldots, W_k$ in the network. The backpropagation algorithm accomplishes this efficiently by working backward from the output layer to the input layer.
 
@@ -69,7 +70,7 @@ Why the distractors tempt:
 
 ## ESE2030-0154
 *week 13 · 2025C final #39 · active*  
-skills: `W13.S03` State why depth without nonlinearity collapses to a single linear map  
+skills: `W13.S01` Explain why depth without nonlinearity collapses to a single affine map, and what an elementwise activation adds  
 
 Consider a neural network with input dimension 10, three hidden layers of dimensions 20, 15, and 8 respectively, and output dimension 3. All connections are fully connected (dense layers). If the network uses NO activation functions (i.e., each layer computes only an affine transformation $\mathbf{y} = W\mathbf{x} + \mathbf{b}$), what is the network's effective computational power?
 
@@ -96,7 +97,7 @@ Why the distractors tempt:
 
 ## ESE2030-0227
 *week 13 · 2026A quiz4 #2 · active · Core (conceptual)*  
-skills: `W13.S05` Apply the backpropagation rule for one layer and identify where the TRANSPOSE enters  
+skills: `W13.S05` Know what the error signal δ_l IS (the sensitivity ∂L/∂z_l), that hidden layers have no targets, and that backpropagation derives δ_l from δ_{l+1}  
 topics: Backpropagation, error signal, meaning of delta, sensitivity interpretation
 
 In backpropagation, the algorithm computes at each layer $k$ of a feed-forward network a vector $\boldsymbol{\delta}^{(k)}$, called the ``error signal'' (or ``error vector'') at that layer.
@@ -126,6 +127,7 @@ Why the distractors tempt:
 
 ## ESE2030-0228
 *week 13 · 2026A quiz4 #3 · active · Core*  
+skills: `W13.S02` Recognize a single perceptron as a half-space classifier: w is normal to the decision boundary, wᵀx + b is a scaled signed distance, and only linearly separable regions are representable (XOR is not)  
 topics: Perceptron geometry, decision boundary invariance, sigmoid saturation
 
 A perceptron with input $\mathbf{x} \in \mathbb{R}^n$, weights $\mathbf{w} \in \mathbb{R}^n$,
@@ -157,7 +159,7 @@ Why the distractors tempt:
 
 ## ESE2030-0229
 *week 13 · 2026A quiz4 #4 · active · Deeper*  
-skills: `W13.S11` Explain the sense in which a linear autoencoder reproduces PCA  
+skills: `W13.S12` Explain the sense in which a linear autoencoder reproduces PCA, and what a nonlinear one adds  
 topics: PCA vs neural network features, linear vs nonlinear dimensionality reduction
 
 Both PCA and neural networks can extract features from high-dimensional data. PCA reduces
@@ -194,6 +196,7 @@ Why the distractors tempt:
 
 ## ESE2030-0231
 *week 13 · 2026A quiz4 #6 · active · Core*  
+skills: `W13.S02` Recognize a single perceptron as a half-space classifier: w is normal to the decision boundary, wᵀx + b is a scaled signed distance, and only linearly separable regions are representable (XOR is not)  
 topics: Perceptron limitations, linear separability, hyperplane decision boundary
 
 A single perceptron with input $\mathbf{x} \in \mathbb{R}^2$ computes output $y = \sigma(\mathbf{w}^T\mathbf{x} + b)$, where $\sigma$ is a sigmoid function. The perceptron classifies an input as ``positive'' when $y \geq 0.5$.
@@ -251,7 +254,7 @@ Why the distractors tempt:
 
 ## ESE2030-0236
 *week 13 · 2026A quiz4 #11 · active · Core*  
-skills: `W13.S03` State why depth without nonlinearity collapses to a single linear map  
+skills: `W13.S01` Explain why depth without nonlinearity collapses to a single affine map, and what an elementwise activation adds  
 topics: Why nonlinearity matters, composition of affine maps is affine
 
 The network below takes input $\mathbf{x} \in \mathbb{R}^3$ and produces output $\mathbf{y} \in \mathbb{R}^2$:
@@ -298,6 +301,7 @@ Why the distractors tempt:
 
 ## ESE2030-0238
 *week 13 · 2026A quiz4 #13 · active · Core*  
+skills: `W13.S03` State universal approximation as an existence claim about WIDTH, and recognize what it does not say (trainability, depth efficiency, sample complexity)  
 topics: Universal approximation theorem, expressive power vs trainability
 
 The Universal Approximation Theorem is a foundational result about feed-forward neural networks
@@ -327,7 +331,7 @@ Why the distractors tempt:
 
 ## ESE2030-0253
 *week 13 · 2026A final #4 · active · Core (conceptual)*  
-skills: `W13.S05` Apply the backpropagation rule for one layer and identify where the TRANSPOSE enters  
+skills: `W13.S06` Recognize backpropagation as the chain rule on a composition, and identify where the TRANSPOSE enters (forward W, backward Wᵀ — the adjoint of Week 5); `W13.S05` Know what the error signal δ_l IS (the sensitivity ∂L/∂z_l), that hidden layers have no targets, and that backpropagation derives δ_l from δ_{l+1}  
 topics: Backpropagation, chain rule as composition of derivatives
 
 In a feed-forward network, layer $k$ takes input $\mathbf{h}_{k-1}$ and produces $\mathbf{z}_k = W_k \mathbf{h}_{k-1} + \mathbf{b}_k$ followed by $\mathbf{h}_k = \sigma(\mathbf{z}_k)$, with $\sigma$ applied componentwise. Define $\boldsymbol{\delta}_k = \partial L / \partial \mathbf{z}_k$.
@@ -357,7 +361,7 @@ Why the distractors tempt:
 
 ## ESE2030-0276
 *week 13 · 2026A final #27 · active · Deeper*  
-skills: `W13.S03` State why depth without nonlinearity collapses to a single linear map  
+skills: `W13.S01` Explain why depth without nonlinearity collapses to a single affine map, and what an elementwise activation adds  
 topics: Role of nonlinear activation, expressive power, why sigma is essential
 
 A feed-forward neural network alternates affine layers $\mathbf{z}_k = W_k \mathbf{h}_{k-1} +
@@ -390,6 +394,7 @@ Why the distractors tempt:
 
 ## ESE2030-0283
 *week 13 · 2026A final #34 · active · Core (conceptual, synthesis)*  
+skills: `W13.S02` Recognize a single perceptron as a half-space classifier: w is normal to the decision boundary, wᵀx + b is a scaled signed distance, and only linearly separable regions are representable (XOR is not)  
 topics: Perceptron geometry, decision boundary, normal vector
 
 A perceptron with weights $\mathbf{w} \in \mathbb{R}^n$, bias $b \in \mathbb{R}$, and sigmoid activation $\sigma$ computes $y = \sigma(\mathbf{w}^T \mathbf{x} + b)$, with decision boundary $\{\mathbf{x} : \mathbf{w}^T \mathbf{x} + b = 0\}$.

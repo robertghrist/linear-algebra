@@ -4,7 +4,7 @@
 
 ## ESE2030-0029
 *week 4 · 2025C quiz2 #4 · active · legacy Q2-P04*  
-skills: `W04.S01` Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis  
+skills: `W04.S01` Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis, and know that a vector is NOT its coordinates  
 
 Let $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3\}$ be a basis for $\mathbb{R}^3$,
 and suppose the coordinate vector of $\mathbf{v} \in \mathbb{R}^3$ with respect to $\mathcal{B}$ is
@@ -29,7 +29,7 @@ Since $\mathbf{v} = 2\mathbf{b}_1 - \mathbf{b}_2 + 3\mathbf{b}_3$ and the new ba
 
 ## ESE2030-0030
 *week 4 · 2025C quiz2 #5 · active · legacy Q2-P05*  
-skills: `W04.S06` Decide whether a stated property is preserved under similarity  
+skills: `W04.S05` Decide whether a stated property is coordinate-free (rank, nullity, trace, determinant, eigenvalues, characteristic polynomial) or a basis artifact (entries, columns, orthogonality, singular values)  
 
 Which of the following properties is not necessarily preserved under similarity? (Recall, square matrices $A$ and $B$ are similar if $B = P^{-1}AP$ for some $P$).
 
@@ -51,7 +51,7 @@ Similarity preserves rank, nullity (dimension of kernel), determinant, and trace
 
 ## ESE2030-0031
 *week 4 · 2025C quiz2 #6 · active · legacy Q2-P06*  
-skills: `W04.S06` Decide whether a stated property is preserved under similarity  
+skills: `W04.S05` Decide whether a stated property is coordinate-free (rank, nullity, trace, determinant, eigenvalues, characteristic polynomial) or a basis artifact (entries, columns, orthogonality, singular values); `W04.S04` Recognize similarity B = P⁻¹AP as the same operator in two frames, and know which direction P goes  
 
 Let $T: V \to V$ be a finite-dimensional linear transformation. If we change from basis $\mathcal{B}$ to basis $\mathcal{C}$, which statement about the matrix representations $[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$ must be true?
 
@@ -76,7 +76,7 @@ Why the distractors tempt:
 
 ## ESE2030-0046
 *week 4 · 2025C quiz2 #21 · active · legacy Q2-P21*  
-skills: `W04.S04` Write the matrix of a linear map relative to given bases in domain and codomain  
+skills: `W04.S03` Recognize the matrix of a linear map relative to given bases (columns are images of basis vectors, in codomain coordinates) and read kernel/image facts off it  
 
 Let $T: \mathcal{P}_2 \to \mathcal{P}_1$ be the differentiation operator defined by $T(p) = p'$.
 Consider two bases: $\mathcal{B} = \{1, x, x^2\}$ for $\mathcal{P}_2$ and $\mathcal{C} = \{1, x\}$ for $\mathcal{P}_1$.
@@ -101,7 +101,7 @@ The matrix representation $[T]_{\mathcal{B}}^{\mathcal{C}}$ has columns that are
 
 ## ESE2030-0182
 *week 4 · 2026A quiz2 #1 · active*  
-skills: `W04.S05` Re-express a matrix in a new basis via P^{-1} A P; `W04.S06` Decide whether a stated property is preserved under similarity  
+skills: `W04.S04` Recognize similarity B = P⁻¹AP as the same operator in two frames, and know which direction P goes  
 
 Two engineers model the same linear transformation $T:\mathbb{R}^n\to\mathbb{R}^n$ using different coordinate systems. Engineer 1 uses basis $\mathcal{A}$ and obtains matrix $A$; Engineer 2 uses basis $\mathcal{B}$ and obtains matrix $B$. Which statement is correct?
 
@@ -127,7 +127,7 @@ Why the distractors tempt:
 
 ## ESE2030-0192
 *week 4 · 2026A quiz2 #11 · active*  
-skills: `W04.S02` Build P_{B <- B'} and use it in the correct direction  
+skills: `W04.S02` Know what the change-of-basis matrix P_{B←B′} is (its columns), which direction it acts, and that its inverse acts the other way  
 
 Let $\mathcal{B}$ and $\mathcal{C}$ be two bases for $\mathbb{R}^n$, and let $P$ be the matrix satisfying $[\mathbf{v}]_\mathcal{C} = P\,[\mathbf{v}]_\mathcal{B}$ for all $\mathbf{v} \in \mathbb{R}^n$. What are the columns of $P$?
 
@@ -154,7 +154,7 @@ Why the distractors tempt:
 
 ## ESE2030-0194
 *week 4 · 2026A quiz2 #13 · active*  
-skills: `W04.S01` Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis  
+skills: `W04.S01` Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis, and know that a vector is NOT its coordinates  
 
 Let $\mathcal{B}$ and $\mathcal{C}$ be two different ordered bases for $\mathbb{R}^3$. Suppose vectors $\mathbf{v}$ and $\mathbf{w}$ satisfy
 $$[\mathbf{v}]_{\mathcal{B}} = [\mathbf{w}]_{\mathcal{C}} = \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix}.$$
@@ -183,7 +183,7 @@ Why the distractors tempt:
 
 ## ESE2030-0195
 *week 4 · 2026A quiz2 #14 · active*  
-skills: `W04.S04` Write the matrix of a linear map relative to given bases in domain and codomain  
+skills: `W04.S03` Recognize the matrix of a linear map relative to given bases (columns are images of basis vectors, in codomain coordinates) and read kernel/image facts off it  
 
 Let $T: V \to V$ be a linear transformation on an $n$-dimensional vector space ($n \geq 3$), and let $\mathcal{B} = \{\mathbf{b}_1, \ldots, \mathbf{b}_n\}$ be a basis for $V$. The matrix representation $[T]_\mathcal{B}$ has the property that its third column is the zero vector.
 
@@ -211,7 +211,7 @@ Why the distractors tempt:
 
 ## ESE2030-0196
 *week 4 · 2026A quiz2 #15 · active*  
-skills: `W04.S01` Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis  
+skills: `W04.S01` Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis, and know that a vector is NOT its coordinates  
 
 Consider $\mathcal{P}_2$, the vector space of polynomials of degree at most 2. Consider the basis $\mathcal{L} = \{L_0, L_1, L_2\}$ associated to the nodes $x = -1, 0, 1$: each $L_i \in \mathcal{P}_2$ is the unique polynomial that equals $1$ at its own node and $0$ at the other two. Explicitly,
 $$L_0(-1) = 1, \quad L_0(0) = 0, \quad L_0(1) = 0,$$
@@ -244,7 +244,7 @@ Why the distractors tempt:
 
 ## ESE2030-0203
 *week 4 · 2026A quiz2 #22 · active*  
-skills: `W04.S01` Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis  
+skills: `W04.S06` Know that the coordinate map is an isomorphism V → Rⁿ, so linear relations among vectors can be read off their coordinate vectors — in any basis  
 
 Let $V$ be a 3-dimensional vector space with basis $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3\}$ (not further specified). Three vectors in $V$ have coordinates
 $$[\mathbf{u}]_\mathcal{B} = \begin{pmatrix} 1 \\ 2 \\ -1 \end{pmatrix}, \qquad [\mathbf{v}]_\mathcal{B} = \begin{pmatrix} 3 \\ 0 \\ 1 \end{pmatrix}, \qquad [\mathbf{w}]_\mathcal{B} = \begin{pmatrix} 4 \\ 2 \\ 0 \end{pmatrix}.$$
@@ -273,7 +273,7 @@ Why the distractors tempt:
 
 ## ESE2030-0254
 *week 4 · 2026A final #5 · active · Core*  
-skills: `W04.S05` Re-express a matrix in a new basis via P^{-1} A P  
+skills: `W04.S04` Recognize similarity B = P⁻¹AP as the same operator in two frames, and know which direction P goes  
 topics: Change of basis, matrix representation of a linear transformation
 
 Let $T:V\to V$ be a linear transformation on a finite-dimensional vector space,
@@ -307,7 +307,7 @@ Why the distractors tempt:
 
 ## ESE2030-0287
 *week 4 · 2026A final #38 · active*  
-skills: `W04.S01` Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis  
+skills: `W04.S06` Know that the coordinate map is an isomorphism V → Rⁿ, so linear relations among vectors can be read off their coordinate vectors — in any basis  
 topics: Coordinate map, isomorphism via basis choice, abstract vs concrete vector spaces
 
 Let $V$ be an $n$-dimensional vector space and fix
@@ -340,7 +340,7 @@ Why the distractors tempt:
 
 ## ESE2030-0288
 *week 4 · 2026A final #39 · active · Core*  
-skills: `W04.S05` Re-express a matrix in a new basis via P^{-1} A P  
+skills: `W04.S04` Recognize similarity B = P⁻¹AP as the same operator in two frames, and know which direction P goes  
 topics: Similarity, change of basis, matrix representations of a linear transformation
 
 Square matrices $A$ and $B$ of the same size satisfy $B = P^{-1} A P$ for some invertible matrix $P$. Which statement most fundamentally describes the relationship between $A$ and $B$?

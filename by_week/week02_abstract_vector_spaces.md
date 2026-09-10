@@ -4,7 +4,7 @@
 
 ## ESE2030-0001
 *week 2 · 2025C quiz1 #1 · active · legacy Q1-P01*  
-skills: `W02.S04` Compute the dimension of a described subspace (null space, column space, symmetric matrices, polynomials of bounded degree, solution sets of homogeneous systems)  
+skills: `W02.S05` Determine the dimension of a described subspace (null space, column space, symmetric or triangular matrices, polynomials of bounded degree, solutions of a homogeneous ODE) and explain why n generators need not mean dimension n  
 topics: Polynomial spaces, dimension, bases
 
 Consider the vector space $\mathcal{P}_3$ of polynomials of degree at most 3. The dimension of this space is:
@@ -29,7 +29,7 @@ The space $\mathcal{P}_3$ consists of all polynomials of the form: $$p(x) = a_0 
 
 ## ESE2030-0004
 *week 2 · 2025C quiz1 #4 · active · legacy Q1-P04*  
-skills: `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S01` Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)  
 topics: Vector spaces, examples and non-examples, vector space axioms
 
 Consider the following sets with standard addition and scalar multiplication operations. Which one forms a vector space?
@@ -54,7 +54,7 @@ Let's check each option: \textbf{(A) Matrices with det = 1:} Fails closure under
 
 ## ESE2030-0009
 *week 2 · 2025C quiz1 #9 · active · legacy Q1-P09*  
-skills: `W02.S03` Test a finite set of vectors, matrices, or polynomials for linear independence; `W02.S02` Decide whether a given set spans a stated space  
+skills: `W02.S04` Recognize linear dependence and independence in R^n, in matrix spaces, in polynomial and function spaces — including by exhibiting the dependence relation; `W02.S03` Decide whether a set spans a stated space, and distinguish spanning (coverage) from independence (non-redundancy)  
 topics: Linear independence, dimension, bases
 
 Consider the set of Euclidean vectors
@@ -85,7 +85,7 @@ Notice that: $$\begin{pmatrix}1\\3\\1\end{pmatrix} = \begin{pmatrix}1\\2\\0\end{
 
 ## ESE2030-0010
 *week 2 · 2025C quiz1 #10 · active · legacy Q1-P10*  
-skills: `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S06` Recognize the sum U + W and the intersection U ∩ W as subspaces, and use dim(U + W) = dim U + dim W − dim(U ∩ W)  
 topics: Subspaces, intersection and union of subspaces
 
 Let $W_1$ and $W_2$ be subspaces of a vector space $V$. Which of the following is always a subspace of $V$?
@@ -110,7 +110,7 @@ Let $W_1$ and $W_2$ be subspaces of a vector space $V$. Which of the following i
 
 ## ESE2030-0011
 *week 2 · 2025C quiz1 #11 · active · legacy Q1-P11*  
-skills: `W02.S04` Compute the dimension of a described subspace (null space, column space, symmetric matrices, polynomials of bounded degree, solution sets of homogeneous systems)  
+skills: `W02.S05` Determine the dimension of a described subspace (null space, column space, symmetric or triangular matrices, polynomials of bounded degree, solutions of a homogeneous ODE) and explain why n generators need not mean dimension n  
 topics: Subspaces, dimension, bases, polynomial spaces
 
 Let $V$ be the vector space of all $3 \times 3$ symmetric matrices. Which of the following is the dimension of $V$?
@@ -133,7 +133,7 @@ A $3 \times 3$ symmetric matrix has the form: $$\begin{bmatrix} a & b & c \\ b &
 
 ## ESE2030-0015
 *week 2 · 2025C quiz1 #15 · active · legacy Q1-P15*  
-skills: `W02.S03` Test a finite set of vectors, matrices, or polynomials for linear independence  
+skills: `W02.S03` Decide whether a set spans a stated space, and distinguish spanning (coverage) from independence (non-redundancy); `W02.S08` Apply the Exchange Bound: more vectors than the dimension must be dependent; fewer cannot span  
 topics: Basis, dimension, spanning sets, linear dependence
 
 Let $V$ be a 4-dimensional vector space. Suppose $S = \{\mathbf{v_1, v_2, v_3, v_4, v_5}\}$ is a set of vectors in $V$ where $\{\mathbf{v_1, v_2, v_3, v_4}\}$ forms a basis for $V$. Which of the following must be TRUE about $\mathbf{v}_5$?
@@ -158,7 +158,7 @@ Since $\{\mathbf{v_1, v_2, v_3, v_4}\}$ is a basis for the 4-dimensional space $
 
 ## ESE2030-0020
 *week 2 · 2025C quiz1 #20 · active · legacy Q1-P20*  
-skills: `W02.S02` Decide whether a given set spans a stated space  
+skills: `W02.S03` Decide whether a set spans a stated space, and distinguish spanning (coverage) from independence (non-redundancy)  
 topics: Linear independence, span, basis
 
 Let $V$ be a vector space and $S = \{\mathbf{v_1, v_2, ..., v_n}\}$ be a set of vectors in $V$. If every vector in $V$ can be written as a linear combination of vectors in $S$, then which statement is true by definition?
@@ -183,7 +183,7 @@ The problem statement exactly describes the definition of "$S$ spans $V$." \begi
 
 ## ESE2030-0021
 *week 2 · 2025C quiz1 #21 · active · legacy Q1-P21*  
-skills: `W02.S03` Test a finite set of vectors, matrices, or polynomials for linear independence; `W02.S02` Decide whether a given set spans a stated space  
+skills: `W02.S04` Recognize linear dependence and independence in R^n, in matrix spaces, in polynomial and function spaces — including by exhibiting the dependence relation; `W02.S08` Apply the Exchange Bound: more vectors than the dimension must be dependent; fewer cannot span  
 topics: Linear independence, polynomial spaces
 
 In $\mathcal{P}_2$, consider the set $S = \{1+x, x+x^2, 1+x^2\}$. This set is:
@@ -206,7 +206,7 @@ Check linear independence by setting up: $$c_1(1+x) + c_2(x+x^2) + c_3(1+x^2) = 
 
 ## ESE2030-0025
 *week 2 · 2025C quiz1 #25 · active · legacy Q1-P25*  
-skills: `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S01` Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)  
 topics: Subspace verification, closure properties
 
 Consider the subset $S = \{(x, y, z)^T \in \mathbb{R}^3 : x + y + z = 1\}$. Under standard vector addition and scalar multiplication, which property does $S$ violate to be a subspace?
@@ -231,7 +231,7 @@ The set $S = \{(x,y,z) : x+y+z = 1\}$ is an affine space (shifted plane). Check 
 
 ## ESE2030-0117
 *week 2 · 2025C final #2 · active*  
-skills: `W02.S04` Compute the dimension of a described subspace (null space, column space, symmetric matrices, polynomials of bounded degree, solution sets of homogeneous systems)  
+skills: `W02.S05` Determine the dimension of a described subspace (null space, column space, symmetric or triangular matrices, polynomials of bounded degree, solutions of a homogeneous ODE) and explain why n generators need not mean dimension n  
 
 Let $V$ be the vector space of all $4 \times 4$ upper triangular matrices. What is $\dim(V)$?
 
@@ -258,7 +258,7 @@ Why the distractors tempt:
 
 ## ESE2030-0126
 *week 2 · 2025C final #11 · active*  
-skills: `W02.S03` Test a finite set of vectors, matrices, or polynomials for linear independence  
+skills: `W02.S08` Apply the Exchange Bound: more vectors than the dimension must be dependent; fewer cannot span  
 
 Let $V$ be a vector space with $\dim(V) = 4$, and let $S = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3, \mathbf{v}_4, \mathbf{v}_5\}$ be a set of five vectors in $V$.
 
@@ -288,7 +288,7 @@ Why the distractors tempt:
 
 ## ESE2030-0134
 *week 2 · 2025C final #19 · active*  
-skills: `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S01` Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)  
 
 Consider the set $W = \{(x, y, z) \in \mathbb{R}^3 : x^2 + y^2 \leq z^2\}$ (a double cone centered at the origin).
 Which statement best describes why $W$ is \emph{not} a subspace of $\mathbb{R}^3$?
@@ -316,7 +316,7 @@ Why the distractors tempt:
 
 ## ESE2030-0153
 *week 2 · 2025C final #38 · active*  
-skills: `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S01` Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)  
 
 Consider the following sets with standard addition and scalar multiplication.
 Which one is \textbf{NOT} a vector space?
@@ -345,7 +345,7 @@ Why the distractors tempt:
 
 ## ESE2030-0161
 *week 2 · 2026A quiz1 #3 · active*  
-skills: `W02.S03` Test a finite set of vectors, matrices, or polynomials for linear independence; `W02.S02` Decide whether a given set spans a stated space  
+skills: `W02.S04` Recognize linear dependence and independence in R^n, in matrix spaces, in polynomial and function spaces — including by exhibiting the dependence relation; `W02.S03` Decide whether a set spans a stated space, and distinguish spanning (coverage) from independence (non-redundancy)  
 topics: Basis, linear independence, span, dimension
 
 Consider the vectors in $\mathbb{R}^3$:
@@ -377,7 +377,7 @@ Why the distractors tempt:
 
 ## ESE2030-0162
 *week 2 · 2026A quiz1 #4 · active*  
-skills: `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S01` Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)  
 topics: Subspaces, vector space axioms, function spaces, closure properties
 
 Consider the vector space $\mathcal{F}$ of all functions $f: \mathbb{R} \to \mathbb{R}$ with standard addition and scalar multiplication. Which of the following subsets is a subspace of $\mathcal{F}$?
@@ -404,7 +404,7 @@ Why the distractors tempt:
 
 ## ESE2030-0166
 *week 2 · 2026A quiz1 #8 · active*  
-skills: `W02.S04` Compute the dimension of a described subspace (null space, column space, symmetric matrices, polynomials of bounded degree, solution sets of homogeneous systems); `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S05` Determine the dimension of a described subspace (null space, column space, symmetric or triangular matrices, polynomials of bounded degree, solutions of a homogeneous ODE) and explain why n generators need not mean dimension n  
 topics: Subspaces, function spaces, dimension, basis
 
 Let $V$ be the set of all smooth functions $f: \mathbb{R} \to \mathbb{R}$ satisfying the differential equation $$d^2x/dt^2 + x = 0.$$ Every such solution $x(t)$ is a linear combination of $\sin(t)$ and $\cos(t)$. Under standard function addition and scalar multiplication, which statement is TRUE?
@@ -433,7 +433,7 @@ Why the distractors tempt:
 
 ## ESE2030-0167
 *week 2 · 2026A quiz1 #9 · active*  
-skills: `W02.S04` Compute the dimension of a described subspace (null space, column space, symmetric matrices, polynomials of bounded degree, solution sets of homogeneous systems)  
+skills: `W02.S05` Determine the dimension of a described subspace (null space, column space, symmetric or triangular matrices, polynomials of bounded degree, solutions of a homogeneous ODE) and explain why n generators need not mean dimension n; `W02.S01` Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)  
 
 Let $V = \mathbb{R}^{2 \times 2}$ be the vector space of all $2 \times 2$ real matrices. Define the subset
 $$W = \left\{ A \in V : A \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} \right\}.$$
@@ -463,7 +463,7 @@ Why the distractors tempt:
 
 ## ESE2030-0168
 *week 2 · 2026A quiz1 #10 · active*  
-skills: `W02.S03` Test a finite set of vectors, matrices, or polynomials for linear independence  
+skills: `W02.S04` Recognize linear dependence and independence in R^n, in matrix spaces, in polynomial and function spaces — including by exhibiting the dependence relation  
 
 In $\mathbb{R}^4$, let $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ be linearly independent vectors. Define $\mathbf{w}_1 = \mathbf{v}_1 + \mathbf{v}_2$, $\mathbf{w}_2 = \mathbf{v}_2 + \mathbf{v}_3$, and $\mathbf{w}_3 = \mathbf{v}_3 + \mathbf{v}_1$. Which statement is TRUE?
 
@@ -491,7 +491,7 @@ Why the distractors tempt:
 
 ## ESE2030-0169
 *week 2 · 2026A quiz1 #11 · active*  
-skills: `W02.S02` Decide whether a given set spans a stated space  
+skills: `W02.S03` Decide whether a set spans a stated space, and distinguish spanning (coverage) from independence (non-redundancy)  
 
 Let $S = \{p_1, p_2, p_3\}$ be a set of polynomials in $\mathcal{P}_3$ where
 $$p_1(x) = x^3 - x, \quad p_2(x) = x^3 + x^2, \quad p_3(x) = x^3 - x^2 - 2x.$$
@@ -520,7 +520,7 @@ Why the distractors tempt:
 
 ## ESE2030-0175
 *week 2 · 2026A quiz1 #17 · active*  
-skills: `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S01` Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)  
 topics: Subspaces, linear operators, kernel
 
 Let $\mathcal{C}^\infty(\mathbb{R})$ denote the vector space of all infinitely differentiable functions $f: \mathbb{R} \to \mathbb{R}$. Consider the set
@@ -552,7 +552,7 @@ Why the distractors tempt:
 
 ## ESE2030-0178
 *week 2 · 2026A quiz1 #20 · active*  
-skills: `W02.S01` Verify or refute the subspace property for a described set  
+skills: `W02.S01` Verify or refute the subspace property for a described set, and name the failing condition (usually: does not contain 0, or an affine set, or not closed under scaling)  
 topics: Subspaces, subspace criteria, closure properties
 
 Which of the following subsets of $\mathbb{R}^2$ is a subspace?
@@ -580,6 +580,7 @@ Why the distractors tempt:
 
 ## ESE2030-0258
 *week 2 · 2026A final #9 · active · Deeper*  
+skills: `W02.S02` Distinguish the axioms from their consequences (0v = 0, uniqueness of zero, (−1)v = −v are theorems), and recognize a non-example that satisfies closure but breaks an axiom  
 topics: Vector space axioms, derived properties, distributivity, scalar multiplication
 
 Which of the following properties is NOT one of the axioms of a vector space?
@@ -608,7 +609,7 @@ Why the distractors tempt:
 
 ## ESE2030-0266
 *week 2 · 2026A final #17 · active · Deeper*  
-skills: `W02.S05` Compare dim of a sum and an intersection of two subspaces  
+skills: `W02.S07` Recognize a direct sum U ⊕ W (trivial intersection, or the dimension count, or unique decomposition) and know that a complement is a CHOICE, not canonical; `W02.S06` Recognize the sum U + W and the intersection U ∩ W as subspaces, and use dim(U + W) = dim U + dim W − dim(U ∩ W)  
 topics: Direct sum decomposition, subspace sum, intersection, dimension
 
 Let $V$ be a finite-dimensional vector space, and let $U, W \subseteq V$ be

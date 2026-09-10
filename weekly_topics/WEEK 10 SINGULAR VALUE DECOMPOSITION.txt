@@ -57,16 +57,29 @@ CORE CONCEPTS:
    - Finite-dimensional function spaces (Ex 10.9)
    - Text analysis (Ex 10.10); temperature sensor arrays (Ex 10.11)
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W10.S01] Orthogonally diagonalize a small symmetric matrix and write its spectral decomposition
-- [W10.S02] Compute the SVD of a 2x2 or a simple 2x3 / 3x2 matrix
-- [W10.S03] Read rank, and bases for all four fundamental subspaces, off a GIVEN SVD
-- [W10.S04] Write A as a sum of rank-one terms and identify the dominant one
-- [W10.S05] Compute spectral and Frobenius norms from singular values
-- [W10.S06] Compute the condition number and interpret it
-- [W10.S07] Build A^+ from a given SVD and use it to solve a least squares problem
-- [W10.S08] Relate singular values of A to eigenvalues of A^T A without conflating them
-- [W10.S09] Explain why singular values are nonnegative while eigenvalues need not be
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W10.S01] State the Spectral Theorem for symmetric matrices (A = QDQᵀ, real eigenvalues,
+  orthonormal eigenbasis) and recognize which of its guarantees fail for non-symmetric matrices
+- [W10.S02] Recognize the SVD as TWO orthonormal frames, not one — the essential contrast with
+  diagonalization — and know when an eigendecomposition is also an SVD (symmetric positive
+  semidefinite)
+- [W10.S03] Read the defining relations Av_i = σ_i u_i and Aᵀu_i = σ_i v_i, and place the v's in
+  the domain and the u's in the codomain
+- [W10.S04] Read rank and bases for all four fundamental subspaces off a GIVEN SVD (v's beyond r
+  span the kernel; u's beyond r span the cokernel)
+- [W10.S05] Recognize the sphere-to-ellipsoid geometry: semi-axes are singular values,
+  directions are left singular vectors, and what rank deficiency does to the picture
+- [W10.S06] Relate singular values of A to eigenvalues of AᵀA and AAᵀ (σ_i² = λ_i, shared
+  nonzero eigenvalues) without conflating them; know σ_i ≥ 0 while eigenvalues need not be, and
+  when σ_i = |λ_i|
+- [W10.S07] Recognize A = Σσ_i u_i v_iᵀ as a sum of rank-one pieces in decreasing importance,
+  and identify the dominant one
+- [W10.S08] Recognize the spectral norm (σ₁) and the Frobenius norm (√Σσ_i²), and the condition
+  number σ₁/σ_r as Week 1's warning made exact — small σ_min, not small determinant
+- [W10.S09] Recognize A⁺ = VΣ⁺Uᵀ from a given SVD, with Σ⁺ inverting nonzero singular values AND
+  transposing, and never inverting a zero
+- [W10.S10] Know that singular values are invariant under orthogonal transformations on either
+  side (A → Q₁AQ₂ᵀ) but NOT under similarity
 
 TYPICAL MCQ TRAPS:
 - Reporting eigenvalues of A when singular values are asked for (they agree only for

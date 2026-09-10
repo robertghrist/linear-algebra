@@ -3,6 +3,7 @@ legacy_id: null
 week: 1
 skills:
 - W01.S01
+- W01.S06
 status: active
 problem_type: null
 statement: |

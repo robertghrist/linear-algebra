@@ -6,7 +6,7 @@
   "schema_version": "2.0",
   "schema": "schema/problem.schema.json",
   "skills_index": "schema/skills.json",
-  "generated": "2026-09-10T12:04:19",
+  "generated": "2026-09-10T17:22:04",
   "total_problems": 292,
   "by_status": {
    "active": 280,
@@ -23,8 +23,8 @@
    "7": 34,
    "8": 22,
    "9": 25,
-   "10": 31,
-   "11": 23,
+   "10": 32,
+   "11": 22,
    "12": 1,
    "13": 12
   },
@@ -64,7 +64,7 @@
    "legacy_id": "Q1-P01",
    "week": 2,
    "skills": [
-    "W02.S04"
+    "W02.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -126,7 +126,8 @@
    "legacy_id": "Q1-P02",
    "week": 1,
    "skills": [
-    "W01.S07"
+    "W01.S08",
+    "W01.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -378,7 +379,10 @@
    "id": "ESE2030-0006",
    "legacy_id": "Q1-P06",
    "week": 1,
-   "skills": [],
+   "skills": [
+    "W01.S05",
+    "W01.S04"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "Let $E$ be an elementary matrix used for row reduction. Which statement must be TRUE?\n",
@@ -434,15 +438,14 @@
     "determinants",
     "invertibility"
    ],
-   "notes": "trap (Q6 answers): Not all elementary matrices have $\\det = \\pm 1$; row scaling can give any nonzero determinant. | tagging: Tests determinant values of elementary matrices / their invertibility; no listed skill covers elementary-matrix determinants."
+   "notes": "trap (Q6 answers): Not all elementary matrices have $\\det = \\pm 1$; row scaling can give any nonzero determinant."
   },
   {
    "id": "ESE2030-0007",
    "legacy_id": "Q1-P07",
    "week": 3,
    "skills": [
-    "W03.S07",
-    "W03.S06"
+    "W03.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -561,15 +564,15 @@
     "properties",
     "PLU decomposition"
    ],
-   "notes": "tagging: Tests permutation-matrix algebra (order of a 3-cycle, P^3 = I); not decoupling, so S08 does not fit."
+   "notes": "tagging: permutation-matrix algebra (P^3 = I, P^{-1} = P^T); no v2 skill names it -- candidate W01 addition"
   },
   {
    "id": "ESE2030-0009",
    "legacy_id": "Q1-P09",
    "week": 2,
    "skills": [
-    "W02.S03",
-    "W02.S02"
+    "W02.S04",
+    "W02.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -631,7 +634,7 @@
    "legacy_id": "Q1-P10",
    "week": 2,
    "skills": [
-    "W02.S01"
+    "W02.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -692,7 +695,7 @@
    "legacy_id": "Q1-P11",
    "week": 2,
    "skills": [
-    "W02.S04"
+    "W02.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -757,8 +760,8 @@
    "legacy_id": "Q1-P12",
    "week": 3,
    "skills": [
-    "W03.S03",
-    "W03.S04"
+    "W03.S04",
+    "W03.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -821,8 +824,8 @@
    "legacy_id": "Q1-P13",
    "week": 1,
    "skills": [
-    "W01.S04",
-    "W01.S06"
+    "W01.S07",
+    "W01.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -886,8 +889,7 @@
    "legacy_id": "Q1-P14",
    "week": 1,
    "skills": [
-    "W01.S06",
-    "W01.S04"
+    "W01.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -949,7 +951,8 @@
    "legacy_id": "Q1-P15",
    "week": 2,
    "skills": [
-    "W02.S03"
+    "W02.S03",
+    "W02.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -1012,7 +1015,8 @@
    "legacy_id": "Q1-P16",
    "week": 1,
    "skills": [
-    "W01.S02"
+    "W01.S02",
+    "W01.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -1139,7 +1143,7 @@
    "legacy_id": "Q1-P18",
    "week": 3,
    "skills": [
-    "W03.S07"
+    "W03.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -1194,15 +1198,14 @@
     "kernel",
     "polynomial spaces"
    ],
-   "notes": "tagging: topics field mislabeled (says differentiation/kernel; content is FTLA)"
+   "notes": null
   },
   {
    "id": "ESE2030-0019",
    "legacy_id": "Q1-P19",
    "week": 3,
    "skills": [
-    "W03.S05",
-    "W03.S04"
+    "W03.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -1259,14 +1262,14 @@
     "dimension",
     "vector space equivalence"
    ],
-   "notes": "tagging: topics field mismatches content"
+   "notes": null
   },
   {
    "id": "ESE2030-0020",
    "legacy_id": "Q1-P20",
    "week": 2,
    "skills": [
-    "W02.S02"
+    "W02.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -1330,8 +1333,8 @@
    "legacy_id": "Q1-P21",
    "week": 2,
    "skills": [
-    "W02.S03",
-    "W02.S02"
+    "W02.S04",
+    "W02.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -1392,8 +1395,8 @@
    "legacy_id": "Q1-P22",
    "week": 3,
    "skills": [
-    "W03.S06",
-    "W03.S03"
+    "W03.S03",
+    "W03.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -1516,7 +1519,9 @@
    "id": "ESE2030-0024",
    "legacy_id": "Q1-P24",
    "week": 1,
-   "skills": [],
+   "skills": [
+    "W01.S05"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "If $B$ is obtained from matrix $A$ by first swapping rows 1 and 2, then adding 2 times row 1 to row 3, which equation correctly relates them?\n",
@@ -1570,7 +1575,7 @@
     "row operations",
     "matrix multiplication order"
    ],
-   "notes": "trap (Q24 answers): Matrix multiplication is right-to-left, but we describe operations left-to-right! | tagging: Tests order of composition of elementary matrices (left multiplication, right-to-left); no listed skill names this."
+   "notes": "trap (Q24 answers): Matrix multiplication is right-to-left, but we describe operations left-to-right!"
   },
   {
    "id": "ESE2030-0025",
@@ -1640,7 +1645,7 @@
    "legacy_id": "Q2-P01",
    "week": 3,
    "skills": [
-    "W03.S06",
+    "W03.S08",
     "W03.S03"
    ],
    "status": "active",
@@ -1700,7 +1705,7 @@
    "legacy_id": "Q2-P02",
    "week": 5,
    "skills": [
-    "W05.S06"
+    "W05.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -1760,7 +1765,9 @@
    "id": "ESE2030-0028",
    "legacy_id": "Q2-P03",
    "week": 5,
-   "skills": [],
+   "skills": [
+    "W05.S03"
+   ],
    "status": "needs-review",
    "problem_type": null,
    "statement": "Consider the following statements about the vector space of quadratic polynomials $\\mathcal{P}_2$:\n\nI. We can determine whether $\\{x, 1+x^2, 1+x+x^2\\}$ is a basis\n\nII. We can argue that $x$ and $x^2$ are orthogonal\n\nIII. We can determine the dimension of the subspace spanned by $\\{1+x, x+x^2, 1+x^2\\}$\n\nWhich statements are true {\\bf without} specifying an inner product on $\\mathcal{P}_2$?\n",
@@ -1813,7 +1820,7 @@
    ],
    "variant_of": null,
    "topics": [],
-   "notes": "tagging: Tests which notions (basis, dimension vs orthogonality) require an inner product; no listed skill"
+   "notes": null
   },
   {
    "id": "ESE2030-0029",
@@ -1879,7 +1886,7 @@
    "legacy_id": "Q2-P05",
    "week": 4,
    "skills": [
-    "W04.S06"
+    "W04.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -1940,7 +1947,8 @@
    "legacy_id": "Q2-P06",
    "week": 4,
    "skills": [
-    "W04.S06"
+    "W04.S05",
+    "W04.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -2001,8 +2009,8 @@
    "legacy_id": "Q2-P07",
    "week": 3,
    "skills": [
-    "W03.S06",
-    "W03.S07"
+    "W03.S08",
+    "W03.S09"
    ],
    "status": "active",
    "problem_type": null,
@@ -2056,14 +2064,15 @@
    ],
    "variant_of": null,
    "topics": [],
-   "notes": null
+   "notes": "KEY CHECK (soft): key C rests on natural vs. non-natural isomorphism; (B) is defensible under \"equal dimension => isomorphic\""
   },
   {
    "id": "ESE2030-0033",
    "legacy_id": "Q2-P08",
    "week": 5,
    "skills": [
-    "W05.S08"
+    "W05.S08",
+    "W05.S10"
    ],
    "status": "active",
    "problem_type": null,
@@ -2122,7 +2131,7 @@
    "legacy_id": "Q2-P09",
    "week": 5,
    "skills": [
-    "W05.S06"
+    "W05.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -2181,7 +2190,7 @@
    "legacy_id": "Q2-P10",
    "week": 5,
    "skills": [
-    "W05.S09"
+    "W05.S10"
    ],
    "status": "active",
    "problem_type": null,
@@ -2423,7 +2432,7 @@
    "legacy_id": "Q2-P14",
    "week": 3,
    "skills": [
-    "W03.S07"
+    "W03.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -2484,6 +2493,7 @@
    "legacy_id": "Q2-P15",
    "week": 5,
    "skills": [
+    "W05.S11",
     "W05.S08"
    ],
    "status": "active",
@@ -2545,7 +2555,7 @@
    "legacy_id": "Q2-P16",
    "week": 5,
    "skills": [
-    "W05.S02"
+    "W05.S11"
    ],
    "status": "active",
    "problem_type": null,
@@ -2668,7 +2678,7 @@
    "legacy_id": "Q2-P18",
    "week": 5,
    "skills": [
-    "W05.S07"
+    "W05.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -2849,7 +2859,7 @@
    "legacy_id": "Q2-P21",
    "week": 4,
    "skills": [
-    "W04.S04"
+    "W04.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -3147,7 +3157,7 @@
    "legacy_id": "Q3-P02",
    "week": 7,
    "skills": [
-    "W07.S02"
+    "W07.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -3216,7 +3226,7 @@
    "legacy_id": "Q3-P03",
    "week": 7,
    "skills": [
-    "W07.S07"
+    "W07.S09"
    ],
    "status": "needs-review",
    "problem_type": null,
@@ -3285,8 +3295,8 @@
    "legacy_id": "Q3-P04",
    "week": 6,
    "skills": [
-    "W06.S04",
-    "W06.S08"
+    "W06.S06",
+    "W06.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -3423,8 +3433,8 @@
    "legacy_id": "Q3-P06",
    "week": 7,
    "skills": [
-    "W07.S05",
-    "W07.S02"
+    "W07.S06",
+    "W07.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -3493,7 +3503,8 @@
    "legacy_id": "Q3-P07",
    "week": 5,
    "skills": [
-    "W05.S09"
+    "W05.S10",
+    "W05.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -3558,7 +3569,7 @@
    "legacy_id": "Q3-P08",
    "week": 6,
    "skills": [
-    "W06.S05"
+    "W06.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -3627,7 +3638,7 @@
    "legacy_id": "Q3-P09",
    "week": 7,
    "skills": [
-    "W07.S04"
+    "W07.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -3691,7 +3702,7 @@
    "legacy_id": "Q3-P10",
    "week": 7,
    "skills": [
-    "W07.S04"
+    "W07.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -3763,7 +3774,8 @@
    "legacy_id": "Q3-P11",
    "week": 7,
    "skills": [
-    "W07.S05"
+    "W07.S07",
+    "W07.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -4041,7 +4053,7 @@
    "legacy_id": "Q3-P15",
    "week": 7,
    "skills": [
-    "W07.S02"
+    "W07.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -4110,8 +4122,7 @@
    "legacy_id": "Q3-P16",
    "week": 6,
    "skills": [
-    "W06.S06",
-    "W06.S04"
+    "W06.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -4180,7 +4191,7 @@
    "legacy_id": "Q3-P17",
    "week": 7,
    "skills": [
-    "W07.S06"
+    "W07.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -4250,7 +4261,7 @@
    "legacy_id": "Q3-P18",
    "week": 6,
    "skills": [
-    "W06.S07"
+    "W06.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -4318,7 +4329,7 @@
    "legacy_id": "Q3-P19",
    "week": 7,
    "skills": [
-    "W07.S05"
+    "W07.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -4384,7 +4395,7 @@
    "legacy_id": "Q3-P20",
    "week": 5,
    "skills": [
-    "W05.S09"
+    "W05.S10"
    ],
    "status": "active",
    "problem_type": null,
@@ -4452,7 +4463,7 @@
    "legacy_id": "Q3-P21",
    "week": 7,
    "skills": [
-    "W07.S05"
+    "W07.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -4519,7 +4530,9 @@
    "id": "ESE2030-0071",
    "legacy_id": "Q3-P22",
    "week": 6,
-   "skills": [],
+   "skills": [
+    "W06.S05"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "Let $V$ be a finite-dimensional inner product space and $W$ a subspace of $V$. Consider the quotient space $V/W$, whose elements are equivalence classes $[\\mathbf{v}] = \\{\\mathbf{v} + \\mathbf{w} : \\mathbf{w} \\in W\\}$.\n\nIn an inner product space, we can represent each equivalence class $[\\mathbf{v}]$ uniquely by a distinguished vector. Which of the following provides the correct geometric characterization of this distinguished representative?\n",
@@ -4581,14 +4594,14 @@
     "isomorphism",
     "inner product geometry"
    ],
-   "notes": "tagging: Tests quotient-space representative via projection onto W^perp (Sec 6.2); no listed skill names it."
+   "notes": null
   },
   {
    "id": "ESE2030-0072",
    "legacy_id": "Q3-P23",
    "week": 7,
    "skills": [
-    "W07.S08"
+    "W07.S10"
    ],
    "status": "active",
    "problem_type": null,
@@ -4657,7 +4670,7 @@
    "legacy_id": "Q3-P24",
    "week": 7,
    "skills": [
-    "W07.S02"
+    "W07.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -4788,7 +4801,8 @@
    "legacy_id": "Q4-P02",
    "week": 8,
    "skills": [
-    "W08.S07"
+    "W08.S06",
+    "W08.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -4854,7 +4868,7 @@
    "legacy_id": "Q4-P03",
    "week": 9,
    "skills": [
-    "W09.S07"
+    "W09.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -4922,8 +4936,8 @@
    "legacy_id": "Q4-P04",
    "week": 8,
    "skills": [
-    "W08.S06",
-    "W08.S04"
+    "W08.S05",
+    "W08.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -4994,7 +5008,7 @@
    "legacy_id": "Q4-P05",
    "week": 7,
    "skills": [
-    "W07.S07"
+    "W07.S09"
    ],
    "status": "active",
    "problem_type": null,
@@ -5063,7 +5077,8 @@
    "legacy_id": "Q4-P06",
    "week": 8,
    "skills": [
-    "W08.S04"
+    "W08.S03",
+    "W08.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -5129,8 +5144,8 @@
    "legacy_id": "Q4-P07",
    "week": 9,
    "skills": [
-    "W09.S06",
-    "W09.S03"
+    "W09.S05",
+    "W09.S02"
    ],
    "status": "active",
    "problem_type": null,
@@ -5269,7 +5284,7 @@
    "legacy_id": "Q4-P09",
    "week": 8,
    "skills": [
-    "W08.S06",
+    "W08.S05",
     "W08.S01"
    ],
    "status": "active",
@@ -5341,8 +5356,8 @@
    "legacy_id": "Q4-P10",
    "week": 9,
    "skills": [
-    "W09.S03",
-    "W09.S02"
+    "W09.S02",
+    "W09.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -5412,8 +5427,7 @@
    "legacy_id": "Q4-P11",
    "week": 9,
    "skills": [
-    "W09.S05",
-    "W09.S02"
+    "W09.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -5483,7 +5497,7 @@
    "legacy_id": "Q4-P12",
    "week": 8,
    "skills": [
-    "W08.S08"
+    "W08.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -5552,6 +5566,7 @@
    "legacy_id": "Q4-P13",
    "week": 9,
    "skills": [
+    "W09.S02",
     "W09.S03"
    ],
    "status": "active",
@@ -5620,7 +5635,7 @@
    "legacy_id": "Q4-P14",
    "week": 9,
    "skills": [
-    "W09.S06"
+    "W09.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -5685,7 +5700,7 @@
    "legacy_id": "Q4-P15",
    "week": 9,
    "skills": [
-    "W09.S06"
+    "W09.S05"
    ],
    "status": "needs-review",
    "problem_type": null,
@@ -5756,8 +5771,8 @@
    "legacy_id": "Q4-P16",
    "week": 8,
    "skills": [
-    "W08.S07",
-    "W08.S03"
+    "W08.S06",
+    "W08.S02"
    ],
    "status": "active",
    "problem_type": null,
@@ -5826,7 +5841,7 @@
    "legacy_id": "Q4-P17",
    "week": 8,
    "skills": [
-    "W08.S08"
+    "W08.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -5959,7 +5974,7 @@
    "legacy_id": "Q4-P19",
    "week": 9,
    "skills": [
-    "W09.S07"
+    "W09.S06"
    ],
    "status": "needs-review",
    "problem_type": null,
@@ -6093,8 +6108,8 @@
    "legacy_id": "Q4-P21",
    "week": 8,
    "skills": [
-    "W08.S03",
-    "W08.S04"
+    "W08.S02",
+    "W08.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -6159,7 +6174,7 @@
    "legacy_id": "Q4-P22",
    "week": 8,
    "skills": [
-    "W08.S02"
+    "W08.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -6228,7 +6243,8 @@
    "legacy_id": "Q5-P01",
    "week": 10,
    "skills": [
-    "W10.S02"
+    "W10.S05",
+    "W10.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -6298,7 +6314,8 @@
    "legacy_id": "Q5-P02",
    "week": 10,
    "skills": [
-    "W10.S08"
+    "W10.S05",
+    "W10.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -6359,15 +6376,14 @@
     "sphere to ellipsoid transformation",
     "role of A^TA"
    ],
-   "notes": null
+   "notes": "KEY CHECK (soft): choice (B) is also essentially true; consider tightening"
   },
   {
    "id": "ESE2030-0098",
    "legacy_id": "Q5-P03",
    "week": 11,
    "skills": [
-    "W11.S08",
-    "W11.S02"
+    "W11.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -6431,7 +6447,7 @@
    "legacy_id": "Q5-P04",
    "week": 10,
    "skills": [
-    "W10.S08"
+    "W10.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -6499,7 +6515,7 @@
    "legacy_id": "Q5-P05",
    "week": 10,
    "skills": [
-    "W10.S07"
+    "W10.S09"
    ],
    "status": "active",
    "problem_type": null,
@@ -6566,7 +6582,7 @@
    "legacy_id": "Q5-P06",
    "week": 10,
    "skills": [
-    "W10.S03"
+    "W10.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -6634,7 +6650,8 @@
    "legacy_id": "Q5-P07",
    "week": 10,
    "skills": [
-    "W10.S04"
+    "W10.S07",
+    "W10.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -6702,7 +6719,7 @@
    "legacy_id": "Q5-P08",
    "week": 10,
    "skills": [
-    "W10.S08"
+    "W10.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -6772,8 +6789,7 @@
    "legacy_id": "Q5-P09",
    "week": 11,
    "skills": [
-    "W11.S05",
-    "W11.S09"
+    "W11.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -6904,7 +6920,8 @@
    "legacy_id": "Q5-P11",
    "week": 10,
    "skills": [
-    "W10.S03"
+    "W10.S03",
+    "W10.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -6971,8 +6988,8 @@
    "legacy_id": "Q5-P12",
    "week": 11,
    "skills": [
-    "W11.S04",
-    "W11.S05"
+    "W11.S07",
+    "W11.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -7043,7 +7060,7 @@
    "legacy_id": "Q5-P13",
    "week": 11,
    "skills": [
-    "W11.S04"
+    "W11.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -7107,7 +7124,7 @@
    "legacy_id": "Q5-P14",
    "week": 10,
    "skills": [
-    "W10.S03"
+    "W10.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -7176,7 +7193,7 @@
    "legacy_id": "Q5-P15",
    "week": 10,
    "skills": [
-    "W10.S08"
+    "W10.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -7243,9 +7260,9 @@
   {
    "id": "ESE2030-0111",
    "legacy_id": "Q5-P16",
-   "week": 11,
+   "week": 10,
    "skills": [
-    "W11.S02"
+    "W10.S10"
    ],
    "status": "needs-review",
    "problem_type": null,
@@ -7305,13 +7322,15 @@
     "invariance properties",
     "creative application"
    ],
-   "notes": "KEY CHECK: A also appears true"
+   "notes": "KEY CHECK: A also appears true | week remapped 11 -> 10 at v2 tagging: orthogonal invariance of singular values is Chapter 10 (W10.S10)"
   },
   {
    "id": "ESE2030-0112",
    "legacy_id": "Q5-P17",
    "week": 11,
-   "skills": [],
+   "skills": [
+    "W11.S02"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "Four feature vectors $(X_1, X_2, X_3, X_4)$ are extracted from centered sensor data. The covariance and correlation matrices are:\n\n$$[\\Sigma] = \\begin{bmatrix}\n4 & 3 & -4.2 & 6.4 \\\\\n3 & 25 & -6 & -12 \\\\\n-4.2 & -6 & 9 & 1.2 \\\\\n6.4 & -12 & 1.2 & 16\n\\end{bmatrix}\n\\quad : \\quad\n[R] = \\begin{bmatrix}\n1.0 & 0.3 & -0.7 & 0.8 \\\\\n0.3 & 1.0 & -0.4 & -0.6 \\\\\n-0.7 & -0.4 & 1.0 & 0.1 \\\\\n0.8 & -0.6 & 0.1 & 1.0\n\\end{bmatrix}$$\n\nWhich pairs of feature vectors have directions within $30^\\circ$ of being orthogonal?\n",
@@ -7370,14 +7389,15 @@
     "orthogonality",
     "angle interpretation"
    ],
-   "notes": "tagging: Tests correlation as cosine of the angle between centered columns; no W11 skill names this (W12.S01 does)."
+   "notes": null
   },
   {
    "id": "ESE2030-0113",
    "legacy_id": "Q5-P18",
    "week": 10,
    "skills": [
-    "W10.S08"
+    "W10.S06",
+    "W10.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -7445,7 +7465,7 @@
    "legacy_id": "Q5-P19",
    "week": 10,
    "skills": [
-    "W10.S05"
+    "W10.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -7511,7 +7531,7 @@
    "legacy_id": "Q5-P20",
    "week": 10,
    "skills": [
-    "W10.S03"
+    "W10.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -7581,7 +7601,8 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S08"
+    "W07.S10",
+    "W07.S09"
    ],
    "status": "active",
    "problem_type": null,
@@ -7644,7 +7665,7 @@
    "legacy_id": null,
    "week": 2,
    "skills": [
-    "W02.S04"
+    "W02.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -7707,7 +7728,9 @@
    "id": "ESE2030-0118",
    "legacy_id": null,
    "week": 13,
-   "skills": [],
+   "skills": [
+    "W13.S02"
+   ],
    "status": "needs-review",
    "problem_type": null,
    "statement": "A single perceptron computes $f(\\mathbf{x}) = \\text{sign}(\\mathbf{w} \\cdot \\mathbf{x} + b)$ where $\\mathbf{w} \\in \\mathbb{R}^n$ is a weight vector and $b$ is a bias. Four classification tasks in $\\mathbb{R}^2$ are proposed:\n\n\\begin{itemize}\n\\item Task 1: Separate points where $x_1 + x_2 > 1$ from points where $x_1 + x_2 < 1$\n\\item Task 2: Separate points where $x_1 \\cdot x_2 > 0$ from points where $x_1 \\cdot x_2 < 0$\n\\item Task 3: Separate points inside the unit circle from points outside\n\\item Task 4: Separate points where $|x_1| > |x_2|$ from points where $|x_1| < |x_2|$\n\\end{itemize}\n\nWhich tasks can be solved by a single perceptron?\n",
@@ -7763,14 +7786,14 @@
    ],
    "variant_of": null,
    "topics": [],
-   "notes": "tagging: Tests linear separability / perceptron decision boundaries; no W13 skill names this."
+   "notes": null
   },
   {
    "id": "ESE2030-0119",
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S07"
+    "W10.S09"
    ],
    "status": "active",
    "problem_type": null,
@@ -7896,7 +7919,7 @@
    "legacy_id": null,
    "week": 5,
    "skills": [
-    "W05.S06"
+    "W05.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -7960,8 +7983,7 @@
    "legacy_id": null,
    "week": 3,
    "skills": [
-    "W03.S04",
-    "W03.S03"
+    "W03.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -8086,7 +8108,7 @@
    "legacy_id": null,
    "week": 3,
    "skills": [
-    "W03.S07"
+    "W03.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -8151,7 +8173,7 @@
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S08"
+    "W08.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -8214,7 +8236,7 @@
    "legacy_id": null,
    "week": 2,
    "skills": [
-    "W02.S03"
+    "W02.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -8276,7 +8298,9 @@
    "id": "ESE2030-0127",
    "legacy_id": null,
    "week": 5,
-   "skills": [],
+   "skills": [
+    "W05.S03"
+   ],
    "status": "needs-review",
    "problem_type": null,
    "statement": "A mathematician working in an abstract vector space $V$ with subspace $W<V$ wants to perform several operations.\nShe has chosen a basis for $V$ but has not specified an inner product.\n\nWhich operation can she \\textbf{not} perform?\n",
@@ -8326,13 +8350,15 @@
    ],
    "variant_of": null,
    "topics": [],
-   "notes": "tagging: Tests that orthogonal projection needs an inner product; conceptual, no listed skill"
+   "notes": null
   },
   {
    "id": "ESE2030-0128",
    "legacy_id": null,
    "week": 11,
-   "skills": [],
+   "skills": [
+    "W11.S02"
+   ],
    "status": "needs-review",
    "problem_type": null,
    "statement": "{\\em ``Correlation is not causation, but it is a cosine.''}\nWhich statement best explains the mathematical content of this remark?\n",
@@ -8386,14 +8412,14 @@
    ],
    "variant_of": null,
    "topics": [],
-   "notes": "tagging: Tests correlation as cosine; no W11 skill names this (W12.S01 does)."
+   "notes": null
   },
   {
    "id": "ESE2030-0129",
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S05"
+    "W07.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -8584,7 +8610,7 @@
    "legacy_id": null,
    "week": 13,
    "skills": [
-    "W13.S05"
+    "W13.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -8647,7 +8673,7 @@
    "legacy_id": null,
    "week": 5,
    "skills": [
-    "W05.S06"
+    "W05.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -8836,8 +8862,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S05",
-    "W07.S04"
+    "W07.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -8900,7 +8925,7 @@
    "legacy_id": null,
    "week": 5,
    "skills": [
-    "W05.S05"
+    "W05.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -8961,7 +8986,7 @@
    "legacy_id": null,
    "week": 9,
    "skills": [
-    "W09.S06"
+    "W09.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -9087,7 +9112,9 @@
    "id": "ESE2030-0140",
    "legacy_id": null,
    "week": 10,
-   "skills": [],
+   "skills": [
+    "W10.S10"
+   ],
    "status": "needs-review",
    "problem_type": null,
    "statement": "Let $A \\in \\mathbb{R}^{m \\times n}$ have singular values $\\sigma_1, \\ldots, \\sigma_r > 0$. Let $Q \\in \\mathbb{R}^{m \\times m}$ and $P \\in \\mathbb{R}^{n \\times n}$ be orthogonal matrices.\n\nWhich statement is TRUE?\n",
@@ -9140,14 +9167,15 @@
    ],
    "variant_of": null,
    "topics": [],
-   "notes": "tagging: Tests orthogonal invariance of singular values (10.5); no skill in list"
+   "notes": null
   },
   {
    "id": "ESE2030-0141",
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S07"
+    "W08.S06",
+    "W08.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -9210,7 +9238,7 @@
    "legacy_id": null,
    "week": 5,
    "skills": [
-    "W05.S09"
+    "W05.S10"
    ],
    "status": "active",
    "problem_type": null,
@@ -9393,7 +9421,7 @@
    "legacy_id": null,
    "week": 6,
    "skills": [
-    "W06.S08"
+    "W06.S09"
    ],
    "status": "active",
    "problem_type": null,
@@ -9457,7 +9485,7 @@
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S06"
+    "W08.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -9585,7 +9613,7 @@
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S08"
+    "W10.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -9647,7 +9675,7 @@
    "legacy_id": null,
    "week": 1,
    "skills": [
-    "W01.S06"
+    "W01.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -9710,9 +9738,8 @@
    "legacy_id": null,
    "week": 3,
    "skills": [
-    "W03.S03",
-    "W03.S06",
-    "W03.S07"
+    "W03.S08",
+    "W03.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -9776,7 +9803,7 @@
    "legacy_id": null,
    "week": 11,
    "skills": [
-    "W11.S05"
+    "W11.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -9839,7 +9866,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S06"
+    "W07.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -9965,7 +9992,7 @@
    "legacy_id": null,
    "week": 13,
    "skills": [
-    "W13.S03"
+    "W13.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -10152,7 +10179,7 @@
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S03"
+    "W10.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -10215,7 +10242,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S08"
+    "W07.S10"
    ],
    "status": "active",
    "problem_type": null,
@@ -10278,7 +10305,8 @@
    "legacy_id": null,
    "week": 1,
    "skills": [
-    "W01.S01"
+    "W01.S01",
+    "W01.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -10419,8 +10447,8 @@
    "legacy_id": null,
    "week": 2,
    "skills": [
-    "W02.S03",
-    "W02.S02"
+    "W02.S04",
+    "W02.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -10561,7 +10589,7 @@
    "legacy_id": null,
    "week": 1,
    "skills": [
-    "W01.S06"
+    "W01.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -10631,7 +10659,8 @@
    "legacy_id": null,
    "week": 1,
    "skills": [
-    "W01.S01"
+    "W01.S01",
+    "W01.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -10701,8 +10730,8 @@
    "legacy_id": null,
    "week": 1,
    "skills": [
-    "W01.S04",
-    "W01.S06"
+    "W01.S07",
+    "W01.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -10767,8 +10796,7 @@
    "legacy_id": null,
    "week": 2,
    "skills": [
-    "W02.S04",
-    "W02.S01"
+    "W02.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -10839,7 +10867,8 @@
    "legacy_id": null,
    "week": 2,
    "skills": [
-    "W02.S04"
+    "W02.S05",
+    "W02.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -10902,7 +10931,7 @@
    "legacy_id": null,
    "week": 2,
    "skills": [
-    "W02.S03"
+    "W02.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -10965,7 +10994,7 @@
    "legacy_id": null,
    "week": 2,
    "skills": [
-    "W02.S02"
+    "W02.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -11028,7 +11057,7 @@
    "legacy_id": null,
    "week": 3,
    "skills": [
-    "W03.S07",
+    "W03.S08",
     "W03.S03"
    ],
    "status": "active",
@@ -11098,8 +11127,7 @@
    "legacy_id": null,
    "week": 3,
    "skills": [
-    "W03.S04",
-    "W03.S03"
+    "W03.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -11168,7 +11196,7 @@
    "legacy_id": null,
    "week": 3,
    "skills": [
-    "W03.S08"
+    "W03.S09"
    ],
    "status": "active",
    "problem_type": null,
@@ -11236,7 +11264,9 @@
    "id": "ESE2030-0173",
    "legacy_id": null,
    "week": 1,
-   "skills": [],
+   "skills": [
+    "W01.S08"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "An engineer needs to solve the systems $A\\mathbf{x}_1 = \\mathbf{b}_1$, $A\\mathbf{x}_2 = \\mathbf{b}_2$, \\ldots, $A\\mathbf{x}_{100} = \\mathbf{b}_{100}$, where $A$ is a fixed $500 \\times 500$ invertible matrix and the right-hand sides $\\mathbf{b}_i$ arrive sequentially over time. Why is computing the LU decomposition of $A$ advantageous compared to other approaches?\n",
@@ -11296,7 +11326,7 @@
     "computational efficiency",
     "solving multiple systems"
    ],
-   "notes": "tagging: Tests cost amortization of LU (O(n^3) once vs O(n^2) per solve); no listed skill covers computational cost."
+   "notes": null
   },
   {
    "id": "ESE2030-0174",
@@ -11650,8 +11680,7 @@
    "legacy_id": null,
    "week": 3,
    "skills": [
-    "W03.S06",
-    "W03.S07"
+    "W03.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -11790,7 +11819,9 @@
    "id": "ESE2030-0181",
    "legacy_id": null,
    "week": 1,
-   "skills": [],
+   "skills": [
+    "W01.S05"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "Let $A$ be a $3 \\times 3$ matrix. The following row operations are performed in sequence:\n\\begin{itemize}\n\\item Step 1: Add $-2$ times row 1 to row 2\n\\item Step 2: Swap rows 2 and 3\n\\item Step 3: Multiply row 3 by $5$\n\\end{itemize}\nLet $E_1, E_2, E_3$ be the elementary matrices corresponding to Steps 1, 2, 3 respectively. Which expression gives the resulting matrix?\n",
@@ -11852,15 +11883,14 @@
     "row operations",
     "matrix multiplication order"
    ],
-   "notes": "tagging: Tests order of composition of elementary matrices; same gap as 0024."
+   "notes": null
   },
   {
    "id": "ESE2030-0182",
    "legacy_id": null,
    "week": 4,
    "skills": [
-    "W04.S05",
-    "W04.S06"
+    "W04.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -11925,7 +11955,8 @@
    "legacy_id": null,
    "week": 5,
    "skills": [
-    "W05.S09"
+    "W05.S10",
+    "W05.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -12241,8 +12272,7 @@
    "legacy_id": null,
    "week": 6,
    "skills": [
-    "W06.S06",
-    "W06.S04"
+    "W06.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -12365,7 +12395,7 @@
    "legacy_id": null,
    "week": 5,
    "skills": [
-    "W05.S06"
+    "W05.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -12558,8 +12588,8 @@
    "legacy_id": null,
    "week": 5,
    "skills": [
-    "W05.S09",
-    "W05.S05"
+    "W05.S10",
+    "W05.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -12686,7 +12716,7 @@
    "legacy_id": null,
    "week": 4,
    "skills": [
-    "W04.S04"
+    "W04.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -12816,8 +12846,7 @@
    "legacy_id": null,
    "week": 6,
    "skills": [
-    "W06.S06",
-    "W06.S05"
+    "W06.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -13009,7 +13038,7 @@
    "legacy_id": null,
    "week": 5,
    "skills": [
-    "W05.S05"
+    "W05.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -13137,7 +13166,6 @@
    "legacy_id": null,
    "week": 6,
    "skills": [
-    "W06.S07",
     "W06.S02"
    ],
    "status": "active",
@@ -13203,7 +13231,7 @@
    "legacy_id": null,
    "week": 4,
    "skills": [
-    "W04.S01"
+    "W04.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -13267,7 +13295,8 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S06"
+    "W07.S08",
+    "W07.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -13409,7 +13438,8 @@
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S04"
+    "W08.S03",
+    "W08.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -13546,7 +13576,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S05"
+    "W07.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -13613,7 +13643,7 @@
    "legacy_id": null,
    "week": 9,
    "skills": [
-    "W09.S07"
+    "W09.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -13681,8 +13711,8 @@
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S04",
-    "W08.S03"
+    "W08.S03",
+    "W08.S02"
    ],
    "status": "active",
    "problem_type": null,
@@ -13752,8 +13782,7 @@
    "legacy_id": null,
    "week": 9,
    "skills": [
-    "W09.S06",
-    "W09.S03"
+    "W09.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -13821,7 +13850,8 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S03"
+    "W07.S04",
+    "W07.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -13891,7 +13921,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S03"
+    "W07.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -13961,7 +13991,7 @@
    "legacy_id": null,
    "week": 9,
    "skills": [
-    "W09.S06"
+    "W09.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -14031,8 +14061,8 @@
    "legacy_id": null,
    "week": 9,
    "skills": [
-    "W09.S05",
-    "W09.S06"
+    "W09.S04",
+    "W09.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -14093,14 +14123,14 @@
     "positive matrices",
     "uniqueness of"
    ],
-   "notes": null
+   "notes": "EXPLANATION: excerpt reads as if written for a different key; key E consistent with choices as written"
   },
   {
    "id": "ESE2030-0216",
    "legacy_id": null,
    "week": 9,
    "skills": [
-    "W09.S07"
+    "W09.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -14169,7 +14199,8 @@
    "legacy_id": null,
    "week": 9,
    "skills": [
-    "W09.S03"
+    "W09.S02",
+    "W09.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -14236,7 +14267,7 @@
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S02"
+    "W08.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -14308,8 +14339,8 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S06",
-    "W07.S04"
+    "W07.S08",
+    "W07.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -14381,7 +14412,7 @@
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S07"
+    "W08.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -14451,8 +14482,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S02",
-    "W07.S03"
+    "W07.S02"
    ],
    "status": "active",
    "problem_type": null,
@@ -14520,7 +14550,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S05"
+    "W07.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -14589,7 +14619,7 @@
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S08"
+    "W08.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -14657,7 +14687,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S02"
+    "W07.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -14729,7 +14759,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S03"
+    "W07.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -14933,7 +14963,9 @@
    "id": "ESE2030-0228",
    "legacy_id": null,
    "week": 13,
-   "skills": [],
+   "skills": [
+    "W13.S02"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "A perceptron with input $\\mathbf{x} \\in \\mathbb{R}^n$, weights $\\mathbf{w} \\in \\mathbb{R}^n$,\nbias $b \\in \\mathbb{R}$, and sigmoid activation $\\sigma$ computes\n$y = \\sigma(\\mathbf{w}^T\\mathbf{x} + b)$. Suppose we replace $\\mathbf{w}$ with $2\\mathbf{w}$\nand replace $b$ with $2b$, but leave $\\sigma$ unchanged. Which statement best describes\nthe effect on the perceptron's output?\n",
@@ -14994,14 +15026,14 @@
     "decision boundary invariance",
     "sigmoid saturation"
    ],
-   "notes": "difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts them in Chapter 13 | tagging: Tests perceptron decision-boundary invariance under scaling and sigmoid saturation; no W13 skill fits."
+   "notes": "difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts them in Chapter 13"
   },
   {
    "id": "ESE2030-0229",
    "legacy_id": null,
    "week": 13,
    "skills": [
-    "W13.S11"
+    "W13.S12"
    ],
    "status": "active",
    "problem_type": null,
@@ -15070,7 +15102,7 @@
    "week": 11,
    "skills": [
     "W11.S03",
-    "W11.S06"
+    "W11.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -15137,7 +15169,9 @@
    "id": "ESE2030-0231",
    "legacy_id": null,
    "week": 13,
-   "skills": [],
+   "skills": [
+    "W13.S02"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "A single perceptron with input $\\mathbf{x} \\in \\mathbb{R}^2$ computes output $y = \\sigma(\\mathbf{w}^T\\mathbf{x} + b)$, where $\\sigma$ is a sigmoid function. The perceptron classifies an input as ``positive'' when $y \\geq 0.5$.\nBelow are four subsets of $\\mathbb{R}^2$ (shaded grey). For which subsets can a single perceptron be trained so that its ``positive'' region exactly matches the shaded region?\n\n\\begin{tikzpicture}[scale=0.8]\n\\begin{scope}[shift={(0,0)}]\n  \\fill[gray!40] (-1.5,-1.5) rectangle (1.5,1.5);\n  \\fill[white] (-1.5,1.5) -- (1.5,-0.5) -- (1.5,1.5) -- cycle;\n  \\draw[thick] (-1.5,-1.5) rectangle (1.5,1.5);\n  \\draw[thick] (-1.5,1.5) -- (1.5,-0.5);\n  \\node at (0,-2) {\\textbf{I}};\n\\end{scope}\n\\begin{scope}[shift={(4,0)}]\n  \\draw[thick] (-1.5,-1.5) rectangle (1.5,1.5);\n  \\fill[gray!40] (0,0) circle (1);\n  \\draw[thick] (0,0) circle (1);\n  \\node at (0,-2) {\\textbf{II}};\n\\end{scope}\n\\begin{scope}[shift={(8,0)}]\n  \\draw[thick] (-1.5,-1.5) rectangle (1.5,1.5);\n  \\fill[gray!40] (-1.5,-0.5) rectangle (1.5,0.5);\n  \\draw[thick] (-1.5,-0.5) -- (1.5,-0.5);\n  \\draw[thick] (-1.5,0.5) -- (1.5,0.5);\n  \\node at (0,-2) {\\textbf{III}};\n\\end{scope}\n\\begin{scope}[shift={(12,0)}]\n  \\fill[gray!40] (-1.5,0.3) rectangle (1.5,1.5);\n  \\draw[thick] (-1.5,-1.5) rectangle (1.5,1.5);\n  \\draw[thick] (-1.5,0.3) -- (1.5,0.3);\n  \\node at (0,-2) {\\textbf{IV}};\n\\end{scope}\n\\end{tikzpicture}\n",
@@ -15198,15 +15232,14 @@
     "linear separability",
     "hyperplane decision boundary"
    ],
-   "notes": "difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts them in Chapter 13 | tagging: Tests linear separability by a single perceptron; no W13 skill fits."
+   "notes": "difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts them in Chapter 13"
   },
   {
    "id": "ESE2030-0232",
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S09",
-    "W10.S01"
+    "W10.S02"
    ],
    "status": "active",
    "problem_type": null,
@@ -15274,7 +15307,7 @@
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S08"
+    "W10.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -15342,7 +15375,7 @@
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S03"
+    "W10.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -15409,7 +15442,9 @@
    "id": "ESE2030-0235",
    "legacy_id": null,
    "week": 11,
-   "skills": [],
+   "skills": [
+    "W11.S02"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "A centered data matrix $X \\in \\mathbb{R}^{n \\times 3}$ with columns\n$\\mathbf{x}_1, \\mathbf{x}_2, \\mathbf{x}_3$ has correlation matrix\n$$R = \\begin{bmatrix} 1 & -1 & 0 \\\\ -1 & 1 & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}.$$\nWhich of the following must be true?\n",
@@ -15468,14 +15503,14 @@
     "Correlation as cosine similarity",
     "geometric interpretation"
    ],
-   "notes": "difficulty: Core | tagging: Tests correlation as cosine; no W11 skill names this (W12.S01 does)."
+   "notes": "difficulty: Core"
   },
   {
    "id": "ESE2030-0236",
    "legacy_id": null,
    "week": 13,
    "skills": [
-    "W13.S03"
+    "W13.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -15542,7 +15577,8 @@
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S07"
+    "W10.S09",
+    "W10.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -15609,7 +15645,9 @@
    "id": "ESE2030-0238",
    "legacy_id": null,
    "week": 13,
-   "skills": [],
+   "skills": [
+    "W13.S03"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "The Universal Approximation Theorem is a foundational result about feed-forward neural networks\nwith at least one hidden layer and a nonlinear activation function.\nWhich of the following statements most accurately describes what the theorem claims?\n",
@@ -15669,14 +15707,14 @@
     "Universal approximation theorem",
     "expressive power vs trainability"
    ],
-   "notes": "difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts them in Chapter 13 | tagging: Tests universal approximation (existence vs trainability); no W13 skill names this."
+   "notes": "difficulty: Core | week remapped 12 -> 13: 2026-A taught neural networks as week 12; LAEF 2E puts them in Chapter 13"
   },
   {
    "id": "ESE2030-0239",
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S04"
+    "W10.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -15744,7 +15782,7 @@
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S03"
+    "W10.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -15812,8 +15850,8 @@
    "legacy_id": null,
    "week": 11,
    "skills": [
-    "W11.S06",
-    "W11.S04"
+    "W11.S07",
+    "W11.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -15881,7 +15919,7 @@
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S05"
+    "W10.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -15948,7 +15986,7 @@
    "legacy_id": null,
    "week": 11,
    "skills": [
-    "W11.S05"
+    "W11.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -16015,7 +16053,7 @@
    "legacy_id": null,
    "week": 11,
    "skills": [
-    "W11.S06"
+    "W11.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -16083,8 +16121,7 @@
    "legacy_id": null,
    "week": 12,
    "skills": [
-    "W12.S08",
-    "W12.S09"
+    "W12.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -16218,7 +16255,7 @@
    "legacy_id": null,
    "week": 11,
    "skills": [
-    "W11.S02"
+    "W11.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -16285,8 +16322,8 @@
    "legacy_id": null,
    "week": 11,
    "skills": [
-    "W11.S06",
-    "W11.S03"
+    "W11.S08",
+    "W11.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -16355,7 +16392,8 @@
    "legacy_id": null,
    "week": 11,
    "skills": [
-    "W11.S01"
+    "W11.S01",
+    "W11.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -16425,6 +16463,7 @@
    "legacy_id": null,
    "week": 10,
    "skills": [
+    "W10.S08",
     "W10.S05"
    ],
    "status": "active",
@@ -16493,7 +16532,8 @@
    "legacy_id": null,
    "week": 6,
    "skills": [
-    "W06.S08"
+    "W06.S09",
+    "W06.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -16628,6 +16668,7 @@
    "legacy_id": null,
    "week": 13,
    "skills": [
+    "W13.S06",
     "W13.S05"
    ],
    "status": "active",
@@ -16695,7 +16736,7 @@
    "legacy_id": null,
    "week": 4,
    "skills": [
-    "W04.S05"
+    "W04.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -16829,7 +16870,7 @@
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S08"
+    "W08.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -16898,7 +16939,7 @@
    "legacy_id": null,
    "week": 11,
    "skills": [
-    "W11.S06"
+    "W11.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -16965,7 +17006,9 @@
    "id": "ESE2030-0258",
    "legacy_id": null,
    "week": 2,
-   "skills": [],
+   "skills": [
+    "W02.S02"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "Which of the following properties is NOT one of the axioms of a vector space?\n",
@@ -17026,14 +17069,14 @@
     "distributivity",
     "scalar multiplication"
    ],
-   "notes": "difficulty: Deeper | tagging: Tests vector space axioms vs derived properties (0v=0 is a theorem); no listed skill covers axiom recall."
+   "notes": "difficulty: Deeper"
   },
   {
    "id": "ESE2030-0259",
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S07"
+    "W08.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -17103,8 +17146,8 @@
    "legacy_id": null,
    "week": 5,
    "skills": [
-    "W05.S09",
-    "W05.S05"
+    "W05.S10",
+    "W05.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -17173,7 +17216,6 @@
    "legacy_id": null,
    "week": 11,
    "skills": [
-    "W11.S02",
     "W11.S03"
    ],
    "status": "active",
@@ -17241,8 +17283,7 @@
    "legacy_id": null,
    "week": 1,
    "skills": [
-    "W01.S07",
-    "W01.S06"
+    "W01.S08"
    ],
    "status": "active",
    "problem_type": null,
@@ -17439,7 +17480,7 @@
     "consistency",
     "fundamental subspaces"
    ],
-   "notes": "difficulty: Core | solutions guide matched (\"Solvability of $A\\mathbf{x} = \\mathbf{b}$\") but its correct choice could not be mapped to a letter here | tagging: Likely wrong week: relies on im(A), ker(A^T) and FTLA/Fredholm alternative (Week 3/Week 6 content)."
+   "notes": "difficulty: Core | solutions guide matched (\"Solvability of $A\\mathbf{x} = \\mathbf{b}$\") but its correct choice could not be mapped to a letter here | tagging: taggers twice suggested Week 6 (Fredholm alternative, im(A)^perp = ker(A^T)); kept in Week 1 per the 2026-A solutions guide"
   },
   {
    "id": "ESE2030-0265",
@@ -17515,7 +17556,8 @@
    "legacy_id": null,
    "week": 2,
    "skills": [
-    "W02.S05"
+    "W02.S07",
+    "W02.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -17583,7 +17625,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S05"
+    "W07.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -17719,7 +17761,7 @@
    "legacy_id": null,
    "week": 9,
    "skills": [
-    "W09.S07"
+    "W09.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -17786,7 +17828,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S05"
+    "W07.S07"
    ],
    "status": "active",
    "problem_type": null,
@@ -17991,7 +18033,7 @@
    "legacy_id": null,
    "week": 9,
    "skills": [
-    "W09.S05"
+    "W09.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -18127,7 +18169,7 @@
    "legacy_id": null,
    "week": 10,
    "skills": [
-    "W10.S03"
+    "W10.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -18200,7 +18242,7 @@
    "legacy_id": null,
    "week": 13,
    "skills": [
-    "W13.S03"
+    "W13.S01"
    ],
    "status": "active",
    "problem_type": null,
@@ -18337,7 +18379,7 @@
    "legacy_id": null,
    "week": 5,
    "skills": [
-    "W05.S05"
+    "W05.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -18405,9 +18447,8 @@
    "legacy_id": null,
    "week": 3,
    "skills": [
-    "W03.S03",
-    "W03.S07",
-    "W03.S06"
+    "W03.S08",
+    "W03.S03"
    ],
    "status": "active",
    "problem_type": null,
@@ -18479,7 +18520,7 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S03"
+    "W07.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -18616,7 +18657,7 @@
    "week": 3,
    "skills": [
     "W03.S04",
-    "W03.S08"
+    "W03.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -18685,7 +18726,9 @@
    "id": "ESE2030-0283",
    "legacy_id": null,
    "week": 13,
-   "skills": [],
+   "skills": [
+    "W13.S02"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "A perceptron with weights $\\mathbf{w} \\in \\mathbb{R}^n$, bias $b \\in \\mathbb{R}$, and sigmoid activation $\\sigma$ computes $y = \\sigma(\\mathbf{w}^T \\mathbf{x} + b)$, with decision boundary $\\{\\mathbf{x} : \\mathbf{w}^T \\mathbf{x} + b = 0\\}$.\nWhich statement best and most fundamentally describes the geometric role of $\\mathbf{w}$?\n",
@@ -18820,7 +18863,8 @@
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S06"
+    "W07.S08",
+    "W07.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -18890,8 +18934,8 @@
    "legacy_id": null,
    "week": 9,
    "skills": [
-    "W09.S06",
-    "W09.S05"
+    "W09.S05",
+    "W09.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -18959,7 +19003,7 @@
    "legacy_id": null,
    "week": 4,
    "skills": [
-    "W04.S01"
+    "W04.S06"
    ],
    "status": "active",
    "problem_type": null,
@@ -19027,7 +19071,7 @@
    "legacy_id": null,
    "week": 4,
    "skills": [
-    "W04.S05"
+    "W04.S04"
    ],
    "status": "active",
    "problem_type": null,
@@ -19095,8 +19139,8 @@
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S04",
-    "W08.S03"
+    "W08.S03",
+    "W08.S02"
    ],
    "status": "active",
    "problem_type": null,
@@ -19166,7 +19210,7 @@
    "legacy_id": null,
    "week": 8,
    "skills": [
-    "W08.S06"
+    "W08.S05"
    ],
    "status": "active",
    "problem_type": null,
@@ -19233,7 +19277,9 @@
    "id": "ESE2030-0291",
    "legacy_id": null,
    "week": 11,
-   "skills": [],
+   "skills": [
+    "W11.S02"
+   ],
    "status": "active",
    "problem_type": null,
    "statement": "A data matrix $X \\in \\mathbb{R}^{n \\times d}$ has $n$ observations of $d$ features\narranged in columns $\\mathbf{x}_1, \\ldots, \\mathbf{x}_d \\in \\mathbb{R}^n$, each\ncentered to have sample mean zero. Let $\\rho_{ij}$ denote the Pearson correlation\ncoefficient between features $i$ and $j$. Which of the following best describes\nthe geometric meaning of $\\rho_{ij}$?\n",
@@ -19293,14 +19339,14 @@
     "centered data",
     "geometric interpretation"
    ],
-   "notes": "difficulty: Deeper | tagging: Tests correlation as cosine; no W11 skill names this (W12.S01 does)."
+   "notes": "difficulty: Deeper"
   },
   {
    "id": "ESE2030-0292",
    "legacy_id": null,
    "week": 7,
    "skills": [
-    "W07.S01"
+    "W07.S02"
    ],
    "status": "active",
    "problem_type": null,

@@ -1,7 +1,8 @@
 id: ESE2030-0140
 legacy_id: null
 week: 10
-skills: []
+skills:
+- W10.S10
 status: needs-review
 problem_type: null
 statement: |
@@ -44,4 +45,4 @@ sources:
   line: 822
 variant_of: null
 topics: []
-notes: 'tagging: Tests orthogonal invariance of singular values (10.5); no skill in list'
+notes: null

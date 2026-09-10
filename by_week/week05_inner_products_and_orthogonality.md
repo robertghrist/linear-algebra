@@ -4,7 +4,7 @@
 
 ## ESE2030-0027
 *week 5 · 2025C quiz2 #2 · active · legacy Q2-P02*  
-skills: `W05.S06` Expand a vector against an orthonormal basis using inner products alone  
+skills: `W05.S05` Know why an orthonormal basis is special: coordinates are inner products, ‖v‖² is the sum of squared coordinates, and no system need be solved  
 
 Suppose ${\mathcal S} = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is an orthonormal set in an inner product space $V$. Which of the following must be true?
 
@@ -26,6 +26,7 @@ Compute the norm and use orthonormality
 
 ## ESE2030-0028
 *week 5 · 2025C quiz2 #3 · needs-review · legacy Q2-P03*  
+skills: `W05.S03` Decide which operations require an inner product (angle, orthogonality, projection, adjoint, orthogonal complement) and which are purely algebraic (span, kernel, dimension, quotient, invertibility)  
 
 Consider the following statements about the vector space of quadratic polynomials $\mathcal{P}_2$:
 
@@ -57,7 +58,7 @@ Statement I is true: checking if vectors form a basis only requires verifying li
 
 ## ESE2030-0033
 *week 5 · 2025C quiz2 #8 · active · legacy Q2-P08*  
-skills: `W05.S08` Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does  
+skills: `W05.S08` Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection); `W05.S10` Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A  
 
 Let $A$ be a square matrix with QR decomposition $A = QR$.
 Consider the matrix $B = Q^{-1}AQ$ (similar to $A$ by its own $Q$ factor).
@@ -81,7 +82,7 @@ Since $B = Q^TAQ = Q^T(QR)Q = (Q^TQ)RQ = IRQ = RQ$.
 
 ## ESE2030-0034
 *week 5 · 2025C quiz2 #9 · active · legacy Q2-P09*  
-skills: `W05.S06` Expand a vector against an orthonormal basis using inner products alone  
+skills: `W05.S05` Know why an orthonormal basis is special: coordinates are inner products, ‖v‖² is the sum of squared coordinates, and no system need be solved  
 
 Let $V$ be a 4-dimensional inner product space with orthonormal basis $B = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3, \mathbf{v}_4\}$.
 For the vector $\mathbf{w} = 3\mathbf{v}_1 - 2\mathbf{v}_2 + \mathbf{v}_3 - 4\mathbf{v}_4$, which expression gives $\|\mathbf{w}\|^2$?
@@ -106,7 +107,7 @@ Since $B$ is orthonormal, $\|\mathbf{w}\|^2 = \langle \mathbf{w}, \mathbf{w} \ra
 
 ## ESE2030-0035
 *week 5 · 2025C quiz2 #10 · active · legacy Q2-P10*  
-skills: `W05.S09` Read off Q and R from a small QR, and use QR to solve or to compute a projection  
+skills: `W05.S10` Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A  
 
 Let $A$ be a square matrix. After performing QR decomposition you compute $A = QR$.
 Which statement about this QR decomposition must be true?
@@ -129,7 +130,7 @@ In QR decomposition: \begin{itemize} \item $Q$ has orthonormal columns by defini
 
 ## ESE2030-0036
 *week 5 · 2025C quiz2 #11 · active · legacy Q2-P11*  
-skills: `W05.S08` Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does  
+skills: `W05.S08` Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)  
 
 Let $Q$ be an $n \times n$ orthogonal matrix. Which of the following statements is false?
 
@@ -151,7 +152,7 @@ For an orthogonal matrix $Q$ ($Q^TQ = I$): \begin{itemize} \item \textbf{(A) TRU
 
 ## ESE2030-0037
 *week 5 · 2025C quiz2 #12 · active · legacy Q2-P12*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 
 Consider the vector space $C[0,1]$ of continuous functions on $[0,1]$ with the inner product $\langle f, g \rangle = \int_0^1 e^x\,f(x)g(x)\,dx$.
 Which of the following statements about this inner product is TRUE?
@@ -177,7 +178,7 @@ Why the distractors tempt:
 
 ## ESE2030-0038
 *week 5 · 2025C quiz2 #13 · active · legacy Q2-P13*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 
 Let $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$ be nonzero vectors with angle $\theta$ between them.
 If we define $\mathbf{w} = 2\mathbf{u} - 3\mathbf{v}$, which expression gives the cosine of the angle between $\mathbf{u}$ and $\mathbf{w}$?
@@ -203,7 +204,7 @@ Why the distractors tempt:
 
 ## ESE2030-0040
 *week 5 · 2025C quiz2 #15 · active · legacy Q2-P15*  
-skills: `W05.S08` Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does  
+skills: `W05.S11` Recognize the geometry of preservation: which transformations preserve angles but not lengths (scalings), lengths and angles (orthogonal), neither; `W05.S08` Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)  
 
 Let $T: \mathbb{R}^3 \to \mathbb{R}^3$ be a linear transformation whose matrix representation in the standard Euclidean basis is $A$.
 Which condition is sufficient to guarantee that $T$ preserves all angles between vectors?
@@ -229,7 +230,7 @@ Why the distractors tempt:
 
 ## ESE2030-0041
 *week 5 · 2025C quiz2 #16 · active · legacy Q2-P16*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S11` Recognize the geometry of preservation: which transformations preserve angles but not lengths (scalings), lengths and angles (orthogonal), neither  
 
 Consider the transformation $T: \mathbb{R}^n \to \mathbb{R}^n$ on the standard Euclidean $n$-space
 given by $T(\mathbf{x}) = 5\mathbf{x}$ for all $\mathbf{x}$. Which geometric property does this transformation preserve?
@@ -258,7 +259,7 @@ Why the distractors tempt:
 
 ## ESE2030-0043
 *week 5 · 2025C quiz2 #18 · active · legacy Q2-P18*  
-skills: `W05.S07` Compute an adjoint, and recognize when the adjoint differs from the transpose  
+skills: `W05.S03` Decide which operations require an inner product (angle, orthogonality, projection, adjoint, orthogonal complement) and which are purely algebraic (span, kernel, dimension, quotient, invertibility)  
 
 For a linear transformation $T:V\to V$, which of the following requires an inner product on $V$?
 
@@ -280,7 +281,7 @@ Projection of vector $\mathbf{u}$ onto vector $\mathbf{v}$ requires the formula 
 
 ## ESE2030-0044
 *week 5 · 2025C quiz2 #19 · active · legacy Q2-P19*  
-skills: `W05.S08` Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does  
+skills: `W05.S08` Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)  
 
 Which of the following matrices is orthogonal? {\em Hint:} be strategic and do not do {\em all} the computations...
 
@@ -302,7 +303,7 @@ An orthogonal matrix requires ALL columns to be orthonormal (pairwise orthogonal
 
 ## ESE2030-0045
 *week 5 · 2025C quiz2 #20 · active · legacy Q2-P20*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 
 In a document retrieval system, documents are represented as vectors in $\mathbb{R}^{1000}$
 where the $i^{th}$ coordinate counts the number of times the $i^{th}$ most common word in the dictionary appears in the document.
@@ -331,7 +332,7 @@ Given $\mathbf{d}_3 = \mathbf{d}_1 + \mathbf{d}_2$ with $\theta_{1,2} = 30°$: B
 
 ## ESE2030-0047
 *week 5 · 2025C quiz2 #22 · active · legacy Q2-P22*  
-skills: `W05.S07` Compute an adjoint, and recognize when the adjoint differs from the transpose  
+skills: `W05.S07` Know the defining property of the adjoint ⟨Tv, w⟩ = ⟨v, T*w⟩, its domain and codomain, and that T* is the transpose only in the standard inner product with standard bases  
 
 Let $D: \mathcal{P}_3 \to \mathcal{P}_2$ be the differentiation operator on polynomials, where $D(p) = p'$.
 Consider the inner product $\langle f, g \rangle = \int_0^1 f(x)g(x)dx$ on both $\mathcal{P}_3$ and $\mathcal{P}_2$.
@@ -357,7 +358,7 @@ The defining property of the adjoint is $\langle D(p), q \rangle = \langle p, D^
 
 ## ESE2030-0056
 *week 5 · 2025C quiz3 #7 · active · legacy Q3-P07*  
-skills: `W05.S09` Read off Q and R from a small QR, and use QR to solve or to compute a projection  
+skills: `W05.S10` Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A; `W05.S08` Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)  
 topics: QR decomposition, orthogonal matrices, determinant
 
 A nonsingular $n \times n$ matrix $A$ has QR decomposition $A = QR$ where $Q=[Q_{ij}]$ and $R=[R_{ij}]$.
@@ -381,7 +382,7 @@ The determinant of a product equals the product of determinants: $\det(A) = \det
 
 ## ESE2030-0069
 *week 5 · 2025C quiz3 #20 · active · legacy Q3-P20*  
-skills: `W05.S09` Read off Q and R from a small QR, and use QR to solve or to compute a projection  
+skills: `W05.S10` Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A  
 topics: QR decomposition, scaling, matrix relationships
 
 Suppose a matrix $A$ has QR decomposition $A = Q_AR_A$. For a positive scalar $c > 0$, what is the QR decomposition of $cA$?
@@ -410,7 +411,7 @@ Why the distractors tempt:
 
 ## ESE2030-0121
 *week 5 · 2025C final #6 · active*  
-skills: `W05.S06` Expand a vector against an orthonormal basis using inner products alone  
+skills: `W05.S05` Know why an orthonormal basis is special: coordinates are inner products, ‖v‖² is the sum of squared coordinates, and no system need be solved  
 
 Let $V$ be a finite-dimensional inner product space. An engineer claims:
 {\em ``Finding coordinates relative to an orthonormal basis is easier than for a general basis.''}
@@ -440,6 +441,7 @@ Why the distractors tempt:
 
 ## ESE2030-0127
 *week 5 · 2025C final #12 · needs-review*  
+skills: `W05.S03` Decide which operations require an inner product (angle, orthogonality, projection, adjoint, orthogonal complement) and which are purely algebraic (span, kernel, dimension, quotient, invertibility)  
 
 A mathematician working in an abstract vector space $V$ with subspace $W<V$ wants to perform several operations.
 She has chosen a basis for $V$ but has not specified an inner product.
@@ -464,7 +466,7 @@ Orthogonality is defined via inner products: $W^{\perp} = \{\mathbf{v} \in V : \
 
 ## ESE2030-0131
 *week 5 · 2025C final #16 · active*  
-skills: `W05.S07` Compute an adjoint, and recognize when the adjoint differs from the transpose  
+skills: `W05.S07` Know the defining property of the adjoint ⟨Tv, w⟩ = ⟨v, T*w⟩, its domain and codomain, and that T* is the transpose only in the standard inner product with standard bases  
 
 Let $V$ be a finite-dimensional real inner product space and let $T: V \to V$ be a linear operator.
 Recall that the adjoint $T^*$ is defined via the inner product and generalizes the notion of a transpose.
@@ -494,7 +496,7 @@ Why the distractors tempt:
 
 ## ESE2030-0133
 *week 5 · 2025C final #18 · active*  
-skills: `W05.S06` Expand a vector against an orthonormal basis using inner products alone  
+skills: `W05.S05` Know why an orthonormal basis is special: coordinates are inner products, ‖v‖² is the sum of squared coordinates, and no system need be solved  
 
 Let $B = \{\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3, \mathbf{e}_4\}$ be an orthonormal basis for $\mathbb{R}^4$, and suppose
 $$\mathbf{v} = 3\mathbf{e}_1 - 2\mathbf{e}_2 + \mathbf{e}_3 - 4\mathbf{e}_4$$
@@ -523,7 +525,7 @@ Why the distractors tempt:
 
 ## ESE2030-0137
 *week 5 · 2025C final #22 · active*  
-skills: `W05.S05` Run Gram-Schmidt on two or three vectors and normalize correctly  
+skills: `W05.S06` Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME nested spans), and why "just normalize each vector" fails  
 
 {\em ``To get an orthonormal basis from a basis $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$, just normalize each vector: $\mathbf{e}_i = \mathbf{v}_i/\|\mathbf{v}_i\|$.''}
 Why does this fail to produce an orthonormal basis in general?
@@ -550,7 +552,7 @@ Why the distractors tempt:
 
 ## ESE2030-0139
 *week 5 · 2025C final #24 · needs-review*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 
 In data science, \emph{cosine similarity} between vectors $\mathbf{u}$ and $\mathbf{v}$ tends to be preferred over the inner product $\langle \mathbf{u}, \mathbf{v} \rangle$. Why?
 
@@ -576,7 +578,7 @@ Why the distractors tempt:
 
 ## ESE2030-0142
 *week 5 · 2025C final #27 · active*  
-skills: `W05.S09` Read off Q and R from a small QR, and use QR to solve or to compute a projection  
+skills: `W05.S10` Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A  
 
 Let $A$ be an $n \times n$ matrix and let $A = QR$ be its QR decomposition.
 If $R$ has a zero on its diagonal, what can be concluded?
@@ -599,7 +601,7 @@ For upper triangular $R$, det$(R)$ equals the product of diagonal entries. A zer
 
 ## ESE2030-0155
 *week 5 · 2025C final #40 · active*  
-skills: `W05.S08` Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does  
+skills: `W05.S08` Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)  
 
 Let $Q$ be an $n \times n$ orthogonal matrix.
 Which property is false (more precisely, not necessarily true)?
@@ -622,7 +624,7 @@ Consider $Q = -I$ (which is orthogonal: $Q^TQ = I$). Then $Q + Q^T = -I + (-I)^T
 
 ## ESE2030-0183
 *week 5 · 2026A quiz2 #2 · active*  
-skills: `W05.S09` Read off Q and R from a small QR, and use QR to solve or to compute a projection  
+skills: `W05.S10` Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A; `W05.S08` Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)  
 
 An $n \times n$ invertible matrix $A$ has QR decomposition $A = QR$. Using this factorization, the system $A\mathbf{x} = \mathbf{b}$ reduces to:
 
@@ -649,7 +651,7 @@ Why the distractors tempt:
 
 ## ESE2030-0184
 *week 5 · 2026A quiz2 #3 · active*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 
 In $\mathbb{R}^2$, consider the weighted inner product
 $$\langle \mathbf{u}, \mathbf{v} \rangle_M = \mathbf{u}^T M \mathbf{v}, \qquad M = \begin{bmatrix} 3 & 1 \\ 1 & 4 \end{bmatrix}.$$
@@ -677,7 +679,7 @@ Why the distractors tempt:
 
 ## ESE2030-0185
 *week 5 · 2026A quiz2 #4 · active*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 
 Consider the vector space $M_{m \times n}(\mathbb{R})$ of all $m \times n$ real matrices, equipped with the Frobenius inner product $\langle A, B \rangle_F = \operatorname{tr}(A^T B)$. Which of the following is TRUE?
 
@@ -703,7 +705,7 @@ Why the distractors tempt:
 
 ## ESE2030-0186
 *week 5 · 2026A quiz2 #5 · active*  
-skills: `W05.S08` Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does  
+skills: `W05.S08` Distinguish a square orthogonal matrix (QᵀQ = QQᵀ = I; preserves inner products, lengths, angles; det ±1) from a rectangular isometry (QᵀQ = I but QQᵀ is a projection)  
 
 Let $Q$ be an $n \times n$ orthogonal matrix. Which of the following is \emph{not} guaranteed to be true?
 
@@ -728,7 +730,7 @@ Why the distractors tempt:
 
 ## ESE2030-0187
 *week 5 · 2026A quiz2 #6 · active*  
-skills: `W05.S04` Find an orthogonal complement and its dimension  
+skills: `W05.S04` Recognize an orthogonal complement and its dimension; know Pythagoras and the orthogonal-decomposition lemma  
 
 Consider $W<\mathbb{R}^7$ with $\dim W=3$. Which statement about $W^\perp$ is true?
 
@@ -754,7 +756,7 @@ Why the distractors tempt:
 
 ## ESE2030-0190
 *week 5 · 2026A quiz2 #9 · active*  
-skills: `W05.S06` Expand a vector against an orthonormal basis using inner products alone  
+skills: `W05.S05` Know why an orthonormal basis is special: coordinates are inner products, ‖v‖² is the sum of squared coordinates, and no system need be solved  
 
 Let $\mathcal{B} = \{\mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3\}$ be an orthonormal basis for $\mathbb{R}^3$. Suppose $\mathbf{v} \in \mathbb{R}^3$ satisfies
 $$\langle \mathbf{v}, \mathbf{q}_1 \rangle = 4, \qquad \langle \mathbf{v}, \mathbf{q}_2 \rangle = -1, \qquad \langle \mathbf{v}, \mathbf{q}_3 \rangle = 3.$$
@@ -784,7 +786,7 @@ Why the distractors tempt:
 
 ## ESE2030-0193
 *week 5 · 2026A quiz2 #12 · active*  
-skills: `W05.S09` Read off Q and R from a small QR, and use QR to solve or to compute a projection; `W05.S05` Run Gram-Schmidt on two or three vectors and normalize correctly  
+skills: `W05.S10` Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A; `W05.S06` Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME nested spans), and why "just normalize each vector" fails  
 
 Let $A$ be an $n \times n$ invertible matrix with columns $\mathbf{a}_1, \ldots, \mathbf{a}_n$, and let $A = QR$ be its QR decomposition. Which statement best describes the relationship between Gram--Schmidt and QR?
 
@@ -810,7 +812,7 @@ Why the distractors tempt:
 
 ## ESE2030-0198
 *week 5 · 2026A quiz2 #17 · active*  
-skills: `W05.S07` Compute an adjoint, and recognize when the adjoint differs from the transpose  
+skills: `W05.S07` Know the defining property of the adjoint ⟨Tv, w⟩ = ⟨v, T*w⟩, its domain and codomain, and that T* is the transpose only in the standard inner product with standard bases  
 
 Let $V$ and $W$ be finite-dimensional inner product spaces with inner products $\langle \cdot, \cdot \rangle_V$ and $\langle \cdot, \cdot \rangle_W$, and let $T: V \to W$ be linear. Which of the following correctly defines the adjoint $T^*$?
 
@@ -838,7 +840,7 @@ Why the distractors tempt:
 
 ## ESE2030-0199
 *week 5 · 2026A quiz2 #18 · active*  
-skills: `W05.S01` Verify the inner product axioms for a proposed pairing, and find the axiom that fails  
+skills: `W05.S01` Verify the inner product axioms for a proposed pairing and identify the axiom that fails  
 
 Which of the following defines a valid inner product on $\mathbb{R}^2$?
 
@@ -865,7 +867,7 @@ Why the distractors tempt:
 
 ## ESE2030-0200
 *week 5 · 2026A quiz2 #19 · active*  
-skills: `W05.S05` Run Gram-Schmidt on two or three vectors and normalize correctly  
+skills: `W05.S06` Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME nested spans), and why "just normalize each vector" fails  
 
 Let $V$ be an $n$-dimensional inner product space, and let $S = \{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$ be a linearly independent set in $V$ with $1 < k < n$. The vectors in $S$ are \emph{not} pairwise orthogonal. Which of the following is guaranteed?
 
@@ -892,7 +894,7 @@ Why the distractors tempt:
 
 ## ESE2030-0201
 *week 5 · 2026A quiz2 #20 · active*  
-skills: `W05.S07` Compute an adjoint, and recognize when the adjoint differs from the transpose  
+skills: `W05.S07` Know the defining property of the adjoint ⟨Tv, w⟩ = ⟨v, T*w⟩, its domain and codomain, and that T* is the transpose only in the standard inner product with standard bases  
 
 Let $T: \mathbb{R}^3 \to \mathbb{R}^2$ be defined by $T(x_1, x_2, x_3) = (x_1 + 2x_3,\; x_2 - x_3)$, with the standard dot product on both spaces. Which statement about the adjoint $T^*$ is true?
 
@@ -919,7 +921,7 @@ Why the distractors tempt:
 
 ## ESE2030-0255
 *week 5 · 2026A final #6 · active · Core (synthesis)*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 topics: Inner products on function spaces, parity on symmetric
 
 Consider a vector space $C^\infty([a,b])$ of smooth functions on an
@@ -950,7 +952,7 @@ Why the distractors tempt:
 
 ## ESE2030-0260
 *week 5 · 2026A final #11 · active*  
-skills: `W05.S09` Read off Q and R from a small QR, and use QR to solve or to compute a projection; `W05.S05` Run Gram-Schmidt on two or three vectors and normalize correctly  
+skills: `W05.S10` Recognize the QR decomposition, what Q and R record, and what a zero on the diagonal of R says about the columns of A; `W05.S06` Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME nested spans), and why "just normalize each vector" fails  
 topics: QR decomposition, upper-triangular R, Gram-Schmidt, partial span structure
 
 Let $A$ be an $m \times n$ matrix with linearly independent columns,
@@ -981,7 +983,7 @@ Why the distractors tempt:
 
 ## ESE2030-0265
 *week 5 · 2026A final #16 · active*  
-skills: `W05.S02` Compute norms, angles, and cosine similarity in weighted and function inner products  
+skills: `W05.S02` Compute or compare norms, angles, and cosine similarity — in weighted, Frobenius, and function inner products — and know that orthogonality is RELATIVE to the inner product chosen  
 topics: Cosine similarity, scale invariance, normalization, inner product geometry
 
 For nonzero vectors $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$, define
@@ -1013,7 +1015,7 @@ Why the distractors tempt:
 
 ## ESE2030-0271
 *week 5 · 2026A final #22 · active*  
-skills: `W05.S07` Compute an adjoint, and recognize when the adjoint differs from the transpose  
+skills: `W05.S07` Know the defining property of the adjoint ⟨Tv, w⟩ = ⟨v, T*w⟩, its domain and codomain, and that T* is the transpose only in the standard inner product with standard bases  
 topics: Adjoint, definition, type signature, inner product spaces
 
 Let $V$ and $W$ be inner product spaces and let $T : V \to W$ be a linear
@@ -1044,7 +1046,7 @@ Why the distractors tempt:
 
 ## ESE2030-0278
 *week 5 · 2026A final #29 · active*  
-skills: `W05.S05` Run Gram-Schmidt on two or three vectors and normalize correctly  
+skills: `W05.S06` Know what Gram–Schmidt produces and preserves (an orthonormal basis for the SAME nested spans), and why "just normalize each vector" fails  
 topics: Gram-Schmidt, partial-span invariance, orthogonal basis construction
 
 Let $\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$ be a linearly

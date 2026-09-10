@@ -48,15 +48,26 @@ CORE CONCEPTS:
    - The solution space of a linear ODE has dimension equal to the order (Week 2, Ex 2.7)
    - Matching initial conditions is a linear system, Vandermonde in the distinct roots
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W07.S01] Compute eigenvalues and eigenvectors for 2x2 and 3x3 matrices, including triangular ones
-- [W07.S02] Use trace and determinant to check or to shortcut an eigenvalue computation
-- [W07.S03] Decide diagonalizability from eigenvector counts, not from distinctness alone
-- [W07.S04] Assemble V and D and verify A = V D V^{-1}
-- [W07.S05] Compute A^k and e^{tA} for a diagonalizable matrix
-- [W07.S06] Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum
-- [W07.S07] Convert a higher-order scalar ODE to a first-order system and back
-- [W07.S08] Write a basis of solutions from distinct characteristic roots
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W07.S01] Recognize eigenvalues and eigenvectors from the definition Av = λv (v ≠ 0), and the
+  geometric reading: directions the map only stretches
+- [W07.S02] Know why det(A − λI) = 0 characterizes eigenvalues (singularity of A − λI), and read
+  eigenvalues off triangular matrices
+- [W07.S03] Use trace and determinant to check or shortcut an eigenvalue computation
+- [W07.S04] Decide diagonalizability from eigenvector counts, and know that n distinct
+  eigenvalues is sufficient but not necessary
+- [W07.S05] Recognize A = VDV⁻¹ as a change of basis to an eigenbasis, with the correct order of
+  factors, and what V and D record
+- [W07.S06] Know what diagonalization buys: A^k = VD^kV⁻¹, e^{tA} = Ve^{tD}V⁻¹, and functions of
+  A via eigenvalues (spectral mapping)
+- [W07.S07] Know what e^{tA} is (the power series), what it is not (entrywise exponential), when
+  e^{A}e^{B} = e^{A+B}, and why x(t) = e^{tA}x₀ solves x′ = Ax
+- [W07.S08] Predict the qualitative behavior of x′ = Ax (growth, decay, stability) from the sign
+  of Re λ, and recognize superposition and decoupling as the mechanism
+- [W07.S09] Recognize the equivalence of a higher-order scalar ODE and a first-order system: the
+  companion matrix, its characteristic polynomial p(λ), and the roots of p(D) as eigenvalues
+- [W07.S10] Know that the solution space of an n-th order linear ODE has dimension n, and write
+  the basis of solutions for distinct roots
 
 TYPICAL MCQ TRAPS:
 - Concluding non-diagonalizability from a repeated eigenvalue alone

@@ -75,22 +75,29 @@ CORE CONCEPTS:
    - Project A onto that range and factor the small matrix exactly
    - Why it matters: the full SVD costs O(nd min(n,d)) and only the top k triples are wanted
 
-ESSENTIAL SKILLS (core; expected without hesitation):
-- [W12.S01] Translate between statistical and geometric vocabulary: expectation/projection,
-  variance/squared length, covariance/inner product, correlation/cosine
-- [W12.S02] Verify that a proposed weighting gives a valid inner product on random variables
-- [W12.S03] Apply Markov and Chebyshev to bound a tail probability
-- [W12.S04] Decide whether a point lies in the simplex; compute a softmax output and check it sums to one
-- [W12.S05] Compute the expected inner product and variance for random unit vectors and explain
-  near-orthogonality in R^n
-- [W12.S06] Apply the union bound to a stated collection of events
-- [W12.S07] Place the Marchenko-Pastur edges given n and d, and classify a singular value as
-  signal or noise
-- [W12.S08] Use Johnson-Lindenstrauss to compute a sufficient target dimension k from m and epsilon,
-  and read off the stated success probability
-- [W12.S09] State exactly what JL preserves (pairwise squared distances, up to relative error) and
-  what it does not
-- [W12.S10] Describe the randomized SVD pipeline in order: probe, sketch, orthonormalize, project, factor
+ESSENTIAL SKILLS (v2, 2026-09-10 -- conceptual: recognize, decide, distinguish, explain why):
+- [W12.S01] Translate between statistical and geometric vocabulary: expectation / projection
+  onto constants, variance / squared length, covariance / inner product, correlation / cosine,
+  centering / projection onto 1^⊥
+- [W12.S02] Recognize the probability inner product ⟨f,g⟩_ρ, why the constant vector has unit
+  length (total probability), and why linearity of expectation needs no independence
+- [W12.S03] Recognize conditional expectation as an orthogonal projection, and when variances
+  add (orthogonal residuals — Pythagoras)
+- [W12.S04] Recognize the simplex, decide whether a point lies in it, and know what softmax does
+  (a density on the simplex; shift-invariant; not a probability of correctness) and that
+  stochastic matrices preserve the simplex
+- [W12.S05] Explain near-orthogonality in high dimension: random inner products have mean 0 and
+  variance 1/n; lengths concentrate; exponentially many nearly-orthogonal directions
+- [W12.S06] Know what the union bound and the probabilistic method do, and recognize an argument
+  of the shape "one-point concentration plus a union bound over pairs"
+- [W12.S07] Know that pure noise has a predictable spectrum (a bulk with an edge), so a singular
+  value is signal only if it clears the noise floor — and that this is what makes a scree plot
+  readable
+- [W12.S08] State what Johnson–Lindenstrauss preserves (pairwise SQUARED distances to relative
+  error ε) and what the target dimension depends on (number of points and ε — NOT the ambient
+  dimension); recognize the random projection's calibration
+- [W12.S09] Describe the randomized SVD in order (probe, sketch, orthonormalize, project,
+  factor) and say why it is cheap and approximate
 
 TYPICAL MCQ TRAPS:
 - Believing linearity of expectation requires independence
