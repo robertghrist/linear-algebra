@@ -1,0 +1,660 @@
+\documentclass[12pt]{amsart}
+%\usepackage[margin=1in]{geometry}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+
+\usepackage[shortlabels]{enumitem}
+% Set spacing for all enumerate environments
+\setlist[enumerate]{itemsep=6pt, topsep=6pt, parsep=0pt}
+
+\usepackage{graphicx}
+
+\usepackage[left=0.75in,right=1in,bottom=0.9in]{geometry}  
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+\usepackage[T1]{fontenc}
+
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTION DIVIDERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\divider}{
+  \vspace{-1em} % Add space above
+  \noindent
+  \raisebox{-0.15ex}{\textbullet}%
+  \hspace{0.5em}%
+  \rule[0.5ex]{0.95\textwidth}{1.0pt}%
+  \hspace{0.5em}%
+  \raisebox{-0.15ex}{\textbullet}%
+  \vspace{0em} % Adjust space below
+}
+
+\title{ESE 2030 QUIZZAM 2 : Fall 2025}
+\author{prof-g}
+
+
+\begin{document}
+\maketitle
+
+\begin{center}
+    {\bf INSTRUCTIONS}
+\end{center}
+
+\begin{itemize}
+\item 
+No books, notes, or calculators. Use a writing utensil and logic. 
+
+\item 
+Please follow question instructions and fill in the bubble-sheet. 
+
+\item 
+Select one answer per problem.
+
+\item 
+Each problem has one best answer. 
+
+\item 
+In some problems, a wrong choice may be worth partial credit. 
+
+\item 
+Be careful to fill in the correct problem number. 
+
+\item 
+These questions are written carefully: if you detect an error, read closely and do your best.
+
+\item 
+If anything is unclear, use your best judgment. 
+
+\item 
+Cheating in any form will be dealt with severely. 
+\end{itemize}
+
+\newpage
+
+
+
+% QUIZZAM 2
+% TOTAL QUESTIONS: 25
+% COVERAGE: WEEKS 3-5
+
+{\bf PROBLEM 1:}
+% GOOD
+Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces where $\dim(V) = 9$ and $\dim(W) = 4$. 
+If the rank of $T$ is $3$, what is the dimension of the coimage $\text{coim}(T)$?
+%
+\begin{enumerate}[(A)]
+\item 3
+\item 4
+\item 5
+\item 7
+\item Cannot be determined without additional information
+\end{enumerate}
+%
+% \textbf{Correct Answer:} A
+%
+\divider
+
+
+{\bf PROBLEM 2:}
+% GOOD
+Suppose ${\mathcal S} = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is an orthonormal set in an inner product space $V$. Which of the following must be true?
+%
+\begin{enumerate}[(A)]
+\item Any linear combination $c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3$ has length $\sqrt{c_1^2 + c_2^2 + c_3^2}$
+\item The vectors ${\mathcal S}$ automatically form a basis for $V$
+\item The sum $\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3$ is a unit vector
+\item The matrix with columns $[\mathbf{v}_1 \mid \mathbf{v}_2 \mid \mathbf{v}_3]$ has determinant $\pm 1$
+\item None of the above
+\end{enumerate}
+%
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} Compute the norm and use orthonormality
+% \textbf{Partial credit:} D : true if $V$ is 3-dimensional and/or det makes sense
+% \textbf{Wrong:} B (they span a 3-dimensional subspace but the ambient space could be larger)
+% \textbf{Wrong:} C ($\|\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3\|^2 = 1 + 1 + 1 = 3$, so the length is $\sqrt{3}$, not 1)
+\divider
+
+
+{\bf PROBLEM 3:}
+%GOOD
+Consider the following statements about the vector space of quadratic polynomials $\mathcal{P}_2$:
+
+I. We can determine whether $\{x, 1+x^2, 1+x+x^2\}$ is a basis 
+
+II. We can argue that $x$ and $x^2$ are orthogonal
+
+III. We can determine the dimension of the subspace spanned by $\{1+x, x+x^2, 1+x^2\}$
+
+Which statements are true {\bf without} specifying an inner product on $\mathcal{P}_2$?
+%
+\begin{enumerate}[(A)]
+\item I only
+\item II only
+\item I and III only
+\item II and III only
+\item I, II, and III
+\end{enumerate}
+%
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} Statement I is true: checking if vectors form a basis only requires verifying linear independence and spanning, which are algebraic concepts. Statement III is true: finding dimension of a subspace only requires row reduction or checking linear independence, not geometry. Statement II is false: angles between vectors require an inner product to define $\cos\theta = \langle p,q \rangle / (\|p\|\|q\|)$. Without specifying an inner product (like $\langle f,g \rangle = \int_0^1 f(x)g(x)dx$), we cannot compute angles.
+% \textbf{Partial credit:} A (recognizes that basis checking doesn't need inner product, but misses that dimension can also be found)
+% \textbf{Wrong:} B (angles cannot be defined without inner product)
+% \textbf{Wrong:} D (includes angle computation which requires inner product)
+% \textbf{Wrong:} E (includes angle computation which requires inner product)
+\divider
+
+\newpage
+
+
+{\bf PROBLEM 4:}
+% COMMENT : GREAT PROBLEM
+Let $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3\}$ be a basis for $\mathbb{R}^3$, 
+and suppose the coordinate vector of $\mathbf{v} \in \mathbb{R}^3$ with respect to $\mathcal{B}$ is 
+$[\mathbf{v}]_{\mathcal B} = \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix}$.
+If we form a new basis ${\mathcal C} = \{2\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3\}$, what is the coordinate vector $[\mathbf{v}]_{\mathcal C}$?
+
+\begin{center}
+(A) $\begin{pmatrix} 4 \\ -1 \\ 3 \end{pmatrix}$ \quad : \quad (B) $\begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix}$ \quad : \quad (C) $\begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix}$ \quad : \quad (D) $\begin{pmatrix} 2 \\ -2 \\ 6 \end{pmatrix}$ \quad : \quad (E) $\begin{pmatrix} 1 \\ -\frac{1}{2} \\ \frac{3}{2} \end{pmatrix}$%
+\end{center}
+\bigskip
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} Since $\mathbf{v} = 2\mathbf{b}_1 - \mathbf{b}_2 + 3\mathbf{b}_3$ and the new basis has $2\mathbf{b}_1$ as its first vector, we need coefficient 1 for the first basis vector: $\mathbf{v} = 1 \cdot (2\mathbf{b}_1) - 1 \cdot \mathbf{b}_2 + 3 \cdot \mathbf{b}_3$. Thus $[\mathbf{v}]_C = \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix}$.
+%
+\divider
+
+
+{\bf PROBLEM 5:}
+% COMMENT : GREAT PROBLEM
+Which of the following properties is not necessarily preserved under similarity? (Recall, square matrices $A$ and $B$ are similar if $B = P^{-1}AP$ for some $P$). 
+%
+\begin{enumerate}[(A)]
+\item The rank of the matrix
+\item The dimension of the kernel
+\item The determinant
+\item The column space
+\item All of the above are preserved
+\end{enumerate}
+%
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} Similarity preserves rank, nullity (dimension of kernel), determinant, and trace, as these are intrinsic properties of the underlying linear transformation. However, the column space (image) depends on the choice of basis and is generally different for similar matrices. For example, $I$ and $P^{-1}IP = I$ are similar, but if $P \neq I$, they could have different column spaces when viewed as subspaces of $\mathbb{R}^n$.
+% \textbf{Partial credit:} E, since it recognized most of what is preserved
+% \textbf{Wrong:} A, B, C (all are preserved under similarity)
+%
+\divider
+
+
+
+% {\bf PROBLEM 4:}
+% % COMMENT : PROBABLY TOO HARD -- ADD A HINT?
+% Let $V$ be a finite-dimensional vector space with inner product $\langle \cdot, \cdot \rangle$. 
+% Consider an orthonormal set $S = \{\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_k\}$ where $k < \dim(V)$. 
+% For any vector $\mathbf{v} \in V$, define $\mathbf{w} = \sum_{i=1}^{k} \langle \mathbf{v}, \mathbf{u}_i \rangle \mathbf{u}_i$. 
+% Which statement about $\mathbf{w}$ is true?
+% %
+% \begin{enumerate}[(A)]
+% \item $\|\mathbf{w}\| = \|\mathbf{v}\|$ for all $\mathbf{v} \in V$
+% \item $\|\mathbf{w}\|^2 = \sum_{i=1}^{k} \langle \mathbf{v}, \mathbf{u}_i \rangle^2$
+% \item $\mathbf{w} = \mathbf{v}$ if and only if $\mathbf{v} \in \text{span}(S)$
+% \item $\langle \mathbf{w}, \mathbf{v} - \mathbf{w} \rangle = \|\mathbf{v}\|^2 - \|\mathbf{w}\|^2$
+% \item $\mathbf{w}$ is the unique vector in $\text{span}(S)$ with minimal distance to $\mathbf{v}$
+% \end{enumerate}
+% %
+% % \textbf{Correct Answer:} B
+% % \textbf{Explanation:} Since $S$ is orthonormal, $\|\mathbf{w}\|^2 = \langle \mathbf{w}, \mathbf{w} \rangle = \langle \sum_{i=1}^{k} \langle \mathbf{v}, \mathbf{u}_i \rangle \mathbf{u}_i, \sum_{j=1}^{k} \langle \mathbf{v}, \mathbf{u}_j \rangle \mathbf{u}_j \rangle = \sum_{i=1}^{k} \langle \mathbf{v}, \mathbf{u}_i \rangle^2$ by orthonormality.
+% % \textbf{Partial credit:} C (correct characterization but needs both directions)
+% % \textbf{Trick answer:} E (sounds like projection theorem but we haven't covered orthogonal complements/projections yet)
+% % \textbf{Wrong:} A (only true if S spans V)
+% % \textbf{Wrong:} D (incorrect relationship)
+% %
+% \divider
+
+{\bf PROBLEM 6:}
+% GOOD, BASIC
+Let $T: V \to V$ be a finite-dimensional linear transformation. If we change from basis $\mathcal{B}$ to basis $\mathcal{C}$, which statement about the matrix representations $[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$ must be true?
+%
+\begin{enumerate}[(A)]
+\item They have the same column vectors
+\item They have the same rank
+\item They have the same entries on the main diagonal
+\item They represent different linear transformations
+\item They are equal if $\mathcal{B}$ and $\mathcal{C}$ share at least one basis vector
+\end{enumerate}
+%
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} Different matrix representations of the same linear transformation are similar matrices, which preserve rank (dimension of image), determinant, and trace. The actual entries and column vectors change with basis choice.
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (columns change with basis)
+% \textbf{Wrong:} C (diagonal entries typically change)
+% \textbf{Wrong:} D (they represent the same transformation)
+% \textbf{Wrong:} E (sharing basis vectors doesn't make matrices equal)
+%
+\divider
+
+
+{\bf PROBLEM 7:}
+% THIS PROBLEM IS NOT EASY BUT IT'S GOOD
+Let $T: \mathbb{R}^5 \to \mathbb{R}^5$ be a linear transformation. 
+Given that $\dim(\ker(T)) = 2$ and $\dim(\text{im}(T)) = 3$, which statement about the cokernel $\text{coker}(T)$ must be true?
+%
+\begin{enumerate}[(A)]
+\item $\dim(\text{coker}(T)) = 2$ and it is a subspace of $\mathbb{R}^5$
+\item $\dim(\text{coker}(T)) = 2$ and it is isomorphic to $\ker(T)$
+\item $\dim(\text{coker}(T)) = 2$ but it need not be isomorphic to $\ker(T)$
+\item $\dim(\text{coker}(T)) = 2$ and it is isomorphic to $\text{im}(T)$
+\item $\dim(\text{coker}(T)) = 2$ and it is isomorphic to $\text{coim}(T)$
+\end{enumerate}
+%
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} The cokernel has dimension $\dim(\mathbb{R}^5) - \dim(\text{im}(T)) = 5 - 3 = 2$. While $\ker(T)$ also has dimension 2, these spaces live in different contexts (one in the domain, one as a quotient of the codomain) and are generally not isomorphic as there's no natural isomorphism between them.
+% \textbf{Partial credit:} A (tiny)
+%
+\divider
+
+\newpage 
+
+% {\bf PROBLEM 6:}
+% % NOT A GOOD PROBLEM : SHOULD BE REWRITTEN/REDONE TO BETTER TEST GRAM-SCHMIDT
+% Consider the vector space $\mathcal{P}_2$ of polynomials of degree at most 2 with the inner product $\langle p, q \rangle = \int_0^1 p(x)q(x) dx$. 
+% Starting with the basis $\{1, x, x^2\}$ and applying the Gram-Schmidt process, the first vector in the resulting orthogonal basis is $\mathbf{b}_1 = 1$. 
+% What property must the second basis vector $\mathbf{b}_2$ satisfy?
+% %
+% \begin{enumerate}[(A)]
+% \item $\mathbf{b}_2 = x - \frac{1}{2}$ because we subtract the projection onto $\mathbf{v}_1$
+% \item $\mathbf{b}_2 = x$ because $x$ is already orthogonal to the constant function 1
+% \item $\mathbf{b}_2$ must have degree exactly 1 and integrate to zero over $[0,1]$
+% \item $\mathbf{b}_2$ is any scalar multiple of $x - \frac{1}{3}$
+% \item $\mathbf{b}_2 = x - 1$ to ensure orthogonality with $\mathbf{v}_1 = 1$
+% \end{enumerate}
+% %
+% % \textbf{Correct Answer:} A
+% % \textbf{Explanation:} In Gram-Schmidt, $\mathbf{v}_2 = x - \text{proj}_{\mathbf{v}_1}(x) = x - \frac{\langle x, 1 \rangle}{\langle 1, 1 \rangle} \cdot 1$. Computing: $\langle x, 1 \rangle = \int_0^1 x dx = \frac{1}{2}$ and $\langle 1, 1 \rangle = \int_0^1 1 dx = 1$. Thus $\mathbf{v}_2 = x - \frac{1}{2}$.
+% % \textbf{Partial credit:} C (correct necessary condition but not sufficient)
+% % \textbf{Trick answer:} B (fails to check orthogonality: $\int_0^1 x \cdot 1 dx = \frac{1}{2} \neq 0$)
+% % \textbf{Wrong:} D (incorrect projection calculation)
+% % \textbf{Wrong:} E (incorrect guess at orthogonal polynomial)
+% %
+% \divider
+
+{\bf PROBLEM 8:}
+% CREATIVE - SIMILARITY AND QR DECOMPOSITION
+Let $A$ be a square matrix with QR decomposition $A = QR$.
+Consider the matrix $B = Q^{-1}AQ$ (similar to $A$ by its own $Q$ factor).
+Which of the following equals $B$?
+%
+\begin{enumerate}[(A)]
+\item $RQ^T$
+\item $Q^TR^T$
+\item $QRQ^T$ 
+\item $Q^TR$ 
+\item $RQ$ 
+\end{enumerate}
+%
+% \textbf{Correct Answer:} E
+% \textbf{Explanation:} Since $B = Q^TAQ = Q^T(QR)Q = (Q^TQ)RQ = IRQ = RQ$. 
+%
+\divider
+
+
+{\bf PROBLEM 9:}
+% GOOD
+Let $V$ be a 4-dimensional inner product space with orthonormal basis $B = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3, \mathbf{v}_4\}$. 
+For the vector $\mathbf{w} = 3\mathbf{v}_1 - 2\mathbf{v}_2 + \mathbf{v}_3 - 4\mathbf{v}_4$, which expression gives $\|\mathbf{w}\|^2$?
+
+\begin{enumerate}[(A)]
+\item $3^2 + (-2)^2 + 1^2 + (-4)^2 = 30$
+\item $3 + 2 + 1 + 4 = 10$
+\item $|3| + |-2| + |1| + |-4| = 10$
+\item $(3 - 2 + 1 - 4)^2 = 4$
+\item $(|3| + |-2| + |1| + |-4|)^2 = 100$
+\end{enumerate}
+%
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} Since $B$ is orthonormal, $\|\mathbf{w}\|^2 = \langle \mathbf{w}, \mathbf{w} \rangle = 3^2\|\mathbf{v}_1\|^2 + (-2)^2\|\mathbf{v}_2\|^2 + 1^2\|\mathbf{v}_3\|^2 + (-4)^2\|\mathbf{v}_4\|^2 = 9 + 4 + 1 + 16 = 30$.
+%
+\divider 
+
+
+
+{\bf PROBLEM 10:}
+% GOOD
+Let $A$ be a square matrix. After performing QR decomposition you compute $A = QR$.
+Which statement about this QR decomposition must be true?
+%
+\begin{enumerate}[(A)]
+\item The matrix $Q^TQ^{-1}$ is the identity matrix 
+\item The diagonal entries of $R$ are all positive
+\item The columns of $Q$ form an orthonormal basis
+\item The matrix $R$ is invertible
+\item More than one statement above is true
+\end{enumerate}
+%
+% \textbf{Correct Answer:} C
+% \textbf{Partial credit (tiny):} E 
+%
+\divider
+
+
+{\bf PROBLEM 11:}
+% OK BUT AM CONCERNED WITH THE LOGIC OF THE WORDING
+Let $Q$ be an $n \times n$ orthogonal matrix. Which of the following statements is false?
+%
+\begin{enumerate}[(A)]
+\item $Q$ preserves dot products
+\item The columns of $Q$ form an orthonormal basis for $\mathbb{R}^n$
+\item The matrix $Q^T$ is also orthogonal
+\item All entries of $Q$ must satisfy $|q_{ij}| \leq 1$
+\item None of the above statements is false
+\end{enumerate}
+%
+% \textbf{Correct Answer:} E
+%
+\divider
+
+\newpage
+
+{\bf PROBLEM 12:}
+% OK BUT NOT 100% SURE
+Consider the vector space $C[0,1]$ of continuous functions on $[0,1]$ with the inner product $\langle f, g \rangle = \int_0^1 e^x\,f(x)g(x)\,dx$.
+Which of the following statements about this inner product is TRUE?
+%
+\begin{enumerate}[(A)]
+\item This is not a valid inner product and all choices below are invalid
+\item The constant function $f(x) = 1$ has norm $\|f\| = e$
+\item The functions $\sin(x)$ and $\cos(x)$ are orthogonal with respect to this inner product
+\item The norm induced by this inner product is $\|f\| = \sqrt{\int_0^1 f(x)^2 e^x\,dx}$
+\item None of the above: all above statements are false
+\end{enumerate}
+%
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} The induced norm is $\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int_0^1 f(x)^2 e^x\,dx}$. This follows directly from the definition of the weighted inner product.
+% \textbf{Wrong:} A (weighted inner products are valid when the weight is positive)
+% \textbf{Wrong:} B (the norm would be $\sqrt{\int_0^1 e^x\,dx} = \sqrt{e-1} \neq 1$)
+% \textbf{Trick answer:} C (orthogonality depends on the specific inner product; needs calculation)
+% \textbf{Wrong:} E (orthogonality is not preserved when changing inner products)
+%
+\divider
+
+
+
+
+{\bf PROBLEM 13:}
+% GOOD
+Let $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$ be nonzero vectors with angle $\theta$ between them. 
+If we define $\mathbf{w} = 2\mathbf{u} - 3\mathbf{v}$, which expression gives the cosine of the angle between $\mathbf{u}$ and $\mathbf{w}$?
+%
+\begin{enumerate}[(A)]
+\item $\cos\theta$ because scaling does not change angles
+\item $\displaystyle \frac{2\|\mathbf{u}\|^2 - 3\|\mathbf{v}\|^2}{2\|\mathbf{u}\| \cdot \|\mathbf{w}\|}$
+\item $\displaystyle \frac{2 - 3\cos\theta}{\sqrt{4 + 9 - 12\cos\theta}} \cdot \frac{\|\mathbf{u}\|}{\|\mathbf{v}\|}$
+\item $\displaystyle \frac{2\|\mathbf{u}\|^2 - 3\langle\mathbf{u},\mathbf{v}\rangle}{\|\mathbf{u}\| \cdot \|\mathbf{w}\|}$
+\item $2 - 3\cos\theta$ after normalizing both vectors
+\end{enumerate}
+%
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} The cosine of the angle is $\frac{\langle\mathbf{u},\mathbf{w}\rangle}{\|\mathbf{u}\|\|\mathbf{w}\|} = \frac{\langle\mathbf{u}, 2\mathbf{u} - 3\mathbf{v}\rangle}{\|\mathbf{u}\|\|\mathbf{w}\|} = \frac{2\|\mathbf{u}\|^2 - 3\langle\mathbf{u},\mathbf{v}\rangle}{\|\mathbf{u}\|\|\mathbf{w}\|}$. This is the general formula using inner products.
+% \textbf{Partial credit:} C (attempts the right approach but incorrectly simplifies)
+% \textbf{Wrong:} A (linear combinations change angles except in special cases)
+% \textbf{Trick answer:} B (uses norms instead of inner product in numerator)
+% \textbf{Wrong:} E (incorrect simplification)
+%
+\divider
+
+
+
+{\bf PROBLEM 14:}
+% GOOD
+Let $T: \mathbb{R}^4 \to \mathbb{R}^3$ be a linear transformation with $\text{rank}(T) = 2$. 
+Consider the quotient space $\mathbb{R}^4/\ker(T)$ and the image $\text{im}(T)$. 
+Which statement about the relationship between these spaces is true?
+%
+\begin{enumerate}[(A)]
+\item They have the same dimension but are not isomorphic since one lives in $\mathbb{R}^4$ and the other in $\mathbb{R}^3$
+\item They are isomorphic, and the isomorphism is induced by the transformation $T$ itself
+\item The quotient space has dimension $3$ while the image has dimension $2$, so they cannot be isomorphic
+\item They are the same space
+\item The quotient space is undefined since $\ker(T)$ might not be a proper subspace
+\end{enumerate}
+%
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} By the First Isomorphism Theorem (fundamental theorem), $\mathbb{R}^4/\ker(T) \cong \text{im}(T)$. The transformation $T$ induces this isomorphism naturally. Both spaces have dimension 2 (quotient: $\dim(\mathbb{R}^4) - \dim(\ker(T)) = 4 - 2 = 2$; image: rank = 2).
+% \textbf{Partial credit:} A (recognizes equal dimensions but misses the isomorphism)
+% \textbf{Wrong:} C (incorrect dimension calculation for quotient space)
+% \textbf{Tiny partial credit:} D (same and isomorphic are not isomorphic concepts :-P)
+% \textbf{Wrong:} E (kernel is always a subspace)
+
+\divider
+
+\newpage
+
+
+{\bf PROBLEM 15:}
+% GOOD
+Let $T: \mathbb{R}^3 \to \mathbb{R}^3$ be a linear transformation whose matrix representation in the standard Euclidean basis is $A$. 
+Which condition is sufficient to guarantee that $T$ preserves all angles between vectors?
+%
+\begin{enumerate}[(A)]
+\item $A^T = A$ (symmetric matrix)
+\item $A^TA = I$ (orthogonal matrix)
+\item $\det(A) = \pm 1$
+\item All columns of $A$ have the same length
+\item $A^T = -A$ (skew-symmetric matrix)
+\end{enumerate}
+%
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} An orthogonal matrix (satisfying $A^TA = I$) preserves inner products: $\langle Ax, Ay \rangle = (Ax)^T(Ay) = x^TA^TAy = x^Ty = \langle x,y \rangle$. Since it preserves both inner products and norms, it preserves angles via $\cos\theta = \langle u,v\rangle/(\|u\|\|v\|)$.
+% \textbf{Wrong:} A (symmetric matrices don't necessarily preserve angles)
+% \textbf{Trick answer:} C (necessary but not sufficient; includes non-orthogonal matrices)
+% \textbf{Wrong:} D (equal column lengths don't ensure orthonormality)
+% \textbf{Wrong:} E (skew-symmetric matrices are generally not angle-preserving)
+%
+\divider
+
+
+
+{\bf PROBLEM 16: }
+% GOOD
+Consider the transformation $T: \mathbb{R}^n \to \mathbb{R}^n$ on the standard Euclidean $n$-space
+given by $T(\mathbf{x}) = 5\mathbf{x}$ for all $\mathbf{x}$. Which geometric property does this transformation preserve?
+%
+\begin{enumerate}[(A)]
+\item Distances between two vectors, since it scales uniformly
+\item Inner products between vectors, since scaling is linear
+\item Angles between vectors, since all vectors are scaled equally
+\item Lengths of vectors, since it is a multiple of the identity $I$
+\item None of the above geometric properties are preserved
+\end{enumerate}
+%
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} For scalar multiplication by $c$: $\langle c\mathbf{u}, c\mathbf{v} \rangle = c^2\langle \mathbf{u}, \mathbf{v} \rangle$ and $\|c\mathbf{u}\| = |c|\|\mathbf{u}\|$. Thus $\cos\theta' = \frac{c^2\langle \mathbf{u},\mathbf{v}\rangle}{|c|\|\mathbf{u}\| \cdot |c|\|\mathbf{v}\|} = \frac{\langle \mathbf{u},\mathbf{v}\rangle}{\|\mathbf{u}\|\|\mathbf{v}\|} = \cos\theta$. Angles are preserved even though distances and inner products are not.
+% \textbf{Trick answer:} A (distances are scaled by factor of 5, not preserved)
+% \textbf{Trick answer:} B (inner products are scaled by factor of 25)
+% \textbf{Wrong:} D (unit circle becomes circle of radius 5)
+% \textbf{Wrong:} E (angles ARE preserved)
+%
+\divider
+
+
+
+{\bf PROBLEM 17:}
+% GOOD
+Let $T: V \to W$ be a linear transformation. Two vectors $\mathbf{u}, \mathbf{v} \in V$ represent the same equivalence class in the coimage 
+$\text{coim}(T)$ if and only if:
+%
+\begin{enumerate}[(A)]
+\item $\mathbf{u} - \mathbf{v} \in \text{coim}(T)$
+\item $T(\mathbf{u} - \mathbf{v}) \in \text{im}(T)$ 
+\item $\mathbf{u} = \mathbf{v}$ 
+\item $T(\mathbf{u}) = T(\mathbf{v})$
+\item $T(\mathbf{u})-T(\mathbf{v}) \in \text{im}(T)$
+\end{enumerate}
+%
+% \textbf{Correct Answer:} D
+% \textbf{Partial credit:} (small) E (true but trivial and not iff)
+\divider
+
+
+{\bf PROBLEM 18:}
+% GOOD
+For a linear transformation $T:V\to V$, which of the following requires an inner product on $V$?
+%
+\begin{enumerate}[(A)]
+\item Determining if $T$ is invertible
+\item Computing the adjoint $T^*$
+\item Finding the kernel of $T:V\to V$
+\item Computing a basis for the coimage of $T$
+\item Constructing the matrix representation of $T$
+\end{enumerate}
+%
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} Projection of vector $\mathbf{u}$ onto vector $\mathbf{v}$ requires the formula $\text{proj}_{\mathbf{v}}\mathbf{u} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle}\mathbf{v}$, which explicitly uses inner products. All other operations are purely algebraic: spanning is about linear combinations, kernels are defined as pre-images of zero, injectivity means ker(T) = {0}, and matrix representations only need a choice of basis, not geometry.
+% \textbf{Partial credit:} E (matrix representation only requires choosing bases, not inner products, but it's easier with an inner product)
+\divider
+
+\newpage
+
+{\bf PROBLEM 19:}
+% GOOD -- SEEMS LIKE A LOT OF WORK, BUT TESTS IF STUDENTS CAN SCAN & KNOW WHAT'S ORTHOGONAL
+Which of the following matrices is orthogonal? {\em Hint:} be strategic and do not do {\em all} the computations...
+
+(A) $Q_1 = \begin{bmatrix} 2/3 & 2/3 & 1/3 \\ -2/3 & 1/3 & 2/3 \\ 1/3 & -2/3 & 2/3 \end{bmatrix}$ \qquad (B) $Q_2 = \begin{bmatrix} 1/\sqrt{3} & 1/\sqrt{2} & 1/\sqrt{6} \\ 1/\sqrt{3} & -1/\sqrt{2} & 1/\sqrt{6} \\ 1/\sqrt{3} & 0 & -2/\sqrt{6} \end{bmatrix}$
+
+(C) $Q_3 = \begin{bmatrix} 1/\sqrt{2} & 1/\sqrt{3} & 1/\sqrt{6} \\ 0 & 1/\sqrt{3} & -2/\sqrt{6} \\ 1/\sqrt{2} & -1/\sqrt{3} & 1/\sqrt{6} \end{bmatrix}$ \qquad (D) $Q_4 = \begin{bmatrix} 1/2 & 1/2 & 1/\sqrt{2} \\ 1/2 & 1/2 & -1/\sqrt{2} \\ -1/\sqrt{2} & 1/\sqrt{2} & 0 \end{bmatrix}$
+
+(E) None of the above is orthogonal.
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} An orthogonal matrix requires ALL columns to be orthonormal (pairwise orthogonal and each of unit length). For $Q_2$: 
+% - Column 1: $\|(1/\sqrt{3}, 1/\sqrt{3}, 1/\sqrt{3})\| = \sqrt{3 \cdot 1/3} = 1$ ✓
+% - Column 2: $\|(1/\sqrt{2}, -1/\sqrt{2}, 0)\| = \sqrt{2 \cdot 1/2} = 1$ ✓
+% - Column 3: $\|(1/\sqrt{6}, 1/\sqrt{6}, -2/\sqrt{6})\| = \sqrt{(1+1+4)/6} = 1$ ✓
+% - Columns 1&2: $(1/\sqrt{3})(1/\sqrt{2}) + (1/\sqrt{3})(-1/\sqrt{2}) + (1/\sqrt{3})(0) = 0$ ✓
+% - Columns 1&3: $(1/\sqrt{3})(1/\sqrt{6}) + (1/\sqrt{3})(1/\sqrt{6}) + (1/\sqrt{3})(-2/\sqrt{6}) = 0$ ✓
+% - Columns 2&3: $(1/\sqrt{2})(1/\sqrt{6}) + (-1/\sqrt{2})(1/\sqrt{6}) + (0)(-2/\sqrt{6}) = 0$ ✓
+\divider
+
+
+
+% {\bf PROBLEM 17:}
+% % GOOD, BUT TOO HARD
+% On $\mathbb{R}^2$, Which one of the following is {\em not} a valid inner product?
+% %
+% \begin{enumerate}[(A)]
+% \item $\langle \mathbf{u}, \mathbf{v} \rangle_1 = 3u_1v_1 + 2u_1v_2 + 2u_2v_1 + 5u_2v_2$
+% \item $\langle \mathbf{u}, \mathbf{v} \rangle_2 = u_1v_1 + 4u_2v_2$
+% \item $\langle \mathbf{u}, \mathbf{v} \rangle_3 = 2u_1v_1 + u_1v_2 + u_2v_1 + 3u_2v_2$
+% \item $\langle \mathbf{u}, \mathbf{v} \rangle_4 = u_1v_1 - u_1v_2 - u_2v_1 + 4u_2v_2$
+% \item $\langle \mathbf{u}, \mathbf{v} \rangle_5 = 2u_1v_1 + 3u_1v_2 + 3u_2v_1 + u_2v_2$
+% \end{enumerate}
+% %
+% % \textbf{Correct Answer:} E
+% % \textbf{Explanation:} An inner product must satisfy symmetry, linearity, and positive definiteness. Option E fails positive definiteness. In matrix form: $M_5 = \begin{bmatrix} 2 & 3 \\ 3 & 1 \end{bmatrix}$. The determinant is $2(1) - 3(3) = -7 < 0$, so the matrix is not positive definite. Indeed, for $\mathbf{v} = (1, -1)$, we get $\langle \mathbf{v}, \mathbf{v} \rangle_5 = 2(1)^2 + 2(3)(1)(-1) + 1(-1)^2 = 2 - 6 + 1 = -3 < 0$, violating positive definiteness.
+% % \textbf{Partial credit:} None (all others are valid inner products)
+% % \textbf{Wrong:} A (det = 11 > 0, positive definite)
+% % \textbf{Wrong:} B (diagonal with positive entries, clearly positive definite)
+% % \textbf{Wrong:} C (det = 5 > 0, positive definite)
+% % \textbf{Wrong:} D (det = 3 > 0, positive definite despite negative off-diagonal terms)
+% %
+% \divider
+
+
+
+{\bf PROBLEM 20:}
+% THIS IS TOUGH AND REQUIRES GEOMETRIC THINKING
+In a document retrieval system, documents are represented as vectors in $\mathbb{R}^{1000}$ 
+where the $i^{th}$ coordinate counts the number of times the $i^{th}$ most common word in the dictionary appears in the document.
+(For example, the 1st coordinate counts {\em ``the''}...) 
+{\bf Fact:} The angle between documents $\mathbf{d}_1$ and $\mathbf{d}_2$ is $\theta_{1,2}=30^\circ$ (thirty degrees). 
+If we create a new document by merging the two original docs and obtain $\mathbf{d}_3 = \mathbf{d}_1+\mathbf{d}_2$, 
+what can you say about the angles $\theta_{1,3}$ between $\mathbf{d}_1$ and $\mathbf{d}_3$ and $\theta_{2,3}$ between $\mathbf{d}_2$ and $\mathbf{d}_3$?
+%
+\begin{enumerate}[(A)]
+\item These angles are both $15^\circ$ (fifteen degrees)
+\item At least one angle is strictly greater than $15^\circ$ (fifteen degrees)
+\item These angles are both strictly less than $30^\circ$ (fifteen degrees)
+\item These angles are both strictly greater than $15^\circ$ (fifteen degrees)
+\item Nothing can be determined without knowing the original vector lengths
+\end{enumerate}
+%
+% \textbf{Correct Answer:} C
+% \textbf{Partial Credit (small):} A, E 
+%
+\divider
+
+
+
+{\bf PROBLEM 21:}
+% CONCEPTUAL - MATRIX REPRESENTATION
+Let $T: \mathcal{P}_2 \to \mathcal{P}_1$ be the differentiation operator defined by $T(p) = p'$. 
+Consider two bases: $\mathcal{B} = \{1, x, x^2\}$ for $\mathcal{P}_2$ and $\mathcal{C} = \{1, x\}$ for $\mathcal{P}_1$.
+Let $[T]_{\mathcal{B}}^{\mathcal{C}}$ denote the matrix of $T$ with respect to these bases.
+Which statement about this matrix representation is true?
+%
+\begin{enumerate}[(A)]
+\item The columns of $[T]_{\mathcal{B}}^{\mathcal{C}}$ are the coordinate vectors of $T(1), T(x), T(x^2)$ with respect to $\mathcal{C}$
+\item The rows of $[T]_{\mathcal{B}}^{\mathcal{C}}$ represent how each basis vector in $\mathcal{B}$ transforms under $T$
+\item The matrix $[T]_{\mathcal{B}}^{\mathcal{C}}$ is square
+\item If we change to the basis $\mathcal{B}' = \{1, 1+x, 1+x+x^2\}$, the matrix $[T]_{\mathcal{B}'}^{\mathcal{C}}$ may change rank
+\item Since $T$ has a non-trivial kernel, we can make $[T]_{\mathcal{B}}^{\mathcal{C}}$ invertible by removing the kernel basis vectors from $\mathcal{B}$
+\end{enumerate}
+%
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} The matrix representation $[T]_{\mathcal{B}}^{\mathcal{C}}$ has columns that are coordinate vectors of $T$ applied to each basis vector of the domain. Specifically: $T(1) = 0 = 0 \cdot 1 + 0 \cdot x$, so column 1 is $\begin{pmatrix}0\\0\end{pmatrix}$; $T(x) = 1 = 1 \cdot 1 + 0 \cdot x$, so column 2 is $\begin{pmatrix}1\\0\end{pmatrix}$; $T(x^2) = 2x = 0 \cdot 1 + 2 \cdot x$, so column 3 is $\begin{pmatrix}0\\2\end{pmatrix}$. Thus $[T]_{\mathcal{B}}^{\mathcal{C}} = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 2 \end{bmatrix}$.
+% \textbf{Partial credit:} E 
+%
+\divider
+
+
+\newpage
+
+{\bf PROBLEM 22:}
+% PRETTY GOOD
+Let $D: \mathcal{P}_3 \to \mathcal{P}_2$ be the differentiation operator on polynomials, where $D(p) = p'$. 
+Consider the inner product $\langle f, g \rangle = \int_0^1 f(x)g(x)dx$ on both $\mathcal{P}_3$ and $\mathcal{P}_2$. 
+What must be true of the adjoint $D^*: \mathcal{P}_2 \to \mathcal{P}_3$?
+\begin{enumerate}[(A)]
+\item $D^*$ must map each polynomial to its antiderivative
+\item $D^* \circ D = I$ where $I$ is the identity
+\item $D^*$ is integration by parts
+\item $D \circ D^* = I$ where $I$ is the identity
+\item For all $p \in \mathcal{P}_3$ and $q \in \mathcal{P}_2$: $\int_0^1 p'(x)q(x)dx = \int_0^1 p(x)(D^*(q))(x)dx$
+\end{enumerate}
+%
+% \textbf{Correct Answer:} E
+% \textbf{Explanation:} The defining property of the adjoint is $\langle D(p), q \rangle = \langle p, D^*(q) \rangle$ for all $p$ in the domain and $q$ in the codomain. With our inner product, this becomes $\int_0^1 p'(x)q(x)dx = \int_0^1 p(x)(D^*(q))(x)dx$. Option B correctly states this fundamental relationship. Note that D* is NOT simply the antiderivative due to boundary terms from integration by parts.
+% \textbf{Partial credit:} C -- it's related to it, but the answer is vague
+\divider 
+
+{\bf PROBLEM 23:}
+% FOR FUN
+About how many hours $H$ in total did you study for this exam? Count time spent in focused study.
+[All answers will receive full credit]
+\begin{enumerate}[(A)]
+\item $H \leq 4$
+\item $4< H\leq 6$
+\item $6< H\leq 8$
+\item $8< H\leq 10$
+\item $H>10$
+\end{enumerate}
+%
+\divider
+
+
+{\bf PROBLEM 24:}
+% FOR FUN
+Which was most helpful to you in studying for this exam?
+[All answers will receive full credit]
+\begin{enumerate}[(A)]
+\item The text
+\item The sample test problems
+\item The custom GPT
+\item A NotebookLM
+\item Other
+\end{enumerate}
+%
+\divider
+
+\end{document}

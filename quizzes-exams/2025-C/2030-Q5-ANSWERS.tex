@@ -1,0 +1,985 @@
+\documentclass[12pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{itemsep=4pt, topsep=6pt, parsep=0pt}
+
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1.1}
+
+% Color for correct answers
+\usepackage{xcolor}
+\definecolor{correctgreen}{rgb}{0,0.6,0}
+\definecolor{partialblue}{rgb}{0,0,0.8}
+\definecolor{wrongred}{rgb}{0.8,0,0}
+
+\newcommand{\correct}[1]{{\color{correctgreen}\textbf{#1}}}
+\newcommand{\partcred}[1]{{\color{partialblue}#1}}
+\newcommand{\wrong}[1]{{\color{wrongred}#1}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+\title{ESE 2030 QUIZZAM 5 : SOLUTIONS GUIDE\\Fall 2025}
+\author{Instructor Solutions}
+
+\begin{document}
+\maketitle
+
+\section*{Answer Key Summary}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem & Correct Answer & Partial Credit \\
+\hline
+1 & B & -- \\
+2 & B, C & \\
+3 & E & A  \\
+4 & C & -- \\
+5 & C & -- \\
+6 & E & C, D \\
+7 & E & -- \\
+8 & A & C  \\
+9 & A & -- \\
+10 & D & A, B, or C \\
+11 & B & -- \\
+12 & B & -- \\
+13 & B & -- \\
+14 & C & -- \\
+15 & D & A  \\
+16 & B & A  \\
+17 & E & -- \\
+18 & C & D  \\
+19 & C & -- \\
+20 & D & -- \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Notes:} This guide provides detailed explanations for each problem. There is often more than one way to understand a given concept, and this guide does not exhaustively cover all approaches. If you have questions, feel free to ask me, a TA, or consult AI tools for clarification.
+
+\newpage
+
+\section*{Detailed Solutions}
+
+\subsection*{Problem 1}
+\correct{Answer: (B)}
+
+\textbf{Explanation:} Reading from the figure, we need to identify the singular vectors and singular values from the geometric transformation.
+
+\textbf{Right singular vectors} (columns of $V$) are the orthonormal vectors in the \textbf{domain} (input space) that get mapped to the principal axes of the ellipse. From the figure, these are at $\pm 45°$:
+$$\mathbf{v}_1 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad \mathbf{v}_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix}$$
+So $V = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$.
+
+\textbf{Singular values} are the semi-axis lengths of the output ellipse: $\sigma_1 = 3/2$ (major axis) and $\sigma_2 = 1/2$ (minor axis). Note that $\sigma_1 \geq \sigma_2$ by convention.
+
+\textbf{Left singular vectors} (columns of $U$) are the directions of the ellipse's principal axes in the \textbf{codomain} (output space). From the figure, the major axis points toward $(-45°)$ direction and minor axis toward $(+45°)$:
+$$\mathbf{u}_1 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix}, \quad \mathbf{u}_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}$$
+So $U = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix}$.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Swaps $U$ and $V$; confuses which singular vectors live in domain vs codomain
+\item (C): Places smaller singular value first; violates the convention $\sigma_1 \geq \sigma_2 \geq 0$
+\item (D): Uses negative singular value $-1/2$; singular values must be non-negative by definition
+\item (E): Has $U = V$, which doesn't match the figure showing different orientations in domain and codomain
+\end{itemize}
+
+\subsection*{Problem 2}
+\correct{Answer: (B)}
+
+\partcred{Partial Credit: (C) Also correct, but focuses on where the ellipse lives rather than how the mapping acts}
+
+\textbf{Explanation:} The eigenvalues $\lambda_i$ of $A^TA$ satisfy $\|A\mathbf{v}_i\|^2 = \mathbf{v}_i^T A^T A \mathbf{v}_i = \lambda_i$ for eigenvectors $\mathbf{v}_i$. Therefore, the \textbf{singular values} are:
+$\sigma_i = \sqrt{\lambda_i}$
+giving $\sigma_1 = \sqrt{9} = 3$ and $\sigma_2 = \sqrt{4} = 2$.
+
+These singular values are the \textbf{semi-axis lengths} of the ellipse.
+
+The SVD relationship $A\mathbf{v}_i = \sigma_i \mathbf{u}_i$ tells us precisely how the mapping acts:
+\begin{itemize}
+\item $\mathbf{v}_1$ maps to $3\mathbf{u}_1$ --- the first semi-axis (length 3, direction $\mathbf{u}_1$)
+\item $\mathbf{v}_2$ maps to $2\mathbf{u}_2$ --- the second semi-axis (length 2, direction $\mathbf{u}_2$)
+\end{itemize}
+
+This is exactly what (B) states: the input directions $\mathbf{v}_1, \mathbf{v}_2$ are mapped to the semi-axes of the output ellipse.
+
+\textbf{Note on (C):} Statement (C) is also mathematically correct---the ellipse does lie in a 2-dimensional subspace (the column space of $A$), and the semi-axis lengths are indeed 3 and 2. However, (B) more directly describes the ``geometric action'' as asked in the problem, since it explains the mapping relationship $A\mathbf{v}_i = \sigma_i\mathbf{u}_i$.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Confuses eigenvalues $\lambda_i$ with singular values $\sigma_i$; the eigenvalues give squared stretching factors
+\item (D): Uses eigenvalues as stretching factors instead of their square roots; area would be $\pi \cdot 3 \cdot 2 = 6\pi$, not $36\pi$
+\item (E): For rectangular $A$, ``eigenvalues of $A
+
+\subsection*{Problem 3}
+\correct{Answer: (E)}
+
+\partcred{Partial Credit: (A) Recognizes equivalence but explanation is incomplete}
+
+\textbf{Explanation:} This tests whether students understand the equivalence of different SVD formulations.
+
+Starting from $X = U\Sigma V^T$, we compute:
+$$XV = U\Sigma V^T V = U\Sigma$$
+since $V^TV = I$ (orthogonality of $V$).
+
+Keeping only the first 2 columns:
+$$XV_2 = U_2\Sigma_2$$
+
+Both approaches yield the \textbf{SAME} $n \times 2$ matrix! This matrix:
+\begin{enumerate}
+\item Gives the best rank-2 approximation: $X_2 = U_2\Sigma_2 V_2^T$ minimizes $\|X - X_2\|_F$ (Eckart-Young theorem)
+\item Maximizes variance captured: the columns are projections onto principal directions that explain the most variance
+\item Projects observations optimally onto a 2D subspace
+\end{enumerate}
+
+\textbf{Key Synthesis:} SVD's optimal low-rank approximation and PCA's variance maximization are \textbf{the same thing} for centered data. The geometric picture (ellipsoid with largest semi-axes) corresponds to the statistical picture (directions of maximum variance).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Claims the two approaches give different things, missing that they're mathematically identical
+\item (C): Both yield identical $n \times 2$ matrices; the identity $XV_2 = U_2\Sigma_2$ follows from $V^TV = I$
+\item (D): Both produce $n \times 2$ matrices; confusion about dimensions
+\end{itemize}
+
+\subsection*{Problem 4}
+\correct{Answer: (C)}
+
+\textbf{Explanation:} The key relationships between singular values and related matrices:
+\begin{enumerate}
+\item If $A$ has singular values $\{\sigma_i\}$, then $A^TA$ has eigenvalues $\{\sigma_i^2\}$
+\item $A$ and $A^T$ have \textbf{identical} singular values
+\item If $A$ has singular values $\{\sigma_i\}$, then $cA$ has singular values $\{|c|\sigma_i\}$
+\item $A^TA$ and $AA^T$ share the same \textbf{nonzero} eigenvalues
+\end{enumerate}
+
+For this problem, $A$ has singular values $5, 3, 1, 0, 0, \ldots$
+
+Therefore $A^TA$ has eigenvalues:
+$$\sigma_1^2 = 25, \quad \sigma_2^2 = 9, \quad \sigma_3^2 = 1, \quad \text{and zeros for the rest}$$
+
+This is exactly what (C) states.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Singular values of $2A$ are correctly computed as $10, 6, 2$, but they do NOT need reordering---they're already in descending order
+\item (B): $A^T$ has the SAME singular values as $A$, in the same descending order; transpose doesn't reverse the ordering
+\item (D): The eigenvalues of $AA^T$ are $\sigma_i^2 = 25, 9, 1, \ldots$, so the largest eigenvalue is 25. But (D) says ``singular value,'' which would be $\sqrt{\text{eigenvalue of }(AA^T)^T(AA^T)}$---a different quantity entirely
+\item (E): Classic misconception: $A^TA$ and $AA^T$ always share the same nonzero eigenvalues
+\end{itemize}
+
+\subsection*{Problem 5}
+\correct{Answer: (C)}
+
+\textbf{Explanation:} The pseudoinverse formula is:
+$$A^\dagger = V\Sigma^\dagger U^T$$
+
+The pseudoinverse of the diagonal matrix $\Sigma$ is constructed by:
+\begin{enumerate}
+\item \textbf{Transposing} $\Sigma$ to get a $3 \times 4$ matrix
+\item \textbf{Inverting} each nonzero diagonal entry $\sigma_i \to 1/\sigma_i$
+\item \textbf{Leaving zeros as zeros}
+\end{enumerate}
+
+Thus:
+$$\Sigma^\dagger = \begin{bmatrix} 1/5 & 0 & 0 & 0 \\ 0 & 1/2 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix} \in \mathbb{R}^{3 \times 4}$$
+
+Note the dimensions: $A$ is $4 \times 3$, so $A^\dagger$ must be $3 \times 4$. We have $V$ is $3 \times 3$, $\Sigma^\dagger$ is $3 \times 4$, and $U^T$ is $4 \times 4$, giving $(3 \times 3)(3 \times 4)(4 \times 4) = 3 \times 4$. \checkmark
+
+The key insight: we don't try to ``invert'' $\Sigma$ (which is rectangular and rank-deficient), but rather construct its pseudoinverse by transposing and inverting only the nonzero entries.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Trying to directly invert $\Sigma$ doesn't work because $\Sigma$ is rectangular and has zero entries
+\item (B): Just transposing $\Sigma$ doesn't give the pseudoinverse; you must also invert the nonzero entries
+\item (D): Incorrect ordering; the pseudoinverse is $V\Sigma^\dagger U^T$, not $U^T\Sigma^\dagger V$
+\item (E): Wrong dimensions for $\Sigma^\dagger$; it should be $3 \times 4$, not $4 \times 3$
+\end{itemize}
+
+\subsection*{Problem 6}
+\correct{Answer: (E) Both (C) and (D) are correct}
+
+\partcred{Partial Credit: (C) or (D) individually}
+
+\textbf{Explanation:} For $A \in \mathbb{R}^{100 \times 50}$ with rank $r = 10$:
+
+\textbf{Right singular vectors} $\mathbf{v}_i \in \mathbb{R}^{50}$ (feature space):
+\begin{itemize}
+\item $\{\mathbf{v}_1, \ldots, \mathbf{v}_{10}\}$ span $\text{im}(A^T)$ (row space)
+\item $\{\mathbf{v}_{11}, \ldots, \mathbf{v}_{50}\}$ span $\ker(A)$ --- dimension $50 - 10 = 40$ \checkmark Statement C
+\end{itemize}
+
+\textbf{Left singular vectors} $\mathbf{u}_i \in \mathbb{R}^{100}$ (observation space):
+\begin{itemize}
+\item $\{\mathbf{u}_1, \ldots, \mathbf{u}_{10}\}$ span $\text{im}(A)$ (column space)
+\item $\{\mathbf{u}_{11}, \ldots, \mathbf{u}_{100}\}$ span $\ker(A^T)$ --- dimension $100 - 10 = 90$ \checkmark Statement D
+\end{itemize}
+
+The kernel $\ker(A)$ has dimension $50 - 10 = 40$, representing linear combinations of features that always give zero when $A$ acts on them. The left null space $\ker(A^T)$ has dimension $100 - 10 = 90$.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Confuses $\text{im}(A^T)$ with $\text{im}(A)$; right singular vectors span $\text{im}(A^T)$ in the domain, not $\text{im}(A)$ in the codomain
+\item (B): Left singular vectors live in observation space $\mathbb{R}^{100}$, not feature space $\mathbb{R}^{50}$
+\end{itemize}
+
+\subsection*{Problem 7}
+\correct{Answer: (E)}
+
+\textbf{Explanation:} For rank-$k$ approximation of $A \in \mathbb{R}^{500 \times 300}$:
+\begin{itemize}
+\item $k$ singular values (each is 1 scalar): $k$ values
+\item $k$ left singular vectors $\mathbf{u}_i \in \mathbb{R}^{500}$: $500k$ values
+\item $k$ right singular vectors $\mathbf{v}_i \in \mathbb{R}^{300}$: $300k$ values
+\end{itemize}
+
+Total storage: $k + 500k + 300k = k(500 + 300 + 1) = 801k$ values.
+
+The original matrix $A$ stores $500 \times 300 = 150{,}000$ values. Storage equals original when:
+$801k = 150{,}000 \implies k = \frac{150{,}000}{801} \approx 187.3$
+
+This shows the crossover point: for $k < 187$, SVD compression saves storage; for $k > 187$, it uses more.
+
+\textbf{Common Error (Why students choose B):} Many students confuse \textbf{exact reconstruction} with \textbf{equal storage}. 
+
+At $k = \text{rank}(A) \leq 300$, the SVD gives an \textit{exact} representation of $A$---you can perfectly reconstruct the original matrix. This might suggest that storage should be ``equal.''
+
+However, \textbf{storage size} and \textbf{reconstruction ability} are different concepts:
+\begin{itemize}
+\item At $k = 300$: SVD storage $= 801 \times 300 = 240{,}300$ values
+\item Original matrix storage $= 150{,}000$ values
+\item The SVD uses \textbf{60\% more storage} than the original!
+\end{itemize}
+
+The SVD is only a compression when $k$ is small enough that the savings from low rank outweigh the overhead of storing $U$, $\Sigma$, and $V$ separately.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Correctly counts storage but incorrectly thinks full storage occurs at $k = 500$; the maximum rank is $\min(m,n) = 300$
+\item (B): Correctly counts storage but confuses exact reconstruction ($k = 300$) with equal storage ($k \approx 187$); at $k = 300$, SVD storage \textit{exceeds} original
+\item (C): Forgets to count the $k$ singular values themselves (uses $800k$ instead of $801k$)
+\item (D): Incorrectly thinks each component requires full $m \times n$ storage; also wrong that SVD is ``always compressed''
+\end{itemize}
+
+\subsection*{Problem 8}
+\correct{Answer: (A)}
+
+\partcred{Partial Credit: (C) Correctly identifies all singular values equal 1, but incorrect conclusion about uniqueness}
+
+\textbf{Explanation:} For any orthogonal matrix $Q$, we have $Q^T Q = I$. The singular values of $Q$ are defined as $\sigma_i = \sqrt{\lambda_i}$ where $\lambda_i$ are eigenvalues of $Q^T Q = I$. 
+
+Since the eigenvalues of the identity matrix are all 1, we get:
+$$\sigma_i = \sqrt{1} = 1 \text{ for all } i$$
+
+Therefore, in the SVD $Q = U\Sigma V^T$, we have $\Sigma = I$, giving:
+$$Q = U I V^T = UV^T$$
+
+This shows that every orthogonal matrix can be written as a product of two orthogonal matrices. Geometrically, orthogonal matrices preserve lengths (no stretching or compression), which is exactly what having all singular values equal to 1 means.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Doesn't recognize that the defining property $Q^T Q = I$ immediately forces all singular values to be 1, regardless of whether $Q$ is a rotation or reflection
+\item (C): Correctly identifies that all singular values are 1, but the conclusion about non-uniqueness is a separate issue (SVD non-uniqueness occurs when singular values are repeated, which is true here, but this doesn't mean the SVD ``doesn't exist'')
+\item (D): Misunderstands the SVD; preserving lengths means singular values are 1, not that SVD doesn't exist
+\item (E): Orthogonal matrices preserve ALL lengths, so no direction is compressed; all singular values must be 1
+\end{itemize}
+
+\subsection*{Problem 9}
+\correct{Answer: (A)}
+
+\textbf{Explanation:} Covariance PCA is sensitive to the \textbf{scale} of variables. Looking at the measurement ranges:
+\begin{itemize}
+\item Pressure: varies over $\sim 500$ kPa (range 2000--2500)
+\item Temperature: varies over $\sim 40$ °C (range 180--220)
+\item Flow: varies over $\sim 10$ mL/min (range 5--15)
+\end{itemize}
+
+The sample variance of pressure will be much larger (proportional to the square of the range), causing the first PC to align almost entirely with the pressure direction. The principal component $\mathbf{v}_1 \approx (0.002, 0.998, 0.005)^T$ is essentially the pressure direction.
+
+This doesn't mean pressure is genuinely ``more important''---it's an artifact of the different measurement units. To reveal patterns independent of scale, the engineer should use \textbf{correlation PCA} (standardize variables to unit variance before PCA).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Confuses large range with importance; this is precisely the problem with covariance PCA when scales differ
+\item (C): The PC structure doesn't directly reveal correlation; variables could be highly correlated but the large-scale variable still dominates
+\item (D): The small coefficients are due to scaling issues, not lack of information
+\item (E): Contradicts the fundamental issue with covariance PCA---it does NOT automatically account for scale
+\end{itemize}
+
+\subsection*{Problem 10}
+\correct{Answer: (D) All of the above (A, B, and C) are correct}
+
+\partcred{Partial Credit: (A), (B), or (C) individually}
+
+\textbf{Explanation:} Each principal component reveals a distinct vibration mode:
+
+\textbf{(A)} $\mathbf{v}_1 = (1,1,1,1)^T/2$: All four sensors move together with equal weight $\to$ \textbf{uniform vertical displacement}. 
+Variance proportion: $\lambda_1/(\lambda_1+\lambda_2+\lambda_3+\lambda_4) = 36/50 = 72\%$. \checkmark
+
+\textbf{(B)} $\mathbf{v}_2 = (1,0,0,-1)^T/\sqrt{2}$: North anchor and South anchor move in opposite directions (+1 vs -1), midspan sensors have zero weight $\to$ \textbf{torsional/tilting mode}. \checkmark
+
+\textbf{(C)} $\mathbf{v}_3 = (0,1,-1,0)^T/\sqrt{2}$: The two midspan sensors move in opposition while anchors have zero weight $\to$ \textbf{antisymmetric bending at midspan}. \checkmark
+
+These interpretations match physical vibration modes of bridges. The large $\lambda_1$ indicates most variation is uniform heaving.
+
+\subsection*{Problem 11}
+\correct{Answer: (B)}
+
+\textbf{Explanation:} This tests the deep geometric insight from the Fundamental Theorem via SVD. The key observation: $A$ collapses $\ker(A)$ to zero but acts as an \textbf{isomorphism} on $(\ker A)^\perp = \text{im}(A^T)$.
+
+Specifically, for $i \leq r$ (nonzero singular values):
+$$A\mathbf{v}_i = \sigma_i \mathbf{u}_i$$
+
+The vectors $\{\mathbf{v}_1, \ldots, \mathbf{v}_r\}$ form an orthonormal basis for $\text{im}(A^T)$, and $\{\mathbf{u}_1, \ldots, \mathbf{u}_r\}$ form an orthonormal basis for $\text{im}(A)$.
+
+$A$ restricted to $\text{im}(A^T)$ gives a bijection onto $\text{im}(A)$: it's injective (kernel restricted to $\text{im}(A^T)$ is trivial) and surjective (by definition of image). The singular values $\sigma_i$ provide the scaling factors for this isomorphism.
+
+For $i > r$ (zero singular values): $A\mathbf{v}_i = \mathbf{0}$, so $A$ collapses $\ker(A) = \text{span}\{\mathbf{v}_{r+1}, \ldots, \mathbf{v}_n\}$ to zero.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): $A$ maps $\ker(A)$ to \textbf{zero}, not to $\ker(A^T)$
+\item (C): False even when $m = n$; if $\text{rank}(A) < n$, then $A$ is not an isomorphism
+\item (D): Wrong dimension formula; rank-nullity says $\dim(\ker(A)) + \dim(\text{im}(A)) = n$
+\item (E): $A$ restricted to $\ker(A)$ gives the zero map, not an isomorphism
+\end{itemize}
+
+\subsection*{Problem 12}
+\correct{Answer: (B)}
+
+\textbf{Explanation:} The 94\% variance captured by the first covariance PC is a classic symptom of \textbf{scale mismatch}: one variable (likely pressure, measured in large units) dominates the variance simply due to measurement scale. This doesn't indicate true 1-dimensionality.
+
+Correlation PCA standardizes all variables to unit variance, removing scale artifacts. The resulting plot shows a clear \textbf{elbow at $k=3$}: three components capture $\sim 90\%$ of standardized variance, suggesting the underlying process has approximately \textbf{3 degrees of freedom}. This is the genuine intrinsic dimensionality, revealed only after accounting for measurement scale.
+
+The covariance result would lead to discarding potentially important process information that happens to be measured in small-magnitude units.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Falls into the scale-artifact trap; high variance $\neq$ physical importance
+\item (C): Covariance PCA does NOT reveal low dimensionality---it reveals scale dominance; also, ``natural units'' is not a valid reason when units are incommensurable
+\item (D): Standardization doesn't ``inflate'' low-variance variables unfairly---it gives each variable equal opportunity to contribute
+\item (E): Technically true that correlation PCA hits 75\% at $k=2$, but this misses the key insight about WHICH analysis to trust
+\end{itemize}
+
+\subsection*{Problem 13}
+\correct{Answer: (B)}
+
+\textbf{Explanation:} The key insight is interpreting \textbf{singular value decay}:
+
+\textbf{Dataset A}: $\sigma = 24, 22, 20, 18, 16, \ldots$ --- gradual, nearly uniform decay. This suggests variation is spread across many dimensions with no clear dominant low-dimensional structure.
+
+\textbf{Dataset B}: $\sigma = 50, 25, 8, 3, 1, \ldots$ --- rapid decay with a sharp drop after the first 2--3 values. This indicates the data lies approximately in a low-dimensional subspace.
+
+For PCA/dimensionality reduction, \textbf{rapid decay is desirable}---it means a few components capture most variation. This is the ``elbow'' pattern: large early values, then a sharp drop to small values.
+
+Dataset B would need fewer components to achieve any given variance threshold, indicating \textbf{clearer low-dimensional structure}.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Uniform singular values mean NO clear low-dimensional structure
+\item (C): Total variance doesn't determine reducibility; the distribution/decay pattern matters
+\item (D): Intrinsic dimensionality depends on data structure, not just whether singular values are nonzero
+\item (E): Nothing about the problem suggests correlation PCA is specifically needed for Dataset B
+\end{itemize}
+
+\subsection*{Problem 14}
+\correct{Answer: (C)}
+
+\textbf{Explanation:} The coimage $\text{coim}(A) = (\ker A)^\perp$ is the orthogonal complement of the kernel in the domain $\mathbb{R}^5$.
+
+By the Fundamental Theorem of Linear Algebra:
+$$(\ker A)^\perp = \text{im}(A^T)$$
+
+The SVD reveals that $\text{im}(A^T)$ is spanned by right singular vectors corresponding to nonzero singular values. Since $\text{rank}(A) = 3$, we have exactly 3 nonzero singular values, so:
+$$\text{coim}(A) = \text{span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$$
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Includes both $\ker(A)$ and $(\ker A)^\perp$, giving all of $\mathbb{R}^5$
+\item (B): Left singular vectors live in codomain $\mathbb{R}^7$, not domain $\mathbb{R}^5$
+\item (D): Wrong space and wrong singular vectors
+\item (E): These span $\ker(A)$, not its orthogonal complement
+\end{itemize}
+
+\subsection*{Problem 15}
+\correct{Answer: (D)}
+
+\partcred{Partial Credit: (A) Correct answer IF the matrix is symmetric}
+
+\textbf{Explanation:} Eigenvalues and singular values measure fundamentally different things:
+\begin{itemize}
+\item Eigenvalues come from $A\mathbf{v} = \lambda\mathbf{v}$ and can be negative or complex
+\item Singular values come from $A^TA$ (or the SVD) and are always real and non-negative
+\end{itemize}
+
+For \textbf{SYMMETRIC} matrices: $A = A^T$ implies $A^TA = A^2$, so the eigenvalues of $A^TA$ are $\lambda_i^2$, giving singular values $\sigma_i = |\lambda_i|$. Thus: $\sigma_1 = 5$, $\sigma_2 = 3$, $\sigma_3 = 1$.
+
+For \textbf{NON-SYMMETRIC} matrices: the eigenvalues of $A$ and $A^TA$ are unrelated in general. A non-symmetric matrix with these eigenvalues could have completely different singular values.
+
+Since the problem does NOT specify that $A$ is symmetric, we \textbf{cannot determine} the singular values from the eigenvalues alone.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Correct only IF the matrix is symmetric (partial credit)
+\item (B): Confuses eigenvalues of $A^TA$ with singular values; singular values are $\sqrt{\lambda(A^TA)}$, not $\lambda^2$
+\item (C): Inverts the relationship; singular values are $|\lambda_i|$ for symmetric matrices, not $\sqrt{|\lambda_i|}$
+\item (E): False: eigenvalues can be negative or complex, but singular values are always $\geq 0$
+\end{itemize}
+
+\subsection*{Problem 16}
+\correct{Answer: (B)}
+
+\partcred{Partial Credit: (A) Correct relationship but doesn't state that singular values are preserved}
+
+\textbf{Explanation:} Key insight: \textbf{Orthogonal transformations preserve singular values}.
+
+If $X = U\Sigma V^T$, then $Y = XQ = U\Sigma V^TQ$. The singular values of $Y$ are found from:
+$$Y^TY = Q^TV\Sigma^2 V^TQ$$
+
+Since $Q$ is orthogonal, this is \textbf{similar} to $V\Sigma^2 V^T$, preserving eigenvalues. Thus singular values of $Y$ equal those of $X$: both have $\{20, 15, 8, 5, 2, 1\}$.
+
+However, the principal components (right singular vectors) differ: for $Y$, the SVD is $Y = U\Sigma W^T$ where $W = Q^TV$, so $\mathbf{w}_k = Q^T\mathbf{v}_k$.
+
+\textbf{Conceptual Point:} The singular value spectrum (and thus variance captured) is invariant under orthogonal transformations of the columns. Rotating the coordinate system doesn't change the intrinsic dimensionality or variance structure---just the coordinate representation of the principal directions.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (C): Orthogonal transformations preserve geometric structure; neither is ``superior''
+\item (D): All orthogonal transformations preserve singular values, regardless of determinant sign
+\item (E): The variance proportions are identical, AND the ordering remains the same
+\end{itemize}
+
+\subsection*{Problem 17}
+\correct{Answer: (E)}
+
+\textbf{Explanation:} ``Within $30°$ of orthogonal'' means the angle $\theta$ satisfies $60° < \theta < 120°$, which requires:
+$$\cos(60°) > \cos(\theta) > \cos(120°) \implies -0.5 < \rho < 0.5$$
+
+Since $\rho = \cos(\theta)$ for centered vectors, we need $|\rho| < 0.5$.
+
+Checking each pair using the correlation matrix $R$:
+\begin{itemize}
+\item $(X_1, X_2)$: $\rho_{12} = 0.3$, so $|\rho| = 0.3 < 0.5$ $\to$ angle $\approx 73°$ \checkmark
+\item $(X_1, X_3)$: $\rho_{13} = -0.7$, so $|\rho| = 0.7 > 0.5$ $\to$ angle $\approx 134°$ \ding{55}
+\item $(X_1, X_4)$: $\rho_{14} = 0.8$, so $|\rho| = 0.8 > 0.5$ $\to$ angle $\approx 37°$ \ding{55}
+\item $(X_2, X_3)$: $\rho_{23} = -0.4$, so $|\rho| = 0.4 < 0.5$ $\to$ angle $\approx 114°$ \checkmark
+\item $(X_2, X_4)$: $\rho_{24} = -0.6$, so $|\rho| = 0.6 > 0.5$ $\to$ angle $\approx 127°$ \ding{55}
+\item $(X_3, X_4)$: $\rho_{34} = 0.1$, so $|\rho| = 0.1 < 0.5$ $\to$ angle $\approx 84°$ \checkmark
+\end{itemize}
+
+Pairs within $30°$ of orthogonal: $(X_1, X_2)$, $(X_2, X_3)$, $(X_3, X_4)$.
+
+\textbf{Key Distraction:} Negative correlation doesn't automatically mean near-orthogonal. $(X_1, X_3)$ has $\rho = -0.7$ (angle $134°$) which is actually \textit{farther} from $90°$ than $(X_3, X_4)$ with $\rho = 0.1$ (angle $84°$).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Negative correlation suggests orthogonality, but $|\rho| > 0.5$ means angles are too extreme
+\item (B): Uses covariance magnitude instead of correlation
+\item (C): Identifies one correct pair but misses others
+\item (D): Assumes negative correlation means near-orthogonal
+\end{itemize}
+
+\subsection*{Problem 18}
+\correct{Answer: (C)}
+
+\partcred{Partial Credit: (D) Correctly identifies semi-axis ratio but misses that variance ratio is the square}
+
+\textbf{Explanation:} This requires connecting SVD geometry to PCA statistics:
+
+\textbf{1) SVD GEOMETRY:} The eigenvalues of $X^TX$ are $\sigma_i^2$, so:
+$$\sigma_1 = \sqrt{1600} = 40, \quad \sigma_2 = \sqrt{400} = 20, \quad \sigma_3 = \sqrt{100} = 10$$
+These singular values are the semi-axis lengths of the ellipsoid.
+
+Ratio: $40 : 20 : 10 = 4 : 2 : 1$.
+
+\textbf{2) PCA VARIANCE:} The covariance matrix is $C = X^TX/(n-1) = X^TX/99$, with eigenvalues:
+$$\lambda_1^{(C)} \approx 16.16, \quad \lambda_2^{(C)} \approx 4.04, \quad \lambda_3^{(C)} \approx 1.01$$
+These are the PC variances.
+
+Ratio: approximately $16 : 4 : 1$.
+
+\textbf{3) KEY INSIGHT:} Semi-axis lengths scale as $\sigma_i$ (ratio $4:2:1$), while variances scale as $\sigma_i^2/(n-1)$ (ratio $16:4:1$). The linear vs. quadratic relationship explains the difference.
+
+Both capture the same ellipsoidal structure: singular values measure stretching factors (distances), while variances measure spread (squared distances, normalized by sample size).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Confuses eigenvalues of $X^TX$ with both semi-axes and variances
+\item (B): Correctly computes semi-axis lengths as $\sqrt{\lambda_i}$, but these are NOT the variances
+\item (E): The quantities are deeply related: variance $\propto \sigma_i^2$
+\end{itemize}
+
+\subsection*{Problem 19}
+\correct{Answer: (C)}
+
+\textbf{Explanation:} The Frobenius norm can be computed directly from singular values:
+$$\|A\|_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \sigma_3^2} = \sqrt{36 + 9 + 4} = \sqrt{49} = 7$$
+
+This is equivalent to $\sqrt{\sum_{i,j} a_{ij}^2}$ (the entry-wise definition), but the singular value formula shows that $\|A\|_F$ depends only on the singular values, not on the specific entries or the orthogonal factors $U$ and $V$.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Adds singular values $6 + 3 + 2 = 11$ instead of computing $\sqrt{\sum \sigma_i^2}$; confuses sum with norm
+\item (B): Computes $\sigma_1^2 + \sigma_2^2 + \sigma_3^2 = 49$ but forgets the square root
+\item (D): Takes square root of the sum of singular values $\sqrt{11}$; combines both errors
+\item (E): Believes one needs the actual matrix entries; doesn't recognize that singular values fully determine the Frobenius norm
+\end{itemize}
+
+\subsection*{Problem 20}
+\correct{Answer: (D)}
+
+\textbf{Explanation:} For $A \in \mathbb{R}^{12 \times 5}$ with rank $r = 3$ (from the figure showing 3 filled circles):
+
+\textbf{Right singular vectors} $\mathbf{v}_i \in \mathbb{R}^{5}$ (domain):
+\begin{itemize}
+\item $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ span $\text{im}(A^T)$ (row space)
+\item $\{\mathbf{v}_4, \mathbf{v}_5\}$ span $\ker(A)$ \checkmark \textbf{This is (D), TRUE}
+\end{itemize}
+
+\textbf{Left singular vectors} $\mathbf{u}_i \in \mathbb{R}^{12}$ (codomain):
+\begin{itemize}
+\item $\{\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3\}$ span $\text{im}(A)$ (column space)
+\item $\{\mathbf{u}_4, \ldots, \mathbf{u}_{12}\}$ span $\ker(A^T)$ (left nullspace)
+\end{itemize}
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Computes $12 - 3 = 9$, which is $\dim(\ker A^T)$, not $\dim(\ker A)$; correct value is $\dim(\ker A) = 5 - 3 = 2$
+\item (B): Right singular vectors span $\text{im}(A^T)$, not $\text{im}(A)$; the column space is spanned by LEFT singular vectors $\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3$
+\item (C): The last 9 columns of $U$ span $\ker(A^T)$, which is 9-dimensional, but ``codomain'' is all of $\mathbb{R}^{12}$, not a 9-dimensional subspace
+\item (E): Rank = number of nonzero singular values = 3, not 5
+\end{itemize}
+
+\end{document}
+' don't exist in the usual sense; conflates eigenvalues of $A$ with eigenvalues of $A^TA$
+\end{itemize}
+
+\subsection*{Problem 3}
+\correct{Answer: (E)}
+
+\partcred{Partial Credit: (A) Recognizes equivalence but explanation is incomplete}
+
+\textbf{Explanation:} This tests whether students understand the equivalence of different SVD formulations.
+
+Starting from $X = U\Sigma V^T$, we compute:
+$$XV = U\Sigma V^T V = U\Sigma$$
+since $V^TV = I$ (orthogonality of $V$).
+
+Keeping only the first 2 columns:
+$$XV_2 = U_2\Sigma_2$$
+
+Both approaches yield the \textbf{SAME} $n \times 2$ matrix! This matrix:
+\begin{enumerate}
+\item Gives the best rank-2 approximation: $X_2 = U_2\Sigma_2 V_2^T$ minimizes $\|X - X_2\|_F$ (Eckart-Young theorem)
+\item Maximizes variance captured: the columns are projections onto principal directions that explain the most variance
+\item Projects observations optimally onto a 2D subspace
+\end{enumerate}
+
+\textbf{Key Synthesis:} SVD's optimal low-rank approximation and PCA's variance maximization are \textbf{the same thing} for centered data. The geometric picture (ellipsoid with largest semi-axes) corresponds to the statistical picture (directions of maximum variance).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Claims the two approaches give different things, missing that they're mathematically identical
+\item (C): Both yield identical $n \times 2$ matrices; the identity $XV_2 = U_2\Sigma_2$ follows from $V^TV = I$
+\item (D): Both produce $n \times 2$ matrices; confusion about dimensions
+\end{itemize}
+
+\subsection*{Problem 4}
+\correct{Answer: (C)}
+
+\textbf{Explanation:} The key relationships between singular values and related matrices:
+\begin{enumerate}
+\item If $A$ has singular values $\{\sigma_i\}$, then $A^TA$ has eigenvalues $\{\sigma_i^2\}$
+\item $A$ and $A^T$ have \textbf{identical} singular values
+\item If $A$ has singular values $\{\sigma_i\}$, then $cA$ has singular values $\{|c|\sigma_i\}$
+\item $A^TA$ and $AA^T$ share the same \textbf{nonzero} eigenvalues
+\end{enumerate}
+
+For this problem, $A$ has singular values $5, 3, 1, 0, 0, \ldots$
+
+Therefore $A^TA$ has eigenvalues:
+$$\sigma_1^2 = 25, \quad \sigma_2^2 = 9, \quad \sigma_3^2 = 1, \quad \text{and zeros for the rest}$$
+
+This is exactly what (C) states.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Singular values of $2A$ are correctly computed as $10, 6, 2$, but they do NOT need reordering---they're already in descending order
+\item (B): $A^T$ has the SAME singular values as $A$, in the same descending order; transpose doesn't reverse the ordering
+\item (D): The eigenvalues of $AA^T$ are $\sigma_i^2 = 25, 9, 1, \ldots$, so the largest eigenvalue is 25. But (D) says ``singular value,'' which would be $\sqrt{\text{eigenvalue of }(AA^T)^T(AA^T)}$---a different quantity entirely
+\item (E): Classic misconception: $A^TA$ and $AA^T$ always share the same nonzero eigenvalues
+\end{itemize}
+
+\subsection*{Problem 5}
+\correct{Answer: (C)}
+
+\textbf{Explanation:} The pseudoinverse formula is:
+$$A^\dagger = V\Sigma^\dagger U^T$$
+
+The pseudoinverse of the diagonal matrix $\Sigma$ is constructed by:
+\begin{enumerate}
+\item \textbf{Transposing} $\Sigma$ to get a $3 \times 4$ matrix
+\item \textbf{Inverting} each nonzero diagonal entry $\sigma_i \to 1/\sigma_i$
+\item \textbf{Leaving zeros as zeros}
+\end{enumerate}
+
+Thus:
+$$\Sigma^\dagger = \begin{bmatrix} 1/5 & 0 & 0 & 0 \\ 0 & 1/2 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix} \in \mathbb{R}^{3 \times 4}$$
+
+Note the dimensions: $A$ is $4 \times 3$, so $A^\dagger$ must be $3 \times 4$. We have $V$ is $3 \times 3$, $\Sigma^\dagger$ is $3 \times 4$, and $U^T$ is $4 \times 4$, giving $(3 \times 3)(3 \times 4)(4 \times 4) = 3 \times 4$. \checkmark
+
+The key insight: we don't try to ``invert'' $\Sigma$ (which is rectangular and rank-deficient), but rather construct its pseudoinverse by transposing and inverting only the nonzero entries.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Trying to directly invert $\Sigma$ doesn't work because $\Sigma$ is rectangular and has zero entries
+\item (B): Just transposing $\Sigma$ doesn't give the pseudoinverse; you must also invert the nonzero entries
+\item (D): Incorrect ordering; the pseudoinverse is $V\Sigma^\dagger U^T$, not $U^T\Sigma^\dagger V$
+\item (E): Wrong dimensions for $\Sigma^\dagger$; it should be $3 \times 4$, not $4 \times 3$
+\end{itemize}
+
+\subsection*{Problem 6}
+\correct{Answer: (E) Both (C) and (D) are correct}
+
+\partcred{Partial Credit: (C) or (D) individually}
+
+\textbf{Explanation:} For $A \in \mathbb{R}^{100 \times 50}$ with rank $r = 10$:
+
+\textbf{Right singular vectors} $\mathbf{v}_i \in \mathbb{R}^{50}$ (feature space):
+\begin{itemize}
+\item $\{\mathbf{v}_1, \ldots, \mathbf{v}_{10}\}$ span $\text{im}(A^T)$ (row space)
+\item $\{\mathbf{v}_{11}, \ldots, \mathbf{v}_{50}\}$ span $\ker(A)$ --- dimension $50 - 10 = 40$ \checkmark Statement C
+\end{itemize}
+
+\textbf{Left singular vectors} $\mathbf{u}_i \in \mathbb{R}^{100}$ (observation space):
+\begin{itemize}
+\item $\{\mathbf{u}_1, \ldots, \mathbf{u}_{10}\}$ span $\text{im}(A)$ (column space)
+\item $\{\mathbf{u}_{11}, \ldots, \mathbf{u}_{100}\}$ span $\ker(A^T)$ --- dimension $100 - 10 = 90$ \checkmark Statement D
+\end{itemize}
+
+The kernel $\ker(A)$ has dimension $50 - 10 = 40$, representing linear combinations of features that always give zero when $A$ acts on them. The left null space $\ker(A^T)$ has dimension $100 - 10 = 90$.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Confuses $\text{im}(A^T)$ with $\text{im}(A)$; right singular vectors span $\text{im}(A^T)$ in the domain, not $\text{im}(A)$ in the codomain
+\item (B): Left singular vectors live in observation space $\mathbb{R}^{100}$, not feature space $\mathbb{R}^{50}$
+\end{itemize}
+
+\subsection*{Problem 7}
+\correct{Answer: (E)}
+
+\textbf{Explanation:} For rank-$k$ approximation of $A \in \mathbb{R}^{500 \times 300}$:
+\begin{itemize}
+\item $k$ singular values (each is 1 scalar): $k$ values
+\item $k$ left singular vectors $\mathbf{u}_i \in \mathbb{R}^{500}$: $500k$ values
+\item $k$ right singular vectors $\mathbf{v}_i \in \mathbb{R}^{300}$: $300k$ values
+\end{itemize}
+
+Total storage: $k + 500k + 300k = k(500 + 300 + 1) = 801k$ values.
+
+The original matrix $A$ stores $500 \times 300 = 150000$ values. Storage equals original when:
+$$801k = 150000 \implies k = \frac{150000}{801} \approx 187.3$$
+
+This shows the crossover point: for $k < 187$, SVD compression saves storage; for $k > 187$, it uses more. The maximum useful rank is $\min(500, 300) = 300$, but full rank ($k=300$) would store $801 \times 300 = 240300$ values, which \textbf{exceeds} the original!
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Correctly counts storage but incorrectly thinks full storage occurs at $k = 500$; the maximum rank is $\min(m,n) = 300$
+\item (B): Correctly counts storage but thinks storage = max rank; at max rank, SVD stores MORE than original
+\item (C): Forgets to count the $k$ singular values themselves
+\item (D): Incorrectly thinks each component requires full $m \times n$ storage
+\end{itemize}
+
+\subsection*{Problem 8}
+\correct{Answer: (A)}
+
+\partcred{Partial Credit: (C) Correctly identifies all singular values equal 1, but incorrect conclusion about uniqueness}
+
+\textbf{Explanation:} For any orthogonal matrix $Q$, we have $Q^T Q = I$. The singular values of $Q$ are defined as $\sigma_i = \sqrt{\lambda_i}$ where $\lambda_i$ are eigenvalues of $Q^T Q = I$. 
+
+Since the eigenvalues of the identity matrix are all 1, we get:
+$$\sigma_i = \sqrt{1} = 1 \text{ for all } i$$
+
+Therefore, in the SVD $Q = U\Sigma V^T$, we have $\Sigma = I$, giving:
+$$Q = U I V^T = UV^T$$
+
+This shows that every orthogonal matrix can be written as a product of two orthogonal matrices. Geometrically, orthogonal matrices preserve lengths (no stretching or compression), which is exactly what having all singular values equal to 1 means.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Doesn't recognize that the defining property $Q^T Q = I$ immediately forces all singular values to be 1, regardless of whether $Q$ is a rotation or reflection
+\item (C): Correctly identifies that all singular values are 1, but the conclusion about non-uniqueness is a separate issue (SVD non-uniqueness occurs when singular values are repeated, which is true here, but this doesn't mean the SVD ``doesn't exist'')
+\item (D): Misunderstands the SVD; preserving lengths means singular values are 1, not that SVD doesn't exist
+\item (E): Orthogonal matrices preserve ALL lengths, so no direction is compressed; all singular values must be 1
+\end{itemize}
+
+\subsection*{Problem 9}
+\correct{Answer: (A)}
+
+\textbf{Explanation:} Covariance PCA is sensitive to the \textbf{scale} of variables. Looking at the measurement ranges:
+\begin{itemize}
+\item Pressure: varies over $\sim 500$ kPa (range 2000--2500)
+\item Temperature: varies over $\sim 40$ °C (range 180--220)
+\item Flow: varies over $\sim 10$ mL/min (range 5--15)
+\end{itemize}
+
+The sample variance of pressure will be much larger (proportional to the square of the range), causing the first PC to align almost entirely with the pressure direction. The principal component $\mathbf{v}_1 \approx (0.002, 0.998, 0.005)^T$ is essentially the pressure direction.
+
+This doesn't mean pressure is genuinely ``more important''---it's an artifact of the different measurement units. To reveal patterns independent of scale, the engineer should use \textbf{correlation PCA} (standardize variables to unit variance before PCA).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Confuses large range with importance; this is precisely the problem with covariance PCA when scales differ
+\item (C): The PC structure doesn't directly reveal correlation; variables could be highly correlated but the large-scale variable still dominates
+\item (D): The small coefficients are due to scaling issues, not lack of information
+\item (E): Contradicts the fundamental issue with covariance PCA---it does NOT automatically account for scale
+\end{itemize}
+
+\subsection*{Problem 10}
+\correct{Answer: (D) All of the above (A, B, and C) are correct}
+
+\partcred{Partial Credit: (A), (B), or (C) individually}
+
+\textbf{Explanation:} Each principal component reveals a distinct vibration mode:
+
+\textbf{(A)} $\mathbf{v}_1 = (1,1,1,1)^T/2$: All four sensors move together with equal weight $\to$ \textbf{uniform vertical displacement}. 
+Variance proportion: $\lambda_1/(\lambda_1+\lambda_2+\lambda_3+\lambda_4) = 36/50 = 72\%$. \checkmark
+
+\textbf{(B)} $\mathbf{v}_2 = (1,0,0,-1)^T/\sqrt{2}$: North anchor and South anchor move in opposite directions (+1 vs -1), midspan sensors have zero weight $\to$ \textbf{torsional/tilting mode}. \checkmark
+
+\textbf{(C)} $\mathbf{v}_3 = (0,1,-1,0)^T/\sqrt{2}$: The two midspan sensors move in opposition while anchors have zero weight $\to$ \textbf{antisymmetric bending at midspan}. \checkmark
+
+These interpretations match physical vibration modes of bridges. The large $\lambda_1$ indicates most variation is uniform heaving.
+
+\subsection*{Problem 11}
+\correct{Answer: (B)}
+
+\textbf{Explanation:} This tests the deep geometric insight from the Fundamental Theorem via SVD. The key observation: $A$ collapses $\ker(A)$ to zero but acts as an \textbf{isomorphism} on $(\ker A)^\perp = \text{im}(A^T)$.
+
+Specifically, for $i \leq r$ (nonzero singular values):
+$$A\mathbf{v}_i = \sigma_i \mathbf{u}_i$$
+
+The vectors $\{\mathbf{v}_1, \ldots, \mathbf{v}_r\}$ form an orthonormal basis for $\text{im}(A^T)$, and $\{\mathbf{u}_1, \ldots, \mathbf{u}_r\}$ form an orthonormal basis for $\text{im}(A)$.
+
+$A$ restricted to $\text{im}(A^T)$ gives a bijection onto $\text{im}(A)$: it's injective (kernel restricted to $\text{im}(A^T)$ is trivial) and surjective (by definition of image). The singular values $\sigma_i$ provide the scaling factors for this isomorphism.
+
+For $i > r$ (zero singular values): $A\mathbf{v}_i = \mathbf{0}$, so $A$ collapses $\ker(A) = \text{span}\{\mathbf{v}_{r+1}, \ldots, \mathbf{v}_n\}$ to zero.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): $A$ maps $\ker(A)$ to \textbf{zero}, not to $\ker(A^T)$
+\item (C): False even when $m = n$; if $\text{rank}(A) < n$, then $A$ is not an isomorphism
+\item (D): Wrong dimension formula; rank-nullity says $\dim(\ker(A)) + \dim(\text{im}(A)) = n$
+\item (E): $A$ restricted to $\ker(A)$ gives the zero map, not an isomorphism
+\end{itemize}
+
+\subsection*{Problem 12}
+\correct{Answer: (B)}
+
+\textbf{Explanation:} The 94\% variance captured by the first covariance PC is a classic symptom of \textbf{scale mismatch}: one variable (likely pressure, measured in large units) dominates the variance simply due to measurement scale. This doesn't indicate true 1-dimensionality.
+
+Correlation PCA standardizes all variables to unit variance, removing scale artifacts. The resulting plot shows a clear \textbf{elbow at $k=3$}: three components capture $\sim 90\%$ of standardized variance, suggesting the underlying process has approximately \textbf{3 degrees of freedom}. This is the genuine intrinsic dimensionality, revealed only after accounting for measurement scale.
+
+The covariance result would lead to discarding potentially important process information that happens to be measured in small-magnitude units.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Falls into the scale-artifact trap; high variance $\neq$ physical importance
+\item (C): Covariance PCA does NOT reveal low dimensionality---it reveals scale dominance; also, ``natural units'' is not a valid reason when units are incommensurable
+\item (D): Standardization doesn't ``inflate'' low-variance variables unfairly---it gives each variable equal opportunity to contribute
+\item (E): Technically true that correlation PCA hits 75\% at $k=2$, but this misses the key insight about WHICH analysis to trust
+\end{itemize}
+
+\subsection*{Problem 13}
+\correct{Answer: (B)}
+
+\textbf{Explanation:} The key insight is interpreting \textbf{singular value decay}:
+
+\textbf{Dataset A}: $\sigma = 24, 22, 20, 18, 16, \ldots$ --- gradual, nearly uniform decay. This suggests variation is spread across many dimensions with no clear dominant low-dimensional structure.
+
+\textbf{Dataset B}: $\sigma = 50, 25, 8, 3, 1, \ldots$ --- rapid decay with a sharp drop after the first 2--3 values. This indicates the data lies approximately in a low-dimensional subspace.
+
+For PCA/dimensionality reduction, \textbf{rapid decay is desirable}---it means a few components capture most variation. This is the ``elbow'' pattern: large early values, then a sharp drop to small values.
+
+Dataset B would need fewer components to achieve any given variance threshold, indicating \textbf{clearer low-dimensional structure}.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Uniform singular values mean NO clear low-dimensional structure
+\item (C): Total variance doesn't determine reducibility; the distribution/decay pattern matters
+\item (D): Intrinsic dimensionality depends on data structure, not just whether singular values are nonzero
+\item (E): Nothing about the problem suggests correlation PCA is specifically needed for Dataset B
+\end{itemize}
+
+\subsection*{Problem 14}
+\correct{Answer: (C)}
+
+\textbf{Explanation:} The coimage $\text{coim}(A) = (\ker A)^\perp$ is the orthogonal complement of the kernel in the domain $\mathbb{R}^5$.
+
+By the Fundamental Theorem of Linear Algebra:
+$$(\ker A)^\perp = \text{im}(A^T)$$
+
+The SVD reveals that $\text{im}(A^T)$ is spanned by right singular vectors corresponding to nonzero singular values. Since $\text{rank}(A) = 3$, we have exactly 3 nonzero singular values, so:
+$$\text{coim}(A) = \text{span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$$
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Includes both $\ker(A)$ and $(\ker A)^\perp$, giving all of $\mathbb{R}^5$
+\item (B): Left singular vectors live in codomain $\mathbb{R}^7$, not domain $\mathbb{R}^5$
+\item (D): Wrong space and wrong singular vectors
+\item (E): These span $\ker(A)$, not its orthogonal complement
+\end{itemize}
+
+\subsection*{Problem 15}
+\correct{Answer: (D)}
+
+\partcred{Partial Credit: (A) Correct answer IF the matrix is symmetric}
+
+\textbf{Explanation:} Eigenvalues and singular values measure fundamentally different things:
+\begin{itemize}
+\item Eigenvalues come from $A\mathbf{v} = \lambda\mathbf{v}$ and can be negative or complex
+\item Singular values come from $A^TA$ (or the SVD) and are always real and non-negative
+\end{itemize}
+
+For \textbf{SYMMETRIC} matrices: $A = A^T$ implies $A^TA = A^2$, so the eigenvalues of $A^TA$ are $\lambda_i^2$, giving singular values $\sigma_i = |\lambda_i|$. Thus: $\sigma_1 = 5$, $\sigma_2 = 3$, $\sigma_3 = 1$.
+
+For \textbf{NON-SYMMETRIC} matrices: the eigenvalues of $A$ and $A^TA$ are unrelated in general. A non-symmetric matrix with these eigenvalues could have completely different singular values.
+
+Since the problem does NOT specify that $A$ is symmetric, we \textbf{cannot determine} the singular values from the eigenvalues alone.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Correct only IF the matrix is symmetric (partial credit)
+\item (B): Confuses eigenvalues of $A^TA$ with singular values; singular values are $\sqrt{\lambda(A^TA)}$, not $\lambda^2$
+\item (C): Inverts the relationship; singular values are $|\lambda_i|$ for symmetric matrices, not $\sqrt{|\lambda_i|}$
+\item (E): False: eigenvalues can be negative or complex, but singular values are always $\geq 0$
+\end{itemize}
+
+\subsection*{Problem 16}
+\correct{Answer: (B)}
+
+\partcred{Partial Credit: (A) Correct relationship but doesn't state that singular values are preserved}
+
+\textbf{Explanation:} Key insight: \textbf{Orthogonal transformations preserve singular values}.
+
+If $X = U\Sigma V^T$, then $Y = XQ = U\Sigma V^TQ$. The singular values of $Y$ are found from:
+$$Y^TY = Q^TV\Sigma^2 V^TQ$$
+
+Since $Q$ is orthogonal, this is \textbf{similar} to $V\Sigma^2 V^T$, preserving eigenvalues. Thus singular values of $Y$ equal those of $X$: both have $\{20, 15, 8, 5, 2, 1\}$.
+
+However, the principal components (right singular vectors) differ: for $Y$, the SVD is $Y = U\Sigma W^T$ where $W = Q^TV$, so $\mathbf{w}_k = Q^T\mathbf{v}_k$.
+
+\textbf{Conceptual Point:} The singular value spectrum (and thus variance captured) is invariant under orthogonal transformations of the columns. Rotating the coordinate system doesn't change the intrinsic dimensionality or variance structure---just the coordinate representation of the principal directions.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (C): Orthogonal transformations preserve geometric structure; neither is ``superior''
+\item (D): All orthogonal transformations preserve singular values, regardless of determinant sign
+\item (E): The variance proportions are identical, AND the ordering remains the same
+\end{itemize}
+
+\subsection*{Problem 17}
+\correct{Answer: (E)}
+
+\textbf{Explanation:} ``Within $30°$ of orthogonal'' means the angle $\theta$ satisfies $60° < \theta < 120°$, which requires:
+$$\cos(60°) > \cos(\theta) > \cos(120°) \implies -0.5 < \rho < 0.5$$
+
+Since $\rho = \cos(\theta)$ for centered vectors, we need $|\rho| < 0.5$.
+
+Checking each pair using the correlation matrix $R$:
+\begin{itemize}
+\item $(X_1, X_2)$: $\rho_{12} = 0.3$, so $|\rho| = 0.3 < 0.5$ $\to$ angle $\approx 73°$ \checkmark
+\item $(X_1, X_3)$: $\rho_{13} = -0.7$, so $|\rho| = 0.7 > 0.5$ $\to$ angle $\approx 134°$ \ding{55}
+\item $(X_1, X_4)$: $\rho_{14} = 0.8$, so $|\rho| = 0.8 > 0.5$ $\to$ angle $\approx 37°$ \ding{55}
+\item $(X_2, X_3)$: $\rho_{23} = -0.4$, so $|\rho| = 0.4 < 0.5$ $\to$ angle $\approx 114°$ \checkmark
+\item $(X_2, X_4)$: $\rho_{24} = -0.6$, so $|\rho| = 0.6 > 0.5$ $\to$ angle $\approx 127°$ \ding{55}
+\item $(X_3, X_4)$: $\rho_{34} = 0.1$, so $|\rho| = 0.1 < 0.5$ $\to$ angle $\approx 84°$ \checkmark
+\end{itemize}
+
+Pairs within $30°$ of orthogonal: $(X_1, X_2)$, $(X_2, X_3)$, $(X_3, X_4)$.
+
+\textbf{Key Distraction:} Negative correlation doesn't automatically mean near-orthogonal. $(X_1, X_3)$ has $\rho = -0.7$ (angle $134°$) which is actually \textit{farther} from $90°$ than $(X_3, X_4)$ with $\rho = 0.1$ (angle $84°$).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Negative correlation suggests orthogonality, but $|\rho| > 0.5$ means angles are too extreme
+\item (B): Uses covariance magnitude instead of correlation
+\item (C): Identifies one correct pair but misses others
+\item (D): Assumes negative correlation means near-orthogonal
+\end{itemize}
+
+\subsection*{Problem 18}
+\correct{Answer: (C)}
+
+\partcred{Partial Credit: (D) Correctly identifies semi-axis ratio but misses that variance ratio is the square}
+
+\textbf{Explanation:} This requires connecting SVD geometry to PCA statistics:
+
+\textbf{1) SVD GEOMETRY:} The eigenvalues of $X^TX$ are $\sigma_i^2$, so:
+$$\sigma_1 = \sqrt{1600} = 40, \quad \sigma_2 = \sqrt{400} = 20, \quad \sigma_3 = \sqrt{100} = 10$$
+These singular values are the semi-axis lengths of the ellipsoid.
+
+Ratio: $40 : 20 : 10 = 4 : 2 : 1$.
+
+\textbf{2) PCA VARIANCE:} The covariance matrix is $C = X^TX/(n-1) = X^TX/99$, with eigenvalues:
+$$\lambda_1^{(C)} \approx 16.16, \quad \lambda_2^{(C)} \approx 4.04, \quad \lambda_3^{(C)} \approx 1.01$$
+These are the PC variances.
+
+Ratio: approximately $16 : 4 : 1$.
+
+\textbf{3) KEY INSIGHT:} Semi-axis lengths scale as $\sigma_i$ (ratio $4:2:1$), while variances scale as $\sigma_i^2/(n-1)$ (ratio $16:4:1$). The linear vs. quadratic relationship explains the difference.
+
+Both capture the same ellipsoidal structure: singular values measure stretching factors (distances), while variances measure spread (squared distances, normalized by sample size).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Confuses eigenvalues of $X^TX$ with both semi-axes and variances
+\item (B): Correctly computes semi-axis lengths as $\sqrt{\lambda_i}$, but these are NOT the variances
+\item (E): The quantities are deeply related: variance $\propto \sigma_i^2$
+\end{itemize}
+
+\subsection*{Problem 19}
+\correct{Answer: (C)}
+
+\textbf{Explanation:} The Frobenius norm can be computed directly from singular values:
+$$\|A\|_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \sigma_3^2} = \sqrt{36 + 9 + 4} = \sqrt{49} = 7$$
+
+This is equivalent to $\sqrt{\sum_{i,j} a_{ij}^2}$ (the entry-wise definition), but the singular value formula shows that $\|A\|_F$ depends only on the singular values, not on the specific entries or the orthogonal factors $U$ and $V$.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Adds singular values $6 + 3 + 2 = 11$ instead of computing $\sqrt{\sum \sigma_i^2}$; confuses sum with norm
+\item (B): Computes $\sigma_1^2 + \sigma_2^2 + \sigma_3^2 = 49$ but forgets the square root
+\item (D): Takes square root of the sum of singular values $\sqrt{11}$; combines both errors
+\item (E): Believes one needs the actual matrix entries; doesn't recognize that singular values fully determine the Frobenius norm
+\end{itemize}
+
+\subsection*{Problem 20}
+\correct{Answer: (D)}
+
+\textbf{Explanation:} For $A \in \mathbb{R}^{12 \times 5}$ with rank $r = 3$ (from the figure showing 3 filled circles):
+
+\textbf{Right singular vectors} $\mathbf{v}_i \in \mathbb{R}^{5}$ (domain):
+\begin{itemize}
+\item $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ span $\text{im}(A^T)$ (row space)
+\item $\{\mathbf{v}_4, \mathbf{v}_5\}$ span $\ker(A)$ \checkmark \textbf{This is (D), TRUE}
+\end{itemize}
+
+\textbf{Left singular vectors} $\mathbf{u}_i \in \mathbb{R}^{12}$ (codomain):
+\begin{itemize}
+\item $\{\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3\}$ span $\text{im}(A)$ (column space)
+\item $\{\mathbf{u}_4, \ldots, \mathbf{u}_{12}\}$ span $\ker(A^T)$ (left nullspace)
+\end{itemize}
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Computes $12 - 3 = 9$, which is $\dim(\ker A^T)$, not $\dim(\ker A)$; correct value is $\dim(\ker A) = 5 - 3 = 2$
+\item (B): Right singular vectors span $\text{im}(A^T)$, not $\text{im}(A)$; the column space is spanned by LEFT singular vectors $\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3$
+\item (C): The last 9 columns of $U$ span $\ker(A^T)$, which is 9-dimensional, but ``codomain'' is all of $\mathbb{R}^{12}$, not a 9-dimensional subspace
+\item (E): Rank = number of nonzero singular values = 3, not 5
+\end{itemize}
+
+\end{document}

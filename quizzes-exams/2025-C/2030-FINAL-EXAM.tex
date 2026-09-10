@@ -1,0 +1,1406 @@
+\documentclass[12pt]{amsart}
+%\usepackage[margin=1in]{geometry}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+
+\usepackage[shortlabels]{enumitem}
+% Set spacing for all enumerate environments
+\setlist[enumerate]{itemsep=6pt, topsep=6pt, parsep=0pt}
+
+\usepackage{graphicx}
+
+\usepackage[left=0.75in,right=1in,bottom=0.9in]{geometry}  
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+\usepackage[T1]{fontenc}
+
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1}
+
+% Macro definitions
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTION DIVIDERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\divider}{
+  \vspace{-1em} % Add space above
+  \noindent
+  \raisebox{-0.15ex}{\textbullet}%
+  \hspace{0.5em}%
+  \rule[0.5ex]{0.95\textwidth}{1.0pt}%
+  \hspace{0.5em}%
+  \raisebox{-0.15ex}{\textbullet}%
+  \vspace{0em} % Adjust space below
+}
+
+\title{ESE 2030 FINAL EXAM : Fall 2025}
+\author{prof-g}
+
+
+\begin{document}
+\maketitle
+
+\begin{center}
+    {\bf INSTRUCTIONS}
+\end{center}
+
+\begin{itemize}
+\item 
+No books, notes, or calculators. Use a writing utensil and logic. 
+
+\item 
+You have 120 minutes to complete this final exam. 
+
+\item 
+Please follow question instructions and fill in the bubble-sheet. 
+
+\item 
+Select one answer per problem.
+
+\item 
+Each problem has one best answer. 
+
+\item 
+In some problems, a wrong choice may be worth partial credit. 
+
+\item 
+Be careful to fill in the correct problem number. 
+
+\item 
+These questions are written carefully: if you detect an error, read closely and do your best.
+
+\item 
+If anything is unclear, use your best judgment. 
+
+\item 
+Cheating in any form will be dealt with severely. 
+\end{itemize}
+
+\newpage
+
+
+% FINAL EXAM - SECTION A (Weeks 1-3)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 1:}
+% 
+Consider the third-order linear differential equation given in operator ($D = \frac{d}{dt}$) form:
+$$(D^3 - 6D^2 + 3D + 10I)x = 0 = (D-2)(D+1)(D-5)x $$
+Which set forms a basis for the solution space?
+
+\begin{enumerate}[(A)]
+\item $\{e^{-2t}, e^{t}, e^{-5t}\}$
+\item $\{e^{6t}, e^{-3t}, e^{-10t}\}$
+\item $\{e^{2t}, e^{t}, e^{5t}\}$
+\item $\{e^{2t}, e^{-t}, e^{5t}\}$
+\item None of the above
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} The operator $(D - \lambda)$ annihilates functions of the form $e^{\lambda t}$, since $(D - \lambda)e^{\lambda t} = \lambda e^{\lambda t} - \lambda e^{\lambda t} = 0$. Reading the roots from the factored form $(D-2)(D+1)(D-5) = 0$, we get $\lambda = 2, -1, 5$. These are three distinct real eigenvalues, so the basis consists of $\{e^{2t}, e^{-t}, e^{5t}\}$. The dimension of the solution space equals the order of the ODE, which is 3.
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (sign errors: uses negatives of the actual roots; confuses $(D-2)$ with root $-2$)
+% \textbf{Trick answer:} B (reads basis from expanded coefficients $-6, 3, 10$ instead of roots; completely wrong approach)
+% \textbf{Trick answer:} C (incorrectly reads $(D+1)$ as giving $\lambda = 1$ instead of $\lambda = -1$)
+% \textbf{Trick answer:} E (adds an extra $te^{5t}$ term as if $\lambda = 5$ were repeated; also has 4 functions for a 3rd-order ODE)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 2:}
+% 
+Let $V$ be the vector space of all $4 \times 4$ upper triangular matrices. What is $\dim(V)$?
+
+\begin{enumerate}[(A)]
+\item 4
+\item 6
+\item 12
+\item 16
+\item None of the above
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+% \textbf{Explanation:} 
+% Count the entries that can be freely chosen: the diagonal has 4 entries, 
+% the superdiagonal has 3, then 2, then 1. Total = 4 + 3 + 2 + 1 = 10.
+% Alternatively: in an n×n upper triangular matrix, the number of entries 
+% on or above the diagonal is n(n+1)/2. For n=4: 4(5)/2 = 10.
+% A basis consists of matrices E_{ij} with a single 1 in position (i,j) where i ≤ j.
+% Since 10 is not among options (A)-(D), the answer is (E).
+% \textbf{Partial credit:} C (might count 4+4+4 = 12, confusing diagonal + two adjacent diagonals)
+% \textbf{Trick answer:} A (only counts diagonal entries)
+% \textbf{Trick answer:} B (counts superdiagonals)
+% \textbf{Trick answer:} D (counts all 16 entries, ignoring the triangular constraint)
+
+\divider
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 3:}
+%
+A single perceptron computes $f(\mathbf{x}) = \text{sign}(\mathbf{w} \cdot \mathbf{x} + b)$ where $\mathbf{w} \in \mathbb{R}^n$ is a weight vector and $b$ is a bias. Four classification tasks in $\mathbb{R}^2$ are proposed:
+
+\begin{itemize}
+\item Task 1: Separate points where $x_1 + x_2 > 1$ from points where $x_1 + x_2 < 1$
+\item Task 2: Separate points where $x_1 \cdot x_2 > 0$ from points where $x_1 \cdot x_2 < 0$
+\item Task 3: Separate points inside the unit circle from points outside
+\item Task 4: Separate points where $|x_1| > |x_2|$ from points where $|x_1| < |x_2|$
+\end{itemize}
+
+Which tasks can be solved by a single perceptron?
+
+\begin{enumerate}[(A)]
+\item Tasks 1 and 2 only
+\item Task 1 only
+\item Tasks 1, 2, and 4
+\item All four tasks
+\item None of the tasks
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} A single perceptron can only implement linear decision boundaries—hyperplanes of the form $\mathbf{w} \cdot \mathbf{x} + b = 0$. 
+% - Task 1: The boundary $x_1 + x_2 = 1$ IS a hyperplane (line in $\mathbb{R}^2$), so YES.
+% - Task 2: The boundary $x_1 \cdot x_2 = 0$ consists of BOTH axes (two lines), and the regions alternate in quadrants (like XOR). NOT linearly separable.
+% - Task 3: The boundary is a circle $x_1^2 + x_2^2 = 1$, which is NOT a hyperplane. NOT linearly separable.
+% - Task 4: The boundaries are $|x_1| = |x_2|$, i.e., the lines $x_1 = x_2$ AND $x_1 = -x_2$. Regions alternate, NOT linearly separable.
+% \textbf{Partial credit:} A (recognizes Task 1 works but incorrectly thinks Task 2's quadratic boundary is linear because it factors)
+% \textbf{Trick answer:} C (confuses "can be described algebraically" with "linearly separable")
+% \textbf{Trick answer:} D (doesn't understand that perceptrons are limited to linear boundaries)
+% \textbf{Trick answer:} E (fails to recognize that at least one task has a linear boundary)
+
+\divider
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 4:}
+% 
+A matrix $A \in \mathbb{R}^{5 \times 3}$ has singular values $\sigma_1 = 6$, $\sigma_2 = 3$, $\sigma_3 = 2$.
+
+Which statement about the pseudoinverse $A^\dagger$ is TRUE?
+
+\begin{enumerate}[(A)]
+\item $A^\dagger \in \mathbb{R}^{3 \times 5}$ with singular values $6$, $3$, $2$.
+\item $A^\dagger \in \mathbb{R}^{3 \times 5}$ with singular values $1/4$, $1/9$, $1/36$.
+\item $A^\dagger \in \mathbb{R}^{3 \times 5}$ with singular values $1/2$, $1/3$, $1/6$.
+\item The singular values of $A^\dagger$ equal those of $(A^TA)^{-1}$.
+\item The pseudoinverse $A^\dagger$ is undefined because $A$ is not square.
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} Two key facts:
+% 1) DIMENSIONS: If $A \in \mathbb{R}^{m \times n}$, then $A^\dagger \in \mathbb{R}^{n \times m}$. Here $A$ is $5 \times 3$, so $A^\dagger$ is $3 \times 5$.
+% 2) SINGULAR VALUES: The nonzero singular values of $A^\dagger$ are the reciprocals of those of $A$. Since $A = U\Sigma V^T$, we have $A^\dagger = V\Sigma^\dagger U^T$. The singular values of $A^\dagger$ are $1/\sigma_3, 1/\sigma_2, 1/\sigma_1 = 1/2, 1/3, 1/6$ (listed in decreasing order, as convention requires).
+%
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (correct dimensions but confuses with transpose; $A^T$ has the same singular values as $A$, but $A^\dagger$ does not)
+% \textbf{Trick answer:} B (confuses with $(A^TA)^{-1}$, which has eigenvalues $1/\sigma_i^2$; since $(A^TA)^{-1}$ is symmetric positive definite, its singular values equal its eigenvalues. Students who recall $A^\dagger = (A^TA)^{-1}A^T$ may conflate the singular values of $A^\dagger$ with those of $(A^TA)^{-1}$.)
+% \textbf{Trick answer:} D (tests the same misconception as B from a different angle; $(A^TA)^{-1}$ has singular values $1/4, 1/9, 1/36$, not $1/2, 1/3, 1/6$)
+% \textbf{Wrong:} E (pseudoinverse is defined for ALL matrices, including rectangular and rank-deficient ones; this is a fundamental misconception)
+
+\divider
+
+
+{\bf PROBLEM 5:}
+% 
+Let $T: V \to W$ be a function between vector spaces. Which statement about 
+the following three properties of $T$ being linear is most correct?
+
+\begin{center}
+\begin{tabular}{rl}
+(I) & $T(\mathbf{0}_V) = \mathbf{0}_W$ \\[4pt]
+(II) & $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$ for all $\mathbf{u}, \mathbf{v} \in V$ \\[4pt]
+(III) & $T(c\mathbf{v}) = cT(\mathbf{v})$ for all $c \in \mathbb{R}$, $\mathbf{v} \in V$
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[(A)]
+\item Properties (I), (II), and (III) are all independent; each must be verified separately to confirm linearity.
+\item Property (I) alone is sufficient to guarantee linearity.
+\item Properties (II) and (III) together imply property (I), so checking (II) and (III) is sufficient.
+\item Properties (I) and (II) together imply property (III).
+\item Property (II) alone implies both (I) and (III).
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} 
+% The definition of linearity requires (II) additivity and (III) homogeneity.
+% Property (I) follows automatically: using (III) with c = 0 gives
+% T(0·v) = 0·T(v), hence T(0_V) = 0_W.
+% So we only need to check (II) and (III); property (I) is a consequence.
+% This is why T(0) ≠ 0 is a quick non-linearity test — if (I) fails, 
+% then (III) must fail (with c = 0), so T cannot be linear.
+% \textbf{Partial credit:} A (shows awareness that multiple properties matter, but misses the implication)
+% \textbf{Trick answer:} B (T(0) = 0 is necessary but not sufficient)
+% \textbf{Trick answer:} D (additivity + T(0)=0 does NOT imply homogeneity; e.g., T(v) = v for v ∈ ℚ, T(v) = 0 otherwise)
+% \textbf{Trick answer:} E (additivity alone does NOT imply homogeneity over ℝ; requires continuity or some regularity)
+
+\divider
+
+
+{\bf PROBLEM 6:}
+%
+Let $V$ be a finite-dimensional inner product space. An engineer claims: 
+{\em ``Finding coordinates relative to an orthonormal basis is easier than for a general basis.''}
+
+Which statement best explains why this is true?
+
+\begin{enumerate}[(A)]
+\item Orthonormal bases always have fewer vectors, reducing the system size
+\item For orthonormal basis $\{\mathbf{e}_1, \ldots, \mathbf{e}_n\}$, the $k$-th coordinate of $\mathbf{v}$ is simply $\langle \mathbf{v}, \mathbf{e}_k \rangle$
+\item For orthonormal bases, the change-of-basis matrix equals its own inverse
+\item The change-of-basis matrix for an orthonormal basis is always the identity
+\item It's not true; the difficulty of finding coordinates depends only on $\dim(V)$
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} For a general basis, finding coordinates requires solving a linear system (or computing a matrix inverse). For an orthonormal basis $\{\mathbf{e}_1, \ldots, \mathbf{e}_n\}$, we have $\mathbf{v} = \sum_k c_k \mathbf{e}_k$ where $c_k = \langle \mathbf{v}, \mathbf{e}_k \rangle$ — each coordinate is computed independently via a single inner product. This is because $\langle \mathbf{v}, \mathbf{e}_k \rangle = \sum_j c_j \langle \mathbf{e}_j, \mathbf{e}_k \rangle = c_k$ (using orthonormality).
+% \textbf{Partial credit:} C (true that $Q^T = Q^{-1}$, but this doesn't directly explain the computational advantage; the key is avoiding the inverse entirely via inner products)
+% \textbf{Wrong:} A (orthonormal bases have exactly $\dim(V)$ vectors, same as any basis)
+% \textbf{Trick answer:} C (true property, but indirect — the real advantage is computing coordinates without any matrix operations)
+% \textbf{Trick answer:} D (the change-of-basis matrix from standard to orthonormal is $Q$, not $I$; only $Q^TQ = I$)
+% \textbf{Trick answer:} E (the skeptic is wrong; orthonormality genuinely simplifies coordinate computation from $O(n^3)$ system-solving to $O(n^2)$ inner products)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 7:}
+% 
+Let $T: \mathbb{R}^6 \to \mathbb{R}^4$ be a linear transformation. 
+
+Which statement must be TRUE?
+
+\begin{enumerate}[(A)]
+\item $T$ cannot be injective, but it might be surjective.
+\item $T$ cannot be surjective, but it might be injective.
+\item $T$ can be neither injective nor surjective.
+\item $T$ must be surjective.
+\item $T$ must have kernel of dimension $2$.
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} 
+% By rank-nullity: dim(ker(T)) + dim(im(T)) = 6.
+% Since im(T) ⊆ ℝ⁴, we have dim(im(T)) ≤ 4, so dim(ker(T)) ≥ 2.
+% Thus ker(T) ≠ {0}, meaning T cannot be injective (injective ⟺ ker = {0}).
+% However, T CAN be surjective: if rank(T) = 4, then im(T) = ℝ⁴.
+% Example: T(x₁,...,x₆) = (x₁, x₂, x₃, x₄) is surjective with kernel of dim 2.
+% \textbf{Partial credit:} C (recognizes limitations but misses that surjectivity is possible)
+% \textbf{Trick answer:} B (reverses the implications — this describes ℝ⁴ → ℝ⁶)
+% \textbf{Trick answer:} D ("must be surjective" is false; rank could be less than 4)
+% \textbf{Trick answer:} E (nullity is AT LEAST 2, but could be larger; not fixed at 2)
+
+\divider
+
+
+
+{{\bf PROBLEM 8:}
+% 
+Let $A \in \mathbb{R}^{m \times n}$ have SVD $A = U\Sigma V^T$ with singular values $\sigma_1 > \sigma_2 > 0$ and $\sigma_k = 0$ for $k > 2$.
+
+Which statement best describes the geometric relationship between the singular vectors?
+
+\begin{enumerate}[(A)]
+\item $A\mathbf{u}_1 = \sigma_1 \mathbf{v}_1$: the matrix $A$ maps left singular vectors to right singular vectors, scaled by singular values.
+\item $A^T\mathbf{v}_1 = \sigma_1 \mathbf{u}_1$: the matrix $A^T$ maps right singular vectors to left singular vectors, scaled by singular values.
+\item $A\mathbf{v}_1 = \sigma_1 \mathbf{u}_1$: the matrix $A$ maps the first right singular vector to the first left singular vector, scaled by $\sigma_1$.
+\item The columns of $U$ and $V$ are both eigenvectors of $A$, with eigenvalues $\pm\sigma_i$.
+\item $\mathbf{u}_1$ and $\mathbf{v}_1$ point in the same direction, since both correspond to the largest singular value.
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} The defining relationship of the SVD is $A\mathbf{v}_i = \sigma_i \mathbf{u}_i$ for $i \leq r$ (where $r$ is the rank). This says: the matrix $A$ takes each right singular vector $\mathbf{v}_i$ (in the domain $\mathbb{R}^n$) and maps it to a scalar multiple of the corresponding left singular vector $\mathbf{u}_i$ (in the codomain $\mathbb{R}^m$).
+%
+% Geometrically: the right singular vectors are the principal input directions; the left singular vectors are the principal output directions; and $\sigma_i$ is the stretching factor along the $i$-th principal axis.
+%
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (reverses the roles: $A$ maps from domain to codomain, so it takes $\mathbf{v}_i \in \mathbb{R}^n$ to $\mathbf{u}_i \in \mathbb{R}^m$, not the other way)
+% \textbf{Trick answer:} B (reverses the relationship: $A^T \mathbf{u}_i = \sigma_i \mathbf{v}_i$, not $A^T \mathbf{v}_i = \sigma_i \mathbf{u}_i$)
+% \textbf{Wrong:} D (singular vectors are not eigenvectors of $A$ unless $A$ is symmetric; they are eigenvectors of $A^TA$ and $AA^T$ respectively)
+% \textbf{Wrong:} E ($\mathbf{u}_1 \in \mathbb{R}^m$ and $\mathbf{v}_1 \in \mathbb{R}^n$ live in different spaces, so "same direction" is meaningless; even when $m = n$, they generally point in different directions)
+
+\divider
+
+{\bf PROBLEM 9:}
+%
+Let $T: V \to W$ be a linear transformation. The Fundamental Theorem of Linear Algebra establishes an isomorphism between two of the four fundamental spaces. Which pair of spaces are isomorphic?
+
+\begin{enumerate}[(A)]
+\item $\ker(T) \cong \text{coker}(T)$.
+
+\item $\text{im}(T) \cong \ker(T)$.
+
+\item $\text{coim}(T) \cong \text{im}(T)$.
+
+\item $\text{coker}(T) \cong \text{coim}(T)$.
+
+\item None of the above is always true for all $T:V\to W$.
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} 
+% The FTLA states that coim(T) ≅ im(T). The isomorphism is induced by T itself:
+% - Define φ: V/ker(T) → im(T) by φ([v]) = T(v)
+% - Well-defined: if [v] = [u], then v - u ∈ ker(T), so T(v) = T(u)
+% - Injective: if T(v) = T(u), then T(v-u) = 0, so v - u ∈ ker(T), hence [v] = [u]
+% - Surjective: every w ∈ im(T) equals T(v) for some v, so w = φ([v])
+% This is the deep content of the theorem: T "collapses" ker(T) to zero, but acts 
+% as an isomorphism on the quotient V/ker(T).
+% \textbf{Partial credit:} A (recognizes that ker and coker both measure "defects" but they're not isomorphic)
+% \textbf{Trick answer:} A (tempting because ker and coker sound like "opposites," but dim(ker) ≠ dim(coker) in general)
+% \textbf{Trick answer:} B (rank-nullity relates dimensions but does NOT say ker ≅ im; dimensions adding doesn't imply isomorphism)
+% \textbf{Trick answer:} D (both are quotients, but of different spaces by different subspaces — no natural isomorphism)
+% \textbf{Trick answer:} E (completely false; T need not be bijective)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 10:}
+% 
+A real $4 \times 4$ matrix $A$ has eigenvalues $\lambda_1 = 5$, $\lambda_2 = -2$, and $\lambda_{3,4} = 3 \pm 4i$.
+
+The QR algorithm is applied repeatedly to $A$. What is the structure of the limiting matrix?
+
+\begin{enumerate}[(A)]
+\item A diagonal matrix with entries $5, -2, 3+4i, 3-4i$
+
+\item An upper triangular matrix with $5, -2, 3+4i, 3-4i$ on the diagonal
+
+\item A block upper triangular matrix with two $1 \times 1$ blocks and one $2 \times 2$ block
+
+\item The Jordan canonical form of $A$
+
+\item The algorithm fails to converge because of the complex eigenvalues
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} The QR algorithm, when applied to a real matrix using real arithmetic, converges to the real Schur form: a block upper triangular matrix where real eigenvalues appear in $1 \times 1$ diagonal blocks, and complex conjugate pairs appear in $2 \times 2$ diagonal blocks of the form $\begin{bmatrix} a & b \\ -c & a \end{bmatrix}$ encoding $a \pm i\sqrt{bc}$. Here we have two real eigenvalues ($\lambda = 5$ and $\lambda = -2$) contributing two $1 \times 1$ blocks, and one complex conjugate pair ($3 \pm 4i$) contributing one $2 \times 2$ block. The algorithm converges perfectly well—complex eigenvalues don't prevent convergence, they just appear in $2 \times 2$ blocks rather than on the diagonal.
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (cannot have complex entries when using real arithmetic; the algorithm operates entirely in real numbers)
+% \textbf{Trick answer:} B (same issue—complex numbers cannot appear on the diagonal when working with real matrices and real QR factorizations)
+% \textbf{Trick answer:} D (the QR algorithm produces Schur form, NOT Jordan form; Jordan form requires computing generalized eigenvectors, which is a different process entirely)
+% \textbf{Trick answer:} E (complex eigenvalues do not prevent convergence; they simply manifest as $2 \times 2$ blocks in the real Schur form)
+
+\divider
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 11:}
+% 
+Let $V$ be a vector space with $\dim(V) = 4$, and let $S = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3, \mathbf{v}_4, \mathbf{v}_5\}$ be a set of five vectors in $V$. 
+
+Which statement is necessarily TRUE?
+
+\begin{enumerate}[(A)]
+\item $S$ must be linearly dependent.
+
+\item $S$ must span $V$.
+
+\item If $S$ spans $V$, then $S$ is a basis for $V$.
+
+\item If $S$ spans $V$, then removing any one vector from $S$ leaves a basis.
+
+\item At least two vectors in $S$ must be equal.
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} 
+% In a vector space of dimension n, any set of more than n vectors must be linearly dependent.
+% Here dim(V) = 4 and |S| = 5 > 4, so S is necessarily linearly dependent.
+%
+% Why the others fail:
+% (B) S need not span V. Example: take v₁ = v₂ = v₃ = v₄ = v₅ = e₁ (all the same nonzero vector).
+%     This set has 5 vectors but spans only a 1-dimensional subspace.
+%
+% (C) False. Spanning alone doesn't make a basis — you also need linear independence.
+%     If S spans V, it has 5 vectors in a 4-dim space, so it's necessarily dependent.
+%     A basis must be both spanning AND linearly independent, so S cannot be a basis.
+%     (A spanning set with too many vectors is "too big" to be a basis.)
+%
+% (D) False. Counterexample: S = {e₁, e₂, e₃, e₄, 2e₄} spans ℝ⁴.
+%     Remove e₁: remaining {e₂, e₃, e₄, 2e₄} spans only span{e₂, e₃, e₄}, a 3-dim subspace.
+%     So removing e₁ leaves a set that doesn't even span V, let alone form a basis.
+%
+% (E) False. The five vectors can all be distinct and still be linearly dependent.
+%     Example: {e₁, e₂, e₃, e₄, e₁+e₂} — all distinct, but linearly dependent.
+%
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} B (more vectors doesn't mean more span — could all point the same direction)
+% \textbf{Trick answer:} C (conflates spanning with being a basis; forgets the independence requirement)
+% \textbf{Trick answer:} D (sounds plausible but the redundancy might be "concentrated" so some removals break spanning)
+% \textbf{Trick answer:} E (confuses linear dependence with having repeated vectors)
+
+\divider
+
+
+%===============================================
+{\bf PROBLEM 12:}
+% 
+A mathematician working in an abstract vector space $V$ with subspace $W<V$ wants to perform several operations. 
+She has chosen a basis for $V$ but has not specified an inner product.
+
+Which operation can she \textbf{not} perform?
+
+\begin{enumerate}[(A)]
+\item Compute a quotient $V/W$ by the subspace $W<V$
+\item Compute the dimension of the subspace $W<V$
+\item Compute the orthogonal projection of $V$ onto $W$
+\item Compute a basis for $W$
+\item All of these operations can in fact be performed
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} Orthogonality is defined via inner products: $W^{\perp} = \{\mathbf{v} \in V : \langle \mathbf{v}, \mathbf{w} \rangle = 0 \text{ for all } \mathbf{w} \in W\}$. Without an inner product, the concept of ``orthogonal'' is undefined. All other operations are purely algebraic: linear independence (check if $\sum c_i \mathbf{v}_i = 0$ implies all $c_i = 0$), dimension (count basis vectors), injectivity (check if $\ker(T) = \{0\}$), and expressing in a basis (solve a linear system).
+% \textbf{Partial credit:} None
+% \textbf{Wrong:} A (linear independence is defined via linear combinations, no geometry needed)
+% \textbf{Wrong:} B (dimension is the cardinality of any basis, purely algebraic)
+% \textbf{Wrong:} D (injectivity means $\ker(T) = \{0\}$, which is algebraic)
+% \textbf{Wrong:} E (coordinates are defined by the basis equation $\mathbf{v} = \sum c_i \mathbf{b}_i$)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 13:}
+%
+{\em ``Correlation is not causation, but it is a cosine.''}
+%
+Which statement best explains the mathematical content of this remark?
+
+\begin{enumerate}[(A)]
+\item The sample correlation between two variables equals the cosine of the angle between their raw data vectors.
+\item The sample correlation between two variables equals the cosine of the angle between their centered data vectors.
+\item The sample correlation is computed using the formula $\cos^{-1}(\mathbf{x}^T \mathbf{y})$, hence the reference to cosine.
+\item Correlation and cosine similarity are different quantities that happen to agree for standardized data.
+\item The correlation matrix has eigenvalues between $-1$ and $1$, just like cosine.
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} For centered data vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ (meaning $\sum_i x_i = \sum_i y_i = 0$), the sample correlation IS the cosine of the angle between them:
+% $$\rho(\mathbf{x}, \mathbf{y}) = \frac{\mathbf{x}^T \mathbf{y}}{\|\mathbf{x}\| \|\mathbf{y}\|} = \cos\theta$$
+%
+% Centering is essential: without it, the formula gives cosine similarity, not correlation. Once centered, the inner product divided by the product of norms is both the definition of $\cos\theta$ and (up to a constant) the sample correlation.
+%
+% Key insight: $\rho = 0$ (uncorrelated) corresponds exactly to $\theta = 90°$ (orthogonal).
+%
+% \textbf{Partial credit:} D (recognizes a connection but misidentifies when they agree)
+% \textbf{Trick answer:} A (close but wrong — must center first; raw data vectors give cosine similarity, which differs from correlation unless data is centered)
+% \textbf{Wrong:} C (garbles the formula; $\cos^{-1}$ would give the angle, not the correlation)
+% \textbf{Wrong:} E (correlation matrix eigenvalues can exceed 1; the entries $\rho_{ij}$ are between $-1$ and $1$, but eigenvalues are not so constrained)
+
+\divider
+
+
+{\bf PROBLEM 14:}
+% 
+A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 2$, $\lambda_2 = -1$, and $\lambda_3 = 3$. 
+% 
+What are the eigenvalues of $A^4$?
+
+\begin{enumerate}[(A)]
+\item $16, 1, 81$
+\item $8, -4, 12$
+\item $16, -1, 81$
+\item $2, -1, 3$
+\item Cannot be determined without more information
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} If $\mathbf{v}$ is an eigenvector of $A$ with eigenvalue $\lambda$, then $\mathbf{v}$ is also an eigenvector of $A^k$ with eigenvalue $\lambda^k$. This follows from: $A^k\mathbf{v} = A^{k-1}(A\mathbf{v}) = A^{k-1}(\lambda\mathbf{v}) = \lambda A^{k-1}\mathbf{v} = \cdots = \lambda^k\mathbf{v}$. Therefore, the eigenvalues of $A^4$ are $2^4 = 16$, $(-1)^4 = 1$, and $3^4 = 81$. Note that $(-1)^4 = 1$, not $-1$; raising a negative number to an even power yields a positive result.
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} B (multiplies by 4 instead of raising to the 4th power)
+% \textbf{Trick answer:} C (forgets that $(-1)^4 = 1$, not $-1$; common sign error with even powers)
+% \textbf{Trick answer:} D (thinks eigenvalues are preserved under powers; confuses with eigenvectors being preserved)
+% \textbf{Trick answer:} E (the relationship $\lambda^k$ holds regardless of the specific eigenvectors)
+
+\divider
+
+
+%===============================================
+{\bf PROBLEM 15:}
+% 
+Let $A$ be an $m \times n$ matrix with $\text{rank}(A) = r$. 
+Consider the following three spaces:
+\begin{enumerate}[(i)]
+\item The coimage: $\text{coim}(A) = \mathbb{R}^n / \ker(A)$
+\item The orthogonal complement: $\ker(A)^{\perp}$
+\item The row space: $\text{im}(A^T)$
+\end{enumerate}
+
+Which statement is true?
+
+\begin{enumerate}[(A)]
+\item (i), (ii), and (iii) are three different spaces with dimensions $r$, $n-r$, and $r$ respectively
+\item (i) and (ii) are equal, but (iii) requires the transpose and lives in a different space
+\item (i) is isomorphic to $\text{im}(A)$, but (ii) and (iii) are unrelated to the image
+\item (ii) and (iii) are equal as subsets of $\mathbb{R}^n$, and both are isomorphic to (i)
+\item An inner product is required to define all three of (i), (ii), and (iii)
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} The row space $\text{im}(A^T)$ and the orthogonal complement $\ker(A)^{\perp}$ are the same subspace of $\mathbb{R}^n$ — this is a key part of FTLA: $\mathbb{R}^n = \ker(A) \oplus \text{im}(A^T)$. The coimage $\mathbb{R}^n/\ker(A)$ is the quotient space (equivalence classes), which is isomorphic to both via the natural isomorphism that sends each coset to its unique representative in $\ker(A)^{\perp}$. All three have dimension $r = \text{rank}(A)$. The coimage is also isomorphic to $\text{im}(A)$ by the First Isomorphism Theorem.
+% \textbf{Partial credit:} C (correct that coimage ≅ image, but wrong that (ii) and (iii) are unrelated)
+% \textbf{Trick answer:} A (gets dimensions wrong for (ii); $\ker(A)^{\perp}$ has dimension $r$, not $n-r$)
+% \textbf{Trick answer:} B (wrong: (i) is a quotient space of equivalence classes, (ii) is a subspace of vectors; they're isomorphic but not equal. Also wrong that (iii) lives elsewhere — it's in $\mathbb{R}^n$)
+% \textbf{Trick answer:} C (partially correct but misses the key FTLA relationship)
+% \textbf{Trick answer:} E (coimage and row space are purely algebraic; only orthogonal complement requires inner product)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===============================================
+{\bf PROBLEM 16:}
+% 
+Let $V$ be a finite-dimensional real inner product space and let $T: V \to V$ be a linear operator. 
+Recall that the adjoint $T^*$ is defined via the inner product and generalizes the notion of a transpose.
+%
+Suppose $T$ is self-adjoint (meaning $T = T^*$). Which statement must be true?
+
+\begin{enumerate}[(A)]
+\item $T$ is invertible
+\item $\langle T\mathbf{v}, \mathbf{w} \rangle = \langle T\mathbf{w}, \mathbf{v} \rangle$ for all $\mathbf{v}, \mathbf{w}$
+\item $T^2 = I$
+\item $\ker(T) = \{\mathbf{0}\}$
+\item $\langle T\mathbf{v}, T\mathbf{w} \rangle = \langle \mathbf{v}, \mathbf{w} \rangle$ for all $\mathbf{v}, \mathbf{w}$
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} If $T = T^*$, then $\langle T\mathbf{v}, \mathbf{w} \rangle = \langle \mathbf{v}, T^*\mathbf{w} \rangle = \langle \mathbf{v}, T\mathbf{w} \rangle$. By symmetry of real inner products, $\langle \mathbf{v}, T\mathbf{w} \rangle = \langle T\mathbf{w}, \mathbf{v} \rangle$. Thus $\langle T\mathbf{v}, \mathbf{w} \rangle = \langle T\mathbf{w}, \mathbf{v} \rangle$.
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (self-adjoint does not imply invertible; the zero operator is self-adjoint)
+% \textbf{Trick answer:} C (confuses self-adjoint with involution; $T^2 = I$ is a different property)
+% \textbf{Trick answer:} D (self-adjoint operators can have nontrivial kernels)
+% \textbf{Trick answer:} E (this property defines \emph{orthogonal/unitary} operators, not self-adjoint)
+
+\divider
+
+
+
+{\bf PROBLEM 17:}
+%
+Training a neural network requires computing the gradient of the loss function $L$ with respect to all weight matrices $W_1, W_2, \ldots, W_k$ in the network. The backpropagation algorithm accomplishes this efficiently by working backward from the output layer to the input layer.
+
+Which mathematical principle most directly explains why backpropagation works?
+
+\begin{enumerate}[(A)]
+\item The spectral theorem: weight matrices can be diagonalized, allowing gradients to be computed in eigenvector coordinates
+\item The chain rule: the loss depends on weights through a composition of functions, and derivatives of compositions factor into products
+\item Orthogonal decomposition: each layer's contribution to the gradient is orthogonal to the others, so they can be computed independently
+\item Singular value decomposition: gradients flow through the principal directions of each weight matrix
+\item The Fundamental Theorem of Linear Algebra: it's the foundation of all
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} A neural network computes a composition: $L = \ell(\mathbf{y}, f_k(f_{k-1}(\cdots f_1(\mathbf{x})\cdots)))$ where each $f_i$ depends on weights $W_i$. The chain rule states that derivatives of compositions are products of derivatives: $\frac{\partial L}{\partial W_1} = \frac{\partial L}{\partial f_k} \cdot \frac{\partial f_k}{\partial f_{k-1}} \cdots \frac{\partial f_2}{\partial f_1} \cdot \frac{\partial f_1}{\partial W_1}$. Backpropagation computes these factors from right to left (output to input), reusing intermediate results. This is literally the chain rule applied to the computational graph.
+%
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (weight matrices are generally not symmetric, so spectral theorem doesn't apply; even when eigendecomposition exists, it's not how backprop works)
+% \textbf{Trick answer:} C (layer gradients are NOT orthogonal; they are multiplied together, not added independently)
+% \textbf{Trick answer:} D (FTC relates integrals and derivatives; backprop involves no integration. The "backward" direction is about computational ordering, not inverting an operation)
+% \textbf{Trick answer:} E (SVD is useful for analyzing weight matrices but is not the mechanism behind backpropagation)
+
+\divider
+
+%===============================================
+{\bf PROBLEM 18:}
+% 
+Let $B = \{\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3, \mathbf{e}_4\}$ be an orthonormal basis for $\mathbb{R}^4$, and suppose
+$$\mathbf{v} = 3\mathbf{e}_1 - 2\mathbf{e}_2 + \mathbf{e}_3 - 4\mathbf{e}_4$$
+
+What is $\|\mathbf{v}\|^2$?
+
+\begin{enumerate}[(A)]
+\item $3 - 2 + 1 - 4 = -2$
+\item $|3| + |-2| + |1| + |-4| = 10$
+\item $3^2 + (-2)^2 + 1^2 + (-4)^2 = 30$
+\item $(3 - 2 + 1 - 4)^2 = 4$
+\item None of the above
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} For an orthonormal basis, $\|\mathbf{v}\|^2 = \langle \mathbf{v}, \mathbf{v} \rangle = \sum_i c_i^2$ where $c_i$ are the coordinates. This is because cross terms vanish: $\langle \mathbf{e}_i, \mathbf{e}_j \rangle = 0$ for $i \neq j$. So $\|\mathbf{v}\|^2 = 9 + 4 + 1 + 16 = 30$.
+% \textbf{Partial credit:} None
+% \textbf{Wrong:} A (adds coordinates with signs; norm squared is never negative)
+% \textbf{Wrong:} B (sum of absolute values; this is the 1-norm of the coordinate vector, not $\|\mathbf{v}\|^2$)
+% \textbf{Trick answer:} D (squares the sum instead of summing the squares)
+% \textbf{Trick answer:} E (the whole point of orthonormality is that you don't need explicit vectors)
+
+\divider
+
+
+{\bf PROBLEM 19:}
+% 
+Consider the set $W = \{(x, y, z) \in \mathbb{R}^3 : x^2 + y^2 \leq z^2\}$ (a double cone centered at the origin). 
+Which statement best describes why $W$ is \emph{not} a subspace of $\mathbb{R}^3$?
+
+\begin{enumerate}[(A)]
+\item $W$ does not contain the zero vector.
+\item $W$ is not closed under scalar multiplication.
+\item $W$ is not closed under vector addition.
+\item $W$ fails all three subspace axioms.
+\item False premise: $W$ is actually a subspace of $\mathbb{R}^3$.
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} 
+% - Zero vector: $(0,0,0)$ satisfies $0^2 + 0^2 = 0^2$, so $\mathbf{0} \in W$. (A) is false.
+% - Scalar multiplication: If $(x,y,z) \in W$, then $x^2 + y^2 = z^2$. For any scalar $c$, 
+%   we have $(cx)^2 + (cy)^2 = c^2(x^2 + y^2) = c^2 z^2 = (cz)^2$, so $c(x,y,z) \in W$. (B) is false.
+% - Addition: Take $\mathbf{u} = (1, 0, 1)$ and $\mathbf{v} = (0, 1, 1)$. Both satisfy the cone equation:
+%   $1^2 + 0^2 = 1^2$ ✓ and $0^2 + 1^2 = 1^2$ ✓.
+%   But $\mathbf{u} + \mathbf{v} = (1, 1, 2)$: check $1^2 + 1^2 = 2 \neq 4 = 2^2$. ✗
+%   So $W$ is not closed under addition.
+% \textbf{Partial credit:} D (recognizes failure but over-claims)
+% \textbf{Trick answer:} A (the zero vector IS on the cone — students may not check)
+% \textbf{Trick answer:} B (quadratic equations often fail scalar mult, but cones don't — the squaring "absorbs" the scalar)
+% \textbf{Trick answer:} E (the cone is a quadric surface, not a linear subspace)
+
+\divider
+
+%===============================================
+{\bf PROBLEM 20:}
+% 
+Consider a linear system $A\mathbf{x} = \mathbf{b}$ where $A$ is a $5 \times 8$ matrix of rank $3$. Suppose the system is consistent (has at least one solution). Which statement best describes the solution set?
+
+\begin{enumerate}[(A)]
+\item The solution is unique.
+
+\item The solution set is a 3-dimensional subspace of $\mathbb{R}^8$.
+
+\item The solution set is a parallel translate of a 5-dimensional subspace of $\mathbb{R}^8$.
+
+\item The solution set is a 5-dimensional subspace of $\mathbb{R}^8$.
+
+\item The solution set is a parallel translate of $\ker(A)$.
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+% \textbf{Explanation:} 
+% By rank-nullity: dim(ker(A)) = 8 - rank(A) = 8 - 3 = 5.
+% For a consistent system Ax = b:
+% - If x_p is a particular solution (so Ax_p = b), then the full solution set is
+%   {x_p + h : h ∈ ker(A)} = x_p + ker(A)
+% - This is an affine subspace (translated linear subspace), not a subspace (unless b = 0)
+% - The dimension of this affine subspace equals dim(ker(A)) = 5
+% So there are infinitely many solutions, parametrized by 5 free variables.
+% \textbf{Partial credit:} C (correct dimension and "affine" but says "linear subspace" which is contradictory)
+% \textbf{Trick answer:} A (rank > 0 doesn't guarantee uniqueness; need rank = number of unknowns for that)
+% \textbf{Trick answer:} B (confuses rank with nullity; the "3" is the rank, not the solution space dimension)
+% \textbf{Trick answer:} D (solution set passes through origin only if b = 0; for b ≠ 0, it's translated away from origin)
+
+\divider
+
+{\bf PROBLEM 21:}
+% 
+A $3 \times 3$ matrix $A$ is diagonalizable with $A = P\Lambda P^{-1}$, where $\Lambda  = \text{diag}(2, -1, 4)$ and $P$ is the matrix of eigenvectors.
+%
+To compute $A^{100}$, which approach is correct?
+
+\begin{enumerate}[(A)]
+\item $A^{100} = P\Lambda ^{100}P^{-1}$, where $\Lambda ^{100} = \text{diag}(2^{100}, (-1)^{100}, 4^{100}) = \text{diag}(2^{100}, 1, 4^{100})$
+\item $A^{100} = P^{100}\Lambda ^{100}P^{-100}$, raising each factor to the 100th power
+\item $A^{100} = \Lambda ^{100}$, since diagonalization reveals the essential structure of $A$
+\item $A^{100} = P\Lambda P^{-1} \cdot P\Lambda P^{-1} \cdots = P^{100}\Lambda P^{-100}$, with the $\Lambda $'s combining to just $\Lambda $
+\item None of the above
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} The key insight is that $(P\Lambda P^{-1})^2 = P\Lambda P^{-1}P\Lambda P^{-1} = P\Lambda (P^{-1}P)\Lambda P^{-1} = P\Lambda I\Lambda P^{-1} = P\Lambda ^2P^{-1}$. The middle terms $P^{-1}P$ collapse to $I$, leaving only the outer $P$ and $P^{-1}$. By induction, $A^k = P\Lambda ^kP^{-1}$ for any positive integer $k$. Since $\Lambda $ is diagonal, $\Lambda ^{100} = \text{diag}(2^{100}, (-1)^{100}, 4^{100})$. Note that $(-1)^{100} = 1$ because 100 is even. This is the computational power of diagonalization: matrix powers reduce to scalar powers of eigenvalues.
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} B (incorrectly raises $P$ and $P^{-1}$ to the 100th power; doesn't recognize the telescoping)
+% \textbf{Trick answer:} C (loses the similarity transformation; $A^{100} \neq \Lambda ^{100}$ unless $P = I$)
+% \textbf{Trick answer:} D (gets the telescoping idea but incorrectly thinks the $\Lambda $'s don't accumulate powers)
+% \textbf{Trick answer:} E
+
+\divider
+
+
+%===============================================
+{\bf PROBLEM 22:}
+% 
+{\em ``To get an orthonormal basis from a basis $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$, just normalize each vector: $\mathbf{e}_i = \mathbf{v}_i/\|\mathbf{v}_i\|$.''} 
+%
+Why does this fail to produce an orthonormal basis in general?
+%
+\begin{enumerate}[(A)]
+\item Normalizing changes the span of the vectors
+\item The formula $\mathbf{e}_i = \mathbf{v}_i/\|\mathbf{v}_i\|$ requires the vectors to already be orthogonal
+\item Normalized vectors have unit length but are not guaranteed to be mutually orthogonal
+\item Normalization produces vectors that no longer form a basis
+\item The inner product $\langle \mathbf{e}_i, \mathbf{e}_j \rangle$ becomes undefined after normalization
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} "Orthonormal" requires two properties: (1) unit length ($\|\mathbf{e}_i\| = 1$) and (2) mutual orthogonality ($\langle \mathbf{e}_i, \mathbf{e}_j \rangle = 0$ for $i \neq j$). Simple normalization achieves (1) but does nothing for (2). If $\mathbf{v}_1$ and $\mathbf{v}_2$ are not orthogonal, then $\mathbf{v}_1/\|\mathbf{v}_1\|$ and $\mathbf{v}_2/\|\mathbf{v}_2\|$ won't be orthogonal either—scaling preserves angles. The key insight of Gram-Schmidt is the subtraction step: we remove the component along previous vectors BEFORE normalizing, which is what creates orthogonality.
+% \textbf{Partial credit:} None
+% \textbf{Wrong:} A (scaling by a nonzero constant preserves span)
+% \textbf{Wrong:} B (the normalization formula works on any nonzero vector; no orthogonality required)
+% \textbf{Trick answer:} D (normalized vectors still span the same space and are still linearly independent, so they still form a basis—just not an orthonormal one)
+% \textbf{Trick answer:} E (inner products are perfectly well-defined for normalized vectors)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 23:}
+% 
+A transition matrix $P$ models customer movement between three competing brands. The state vector $\mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}$ represents the fraction of customers at each brand, and the system evolves as $\mathbf{x}_{k+1} = P\mathbf{x}_k$.
+
+The matrix $P$ is column-stochastic: all entries are non-negative and each column sums to 1.
+
+Which statement about the eigenvalues and eigenvectors of $P$ is TRUE?
+
+\begin{enumerate}[(A)]
+\item $\lambda = 1$ is always an eigenvalue of $P$, and any corresponding eigenvector gives the stationary distribution
+\item $\lambda = 1$ is always an eigenvalue of $P$, but the stationary distribution must be normalized so its entries sum to 1
+\item The largest eigenvalue of $P$ could be greater than 1 if the columns sum to more than 1
+\item If $P$ has eigenvalue $\lambda = 1$ with multiplicity 2, then there are exactly two distinct stationary distributions
+\item None of the above is necessarily true
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} For any column-stochastic matrix, $\lambda = 1$ is guaranteed to be an eigenvalue. This follows because if each column of $P$ sums to 1, then each column of $(P - I)$ sums to 0, so the rows of $(P - I)^T$ sum to 0, meaning $(P - I)^T$ has linearly dependent rows and is singular. However, eigenvectors are only determined up to scalar multiples. The stationary distribution $\boldsymbol{\pi}$ must satisfy both $P\boldsymbol{\pi} = \boldsymbol{\pi}$ (eigenvector condition) AND have entries summing to 1 (probability condition). The eigenvector itself may not automatically satisfy the normalization—we must rescale it.
+% \textbf{Partial credit:} A (correctly identifies that $\lambda = 1$ is always an eigenvalue, but misses the normalization requirement)
+% \textbf{Trick answer:} C (the problem states columns sum to exactly 1; this is the definition of column-stochastic)
+% \textbf{Trick answer:} D (multiplicity 2 for eigenvalue 1 indicates multiple connected components or reducibility, but the stationary distribution within each component is still unique up to normalization; the full picture is more subtle)
+% \textbf{Trick answer:} E (the stationary distribution depends on the specific transition probabilities, not just the size of the matrix; uniform is only stationary for doubly-stochastic matrices)
+
+\divider
+
+
+%===============================================
+{\bf PROBLEM 24:}
+% 
+In data science, \emph{cosine similarity} between vectors $\mathbf{u}$ and $\mathbf{v}$ tends to be preferred over the inner product $\langle \mathbf{u}, \mathbf{v} \rangle$. Why?
+
+\begin{enumerate}[(A)]
+\item Cosine similarity measures directional relationship between vectors
+\item Cosine similarity is non-negative
+\item Cosine similarity does not require coordinates in an orthonormal basis
+\item Cosine similarity detects linearly independence
+\item Not so: cosine similarity is not preferred in data science, as the inner product has more information within it
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} By dividing by both norms, cosine similarity measures the cosine of the angle between vectors, which depends only on their directions. This is valuable when magnitude is irrelevant or misleading—for instance, comparing documents of different lengths (longer documents have larger term-frequency vectors but aren't necessarily "more similar" to a query), or comparing user preference vectors where some users rate more items than others. Mathematically: $\text{cos-sim}(c\mathbf{u}, \mathbf{v}) = \text{cos-sim}(\mathbf{u}, \mathbf{v})$ for any $c > 0$.
+% \textbf{Partial credit:} None
+% \textbf{Wrong:} B (cosine similarity ranges from $-1$ to $+1$; it can be negative for vectors pointing in "opposite" directions)
+% \textbf{Trick answer:} C (both inner product and cosine similarity work in any basis; neither requires orthonormality)
+% \textbf{Trick answer:} D (cosine similarity measures alignment, not independence; two dependent vectors like $\mathbf{u}$ and $2\mathbf{u}$ have cosine similarity $= 1$)
+% \textbf{Partial credit:} E (there is more info, but it's not helpful)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 25:}
+%
+Let $A \in \mathbb{R}^{m \times n}$ have singular values $\sigma_1, \ldots, \sigma_r > 0$. Let $Q \in \mathbb{R}^{m \times m}$ and $P \in \mathbb{R}^{n \times n}$ be orthogonal matrices.
+
+Which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item $QA$ has singular values $\sigma_1, \ldots, \sigma_r$, but $AP$ generally does not.
+\item $AP$ has singular values $\sigma_1, \ldots, \sigma_r$, but $QA$ generally does not.
+\item Both $QA$ and $AP$ have singular values $\sigma_1, \ldots, \sigma_r$.
+\item $QAP$ has singular values $\sigma_1^2, \ldots, \sigma_r^2$ because two orthogonal transformations are applied.
+\item The singular values of $QA$ depend on which orthogonal matrix $Q$ is chosen.
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} Singular values are invariant under orthogonal transformations on either side. If $A = U\Sigma V^T$, then:
+% - $QA = (QU)\Sigma V^T$ is an SVD of $QA$ since $QU$ is orthogonal
+% - $AP = U\Sigma (P^TV)^T$ is an SVD of $AP$ since $P^TV$ is orthogonal
+%
+% Geometrically: orthogonal transformations are rotations/reflections that preserve lengths and angles. The singular values measure how much $A$ stretches along principal directions. Pre- or post-composing with a rotation doesn't change the stretching — it just rotates the input or output space.
+%
+% This is why singular values capture "intrinsic" properties of a linear map, independent of the choice of orthonormal bases.
+%
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (incorrectly thinks left and right multiplication behave differently; both preserve singular values)
+% \textbf{Trick answer:} B (same error as A, with sides swapped)
+% \textbf{Wrong:} D (orthogonal transformations preserve singular values, they don't square them; $QAP$ still has singular values $\sigma_1, \ldots, \sigma_r$)
+% \textbf{Wrong:} E (singular values of $QA$ are always $\sigma_1, \ldots, \sigma_r$ regardless of which orthogonal $Q$ is used)
+
+\divider
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 26:}
+% 
+A fourth-order linear ODE with constant coefficients has the general solution:
+$$x(t) = C_1 e^{-t} + C_2 te^{-t} + C_3 e^{2t}\cos(5t) + C_4 e^{2t}\sin(5t)$$
+
+What are the eigenvalues of the associated $4 \times 4$ companion matrix?
+
+\begin{enumerate}[(A)]
+\item $\lambda = -1, 2\pm 5i$
+\item $\lambda = 0, 1, 2, 5$
+\item $\lambda = -1$ (multiplicity 2) and $2 \pm 5i$
+\item $\lambda = -1$ (multiplicity 2), $2, 5$
+\item $\lambda = \pm 1, 2\pm 5i$
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} Reading eigenvalues from basis solutions: The pair $\{e^{-t}, te^{-t}\}$ indicates $\lambda = -1$ with algebraic multiplicity 2 (the factor of $t$ signals a repeated eigenvalue). The pair $\{e^{2t}\cos(5t), e^{2t}\sin(5t)\}$ indicates complex conjugate eigenvalues $\lambda = 2 \pm 5i$ (the general form $e^{\alpha t}\cos(\beta t), e^{\alpha t}\sin(\beta t)$ corresponds to $\alpha \pm i\beta$). This gives exactly 4 eigenvalues (counting multiplicity) for the 4th-order system: $-1, -1, 2+5i, 2-5i$.
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (extracts the numbers $-1, 2, 5$ from the solution but misinterprets the cosine argument as a separate real eigenvalue)
+% \textbf{Trick answer:} B (similar error, also incorrectly splits the $te^{-t}$ into two different eigenvalues)
+% \textbf{Trick answer:} D (correctly identifies repeated $\lambda = -1$ but still treats 2 and 5 as separate real eigenvalues)
+% \textbf{Trick answer:} E (correctly identifies the complex pair but thinks something is missing; the solution is complete)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===============================================
+{\bf PROBLEM 27:}
+% 
+Let $A$ be an $n \times n$ matrix and let $A = QR$ be its QR decomposition.
+If $R$ has a zero on its diagonal, what can be concluded?
+\begin{enumerate}[(A)]
+\item The columns of $A$ are linearly dependent
+\item The matrix $Q$ must have determinant zero
+\item The matrix $A^TA$ is positive definite
+\item The matrix $A^T$ equals $R^TQ$
+\item There is an error; $R$ cannot have a zero diagonal entry
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} For upper triangular $R$, det$(R)$ equals the product of diagonal entries. A zero diagonal entry means det$(R) = 0$, so $R$ is singular and rank$(R) < n$. Since $Q$ is orthogonal (hence invertible), rank$(A)$ = rank$(QR)$ = rank$(R) < n$, meaning the columns of $A$ are linearly dependent. Equivalently: QR decomposition is Gram-Schmidt in matrix form; a zero diagonal entry occurs precisely when some column of $A$ lies in the span of preceding columns.
+
+\divider
+
+
+{\bf PROBLEM 28:}
+% 
+A centered data matrix $X \in \mathbb{R}^{200 \times 4}$ records four measurements from 200 adults: height ($H$), weight ($W$), arm span ($S$), and age ($A$). After standardizing each variable, correlation PCA yields:
+
+$$\mathbf{v}_1 = \frac{1}{\sqrt{3}}(1, 1, 1, 0)^T, \qquad \mathbf{v}_2 = (0, 0, 0, 1)^T$$
+
+together capturing 85\% of total variance.
+Which interpretation is most justified?
+
+\begin{enumerate}[(A)]
+\item The 1st principal component measures overall body size, while age varies independently.
+\item Height, weight, and arm span are perfectly correlated.
+\item Age explains only 15\% of the variance.
+\item The data is essentially 2-dimensional.
+\item Since $\mathbf{v}_1 \perp \mathbf{v}_2$, height/weight/span are uncorrelated with age.
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} The first PC $\mathbf{v}_1 = (1,1,1,0)^T/\sqrt{3}$ weights $H$, $W$, $S$ equally and ignores age — this captures "overall body size." The second PC $\mathbf{v}_2 = (0,0,0,1)^T$ loads only on age. Together they explain 85% of variance. This structure suggests body size measurements vary together (correlated), while age varies separately. Specifying adults is key: among adults, body size and age are largely independent.
+%
+% \textbf{Partial credit:} D (captures the essential insight about 2D structure, but "essentially 2-dimensional" is slightly imprecise since 85% ≠ 100%)
+% \textbf{Partial credit:} E (orthogonality of PCs does suggest low correlation between size variables and age, but this conflates PC orthogonality with variable correlation — they're related but not identical)
+% \textbf{Trick answer:} B ("equal loadings" doesn't imply "perfect correlation"; it means they contribute equally to that PC direction. Perfect correlation would mean rank-1 structure among those three variables.)
+% \textbf{Wrong:} C (age's contribution to total variance depends on PC2's eigenvalue, not just its absence from PC1; age could explain much more than 15%)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 29:}
+% 
+The graph Laplacian $L = D - A$ for a network of 8 users has eigenvalues:
+$$\lambda_1 = 0, \quad \lambda_2 = 0, \quad \lambda_3 = 0, \quad \lambda_4 = 1, \quad \lambda_5 = 2, \quad \lambda_6 = 3, \quad \lambda_7 = 4, \quad \lambda_8 = 5$$
+What does this eigenvalue structure reveal about the network?
+
+\begin{enumerate}[(A)]
+\item The network has five connected components
+\item Error: this is not a valid graph Laplacian
+\item The network is connected
+\item Three users are completely isolated with no connections to anyone
+\item The network has three connected components
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+% \textbf{Explanation:} A fundamental result in spectral graph theory states that the multiplicity of the zero eigenvalue for a graph Laplacian equals the number of connected components in the graph. Since $\lambda = 0$ appears with multiplicity 3, the network has exactly 3 separate groups of users with no connections between groups. Each connected component contributes one zero eigenvalue, with the corresponding eigenvector being constant on that component and zero elsewhere. This is not an error—disconnected networks naturally have multiple zero eigenvalues.
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (confuses the role of zero vs. nonzero eigenvalues; it's the multiplicity of zero that counts components)
+% \textbf{Trick answer:} B (incorrect; multiple zero eigenvalues indicate disconnection, not error)
+% \textbf{Trick answer:} C (the Laplacian being 8×8 just means 8 users exist; says nothing about connectivity)
+% \textbf{Trick answer:} D (confuses connected components with isolated nodes; three components doesn't mean three isolated users—each component could have multiple users)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 30:}
+% 
+Consider the linear system $A\mathbf{x} = \mathbf{b}$, where $A$ is an $m \times n$ matrix and $\mathbf{b} \in \mathbb{R}^m$. The system may be overdetermined, underdetermined, or inconsistent. The pseudoinverse solution is defined as $\hat{\mathbf{x}} = A^{\dagger}\mathbf{b}$.
+
+Which statement best characterizes $\hat{\mathbf{x}}$?
+
+\begin{enumerate}[(A)]
+\item The unique vector satisfying $A\mathbf{x} = \mathbf{b}$
+\item The vector in $\ker(A)$ closest to $\mathbf{b}$
+\item Among all vectors minimizing $\|A\mathbf{x} - \mathbf{b}\|$, the one with smallest $\|\mathbf{x}\|$
+\item The orthogonal projection of $\mathbf{b}$ onto $\text{im}(A)$
+\item The vector $\mathbf{x}$ maximizing $\|A\mathbf{x}\|$ subject to $\|\mathbf{x}\| = 1$
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} The pseudoinverse gives the minimum-norm least-squares solution. First, it finds all vectors minimizing the residual $\|A\mathbf{x} - \mathbf{b}\|$ (the least-squares criterion). Among these, it selects the unique one with smallest norm $\|\mathbf{x}\|$. This is achieved by requiring $\hat{\mathbf{x}} \in (\ker A)^{\perp}$. When $A\mathbf{x} = \mathbf{b}$ is consistent, $\hat{\mathbf{x}}$ is the minimum-norm exact solution; when inconsistent, it's the minimum-norm least-squares solution.
+% \textbf{Partial credit:} D (this describes $A\hat{\mathbf{x}}$, not $\hat{\mathbf{x}}$ itself — shows partial understanding of the geometry)
+% \textbf{Wrong:} A (only true when $A\mathbf{x} = \mathbf{b}$ is consistent with unique solution; fails for underdetermined or inconsistent systems)
+% \textbf{Trick answer:} B (confuses the subspaces; $\hat{\mathbf{x}} \in (\ker A)^{\perp}$, not $\ker(A)$; also confuses domain and codomain)
+% \textbf{Trick answer:} D (this is what $A\hat{\mathbf{x}}$ equals, not $\hat{\mathbf{x}}$; confuses the projection of $\mathbf{b}$ with the solution vector)
+% \textbf{Trick answer:} E (this describes the first right singular vector $\mathbf{v}_1$, related to the operator norm, not the pseudoinverse)
+
+\divider
+
+%%%%%%
+
+{\bf PROBLEM 31:}
+% 
+What is $e^{Jt}$ where $J$ is the $3 \times 3$ Jordan block
+$$J = \begin{bmatrix} 2 & 1 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{bmatrix}$$
+
+\[
+(A) \begin{bmatrix} e^{2t} & e^{2t} & e^{2t} \\ 0 & e^{2t} & e^{2t} \\ 0 & 0 & e^{2t} \end{bmatrix}
+\,\,(B) \begin{bmatrix} e^{2t} & te^{2t} & t^2e^{2t} \\ 0 & e^{2t} & te^{2t} \\ 0 & 0 & e^{2t} \end{bmatrix}
+\,\,(C) \begin{bmatrix} e^{2t} & te^{2t} & \frac{t^2}{2}e^{2t} \\ 0 & e^{2t} & te^{2t} \\ 0 & 0 & e^{2t} \end{bmatrix}
+\,\,(D) \begin{bmatrix} e^{2t} & 1 & 0 \\ 0 & e^{2t} & 1 \\ 0 & 0 & e^{2t} \end{bmatrix}
+\]
+
+(E) None of the above.
+
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} Write $J = 2I + N$ where $N = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{bmatrix}$ is nilpotent with $N^2 = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$ and $N^3 = 0$. Since $2I$ and $N$ commute, $e^{Jt} = e^{2It}e^{Nt} = e^{2t}e^{Nt}$. The nilpotent exponential terminates: $e^{Nt} = I + Nt + \frac{(Nt)^2}{2!} = I + tN + \frac{t^2}{2}N^2 = \begin{bmatrix} 1 & t & \frac{t^2}{2} \\ 0 & 1 & t \\ 0 & 0 & 1 \end{bmatrix}$. Therefore $e^{Jt} = e^{2t}\begin{bmatrix} 1 & t & \frac{t^2}{2} \\ 0 & 1 & t \\ 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} e^{2t} & te^{2t} & \frac{t^2}{2}e^{2t} \\ 0 & e^{2t} & te^{2t} \\ 0 & 0 & e^{2t} \end{bmatrix}$.
+% \textbf{Partial credit:} B (has the right structure but forgets the $\frac{1}{2!}$ factorial in the Taylor series; shows understanding of the pattern but misses the crucial detail)
+% \textbf{Trick answer:} A (replaces all superdiagonal terms with $e^{2t}$; doesn't understand that the nilpotent part contributes polynomial factors)
+% \textbf{Trick answer:} D (multiplies by the eigenvalue 2 in wrong places; confuses the role of the eigenvalue vs. the nilpotent structure)
+% \textbf{Trick answer:} E (only exponentiates the diagonal; leaves the 1's unchanged, as if $e^{J} = e^{2I} + N$, which is wrong)
+
+\divider
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 32:}
+% 
+Let $A$ be a real symmetric $4 \times 4$ matrix with eigenvalues $\lambda_1 = 5$, $\lambda_2 = 5$, $\lambda_3 = -1$, and $\lambda_4 = -1$.
+% 
+Let $\mathbf{v}_1, \mathbf{v}_2$ be eigenvectors for $\lambda = 5$ and $\mathbf{v}_3, \mathbf{v}_4$ be eigenvectors for $\lambda = -1$.
+
+Which statement is guaranteed by the Spectral Theorem?
+
+\begin{enumerate}[(A)]
+\item $\mathbf{v}_1 \perp \mathbf{v}_2$ and $\mathbf{v}_3 \perp \mathbf{v}_4$
+\item $\mathbf{v}_1 \perp \mathbf{v}_3$ and $\mathbf{v}_2 \perp \mathbf{v}_4$, but eigenvectors for the same eigenvalue need not be orthogonal
+\item All four eigenvectors are mutually orthogonal
+\item $A$ can be written as $A = QDQ^T$ where $Q$ is orthogonal, but the columns of $Q$ are not necessarily eigenvectors
+\item None: there may not be independent eigenvectors due to repeated eigenvalues
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} The Spectral Theorem guarantees that eigenvectors corresponding to DISTINCT eigenvalues of a real symmetric matrix are orthogonal. Since $\lambda = 5 \neq -1$, we have $\mathbf{v}_1 \perp \mathbf{v}_3$, $\mathbf{v}_1 \perp \mathbf{v}_4$, $\mathbf{v}_2 \perp \mathbf{v}_3$, and $\mathbf{v}_2 \perp \mathbf{v}_4$. However, eigenvectors for the SAME eigenvalue (like $\mathbf{v}_1$ and $\mathbf{v}_2$, both for $\lambda = 5$) are not automatically orthogonal—any two linearly independent vectors in the 2-dimensional eigenspace work. We CAN choose them to be orthogonal via Gram-Schmidt, but arbitrary eigenvectors for a repeated eigenvalue need not be orthogonal.
+% \textbf{Partial credit:} C (correctly identifies that we CAN find four mutually orthogonal eigenvectors, but misses that arbitrary eigenvectors for repeated eigenvalues aren't automatically orthogonal; confuses "can choose" with "must be")
+% \textbf{Trick answer:} A (exactly backwards; the theorem guarantees orthogonality for distinct eigenvalues, not same eigenvalues)
+% \textbf{Trick answer:} D (the columns of $Q$ in $A = QDQ^T$ ARE eigenvectors; the whole point is that symmetric matrices are orthogonally diagonalizable)
+% \textbf{Trick answer:} E (Spectral Theorem guarantees existence)
+
+\divider
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 33:}
+% 
+Let $A \in \mathbb{R}^{n \times n}$ be a square matrix with eigenvalues $\lambda_1, \ldots, \lambda_n$ and singular values $\sigma_1 \geq \cdots \geq \sigma_n \geq 0$.
+
+Which statement is TRUE for all such matrices $A$?
+
+\begin{enumerate}[(A)]
+\item $\sigma_i = |\lambda_i|$ for all $i$.
+\item $\sigma_1 \cdots \sigma_n = |\lambda_1 \cdots \lambda_n|$.
+\item The singular values and eigenvalues coincide if and only if $A$ is symmetric.
+\item If $A$ has a negative eigenvalue, then $A$ has a negative singular value.
+\item The eigenvalues of $A^T A$ are $\lambda_1^2, \ldots, \lambda_n^2$.
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} Both sides equal $|\det(A)|$:
+% - Product of singular values: $\sigma_1 \cdots \sigma_n = \sqrt{\det(A^TA)} = \sqrt{(\det A)^2} = |\det A|$
+% - Product of eigenvalues: $|\lambda_1 \cdots \lambda_n| = |\det A|$
+%
+% This is one of the few universal relationships between singular values and eigenvalues.
+%
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (false in general; true only for symmetric positive semidefinite matrices. Counterexample: rotation matrix has eigenvalues $e^{\pm i\theta}$ with $|\lambda| = 1$, and singular values both 1, but the pairing doesn't match when eigenvalues are complex)
+% \textbf{Trick answer:} C (symmetric is not sufficient — need symmetric POSITIVE SEMIDEFINITE. A symmetric matrix with negative eigenvalue $\lambda < 0$ has $\sigma = |\lambda| \neq \lambda$)
+% \textbf{Wrong:} D (singular values are ALWAYS non-negative by definition; this is a fundamental difference from eigenvalues)
+% \textbf{Trick answer:} E (eigenvalues of $A^TA$ are $\sigma_i^2$, not $\lambda_i^2$; these differ unless $A$ is symmetric positive semidefinite)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 34:}
+% 
+Let $A$ be a $4 \times 4$ invertible matrix. During row reduction (i.e., Gaussian elimination) on $A$, a row exchange 
+is required at the third step (but not before). Which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item $A$ does not have an LU decomposition, but it does have a PLU decomposition.
+\item $A$ has an LU decomposition because it is invertible.
+\item The matrix $L$ in any factorization $A = LU$ will not be lower triangular.
+\item $A$ cannot be factored as a product of elementary matrices.
+\item The row exchange implies that $\det(A) = 0$.
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} 
+% LU decomposition (without permutation) exists if and only if Gaussian elimination can proceed 
+% without any row exchanges — i.e., all leading principal submatrices are nonsingular. 
+% Needing a row exchange at step 3 means the 3×3 leading principal submatrix is singular 
+% (has a zero in the pivot position after eliminating below the first two pivots), 
+% so standard LU fails. However, every invertible matrix has a PLU decomposition 
+% where P is a permutation matrix that reorders rows to avoid zero pivots.
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} B (Invertibility does NOT guarantee LU; it guarantees PLU)
+% \textbf{Trick answer:} C (L is always lower triangular by definition; the issue is existence, not structure)
+% \textbf{Trick answer:} D (Every invertible matrix is a product of elementary matrices — this is always true)
+% \textbf{Trick answer:} E (Row exchanges don't affect invertibility; they just change sign of det. A is given as invertible.)
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 35:}
+% 
+Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces with $\dim(V) = 7$, $\dim(W) = 5$, and $\text{rank}(T) = 3$. 
+
+Consider the four fundamental spaces: $\ker(T)$, $\text{im}(T)$, $\text{coim}(T)$, and $\text{coker}(T)$.
+
+Which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item $\ker(T)$ and $\text{coker}(T)$ are isomorphic.
+\item $\text{im}(T)$ and $\text{coker}(T)$ are isomorphic.
+\item $\dim(\text{coim}(T)) = 4$ and $\dim(\text{coker}(T)) = 3$.
+\item $\dim(\text{coim}(T)) = 3$ and $\dim(\text{coker}(T)) = 2$.
+\item $\ker(T)$ and $\text{coim}(T)$ have the same dimension.
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} 
+% Given: dim(V) = 7, dim(W) = 5, rank(T) = dim(im(T)) = 3.
+% By rank-nullity: dim(ker(T)) = 7 - 3 = 4.
+% dim(coim(T)) = dim(V/ker(T)) = dim(V) - dim(ker(T)) = 7 - 4 = 3.
+% (Alternatively, by the Fundamental Theorem, coim(T) ≅ im(T), so dim(coim) = rank = 3.)
+% dim(coker(T)) = dim(W/im(T)) = dim(W) - dim(im(T)) = 5 - 3 = 2.
+% So dim(coim) = 3 and dim(coker) = 2. ✓
+% \textbf{Partial credit:} C (swaps the two dimensions — shows understanding of quotient spaces but confuses which is which)
+% \textbf{Trick answer:} A (ker and coker are NOT generally isomorphic; here dim(ker)=4, dim(coker)=2)
+% \textbf{Trick answer:} B (im and coker are NOT isomorphic; im ⊆ W while coker = W/im)
+% \textbf{Trick answer:} E (dim(ker) = 4 but dim(coim) = 3; these are complementary, not equal)
+
+\divider
+
+
+{\bf PROBLEM 36:}
+% 
+Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix, and let $\tilde{X}$ be obtained by multiplying the third column of $X$ by 1000 (i.e., rescaling variable $X_3$).
+
+Which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item Covariance PCA on $X$ and covariance PCA on $\tilde{X}$ yield identical principal components.
+\item Correlation PCA on $X$ and correlation PCA on $\tilde{X}$ yield different principal components, but the same explained variance ratios.
+\item Correlation PCA on $X$ and correlation PCA on $\tilde{X}$ yield identical results.
+\item Covariance PCA and correlation PCA agree whenever the variables are uncorrelated.
+\item Covariance PCA and correlation PCA agree whenever all variables have equal variance.
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} Correlation PCA first standardizes each variable to have unit variance, then performs covariance PCA on the standardized data. Since standardization divides each variable by its standard deviation, multiplying $X_3$ by 1000 and then dividing by its (now 1000× larger) standard deviation returns to the original standardized variable. Thus correlation PCA is scale-invariant: rescaling any variable has no effect on the results.
+%
+% This is the key conceptual distinction: correlation PCA is invariant to rescaling of individual variables; covariance PCA is not.
+%
+% \textbf{Partial credit:} E (correctly identifies a condition under which the two methods agree, but doesn't answer what's true about the rescaling scenario)
+% \textbf{Trick answer:} A (covariance PCA is NOT scale-invariant; rescaling $X_3$ by 1000 multiplies its variance by $10^6$, dramatically changing which directions capture maximum variance)
+% \textbf{Trick answer:} B (correlation PCA gives identical results, not just same variance ratios)
+% \textbf{Wrong:} D (uncorrelated variables can still have different variances; covariance PCA would weight them by variance while correlation PCA would treat them equally)
+
+\divider
+
+
+{\bf PROBLEM 37:}
+% 
+Consider the linear system $\displaystyle \frac{d\mathbf{x}}{dt} = A\mathbf{x}$ where $A$ is a constant $n \times n$ matrix.
+
+The solution is $\mathbf{x}(t) = e^{At}\mathbf{x}_0$. What is the fundamental reason that the matrix exponential $e^{At}$ solves this differential equation?
+
+\begin{enumerate}[(A)]
+\item The eigenvalues of $A$ determine stability, and $e^{At}$ encodes this stability information through exponential decay or growth
+\item Differentiating $e^{At}$ with respect to $t$ produces $Ae^{At}$, so $\frac{d}{dt}(e^{At}\mathbf{x}_0) = A(e^{At}\mathbf{x}_0)$
+\item The Taylor series $I + At + \frac{(At)^2}{2!} + \cdots$ converges for all matrices $A$ and all times $t$
+\item Matrix exponentials generalize scalar exponentials, and $e^{at}$ solves $\frac{dx}{dt} = ax$
+\item The matrix $e^{At}$ is always invertible, ensuring that solutions exist and are unique
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} The defining property that makes $e^{At}$ the solution is that $\frac{d}{dt}e^{At} = Ae^{At}$. When we substitute $\mathbf{x}(t) = e^{At}\mathbf{x}_0$ into the ODE, we get $\frac{d\mathbf{x}}{dt} = Ae^{At}\mathbf{x}_0 = A\mathbf{x}(t)$, confirming it satisfies the equation. Additionally, $e^{A \cdot 0} = I$ ensures the initial condition $\mathbf{x}(0) = \mathbf{x}_0$ is satisfied.
+% \textbf{Partial credit:} D (correct intuition about the connection to scalar case, but doesn't identify the specific property that makes it work)
+% \textbf{Partial credit:} A (describes what the solution tells us, not why it works mechanically)
+% \textbf{Trick answer:} C (convergence is necessary for $e^{At}$ to be well-defined, but doesn't explain why it solves the ODE)
+% \textbf{Trick answer:} E (invertibility guarantees uniqueness but doesn't explain why $e^{At}$ satisfies the differential equation)
+
+\divider
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 38:}
+% 
+Consider the following sets with standard addition and scalar multiplication. 
+Which one is \textbf{NOT} a vector space?
+
+\begin{enumerate}[(A)]
+\item The set of all solutions $y(t)$ to the differential equation $y'' + 4y = 0$.
+
+\item The set of all polynomials $p(x)$ of degree equal to 3.
+
+\item The set of all vectors $\mathbf{x} \in \mathbb{R}^4$ satisfying $x_1 - 2x_2 + x_3 - 2x_4 = 0$.
+
+\item The set $\{\mathbf{0}\}$ containing only the zero vector.
+
+\item The set of all continuous functions $f: \mathbb{R} \to \mathbb{R}$ satisfying $f(-x) = -f(x)$ (odd functions).
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} 
+% (A) IS a vector space: Solutions to y'' + 4y = 0 form a 2-dimensional vector space 
+%     spanned by {cos(2t), sin(2t)}. The ODE is linear and homogeneous, so sums and 
+%     scalar multiples of solutions are solutions. Zero function is a solution.
+%
+% (B) is NOT a vector space: Polynomials of degree EXACTLY 3 fail multiple axioms.
+%     - No zero vector: the zero polynomial has no degree (or degree -∞), not degree 3.
+%     - Not closed under addition: (x³ + x) + (-x³ + x²) = x² + x has degree 2, not 3.
+%     - Not closed under scalar multiplication: 0·(x³) = 0 has degree undefined, not 3.
+%     Compare with P_3 (degree AT MOST 3), which IS a vector space.
+%
+% (C) IS a vector space: This is the null space of the matrix [1, -2, 1, -2], 
+%     a 3-dimensional subspace of ℝ⁴. Homogeneous linear equation ⟹ subspace.
+%
+% (D) IS a vector space: The trivial vector space {0} satisfies all axioms!
+%     - Contains zero vector: ✓ (it's the only element)
+%     - Closed under addition: 0 + 0 = 0 ∈ {0} ✓
+%     - Closed under scalar multiplication: c·0 = 0 ∈ {0} for all c ✓
+%     This is the unique 0-dimensional vector space. Students often think 
+%     "a vector space needs more than one element" — but no axiom requires this!
+%
+% (E) IS a vector space: Odd functions form a subspace of C(ℝ).
+%     - Zero function is odd: 0 = -0 ✓
+%     - Sum of odd functions is odd: (f+g)(-x) = f(-x)+g(-x) = -f(x)-g(x) = -(f+g)(x) ✓
+%     - Scalar multiple of odd function is odd: (cf)(-x) = cf(-x) = c(-f(x)) = -(cf)(x) ✓
+%
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (students may think ODEs give complicated non-linear structures, 
+%     but LINEAR homogeneous ODEs always yield vector spaces)
+% \textbf{Trick answer:} C (the constraint involves subtraction, which might seem non-standard, 
+%     but it's still a homogeneous linear equation)
+% \textbf{Trick answer:} D (students instinctively feel "one element can't be a vector space" 
+%     but {0} is the trivial vector space — dimension 0, perfectly valid!)
+% \textbf{Trick answer:} E (the symmetry condition f(-x) = -f(x) might seem restrictive, 
+%     but odd functions do form a subspace)
+
+\divider
+
+
+{\bf PROBLEM 39:}
+%
+Consider a neural network with input dimension 10, three hidden layers of dimensions 20, 15, and 8 respectively, and output dimension 3. All connections are fully connected (dense layers). If the network uses NO activation functions (i.e., each layer computes only an affine transformation $\mathbf{y} = W\mathbf{x} + \mathbf{b}$), what is the network's effective computational power?
+
+\begin{enumerate}[(A)]
+\item The network can approximate any continuous function from $\mathbb{R}^{10}$ to $\mathbb{R}^3$ due to its depth
+\item The network is equivalent to a single affine transformation $\mathbf{y} = A\mathbf{x} + \mathbf{c}$ where $A \in \mathbb{R}^{3 \times 10}$
+\item The network can represent any polynomial function of degree at most 4 (one degree per layer)
+\item The network can represent any rank-3 linear map due to the bottleneck at the output
+\item The network has greater expressive power than a shallow network because matrix products can increase rank
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} Without nonlinear activation functions, each layer computes $\mathbf{h}_k = W_k \mathbf{h}_{k-1} + \mathbf{b}_k$. The composition of affine maps is affine: if we trace through, we get $\mathbf{y} = W_4(W_3(W_2(W_1\mathbf{x} + \mathbf{b}_1) + \mathbf{b}_2) + \mathbf{b}_3) + \mathbf{b}_4 = (W_4W_3W_2W_1)\mathbf{x} + (\text{combined biases})$. This is just $A\mathbf{x} + \mathbf{c}$ where $A = W_4W_3W_2W_1 \in \mathbb{R}^{3 \times 10}$. The entire deep network collapses to a single linear layer! This is why nonlinear activations are essential for deep learning.
+% \textbf{Partial credit:} D (understands that rank is limited but misses that the whole network collapses)
+% \textbf{Trick answer:} A (this would require nonlinearity—the universal approximation theorem assumes nonlinear activations)
+% \textbf{Trick answer:} C (composition of linear maps stays linear, doesn't create polynomials)
+% \textbf{Trick answer:} E (matrix products can only decrease or maintain rank, never increase it; $\text{rank}(AB) \leq \min(\text{rank}(A), \text{rank}(B))$)
+
+\divider
+
+%===============================================
+{\bf PROBLEM 40:}
+% 
+Let $Q$ be an $n \times n$ orthogonal matrix. 
+Which property is false (more precisely, not necessarily true)?
+
+\begin{enumerate}[(A)]
+\item $\|Q\mathbf{x}\| = \|\mathbf{x}\|$ for all $\mathbf{x} \in \mathbb{R}^n$
+\item The rows of $Q$ form an orthonormal set
+\item $|\det(Q)| = 1$
+\item If $\lambda$ is an eigenvalue of $Q$, then $|\lambda| = 1$
+\item $Q + Q^T$ is always invertible
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+% \textbf{Explanation:} Consider $Q = -I$ (which is orthogonal: $Q^TQ = I$). Then $Q + Q^T = -I + (-I)^T = -2I$, which IS invertible. But consider $Q = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$ (90° rotation). Then $Q^T = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$, so $Q + Q^T = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}$, which is NOT invertible. So (E) is false in general.
+% All others are true: (A) orthogonal matrices preserve lengths; (B) $Q^TQ = I$ means rows of $Q^T$ (= columns of $Q$) are orthonormal, and $QQ^T = I$ means rows of $Q$ are orthonormal; (C) $\det(Q^TQ) = \det(Q)^2 = 1$; (D) if $Q\mathbf{v} = \lambda\mathbf{v}$, then $\|\mathbf{v}\| = \|Q\mathbf{v}\| = |\lambda|\|\mathbf{v}\|$, so $|\lambda| = 1$.
+% \textbf{Partial credit:} None
+% \textbf{Wrong:} A (defining property of orthogonal matrices)
+% \textbf{Wrong:} B (follows from $QQ^T = I$)
+% \textbf{Wrong:} C (follows from $\det(Q)^2 = \det(Q^TQ) = \det(I) = 1$)
+% \textbf{Wrong:} D (length preservation forces eigenvalues onto unit circle)
+
+\divider
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===============================================
+{\bf PROBLEM 41:}
+% 
+Orthogonal projection $\Pi_W(\mathbf{v})$ is used to find the ``best approximation'' of a vector $\mathbf{v}$ within a subspace $W$.
+What makes $\Pi_W(\mathbf{v})$ the ``best'' approximation?
+
+\begin{enumerate}[(A)]
+\item $\Pi_W(\mathbf{v})$ has the largest possible norm among vectors in $W$
+\item $\Pi_W(\mathbf{v})$ has the same direction as $\mathbf{v}$
+\item $\Pi_W(\mathbf{v})$ is the unique vector in $W$ that is orthogonal to $\mathbf{v}$
+\item $\Pi_W(\mathbf{v})$ is the closest vector in $W$ to $\mathbf{v}$, minimizing $\|\mathbf{v} - \mathbf{w}\|$ over all $\mathbf{w} \in W$
+\item $\Pi_W(\mathbf{v})$ is the unique vector in $W$ making the smallest angle with $\mathbf{v}$
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} The fundamental property of orthogonal projection is the best approximation theorem: $\Pi_W(\mathbf{v})$ is the unique closest point to $\mathbf{v}$ in the subspace $W$. This is why projection appears throughout applications—least squares, signal processing, data compression—wherever we want to approximate something as well as possible using a constrained set of "building blocks" (the subspace $W$). The proof uses Pythagoras: for any other $\mathbf{w} \in W$, we have $\|\mathbf{v} - \mathbf{w}\|^2 = \|\mathbf{v} - \Pi_W(\mathbf{v})\|^2 + \|\Pi_W(\mathbf{v}) - \mathbf{w}\|^2$.
+% \textbf{Partial credit:} E (captures the intuition of "closest" but angle minimization is not equivalent to distance minimization in general)
+% \textbf{Trick answer:} A (wrong optimization direction entirely; projection minimizes distance, doesn't maximize norm)
+% \textbf{Trick answer:} B (generally false; $\Pi_W(\mathbf{v})$ only has the same direction as $\mathbf{v}$ if $\mathbf{v} \in W$)
+% \textbf{Trick answer:} C (backwards: the residual $\mathbf{v} - \Pi_W(\mathbf{v})$ is orthogonal to $W$, but $\Pi_W(\mathbf{v})$ is typically NOT orthogonal to $\mathbf{v}$)
+% \textbf{Trick answer:} E (plausible intuition, but minimizing angle $\neq$ minimizing distance; consider $\mathbf{v}$ far from $W$)
+
+\divider
+
+
+{\bf PROBLEM 42:}
+% 
+A matrix $A \in \mathbb{R}^{8 \times 6}$ has SVD $A = U\Sigma V^T$ with singular values
+$$\sigma_1 = 7, \quad \sigma_2 = 4, \quad \sigma_3 = 2, \quad \sigma_4 = \sigma_5 = \sigma_6 = 0$$
+
+Which statement is TRUE?
+
+\begin{enumerate}[(A)]
+\item $\dim(\ker A) = 3$ and the kernel is spanned by columns 4, 5, 6 of $U$.
+\item $\dim(\mathrm{im}\, A) = 3$ and the image is spanned by columns 1, 2, 3 of $V$.
+\item $\dim(\mathrm{coker}\, A) = 5$ and the cokernel is spanned by columns 4, 5, 6, 7, 8 of $U$.
+\item $\dim(\mathrm{coim}\, A) = 3$ and the coimage is spanned by columns 1, 2, 3 of $V$.
+\item $\dim(\ker A) = 5$ because $A$ has 8 rows and rank 3.
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} From the SVD structure with $r = 3$ nonzero singular values:
+% - The first $r = 3$ columns of $V$ (right singular vectors) span $\mathrm{coim}(A)$ (the row space)
+% - The last $n - r = 3$ columns of $V$ span $\ker(A)$
+% - The first $r = 3$ columns of $U$ (left singular vectors) span $\mathrm{im}(A)$ (the column space)
+% - The last $m - r = 5$ columns of $U$ span $\mathrm{coker}(A)$ (the left nullspace)
+%
+% So $\dim(\mathrm{coim}\, A) = 3$ and it is spanned by columns 1, 2, 3 of $V$. This is (D).
+%
+% \textbf{Partial credit:} C (correct that $\dim(\mathrm{coker}\, A) = 8 - 3 = 5$, but the columns are 4 through 8 of $U$, not 4, 5, 6)
+% \textbf{Trick answer:} A (correct dimension $\dim(\ker A) = 6 - 3 = 3$, but kernel comes from $V$, not $U$)
+% \textbf{Trick answer:} B (correct dimension for image, but image comes from $U$, not $V$; confuses domain and codomain)
+% \textbf{Wrong:} E (uses wrong formula; $\dim(\ker A) = n - r = 6 - 3 = 3$, not $m - r$)
+
+\divider
+
+
+
+{\bf PROBLEM 43:}
+% 
+Consider the differential equation given in factored operator form ($D = \frac{d}{dt}$):
+$$D(D-4)(D+2)(D-3)x = 0$$
+
+
+How many linearly independent solutions does this equation have?
+
+\begin{enumerate}[(A)]
+\item 1
+\item 2
+\item 3
+\item 4
+\item Infinitely many
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} The factored form reveals four distinct linear factors: $D$, $(D-4)$, $(D+2)$, and $(D-3)$. These correspond to eigenvalues $\lambda = 0, 4, -2, 3$. Since there are four distinct eigenvalues, the solution space has dimension 4, spanned by $\{e^{0 \cdot t}, e^{4t}, e^{-2t}, e^{3t}\} = \{1, e^{4t}, e^{-2t}, e^{3t}\}$. Note that $\lambda = 0$ contributes the constant solution $x(t) = 1$. The dimension of the solution space always equals the order of the ODE, which can be read as the highest power of $D$ when expanded (here, $D^4$).
+% \textbf{Partial credit:} None
+% \textbf{Trick answer:} A (might think only one "type" of solution exists)
+% \textbf{Trick answer:} B (might miscount factors or confuse with something else)
+% \textbf{Trick answer:} C (miscounts factors, perhaps ignoring the lone $D$ factor)
+% \textbf{Trick answer:} E (confuses the infinite number of solutions with the finite dimension of the solution space; yes there are infinitely many solutions, but they form a 4-dimensional vector space)
+
+\divider
+
+
+
+
+
+\end{document}

@@ -1,0 +1,499 @@
+\documentclass[12pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{itemsep=4pt, topsep=6pt, parsep=0pt}
+
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1.1}
+
+% Color for correct answers
+\usepackage{xcolor}
+\definecolor{correctgreen}{rgb}{0,0.6,0}
+\definecolor{partialblue}{rgb}{0,0,0.8}
+\definecolor{wrongred}{rgb}{0.8,0,0}
+
+\newcommand{\correct}[1]{{\color{correctgreen}\textbf{#1}}}
+\newcommand{\partcred}[1]{{\color{partialblue}#1}}
+\newcommand{\wrong}[1]{{\color{wrongred}#1}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+\title{ESE 2030 QUIZZAM 3 : SOLUTIONS GUIDE\\Fall 2025}
+\author{Instructor Solutions}
+
+\begin{document}
+\maketitle
+
+\section*{Answer Key Summary}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem & Correct Answer & Partial Credit \\
+\hline
+1 & B & -- \\
+2 & A & -- \\
+3 & B & E \\
+4 & E & B, C \\
+5 & C & -- \\
+6 & A & -- \\
+7 & D & A \\
+8 & A & -- \\
+9 & D & -- \\
+10 & C & D \\
+11 & D & C \\
+12 & A & D \\
+13 & D & B, C \\
+14 & A & C \\
+15 & C & -- \\
+16 & B & -- \\
+17 & C & B \\
+18 & C & -- \\
+19 & C & -- \\
+20 & B & -- \\
+21 & B & -- \\
+22 & E & C, D \\
+23 & C & -- \\
+24 & A & -- \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Notes:} This guide provides detailed explanations for each problem. There is often more than one way to understand a given concept, and this guide does not exhaustively cover all approaches. If you have questions, feel free to ask me, a TA, or consult AI tools for clarification.
+
+\newpage
+
+\section*{Detailed Solutions}
+
+\subsection*{Problem 1}
+\correct{Answer: (B) $6\mathbf{v}$}
+
+\textbf{Explanation:} Using the eigenvector property $A\mathbf{v} = \lambda\mathbf{v} = 3\mathbf{v}$ and linearity of matrix multiplication:
+$$A(2\mathbf{v}) = 2A\mathbf{v} = 2(3\mathbf{v}) = 6\mathbf{v}$$
+This demonstrates that scalar multiples of eigenvectors are also eigenvectors with the same eigenvalue.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Forgets the factor of 2, computes $A\mathbf{v}$ instead
+\item (C): Incorrectly thinks the eigenvalue property "cancels" somehow
+\item (D): Adds instead of multiplies: $\lambda + 2 = 5$
+\item (E): Confusion with squaring or multiplication order
+\end{itemize}
+
+\subsection*{Problem 2}
+\correct{Answer: (A) $\lambda_3 = 2$}
+
+\textbf{Explanation:} The determinant equals the product of eigenvalues:
+$$\det(A) = \lambda_1 \lambda_2 \lambda_3 = (2)(-3)\lambda_3 = -6\lambda_3 = -12$$
+Solving gives $\lambda_3 = 2$. We can verify with the trace:
+$$\text{tr}(A) = \lambda_1 + \lambda_2 + \lambda_3 = 2 + (-3) + 2 = 1 \checkmark$$
+Both properties are consistent.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Sign error in calculation
+\item (C): Incorrectly uses $\det(A) = \lambda_1 + \lambda_2 + \lambda_3$ (sum instead of product)
+\item (D): Arithmetic error with determinant
+\item (E): Doesn't recognize determinant alone is sufficient
+\end{itemize}
+
+\subsection*{Problem 3}
+\correct{Answer: (B) The eigenvalues of $C$ are the roots of $p(\lambda)$}
+
+\partcred{Partial Credit: (E) Correctly identifies companion matrix structure}
+
+\textbf{Explanation:} The fundamental connection is that the eigenvalues of the companion matrix are precisely the roots of the characteristic polynomial obtained by substituting $\lambda$ for $D$ in the differential operator. For $p(D) = D^2 + 3D - 4$, we get $p(\lambda) = \lambda^2 + 3\lambda - 4 = 0$. 
+
+The companion matrix is $C = \begin{bmatrix} 0 & 1 \\ 4 & -3 \end{bmatrix}$ (coefficients appear with sign flipped in the bottom row: $-(-4) = 4$ and $-(3) = -3$), which has characteristic polynomial:
+$$\det(C - \lambda I) = \det\begin{bmatrix} -\lambda & 1 \\ 4 & -3-\lambda \end{bmatrix} = \lambda^2 + 3\lambda - 4$$
+confirming choice (B).
+
+\textbf{Partial Credit Rationale:} (E) correctly identifies the companion matrix form but doesn't directly answer the relationship question.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Gets signs wrong on characteristic polynomial
+\item (C): Confuses trace and determinant properties
+\item (D): Incorrect value and doesn't capture main relationship
+\end{itemize}
+
+\subsection*{Problem 4}
+\correct{Answer: (E) 
+
+\partcred{Partial Credit: (B) or (C) individually}
+
+\textbf{Explanation:} The pseudoinverse solution lives in $(\ker A)^{\perp}$, which equals $\text{im}(A^T)$ by the Fundamental Theorem of Linear Algebra. This geometric property is fundamental: among all solutions to the normal equations (if consistent) or least squares solutions (if inconsistent), the pseudoinverse picks the unique one with minimum norm by restricting to $(\ker A)^{\perp}$.
+
+Choices (B) and (C) describe the same subspace—the orthogonal complement of the kernel equals the image of the adjoint.
+
+\textbf{Partial Credit Rationale:} (B) or (C) individually correctly identify one characterization of the subspace.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Confuses solution with kernel; solution is orthogonal TO kernel, not in it
+\item (D): Wrong space entirely
+\end{itemize}
+
+\subsection*{Problem 5}
+\correct{Answer: (C) $\mathbf{w}$}
+
+\textbf{Explanation:} Orthogonal projections satisfy the idempotent property $\Pi_W^2 = \Pi_W$. Since $\Pi_W(\mathbf{v}) = \mathbf{w}$, we know $\mathbf{w} \in W$. Any vector already in $W$ is unchanged by projection onto $W$, so $\Pi_W(\mathbf{w}) = \mathbf{w}$. 
+
+Geometrically, once a vector has been projected onto a subspace, projecting it again does nothing.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Confuses projection with orthogonal complement
+\item (B): Misunderstands composition of operators
+\item (D): Incorrectly thinks repeated projection causes normalization
+\item (E): Fails to recognize idempotency is always true
+\end{itemize}
+
+\subsection*{Problem 6}
+\correct{Answer: (A) $e^{-1}$}
+
+\textbf{Explanation:} When $A$ is diagonalizable with eigenvalues $\lambda_i$, the matrix exponential $e^A$ has eigenvalues $e^{\lambda_i}$. Therefore $e^A$ has eigenvalues:
+$$e^{1}, \quad e^{-2}, \quad e^{0} = e, \quad e^{-2}, \quad 1$$
+
+The determinant is the product of eigenvalues:
+$$\det(e^A) = e^{1} \cdot e^{-2} \cdot 1 = e^{1-2} = e^{-1}$$
+
+Note that even though $A$ is singular ($\det(A) = 0$ since one eigenvalue is zero), $e^A$ is always invertible.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B), (D), (E): Incorrect computation of product
+\item (C): Incorrectly thinks $\det(e^A) = 0$ because $\det(A) = 0$
+\end{itemize}
+
+\subsection*{Problem 7}
+\correct{Answer: (D) $\det(A) = \pm \prod_{i=1}^n R_{ii}$}
+
+\partcred{Partial Credit: (A) $\det(A) = \det(R)$}
+
+\textbf{Explanation:} The determinant of a product equals the product of determinants: 
+$$\det(A) = \det(QR) = \det(Q)\det(R)$$
+
+Since $Q$ is orthogonal, $\det(Q) = \pm 1$. For an upper triangular matrix $R$, the determinant equals the product of diagonal entries: $\det(R) = \prod_{i=1}^n R_{ii}$. Therefore:
+$$\det(A) = (\pm 1) \cdot \prod_{i=1}^n R_{ii} = \pm \prod_{i=1}^n R_{ii}$$
+
+The sign ambiguity comes from the fact that orthogonal matrices can have determinant $+1$ (proper rotations) or $-1$ (improper rotations/reflections).
+
+\textbf{Partial Credit Rationale:} (A) is correct if $\det(Q) = +1$, but misses the possibility that $\det(Q) = -1$.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B), (C): Incorrectly claim $\det(A)$ has a fixed value independent of $R$
+\item (E): The statement is determinable from the QR structure
+\end{itemize}
+
+\subsection*{Problem 8}
+\correct{Answer: (A) $A^{\dagger} = A^{-1}$}
+
+\textbf{Explanation:} For square nonsingular $A$, the pseudoinverse equals the ordinary inverse. This can be verified through the formula:
+$$A^{\dagger} = (A^TA)^{-1}A^T = [(A^T)^{-1}A^{-1}]A^T = (A^T)^{-1}(A^{-1}A^T) = A^{-1}$$
+
+Geometrically, when $A$ is an isomorphism, the pseudoinverse reduces to the ordinary inverse—there's no need for "pseudo" behavior. The pseudoinverse generalizes the inverse to rectangular and singular matrices, but reduces to the ordinary inverse in the nonsingular square case.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Incorrectly involves transpose
+\item (C): Conflates inverse and transpose
+\item (D): Recognizes identity product but thinks matrices must differ
+\item (E): Thinks pseudoinverse only applies to non-invertible cases
+\end{itemize}
+
+\subsection*{Problem 9}
+\correct{Answer: (D) $\begin{pmatrix} 18 \\ -2 \end{pmatrix}$}
+
+\textbf{Explanation:} The power of the eigenbasis is that matrix $A$ acts simply by scaling each eigenvector by its eigenvalue. In the eigenbasis, $A$ has diagonal representation:
+$$[A]_{\mathcal{B}} = \begin{bmatrix} 6 & 0 \\ 0 & 1 \end{bmatrix}$$
+
+Therefore, when we multiply in eigenbasis coordinates:
+$$[A\mathbf{x}]_{\mathcal{B}} = [A]_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} 6 & 0 \\ 0 & 1 \end{bmatrix}\begin{pmatrix} 3 \\ -2 \end{pmatrix} = \begin{pmatrix} 18 \\ -2 \end{pmatrix}$$
+
+Each coordinate gets scaled by the corresponding eigenvalue: $3 \times 6 = 18$ and $-2 \times 1 = -2$. This is the fundamental simplification that diagonalization provides.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A), (C): Incorrect scaling
+\item (B): Unchanged—forgets to apply the transformation
+\item (E): Errors in eigenvalue application
+\end{itemize}
+
+\subsection*{Problem 10}
+\correct{Answer: (C) $A = V\Lambda V^{-1}$}
+
+\textbf{Explanation:} The diagonalization formula $A = V\Lambda V^{-1}$ captures the essence of change of basis: $V^{-1}$ converts from standard coordinates to eigenbasis coordinates (where $A$ becomes the simple diagonal matrix $\Lambda$), and then $V$ converts back to standard coordinates.
+
+This is the fundamental similarity transformation showing $A$ and $\Lambda$ represent the same linear transformation in different coordinate systems. The eigenbasis is the natural coordinate system for $A$, where its action is transparent (pure scaling), while standard coordinates may obscure this structure. We can verify this formula from the defining property $A\mathbf{v}_i = \lambda_i\mathbf{v}_i$, which gives us $AV = V\Lambda$, and then multiplying on the right by $V^{-1}$ yields $A = V\Lambda V^{-1}$.
+
+\partcred{Partial Credit: (D) Got it backwards...}
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Misunderstands the order of operations
+\item (B): While $V\Lambda$ appears in the correct formula, without $V^{-1}$ this doesn't equal $A$
+\item (D): Reverses the order of the similarity transformation
+\item (E): This is the eigenvalue equation written in matrix form, which is true but doesn't isolate $A$
+\end{itemize}
+
+\subsection*{Problem 11}
+\correct{Answer: (D) $e^A$ is nonsingular}
+
+\textbf{Explanation:} The matrix exponential $e^A$ is ALWAYS nonsingular (invertible), regardless of whether $A$ is singular. This is because:
+\begin{itemize}
+\item If $A$ has eigenvalues $\lambda_i$, then $e^A$ has eigenvalues $e^{\lambda_i}$
+\item Since $e^{\lambda_i} \neq 0$ for all real $\lambda_i$, we have $\det(e^A) = \prod e^{\lambda_i} \neq 0$
+\item The inverse is $(e^A)^{-1} = e^{-A}$
+\end{itemize}
+
+Even though $A$ is singular (has a zero eigenvalue), $e^A$ has eigenvalues $e^1, e^{-2}, e^0 = e, e^{-2}, 1$, all nonzero, making $e^A$ invertible.
+
+\partcred{Partial Credit: (C) Missing $t$-dependence...}
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): $e^A$ is always well-defined via power series
+\item (B): $e^A$ inherits diagonalizability from $A$ when $A$ is diagonalizable with distinct eigenvalues
+\item (E): Power series does not terminate for general matrices
+\end{itemize}
+
+\subsection*{Problem 12}
+\correct{Answer: (A) $W \cap W^{\perp} = \{\mathbf{0}\}$ and $V = W + W^{\perp}$}
+
+\partcred{Partial Credit: (D) Technically correct but not sharp}
+
+\textbf{Explanation:} The orthogonal decomposition theorem states that any inner product space can be decomposed as a direct sum $V = W \oplus W^{\perp}$, meaning every vector in $V$ can be uniquely written as a sum of a vector in $W$ and a vector in $W^{\perp}$. 
+
+The only vector in both $W$ and $W^{\perp}$ is the zero vector (since a nonzero vector cannot be orthogonal to itself). This gives us $\dim(V) = \dim(W) + \dim(W^{\perp})$.
+
+\textbf{Partial Credit Rationale:} (D) is technically correct since $\dim(W) + \dim(W^{\perp}) = \dim(V)$, so the inequality holds. However, it's not sharp—it misses that we have equality, not just inequality.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Misunderstands orthogonal complement; intersection is only the zero vector
+\item (C): False; dimensions are equal only when $\dim(W) = \dim(V)/2$
+\item (E): Notation error or misunderstanding
+\end{itemize}
+
+\subsection*{Problem 13}
+\correct{Answer: (D) The scaling factor by which $A$ stretches vectors in certain invariant directions}
+
+\partcred{Partial Credit: (B, C) Closely related, but not the best answer}
+
+\textbf{Explanation:} The most fundamental geometric interpretation of an eigenvalue is that it represents the scaling factor by which matrix $A$ acts on vectors in special invariant directions (the eigenvectors). This captures the essence of $A\mathbf{v} = \lambda\mathbf{v}$: the matrix transforms the eigenvector by simply scaling it by factor $\lambda$, without changing its direction.
+
+While all other choices are mathematically correct statements about eigenvalues, they represent either computational methods (A, B), consequences/applications (C), or properties (E) rather than the fundamental geometric meaning. Understanding eigenvalues as scaling factors for invariant directions provides the deepest conceptual insight into what eigenvalues ARE, from which all other properties follow.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Describes HOW to find eigenvalues, not WHAT they are
+\item (C): Application-specific, describes what eigenvalues DO in one context, not what they fundamentally ARE
+\item (E): Describes a relationship among eigenvalues rather than what a single eigenvalue means
+\end{itemize}
+
+\subsection*{Problem 14}
+\correct{Answer: (A) The unique vector in $W$ that minimizes $\|\mathbf{v} - \mathbf{w}\|$ over all $\mathbf{w} \in W$}
+
+\partcred{Partial Credit: (C) Geometrically correct and insightful}
+
+\textbf{Explanation:} The most fundamental characterization of orthogonal projection is the \textbf{best approximation property}: $\Pi_W(\mathbf{v})$ is the unique vector in $W$ closest to $\mathbf{v}$. This geometric property captures WHY we care about projections—they provide optimal approximations of vectors by vectors in a subspace.
+
+All other properties follow from this:
+\begin{itemize}
+\item The idempotent and self-adjoint properties (B) are algebraic consequences
+\item The decomposition (C) is another way to describe the same phenomenon
+\item The matrix formulas (D, E) are computational methods that implement the projection
+\end{itemize}
+
+The best approximation property is conceptually fundamental because it explains the purpose and meaning of projection, from which all other characterizations derive.
+
+\textbf{Partial Credit Rationale:} (C) is geometrically correct and insightful, but describes the result rather than the optimality property that defines projection.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Algebraically correct but describes properties rather than fundamental geometric meaning
+\item (D), (E): Computationally correct but merely formulas—don't explain what projection means or why we use it
+\end{itemize}
+
+\subsection*{Problem 15}
+\correct{Answer: (C) If $\text{tr}(B) = 10$, then $\lambda = 5$ and $\det(B) = 30$}
+
+\textbf{Explanation:} The trace equals the sum of eigenvalues: $\text{tr}(B) = 2 + 3 + \lambda$. If $\text{tr}(B) = 10$, then:
+$$\lambda = 10 - 5 = 5$$
+
+The determinant equals the product of eigenvalues:
+$$\det(B) = 2 \cdot 3 \cdot \lambda = 6\lambda = 6 \cdot 5 = 30$$
+
+Given the trace, we can uniquely determine $\lambda$, which then uniquely determines the determinant. This shows that (C) is the correct statement—both conclusions follow from the single condition $\text{tr}(B) = 10$.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Correctly computes $\lambda = 5$ from trace but incorrectly computes $\det(B) = 2 + 3 + 5 = 10$ using sum instead of product
+\item (B): Reverses the implication; knowing det doesn't uniquely determine trace without knowing the third eigenvalue
+\item (D): Fails to recognize that trace alone determines $\lambda$ via the sum relationship
+\item (E): If $\det(B) = 0$, one eigenvalue is zero, but we can't determine $\text{tr}(B)$ uniquely without knowing which one
+\end{itemize}
+
+\subsection*{Problem 16}
+\correct{Answer: (B) $A^{\dagger}$ first projects $\mathbf{b}$ onto $\text{im}(A)$, then applies the inverse of $A$ restricted to $(\ker A)^{\perp}$}
+
+\textbf{Explanation:} The pseudoinverse has a beautiful geometric interpretation through the FTLA: it first projects $\mathbf{b}$ onto $\text{im}(A)$ (discarding the component in $(\text{im}(A))^{\perp} = \ker(A^T)$), obtaining $\Pi_{\text{im}(A)}\mathbf{b}$. 
+
+Then, since $A$ restricted to $(\ker A)^{\perp}$ is an isomorphism onto $\text{im}(A)$, we can invert this restriction to find the unique preimage in $(\ker A)^{\perp}$. This is why $A^{\dagger}\mathbf{b}$ gives the minimum norm solution: it lives in $(\ker A)^{\perp}$, the smallest subspace containing all solutions. 
+
+The formula $A^{\dagger} = (A^TA)^{-1}A^T$ implements this two-step process: $A^T$ projects onto $\text{im}(A^T) = (\ker A)^{\perp}$, and $(A^TA)^{-1}$ provides the inverse on this subspace.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Projects onto wrong subspace—should be $\text{im}(A)$, not $\ker(A^T)$
+\item (C): Fundamentally misunderstands that the pseudoinverse works for non-square/singular matrices where $A^{-1}$ doesn't exist
+\item (D): Confuses projection with orthogonal complement, and mistakes the input-output relationship
+\item (E): The solution lives in $(\ker A)^{\perp}$, not in $\ker(A)$; this reverses the key geometric insight
+\end{itemize}
+
+\subsection*{Problem 17}
+\correct{Answer: (C) The matrix exponential satisfies $\frac{d}{dt}e^{At} = Ae^{At}$, which yields the differential equation}
+
+\partcred{Partial Credit: (B) Recognizes initial condition is satisfied}
+
+\textbf{Explanation:} The fundamental property that makes $e^{At}\mathbf{x}_0$ the solution is the derivative property: $\frac{d}{dt}e^{At} = Ae^{At}$. This directly verifies that $\mathbf{x}(t) = e^{At}\mathbf{x}_0$ satisfies the differential equation:
+$$\frac{d\mathbf{x}}{dt} = \frac{d}{dt}(e^{At}\mathbf{x}_0) = Ae^{At}\mathbf{x}_0 = A\mathbf{x}(t)$$
+
+While (B) correctly notes that the initial condition is satisfied ($e^{A \cdot 0}\mathbf{x}_0 = I\mathbf{x}_0 = \mathbf{x}_0$), this alone doesn't explain why it solves the differential equation—we need the derivative property. The other properties are important consequences or computational tools but not the fundamental reason it works.
+
+\textbf{Partial Credit Rationale:} (B) recognizes initial condition is satisfied, which is necessary, but misses that the differential equation itself requires the derivative property.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Invertibility is important for uniqueness and reversibility, but doesn't explain why $e^{At}\mathbf{x}_0$ satisfies the ODE
+\item (D): Describes how to compute solutions but not why the formula works
+\item (E): The flow property is elegant but is actually a consequence of $e^{At}$ being the solution operator, not the reason
+\end{itemize}
+
+\subsection*{Problem 18}
+\correct{Answer: (C) $\|A\mathbf{x} - \mathbf{b}\|$}
+
+\textbf{Explanation:} The least squares solution minimizes the \textbf{residual norm} $\|A\mathbf{x} - \mathbf{b}\|$, which measures how far $A\mathbf{x}$ is from $\mathbf{b}$. Geometrically, this finds the point in $\text{im}(A)$ closest to $\mathbf{b}$.
+
+This is the fundamental optimization problem that least squares solves: since we cannot satisfy $A\mathbf{x} = \mathbf{b}$ exactly (system is inconsistent), we find the $\mathbf{x}$ that makes $A\mathbf{x}$ as close as possible to $\mathbf{b}$ in the sense of minimizing the Euclidean distance (or equivalently, the squared distance).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Would minimize by $\mathbf{x} = \mathbf{0}$; doesn't involve $\mathbf{b}$
+\item (B): Minimizing solution norm is what the pseudoinverse does among all least squares solutions, but not the primary least squares criterion
+\item (D): Related to normal equations but not what's being minimized; confuses the form with the objective
+\item (E): This is fixed—doesn't depend on $\mathbf{x}$ at all
+\end{itemize}
+
+\subsection*{Problem 19}
+\correct{Answer: (C) $e^{At} \cdot e^{As} = e^{A(t+s)}$ for all scalars $t$ and $s$}
+
+\textbf{Explanation:} The matrix exponential satisfies the \textbf{flow property}:
+$$e^{At} \cdot e^{As} = e^{A(t+s)}$$
+
+This is analogous to the scalar exponential property $e^{at} \cdot e^{as} = e^{a(t+s)}$ and reflects that matrix exponentials form a one-parameter group. This property is fundamental to understanding solutions to differential equations: the solution starting at time $s$ and evolving for time $t$ is the same as the solution evolving for total time $t+s$.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): False; $e^{At}$ is symmetric only if $A$ is symmetric and certain other conditions hold
+\item (B): Incorrect; $e^{A \cdot 0} = e^{0} = I$, the identity matrix
+\item (D): False; $(e^{At})^{-1} = e^{-At}$, not $e^{A^{-1}t}$
+\end{itemize}
+
+\subsection*{Problem 20}
+\correct{Answer: (B) $cA = (Q_A)(cR_A)$}
+
+\textbf{Explanation:} When we scale a matrix by $c$, the orthonormal basis for its column space doesn't change (columns point in the same directions), but the "coefficients" in $R$ all scale by $c$:
+$$cA = c(Q_AR_A) = Q_A(cR_A)$$
+
+The factor $Q_A$ remains the same because it represents the orthonormalized directions of the columns, which don't change under uniform scaling. All the magnitude information moves into $R$. This illustrates how QR cleanly separates directional information (Q) from magnitude/scaling information (R).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Breaks orthonormality—$cQ_A$ would have columns of length $c$, not 1
+\item (C): Double-counts the scaling factor
+\item (D): Fails to account for scaling at all
+\item (E): The relationship is deterministic regardless of $c$'s value
+\end{itemize}
+
+\subsection*{Problem 21}
+\correct{Answer: (B) $8$ and $-1$}
+
+\textbf{Explanation:} If $\lambda$ is an eigenvalue of $A$ (with eigenvector $\mathbf{v}$), then $\lambda^k$ is an eigenvalue of $A^k$ (with the same eigenvector). This is because:
+$$A^k\mathbf{v} = A^{k-1}(A\mathbf{v}) = A^{k-1}(\lambda\mathbf{v}) = \lambda A^{k-1}\mathbf{v} = \cdots = \lambda^k\mathbf{v}$$
+
+Therefore, the eigenvalues of $A^3$ are:
+$$\lambda_1^3 = 2^3 = 8 \quad \text{and} \quad \lambda_2^3 = (-1)^3 = -1$$
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Incorrectly thinks eigenvalues don't change under matrix powers
+\item (C): Multiplies eigenvalues by 3 instead of raising to 3rd power
+\item (D): Correctly computes $2^3 = 8$ but makes sign error: $(-1)^3 = -1$, not $1$
+\item (E): Doesn't recognize that eigenvalues of powers depend only on eigenvalues of $A$, not on eigenvectors
+\end{itemize}
+
+\subsection*{Problem 22}
+\correct{Answer: (E) Both (C) and (D) describe the same vector}
+
+\partcred{Partial Credit: (C) or (D) individually}
+
+\textbf{Explanation:} This problem tests the deep connection between quotient spaces and orthogonal complements in inner product spaces. The key insight is that the orthogonal projection $\Pi_{W^{\perp}}(\mathbf{v})$ provides the unique representative of the equivalence class $[\mathbf{v}]$ that lies in $W^{\perp}$. This is also precisely the vector in $[\mathbf{v}]$ with minimum norm (closest to origin).
+
+To see why: any vector in $[\mathbf{v}]$ has the form $\mathbf{v} + \mathbf{w}$ for some $\mathbf{w} \in W$. We can write $\mathbf{v} = \mathbf{v}_{W^{\perp}} + \mathbf{v}_W$ where $\mathbf{v}_{W^{\perp}} \in W^{\perp}$ and $\mathbf{v}_W \in W$. Then:
+$$\mathbf{v} + \mathbf{w} = \mathbf{v}_{W^{\perp}} + (\mathbf{v}_W + \mathbf{w})$$
+
+By the Pythagorean theorem:
+$$\|\mathbf{v} + \mathbf{w}\|^2 = \|\mathbf{v}_{W^{\perp}}\|^2 + \|\mathbf{v}_W + \mathbf{w}\|^2$$
+
+This is minimized when $\mathbf{v}_W + \mathbf{w} = \mathbf{0}$, i.e., when $\mathbf{w} = -\mathbf{v}_W$, giving $\mathbf{v} + \mathbf{w} = \mathbf{v}_{W^{\perp}}$, the orthogonal projection onto $W^{\perp}$. This geometric insight provides the natural isomorphism $V/W \cong W^{\perp}$: each equivalence class corresponds to its unique representative in $W^{\perp}$.
+
+\textbf{Partial Credit Rationale:} (C) or (D) individually recognize one characterization but miss that they describe the same object.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Reverses the optimization—maximum vs minimum norm
+\item (B): Confuses the subspace we're quotienting by with where representatives live; vectors in $W$ represent only the zero equivalence class
+\end{itemize}
+
+\subsection*{Problem 23}
+\correct{Answer: (C) $3$}
+
+\textbf{Explanation:} The solution space to an $n$-th order linear homogeneous ODE always has dimension $n$. This follows from the existence and uniqueness theorem: specifying $n$ initial conditions (e.g., $x(0), x'(0), x''(0)$ for a third-order equation) uniquely determines a solution, meaning the solution space is parametrized by $n$ independent constants.
+
+Equivalently, the companion matrix is $3 \times 3$ and has 3 eigenvalues (counted with multiplicity), yielding 3 basis solutions of the form $e^{\lambda_i t}$ (or modified forms for repeated roots).
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Confuses the order of the equation with thinking there's a single "general solution"
+\item (B): Perhaps counting the number of derivative terms, or misremembering
+\item (D): Off-by-one error, perhaps thinking about degrees vs. order
+\item (E): Incorrectly thinks the dimension changes based on eigenvalue properties like distinctness or sign, when in fact it's always $n$ for an $n$-th order equation
+\end{itemize}
+
+\subsection*{Problem 24}
+\correct{Answer: (A) $2$}
+
+\textbf{Explanation:} The trace of a matrix equals the sum of its eigenvalues (counting multiplicity):
+$$\text{tr}(A) = \lambda_1 + \lambda_2 + \lambda_3 + \lambda_4$$
+
+Therefore:
+$$8 = 3 + (-2) + 5 + \lambda_4 = 6 + \lambda_4$$
+
+Solving gives $\lambda_4 = 2$. This relationship holds regardless of the specific form of the matrix.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Sign error in arithmetic
+\item (C): Incorrectly adds the three known eigenvalues and treats that as the answer
+\item (D): Miscalculates: perhaps $8 - 3 - 2 - 5 = -2$ but takes absolute value, or other arithmetic error
+\item (E): Doesn't recognize that trace determines the sum of eigenvalues regardless of matrix form
+\end{itemize}
+
+\end{document}

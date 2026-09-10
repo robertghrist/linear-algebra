@@ -1,0 +1,542 @@
+\documentclass[12pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1.1}
+
+% Custom commands for clarity
+\newcommand{\correct}[1]{{\color{blue}\textbf{CORRECT: #1}}}
+\newcommand{\partcred}[1]{{\color{red}\textit{Partial Credit: #1}}}
+\newcommand{\hint}{\textbf{Key Insight: }}
+\newcommand{\trap}{\textbf{Common Trap: }}
+
+\title{ESE 2030 QUIZZAM 1 : Solution Guide\\Fall 2025}
+\author{Solution Key with Explanations}
+
+\begin{document}
+\maketitle
+
+\section*{Overview}
+This solution guide provides detailed explanations for each problem on Quiz 1. Pay special attention to:
+\begin{itemize}
+\item Why the correct answer is right
+\item Common misconceptions that lead to wrong answers
+\item Partial credit opportunities where applicable
+\item Key concepts being tested
+\end{itemize}
+
+\hrulefill
+
+\section*{Problem 1: Dimension of Polynomial Spaces}
+\textbf{Topic:} Polynomial spaces, dimension, bases
+
+\textbf{Problem:} The dimension of $\mathcal{P}_3$ (polynomials of degree at most 3).
+
+\correct{(C) 4}
+
+\textbf{Explanation:} The space $\mathcal{P}_3$ consists of all polynomials of the form:
+$$p(x) = a_0 + a_1x + a_2x^2 + a_3x^3$$
+
+A standard basis is $\{1, x, x^2, x^3\}$, which has 4 elements. Therefore, $\dim(\mathcal{P}_3) = 4$.
+
+\hint The subscript in $\mathcal{P}_n$ denotes the maximum degree, not the dimension. The dimension is always $n+1$.
+
+\trap Students often confuse "degree at most 3" with "exactly degree 3" or think the dimension equals the maximum degree.
+
+\hrulefill
+
+\section*{Problem 2: Triangular Systems}
+\textbf{Topic:} Triangular systems, forward substitution, computational efficiency
+
+\correct{(C) One should solve by forward substitution}
+
+\partcred{(A) Row reduction is possible but inefficient}
+
+\textbf{Explanation:} For a lower triangular system $L\mathbf{x} = \mathbf{b}$:
+\begin{itemize}
+\item Since $L$ has nonzero diagonal entries, it's invertible, so there's always a unique solution
+\item Forward substitution is the most efficient method:
+  \begin{enumerate}
+  \item Solve $2x_1 = b_1$ to get $x_1 = b_1/2$
+  \item Substitute into second equation: $x_1 + 3x_2 = b_2$
+  \item Continue forward through the system
+  \end{enumerate}
+\item Backward substitution is for upper triangular systems
+\end{itemize}
+
+\hint Forward = Lower, Backward = Upper (alphabetical order helps remember!)
+
+\hrulefill
+
+\section*{Problem 3: Kernel Dimension}
+\textbf{Topic:} Linear transformations, kernel, rank-nullity theorem
+
+\correct{(C) 2}
+
+\partcred{(B) 1 - shows understanding but miscalculation}
+
+\textbf{Explanation:} 
+Observe that all three rows of $A$ are scalar multiples:
+\begin{align}
+\text{Row 2} &= 2 \times \text{Row 1}\\
+\text{Row 3} &= -1 \times \text{Row 1}
+\end{align}
+
+Therefore:
+\begin{itemize}
+\item $\text{rank}(A) = 1$ (only one independent row)
+\item By the Rank-Nullity Theorem: $\dim(V) = \text{rank}(T) + \dim(\ker(T))$
+\item So: $3 = 1 + \dim(\ker(T))$
+\item Therefore: $\dim(\ker(T)) = 2$
+\end{itemize}
+
+\hint When all rows/columns are proportional, the rank is 1.
+
+\hrulefill
+
+\section*{Problem 4: Vector Space Examples}
+\textbf{Topic:} Vector spaces, axioms, closure properties
+
+\correct{(B) Continuous functions with $f(0) = f(1) = 0$}
+
+\textbf{Explanation:} Let's check each option:
+
+\textbf{(A) Matrices with det = 1:} Fails closure under addition. If $\det(A) = \det(B) = 1$, generally $\det(A+B) \neq 1$.
+
+\textbf{(B) Functions with $f(0) = f(1) = 0$:} ✓ This works!
+\begin{itemize}
+\item Zero function satisfies the condition
+\item If $f(0) = g(0) = 0$ and $f(1) = g(1) = 0$, then $(f+g)(0) = 0$ and $(f+g)(1) = 0$
+\item If $f(0) = f(1) = 0$, then $(cf)(0) = cf(0) = 0$ and $(cf)(1) = cf(1) = 0$
+\end{itemize}
+
+\textbf{(C) Vectors with $x+y+z=1$:} Not a subspace; doesn't contain zero vector.
+
+\textbf{(D) Idempotent matrices:} Fails closure. If $A^2 = A$ and $B^2 = B$, generally $(A+B)^2 \neq A+B$.
+
+\textbf{(E) First quadrant:} Fails closure under negative scalar multiplication.
+
+\hint Always check: (1) Contains zero? (2) Closed under addition? (3) Closed under scalar multiplication?
+
+\hrulefill
+
+\section*{Problem 5: Differentiation Operator}
+\textbf{Topic:} Linear operators, rank and nullity
+
+\correct{(A) rank = 3, nullity = 1}
+
+\textbf{Explanation:} The differentiation operator $\mathcal{D}: \mathcal{P}_3 \to \mathcal{P}_2$ works as:
+$$\mathcal{D}(a_0 + a_1x + a_2x^2 + a_3x^3) = a_1 + 2a_2x + 3a_3x^2$$
+
+\begin{itemize}
+\item The image is all of $\mathcal{P}_2$ (any quadratic can be obtained), so $\text{rank} = \dim(\mathcal{P}_2) = 3$
+\item The kernel consists of constant polynomials (derivatives equal zero), so $\dim(\ker(\mathcal{D})) = 1$
+\item Verify: $\dim(\mathcal{P}_3) = 4 = 3 + 1$ ✓
+\end{itemize}
+
+\hint The derivative of constants is zero, so the kernel is the space of constant polynomials.
+
+\hrulefill
+
+\section*{Problem 6: Elementary Matrices}
+\textbf{Topic:} Elementary matrices, determinants, invertibility
+
+\correct{(C) $\det(E) \neq 0$}
+
+\partcred{(E) Only true for row swaps}
+
+\textbf{Explanation:} Elementary matrices correspond to three types of row operations:
+\begin{enumerate}
+\item Row swaps: $\det(E) = -1$
+\item Row scaling by $c$: $\det(E) = c \neq 0$
+\item Adding multiple of one row to another: $\det(E) = 1$
+\end{enumerate}
+
+All elementary matrices are invertible (operations can be undone), so $\det(E) \neq 0$ always.
+
+\trap Not all elementary matrices have $\det = \pm 1$; row scaling can give any nonzero determinant.
+
+\hrulefill
+
+\section*{Problem 7: Coimage and Cokernel}
+\textbf{Topic:} Quotient spaces, fundamental theorem
+
+\correct{(C) $\text{coim } T = V/\ker T$ and $\text{coker } T = W/\text{im } T$}
+
+\textbf{Explanation:} By definition:
+\begin{itemize}
+\item \textbf{Coimage:} The quotient of the domain by the kernel: $V/\ker T$
+  \begin{itemize}
+  \item This "mods out" the part that maps to zero
+  \item Results in equivalence classes of vectors that map to the same output
+  \end{itemize}
+\item \textbf{Cokernel:} The quotient of the codomain by the image: $W/\text{im } T$
+  \begin{itemize}
+  \item This captures "what's missing" from the image
+  \item Measures the failure of surjectivity
+  \end{itemize}
+\end{itemize}
+
+\hint Remember: "co-" operations involve quotients of the corresponding spaces.
+
+\hrulefill
+
+\section*{Problem 8: Permutation Matrices}
+\textbf{Topic:} Permutation matrices, cyclic permutations
+
+\correct{(B) $P^3 = I$}
+
+\partcred{(D) $P^{-1} = P$ - true for 2-cycles but not this 3-cycle}
+
+\textbf{Explanation:} This permutation matrix cycles rows: $1 \to 2 \to 3 \to 1$.
+
+Computing powers:
+\begin{itemize}
+\item $P$ maps: row 1 → row 2, row 2 → row 3, row 3 → row 1
+\item $P^2$ maps: row 1 → row 3, row 2 → row 1, row 3 → row 2
+\item $P^3$ maps: row 1 → row 1, row 2 → row 2, row 3 → row 3 (identity!)
+\end{itemize}
+
+For this 3-cycle: $P^{-1} = P^2 \neq P$ (unlike 2-cycles where $P^{-1} = P$).
+
+\hint For an $n$-cycle permutation, $P^n = I$.
+
+\hrulefill
+
+\section*{Problem 9: Linear Independence in $\mathbb{R}^3$}
+\textbf{Topic:} Linear independence, span
+
+\correct{(C) Linearly dependent and does not span $\mathbb{R}^3$}
+
+\textbf{Explanation:} Notice that:
+$$\begin{pmatrix}1\\3\\1\end{pmatrix} = \begin{pmatrix}1\\2\\0\end{pmatrix} + \begin{pmatrix}0\\1\\1\end{pmatrix}$$
+
+This shows linear dependence. Since we have only 2 independent vectors in $\mathbb{R}^3$, the set cannot span the entire space.
+
+\trap Three vectors in $\mathbb{R}^3$ aren't automatically a basis—check for independence!
+
+\hrulefill
+
+\section*{Problem 10: Subspace Operations}
+\textbf{Topic:} Subspaces, intersection and union
+
+\correct{(B) $W_1 \cap W_2$}
+
+\textbf{Explanation:} 
+\begin{itemize}
+\item \textbf{(A) Union:} Generally NOT a subspace. Example: $x$-axis ∪ $y$-axis in $\mathbb{R}^2$
+\item \textbf{(B) Intersection:} Always a subspace! ✓
+  \begin{itemize}
+  \item Contains zero (in both subspaces)
+  \item Closed under addition and scalar multiplication
+  \end{itemize}
+\item \textbf{(C) Set difference:} Not closed under scalar multiplication
+\item \textbf{(D) Complement of sum:} Not closed under operations
+\item \textbf{(E) Quotient spaces:} These ARE subspaces but of $V/W_i$, not of $V$
+\end{itemize}
+
+\hint Intersection preserves all subspace properties; union typically doesn't.
+
+\hrulefill
+
+\section*{Problem 11: Symmetric Matrices}
+\textbf{Topic:} Dimension of matrix subspaces
+
+\correct{(D) 6}
+
+\partcred{(B) 3 - counts only diagonal}
+
+\textbf{Explanation:} A $3 \times 3$ symmetric matrix has the form:
+$$\begin{bmatrix} a & b & c \\ b & d & e \\ c & e & f \end{bmatrix}$$
+
+Count the independent parameters:
+\begin{itemize}
+\item Diagonal: 3 parameters $(a, d, f)$
+\item Upper triangle: 3 parameters $(b, c, e)$
+\item Total: 6 dimensions
+\end{itemize}
+
+Formula: For $n \times n$ symmetric matrices, $\dim = \frac{n(n+1)}{2}$
+
+\hrulefill
+
+\section*{Problem 12: Dimension Constraints}
+\textbf{Topic:} Rank-nullity theorem, dimension bounds
+
+\correct{(C) The dimension of $\ker(T)$ is at least 2}
+
+\textbf{Explanation:} By the Rank-Nullity Theorem:
+$$\dim(V) = \dim(\ker T) + \dim(\text{im } T)$$
+
+Since $\text{im}(T) \subseteq W$, we have $\dim(\text{im } T) \leq \dim(W) = 3$.
+
+Therefore:
+$$5 = \dim(\ker T) + \dim(\text{im } T) \leq \dim(\ker T) + 3$$
+
+So $\dim(\ker T) \geq 2$.
+
+\hint When domain dimension exceeds codomain dimension, there must be a nontrivial kernel.
+
+\hrulefill
+
+\section*{Problem 13: LU Decomposition and Nonsingularity}
+\textbf{Topic:} LU decomposition, triangular matrices, determinants
+
+\correct{(E) $A$ is nonsingular if and only if all diagonal entries of $U$ are nonzero}
+
+\partcred{(B) Close but says "last" instead of "all"; (D) Wrong—signs don't matter}
+
+\textbf{Explanation:} 
+\begin{itemize}
+\item In standard LU decomposition, $L$ has 1's on the diagonal (by convention)
+\item Therefore, $L$ is always invertible
+\item Since $A = LU$ and $\det(A) = \det(L)\det(U) = \det(U)$
+\item For triangular matrices: nonsingular ⟺ all diagonal entries nonzero
+\item Thus: $A$ nonsingular ⟺ $U$ nonsingular ⟺ all diagonal entries of $U$ are nonzero
+\end{itemize}
+
+\hrulefill
+
+\section*{Problem 14: LU Properties}
+\textbf{Topic:} LU decomposition fundamentals
+
+\correct{(A) The matrix $L$ is invertible}
+
+\textbf{Explanation:} By convention in LU decomposition:
+\begin{itemize}
+\item $L$ is lower triangular with 1's on the diagonal
+\item This guarantees $\det(L) = 1 \neq 0$
+\item Therefore, $L$ is always invertible
+\item $U$ may have zeros on diagonal (singular case)
+\item The other options depend on whether $A$ is singular
+\end{itemize}
+
+\hint The "L" in LU always has unit diagonal, making it invertible by construction.
+
+\hrulefill
+
+\section*{Problem 15: Basis Extension}
+\textbf{Topic:} Basis, unique representation
+
+\correct{(B) $\mathbf{v}_5$ can be uniquely written as a linear combination of $\mathbf{v_1, v_2, v_3, v_4}$}
+
+\textbf{Explanation:} Since $\{\mathbf{v_1, v_2, v_3, v_4}\}$ is a basis for the 4-dimensional space $V$:
+\begin{itemize}
+\item Every vector in $V$ (including $\mathbf{v}_5$) can be written as a linear combination of the basis
+\item This representation is unique (fundamental property of bases)
+\item $\mathbf{v}_5$ need not be zero (option A is wrong)
+\item The set $S$ is linearly dependent since it has 5 vectors in a 4D space
+\end{itemize}
+
+\hint In an $n$-dimensional space, any set of more than $n$ vectors must be linearly dependent.
+
+\hrulefill
+
+\section*{Problem 16: Pivots and Solutions}
+\textbf{Topic:} Row reduction, pivot analysis
+
+\correct{(B) The system has infinitely many solutions if it has any solution at all}
+
+\partcred{(E) Ambiguity about pivot location}
+
+\textbf{Explanation:} With 2 pivots in a $3 \times 3$ system:
+\begin{itemize}
+\item One row lacks a pivot (becomes a zero row or inconsistent row)
+\item If the third row is $[0\ 0\ 0\ |\ b_3]$ with $b_3 \neq 0$: inconsistent
+\item If the third row is $[0\ 0\ 0\ |\ 0]$: one free variable → infinitely many solutions
+\item The system either has no solutions or infinitely many (never unique)
+\end{itemize}
+
+\hint Number of free variables = number of columns minus number of pivots in coefficient matrix.
+
+\hrulefill
+
+\section*{Problem 17: Non-Linear Transformation}
+\textbf{Topic:} Linear transformation properties
+
+\correct{(D) $F(x,y) = (x+1, y, x-y)$}
+
+\textbf{Explanation:} For a transformation to be linear, it must satisfy $T(\mathbf{0}) = \mathbf{0}$.
+
+Check $F$: $F(0,0) = (0+1, 0, 0-0) = (1, 0, 0) \neq (0, 0, 0)$
+
+This immediately disqualifies $F$. Additionally, $F$ fails additivity:
+$$F(x_1+x_2, y_1+y_2) = (x_1+x_2+1, y_1+y_2, x_1+x_2-y_1-y_2)$$
+$$\neq F(x_1,y_1) + F(x_2,y_2) = (x_1+1, y_1, x_1-y_1) + (x_2+1, y_2, x_2-y_2)$$
+
+All other options preserve the zero vector and satisfy linearity.
+
+\trap The "+1" is the killer—any additive constant breaks linearity.
+
+\hrulefill
+
+\section*{Problem 18: Fundamental Theorem of Linear Algebra}
+\textbf{Topic:} Isomorphism between coimage and image
+
+\correct{(E) None of the above}
+
+\textbf{Explanation:} The Fundamental Theorem of Linear Algebra states:
+$$\text{coim}(T) \cong \text{im}(T)$$
+
+That is, the coimage $V/\ker(T)$ is isomorphic to the image of $T$.
+
+None of the given options correctly state this relationship. This tests precise understanding of the theorem's statement.
+
+\hint The key isomorphism is between what's "left after modding out the kernel" and what actually gets mapped to.
+
+\hrulefill
+
+\section*{Problem 19: Matrix Transformations}
+\textbf{Topic:} Correspondence between matrices and linear maps
+
+\correct{(C) The null space of $A$ is the kernel of $T_A$}
+
+\partcred{(B) Column space equals image, not coimage}
+
+\textbf{Explanation:} By definition:
+\begin{itemize}
+\item The null space of $A$ = $\{\mathbf{x} : A\mathbf{x} = \mathbf{0}\}$ = $\ker(T_A)$ ✓
+\item The column space of $A$ = image of $T_A$ (not coimage)
+\item "Nonsingular" only makes sense for square matrices
+\item Options (A), (D), (E) incorrectly relate injectivity/surjectivity to singularity
+\end{itemize}
+
+\hrulefill
+
+\section*{Problem 20: Spanning Definition}
+\textbf{Topic:} Definition of span
+
+\correct{(E) $S$ spans $V$}
+
+\partcred{(C) True but not "by definition"}
+
+\textbf{Explanation:} The problem statement exactly describes the definition of "$S$ spans $V$."
+
+\begin{itemize}
+\item This doesn't imply $S$ is a basis (need linear independence too)
+\item This doesn't imply $S$ is linearly independent
+\item While (C) is true (can't span with fewer than $\dim(V)$ vectors), it's a theorem, not the definition
+\end{itemize}
+
+\hint "Spans" means exactly "every vector can be written as a linear combination."
+
+\hrulefill
+
+\section*{Problem 21: Polynomial Independence}
+\textbf{Topic:} Linear independence in $\mathcal{P}_2$
+
+\correct{(A) Linearly independent and spans $\mathcal{P}_2$}
+
+\textbf{Explanation:} Check linear independence by setting up:
+$$c_1(1+x) + c_2(x+x^2) + c_3(1+x^2) = 0$$
+
+This gives the system:
+\begin{align}
+c_1 + c_3 &= 0 \quad \text{(constant term)}\\
+c_1 + c_2 &= 0 \quad \text{(coefficient of } x\text{)}\\
+c_2 + c_3 &= 0 \quad \text{(coefficient of } x^2\text{)}
+\end{align}
+
+The only solution is $c_1 = c_2 = c_3 = 0$, so the set is linearly independent.
+
+Since we have 3 independent vectors in the 3-dimensional space $\mathcal{P}_2$, they form a basis.
+
+\hrulefill
+
+\section*{Problem 22: Cokernel Dimension}
+\textbf{Topic:} Cokernel, quotient spaces
+
+\correct{(D) $\mathbb{R}^3$}
+
+\textbf{Explanation:} 
+Given: $T: \mathbb{R}^5 \to \mathbb{R}^6$ with $\dim(\ker(T)) = 2$
+
+By Rank-Nullity: $\dim(\text{im}(T)) = 5 - 2 = 3$
+
+The cokernel is $\text{coker}(T) = \mathbb{R}^6/\text{im}(T)$
+
+Therefore: $\dim(\text{coker}(T)) = 6 - 3 = 3$
+
+So coker$(T) \cong \mathbb{R}^3$.
+
+\hint The cokernel measures "what's missing" from the image to fill the codomain.
+
+\hrulefill
+
+\section*{Problem 23: Quotient Space Elements}
+\textbf{Topic:} Equivalence classes, quotient by subspaces
+
+\correct{(C) $(-1, -2, 2)^T$}
+
+\textbf{Explanation:} Two vectors are equivalent if their difference lies in $W$ (the $xy$-plane).
+
+For $\mathbf{v} = (3, 5, 2)^T$, check each option:
+
+\begin{itemize}
+\item (A): $(3,5,2) - (3,5,0) = (0,0,2) \notin W$ (has nonzero $z$-component)
+\item (B): $(3,5,2) - (6,10,4) = (-3,-5,-2) \notin W$
+\item (C): $(3,5,2) - (-1,-2,2) = (4,7,0) \in W$ ✓ (zero $z$-component)
+\item (D): $(3,5,2) - (0,0,0) = (3,5,2) \notin W$
+\end{itemize}
+
+\hint Vectors are equivalent mod $W$ if they differ only by an element of $W$.
+
+\hrulefill
+
+\section*{Problem 24: Elementary Matrix Order}
+\textbf{Topic:} Composition of row operations
+
+\correct{(A) $B = E_2 E_1 A$}
+
+\textbf{Explanation:} Elementary matrices apply from right to left:
+\begin{enumerate}
+\item First operation: $E_1 A$ swaps rows 1 and 2
+\item Second operation: $E_2(E_1 A)$ adds 2 times (new) row 1 to row 3
+\end{enumerate}
+
+The key insight: After swapping, "row 1" in the second operation refers to what was originally row 2.
+
+\trap Matrix multiplication is right-to-left, but we describe operations left-to-right!
+
+\hrulefill
+
+\section*{Problem 25: Subspace Violations}
+\textbf{Topic:} Subspace axioms
+
+\correct{(E) All three: (A), (B), and (C)}
+
+\partcred{(D) Identifies two violations correctly}
+
+\textbf{Explanation:} The set $S = \{(x,y,z) : x+y+z = 1\}$ is an affine space (shifted plane).
+
+Check all three properties:
+\begin{enumerate}
+\item \textbf{Zero vector:} $(0,0,0) \notin S$ since $0+0+0 = 0 \neq 1$ ✗
+\item \textbf{Addition:} If $\mathbf{u}, \mathbf{v} \in S$, then sum of coordinates of $\mathbf{u}+\mathbf{v}$ is $1+1 = 2 \neq 1$ ✗
+\item \textbf{Scalar multiplication:} If $\mathbf{u} \in S$ and $c \neq 1$, then sum of coordinates of $c\mathbf{u}$ is $c \cdot 1 = c \neq 1$ ✗
+\end{enumerate}
+
+All three properties fail!
+
+\hint Any affine space (not through origin) fails all subspace properties.
+
+\hrulefill
+
+\section*{Study Tips}
+
+\begin{enumerate}
+\item \textbf{Conceptual Understanding:} Focus on definitions and theorems, not just computation
+\item \textbf{Check Special Cases:} Always verify with simple examples (zero vector, identity matrix, etc.)
+\item \textbf{Watch for Keywords:} "Must be," "always," "if and only if" signal precise mathematical statements
+\item \textbf{Dimension Counting:} Many problems reduce to careful dimension arithmetic
+\item \textbf{Subspace Tests:} Always check all three properties systematically
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,1742 @@
+\documentclass[12pt]{amsart}
+%\usepackage[margin=1in]{geometry}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+
+\usepackage[shortlabels]{enumitem}
+% Set spacing for all enumerate environments
+\setlist[enumerate]{itemsep=6pt, topsep=6pt, parsep=0pt}
+
+\usepackage{graphicx}
+
+\usepackage[left=0.75in,right=1in,bottom=0.9in]{geometry}  
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+\usepackage[T1]{fontenc}
+
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1}
+
+% Macro definitions
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTION DIVIDERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\divider}{
+  \vspace{-1em} % Add space above
+  \noindent
+  \raisebox{-0.15ex}{\textbullet}%
+  \hspace{0.5em}%
+  \rule[0.5ex]{0.95\textwidth}{1.0pt}%
+  \hspace{0.5em}%
+  \raisebox{-0.15ex}{\textbullet}%
+  \vspace{0em} % Adjust space below
+}
+
+\title{ESE 2030 QUIZZAM 3 : Spring 2026}
+\author{prof-g \& meg}
+
+
+\begin{document}
+\maketitle
+
+\begin{center}
+    {\bf INSTRUCTIONS}
+\end{center}
+
+\begin{itemize}
+\item 
+No books, notes, or calculators. Use a writing utensil and logic. 
+
+\item 
+Please follow question instructions and fill in the bubble-sheet. 
+
+\item 
+Select one answer per problem.
+
+\item 
+Each problem has one best answer. 
+
+\item 
+In some problems, a wrong choice may be worth partial credit. 
+
+\item 
+Be careful to fill in the correct problem number. 
+
+\item 
+These questions are written carefully: if you detect an error, read closely and do your best.
+
+\item 
+If anything is unclear, use your best judgment. 
+
+\item 
+Cheating in any form will be dealt with severely. 
+\end{itemize}
+
+\newpage
+
+
+% QUIZZAM 5 DRAFT
+% TOTAL QUESTIONS: 10 (of target 20-25; Week 9 problems still needed)
+% COVERAGE: WEEKS 7-9
+
+
+{\bf PROBLEM 1:}
+% WEEK = 7
+% TOPICS = Matrix exponential, initial value problem, linearity of solutions, superposition
+% NOTE: Rewritten stem for clarity (removed "particular" and "IVP" language)
+%
+Consider the system $\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}$ where $A$ is a 
+$3 \times 3$ matrix. Suppose you know two solutions:
+\begin{itemize}
+\item $\mathbf{x}_1(t)$ is the solution with initial condition $\mathbf{x}_1(0) = \mathbf{a}$
+\item $\mathbf{x}_2(t)$ is the solution with initial condition $\mathbf{x}_2(0) = \mathbf{b}$
+\end{itemize}
+%
+What is the solution $\mathbf{x}(t)$ with initial condition $\mathbf{x}(0) = 3\mathbf{a} - 2\mathbf{b}$?
+
+\begin{enumerate}[(A)]
+\item $3\mathbf{x}_1(t) - 2\mathbf{x}_2(t)$
+\item $e^{At}(3\mathbf{a} - 2\mathbf{b})$, but this cannot be simplified 
+      further without computing $e^{At}$
+\item $(3-2t)\mathbf{x}_1(t) + t\,\mathbf{x}_2(t)$, by interpolation 
+      between the two known solutions
+\item $3\mathbf{x}_1(t) - 2\mathbf{x}_2(t)$, but only if $A$ is diagonalizable
+\item Cannot be determined without knowing $A$ explicitly
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+%
+% \textbf{Explanation:} The solution operator $\mathbf{x}_0 \mapsto 
+% e^{At}\mathbf{x}_0$ is \emph{linear} in the initial condition, because 
+% matrix multiplication is linear. This means:
+%   $e^{At}(3\mathbf{a} - 2\mathbf{b}) = 3e^{At}\mathbf{a} - 2e^{At}\mathbf{b} 
+%     = 3\mathbf{x}_1(t) - 2\mathbf{x}_2(t)$
+%
+% No knowledge of $A$ is needed beyond the fact that the system is 
+% linear. This is the superposition principle for linear ODEs: any 
+% linear combination of solutions is again a solution, with the 
+% corresponding linear combination of initial conditions.
+%
+% Note that this works for \emph{any} matrix $A$ --- diagonalizable or 
+% not, real or complex eigenvalues, repeated eigenvalues or not. The 
+% linearity comes from the structure of matrix multiplication, not from 
+% any special property of $A$.
+%
+% \textbf{Partial credit:} B (correctly writes down the formal 
+%   expression $e^{At}(3\mathbf{a} - 2\mathbf{b})$, which is true, 
+%   but fails to recognize that linearity of $e^{At}$ allows this 
+%   to be rewritten using the known solutions. The student understands 
+%   the matrix exponential formula but misses the deeper point that 
+%   known solutions can be combined without ever computing $e^{At}$ 
+%   explicitly.)
+%
+% \textbf{Trick answer:} E (fails to recognize that linearity allows 
+%   us to build new solutions from old ones; thinks every new initial 
+%   condition requires recomputing from scratch)
+%
+% \textbf{Trick answer:} D (the superposition principle holds for all 
+%   linear systems, not just diagonalizable ones. Linearity of the 
+%   solution operator comes from linearity of matrix multiplication, 
+%   which requires no assumptions about the eigenstructure of $A$. 
+%   A student choosing this may conflate the techniques for 
+%   \emph{computing} $e^{At}$ --- which do depend on eigenstructure 
+%   --- with the structural fact that $e^{At}$ is linear.)
+%
+% \textbf{Trick answer:} C (invents a nonlinear interpolation scheme; 
+%   the time-dependent coefficients $(3-2t)$ and $t$ would violate 
+%   the ODE --- a linear combination of solutions with time-dependent 
+%   coefficients is generally not a solution unless the coefficients 
+%   are constant)
+%
+% \textbf{Trick answer:} B (see partial credit; formally correct but 
+%   misses the simplification that makes the matrix exponential 
+%   powerful in practice)
+
+\divider
+
+{\bf PROBLEM 2:}
+% WEEK = 9
+% TOPICS = Spectral radius, linear iteration, convergence to zero, eigenvalue magnitude vs sign
+%
+A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 0.7$, 
+$\lambda_2 = -0.9$, and $\lambda_3 = 0.2$.
+%
+Consider the iteration $\mathbf{x}_{k+1} = A\mathbf{x}_k$ starting 
+from a generic initial condition $\mathbf{x}_0$.
+%
+What is the long-term behavior of $\mathbf{x}_k$?
+
+\begin{enumerate}[(A)]
+\item $\mathbf{x}_k$ may converge or diverge depending on the initial condition
+\item $\mathbf{x}_k$ oscillates indefinitely without settling to a limit
+\item $\mathbf{x}_k$ converges to a dominant eigenvector
+\item $\mathbf{x}_k$ converges to $\mathbf{0}$ for every initial condition
+\item $\mathbf{x}_k$ diverges due to oscillations at each step
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+%
+% \textbf{Explanation:} The key fact is that $A^k \to 0$ if and only if 
+% every eigenvalue of $A$ satisfies $|\lambda_i| < 1$, i.e., the spectral 
+% radius $\rho(A) < 1$. Here, $|\lambda_1| = 0.7$, $|\lambda_2| = 0.9$, 
+% and $|\lambda_3| = 0.2$, so $\rho(A) = 0.9 < 1$.
+%
+% What happens mechanically: when $A$ is diagonalizable (or more generally), 
+% the $k$-th iterate decomposes along eigenvectors as 
+% $\mathbf{x}_k = c_1 \lambda_1^k \mathbf{v}_1 + c_2 \lambda_2^k 
+% \mathbf{v}_2 + c_3 \lambda_3^k \mathbf{v}_3$. Each term decays because 
+% $|\lambda_i|^k \to 0$. The term $(-0.9)^k$ does alternate in sign, but 
+% its \emph{magnitude} $0.9^k \to 0$, so this component oscillates with 
+% decreasing amplitude and still vanishes.
+%
+% This holds for \emph{every} initial condition, not just special ones: 
+% every component of $\mathbf{x}_k$ along every eigendirection is 
+% multiplied by a quantity with magnitude less than $1$ at each step.
+%
+% \textbf{Partial credit:} B (correctly identifies the sign-alternating 
+%   behavior of $(-0.9)^k$, which is a real feature of the iteration: 
+%   the component along $\mathbf{v}_2$ \emph{does} oscillate in sign 
+%   at each step. The error is concluding that this oscillation persists 
+%   forever at constant amplitude. In fact, $|{-0.9}|^k = 0.9^k \to 0$, 
+%   so the oscillations are damped and die out. The student understands 
+%   the qualitative effect of a negative eigenvalue but fails to connect 
+%   magnitude $< 1$ with decay.)
+%
+% \textbf{Trick answer:} E (confuses the sign of $\lambda_2$ with the 
+%   growth of iterates. A negative eigenvalue with $|\lambda| < 1$ 
+%   produces \emph{decaying} sign-alternating behavior, not growing 
+%   oscillations. The student conflates ``negative'' with ``unstable.'')
+%
+% \textbf{Trick answer:} C (two errors compounded. First, it identifies 
+%   $\lambda_1 = 0.7$ as ``the largest eigenvalue'' --- but the dominant 
+%   eigenvalue is determined by magnitude, and $|\lambda_2| = 0.9 > 0.7$. 
+%   Second, it claims the iteration converges to a nonzero limit, which 
+%   would require a dominant eigenvalue with $|\lambda| = 1$, not $< 1$. 
+%   When all $|\lambda_i| < 1$, every component decays to zero; there is 
+%   no surviving eigendirection.)
+%
+% \textbf{Trick answer:} B (see partial credit; the sign alternation is 
+%   real but the student doesn't recognize damping)
+%
+% \textbf{Trick answer:} A (when $\rho(A) < 1$, convergence to 
+%   $\mathbf{0}$ holds for \emph{all} initial conditions, not just 
+%   some. The behavior is global, not initial-condition-dependent. 
+%   Initial-condition dependence arises when some eigenvalues have 
+%   $|\lambda| < 1$ and others have $|\lambda| > 1$, which is not 
+%   the case here.)
+
+\divider
+
+{\bf PROBLEM 3:}
+% WEEK = 8
+% TOPICS = Real Jordan canonical form, block structure, complex conjugate 
+%          2x2 blocks, Jordan chains, reading block boundaries
+%
+The $6 \times 6$ matrix ${\mathcal J}$ below is in real Jordan canonical form:
+$${\mathcal J} = \begin{bmatrix} 
+3 & 1 & 0 & 0 & 0 & 0 \\ 
+0 & 3 & 0 & 0 & 0 & 0 \\ 
+0 & 0 & 3 & 0 & 0 & 0 \\ 
+0 & 0 & 0 & 0 & 0 & 0 \\ 
+0 & 0 & 0 & 0 & -1 & -2 \\ 
+0 & 0 & 0 & 0 & 2 & -1 
+\end{bmatrix}$$
+How many Jordan blocks does ${\mathcal J}$ have?
+\begin{enumerate}[(A)]
+\item $6$
+\item $3$
+\item $4$
+\item $5$
+\item This matrix is not in Jordan canonical form
+\end{enumerate}
+% \textbf{Correct Answer:} C
+%
+% \textbf{Explanation:} The four blocks are:
+% \begin{enumerate}
+%   \item A $2 \times 2$ Jordan block 
+%     $\begin{bmatrix} 3 & 1 \\ 0 & 3 \end{bmatrix}$ for 
+%     $\lambda = 3$ (the superdiagonal $1$ chains an eigenvector 
+%     to a generalized eigenvector).
+%   \item A $1 \times 1$ block $[3]$ for $\lambda = 3$.
+%   \item A $1 \times 1$ block $[0]$ for $\lambda = 0$.
+%   \item A $2 \times 2$ rotation block 
+%     $\begin{bmatrix} -1 & -2 \\ 2 & -1 \end{bmatrix}$ encoding 
+%     the complex conjugate pair $\lambda = -1 \pm 2i$. This has 
+%     the standard form 
+%     $\begin{bmatrix} \alpha & -\beta \\ \beta & \alpha 
+%     \end{bmatrix}$ with $\alpha = -1$, $\beta = 2$.
+% \end{enumerate}
+% Total: $4$ blocks. The key subtleties are (i) the eigenvalue 
+% $\lambda = 3$ produces \emph{two} separate blocks (a $2 \times 2$ 
+% Jordan chain and a $1 \times 1$ block), not one combined block, 
+% and (ii) the $2 \times 2$ rotation block is a \emph{single} block 
+% in real Jordan form.
+%
+% \textbf{Partial credit:} None
+%
+% \textbf{Trick answer:} B --- Counts one block per distinct 
+%   eigenvalue: one block for $\lambda = 3$, one for $\lambda = 0$, 
+%   one for the complex pair. This conflates ``same eigenvalue'' 
+%   with ``same block.'' In Jordan form, a single eigenvalue can 
+%   produce multiple blocks --- here $\lambda = 3$ has a $2 \times 2$ 
+%   Jordan block AND a separate $1 \times 1$ block (reflecting 
+%   geometric multiplicity $2$ within algebraic multiplicity $3$).
+%
+% \textbf{Trick answer:} D --- Splits the $2 \times 2$ rotation 
+%   block into two $1 \times 1$ blocks by reading $-1$ and $-1$ off 
+%   its diagonal, yielding five blocks: the $2 \times 2$ Jordan 
+%   block, $[3]$, $[0]$, $[-1]$, $[-1]$. This targets the student 
+%   who does not recognize the rotation block as a single unit 
+%   encoding a complex conjugate pair.
+%
+% \textbf{Trick answer:} A --- Treats every diagonal entry as its 
+%   own $1 \times 1$ block, ignoring all block structure entirely. 
+%   This is the ``I don't know what blocks are'' answer: six 
+%   diagonal entries, six blocks.
+%
+% \textbf{Trick answer:} E --- Believes the off-diagonal entries 
+%   $\pm 2$ in the lower-right $2 \times 2$ block violate Jordan 
+%   form. This targets the student who only knows \emph{complex} 
+%   Jordan form (where all blocks are upper triangular with 
+%   eigenvalues on the diagonal) and does not recognize that 
+%   \emph{real} Jordan form uses $2 \times 2$ rotation blocks to 
+%   encode complex conjugate pairs using only real entries.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 4:}
+% WEEK = 9
+% TOPICS = Graph Laplacian, symmetry, Spectral Theorem, kernel structure, 
+%          row/column sums, why zero is always an eigenvalue
+%
+Let $G$ be an undirected graph on $n$ vertices with adjacency matrix $A$ 
+and degree matrix $D = \operatorname{diag}(d_1, \ldots, d_n)$. The graph 
+Laplacian is $L = D - A$.
+
+Which of the following best explains why $\lambda = 0$ is always an 
+eigenvalue of $L$, regardless of the graph?
+
+\begin{enumerate}[(A)]
+\item Every row of $L$ sums to zero, so the all-ones 
+      vector $\mathbf{1}$ is in $\ker(L)$
+\item $L = D - A$ is a difference of two matrices, and the subtraction 
+      causes cancellation that forces a zero eigenvalue
+\item The diagonal entries of $L$ are non-negative and the off-diagonal 
+      entries are non-positive, which forces at least one eigenvalue 
+      to be zero
+\item $L$ is symmetric, and symmetric matrices always have at least one zero eigenvalue
+\item None of the above
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+%
+% \textbf{Explanation:} The graph Laplacian $L = D - A$ has the 
+% property that its rows sum to zero. This is because the diagonal 
+% entry $L_{ii} = d_i$ (the degree of vertex $i$) and the off-diagonal 
+% entries in row $i$ are $L_{ij} = -A_{ij}$, so:
+%   $$\sum_j L_{ij} = d_i - \sum_{j \neq i} A_{ij} = d_i - d_i = 0$$
+% since the degree of vertex $i$ equals the number of its neighbors.
+%
+% This means $L\mathbf{1} = \mathbf{0}$, where $\mathbf{1}$ is the 
+% vector of all ones. By definition, $\mathbf{1}$ is an eigenvector 
+% of $L$ with eigenvalue $0$. This argument works for any undirected 
+% graph --- connected or disconnected, with any degree sequence.
+%
+% Moreover, since $L$ is symmetric (the graph is undirected, so 
+% $A = A^T$, and $D$ is diagonal), the Spectral Theorem guarantees 
+% that $L$ can be orthogonally diagonalized with all real eigenvalues. 
+% It is also positive semi-definite (since 
+% $\mathbf{x}^T L \mathbf{x} = \sum_{(i,j) \in E} (x_i - x_j)^2 
+% \geq 0$), so all eigenvalues are $\geq 0$, and we have just shown 
+% that $0$ is achieved.
+%
+% \textbf{Partial credit:} None
+%
+% \textbf{Trick answer:} D (false --- symmetric matrices do NOT 
+%   necessarily have a zero eigenvalue. For example, the identity 
+%   matrix $I$ is symmetric with all eigenvalues equal to $1$. 
+%   Symmetry guarantees real eigenvalues and orthogonal eigenvectors, 
+%   but says nothing about whether zero is among them. The zero 
+%   eigenvalue of $L$ comes from the specific row-sum structure, 
+%   not from symmetry alone.)
+%
+% \textbf{Trick answer:} B (the fact that $L$ is a ``difference'' 
+%   does not explain the zero eigenvalue. Many differences of 
+%   matrices are invertible --- e.g., $3I - I = 2I$ has no zero 
+%   eigenvalue. The zero eigenvalue arises from the specific 
+%   algebraic relationship between $D$ and $A$, not from the 
+%   subtraction operation itself.)
+%
+% \textbf{Trick answer:} C (the sign pattern of $L$ does not force 
+%   a zero eigenvalue. The matrix 
+%   $\begin{bmatrix} 2 & -1 \\ -1 & 3 \end{bmatrix}$ has the 
+%   same sign pattern as a Laplacian but is invertible, with 
+%   eigenvalues $\frac{5 \pm \sqrt{5}}{2}$. The sign pattern 
+%   describes the class of \emph{M-matrices}, not all of which 
+%   are singular.)
+%
+% \textbf{Trick answer:} E 
+
+\divider
+
+{\bf PROBLEM 5:}
+% WEEK = 7
+% TOPICS = Matrix exponential, power series definition, nilpotent matrices, 
+%          direct computation from definition
+%
+Which of the following is $e^{A}$ where 
+$A = \begin{bmatrix} 0 & -2 & 0 \\ 0 & 0 & -2 \\ 0 & 0 & 0 \end{bmatrix}$?
+
+\noindent
+\begin{minipage}{0.33\textwidth}\centering
+(A) $\begin{bmatrix} 1 & -2 & -2 \\ 0 & 1 & -2 \\ 0 & 0 & 1 \end{bmatrix}$
+\end{minipage}%
+\begin{minipage}{0.33\textwidth}\centering
+(B) $\begin{bmatrix} 1 & -2 & 4 \\ 0 & 1 & -2 \\ 0 & 0 & 1 \end{bmatrix}$
+\end{minipage}%
+\begin{minipage}{0.33\textwidth}\centering
+(C) $\begin{bmatrix} 1 & e^{-2} & 0 \\ 0 & 1 & e^{-2} \\ 0 & 0 & 1 \end{bmatrix}$
+\end{minipage}
+
+\medskip
+\noindent
+\begin{minipage}{0.5\textwidth}\centering
+(D) $\begin{bmatrix} 1 & -2 & 2 \\ 0 & 1 & -2 \\ 0 & 0 & 1 \end{bmatrix}$
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}\centering
+(E) $\begin{bmatrix} 1 & -2 & 0 \\ 0 & 1 & -2 \\ 0 & 0 & 1 \end{bmatrix}$
+\end{minipage}
+
+% \textbf{Correct Answer:} D
+%
+% \textbf{Explanation:} The matrix $A$ is strictly upper triangular, 
+% hence nilpotent. We compute:
+%   $$A^2 = \begin{bmatrix} 0 & -2 & 0 \\ 0 & 0 & -2 \\ 0 & 0 & 0 
+%           \end{bmatrix}
+%           \begin{bmatrix} 0 & -2 & 0 \\ 0 & 0 & -2 \\ 0 & 0 & 0 
+%           \end{bmatrix}
+%         = \begin{bmatrix} 0 & 0 & 4 \\ 0 & 0 & 0 \\ 0 & 0 & 0 
+%           \end{bmatrix}$$
+% and $A^3 = A^2 \cdot A = 0$ (which can be verified directly, or 
+% follows from the fact that an $n \times n$ strictly upper triangular 
+% matrix is nilpotent of index at most $n$).
+%
+% Since $A^k = 0$ for all $k \geq 3$, the power series terminates:
+%   $$e^A = I + A + \frac{1}{2!}A^2 
+%         = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 
+%           \end{bmatrix}
+%         + \begin{bmatrix} 0 & -2 & 0 \\ 0 & 0 & -2 \\ 0 & 0 & 0 
+%           \end{bmatrix}
+%         + \frac{1}{2}\begin{bmatrix} 0 & 0 & 4 \\ 0 & 0 & 0 \\ 
+%           0 & 0 & 0 \end{bmatrix}
+%         = \begin{bmatrix} 1 & -2 & 2 \\ 0 & 1 & -2 \\ 0 & 0 & 1 
+%           \end{bmatrix}$$
+%
+% The problem tests the entire chain: recognizing nilpotency so the 
+% series is finite, computing $A^2$ correctly (including the sign of 
+% $(-2)(-2) = +4$), applying the $\frac{1}{k!}$ coefficients properly, 
+% and assembling $I + A + \frac{1}{2}A^2$.
+%
+% \textbf{Partial credit:} NONE
+%
+% \textbf{Trick answer:} B (The student does the hard parts 
+%   correctly --- nilpotent recognition, matrix squaring, series 
+%   truncation --- but forgets the factorial denominators that 
+%   distinguish $e^A$ from $\sum A^k$.)
+%
+% \textbf{Trick answer:} E (the student computes only $I + A$, 
+%   believing the series terminates after the linear term. This 
+%   means the student either thinks $A^2 = 0$ without checking 
+%   --- confusing nilpotent index $2$ with index $3$ --- or 
+%   doesn't realize that higher-order terms can contribute. The 
+%   $(1,3)$ entry is $0$ instead of $2$, revealing that the 
+%   $A^2$ contribution was missed entirely.)
+%
+% \textbf{Trick answer:} C 
+% You do not simply exponentiate the terms
+%
+% \textbf{Trick answer:} A (the student correctly sets up 
+%   $I + A + \frac{1}{2}A^2$ and applies the factorial, but 
+%   makes a sign error in computing $A^2$: gets $(-2)(-2) = -4$ 
+%   instead of $+4$ in the $(1,3)$ entry, yielding 
+%   $\frac{1}{2}(-4) = -2$. This is a pure arithmetic error 
+%   in matrix multiplication, where the student loses track of 
+%   the double negative.)
+
+\vspace{0.5in}
+
+\divider
+
+
+
+{\bf PROBLEM 6:}
+% WEEK = 9
+% TOPICS = Spectral Theorem, symmetric vs diagonalizable, real eigenvalues, 
+%          orthogonal eigenvectors, guaranteed diagonalizability
+%
+A real $n \times n$ matrix $A$ is known to be symmetric.
+%
+Which of the following is a consequence of the Spectral Theorem that does 
+\textbf{not} follow from diagonalizability alone?
+
+\begin{enumerate}[(A)]
+\item $\operatorname{tr}(A)$ equals the sum of the eigenvalues of $A$
+\item $\det(A)$ equals the product of the eigenvalues of $A$
+\item $A$ can be written as $V\Lambda V^{-1}$ for some invertible $V$ 
+      and diagonal $\Lambda$
+\item $A$ has $n$ eigenvalues with algebraic and geometric multiplicity one
+\item The eigenvectors of $A$ can be chosen to form an orthonormal basis 
+      for $\mathbb{R}^n$
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+%
+% \textbf{Explanation:} The Spectral Theorem for real symmetric matrices 
+% states that $A = Q\Lambda Q^T$ where $Q$ is orthogonal and $\Lambda$ 
+% is real diagonal. This means:
+%   (1) All eigenvalues are real.
+%   (2) There exists a \emph{full orthonormal} eigenbasis.
+%   (3) $A$ is always diagonalizable, regardless of eigenvalue 
+%       multiplicity.
+%
+% Among the choices, only (E) --- the existence of an orthonormal 
+% eigenbasis --- requires symmetry. The others are either properties 
+% of all matrices or of all diagonalizable matrices:
+%
+%   (A) Every $n \times n$ matrix (symmetric or not, diagonalizable 
+%       or not) has $n$ eigenvalues counting multiplicity, because 
+%       the characteristic polynomial always has degree $n$.
+%
+%   (B) This is the \emph{definition} of diagonalizability. It 
+%       follows from diagonalizability alone; symmetry is not needed.
+%
+%   (C) $\operatorname{tr}(A) = \sum \lambda_i$ holds for \emph{every} 
+%       square matrix, not just diagonalizable or symmetric ones. It 
+%       follows from the relationship between the characteristic 
+%       polynomial and the trace.
+%
+%   (D) $\det(A) = \prod \lambda_i$ also holds for every square 
+%       matrix, for the same reason as (C).
+%
+% The conceptual point: diagonalizability gives you a basis of 
+% eigenvectors; the Spectral Theorem upgrades this to an 
+% \emph{orthonormal} basis. This is a strictly stronger condition. 
+% A diagonalizable matrix with non-orthogonal eigenvectors (e.g., 
+% $\begin{bmatrix} 2 & 1 \\ 0 & 3 \end{bmatrix}$) satisfies 
+% (A)--(D) but not (E).
+%
+% \textbf{Partial credit:} None
+%
+% \textbf{Trick answer:} D (true for all matrices, not specific to 
+%   symmetry or even to diagonalizability; students may think the 
+%   Spectral Theorem is needed to guarantee $n$ eigenvalues exist)
+%
+% \textbf{Trick answer:} C (this IS diagonalizability --- precisely 
+%   the property the question says is already assumed. A student 
+%   who selects this fails to distinguish diagonalizability from 
+%   the additional structure that symmetry provides.)
+%
+% \textbf{Trick answer:} A (true for all matrices; a student may 
+%   associate the trace-eigenvalue relationship with diagonalization, 
+%   but it holds universally)
+%
+% \textbf{Trick answer:} B (same reasoning as C; the 
+%   determinant-eigenvalue relationship is universal)
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 7:}
+% WEEK = 8
+% TOPICS = Jordan canonical form, eigenvalues, algebraic/geometric multiplicity, block structure
+%
+A $4 \times 4$ matrix $A$ has only one eigenvalue, $\lambda = 3$, with 
+algebraic multiplicity $4$. The eigenspace $\ker(A - 3I)$ has dimension $2$.
+%
+How many Jordan blocks appear in the Jordan form of $A$, and why?
+
+\begin{enumerate}[(A)]
+\item Two blocks: specifically one $3 \times 3$ block and one $1 \times 1$
+      block, because the deficiency $4 - 2 = 2$ means the matrix $(A - 3I)$
+      is not nilpotent of order $1$, forcing the larger block to have size $3$
+\item Four $1 \times 1$ blocks, because the algebraic multiplicity is $4$
+\item Two blocks, because the number of Jordan blocks for an eigenvalue 
+      equals the dimension of its eigenspace
+\item One $4 \times 4$ block, because there is only one eigenvalue
+\item Cannot be determined without knowing the dimensions of $\ker(A - 3I)^k$ for $k \geq 2$
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+%
+% \textbf{Explanation:} A fundamental fact about Jordan form: the 
+% number of Jordan blocks for a given eigenvalue equals the 
+% \emph{geometric multiplicity} --- the dimension of the eigenspace. 
+% Each Jordan block begins with an eigenvector, so the number of 
+% independent eigenvectors is exactly the number of blocks.
+%
+% Here, $\dim(\ker(A - 3I)) = 2$, so there are exactly 2 Jordan 
+% blocks for $\lambda = 3$. Since $A$ is $4 \times 4$ and has only 
+% one eigenvalue, these two blocks must account for all 4 dimensions. 
+% The blocks could be $2 \times 2$ and $2 \times 2$, or $3 \times 3$ 
+% and $1 \times 1$ --- this cannot be determined without further 
+% information (specifically, $\dim(\ker(A - 3I)^2)$). But the 
+% \emph{number} of blocks is determined: it is $2$.
+%
+% \textbf{Partial credit:} A (correctly identifies that there are 
+%   two blocks, which is the key insight --- the block count equals 
+%   the geometric multiplicity. The partition $3 \times 3$ plus 
+%   $1 \times 1$ is also a genuinely valid possibility. The only 
+%   error is overcommitting to this specific partition when two 
+%   $2 \times 2$ blocks is equally consistent with the given data. 
+%   The student understands Jordan structure well but goes one step 
+%   too far without the additional information needed to pin down 
+%   the sizes. Choice (B) correctly states the count without 
+%   overspecifying.)
+%
+% \textbf{Trick answer:} D (confuses ``one eigenvalue'' with ``one 
+%   block.'' Having a single eigenvalue constrains all blocks to 
+%   share that eigenvalue, but doesn't mean there's only one block. 
+%   The number of blocks depends on the eigenspace dimension, not 
+%   the number of distinct eigenvalues.)
+%
+% \textbf{Trick answer:} B (this would mean $A$ is diagonalizable 
+%   --- four $1 \times 1$ blocks is the same as a diagonal matrix. 
+%   But if the eigenspace is only $2$-dimensional while the algebraic 
+%   multiplicity is $4$, the matrix is \emph{not} diagonalizable, 
+%   so blocks of size $> 1$ must appear.)
+%
+% \textbf{Trick answer:} E (the block count \emph{is} determined by 
+%   the eigenspace dimension alone --- it equals the geometric 
+%   multiplicity. While it's true that generalized eigenspaces are 
+%   needed to determine block \emph{sizes}, the question only asks 
+%   about the number of blocks. A student selecting (E) fails to 
+%   recognize what the geometric multiplicity directly tells us.)
+
+\divider
+
+{\bf PROBLEM 8:}
+% WEEK = 9
+% TOPICS = Stochastic matrices, stationary distribution, convergence, 
+%          Perron-Frobenius, dominant eigenvalue
+%
+Consider the $3 \times 3$ positive stochastic matrix with stationary distribution:
+$$P = \begin{bmatrix} 
+0.4 & 0.2 & 0.1 \\ 
+0.4 & 0.5 & 0.3 \\ 
+0.2 & 0.3 & 0.6 
+\end{bmatrix} \quad \Rightarrow \quad 
+\boldsymbol{\pi} = \begin{pmatrix} 0.2 \\ 0.4 \\ 0.4 \end{pmatrix}$$
+%
+If %the system starts in state $1$ with certainty, so that 
+$\mathbf{x}_0 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$, 
+what is $\displaystyle\lim_{k \to \infty} P^k \mathbf{x}_0$?
+\begin{enumerate}[(A)]
+\item $\begin{pmatrix} 0.2 \\ 0.4 \\ 0.4 \end{pmatrix}$
+\item The limit depends on $\mathbf{x}_0$; knowing 
+      $\boldsymbol{\pi}$ alone is not enough to determine it
+\item $\begin{pmatrix} 1/3 \\ 1/3 \\ 1/3 \end{pmatrix}$
+\item $\begin{pmatrix} 0.4 \\ 0.4 \\ 0.2 \end{pmatrix}$
+\item The limit does not necessarily exist
+\end{enumerate}
+% \textbf{Correct Answer:} A
+%
+% \textbf{Explanation:} By Perron-Frobenius, a positive stochastic 
+% matrix has a unique stationary distribution $\boldsymbol{\pi}$, 
+% which is the eigenvector for the dominant eigenvalue $\lambda = 1$. 
+% All other eigenvalues satisfy $|\lambda_i| < 1$, so the 
+% components of $\mathbf{x}_0$ along non-dominant eigenvectors 
+% decay geometrically:
+%   $$P^k\mathbf{x}_0 = c_1 \boldsymbol{\pi} + 
+%     c_2 \lambda_2^k \mathbf{v}_2 + c_3 \lambda_3^k \mathbf{v}_3 
+%     \;\;\longrightarrow\;\; c_1 \boldsymbol{\pi}$$
+% Since $\mathbf{x}_0$ is a probability distribution (entries sum 
+% to $1$), the coefficient $c_1 = 1$, giving 
+% $\lim_{k\to\infty} P^k\mathbf{x}_0 = \boldsymbol{\pi}$.
+% This holds for \emph{any} initial probability distribution.
+%
+% \textbf{Partial credit:} None
+%
+% \textbf{Trick answer:} D --- This is $P\mathbf{x}_0$, the first 
+%   column of $P$: the distribution after \emph{one} step, not 
+%   infinitely many. Particularly deceptive here because the entries 
+%   $0.4, 0.4, 0.2$ are the same three numbers as 
+%   $\boldsymbol{\pi} = (0.2, 0.4, 0.4)^T$ rearranged. A student 
+%   who computes one step and sees familiar-looking numbers may 
+%   convince themselves they have the answer without checking the 
+%   order.
+%
+% \textbf{Trick answer:} C --- Confuses ``equilibrium'' with 
+%   ``uniform.'' The misconception is that long-run behavior must 
+%   treat all states equally. The stationary distribution reflects 
+%   the structure of $P$; uniform is stationary only for doubly 
+%   stochastic matrices (both rows \emph{and} columns sum to $1$).
+%
+% \textbf{Trick answer:} B --- Sounds sophisticated: ``the limit 
+%   depends on the initial condition.'' This is true for dynamical 
+%   systems with multiple attractors (e.g., when $|\lambda_1| = 
+%   |\lambda_2|$), but for a positive stochastic matrix, 
+%   Perron-Frobenius guarantees a \emph{unique} stationary 
+%   distribution that attracts \emph{every} probability 
+%   distribution. The initial state affects the transient behavior 
+%   (how fast convergence occurs) but not the limiting state. 
+%   A student who selects this has some dynamical systems intuition 
+%   but does not know the convergence theorem.
+%
+% \textbf{Trick answer:} E --- Reverses the logic of stationarity. 
+%   The equation $P\boldsymbol{\pi} = \boldsymbol{\pi}$ says that 
+%   $\boldsymbol{\pi}$ is a \emph{fixed point}: if you start there, 
+%   you stay. The convergence theorem says something much stronger: 
+%   you arrive at $\boldsymbol{\pi}$ from \emph{any} starting 
+%   distribution. A student selecting (E) understands stationarity 
+%   as a local property but misses the global attractivity.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 9:}
+% WEEK = 7
+% TOPICS = Eigenvectors, linear independence, eigenvalues, scalar multiples, sums of eigenvectors
+% NOTE: Kept as an easier problem for the quiz.
+%
+Let $A$ be a $3 \times 3$ matrix with eigenvalues $\lambda_1 = 5$, 
+$\lambda_2 = -2$, and $\lambda_3 = 5$ (note: $\lambda_1 = \lambda_3$). 
+Let $\mathbf{v}_1$ be an eigenvector for $\lambda_1 = 5$ and $\mathbf{v}_2$ 
+an eigenvector for $\lambda_2 = -2$.
+%
+Which of the following \textbf{must} be true?
+\vspace{-0.1in}
+\begin{enumerate}[(A)]
+\item $\mathbf{v}_1$ and $\mathbf{v}_2$ are orthogonal
+\item $\mathbf{v}_1 + \mathbf{v}_2$ is an eigenvector of $A$ with 
+      eigenvalue $5 + (-2) = 3$
+\item $\mathbf{v}_1$ and $\mathbf{v}_2$ are linearly independent
+\item $A$ must be diagonalizable, since it has three eigenvalues 
+      counting multiplicity
+\item Any nonzero scalar multiple $c\mathbf{v}_1$ is also an eigenvector 
+      of $A$, but with a eigenvalue $5c$
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+%
+% \textbf{Explanation:} Eigenvectors corresponding to \emph{distinct} 
+% eigenvalues are always linearly independent. Since $\lambda_1 = 5 
+% \neq -2 = \lambda_2$, the eigenvectors $\mathbf{v}_1$ and 
+% $\mathbf{v}_2$ must be linearly independent regardless of any 
+% other properties of $A$. This is a fundamental theorem about 
+% eigenspaces: eigenspaces for distinct eigenvalues intersect only 
+% at $\mathbf{0}$.
+%
+% This fact is the structural foundation that makes diagonalization 
+% possible when a matrix has $n$ distinct eigenvalues: the $n$ 
+% eigenvectors are automatically linearly independent, forming a basis.
+%
+% \textbf{Partial credit:} None
+%
+% \textbf{Trick answer:} A (orthogonality 
+%   requires symmetry, which is not given)
+%
+% \textbf{Trick answer:} B (eigenvalues do not ``add'' when 
+%   eigenvectors are summed. In fact, $\mathbf{v}_1 + \mathbf{v}_2$ 
+%   is generally \emph{not} an eigenvector at all when $\lambda_1 
+%   \neq \lambda_2$: we have $A(\mathbf{v}_1 + \mathbf{v}_2) = 
+%   5\mathbf{v}_1 + (-2)\mathbf{v}_2$, which is not a scalar 
+%   multiple of $\mathbf{v}_1 + \mathbf{v}_2$ unless $5 = -2$. 
+%   This is a common misconception that treats eigenvalue computations 
+%   as ``distributing'' over vector addition.)
+%
+% \textbf{Trick answer:} D (having three eigenvalues counting 
+%   multiplicity is necessary but not sufficient for 
+%   diagonalizability. The repeated eigenvalue $\lambda = 5$ has 
+%   algebraic multiplicity 2, and $A$ is diagonalizable only if 
+%   the geometric multiplicity also equals 2 --- i.e., the eigenspace 
+%   for $\lambda = 5$ is two-dimensional. Without this information, 
+%   diagonalizability cannot be concluded.)
+%
+% \textbf{Trick answer:} E (scalar multiples of eigenvectors are 
+%   indeed eigenvectors, but the eigenvalue does \emph{not} change: 
+%   $A(c\mathbf{v}_1) = cA\mathbf{v}_1 = c(5\mathbf{v}_1) = 
+%   5(c\mathbf{v}_1)$. The eigenvalue remains $5$, not $5c$. 
+%   This tests whether students understand that the eigenvalue is 
+%   a property of the \emph{direction}, not the magnitude of the 
+%   eigenvector.)
+
+\divider
+
+
+{\bf PROBLEM 10:}
+% WEEK = 7
+% TOPICS = Diagonalization, eigenvalues, geometric vs algebraic multiplicity, eigenbasis, geometric interpretation
+%
+A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 3$, $\lambda_2 = 3$, and $\lambda_3 = -1$. 
+{\bf Fact:} $A$ is diagonalizable.
+What does diagonalizability of $A$ tell us that the eigenvalues alone do not?
+
+\vspace{-0.1in}
+\begin{enumerate}[(A)]
+\item That $\operatorname{tr}(A) = 5$
+\item That $A$ is symmetric, since only symmetric matrices can have repeated eigenvalues and still be diagonalizable
+\item That there exists a basis of $\mathbb{R}^3$ consisting entirely of eigenvectors of $A$
+\item That $\det(A) = -9$
+\item That $A$ is invertible, since $e^A$ must be well-defined and nonsingular
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+%
+% \textbf{Explanation:} The eigenvalues alone --- even knowing that $\lambda = 3$ 
+% is repeated --- do not tell us whether $A$ is diagonalizable. 
+% Diagonalizability requires that the eigenspace for $\lambda = 3$ be 
+% two-dimensional (geometric multiplicity = algebraic multiplicity). 
+% When this holds, there exist two linearly independent eigenvectors 
+% for $\lambda = 3$ alongside one eigenvector for $\lambda = -1$, 
+% forming a full eigenbasis for $\mathbb{R}^3$. This is the defining 
+% content of diagonalizability: $\mathbb{R}^3$ has a basis in which 
+% $A$ acts by pure scaling on each basis vector.
+%
+% In contrast, the other choices are all deducible from the eigenvalues 
+% alone, without knowing whether $A$ is diagonalizable:
+%   - (A): $\det(A) = 3 \cdot 3 \cdot (-1) = -9 \neq 0$, so invertibility 
+%     follows from the eigenvalues.
+%   - (B): $\operatorname{tr}(A) = 3 + 3 + (-1) = 5$ from the eigenvalues.
+%   - (D): $\det(A) = 3 \cdot 3 \cdot (-1) = -9$ from the eigenvalues.
+%   - (E): Symmetry is a stronger condition than diagonalizability; a matrix 
+%     can be diagonalizable without being symmetric (e.g., any matrix with 
+%     distinct eigenvalues is diagonalizable but need not be symmetric).
+%
+% The question targets the conceptual distinction between information 
+% encoded in the eigenvalues (trace, determinant, invertibility, 
+% characteristic polynomial) versus information that requires knowing 
+% about the eigenspaces (diagonalizability, existence of an eigenbasis).
+%
+% \textbf{Partial credit:} None
+%
+% \textbf{Trick answer:} E (true statement, but follows from the eigenvalues 
+%   alone --- $\det \neq 0$ since no eigenvalue is zero. A student who 
+%   selects this doesn't distinguish eigenvalue-level information from 
+%   eigenspace-level information.)
+%
+% \textbf{Trick answer:} A (true statement, but trace equals the sum of 
+%   eigenvalues regardless of diagonalizability. Same confusion as (A).)
+%
+% \textbf{Trick answer:} D (true statement, but determinant equals the 
+%   product of eigenvalues regardless of diagonalizability. Same confusion 
+%   as (A) and (B).)
+%
+% \textbf{Trick answer:} B (tempting because symmetric matrices are always 
+%   diagonalizable, so students may conflate the two. But the implication 
+%   only goes one way: symmetric $\Rightarrow$ diagonalizable, not the 
+%   converse. Diagonalizability is strictly weaker than symmetry.)
+
+\divider
+
+{\bf PROBLEM 11:}
+% WEEK = 9
+% TOPICS = Stochastic matrices, eigenvalue properties, column sums, 
+%          spectral radius bound, common misconceptions
+%
+A $3 \times 3$ matrix $P$ has non-negative entries and every column 
+sums to $1$.
+%
+Which of the following \textbf{must} be true?
+\vspace{-0.1in}
+\begin{enumerate}[(A)]
+\item All eigenvalues of $P$ are real
+\item The columns of $P$ are linearly independent
+\item Every eigenvalue of $P$ satisfies $0 \leq \lambda \leq 1$
+\item $\det(P) = 1$
+\item None of the above
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+%
+% \textbf{Explanation:} Each of (A)--(D) fails for some valid stochastic 
+% matrix. The properties that DO always hold for a stochastic matrix 
+% are: $\lambda = 1$ is always an eigenvalue, and every eigenvalue 
+% satisfies $|\lambda| \leq 1$ (a bound on \emph{magnitude}, not on 
+% the eigenvalue itself). None of the four listed statements captures 
+% these correctly.
+%
+%   (A) FALSE: Stochastic matrices can have complex eigenvalues. The 
+%       cyclic permutation matrix 
+%       $\begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 
+%       \end{bmatrix}$ is stochastic (non-negative entries, columns 
+%       sum to $1$) with eigenvalues $1, \, e^{2\pi i/3}, \, 
+%       e^{-2\pi i/3}$ --- a conjugate pair of non-real complex 
+%       numbers. Symmetry would guarantee real eigenvalues, but 
+%       stochastic matrices are generally not symmetric.
+%
+%   (B) FALSE: This is the most instructive wrong answer. The correct 
+%       bound on eigenvalues of a stochastic matrix is $|\lambda| \leq 1$ 
+%       --- a constraint on \emph{magnitude}. This allows negative real 
+%       eigenvalues (e.g., $\lambda = -0.5$) and complex eigenvalues 
+%       (e.g., $\lambda = e^{2\pi i/3}$), as long as the modulus does 
+%       not exceed $1$. The statement $0 \leq \lambda \leq 1$ incorrectly 
+%       restricts eigenvalues to the interval $[0,1]$ on the real line, 
+%       which excludes both negative and complex eigenvalues that are 
+%       perfectly valid.
+%
+%   (C) FALSE: $\det(P)$ equals the product of eigenvalues, and there 
+%       is no reason this product must be $1$. For instance, a stochastic 
+%       matrix with eigenvalues $1, 0.5, -0.3$ has $\det(P) = -0.15$. 
+%       A stochastic matrix with a zero eigenvalue has $\det(P) = 0$.
+%
+%   (D) FALSE: Stochastic matrices can be singular. The matrix 
+%       $\frac{1}{2}\begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 
+%       0 & 0 & 0 \end{bmatrix}$ is not valid (third row sums are 
+%       wrong), but the matrix with two identical columns, such as 
+%       $P = \begin{bmatrix} 0.5 & 0.5 & 0.3 \\ 0.3 & 0.3 & 0.4 \\ 
+%       0.2 & 0.2 & 0.3 \end{bmatrix}$, is stochastic with linearly 
+%       dependent columns (columns $1$ and $2$ are equal), so 
+%       $\det(P) = 0$.
+%
+% \textbf{Partial credit:} C (the student knows there is a bound 
+%   involving $1$ on the eigenvalues of stochastic matrices, and 
+%   correctly identifies $1$ as the upper bound. The error is writing 
+%   the constraint as $0 \leq \lambda \leq 1$ rather than $|\lambda| 
+%   \leq 1$. This is a genuine partial understanding: the student 
+%   recalls the spectral radius bound $\rho(P) \leq 1$ but 
+%   misinterprets it as a pointwise inequality on the real line 
+%   rather than a constraint on magnitude. This reflects confusion 
+%   between ``eigenvalue $\leq 1$'' and ``eigenvalue magnitude 
+%   $\leq 1$'' --- a subtle but important distinction.)
+%
+% \textbf{Trick answer:} A (real eigenvalues hold for symmetric 
+%   matrices by the Spectral Theorem, but stochastic matrices are 
+%   not generally symmetric. A student selecting this may be 
+%   conflating the two classes.)
+%
+% \textbf{Trick answer:} C (see partial credit; the most common 
+%   error --- knowing the right bound but stating it incorrectly)
+%
+% \textbf{Trick answer:} D (a student may reason: ``columns sum to 
+%   $1$, so the determinant should be $1$.'' This confuses the 
+%   column-sum constraint with a determinant constraint. The column 
+%   sums relate to the left eigenvector $\mathbf{1}^T$ for 
+%   $\lambda = 1$, not to the product of all eigenvalues.)
+%
+% \textbf{Trick answer:} B (a student may assume that a ``well-behaved'' 
+%   probability transition matrix should be invertible. In fact, 
+%   stochastic matrices with repeated columns --- representing states 
+%   with identical transition behavior --- are singular and arise 
+%   naturally in applications.)
+
+\divider
+
+{\bf PROBLEM 12:}
+% WEEK = 9
+% TOPICS = Perron-Frobenius theorem, positive matrices, uniqueness of 
+%          positive eigenvector, stochastic matrices, Markov chain convergence
+%
+A positive stochastic matrix $P$ (all entries strictly positive, columns 
+sum to $1$) has eigenvalues $\lambda_i$.
+The Perron-Frobenius theorem guarantees several properties of $P$.
+Which of the following is \textbf{not} among them?
+\vspace{-0.1in}
+\begin{enumerate}[(A)]
+\item Every other eigenvalue satisfies $|\lambda_i| < 1$
+\item The eigenvalue $\lambda_1 = 1$ is simple (algebraic multiplicity 
+      one)
+\item The eigenvalue $\lambda_1 = 1$ has a corresponding eigenvector 
+      with all entries strictly positive
+\item For any initial probability distribution $\mathbf{x}_0$, the 
+      iterates $P^k\mathbf{x}_0$ converge to the unique stationary 
+      distribution as $k \to \infty$
+\item None of the above : all these properties are guaranteed.
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+%
+% \textbf{Explanation:} Perron-Frobenius guarantees a great deal 
+% about the \emph{dominant} eigenvalue and its eigenvector, but 
+% its guarantees about the remaining eigenvectors are much more 
+% limited. Specifically, for a positive matrix:
+%
+%   (A) TRUE: The Perron eigenvector (for $\lambda_1 = \rho(P)$) 
+%       can be chosen with all entries strictly positive. This is 
+%       a central conclusion of the theorem.
+%
+%   (B) TRUE: For a positive (not merely non-negative) matrix, 
+%       the Perron eigenvalue is simple --- it has algebraic 
+%       multiplicity one. This is the ``uniqueness'' part of 
+%       Perron-Frobenius.
+%
+%   (C) TRUE: For a positive stochastic matrix, the Perron eigenvalue 
+%       is $1$, and all other eigenvalues are strictly less than $1$ 
+%       in magnitude. This is what makes convergence possible.
+%
+%   (D) TRUE: Since $|\lambda_i| < 1$ for $i \geq 2$, the components 
+%       of $P^k\mathbf{x}_0$ along non-dominant eigenvectors decay 
+%       to zero, leaving only the stationary distribution. The 
+%       positivity of the Perron eigenvector combined with $\lambda_1 = 1$ 
+%       and simplicity ensures convergence to a unique limit.
+%
+%
+% \textbf{Partial credit:} None
+%
+% \textbf{Trick answer:} C (this IS guaranteed by Perron-Frobenius 
+%   and is perhaps the theorem's most famous conclusion. A student 
+%   selecting this may doubt that an eigenvector can have a sign 
+%   constraint, but positivity of the Perron eigenvector is the 
+%   theorem's core content.)
+%
+% \textbf{Trick answer:} B (simplicity of the Perron eigenvalue is 
+%   guaranteed for positive matrices. A student might confuse this 
+%   with the weaker result for non-negative matrices, where the 
+%   Perron eigenvalue can have higher multiplicity in reducible 
+%   cases. But the problem specifies a positive matrix.)
+%
+% \textbf{Trick answer:} A (this follows from the combination of 
+%   Perron-Frobenius and the stochastic property. A student might 
+%   doubt this if they recall that non-negative matrices can have 
+%   multiple eigenvalues on the spectral circle, but strict 
+%   positivity rules this out.)
+%
+% \textbf{Trick answer:} D (this is the convergence theorem for 
+%   positive stochastic matrices. A student might think initial 
+%   conditions matter for the limit, but the uniqueness of the 
+%   stationary distribution and $|\lambda_i| < 1$ for $i \geq 2$ 
+%   ensure universal convergence.)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 13:}
+% WEEK = 9
+% TOPICS = Spectral Theorem (unstated), symmetric matrices, orthogonal 
+%          eigenbasis, eigenbasis coordinate computation, dot products vs inversion
+%
+Let $A$ be a real symmetric $n \times n$ matrix, and let $B$ be a 
+general (non-symmetric) diagonalizable $n \times n$ matrix. Both 
+have $n$ linearly independent eigenvectors.
+To express a vector $\mathbf{x} \in \mathbb{R}^n$ in the eigenbasis 
+of each matrix, what key simplification does the symmetry of $A$ provide?
+\begin{enumerate}[(A)]
+\item The eigenvalues of $A$ are guaranteed real, so the eigenbasis 
+      coordinates of $\mathbf{x}$ are real-valued --- unlike the 
+      general case where coordinates may be complex
+\item Both $A$ and $B$ require computing $V^{-1}\mathbf{x}$ to find 
+      eigenbasis coordinates; symmetry does not simplify this step
+\item The diagonalization of $A$ is unique, whereas 
+      $B = V\Lambda V^{-1}$ has infinitely many choices of $V$
+\item The eigenvectors of $A$ can always be chosen orthonormal, so 
+      the eigenbasis coordinates are $c_i = \mathbf{q}_i^T\mathbf{x}$ 
+      --- no matrix inversion is required
+\item Symmetric matrices always have distinct eigenvalues, so there 
+      is exactly one eigenbasis up to scaling
+\end{enumerate}
+% \textbf{Correct Answer:} D
+%
+% \textbf{Explanation:} The Spectral Theorem guarantees that a real 
+% symmetric matrix possesses an orthonormal eigenbasis 
+% $\{\mathbf{q}_1, \ldots, \mathbf{q}_n\}$. Forming 
+% $Q = [\mathbf{q}_1 \cdots \mathbf{q}_n]$, we get $A = Q\Lambda Q^T$ 
+% with $Q^{-1} = Q^T$. To find the eigenbasis coordinates of 
+% $\mathbf{x}$:
+%   $$\mathbf{c} = Q^T\mathbf{x} \quad \Longrightarrow \quad 
+%     c_i = \mathbf{q}_i^T\mathbf{x}$$
+% Each coordinate is a dot product --- an $O(n)$ operation requiring 
+% no matrix inversion. For the general case $B = V\Lambda V^{-1}$, 
+% the coordinates are $\mathbf{c} = V^{-1}\mathbf{x}$, which requires 
+% solving a linear system ($O(n^2)$ or $O(n^3)$) and may be 
+% ill-conditioned.
+%
+% The student must supply the unstated intermediate step: 
+% symmetric $\Rightarrow$ Spectral Theorem $\Rightarrow$ orthonormal 
+% eigenbasis $\Rightarrow$ $Q^{-1} = Q^T$ $\Rightarrow$ coordinates 
+% are dot products.
+%
+% \textbf{Partial credit:} A (small --- the eigenvalues of a real 
+%   symmetric matrix ARE guaranteed real, so this is a true statement; 
+%   however, it does not address the computational simplification for 
+%   finding eigenbasis coordinates. A general real matrix can also have 
+%   all real eigenvalues and still require $V^{-1}$ for coordinate 
+%   computation. The student recognizes a property of symmetric 
+%   matrices but picks the wrong one.)
+%
+% \textbf{Trick answer:} C (the orthogonal diagonalization is NOT 
+%   unique: within each eigenspace, any orthonormal basis may be 
+%   chosen. The general diagonalization is also non-unique for the 
+%   same reason. Uniqueness is not the distinguishing advantage.)
+%
+% \textbf{Trick answer:} E (false --- symmetric matrices can have 
+%   repeated eigenvalues. The Spectral Theorem still guarantees a 
+%   full orthonormal eigenbasis even with repetition, but distinctness 
+%   is not guaranteed.)
+%
+% \textbf{Trick answer:} B (false --- this is precisely what symmetry 
+%   DOES simplify. A student who does not know the Spectral Theorem 
+%   may reason that both cases are ``just diagonalizable'' and conclude 
+%   there is no difference. This distractor targets that gap.)
+
+\divider
+
+{\bf PROBLEM 14:}
+% WEEK = 9 (with synthesis from Week 7)
+% TOPICS = Dominant eigenvalue, linear recurrence as matrix iteration, 
+%          convergence of ratios, power method, Fibonacci sequence
+%
+The Fibonacci sequence $F_0 = 0, \; F_1 = 1, \; F_{k+1} = F_k + F_{k-1}$ 
+can be written in matrix form:
+$$\begin{pmatrix} F_{k+1} \\ F_k \end{pmatrix} 
+  = \underbrace{\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix}}_{A}
+    \begin{pmatrix} F_k \\ F_{k-1} \end{pmatrix}
+\quad \Rightarrow \quad \lambda_1 = \dfrac{1+\sqrt{5}}{2} \approx 1.618...\,\, ; \,\, \lambda_2= \dfrac{1-\sqrt{5}}{2} \approx -0.618...    
+$$
+It is a classical fact that $\dfrac{F_{k+1}}{F_k} \to \lambda_1 \approx 1.618\ldots$ as 
+$k \to \infty$.
+%
+Which of the following best explains \textbf{why}?
+
+\begin{enumerate}[(A)]
+\item $\lambda_1$ is the only positive eigenvalue of $A$, and Fibonacci 
+      numbers are positive, so the ratio must converge to the positive 
+      eigenvalue
+\item The trace of $A$ is $1$, so the sum of eigenvalues is $1$; as 
+      $k$ grows, this forces the ratio $F_{k+1}/F_k$ toward the larger 
+      eigenvalue
+\item $A$ is symmetric, so the Spectral Theorem guarantees that the 
+      dominant eigenvalue controls the long-term ratio
+\item $\lambda_1$ satisfies $\lambda_1^2 = \lambda_1 + 1$, which is the same 
+      relation as $F_{k+1} = F_k + F_{k-1}$ after dividing by $F_k$; 
+      therefore any sequence obeying this recurrence must converge to 
+      $\lambda_1$
+\item Since $|\lambda_2| < 1 < |\lambda_1|$, the component of 
+      $\mathbf{x}_k = A^k\mathbf{x}_0$ along the other 
+      eigenvector decays relative to the component along $\lambda_1$'s 
+      eigenvector, so $\mathbf{x}_k$ becomes approximately parallel to 
+      $\lambda_1$'s eigenvector, and multiplication by $A$ then scales by 
+      approximately $\lambda_1$
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+%
+% \textbf{Explanation:} Writing the state vector in the eigenbasis, 
+% $\mathbf{x}_0 = c_1\mathbf{v}_1 + c_2\mathbf{v}_2$ where 
+% $\mathbf{v}_1, \mathbf{v}_2$ are eigenvectors for $\lambda_1$ and 
+% $\lambda_2$ respectively. Then:
+%   $$\mathbf{x}_k = A^k\mathbf{x}_0 
+%     = c_1\lambda_1^k\,\mathbf{v}_1 + c_2(\lambda_2)^k\,\mathbf{v}_2$$
+%
+% Since $|\lambda_2| \approx 0.618 < 1$ and $|\lambda_1| \approx 
+% 1.618 > 1$, the first term grows while the second decays. For 
+% large $k$:
+%   $$\mathbf{x}_k \approx c_1\lambda_1^k\,\mathbf{v}_1$$
+%
+% Once $\mathbf{x}_k$ is approximately a multiple of $\mathbf{v}_1$, 
+% one more multiplication by $A$ scales it by $\lambda_1$, meaning 
+% both entries --- $F_{k+1}$ and $F_k$ --- grow by the same factor 
+% $\lambda_1$. Their ratio therefore approaches $\lambda_1$.
+%
+% This is exactly the mechanism behind the power method: repeated 
+% multiplication by a matrix causes the iterate to align with the 
+% dominant eigenvector, and the ratio of successive iterates converges 
+% to the dominant eigenvalue. The Fibonacci sequence is a natural 
+% instance of this phenomenon.
+%
+% \textbf{Partial credit:} NONE
+%
+% \textbf{Trick answer:} D  (contains a true algebraic observation: 
+%   dividing $F_{k+1} = F_k + F_{k-1}$ by $F_k$ gives 
+%   $F_{k+1}/F_k = 1 + F_{k-1}/F_k$, and if the ratio converges 
+%   to some limit $L$, then $L = 1 + 1/L$, i.e., $L^2 = L + 1$, 
+%   which $\lambda_1$ satisfies. This argument correctly identifies 
+%   the limit \emph{assuming convergence}, but does not explain 
+%   \emph{why} convergence occurs. The claim ``any sequence obeying 
+%   this recurrence must converge'' is false without the eigenvalue 
+%   analysis: one must verify that $c_1 \neq 0$ and that the 
+%   subdominant component actually decays. The fixed-point equation 
+%   alone does not rule out oscillation, divergence, or convergence 
+%   to $\hat{\lambda_1}$. A student selecting this has a correct 
+%   algebraic intuition but has not identified the mechanism --- 
+%   dominant eigenvalue decay --- that makes convergence happen.)
+%
+% \textbf{Trick answer:} B (the trace of $A$ is $1 + 0 = 1$, which 
+%   is indeed the sum of eigenvalues. But the trace being $1$ has 
+%   no mechanism for ``forcing'' the ratio toward the larger eigenvalue. 
+%   The trace constrains the eigenvalue sum; it says nothing about 
+%   which eigenvalue dominates the iteration. Convergence is governed 
+%   by eigenvalue \emph{magnitudes}, not their sum.)
+%
+% \textbf{Trick answer:} C ($A = \begin{bmatrix} 1 & 1 \\ 1 & 0 
+%   \end{bmatrix}$ is indeed symmetric, so the Spectral Theorem does 
+%   apply. However, symmetry is not the reason the dominant eigenvalue 
+%   controls the ratio. Any diagonalizable matrix with a strictly 
+%   dominant eigenvalue exhibits the same behavior --- symmetry 
+%   provides orthogonal eigenvectors and real eigenvalues, but the 
+%   convergence mechanism is eigenvalue magnitude separation, which 
+%   works identically for non-symmetric matrices. A student selecting 
+%   this over-attributes the convergence to a structural property 
+%   that is present but irrelevant.)
+%
+% \textbf{Trick answer:} A (positivity of $\lambda_1$ and positivity 
+%   of Fibonacci numbers are both true, but the convergence has 
+%   nothing to do with sign matching. If the initial condition had 
+%   been chosen so that $c_1 < 0$, the iterates would eventually 
+%   become negative, but the \emph{ratio} would still converge to 
+%   $\lambda_1$. Moreover, $\lambda_2$ alternates sign when 
+%   raised to powers, which does not prevent it from being the 
+%   dominant eigenvalue in a different matrix. The sign of the 
+%   eigenvalue is not the operative criterion; the magnitude is.)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf PROBLEM 15:}
+% WEEK = 8
+% TOPICS = Complex eigenvalues, real/imaginary parts, ODE solution behavior, oscillation frequency, growth/decay
+%
+A $2 \times 2$ real matrix $A$ has complex eigenvalues $\lambda = \alpha \pm i\beta$ 
+with $\alpha < 0$ and $\beta > 0$. The solution to $\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}$ 
+exhibits oscillations whose amplitude decreases over time.
+%
+Now consider a modified matrix $A'$ with eigenvalues $\lambda' = \alpha \pm 2i\beta$.
+%
+Compared to the original system, solutions of $\dfrac{d\mathbf{x}}{dt} = A'\mathbf{x}$ will:
+
+\begin{enumerate}[(A)]
+\item Oscillate at twice the frequency and also decay faster, since the eigenvalues are farther from the origin in the complex plane
+\item Have identical behavior, since only the real part of the eigenvalue affects the solution of a real ODE
+\item Oscillate at the same frequency but decay faster, since the eigenvalues have larger imaginary part
+\item Oscillate at twice the frequency and decay at half the rate, since energy is transferred from decay into oscillation
+\item Oscillate at twice the frequency with the same rate of amplitude decay
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+%
+% \textbf{Explanation:} For complex eigenvalues $\alpha \pm i\beta$, the 
+% real basis solutions have the form 
+% $e^{\alpha t}\cos(\beta t)$ and $e^{\alpha t}\sin(\beta t)$.
+% The real part $\alpha$ controls the rate of exponential growth or decay 
+% (the envelope), while the imaginary part $\beta$ controls the frequency 
+% of oscillation. These two roles are completely independent.
+%
+% In the modified system, $\alpha$ is unchanged, so the amplitude decay 
+% rate is identical. The imaginary part has doubled from $\beta$ to 
+% $2\beta$, so the oscillation frequency doubles. The solution form 
+% becomes $e^{\alpha t}\cos(2\beta t)$ and $e^{\alpha t}\sin(2\beta t)$:
+% same exponential envelope, faster oscillations within it.
+%
+% The key conceptual point: $\alpha$ and $\beta$ enter the solution in 
+% completely separate places --- $\alpha$ in the exponential prefactor, 
+% $\beta$ inside the trigonometric functions. Changing one does not 
+% affect the other.
+%
+% \textbf{Partial credit:} A (correctly identifies that doubling the 
+%   imaginary part doubles the oscillation frequency --- this is the 
+%   harder of the two observations. However, the student then incorrectly 
+%   concludes that the decay rate also increases, likely reasoning from 
+%   the magnitude $|\lambda'| = \sqrt{\alpha^2 + 4\beta^2} > 
+%   \sqrt{\alpha^2 + \beta^2} = |\lambda|$ and conflating eigenvalue 
+%   magnitude with decay rate. This reflects correct surface-level 
+%   reasoning about frequency but a failure to understand that real 
+%   and imaginary parts play independent roles in the solution structure. 
+%   A student selecting this has learned that imaginary part $\to$ 
+%   frequency, but has not internalized the deeper fact that 
+%   $e^{\alpha t}$ and $\cos(\beta t)$ are structurally separate.)
+%
+% \textbf{Trick answer:} C (reverses which part does what; the imaginary 
+%   part controls frequency, not decay rate. A student who selects this 
+%   may be confusing the roles of $\alpha$ and $\beta$.)
+%
+% \textbf{Trick answer:} A (see partial credit note above; the ``farther 
+%   from the origin'' reasoning is geometrically intuitive but wrong --- 
+%   it's $\alpha$ alone, not $|\lambda|$, that governs decay.)
+%
+% \textbf{Trick answer:} D (invokes a plausible-sounding but fictitious 
+%   ``conservation'' principle --- there is no energy trade-off between 
+%   oscillation and decay. The real and imaginary parts act independently 
+%   in the solution structure.)
+%
+% \textbf{Trick answer:} B (confuses the fact that we work with real 
+%   basis solutions with the claim that the imaginary part is irrelevant. 
+%   The imaginary part is essential: it determines the oscillation 
+%   frequency even though the final solution is real-valued.)
+
+\divider
+
+{\bf PROBLEM 16:}
+% WEEK = 7
+% TOPICS = Coupled systems, diagonalization, decoupling, matrix exponential, eigenbasis
+%
+Consider the coupled system $\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}$ where 
+$A$ is a $2 \times 2$ diagonalizable matrix with distinct real eigenvalues 
+$\lambda_1 \neq \lambda_2$ and corresponding eigenvectors 
+$\mathbf{v}_1, \mathbf{v}_2$.
+
+We solve this by writing $A = V\Lambda V^{-1}$ and substituting 
+$\mathbf{x} = V\mathbf{y}$ to obtain the transformed system 
+$\dfrac{d\mathbf{y}}{dt} = \Lambda\mathbf{y}$.
+%
+What is the essential reason this change of variables helps?
+
+\begin{enumerate}[(A)]
+\item It orthogonalizes the eigenvectors, which is necessary for the 
+      solution components to evolve independently
+\item It makes the matrix $\Lambda$ invertible, which is required to 
+      compute the solution $\mathbf{x}(t) = e^{At}\mathbf{x}(0)$
+\item It eliminates the eigenvalues, replacing them with simpler constants 
+      that are easier to exponentiate
+\item Since $\Lambda$ is diagonal, the transformed system consists of 
+      independent scalar equations $dy_i/dt = \lambda_i y_i$, each of which 
+      can be solved separately
+\item It converts the differential equation into an algebraic equation, 
+      removing the need to compute any exponentials
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+%
+% \textbf{Explanation:} The fundamental benefit of diagonalization for 
+% solving $d\mathbf{x}/dt = A\mathbf{x}$ is decoupling. In the 
+% original coordinates, the equations for the components of $\mathbf{x}$ 
+% are intertwined --- each component's derivative depends on the other 
+% components. After substituting $\mathbf{x} = V\mathbf{y}$, the 
+% system becomes $d\mathbf{y}/dt = \Lambda\mathbf{y}$, which, because 
+% $\Lambda$ is diagonal, breaks apart into $n$ independent scalar 
+% equations:
+%   $$\frac{dy_1}{dt} = \lambda_1 y_1, \quad 
+%     \frac{dy_2}{dt} = \lambda_2 y_2$$
+% Each has the immediate solution $y_i(t) = y_i(0)e^{\lambda_i t}$. 
+% This is something we know how to solve from one-variable calculus. 
+% The solution in original coordinates is then recovered via 
+% $\mathbf{x}(t) = V\mathbf{y}(t)$.
+%
+% The conceptual point: diagonalization transforms a coupled system 
+% (hard) into independent scalar systems (easy).
+%
+% \textbf{Partial credit:} A (recognizes that independence of solution 
+%   components is the goal, which is correct. However, it incorrectly 
+%   claims that orthogonality of eigenvectors is what produces this 
+%   independence. In fact, the eigenvectors need not be orthogonal 
+%   at all --- any diagonalizable matrix, even one with non-orthogonal 
+%   eigenvectors, yields a decoupled system in the eigenbasis. It is 
+%   the \emph{diagonality} of $\Lambda$ that decouples the equations, 
+%   not any orthogonality property of $V$. A student choosing (E) 
+%   understands the goal but conflates diagonalization with 
+%   orthogonal diagonalization.)
+%
+% \textbf{Trick answer:} B ($\Lambda$ may or may not be invertible --- 
+%   an eigenvalue could be zero --- and invertibility is not the point. 
+%   The matrix exponential $e^{At}$ is always well-defined and 
+%   invertible regardless. This answer confuses a property of $\Lambda$ 
+%   with the reason diagonalization helps.)
+%
+% \textbf{Trick answer:} C (the eigenvalues are not eliminated; they 
+%   appear directly as the diagonal entries of $\Lambda$ and in the 
+%   exponential solutions $e^{\lambda_i t}$. The change of variables 
+%   isolates the eigenvalues, it does not remove them.)
+%
+% \textbf{Trick answer:} E (the problem remains a differential equation 
+%   after the substitution --- it just becomes a simpler one. We still 
+%   compute exponentials ($e^{\lambda_i t}$), but they are scalar 
+%   exponentials rather than matrix exponentials.)
+%
+% \textbf{Trick answer:} A (see partial credit; the student has the 
+%   right intuition about independence but the wrong mechanism)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 17:}
+% WEEK = 8
+% TOPICS = Higher-order ODEs, characteristic polynomial, basis solutions, complex eigenvalues, repeated eigenvalues
+%
+A fourth-order linear homogeneous ODE has characteristic polynomial
+$$p(\lambda) = (\lambda - 1)(\lambda + 2)^2(\lambda + 3) = 0$$
+%
+Which of the following is the correct general solution?
+
+\begin{enumerate}[(A)]
+\item $x(t) = c_1 e^{t} + c_2 e^{-2t} + c_3 e^{-3t}$
+\item $x(t) = c_1 e^{t} + c_2 e^{-2t} + c_3 e^{-2t}\cos(t) + c_4 e^{-3t}$
+\item $x(t) = c_1 e^{t} + c_2 e^{-2t} + c_3 te^{-2t} + c_4 e^{-3t}$
+\item $x(t) = c_1 e^{t} + c_2 e^{-2t} + c_3 t^2 e^{-2t} + c_4 e^{-3t}$
+\item $x(t) = c_1 e^{t} + c_2 e^{-2t} + c_3 te^{-2t} + c_4 te^{-3t}$
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+%
+% \textbf{Explanation:} The characteristic polynomial has four roots 
+% (counting multiplicity): $\lambda = 1$ (simple), $\lambda = -2$ 
+% (repeated with algebraic multiplicity 2), and $\lambda = -3$ (simple).
+%
+% The rules for constructing basis solutions:
+%   - Each simple real root $\lambda$ contributes $e^{\lambda t}$.
+%   - A repeated real root $\lambda$ with algebraic multiplicity $k$ 
+%     contributes $e^{\lambda t}, \, te^{\lambda t}, \, \ldots, \, 
+%     t^{k-1}e^{\lambda t}$.
+%   - A complex conjugate pair $\alpha \pm i\beta$ contributes 
+%     $e^{\alpha t}\cos(\beta t)$ and $e^{\alpha t}\sin(\beta t)$.
+%
+% Here, $\lambda = -2$ appears twice, producing both $e^{-2t}$ and 
+% $te^{-2t}$. Combined with $e^{t}$ and $e^{-3t}$ from the simple 
+% roots, we get exactly four basis solutions --- matching the 
+% fourth-order equation.
+%
+% \textbf{Partial credit:} NONE
+%
+% \textbf{Trick answer:} A (ignores multiplicity entirely and produces 
+%   only 3 basis solutions for a 4th-order equation; this reflects a 
+%   more fundamental gap --- the student does not recognize that 
+%   algebraic multiplicity demands additional basis solutions)
+%
+% \textbf{Trick answer:} B (introduces $\cos(t)$ alongside $e^{-2t}$, 
+%   as if the repeated real root produces oscillatory behavior. This 
+%   conflates repeated real eigenvalues with complex eigenvalues --- 
+%   trigonometric terms arise only from imaginary parts, and 
+%   $\lambda = -2$ is purely real.)
+%
+% \textbf{Trick answer:} D (the student correctly identifies that: 
+%   (1) a fourth-order equation needs four basis solutions, (2) the 
+%   repeated root $\lambda = -2$ produces a polynomial-exponential 
+%   term, and (3) this term is attached specifically to $\lambda = -2$ 
+%   and not to the simple roots. The only error is the power of $t$: 
+%   for multiplicity $k$, the prefactors run $t^0, t^1, \ldots, t^{k-1}$, 
+%   so multiplicity 2 gives $e^{-2t}$ and $te^{-2t}$, not $t^2e^{-2t}$. 
+%   This is a minor indexing error reflecting genuine but imperfect 
+%   understanding of the repeated-root mechanism.)
+%
+% \textbf{Trick answer:} E (correctly produces $te^{-2t}$ for the 
+%   repeated root, but also introduces a spurious $te^{-3t}$ for the 
+%   simple root $\lambda = -3$. This suggests the student knows 
+%   that polynomial prefactors appear somewhere but applies them 
+%   indiscriminately rather than only to repeated eigenvalues.)
+
+
+\divider
+
+
+{\bf PROBLEM 18:}
+% WEEK = 7
+% TOPICS = Eigenvalue zero, singularity, invertibility, ker(A), matrix exponential
+%
+A $4 \times 4$ matrix $A$ has characteristic polynomial $p(\lambda) = \lambda^2(\lambda - 3)(\lambda + 1)$.
+%
+Which of the following must be true?
+%
+\begin{enumerate}[(A)]
+\item $\ker(A) \neq \{\mathbf{0}\}$
+\item $A^{-1}$ exists
+\item $\text{tr}(A) = 0$
+\item $e^{A}$ is singular
+\item $A$ is diagonalizable
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} The characteristic polynomial $\lambda^2(\lambda-3)(\lambda+1)$ has roots $\lambda = 0$ (algebraic multiplicity 2), $\lambda = 3$, and $\lambda = -1$. Since $0$ is an eigenvalue, there exists a nonzero $\mathbf{v}$ with $A\mathbf{v} = \mathbf{0}$, so $\ker(A)$ is nontrivial. Equivalently, $\det(A) = 0 \cdot 0 \cdot 3 \cdot (-1) = 0$, so $A$ is singular.
+% \textbf{Partial credit:} None
+% \textbf{Wrong:} E — The repeated eigenvalue $0$ has algebraic multiplicity 2, but the geometric multiplicity could be 1 or 2. If geometric multiplicity is 1, $A$ is not diagonalizable (defective). We cannot determine this from the characteristic polynomial alone.
+% \textbf{Wrong:} B — Since $\det(A) = 0$, $A^{-1}$ does NOT exist. This is the opposite of what's true.
+% \textbf{Trick answer:} C — The trace equals the sum of eigenvalues: $\text{tr}(A) = 0 + 0 + 3 + (-1) = 2 \neq 0$. A student who confuses trace (sum) with determinant (product) might select this.
+% \textbf{Trick answer:} D — $e^A$ is ALWAYS nonsingular (since $\det(e^A) = e^{\text{tr}(A)} = e^2 \neq 0$). This is a common misconception: students think singularity of $A$ implies singularity of $e^A$.
+
+\divider
+
+{\bf PROBLEM 19:}
+% WEEK = 7
+% TOPICS = Matrix powers via diagonalization, eigendecomposition of vectors, 
+%          eigenvalue powers, sign of (-1)^k for even k
+%
+A diagonalizable $2 \times 2$ matrix $A$ has eigenvalues $\lambda_1 = 2$ 
+and $\lambda_2 = -1$ with corresponding eigenvectors $\mathbf{v}_1$ 
+and $\mathbf{v}_2$.
+
+Given an initial vector $\mathbf{x}_0 = 3\mathbf{v}_1 + 5\mathbf{v}_2$, 
+what is $A^{100}\mathbf{x}_0$?
+
+\begin{enumerate}[(A)]
+\item $(3 \cdot 2^{100} + 5)\,\mathbf{v}_1$
+\item $2^{100}(3\,\mathbf{v}_1 + 5\,\mathbf{v}_2)$
+\item $3 \cdot 2^{100}\,\mathbf{v}_1 - 5\,\mathbf{v}_2$
+\item $3 \cdot 2^{100}\,\mathbf{v}_1$
+\item None of the above
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+%
+% \textbf{Explanation:} The diagonalization $A = V\Lambda V^{-1}$ gives 
+% $A^k = V\Lambda^k V^{-1}$. When we expand $\mathbf{x}_0$ in the 
+% eigenbasis, the matrix power acts on each component independently:
+%   $$A^{100}\mathbf{x}_0 = 3\lambda_1^{100}\,\mathbf{v}_1 + 
+%     5\lambda_2^{100}\,\mathbf{v}_2 = 3 \cdot 2^{100}\,\mathbf{v}_1 + 
+%     5 \cdot (-1)^{100}\,\mathbf{v}_2$$
+%
+% Since $(-1)^{100} = +1$ (even power), this simplifies to:
+%   $$A^{100}\mathbf{x}_0 = 3 \cdot 2^{100}\,\mathbf{v}_1 + 
+%     5\,\mathbf{v}_2$$
+%
+% This expression does not appear among choices (A)--(D), so the 
+% answer is (E).
+%
+% The key ideas tested:
+%   (1) $A^k$ acts on each eigenvector component by raising the 
+%       corresponding eigenvalue to the $k$-th power: the 
+%       coefficient $c_i$ becomes $c_i \lambda_i^k$.
+%   (2) $(-1)^{100} = +1$, not $-1$. Even powers of $-1$ are 
+%       positive.
+%   (3) The two eigenvector components evolve independently --- 
+%       they do not merge, cancel, or interact.
+%
+% \textbf{Partial credit:} C (correctly applies the eigendecomposition 
+%   formula to get $3 \cdot 2^{100}\,\mathbf{v}_1$ for the first term, 
+%   and correctly recognizes that $(-1)^{100}$ has magnitude $1$. The 
+%   only error is the sign: $(-1)^{100} = +1$, not $-1$. This is a 
+%   minor arithmetic slip reflecting solid conceptual understanding 
+%   of how matrix powers act through the eigenbasis, with only the 
+%   even/odd distinction missed.)
+%
+% \textbf{Trick answer:} C (see partial credit; miscomputes 
+%   $(-1)^{100} = -1$ instead of $+1$. This is the most common 
+%   error: the student correctly sets up the eigendecomposition 
+%   but defaults to thinking $(-1)^k$ is always $-1$, forgetting 
+%   to check the parity of $k$.)
+%
+% \textbf{Trick answer:} B (treats the dominant eigenvalue $2^{100}$ 
+%   as a uniform scaling factor applied to the entire vector. This 
+%   misses the fundamental point that each eigenvector component 
+%   is scaled by its \emph{own} eigenvalue power. The matrix does 
+%   not act like a scalar multiple --- different directions are 
+%   stretched differently.)
+%
+% \textbf{Trick answer:} D (assumes the $\mathbf{v}_2$ component 
+%   vanishes because $(-1)^{100}$ is ``small'' or ``decays.'' In 
+%   fact, $|{-1}|^{100} = 1$: the magnitude of the $\mathbf{v}_2$ 
+%   component is perfectly preserved. This distractor catches 
+%   students who confuse $|\lambda| < 1$ (which causes decay) with 
+%   $\lambda < 0$ (which causes sign alternation but no decay). 
+%   The eigenvalue $-1$ has magnitude exactly $1$, so it neither 
+%   grows nor decays.)
+%
+% \textbf{Trick answer:} A (collapses both eigenvector components 
+%   into the dominant direction $\mathbf{v}_1$, as if the large 
+%   factor $2^{100}$ somehow absorbs the $\mathbf{v}_2$ component. 
+%   This reflects a misunderstanding of eigendecomposition: the 
+%   components along different eigenvectors are independent and 
+%   never ``merge'' into a single direction, no matter how large 
+%   one eigenvalue power becomes relative to the other.)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 20:}
+% WEEK = 8
+% TOPICS = QR algorithm, similarity transformation, eigenvalue preservation
+% NOTE: Complements P15 (which asks WHAT the QR iterates converge to);
+%       this asks WHY the eigenvalues are preserved at each step.
+%
+The QR algorithm computes $A_{k+1} = R_k Q_k$ from the QR factorization 
+$A_k = Q_k R_k$.
+%
+A key property is that every iterate $A_{k+1}$ has the same eigenvalues 
+as $A_k$.
+%
+Why is this true?
+
+\begin{enumerate}[(A)]
+\item Because $Q_k$ is orthogonal, and orthogonal transformations 
+      preserve all matrix properties including eigenvalues
+\item Because the QR factorization itself preserves eigenvalues: 
+      $Q_k$ and $R_k$ each have the same eigenvalues as $A_k$
+\item Because $A_{k+1} = Q_k^{-1} A_k Q_k$, which is a similarity 
+      transformation
+\item Because the diagonal entries of $R_k$ are the eigenvalues of 
+      $A_k$, and these entries are reused to construct $A_{k+1}$
+\item Because $R_k Q_k$ and $Q_k R_k$ are transposes of each other, 
+      and a matrix and its transpose share eigenvalues
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+%
+% \textbf{Explanation:} The crucial algebraic identity:
+%   $$A_{k+1} = R_k Q_k = (Q_k^{-1} Q_k) R_k Q_k 
+%     = Q_k^{-1} (Q_k R_k) Q_k = Q_k^{-1} A_k Q_k$$
+% This shows $A_{k+1}$ is obtained from $A_k$ by a similarity 
+% transformation (conjugation by $Q_k$). Similar matrices have the 
+% same characteristic polynomial and therefore the same eigenvalues. 
+% This is the foundational reason the QR algorithm works: it 
+% iteratively transforms $A$ toward a simpler form (triangular) 
+% while preserving its eigenvalues at every step.
+%
+% \textbf{Trick answer:} B --- The QR factorization does NOT 
+%   individually preserve eigenvalues. The eigenvalues of $Q_k$ 
+%   all have modulus $1$ (since $Q_k$ is orthogonal), and the 
+%   eigenvalues of $R_k$ are its diagonal entries (since $R_k$ is 
+%   upper triangular). Neither set of eigenvalues matches those of 
+%   $A_k$ in general. The eigenvalue preservation comes from the 
+%   \emph{re-multiplication} $R_kQ_k$, not from the factorization 
+%   itself.
+%
+% \textbf{Trick answer:} A --- ``Orthogonal transformations preserve 
+%   all matrix properties'' is far too broad. Orthogonal 
+%   transformations preserve eigenvalues (via similarity), inner 
+%   products, and norms, but they do \emph{not} preserve all matrix 
+%   properties (e.g., they generally change the entries, the sparsity 
+%   pattern, and so on). More importantly, the reason is specifically 
+%   that $Q_k^{-1}A_kQ_k$ is a \emph{similarity transformation}, 
+%   not just that $Q_k$ is orthogonal. Any invertible $P$ gives a 
+%   similarity $P^{-1}A_kP$ preserving eigenvalues; orthogonality 
+%   is helpful for numerical stability but is not the reason 
+%   eigenvalues are preserved.
+%
+% \textbf{Trick answer:} D --- The diagonal entries of $R_k$ are 
+%   related to norms from the Gram-Schmidt process, \emph{not} to 
+%   the eigenvalues of $A_k$. This conflates two different roles of 
+%   diagonal entries: in a triangular matrix obtained by 
+%   \emph{similarity} (like the Schur form), diagonal entries are 
+%   eigenvalues. In the $R$ factor from QR \emph{factorization}, 
+%   they are not.
+%
+% \textbf{Trick answer:} E --- $R_kQ_k$ and $Q_kR_k$ are generally 
+%   \emph{not} transposes of each other. While it is true that a 
+%   matrix and its transpose share eigenvalues (same characteristic 
+%   polynomial), this fact is irrelevant here because the transpose 
+%   relationship does not hold. This conflates two unrelated 
+%   algebraic facts.
+%
+% \textbf{Partial credit:} None
+
+\divider
+
+
+{\bf PROBLEM 21:}
+% WEEK = 7
+% TOPICS = Eigenvalues, trace, determinant, characteristic polynomial, properties of eigenvalues
+%
+A $3 \times 3$ real matrix $A$ satisfies $\operatorname{tr}(A) = 7$, $\det(A) = 0$, and is known to have an eigenvalue $\lambda_1 = 3$.
+%
+Which of the following must be the remaining eigenvalues?
+
+\begin{enumerate}[(A)]
+\item $\lambda_2 = 4, \; \lambda_3 = 0$
+\item $\lambda_2 = 4, \; \lambda_3 = 3$
+\item $\lambda_2 = 2+i, \; \lambda_3 = 2-i$
+\item $\lambda_2 = 0, \; \lambda_3 = 0$
+\item $\lambda_2 = 7, \; \lambda_3 = 0$
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+%
+% \textbf{Explanation:} Two constraints must be satisfied simultaneously:
+%   (1) $\operatorname{tr}(A) = \lambda_1 + \lambda_2 + \lambda_3 = 7$, 
+%       so $\lambda_2 + \lambda_3 = 4$.
+%   (2) $\det(A) = \lambda_1 \cdot \lambda_2 \cdot \lambda_3 = 0$, 
+%       so at least one of $\lambda_2, \lambda_3$ must be zero.
+%   Additionally, since $A$ is a real matrix, complex eigenvalues must 
+%   come in conjugate pairs.
+%
+%   Checking each choice:
+%   (A) $4 + 0 = 4$ and $3 \cdot 4 \cdot 0 = 0$. 
+%       Both conditions satisfied. VALID.
+%   (B) $7 + 0 = 7 \neq 4$. Fails the trace condition.
+%   (C) $(2+i) + (2-i) = 4$ and conjugate pair is valid for a real matrix. 
+%       But $\det = 3(2+i)(2-i) = 3 \cdot 5 = 15 \neq 0$. 
+%       Fails the determinant condition.
+%   (D) $0 + 0 = 0 \neq 4$. Fails the trace condition.
+%   (E) $4 + 3 = 7 \neq 4$ (i.e., $3 + 4 + 3 = 10 \neq 7$). 
+%       Fails the trace condition.
+%
+% \textbf{Partial credit:} C (student correctly verified the trace condition 
+%   AND recognized the conjugate pair requirement for real matrices, but 
+%   failed to check the determinant condition --- reflects partial 
+%   understanding: two out of three constraints checked.)
+%
+% \textbf{Trick answer:} C (satisfies trace and conjugate-pair requirements 
+%   but violates $\det = 0$; catches students who check only one or two conditions)
+% \textbf{Trick answer:} E (has a zero eigenvalue, appealing if focused only 
+%   on $\det = 0$, but violates the trace)
+% \textbf{Trick answer:} B (plausible-looking integers, but $3+4+3=10\neq 7$; 
+%   catches careless arithmetic)
+% \textbf{Trick answer:} D (double zero is tempting for students who over-focus 
+%   on $\det = 0$ without checking the sum)
+ 
+
+\divider
+
+
+{\bf PROBLEM 22:}
+% WEEK = 7
+% TOPICS = Diagonalizability, algebraic vs geometric multiplicity, 
+%          sufficient conditions, repeated eigenvalues
+%
+A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 4$, 
+$\lambda_2 = 4$, $\lambda_3 = 1$.
+%
+Which additional piece of information would guarantee that $A$ is 
+diagonalizable?
+\begin{enumerate}[(A)]
+\item $\ker(A - 4I)$ is one-dimensional
+\item $A$ is upper triangular
+\item The columns of $A$ are linearly independent
+\item The eigenspace for $\lambda = 4$ is two-dimensional
+\item None of the above: a repeated eigenvalue means $A$ cannot 
+      be diagonalized
+\end{enumerate}
+% \textbf{Correct Answer:} D
+%
+% \textbf{Explanation:} The eigenvalue $\lambda = 4$ has algebraic 
+% multiplicity $2$, so diagonalizability hinges on whether its 
+% geometric multiplicity also equals $2$. If the eigenspace for 
+% $\lambda = 4$ is two-dimensional, then geometric multiplicity 
+% matches algebraic multiplicity for this eigenvalue. The eigenvalue 
+% $\lambda = 1$ has algebraic multiplicity $1$, so its geometric 
+% multiplicity is automatically $1$. With geometric $=$ algebraic 
+% for \emph{every} eigenvalue, $A$ is diagonalizable.
+%
+% \textbf{Partial credit:} NONE 
+
+% \textbf{Trick answer:} A --- correctly identifies 
+%   $\ker(A - 4I)$ as the eigenspace for the repeated eigenvalue 
+%   and recognizes that this eigenspace is the object that determines 
+%   diagonalizability. However, a one-dimensional eigenspace means 
+%   geometric multiplicity $1 < 2 =$ algebraic multiplicity, which 
+%   actually guarantees $A$ is \emph{not} diagonalizable. The student 
+%   has the right framework but the wrong dimension threshold.)
+%
+% \textbf{Trick answer:} B --- Upper triangular matrices display 
+%   their eigenvalues on the diagonal, but this gives no information 
+%   about eigenspace dimensions. A Jordan block such as 
+%   $\begin{bmatrix} 4 & 1 \\ 0 & 4 \end{bmatrix}$ is upper 
+%   triangular with repeated eigenvalue $4$ yet is not 
+%   diagonalizable. Upper triangularity is about the form of the 
+%   matrix, not the structure of its eigenspaces.
+%
+% \textbf{Trick answer:} C --- Since no eigenvalue is zero, 
+%   $\det(A) = 4 \cdot 4 \cdot 1 = 16 \neq 0$, so $A$ is already 
+%   invertible (i.e., its columns are already linearly independent) 
+%   from the given information alone. This tells us nothing new. 
+%   Moreover, invertibility is unrelated to diagonalizability: a 
+%   matrix can be invertible but not diagonalizable (e.g., a Jordan 
+%   block with $\lambda \neq 0$).
+%
+% \textbf{Trick answer:} E --- This is a common misconception. 
+%   Repeated eigenvalues do \emph{not} prevent diagonalizability; 
+%   they merely create a \emph{condition} that must be checked. 
+%   For instance, $4I_{3\times 3}$ has eigenvalue $4$ with algebraic 
+%   multiplicity $3$ and is trivially diagonalizable (it is already 
+%   diagonal). Diagonalizability fails only when an eigenspace is 
+%   too small, not when an eigenvalue is repeated.
+
+
+\end{document}

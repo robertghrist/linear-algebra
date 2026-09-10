@@ -1,0 +1,638 @@
+\documentclass[12pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{itemsep=4pt, topsep=6pt, parsep=0pt}
+
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1.1}
+
+% Color for correct answers
+\usepackage{xcolor}
+\definecolor{correctgreen}{rgb}{0,0.6,0}
+\definecolor{partialblue}{rgb}{0,0,0.8}
+\definecolor{wrongred}{rgb}{0.8,0,0}
+
+\newcommand{\correct}[1]{{\color{correctgreen}\textbf{#1}}}
+\newcommand{\partcred}[1]{{\color{partialblue}#1}}
+\newcommand{\wrong}[1]{{\color{wrongred}#1}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+\title{ESE 2030 QUIZZAM 4 : SOLUTIONS GUIDE\\Fall 2025}
+\author{Instructor Solutions}
+
+\begin{document}
+\maketitle
+
+\section*{Answer Key Summary}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem & Correct Answer & Partial Credit \\
+\hline
+1 & B & -- \\
+2 & B & A (small) \\
+3 & A & -- \\
+4 & A & C (small) \\
+5 & C & -- \\
+6 & E & D \\
+7 & A & B (small) \\
+8 & D & -- \\
+9 & B & D (large) \\
+10 & D & A \\
+11 & B & C (almost full) \\
+12 & D & C \\
+13 & C & -- \\
+14 & E & D \\
+15 & A & E (small) \\
+16 & C & -- \\
+17 & D & -- \\
+18 & A & -- \\
+19 & E & C \\
+20 & B & C (small) \\
+21 & E & B, C \\
+22 & B & -- \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Notes:} This guide provides detailed explanations for each problem. There is often more than one way to understand a given concept, and this guide does not exhaustively cover all approaches. If you have questions, feel free to ask me, a TA, or consult AI tools for clarification.
+
+\newpage
+
+\section*{Detailed Solutions}
+
+\subsection*{Problem 1}
+\correct{Answer: (B) $\lambda_2 = -4$}
+
+\textbf{Explanation:} The dominant eigenvalue is the one with largest magnitude (absolute value). Computing magnitudes:
+\begin{align*}
+|\lambda_1| &= |3| = 3\\
+|\lambda_2| &= |-4| = 4\\
+|\lambda_3| &= |0| = 0\\
+|\lambda_4| = |\lambda_5| &= |1 \pm 2i| = \sqrt{1^2 + 2^2} = \sqrt{5} \approx 2.24
+\end{align*}
+
+Since $|\lambda_2| = 4$ is largest, $\lambda_2 = -4$ is the dominant eigenvalue. The sign is irrelevant for dominance—only magnitude matters. The dominant eigenvalue determines the asymptotic rate at which powers $B^k$ grow or decay: here $\|B^k\| \approx 4^k$ for large $k$.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): $|\lambda_1| = 3 < 4$, so not dominant
+\item (C): Zero eigenvalue has smallest magnitude
+\item (D): Complex eigenvalues have magnitude $\sqrt{5} \approx 2.24 < 4$
+\item (E): There is a clearly dominant eigenvalue
+\end{itemize}
+
+\subsection*{Problem 2}
+\correct{Answer: (B) $\{e^{2t}, e^{-t}\cos(3t), e^{-t}\sin(3t)\}$}
+
+\partcred{Partial Credit: (A) Mathematically correct but not natural for real ODEs}
+
+\textbf{Explanation:} Complex conjugate eigenvalues $\alpha \pm i\beta$ produce real basis solutions $e^{\alpha t}\cos(\beta t)$ and $e^{\alpha t}\sin(\beta t)$. Here $\alpha = -1$ and $\beta = 3$. The simple real eigenvalue $\lambda = 2$ gives $e^{2t}$. Thus the natural real basis is $\{e^{2t}, e^{-t}\cos(3t), e^{-t}\sin(3t)\}$.
+
+While choice (A) is mathematically valid (complex exponentials are solutions), for real differential equations we typically prefer real-valued basis solutions, which is what (B) provides through Euler's formula.
+
+\textbf{Partial Credit Rationale:} (A) uses complex exponentials which form a valid basis, but not the most natural choice for real ODEs.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (C): These would come from a repeated real eigenvalue $\lambda = 2$ with geometric multiplicity 1
+\item (D): Incorrect; separates exponential and trigonometric parts
+\item (E): Cannot have 4 basis functions for a 3-dimensional solution space
+\end{itemize}
+
+\subsection*{Problem 3}
+\correct{Answer: (A) $\lambda_1^2 c_1^2 + \cdots + \lambda_n^2 c_n^2$}
+
+\textbf{Explanation:} Since the eigenvectors form an orthonormal basis, we have:
+$$A\mathbf{x} = A(c_1\mathbf{q}_1 + \cdots + c_n\mathbf{q}_n) = c_1\lambda_1\mathbf{q}_1 + \cdots + c_n\lambda_n\mathbf{q}_n$$
+
+Because the eigenvectors are orthonormal (a key consequence of the Spectral Theorem), we can compute:
+$$\|A\mathbf{x}\|^2 = (c_1\lambda_1)^2 + (c_2\lambda_2)^2 + \cdots + (c_n\lambda_n)^2 = \lambda_1^2 c_1^2 + \cdots + \lambda_n^2 c_n^2$$
+
+This shows how $A$ stretches each eigenspace component independently by the corresponding eigenvalue. The orthonormality is crucial—without it, cross terms would appear.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Incorrectly squares the entire sum; would only work if all vectors were parallel
+\item (C): Only uses maximum eigenvalue; misses that different components scale differently
+\item (D): Forgets to apply $A$ at all; this is just $\|\mathbf{x}\|^2$
+\item (E): Uses wrong norm and treats components linearly rather than quadratically
+\end{itemize}
+
+\subsection*{Problem 4}
+\correct{Answer: (A) I and III only}
+
+\partcred{Partial Credit: (C) Includes II which has wrong factorial}
+
+\textbf{Explanation:} For a Jordan block $J = \lambda I + N$ where $N$ is nilpotent:
+$$e^{Jt} = e^{(\lambda I + N)t} = e^{\lambda t}e^{Nt}$$
+
+The key formula is:
+$$e^{Nt} = I + Nt + \frac{(Nt)^2}{2!} + \frac{(Nt)^3}{3!} + \cdots$$
+
+For a $2 \times 2$ Jordan block: $e^{Nt} = \begin{bmatrix} 1 & t \\ 0 & 1 \end{bmatrix}$
+
+For a $3 \times 3$ Jordan block: $e^{Nt} = \begin{bmatrix} 1 & t & \frac{t^2}{2} \\ 0 & 1 & t \\ 0 & 0 & 1 \end{bmatrix}$
+
+Checking each matrix:
+\begin{itemize}
+\item \textbf{I}: Two $2 \times 2$ blocks with $e^{2t}$ on diagonal and $te^{2t}$ on superdiagonal — \textbf{CORRECT} ✓
+\item \textbf{II}: One $3 \times 3$ block but has $t^2e^{2t}$ instead of $\frac{t^2}{2}e^{2t}$ — \textbf{WRONG}, missing the factorial
+\item \textbf{III}: One $3 \times 3$ block with correct $\frac{t^2}{2}e^{2t}$ term — \textbf{CORRECT} ✓
+\item \textbf{IV}: Has $\frac{t^2}{2}e^{2t}$ in wrong position (2,3) instead of (1,3); incorrect block structure
+\end{itemize}
+
+\textbf{Partial Credit Rationale:} (C) recognizes that I and III are valid but incorrectly includes II.
+
+\subsection*{Problem 5}
+\correct{Answer: (C) The characteristic polynomial of $C$ is $\lambda^3 - 4\lambda^2 + 5\lambda - 2 = 0$}
+
+\textbf{Explanation:} The characteristic polynomial of the companion matrix $C$ is identical to the characteristic polynomial of the differential operator. By substituting $\lambda$ for $D$ in the differential operator $D^3 - 4D^2 + 5D - 2$, we obtain:
+$$\lambda^3 - 4\lambda^2 + 5\lambda - 2 = 0$$
+
+The roots of this polynomial are the eigenvalues of $C$, and basis solutions to both formulations (ODE and matrix system) come from these eigenvalues. The conversion to first-order form preserves all solution structure—this is the fundamental connection between higher-order ODEs and matrix systems.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Coefficients are not eigenvalues; eigenvalues are roots of the characteristic polynomial
+\item (B): Trace equals sum of eigenvalues (which equals 4, the coefficient of $\lambda^2$), not $-1$
+\item (D): Companion matrices are not symmetric
+\item (E): Both have dimension 3; conversion doesn't change solution space dimension
+\end{itemize}
+
+\subsection*{Problem 6}
+\correct{Answer: (E) All of them}
+
+\partcred{Partial Credit: (D) Only $\mathcal{M}_1$ and $\mathcal{M}_3$}
+
+\textbf{Explanation:} Real Jordan canonical form consists of:
+\begin{itemize}
+\item $1 \times 1$ blocks for real eigenvalues: $[\lambda]$
+\item $2 \times 2$ blocks for complex conjugate pairs $\alpha \pm i\beta$: $\begin{bmatrix} \alpha & -\beta \\ \beta & \alpha \end{bmatrix}$
+\item Jordan blocks with 1's on the superdiagonal for repeated eigenvalues with geometric multiplicity less than algebraic multiplicity
+\end{itemize}
+
+Checking each matrix:
+
+\textbf{$\mathcal{M}_1$}: 
+\begin{itemize}
+\item $[2]$ — real eigenvalue 2
+\item $\begin{bmatrix} 1 & -3 \\ 3 & 1 \end{bmatrix}$ — complex pair $1 \pm 3i$
+\item $\begin{bmatrix} 4 & 1 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 4 \end{bmatrix}$ — this is a $2 \times 2$ Jordan block $\begin{bmatrix} 4 & 1 \\ 0 & 4 \end{bmatrix}$ plus a $1 \times 1$ block $[4]$
+\end{itemize}
+Valid Jordan form! ✓
+
+\textbf{$\mathcal{M}_2$}:
+\begin{itemize}
+\item $[2]$ — real eigenvalue 2
+\item $\begin{bmatrix} 0 & 3 \\ -3 & 0 \end{bmatrix}$ — complex pair $\pm 3i$ (with $\alpha = 0$)
+\item $\begin{bmatrix} 4 & 1 \\ 0 & 4 \end{bmatrix}$ — Jordan block for repeated eigenvalue 4
+\item $[5]$ — real eigenvalue 5
+\end{itemize}
+Valid Jordan form! ✓
+
+\textbf{$\mathcal{M}_3$}:
+\begin{itemize}
+\item $\begin{bmatrix} 1 & -3 \\ 3 & 1 \end{bmatrix}$ — complex pair $1 \pm 3i$
+\item $\begin{bmatrix} 4 & 1 & 0 \\ 0 & 4 & 1 \\ 0 & 0 & 4 \end{bmatrix}$ — $3 \times 3$ Jordan block for eigenvalue 4
+\item $[2]$ — real eigenvalue 2
+\end{itemize}
+Valid Jordan form! ✓
+
+\textbf{Partial Credit Rationale:} (D) correctly identifies two matrices but misses that $\mathcal{M}_2$ is also valid.
+
+\subsection*{Problem 7}
+\correct{Answer: (A) As $k \to \infty$, the population distribution converges to $\mathbf{v}_1$}
+
+\partcred{Partial Credit: (B) Small — recognizes importance of $\lambda_1 = 1$ but misinterprets its meaning}
+
+\textbf{Explanation:} A stochastic matrix preserves total population (or total probability), which corresponds to the eigenvalue $\lambda_1 = 1$ being dominant. Since $|\lambda_2| = 0.6$ and $|\lambda_3| = 0.2$ are both less than 1, as $k \to \infty$:
+$$\mathbf{x}(k) = P^k\mathbf{x}(0) = c_1 \lambda_1^k \mathbf{v}_1 + c_2 \lambda_2^k \mathbf{v}_2 + c_3 \lambda_3^k \mathbf{v}_3 \to c_1 \mathbf{v}_1$$
+
+The eigenvector $\mathbf{v}_1 = \frac{1}{10}\begin{pmatrix} 2 \\ 5 \\ 3 \end{pmatrix}$ indicates the long-term distribution ratios: 20% juvenile, 50% adult, 30% senior. The coefficient $c_1$ is determined by the initial distribution but doesn't affect the ratios.
+
+\textbf{Partial Credit Rationale:} (B) correctly identifies that $\lambda_1 = 1$ is important but incorrectly interprets it to mean the total population stays constant (which is true) rather than recognizing convergence to the stationary distribution.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (C): Negative eigenvalues don't make population components negative; they cause oscillating deviations from equilibrium that decay away
+\item (D): $|\lambda_2|$ controls convergence rate, not which age group dominates
+\item (E): Ignores the dominant eigenvalue $\lambda_1 = 1$; the other eigenvalues affect transients, not the long-term limit
+\end{itemize}
+
+\subsection*{Problem 8}
+\correct{Answer: (D) The network consists of exactly two separate connected components}
+
+\textbf{Explanation:} A fundamental theorem in spectral graph theory states that the \textbf{multiplicity of the eigenvalue 0} for a graph Laplacian equals the \textbf{number of connected components}. Since $\lambda = 0$ appears with multiplicity 2, the network consists of exactly two separate groups of servers with no connections between the groups.
+
+This is not an error—disconnected networks naturally have multiple zero eigenvalues. The eigenvector for each zero eigenvalue is constant on one component and zero elsewhere, so the eigenspace of 0 has dimension equal to the number of components.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Doesn't recognize that multiple zero eigenvalues indicate disconnection
+\item (B): Confuses the meaning of $\lambda = 2$; nonzero eigenvalues don't directly count isolated nodes
+\item (C): Incorrectly thinks multiple zero eigenvalues indicate an error; this is actually the correct behavior for disconnected graphs
+\item (E): Confuses the number of eigenvalues with the number of components; it's the multiplicity of 0 that matters
+\end{itemize}
+
+\subsection*{Problem 9}
+\correct{Answer: (B) The skew-symmetric part $\beta J$ satisfies $J^2 = -I$, causing the Taylor series to separate into even/odd terms that match the series for $\cos(\beta t)$ and $\sin(\beta t)$}
+
+\partcred{Partial Credit: (D) Large — recognizes connection to Euler's formula}
+
+\textbf{Explanation:} Let $N = \beta J = \begin{bmatrix} 0 & -\beta \\ \beta & 0 \end{bmatrix}$. The key property is:
+$$N^2 = \begin{bmatrix} 0 & -\beta \\ \beta & 0 \end{bmatrix}^2 = \begin{bmatrix} -\beta^2 & 0 \\ 0 & -\beta^2 \end{bmatrix} = -\beta^2 I$$
+
+This gives us: $N^3 = -\beta^2 N$, $N^4 = \beta^4 I$, etc.
+
+When we expand $e^{Nt}$ as a Taylor series:
+$$e^{Nt} = I + Nt + \frac{(Nt)^2}{2!} + \frac{(Nt)^3}{3!} + \frac{(Nt)^4}{4!} + \cdots$$
+
+The even powers give:
+$$I\left(1 - \frac{\beta^2t^2}{2!} + \frac{\beta^4t^4}{4!} - \cdots\right) = \cos(\beta t) \cdot I$$
+
+The odd powers give:
+$$N\left(t - \frac{\beta^2t^3}{3!} + \frac{\beta^4t^5}{5!} - \cdots\right) = \frac{1}{\beta}N \cdot \beta t\left(1 - \frac{(\beta t)^2}{3!} + \cdots\right) = \frac{1}{\beta}N\sin(\beta t)$$
+
+The appearance of sines and cosines comes from how their Taylor series naturally emerge when computing matrix powers. The crucial property is $N^2 = -\beta^2 I$, which causes the alternating signs in the series expansion.
+
+\textbf{Partial Credit Rationale:} (D) recognizes the connection to Euler's formula, which is related but doesn't explain the mechanism from first principles.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Describes the phenomenon but doesn't explain the mechanism; this is "what" not "why"
+\item (C): Confuses cause and effect—$J$ represents rotation BECAUSE the exponential has this form, not vice versa
+\item (E): The determinant property is irrelevant to why trigonometric functions appear in the series expansion
+\end{itemize}
+
+\subsection*{Problem 10}
+\correct{Answer: (D) The sequence converges to the direction of $\mathbf{v}_2$, but oscillating signs}
+
+\partcred{Partial Credit: (A) Recognizes convergence to zero but misses dominant direction and oscillation}
+
+\textbf{Explanation:} Since the eigenvectors are linearly independent:
+$$\mathbf{x}_k = A^k\mathbf{x}_0 = 2(0.6)^k\mathbf{v}_1 + 3(-0.8)^k\mathbf{v}_2 + 5(0.4)^k\mathbf{v}_3$$
+
+The dominant eigenvalue (largest magnitude) is $\lambda_2 = -0.8$ with $|\lambda_2| = 0.8$. The other eigenvalues have smaller magnitudes: $|\lambda_1| = 0.6$ and $|\lambda_3| = 0.4$.
+
+As $k \to \infty$:
+\begin{itemize}
+\item The ratios $|\lambda_1|/|\lambda_2| = 0.75$ and $|\lambda_3|/|\lambda_2| = 0.5$ mean the other components decay much faster relative to the $\mathbf{v}_2$ component
+\item Therefore $\mathbf{x}_k \approx 3(-0.8)^k\mathbf{v}_2$ for large $k$
+\item The normalized sequence $\mathbf{x}_k/\|\mathbf{x}_k\|$ oscillates between $+\mathbf{v}_2/\|\mathbf{v}_2\|$ and $-\mathbf{v}_2/\|\mathbf{v}_2\|$ (alternating signs due to the negative eigenvalue)
+\item The magnitude $\|\mathbf{x}_k\|$ decays to zero since $|\lambda_2| = 0.8 < 1$
+\end{itemize}
+
+The sequence converges to zero along the direction of $\mathbf{v}_2$, with oscillating sign.
+
+\textbf{Partial Credit Rationale:} (A) correctly recognizes that all eigenvalue magnitudes are less than 1, so the sequence converges to zero, but misses the key insight about the dominant eigenvector direction and oscillatory behavior.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): Incorrectly identifies $\lambda_1 = 0.6$ as dominant; dominance is determined by magnitude
+\item (C): All eigenvalues have magnitude less than 1, so the sequence decays
+\item (E): While eigencomponents act independently, this doesn't describe the asymptotic behavior where one component dominates
+\end{itemize}
+
+\subsection*{Problem 11}
+\correct{Answer: (B) $-A$ has a dominant real negative eigenvalue with positive eigenvector}
+
+\partcred{Partial Credit: (C) Almost full — gets eigenvalue sign correct but not eigenvector sign}
+
+\textbf{Explanation:} If $\mathbf{v}$ is an eigenvector of $A$ with eigenvalue $\lambda$, then $A\mathbf{v} = \lambda\mathbf{v}$, which means:
+$$(-A)\mathbf{v} = -\lambda\mathbf{v}$$
+
+Thus $\mathbf{v}$ is also an eigenvector of $-A$ with eigenvalue $-\lambda$. The key insight: \textbf{negating a matrix negates its eigenvalues but preserves eigenvectors}.
+
+Since $A$ has dominant eigenvalue $\lambda_* = \rho(A) > 0$ with positive eigenvector $\mathbf{v}_*$ (by Perron-Frobenius), the matrix $-A$ has:
+\begin{itemize}
+\item Eigenvalue $-\lambda_* < 0$ (negative)
+\item With the SAME positive eigenvector $\mathbf{v}_*$
+\item This eigenvalue has magnitude $|-\lambda_*| = \lambda_* = \rho(A)$, making it dominant
+\end{itemize}
+
+\textbf{Partial Credit Rationale:} (C) correctly identifies the negative eigenvalue but incorrectly assumes the eigenvector changes sign. Eigenvectors are unchanged by negating the matrix.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Negating the matrix negates the eigenvalues
+\item (D): While Perron-Frobenius doesn't directly apply to matrices with all negative entries, we can determine the eigenstructure by understanding how negation affects eigenvalues and eigenvectors
+\item (E): (B) is entirely accurate
+\end{itemize}
+
+\subsection*{Problem 12}
+\correct{Answer: (D) $R_k Q_k$ is similar to $A_k$ via $A_{k+1} = Q_k^T A_k Q_k$, preserving eigenvalues across iterations}
+
+\partcred{Partial Credit: (C) Recognizes that $Q_k R_k = A_k$ but misses the crucial similarity relationship}
+
+\textbf{Explanation:} The key insight is that:
+$$R_k Q_k = Q_k^T Q_k R_k Q_k = Q_k^T (Q_k R_k) Q_k = Q_k^T A_k Q_k$$
+
+since $A_k = Q_k R_k$ and $Q_k^T Q_k = I$ (orthogonality). This shows $A_{k+1}$ is similar to $A_k$ via an orthogonal similarity transformation, guaranteeing they have identical eigenvalues.
+
+The sequence of similarity transformations:
+$$A_0 \to A_1 \to A_2 \to \cdots$$
+gradually reveals the eigenvalue structure (converging to triangular or block-triangular form) while preserving the spectrum at each step.
+
+Choice (C) is tempting but imprecise—while $Q_k R_k = A_k$ is true, the deeper reason we reverse the order is to create the similarity transformation that preserves eigenvalues while changing the matrix form toward something more revealing.
+
+\textbf{Partial Credit Rationale:} (C) recognizes that $Q_k R_k = A_k$ but misses the crucial similarity relationship that makes the algorithm converge to useful form.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): $R_k Q_k$ is NOT generally upper triangular; the algorithm converges to triangular form over many iterations, not in one step
+\item (B): While matrix multiplication is non-commutative, this observation doesn't explain why the algorithm works
+\item (E): $R_k Q_k$ does not generally preserve symmetry unless additional structure is present
+\end{itemize}
+
+\subsection*{Problem 13}
+\correct{Answer: (C) Matrix $B$ converges faster}
+
+\textbf{Explanation:} The convergence rate of the power method is determined by the ratio $|\lambda_2|/|\lambda_1|$ where $\lambda_1$ is the dominant eigenvalue and $\lambda_2$ is the second-largest in magnitude.
+
+For matrix $A$: ratio is $|9|/|10| = 0.9$
+
+For matrix $B$: ratio is $|2|/|10| = 0.2$
+
+The smaller this ratio, the faster the convergence. Matrix $B$ has ratio $0.2 < 0.9$, so it converges much faster.
+
+\textbf{Intuitively}: When the dominant eigenvalue is well-separated from the others (as in $B$), the $\mathbf{v}_1$ component grows much faster relative to other components, leading to rapid convergence. When eigenvalues are close (as in $A$), the $\mathbf{v}_2$ component remains significant for many iterations, slowing convergence.
+
+After $k$ iterations, the relative error is approximately $(|\lambda_2|/|\lambda_1|)^k$. For $A$: $(0.9)^k$ vs. for $B$: $(0.2)^k$ — the latter decays exponentially faster.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Doesn't recognize that separation matters
+\item (B): Backward reasoning; larger second eigenvalue means slower convergence
+\item (D): While initial condition affects early iterations, the asymptotic convergence rate is determined by the eigenvalue ratio
+\item (E): The power method doesn't require Perron-Frobenius; it applies to any diagonalizable matrix
+\end{itemize}
+
+\subsection*{Problem 14}
+\correct{Answer: (E) Need to know the dominant eigenvector to determine this}
+
+\partcred{Partial Credit: (D) Recognizes need to compute limit but doesn't identify the eigenvector method}
+
+\textbf{Explanation:} Stochastic matrices (where columns sum to 1 and entries are non-negative) always have $\lambda = 1$ as an eigenvalue. The corresponding eigenvector, normalized so its entries sum to 1, gives the \textbf{stationary distribution}—the long-term market share that the system converges to regardless of initial distribution.
+
+After many iterations:
+$$\mathbf{x}_k = P^k\mathbf{x}_0 \to \text{stationary distribution} = \text{eigenvector for } \lambda = 1$$
+
+This is a fundamental result in Markov chain theory: the eigenvalue $\lambda = 1$ is dominant (by Perron-Frobenius for irreducible stochastic matrices), and its positive eigenvector describes the equilibrium.
+
+To find the actual market shares, we would need to:
+\begin{enumerate}
+\item Solve $(P - I)\mathbf{v} = \mathbf{0}$ for the eigenvector
+\item Normalize so entries sum to 1
+\end{enumerate}
+
+Without doing this calculation, we cannot determine the specific percentages.
+
+\textbf{Partial Credit Rationale:} (D) correctly recognizes that we need to compute a limit, which is related to finding the eigenvector.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Initial distribution doesn't determine long-term behavior
+\item (B), (C): Random guesses without calculation
+\end{itemize}
+
+\subsection*{Problem 15}
+\correct{Answer: (A) Over time, the robot spends the same time in room 1 as in room 4}
+
+\partcred{Partial Credit: (E) True but not via symmetry — may be true for other reasons}
+
+\textbf{Explanation:} The stationary distribution of a random walk on a graph reflects the long-term proportion of time spent in each state. When two rooms have \textbf{identical rows AND columns} in the transition matrix, they are \textbf{topologically equivalent}—they have the same connectivity structure to the rest of the network.
+
+This symmetry forces the stationary distribution to assign equal probability to these rooms. Since the robot's long-term behavior is described by the eigenvector for $\lambda = 1$, and this eigenvector must respect the symmetry of $P$, rooms 1 and 4 must have equal components.
+
+This is a manifestation of the symmetry principle in Markov chains: states with identical transition patterns have identical stationary probabilities.
+
+Verification: Looking at the matrix, rooms 1 and 4 both:
+\begin{itemize}
+\item Have 2 neighbors (degree 2)
+\item Connect to the same set of rooms (2 and 3)
+\item Have identical transition probabilities
+\end{itemize}
+
+\textbf{Partial Credit Rationale:} (E) may be true (rooms 2 and 3 have degree 3 vs. rooms 1 and 4 have degree 2, so may have higher stationary probability), but this doesn't follow from the symmetry argument.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): No such symmetry exists between rooms 2 and 3
+\item (C): Instantaneous probabilities don't determine long-term behavior
+\item (D): Eigenvalues are properties of the matrix, not individual states
+\end{itemize}
+
+\subsection*{Problem 16}
+\correct{Answer: (C) $C$ has eigenvalue $\lambda = 3$ appearing twice in the characteristic polynomial, with a 1-dimensional eigenspace}
+
+\textbf{Explanation:} The general solution structure reveals the eigenvalue structure:
+\begin{itemize}
+\item $e^{-2t}$ indicates eigenvalue $\lambda = -2$ appearing once
+\item $e^{3t}$ and $te^{3t}$ indicate eigenvalue $\lambda = 3$ appearing twice
+\end{itemize}
+
+The presence of BOTH $e^{3t}$ and $te^{3t}$ is the key diagnostic. The polynomial term $t$ always signals a deficiency in the number of eigenvectors relative to how many times the eigenvalue appears (geometric multiplicity < algebraic multiplicity).
+
+If the eigenspace for $\lambda = 3$ were 2-dimensional, we would have two independent eigenvectors for $\lambda = 3$, producing two independent exponential solutions of the form $e^{3t}$ (in different directions). Instead, the $te^{3t}$ term arises precisely because there is only ONE eigenvector for $\lambda = 3$, requiring a generalized eigenvector to complete the basis.
+
+Summary for $\lambda = 3$:
+\begin{itemize}
+\item Algebraic multiplicity: 2 (appears twice in characteristic polynomial)
+\item Geometric multiplicity: 1 (one eigenvector, one generalized eigenvector)
+\item Basis solutions: $e^{3t}$ (from eigenvector), $te^{3t}$ (from generalized eigenvector)
+\end{itemize}
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Misses that the polynomial term signals eigenvalue repetition
+\item (B): Backwards; a 2-dimensional eigenspace would give two independent exponential solutions, not the polynomial term
+\item (D): Contradictory reasoning; a 2-dimensional eigenspace means two independent eigenvectors
+\item (E): Complex eigenvalues produce trigonometric functions like $\cos(\beta t)$ and $\sin(\beta t)$, not polynomial-exponential products
+\end{itemize}
+
+\subsection*{Problem 17}
+\correct{Answer: (D) Block upper triangular: three $1 \times 1$ blocks and one $2 \times 2$ block}
+
+\textbf{Explanation:} The QR algorithm converges to \textbf{real Schur form}: block upper triangular with:
+\begin{itemize}
+\item $1 \times 1$ blocks for real eigenvalues (regardless of multiplicity)
+\item $2 \times 2$ blocks for complex conjugate pairs
+\end{itemize}
+
+For this matrix:
+\begin{itemize}
+\item Three real eigenvalues: $3, 3, -1$ → three $1 \times 1$ blocks
+\item One complex conjugate pair: $1 \pm 2i$ → one $2 \times 2$ block
+\end{itemize}
+
+The $2 \times 2$ block has the form $\begin{bmatrix} 1 & -2 \\ 2 & 1 \end{bmatrix}$ (or similar, depending on eigenvector structure).
+
+Important: The QR algorithm:
+\begin{itemize}
+\item Does NOT produce Jordan form (would need generalized eigenvectors)
+\item Does NOT produce complex entries (real arithmetic throughout)
+\item Is NOT prevented from converging by repeated eigenvalues
+\item Does NOT produce a diagonal matrix unless all eigenvalues are real and distinct
+\end{itemize}
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Real sequence cannot have complex entries
+\item (B): QR gives Schur form, not Jordan form
+\item (C): Complex eigenvalues require $2 \times 2$ blocks in real arithmetic
+\item (E): Repeated eigenvalues do not prevent convergence
+\end{itemize}
+
+\subsection*{Problem 18}
+\correct{Answer: (A) There are three positive eigenvalues}
+
+\textbf{Explanation:} The matrix $A = X^TX$ is a \textbf{Gram matrix}. When $X$ has linearly independent columns:
+\begin{itemize}
+\item $A$ is symmetric: $(X^TX)^T = X^T(X^T)^T = X^TX$
+\item $A$ is positive definite: $\mathbf{v}^T A \mathbf{v} = \mathbf{v}^T X^T X \mathbf{v} = \|X\mathbf{v}\|^2 > 0$ for all $\mathbf{v} \neq \mathbf{0}$
+\end{itemize}
+
+By the Spectral Theorem, $A$ can be orthogonally diagonalized with real eigenvalues. The positive definiteness ensures all eigenvalues are positive.
+
+Since $X$ is $5 \times 3$, the matrix $A = X^TX$ is $3 \times 3$. Therefore, $A$ has exactly three eigenvalues, all positive.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (B): $A$ is $3 \times 3$ and full rank (positive definite), so no zero eigenvalues
+\item (C): Positive definiteness doesn't prevent repeated eigenvalues
+\item (D): Wrong dimension; $A$ is $3 \times 3$, not $5 \times 5$
+\item (E): Linear independence of columns guarantees positive definiteness
+\end{itemize}
+
+\subsection*{Problem 19}
+\correct{Answer: (E) All three $\mathbf{v}_i$ exist and are mutually orthogonal}
+
+\partcred{Partial Credit: (C) Recognizes orthogonality can be achieved but doesn't appreciate that Spectral Theorem guarantees this}
+
+\textbf{Explanation:} The \textbf{Spectral Theorem} guarantees that every symmetric matrix has an orthonormal basis of eigenvectors, regardless of whether eigenvalues are repeated.
+
+For this matrix:
+\begin{enumerate}
+\item Symmetric matrices are always diagonalizable, so geometric multiplicity equals algebraic multiplicity for each eigenvalue. The eigenspace for $\lambda = 3$ is 2-dimensional.
+\item The theorem guarantees not just that eigenvectors from different eigenspaces are orthogonal, but that we can choose an ENTIRE orthonormal eigenbasis.
+\item This means $\mathbf{v}_1$, $\mathbf{v}_2$, and $\mathbf{v}_3$ can all be chosen mutually orthogonal.
+\end{enumerate}
+
+While it's true we might use Gram-Schmidt within the eigenspace for $\lambda = 3$ to construct such a basis, the Spectral Theorem guarantees this construction will succeed—this is the key difference from general (non-symmetric) matrices where repeated eigenvalues might have deficient eigenspaces requiring generalized eigenvectors.
+
+\textbf{Partial Credit Rationale:} (C) recognizes that all three eigenvectors exist and can be made orthogonal via Gram-Schmidt, but doesn't fully appreciate that the Spectral Theorem guarantees this is always possible for symmetric matrices.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Confuses symmetric matrices with general matrices; symmetric matrices always have full-dimensional eigenspaces
+\item (B): True for eigenvectors from different eigenspaces, but misses that orthogonality is guaranteed within eigenspaces too
+\item (D): Repeated eigenvalues can cause non-diagonalizability for general matrices, but never for symmetric matrices
+\end{itemize}
+
+\subsection*{Problem 20}
+\correct{Answer: (B) $\rho(A) = 3$}
+
+\partcred{Partial Credit: (C) Small — correctly computes magnitude of complex eigenvalues but selects wrong maximum}
+
+\textbf{Explanation:} The spectral radius is the maximum magnitude among all eigenvalues:
+$$\rho(A) = \max\{|\lambda_i|\}$$
+
+Computing magnitudes:
+\begin{align*}
+|\lambda_1| &= |2| = 2\\
+|\lambda_2| &= |-3| = 3\\
+|\lambda_3| &= |1+2i| = \sqrt{1^2 + 2^2} = \sqrt{5} \approx 2.24\\
+|\lambda_4| &= |1-2i| = \sqrt{1^2 + (-2)^2} = \sqrt{5} \approx 2.24
+\end{align*}
+
+The maximum is $|\lambda_2| = 3$, so $\rho(A) = 3$.
+
+Note: The spectral radius is always a non-negative real number, even when the matrix has complex eigenvalues. It determines the asymptotic growth rate of matrix powers: $\|A^k\| \approx \rho(A)^k$ for large $k$.
+
+\textbf{Partial Credit Rationale:} (C) correctly computes $|\lambda_3| = |\lambda_4| = \sqrt{5}$ but doesn't compare all magnitudes to find the maximum.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): This is $\sqrt{3}$, which doesn't correspond to any eigenvalue magnitude
+\item (D): This would be $\rho(A)^2$ if $\rho(A) = \sqrt{5}$, but spectral radius is not squared
+\item (E): The spectral radius is clearly 3
+\end{itemize}
+
+\subsection*{Problem 21}
+\correct{Answer: (E) Both (B) and (C)}
+
+\partcred{Partial Credit: (B) or (C) individually}
+
+\textbf{Explanation:} For diagonalizability, geometric multiplicity must equal algebraic multiplicity for each eigenvalue.
+
+For $\lambda = 2$:
+\begin{itemize}
+\item Algebraic multiplicity: 3 (from $(\ lambda - 2)^3$)
+\item Geometric multiplicity: $\dim(\ker(A - 2I)) = 2$
+\item Mismatch: $2 < 3$, so NOT diagonalizable
+\end{itemize}
+
+For $\lambda = -1$:
+\begin{itemize}
+\item Algebraic multiplicity: 2 (from $(\lambda + 1)^2$)
+\item Geometric multiplicity: $\dim(\ker(A + I)) = 2$
+\item Match: $2 = 2$, so this eigenvalue is fine
+\end{itemize}
+
+Since there is a deficiency for $\lambda = 2$, the matrix $A$ is NOT diagonalizable.
+
+Furthermore, the deficiency $(3-2=1)$ tells us there must be at least one Jordan block of size at least 2 for eigenvalue 2. Specifically, the Jordan form will have either:
+\begin{itemize}
+\item One $2 \times 2$ block and one $1 \times 1$ block for $\lambda = 2$, OR
+\item One $3 \times 3$ block for $\lambda = 2$
+\end{itemize}
+
+(The exact structure depends on $\dim(\ker(A-2I)^2)$, but we know at least one block has size $\geq 2$.)
+
+Additional verification for (D): By rank-nullity, $\text{rank}(A - 2I) = 5 - \dim(\ker(A-2I)) = 5 - 2 = 3$, not 2.
+
+\textbf{Partial Credit Rationale:} (B) or (C) individually correctly identify one consequence of the multiplicity mismatch.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Directly contradicts the multiplicity mismatch
+\item (D): Rank-nullity gives rank = 3, not 2
+\end{itemize}
+
+\subsection*{Problem 22}
+\correct{Answer: (B) Two complex conjugate eigenvalues with negative real part}
+
+\textbf{Explanation:} Damped oscillations require two features in the solution behavior:
+\begin{enumerate}
+\item \textbf{Oscillatory motion} — comes from complex conjugate eigenvalues
+\item \textbf{Decay over time} — comes from negative real parts
+\end{enumerate}
+
+Complex conjugate eigenvalues $\lambda = \alpha \pm i\beta$ (with $\beta \neq 0$) produce solutions of the form:
+$$e^{\alpha t}(A\cos(\beta t) + B\sin(\beta t))$$
+
+For damped oscillations:
+\begin{itemize}
+\item The trigonometric functions $\cos(\beta t)$ and $\sin(\beta t)$ provide the oscillation
+\item The exponential factor $e^{\alpha t}$ controls growth/decay
+\item When $\alpha < 0$ (negative real part), we get $e^{\alpha t} \to 0$ as $t \to \infty$, causing the oscillations to decay
+\end{itemize}
+
+Therefore, damped oscillations correspond to complex eigenvalues with negative real part.
+
+\textbf{Wrong Answers:}
+\begin{itemize}
+\item (A): Two distinct real negative eigenvalues give exponential decay without oscillation (overdamped)
+\item (C): Repeated real negative eigenvalue gives fastest decay without oscillation (critically damped)
+\item (D): Positive real eigenvalues cause unbounded exponential growth, not damping
+\item (E): Complex eigenvalues with positive real part produce growing oscillations, not damped ones
+\end{itemize}
+
+\end{document}

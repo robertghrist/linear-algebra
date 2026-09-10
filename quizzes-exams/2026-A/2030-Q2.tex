@@ -1,0 +1,753 @@
+\documentclass[12pt]{amsart}
+%\usepackage[margin=1in]{geometry}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+
+\usepackage[shortlabels]{enumitem}
+% Set spacing for all enumerate environments
+\setlist[enumerate]{itemsep=6pt, topsep=6pt, parsep=0pt}
+
+\usepackage{graphicx}
+
+\usepackage[left=0.75in,right=1in,bottom=0.9in]{geometry}  
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+\usepackage[T1]{fontenc}
+
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+% Header with NAME and ID on first page only
+\fancypagestyle{firstpage}{
+    \fancyhf{}
+    \fancyhead[L]{\small NAME: \underline{\hspace{3in}}}
+    \fancyhead[R]{\small ID: \underline{\hspace{2in}}}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTION DIVIDERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\divider}{
+  \vspace{-1em} % Add space above
+  \noindent
+  \raisebox{-0.15ex}{\textbullet}%
+  \hspace{0.5em}%
+  \rule[0.5ex]{0.95\textwidth}{1.0pt}%
+  \hspace{0.5em}%
+  \raisebox{-0.15ex}{\textbullet}%
+  \vspace{0em} % Adjust space below
+}
+
+\title{ESE 2030 QUIZZAM 2 : Spring 2026}
+\author{prof-g}
+
+
+\begin{document}
+\thispagestyle{firstpage}
+
+\maketitle
+
+\begin{center}
+    {\bf INSTRUCTIONS}
+\end{center}
+
+\begin{itemize}
+\item 
+No books, notes, or calculators. Use a writing utensil and logic. 
+
+\item 
+Please follow question instructions and fill in the bubble-sheet. 
+
+\item 
+Select one answer per problem.
+
+\item 
+Each problem has one best answer. In some problems, a wrong choice may be worth partial credit. 
+
+\item 
+Be careful to fill in the correct problem number. 
+
+\item 
+These questions are written carefully: if you detect an error, read closely and do your best.
+
+\item 
+If anything is unclear, use your best judgment. 
+
+\item 
+Cheating in any form will be dealt with severely. 
+
+\item 
+If you finish early, please turn your bubble sheet over and draw (lightly) a nice picture. 
+
+\end{itemize}
+
+\vspace{1in}
+\begin{center}
+\begin{quote}
+    \large
+{\em In signing my name below I attest that I will neither give nor receive unauthorized assistance on this examination.}
+    \normalsize
+\end{quote}
+\vspace{1in}
+
+Signature: \rule{3in}{0.4pt}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+{\bf PROBLEM 1:}
+% WEEK 4
+% TOPIC = similarity
+%
+Two engineers model the same linear transformation $T:\mathbb{R}^n\to\mathbb{R}^n$ using different coordinate systems. Engineer 1 uses basis $\mathcal{A}$ and obtains matrix $A$; Engineer 2 uses basis $\mathcal{B}$ and obtains matrix $B$. Which statement is correct?
+
+\begin{enumerate}[(A)]
+\item $A$ and $B$ have the same kernel
+\item $A$ and $B$ have the same image
+\item $A=B$ if the bases $\mathcal{A}$ and $\mathcal{B}$ are both orthonormal
+\item $A$ and $B$ are similar
+\item $A$ and $B$ are invertible
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} Since both matrices represent the same transformation in different bases, $B = P^{-1}AP$ where $P$ is the change-of-basis matrix from $\mathcal{A}$ to $\mathcal{B}$. This is the definition of similarity.
+% \textbf{Trick answer:} A (the abstract $\ker(T)$ is basis-independent, but $\ker(A)$ and $\ker(B)$ are sets of coordinate vectors in different bases; they are generically different subsets of $\mathbb{R}^n$)
+% \textbf{Trick answer:} B (same reasoning: $\operatorname{im}(T)$ is basis-independent, but $\operatorname{im}(A)$ and $\operatorname{im}(B)$ encode it in different coordinate systems)
+% \textbf{Partial credit:} A or B (correct intuition that $T$ has a single kernel/image, but conflates the abstract subspace with its coordinate representation)
+% \textbf{Wrong:} C (two different orthonormal bases still generically yield different matrices; orthonormality plays no special role in similarity)
+% \textbf{Wrong:} E ($T$ need not be invertible; similarity preserves rank but does not force invertibility)
+%
+\divider
+%
+
+{\bf PROBLEM 2:}
+% WEEK 5/6
+% TOPIC = QR decomposition, solving systems, orthogonal matrices, triangular systems
+
+An $n \times n$ invertible matrix $A$ has QR decomposition $A = QR$. Using this factorization, the system $A\mathbf{x} = \mathbf{b}$ reduces to:
+
+\begin{enumerate}[(A)]
+\item Solving the lower triangular system $R^T\mathbf{x} = Q\mathbf{b}$.
+\item Solving the upper triangular system $R\mathbf{x} = Q\mathbf{b}$.
+\item Computing $\mathbf{x} = R^TQ^T\mathbf{b}$.
+\item Computing $\mathbf{x} = QR^{-1}\mathbf{b}$.
+\item Solving the upper triangular system $R\mathbf{x} = Q^T\mathbf{b}$.
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+% \textbf{Explanation:} From $QR\mathbf{x} = \mathbf{b}$, multiply both sides on the left by $Q^T$. Since $Q$ is orthogonal, $Q^TQ = I$, giving $R\mathbf{x} = Q^T\mathbf{b}$. The right-hand side $Q^T\mathbf{b}$ is a single matrix--vector product (cheap), and $R$ is upper triangular, so the resulting system is solved by back-substitution (Week~1). This is the practical payoff of QR: it replaces a general linear system with a triangular one, at the cost of one orthogonal multiplication.
+% \textbf{Partial credit:} B (correctly identifies that the system reduces to solving $R\mathbf{x} = (\cdots)$ by back-substitution, but uses $Q$ instead of $Q^T$ on the right-hand side. This student understands the triangular structure but has not internalized $Q^{-1} = Q^T$, the defining property of orthogonal matrices.)
+% \textbf{Trick answer:} A ($R^T$ is lower triangular, not upper, and uses $Q$ instead of $Q^T$; a student who transposes the wrong factor and confuses the triangular orientation picks this)
+% \textbf{Trick answer:} C ($R^TQ^T = (QR)^T = A^T$, so this computes $A^T\mathbf{b}$, not $A^{-1}\mathbf{b}$; the student who confuses transpose with inverse picks this. A good distractor because it ``looks like'' it undoes the factorization.)
+% \textbf{Trick answer:} D (the order is wrong: $A^{-1} = R^{-1}Q^T$, not $QR^{-1}$. This student forgets that $(QR)^{-1} = R^{-1}Q^{-1}$, i.e., that products invert in reverse order. Moreover, explicitly computing $R^{-1}$ defeats the purpose of the factorization.)
+%
+\divider
+
+{\bf PROBLEM 3:}
+% WEEK 5
+% TOPIC = weighted inner product, orthogonality depends on inner product
+%
+In $\mathbb{R}^2$, consider the weighted inner product
+$$\langle \mathbf{u}, \mathbf{v} \rangle_M = \mathbf{u}^T M \mathbf{v}, \qquad M = \begin{bmatrix} 3 & 1 \\ 1 & 4 \end{bmatrix}.$$
+Let $\mathbf{a} = \begin{pmatrix} 1 \\ -2 \end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$. Which statement is correct?
+
+\begin{enumerate}[(A)]
+\item $\mathbf{a}$ and $\mathbf{b}$ are orthogonal under both the standard dot product and $\langle \cdot, \cdot \rangle_M$.
+\item $\mathbf{a}$ and $\mathbf{b}$ are orthogonal under $\langle \cdot, \cdot \rangle_M$ but not under the standard dot product.
+\item $\mathbf{a}$ and $\mathbf{b}$ are orthogonal under the standard dot product but not under $\langle \cdot, \cdot \rangle_M$.
+\item $\mathbf{a}$ and $\mathbf{b}$ are not orthogonal under either inner product, but $\|\mathbf{a}\|_M = \|\mathbf{a}\|$.
+\item None of the above.
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} Standard dot product equals $0$, so $\mathbf{a} \perp \mathbf{b}$ in the standard sense. Weighted dot product $\neq 0$, so they are \emph{not} $M$-orthogonal. The core lesson: orthogonality depends on the choice of inner product. Two vectors perpendicular in the standard geometry can fail to be perpendicular when distances are weighted differently along different axes.
+% \textbf{Trick answer:} A (computes only the standard dot product and assumes all inner products agree on orthogonality)
+% \textbf{Trick answer:} B (gets the conclusion backwards; a student who computes both but swaps which is zero picks this)
+% \textbf{Wrong:} D (the vectors \emph{are} standard-orthogonal, contradicting the premise; also $\|\mathbf{a}\| = \sqrt{2}$ while $\|\mathbf{a}\|_M = \sqrt{10}$, so the norms differ)
+% \textbf{Wrong:} E ($M$ is symmetric with positive diagonal entries, hence positive definite, so $\langle \cdot, \cdot \rangle_M$ is a valid inner product)
+
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+{\bf PROBLEM 4:}
+% WEEK 5
+% TOPIC = Frobenius inner product, matrix inner product spaces
+%
+Consider the vector space $M_{m \times n}(\mathbb{R})$ of all $m \times n$ real matrices, equipped with the Frobenius inner product $\langle A, B \rangle_F = \operatorname{tr}(A^T B)$. Which of the following is TRUE?
+
+\begin{enumerate}[(A)]
+\item For square matrices, $\|A\|_F = \sqrt{\langle A, A\rangle} = \sqrt{\operatorname{tr}(A^2)}$
+\item $\langle A, B \rangle_F = 0$ if and only if $A^T B = \mathbf{0}$
+\item $\langle A, B \rangle_F = \sum_{i,j} a_{ij}\,b_{ij}$
+\item This satisfies the definition of an inner product only for square matrices
+\item None of the above
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} Expanding the trace, $\operatorname{tr}(A^T B) = \sum_{j=1}^{n}\sum_{i=1}^{m} a_{ij}\,b_{ij}$, which is exactly the standard dot product applied to the $mn$ entries of $A$ and $B$ laid out as vectors. This is the key conceptual insight: the Frobenius inner product "vectorizes" a matrix and takes the ordinary dot product, so all the machinery of inner product spaces (norms, angles, orthogonality, projections) applies to matrices.
+% \textbf{Trick answer:} A (confuses the trace with the Frobenius norm; $\operatorname{tr}(A)$ sums only the diagonal entries $a_{ii}$, while $\|A\|_F = \sqrt{\sum_{i,j} a_{ij}^2}$ involves \emph{all} entries. For example, $A = \begin{psmallmatrix} 0 & 3 \\ 0 & 0 \end{psmallmatrix}$ has $\operatorname{tr}(A) = 0$ but $\|A\|_F = 3$.)
+% \textbf{Trick answer:} B (confuses the matrix product $AB$ with the entry-wise inner product $\langle A, B \rangle_F$; these are fundamentally different operations. The identity $I$ and the rotation $\begin{psmallmatrix} 0 & 1 \\ -1 & 0 \end{psmallmatrix}$ are Frobenius-orthogonal since $\operatorname{tr}(I^T B) = \operatorname{tr}(B) = 0$, yet $IB = B \neq \mathbf{0}$.)
+% \textbf{Wrong:} D (the Frobenius inner product requires only that $A$ and $B$ have the \emph{same} dimensions; $A^T B$ is well-defined for any $A, B \in M_{m \times n}$, producing an $n \times n$ matrix whose trace is the inner product)
+% \textbf{Wrong:} E (C is correct, so "None of the above" is false)
+%
+\divider
+
+
+{\bf PROBLEM 5:}
+% WEEK 5
+% TOPIC = orthogonal matrices
+%
+Let $Q$ be an $n \times n$ orthogonal matrix. Which of the following is \emph{not} guaranteed to be true?
+
+\begin{enumerate}[(A)]
+\item $\|Q\mathbf{x}\| = \|\mathbf{x}\|$ for all $\mathbf{x} \in \mathbb{R}^n$
+\item $\det(Q) = 1$
+\item The rows of $Q$ form an orthonormal set
+\item $Q^{-1} = Q^T$
+\item $\langle Q\mathbf{x}, Q\mathbf{y} \rangle = \langle \mathbf{x}, \mathbf{y} \rangle$ for all $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} From $Q^TQ = I$ we get $(\det Q)^2 = 1$, so $\det(Q) = \pm 1$. Reflections, for example, have determinant $-1$. All other listed properties are guaranteed.
+% \textbf{Trick answer:} C (students often memorize that the \emph{columns} are orthonormal and forget that $Q^TQ = I$ also gives $QQ^T = I$, which means rows are orthonormal too; a student unsure about rows may incorrectly flag this)
+% \textbf{Partial credit:} C (shows partial understanding if student recognizes column orthonormality but is uncertain about rows)
+% \textbf{Wrong:} A (norm preservation follows directly from $\|Q\mathbf{x}\|^2 = \langle Q\mathbf{x}, Q\mathbf{x}\rangle = \langle \mathbf{x}, \mathbf{x}\rangle = \|\mathbf{x}\|^2$)
+% \textbf{Wrong:} D (this is the defining equivalent condition $Q^TQ = I$)
+% \textbf{Wrong:} E (inner product preservation is the fundamental property of orthogonal matrices)
+%
+\divider
+
+{\bf PROBLEM 6:}
+% WEEK 5
+% TOPIC = orthogonal complements
+%
+Consider $W<\mathbb{R}^7$ with $\dim W=3$. Which statement about $W^\perp$ is true?
+
+\begin{enumerate}[(A)]
+\item $W \boxplus W^\perp = \mathbb{R}^7$
+\item $W \cap W^\perp = W$
+\item $\dim(W^\perp) = 3$
+\item $\dim\left((W^\perp)^\perp\right)=4$
+\item $W$ and $W^\perp$ do not intersect
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} The orthogonal decomposition theorem guarantees $\mathbb{R}^7 = W \oplus W^\perp$: every vector decomposes uniquely into a component in $W$ and a component in $W^\perp$. Since $\dim(W) = 3$, we have $\dim(W^\perp) = 7 - 3 = 4$.
+% \textbf{Partial credit:} C (correctly engages with computing $\dim(W^\perp)$ but applies the wrong formula, assuming $\dim(W^\perp) = \dim(W)$ rather than $n - \dim(W)$; shows awareness that the complement has a computable dimension)
+% \textbf{Wrong:} B ($W \cap W^\perp = \{\mathbf{0}\}$; a nonzero vector cannot be orthogonal to itself since $\langle \mathbf{v}, \mathbf{v} \rangle > 0$)
+% \textbf{Trick answer:} C (a common error: assuming $W$ and $W^\perp$ have the same dimension; the complement formula gives $\dim(W^\perp) = 7 - 3 = 4$, not $3$)
+% \textbf{Trick answer:} D ($(W^\perp)^\perp = W$, so its dimension is $3$, not $4$; students who think taking $\perp$ twice gives something new pick this)
+% \textbf{Wrong:} E ($W \cap W^\perp = \{\mathbf{0}\}$, so they do intersect --- at the zero vector; saying they ``do not intersect'' is false)
+\divider 
+
+{\bf PROBLEM 7:}
+% WEEK 6
+% TOPIC = pseudoinverse, geometric interpretation, inner product spaces
+%
+Let $T: V \to W$ be a linear transformation between inner product spaces (not necessarily injective or surjective). Given $\mathbf{b} \in W$, which description of $T^\dagger \mathbf{b}$ is correct?
+
+\begin{enumerate}[(A)]
+\item Project $\mathbf{b}$ onto $(\operatorname{im} T)^\perp$, then apply $T^{-1}$ to the result.
+\item Project $\mathbf{b}$ onto $\operatorname{im}(T)$; then map the projection back to the unique preimage in $(\ker T)^\perp$ via the invertible restriction $T\big|_{(\ker T)^\perp}$.
+\item Apply the adjoint $T^*$ to $\mathbf{b}$; the adjoint always inverts $T$ on $\operatorname{im}(T)$.
+\item Project $\mathbf{b}$ onto $\ker(T^*)$, then solve $T\mathbf{x} = \mathbf{b}$ in that subspace.
+\item Find any solution to $T\mathbf{x} = \mathbf{b}$, then project $\mathbf{x}$ onto $\ker(T)$.
+\end{enumerate}
+%
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} The restriction of $T$ to $(\ker T)^\perp$ is an isomorphism onto $\operatorname{im}(T)$. The pseudoinverse exploits this in two steps: (1) project $\mathbf{b}$ onto $\operatorname{im}(T)$, discarding the component in $(\operatorname{im} T)^\perp = \ker(T^*)$; (2) apply the inverse of the restricted map $T\big|_{(\ker T)^\perp}$ to pull the projected vector back to the unique preimage in $(\ker T)^\perp$. This yields the minimum-norm least-squares solution: "minimum norm" because the output lives in $(\ker T)^\perp$, and "least squares" because the input is the closest point in $\operatorname{im}(T)$ to $\mathbf{b}$.
+% \textbf{Trick answer:} A (projects onto the \emph{wrong} subspace: $(\operatorname{im} T)^\perp$ is the part of $\mathbf{b}$ that $T$ cannot reach, so there is no preimage to find there. Also, $T^{-1}$ need not exist.)
+% \textbf{Trick answer:} C ($T^*$ maps $W \to V$ and sends $\operatorname{im}(T)$ to $(\ker T)^\perp$, but it does not invert $T$; it distorts magnitudes. Students who half-remember the role of $A^T$ in the formula $A^\dagger = (A^TA)^{-1}A^T$ and attribute the inversion entirely to the adjoint pick this.)
+% \textbf{Trick answer:} D (projects onto $\ker(T^*) = (\operatorname{im} T)^\perp$, which is exactly the component of $\mathbf{b}$ with \emph{no} preimage under $T$. This is the opposite of what the pseudoinverse does.)
+% \textbf{Trick answer:} E (projects onto the wrong subspace in the domain: the pseudoinverse produces a vector in $(\ker T)^\perp$, not $\ker(T)$. Projecting a solution onto $\ker(T)$ gives the component that $T$ sends to zero --- the opposite of the minimum-norm idea.)
+%
+\divider
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+{\bf PROBLEM 8:}
+% WEEK 6
+% TOPIC = orthogonal projection operators
+%
+Let $P$ be the matrix that orthogonally projects $\mathbb{R}^n$ onto a subspace $W$ with $\dim(W) = k$, where $0 < k < n$. Which of the following is \emph{false}?
+
+\begin{enumerate}[(A)]
+\item $P^2 = P$
+\item $P^T = P$
+\item $\operatorname{rank}(P) = k$
+\item $I - P$ is the orthogonal projection onto $W^\perp$
+\item $P$ is invertible
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+% \textbf{Explanation:} Since $0 < k < n$, the projection has a nontrivial kernel ($W^\perp \neq \{\mathbf{0}\}$), so $P$ is not invertible. Concretely, $P\mathbf{v} = \mathbf{0}$ for every $\mathbf{v} \in W^\perp$. All other properties are fundamental facts about orthogonal projections.
+% \textbf{Partial credit:} none (all distractors are true and well-known)
+% \textbf{Wrong:} A ($P^2 = P$ is the defining algebraic property of any projection: projecting twice is the same as projecting once)
+% \textbf{Wrong:} B ($P^T = P$ is what makes the projection \emph{orthogonal}; it distinguishes orthogonal projections from oblique ones)
+% \textbf{Wrong:} C ($\operatorname{im}(P) = W$, so $\operatorname{rank}(P) = \dim(W) = k$)
+% \textbf{Wrong:} D (if $\mathbf{v} = P\mathbf{v} + (I-P)\mathbf{v}$ is the orthogonal decomposition, then $I - P$ projects onto the complementary piece $W^\perp$)
+%
+\divider
+
+
+{\bf PROBLEM 9:}
+% WEEK 5
+% TOPIC = coordinates in orthonormal bases
+%
+Let $\mathcal{B} = \{\mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3\}$ be an orthonormal basis for $\mathbb{R}^3$. Suppose $\mathbf{v} \in \mathbb{R}^3$ satisfies
+$$\langle \mathbf{v}, \mathbf{q}_1 \rangle = 4, \qquad \langle \mathbf{v}, \mathbf{q}_2 \rangle = -1, \qquad \langle \mathbf{v}, \mathbf{q}_3 \rangle = 3.$$
+What is $\|\mathbf{v}\|^2$?
+
+\begin{enumerate}[(A)]
+\item $26$
+\item $16$
+\item $6$
+\item $36$
+\item Cannot be determined without knowing the vectors $\mathbf{q}_i$ explicitly
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} Since $\mathcal{B}$ is orthonormal, the coordinates of $\mathbf{v}$ are the inner products: $[\mathbf{v}]_\mathcal{B} = (4, -1, 3)^T$. By Parseval's identity, $\|\mathbf{v}\|^2 = 4^2 + (-1)^2 + 3^2 = 16 + 1 + 9 = 26$.
+% \textbf{Partial credit:} D (correctly identifies all three inner products as the relevant quantities for computing $\|\mathbf{v}\|^2$ via Parseval's identity, but computes $(4 + (-1) + 3)^2 = 36$ instead of $4^2 + (-1)^2 + 3^2 = 26$; the ``squares the sum vs.\ sums the squares'' error, with the underlying concept intact)
+% \textbf{Trick answer:} B (computes $4^2 = 16$ and stops, or squares only the largest coordinate)
+% \textbf{Trick answer:} C (adds coordinates: $4 + (-1) + 3 = 6$; confuses norm squared with the sum of coordinates)
+% \textbf{Trick answer:} D (computes $(4 + (-1) + 3)^2 = 36$; squares the sum instead of summing the squares)
+% \textbf{Trick answer:} E (does not realize that orthonormality makes the inner products the coordinates, and that Parseval's identity gives the norm directly; a student who thinks explicit vectors are needed has missed the key advantage of orthonormal bases)
+\divider
+
+
+{\bf PROBLEM 10:}
+% WEEK 6
+% TOPIC = fundamental theorem of linear algebra (orthogonal version)
+%
+Let $A$ be a $5 \times 8$ matrix with $\operatorname{rank}(A) = 3$. Consider the four fundamental subspaces of $A$: $\ker(A)$, $\operatorname{im}(A)$, $\ker(A)^\perp$, and $\operatorname{im}(A)^\perp$. Which of the following is true?
+
+\begin{enumerate}[(A)]
+\item $\ker(A)$ and $\operatorname{im}(A)$ are orthogonal complements
+\item $\ker(A)$ has dimension $3$ and is a subspace of $\mathbb{R}^5$
+\item $\dim(\operatorname{im}(A)^\perp) = 3$
+\item $\dim(\ker(A)^\perp) = 5$
+\item A vector $\mathbf{x} \in \mathbb{R}^8$ that is orthogonal to every row of $A$ must be in $\ker(A)$
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+% \textbf{Explanation:} The geometric FTLA gives $\ker(A) = (\text{row space of } A)^\perp$ in $\mathbb{R}^8$. A vector orthogonal to every row of $A$ lies in $\ker(A)$. This is the orthogonal restatement of the fact that $A\mathbf{x} = \mathbf{0}$ iff each row of $A$ dots to zero with $\mathbf{x}$.
+% \textbf{Trick answer:} A ($\ker(A) \subset \mathbb{R}^8$ and $\operatorname{im}(A) \subset \mathbb{R}^5$ live in different ambient spaces, so they cannot be orthogonal complements. The correct pairs are $\ker(A) \oplus \ker(A)^\perp = \mathbb{R}^8$ and $\operatorname{im}(A) \oplus \operatorname{im}(A)^\perp = \mathbb{R}^5$.)
+% \textbf{Partial credit:} None
+% \textbf{Wrong:} B (two errors: $\dim(\ker(A)) = 8 - 3 = 5$, not $3$; and $\ker(A) \subset \mathbb{R}^8$, not $\mathbb{R}^5$)
+% \textbf{Trick answer:} C ($\operatorname{im}(A) \subset \mathbb{R}^5$ has dimension $3$, so $\dim(\operatorname{im}(A)^\perp) = 5 - 3 = 2$, not $3$. Students who think a subspace and its complement have the same dimension pick this.)
+% \textbf{Trick answer:} D ($\ker(A) \subset \mathbb{R}^8$ has dimension $5$, so $\dim(\ker(A)^\perp) = 8 - 5 = 3$, not $5$. Students who confuse the dimension of the subspace with the dimension of its complement pick this.)
+\divider
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+{\bf PROBLEM 11:}
+% WEEK 4
+% TOPIC = change of basis (conceptual)
+%
+Let $\mathcal{B}$ and $\mathcal{C}$ be two bases for $\mathbb{R}^n$, and let $P$ be the matrix satisfying $[\mathbf{v}]_\mathcal{C} = P\,[\mathbf{v}]_\mathcal{B}$ for all $\mathbf{v} \in \mathbb{R}^n$. What are the columns of $P$?
+
+\begin{enumerate}[(A)]
+\item The vectors in $\mathcal{C}$, expressed in standard coordinates
+\item The vectors in $\mathcal{B}$, expressed in standard coordinates
+\item The vectors in $\mathcal{B}$, expressed in $\mathcal{C}$-coordinates
+\item The vectors in $\mathcal{C}$, expressed in $\mathcal{B}$-coordinates
+\item The standard basis vectors, expressed in $\mathcal{C}$-coordinates
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} Plugging in $\mathbf{v} = \mathbf{b}_j$ (the $j$-th vector of $\mathcal{B}$), its $\mathcal{B}$-coordinates are $\mathbf{e}_j$. So $P\mathbf{e}_j = [\mathbf{b}_j]_\mathcal{C}$: the $j$-th column of $P$ is the $j$-th basis vector of $\mathcal{B}$, written in $\mathcal{C}$-coordinates.
+% \textbf{Trick answer:} D (swaps the roles of $\mathcal{B}$ and $\mathcal{C}$; this would be the columns of $P^{-1}$. Students who get the direction of conversion backwards pick this.)
+% \textbf{Trick answer:} B (these are the columns of the matrix that converts from $\mathcal{B}$-coordinates to \emph{standard} coordinates, not to $\mathcal{C}$-coordinates; confuses change-of-basis with the coordinate matrix)
+% \textbf{Trick answer:} A (same error as B but with the wrong basis; these columns convert from $\mathcal{C}$-coordinates to standard)
+% \textbf{Wrong:} E (the standard basis plays no special role in the conversion between $\mathcal{B}$ and $\mathcal{C}$)
+%
+\divider
+
+{\bf PROBLEM 12:}
+% WEEK 5
+% TOPIC = Gram-Schmidt and QR decomposition
+%
+Let $A$ be an $n \times n$ invertible matrix with columns $\mathbf{a}_1, \ldots, \mathbf{a}_n$, and let $A = QR$ be its QR decomposition. Which statement best describes the relationship between Gram--Schmidt and QR?
+
+\begin{enumerate}[(A)]
+\item The columns of $Q$ are obtained by normalizing the columns of $A$; $R$ records the original norms.
+\item The columns of $Q$ are the Gram--Schmidt orthonormalization of $\mathbf{a}_1, \ldots, \mathbf{a}_n$; the entry $r_{ij}$ of $R$ is $\langle \mathbf{a}_j, \mathbf{q}_i \rangle$ for $i \leq j$.
+\item The columns of $R$ are the Gram--Schmidt orthonormalization of $\mathbf{a}_1, \ldots, \mathbf{a}_n$; $Q$ records the change of basis.
+\item Gram--Schmidt produces $Q$; the matrix $R = Q^T A$ is diagonal with the norms $\|\mathbf{a}_i\|$ on the diagonal.
+\item Gram--Schmidt and QR solve different problems: Gram--Schmidt orthogonalizes vectors while QR factors a matrix.
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} Gram--Schmidt applied to $\mathbf{a}_1, \ldots, \mathbf{a}_n$ produces orthonormal vectors $\mathbf{q}_1, \ldots, \mathbf{q}_n$, which become the columns of $Q$. Since each $\mathbf{a}_j$ is a linear combination of $\mathbf{q}_1, \ldots, \mathbf{q}_j$ (only earlier vectors), we have $\mathbf{a}_j = \sum_{i=1}^{j} r_{ij}\,\mathbf{q}_i$ with $r_{ij} = \langle \mathbf{a}_j, \mathbf{q}_i \rangle$. This is exactly $A = QR$ with $R$ upper triangular.
+% \textbf{Trick answer:} A (normalizing without orthogonalizing does not produce orthonormal columns; this ignores the projection/subtraction step that is the heart of Gram--Schmidt)
+% \textbf{Wrong:} C (swaps the roles of $Q$ and $R$)
+% \textbf{Trick answer:} D (correctly identifies $R = Q^TA$, but $R$ is upper triangular, not diagonal; it would only be diagonal if the columns of $A$ were already orthogonal)
+% \textbf{Partial credit:} D (the formula $R = Q^TA$ is correct; the error is in claiming $R$ is diagonal)
+% \textbf{Wrong:} E (they are the same procedure viewed differently; QR is the matrix packaging of Gram--Schmidt)
+%
+\divider
+
+
+{\bf PROBLEM 13:}
+% WEEK 4
+% TOPIC = coordinates, basis dependence of representation
+%
+Let $\mathcal{B}$ and $\mathcal{C}$ be two different ordered bases for $\mathbb{R}^3$. Suppose vectors $\mathbf{v}$ and $\mathbf{w}$ satisfy
+$$[\mathbf{v}]_{\mathcal{B}} = [\mathbf{w}]_{\mathcal{C}} = \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix}.$$
+Which statement is correct?
+
+\begin{enumerate}[(A)]
+\item $\mathbf{v} = \mathbf{w}$, since their coordinate representations are identical
+\item $\mathbf{v}$ and $\mathbf{w}$ need not be equal
+\item $\|\mathbf{v}\| = \|\mathbf{w}\|$, since the norm is determined by the coordinate entries
+\item $\mathbf{v} = \mathbf{w}$ if and only if both $\mathcal{B}$ and $\mathcal{C}$ are orthonormal
+\item The equation $[\mathbf{v}]_{\mathcal{B}} = [\mathbf{w}]_{\mathcal{C}}$ forces $\mathcal{B} = \mathcal{C}$
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} Coordinates encode a vector relative to a specific basis. Writing $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3\}$ and $\mathcal{C} = \{\mathbf{c}_1, \mathbf{c}_2, \mathbf{c}_3\}$, we have $\mathbf{v} = 2\mathbf{b}_1 - \mathbf{b}_2 + 3\mathbf{b}_3$ and $\mathbf{w} = 2\mathbf{c}_1 - \mathbf{c}_2 + 3\mathbf{c}_3$. Since $\mathcal{B} \neq \mathcal{C}$, these are generically different vectors in $\mathbb{R}^3$. The coordinate vector is not the vector itself; it is a representation that depends on the chosen basis.
+% \textbf{Trick answer:} A (the most common misconception about coordinates: conflating a vector with its coordinate representation; students who think ``same numbers = same vector'' pick this)
+% \textbf{Trick answer:} C (the norm of a coordinate vector equals the norm of the original vector only when the basis is orthonormal; for a general basis, $\|\mathbf{v}\|^2$ involves cross terms from the Gram matrix of $\mathcal{B}$, so identical coordinate entries in different bases do not guarantee equal norms)
+% \textbf{Trick answer:} D (orthonormality is not the relevant condition for equality; $\mathbf{v} = \mathbf{w}$ iff $2\mathbf{b}_1 - \mathbf{b}_2 + 3\mathbf{b}_3 = 2\mathbf{c}_1 - \mathbf{c}_2 + 3\mathbf{c}_3$, which depends on the specific basis vectors, not on whether they are orthonormal)
+% \textbf{Wrong:} E (reverses the logic entirely; many different pairs of vectors can share coordinate representations across different bases)
+%
+\divider
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+{\bf PROBLEM 14:}
+% WEEK 4
+% TOPIC = matrix representation, columns encode images of basis vectors
+%
+Let $T: V \to V$ be a linear transformation on an $n$-dimensional vector space ($n \geq 3$), and let $\mathcal{B} = \{\mathbf{b}_1, \ldots, \mathbf{b}_n\}$ be a basis for $V$. The matrix representation $[T]_\mathcal{B}$ has the property that its third column is the zero vector.
+
+Which conclusion follows?
+
+\begin{enumerate}[(A)]
+\item $\operatorname{coker}(T)$ contains $\mathbf{b}_3$
+\item $\operatorname{im}(T)$ does not contain $\mathbf{b}_3$
+\item $\ker(T)$ contains $\mathbf{b}_3$
+\item $\operatorname{rank}(T) = n - 1$
+\item None of the above must be true
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} The $j$-th column of $[T]_\mathcal{B}$ is $[T(\mathbf{b}_j)]_\mathcal{B}$. If the third column is $\mathbf{0}$, then $[T(\mathbf{b}_3)]_\mathcal{B} = \mathbf{0}$, which means $T(\mathbf{b}_3) = \mathbf{0}$. So $\mathbf{b}_3 \in \ker(T)$, and since $\ker(T) \neq \{\mathbf{0}\}$, the transformation is not injective and therefore not invertible.
+% \textbf{Trick answer:} A (that is not correct...)
+% \textbf{Trick answer:} B (confuses the column space of the matrix in coordinate space with the actual image of $T$. The other columns, as $\mathcal{B}$-coordinate vectors, can have nonzero third components, meaning $T(\mathbf{b}_j)$ for $j \neq 3$ may involve $\mathbf{b}_3$. For example, if $[T]_\mathcal{B}$ has first column $(0,0,1,0,\ldots)^T$, then $T(\mathbf{b}_1) = \mathbf{b}_3 \in \operatorname{im}(T)$.)
+% \textbf{Partial credit:} D (correctly recognizes rank is reduced, but overstates: one zero column gives $\operatorname{rank} \leq n-1$, not necessarily $= n-1$, since the remaining $n-1$ columns could also be linearly dependent)
+% \textbf{Wrong:} E (only the third column is zero; the other columns can be nonzero, so $T$ need not be the zero map)
+%
+\divider
+
+{\bf PROBLEM 15:}
+% WEEK 4
+% TOPIC = coordinates in non-standard bases, Lagrange basis for polynomials
+%
+Consider $\mathcal{P}_2$, the vector space of polynomials of degree at most 2. Consider the basis $\mathcal{L} = \{L_0, L_1, L_2\}$ associated to the nodes $x = -1, 0, 1$: each $L_i \in \mathcal{P}_2$ is the unique polynomial that equals $1$ at its own node and $0$ at the other two. Explicitly,
+$$L_0(-1) = 1, \quad L_0(0) = 0, \quad L_0(1) = 0,$$
+$$L_1(-1) = 0, \quad L_1(0) = 1, \quad L_1(1) = 0,$$
+$$L_2(-1) = 0, \quad L_2(0) = 0, \quad L_2(1) = 1.$$
+
+What is $[p]_\mathcal{L}$ for $p(x) = x^2 - x + 2$?
+\vspace{0.15in}
+
+\begin{enumerate}[(A)]
+\begin{minipage}{\textwidth}
+\item $\begin{pmatrix} 2 \\ -1 \\ 1 \end{pmatrix}$ \hfill
+(B) $\begin{pmatrix} 2 \\ 2 \\ 4 \end{pmatrix}$ \hfill
+(C) $\begin{pmatrix} 1 \\ -1 \\ 2 \end{pmatrix}$ \hfill
+(D) $\begin{pmatrix} 4 \\ 2 \\ 2 \end{pmatrix}$ \hfill\mbox{}
+\end{minipage}
+\item[(E)] Cannot be determined without computing $L_0$, $L_1$, and $L_2$ explicitly
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} Writing $p = c_0 L_0 + c_1 L_1 + c_2 L_2$ and evaluating at each node, the defining property gives $p(\text{node}_i) = c_i$. So the coordinates are simply the evaluations of $p$ at the nodes $-1, 0, 1$:
+% $p(-1) = 1 + 1 + 2 = 4$, \quad $p(0) = 0 - 0 + 2 = 2$, \quad $p(1) = 1 - 1 + 2 = 2$.
+% Thus $[p]_\mathcal{L} = (4, 2, 2)^T$. The key insight is that the Lagrange basis is designed so that coordinates \emph{are} evaluations at the nodes --- no explicit computation of the basis polynomials is needed.
+% \textbf{Partial credit:} B (grasps the key insight that coordinates in the Lagrange basis are evaluations at the nodes --- the elegant consequence of the defining property --- but evaluates at the wrong node set $\{0, 1, 2\}$ instead of $\{-1, 0, 1\}$; the conceptual understanding is correct and the error is in reading the problem parameters)
+% \textbf{Trick answer:} A (reads off the coefficients $2, -1, 1$ from the standard-basis representation $p(x) = 2 \cdot 1 + (-1) \cdot x + 1 \cdot x^2$; conflates the monomial basis $\{1, x, x^2\}$ with $\mathcal{L}$. This is the most common error: assuming ``coordinates'' always means the coefficients in the standard form.)
+% \textbf{Trick answer:} B (understands the evaluation idea but evaluates at the nodes $0, 1, 2$ instead of $-1, 0, 1$; a student who grasps the concept but misreads the node set picks this)
+% \textbf{Trick answer:} C (reads off $1, -1, 2$ from $x^2, -x, +2$ in descending-degree order; a different flavor of the monomial-basis confusion, reversing the coefficient order)
+% \textbf{Trick answer:} E (misses the elegant consequence of the defining property; believes one must first derive the explicit formulas for $L_0, L_1, L_2$ and then solve a linear system. A student who picks this has not understood how the basis definition directly determines coordinates.)
+%
+\divider
+
+
+
+
+{\bf PROBLEM 16:}
+% WEEK 6
+% TOPIC = pseudoinverse, left inverse, least squares
+%
+Let $A$ be an $m \times n$ matrix with $m > n$ and $\operatorname{rank}(A) = n$ (full column rank). The pseudoinverse is $A^\dagger = (A^TA)^{-1}A^T$. Which of the following statements is TRUE?
+
+\begin{enumerate}[(A)]
+\item $A^\dagger A = I_m$, so $A^\dagger$ is a right inverse of $A$.
+\item $A^\dagger$ is an $n \times m$ matrix, and $A^\dagger A = I_n$.
+\item $(A^TA)^{-1}$ does not exist because $A$ is not square.
+\item $A^\dagger \mathbf{b}$ solves $A\mathbf{x} = \mathbf{b}$ exactly for every $\mathbf{b} \in \mathbb{R}^m$.
+\item $A^\dagger = A^{-1}$ after discarding the extra rows of $A$.
+\end{enumerate}
+
+% \textbf{Correct Answer:} B
+% \textbf{Explanation:} Since $A$ is $m \times n$, we have $A^T$ is $n \times m$, so $A^TA$ is $n \times n$. Full column rank guarantees $A^TA$ is invertible, so $(A^TA)^{-1}$ is $n \times n$. Thus $A^\dagger = (A^TA)^{-1}A^T$ is $n \times m$. Computing $A^\dagger A = (A^TA)^{-1}A^TA = I_n$: the pseudoinverse is a \emph{left} inverse of $A$.
+% \textbf{Partial credit:} A (correctly recognizes that $A^\dagger$ acts as a one-sided inverse yielding an identity matrix, but confuses left with right: $A^\dagger A = I_n$, not $A A^\dagger = I_m$. Also note the dimension mismatch: $A^\dagger A$ is $n \times n$, so the result cannot be $I_m$. Shows understanding of the inverse relationship but not the directionality.)
+% \textbf{Trick answer:} A (gets the side wrong: $A^\dagger A = I_n$, not $AA^\dagger = I_m$. The product $AA^\dagger$ is $m \times m$ but equals the projection onto $\operatorname{im}(A)$, not $I_m$. Students who confuse left and right inverses pick this. Note also the dimension mismatch: $I_m$ is $m \times m$ but $A^\dagger A$ is $n \times n$.)
+% \textbf{Trick answer:} C (a common fear: since $A$ is not square, students worry that $A^TA$ might also be defective. But $A^TA$ is $n \times n$ and full column rank of $A$ guarantees it is invertible. This distractor catches students who do not trace the dimensions carefully.)
+% \textbf{Trick answer:} D ($A\mathbf{x} = \mathbf{b}$ is overdetermined ($m > n$), so exact solutions exist only when $\mathbf{b} \in \operatorname{im}(A)$. For general $\mathbf{b}$, $A^\dagger \mathbf{b}$ gives the \emph{least squares} solution minimizing $\|A\mathbf{x} - \mathbf{b}\|$, not an exact solution. Students who conflate least squares with exact solving pick this.)
+% \textbf{Wrong:} E (there is no valid operation of ``discarding rows'' to produce an inverse; the pseudoinverse accounts for the rectangular shape through the $A^TA$ Gram matrix, not by truncation)
+%
+\divider
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+% THIS ONE IS A BIT REDUNDANT? TOO MUCH FROM WEEK 5? SAVE FOR FINAL EXAM
+% {\bf PROBLEM:}
+% % WEEK 5
+% % TOPIC = orthogonal complements, subspace containment
+
+% Let $V$ be a finite-dimensional inner product space with subspaces $W_1 < W_2 < V$. Which of the following must be true?
+
+% \begin{enumerate}[(A)]
+% \item $W_1^\perp < W_2^\perp$
+% \item $W_2^\perp < W_1^\perp$
+% \item $W_1^\perp \cap W_2^\perp = \{\mathbf{0}\}$
+% \item $\dim(W_1^\perp) + \dim(W_2^\perp) = \dim(V)$
+% \item $(W_1^\perp)^\perp = W_2$
+% \end{enumerate}
+
+% % \textbf{Correct Answer:} B
+% % \textbf{Explanation:} Orthogonal complement \emph{reverses} containment. If $W_1 < W_2$, then any vector orthogonal to \emph{all} of $W_2$ is certainly orthogonal to the smaller set $W_1$. Formally: $\mathbf{v} \in W_2^\perp$ means $\langle \mathbf{v}, \mathbf{w} \rangle = 0$ for all $\mathbf{w} \in W_2$; since $W_1 < W_2$, this holds for all $\mathbf{w} \in W_1$, so $\mathbf{v} \in W_1^\perp$. The larger the subspace, the harder it is to be orthogonal to everything in it, so the complement shrinks.
+% % \textbf{Trick answer:} A (the most natural first instinct --- containment should be preserved, not reversed. Students who do not think carefully about the logic of ``orthogonal to a bigger set is a stricter condition'' pick this. This is the main conceptual trap of the problem.)
+% % \textbf{Wrong:} C ($W_2^\perp < W_1^\perp$, so their intersection is all of $W_2^\perp$, which is generically nontrivial unless $W_2 = V$)
+% % \textbf{Trick answer:} D (this would require $\dim(W_1) + \dim(W_2) = \dim(V)$, which is not forced by containment alone. For example, in $\mathbb{R}^5$ with $W_1$ a line and $W_2$ a plane: $\dim(W_1^\perp) + \dim(W_2^\perp) = 4 + 3 = 7 \neq 5$. Students who half-remember the dimension formula $\dim(W) + \dim(W^\perp) = \dim(V)$ and try to combine the two subspaces pick this.)
+% % \textbf{Wrong:} E ($(W_1^\perp)^\perp = W_1$, not $W_2$; the double complement returns the original subspace, not the larger one containing it)
+% %
+% \divider
+
+{\bf PROBLEM 17:}
+% WEEK 5
+% TOPIC = adjoints, definition of adjoint operator
+%
+Let $V$ and $W$ be finite-dimensional inner product spaces with inner products $\langle \cdot, \cdot \rangle_V$ and $\langle \cdot, \cdot \rangle_W$, and let $T: V \to W$ be linear. Which of the following correctly defines the adjoint $T^*$?
+
+\begin{enumerate}[(A)]
+\item For each $\mathbf{w} \in W$, the vector $T^*(\mathbf{w})$ is the unique element of $V$ satisfying \\ $\langle T(\mathbf{v}), \mathbf{w} \rangle_W = \langle \mathbf{v}, T^*(\mathbf{w}) \rangle_V$ for every $\mathbf{v} \in V$.
+\item $T^*(\mathbf{w})$ is the vector in $V$ that minimizes $\|T(\mathbf{v}) - \mathbf{w}\|_W$ over all $\mathbf{v} \in V$.
+\item $T^*$ is the unique linear map $W \to V$ satisfying $T^* \circ T = I_V$.
+\item $T^*(\mathbf{w})$ is the orthogonal projection of $\mathbf{w}$ onto $\operatorname{im}(T)$.
+\item $T^* = T^{-1}$ when $T$ is invertible, and $T^* = (A^TA)^{-1}A^T$ otherwise, where $A$ is a matrix representing $T$.
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} The adjoint is defined by ``moving $T$ across the inner product'': $\langle T(\mathbf{v}), \mathbf{w} \rangle_W = \langle \mathbf{v}, T^*(\mathbf{w}) \rangle_V$ for all $\mathbf{v} \in V$, $\mathbf{w} \in W$. The Riesz representation theorem guarantees that for each fixed $\mathbf{w}$, the functional $\mathbf{v} \mapsto \langle T(\mathbf{v}), \mathbf{w} \rangle_W$ is represented by a unique vector in $V$; that vector is $T^*(\mathbf{w})$.
+% \textbf{Trick answer:} B (describes the least-squares/pseudoinverse solution $T^\dagger(\mathbf{w})$, not the adjoint; students fresh from Week 6 who conflate $T^*$ with $T^\dagger$ pick this)
+% \textbf{Trick answer:} C ($T^*T = I_V$ would make $T$ an isometry; this confuses the adjoint with a left inverse and fails whenever $T$ has a nontrivial kernel)
+% \textbf{Trick answer:} D (the orthogonal projection onto $\operatorname{im}(T)$ is the map $TT^\dagger$, not $T^*$; and it maps $W \to W$, not $W \to V$, so the types do not even match)
+% \textbf{Trick answer:} E (conflates the adjoint with the pseudoinverse; $T^*$ always exists and equals the transpose $A^T$ in standard coordinates, while $(A^TA)^{-1}A^T$ is the pseudoinverse, a different object entirely)
+
+\divider
+
+
+
+{\bf PROBLEM 18:}
+% WEEK 5
+% TOPIC = inner product axioms
+%
+Which of the following defines a valid inner product on $\mathbb{R}^2$?
+
+\begin{enumerate}[(A)]
+\item $\langle \mathbf{u}, \mathbf{v} \rangle = u_1 v_1 - u_2 v_2$
+\item $\langle \mathbf{u}, \mathbf{v} \rangle = u_1 v_2 + u_2 v_1$
+\item $\langle \mathbf{u}, \mathbf{v} \rangle = 2u_1 v_1 + u_1 v_2 + u_2 v_1 + 3u_2 v_2$
+\item $\langle \mathbf{u}, \mathbf{v} \rangle = (u_1 + u_2)(v_1 + v_2)$
+\item $\langle \mathbf{u}, \mathbf{v} \rangle = u_1 v_1 + u_2 v_2 + 1$
+
+\end{enumerate}
+
+% \textbf{Correct Answer:} C
+% \textbf{Explanation:} This corresponds to $\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u}^T M \mathbf{v}$ with $M = \begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix}$. This matrix is symmetric (so symmetry holds), and its eigenvalues are positive ($\det(M)=5>0$, $\operatorname{tr}(M)=5>0$), so $M$ is positive definite. All three axioms are satisfied.
+% \textbf{Trick answer:} A (symmetric and bilinear, but fails positive definiteness: $\langle (0,1),(0,1)\rangle = -1 < 0$; students who don't check PD pick this)
+% \textbf{Trick answer:} B (bilinear and symmetric, but fails positive definiteness: $\langle (1,0),(1,0)\rangle = 0$ for a nonzero vector)
+% \textbf{Trick answer:} D (symmetric and bilinear, but fails positive definiteness: $\langle (1,-1),(1,-1)\rangle = 0$ for a nonzero vector; this is a rank-1 form)
+% \textbf{Wrong:} E (fails $\langle \mathbf{0}, \mathbf{0} \rangle = 0$; gives $1$ instead; also fails linearity)
+%
+\divider
+
+
+
+{\bf PROBLEM 19:}
+% WEEK 4/5
+% TOPIC = bases, linearly independent sets, Gram-Schmidt (conceptual)
+%
+Let $V$ be an $n$-dimensional inner product space, and let $S = \{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$ be a linearly independent set in $V$ with $1 < k < n$. The vectors in $S$ are \emph{not} pairwise orthogonal. Which of the following is guaranteed?
+
+\begin{enumerate}[(A)]
+\item There exists an orthonormal set of $k$ vectors whose span equals $\operatorname{span}(S)$.
+\item There exist positive scalars $\alpha_i$ such that $\{\alpha_1\mathbf{v}_1, \ldots, \alpha_k\mathbf{v}_k\}$ is orthonormal.
+\item There exists an orthonormal basis for $V$ that contains every vector in $S$ (unmodified) as an element.
+\item The set $S$ can be orthonormalized only after first extending it to a basis for all of $V$.
+\item None of the above is guaranteed.
+\end{enumerate}
+
+% \textbf{Correct Answer:} A
+% \textbf{Explanation:} Gram--Schmidt applied to $\mathbf{v}_1, \ldots, \mathbf{v}_k$ produces orthonormal vectors $\mathbf{q}_1, \ldots, \mathbf{q}_k$ satisfying $\operatorname{span}\{\mathbf{q}_1, \ldots, \mathbf{q}_j\} = \operatorname{span}\{\mathbf{v}_1, \ldots, \mathbf{v}_j\}$ for each $j$. In particular the overall spans agree. This works for any linearly independent set --- no extension to a full basis is needed, and the vectors need not already be orthogonal.
+% \textbf{Trick answer:} B (rescaling each $\mathbf{v}_i$ by a positive scalar preserves its direction, so $\alpha_i\mathbf{v}_i \parallel \mathbf{v}_i$. Normalization makes each vector unit length but cannot change angles between vectors. Since the $\mathbf{v}_i$ are explicitly not pairwise orthogonal, no rescaling can make them orthonormal. This catches the ``Gram--Schmidt is just normalization'' misconception.)
+% \textbf{Partial credit:} None.
+% \textbf{Trick answer:} C (conflates the basis extension theorem with orthonormal extension. Since the $\mathbf{v}_i$ are not pairwise orthogonal, at least two satisfy $\langle \mathbf{v}_i, \mathbf{v}_j \rangle \neq 0$, so they cannot both belong to any orthonormal set. The student remembers ``independent vectors extend to a basis'' but forgets that orthonormal extension requires modifying the originals.)
+% \textbf{Trick answer:} D (a student who thinks of Gram--Schmidt as purely a ``basis $\to$ orthonormal basis'' machine believes you must first have $n$ vectors. In fact, Gram--Schmidt works on any linearly independent set of size $k \leq n$; it orthonormalizes a subspace, not just the full space.)
+% \textbf{Wrong:} E (A is guaranteed, so ``None of the above'' is false)
+\divider
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+{\bf PROBLEM 20:}
+% WEEK 5
+% TOPIC = adjoints, transpose, domain/codomain, injectivity/surjectivity
+%
+Let $T: \mathbb{R}^3 \to \mathbb{R}^2$ be defined by $T(x_1, x_2, x_3) = (x_1 + 2x_3,\; x_2 - x_3)$, with the standard dot product on both spaces. Which statement about the adjoint $T^*$ is true?
+
+\begin{enumerate}[(A)]
+\item $T^*: \mathbb{R}^2 \to \mathbb{R}^3$ is surjective.
+\item $T^*: \mathbb{R}^3 \to \mathbb{R}^2$ and has the same kernel as $T$.
+\item $\operatorname{im}(T^*) = \ker(T)$.
+\item $T^*: \mathbb{R}^2 \to \mathbb{R}^3$ is injective.
+\item $T^*$ does not exist because $T$ is not invertible.
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} The matrix of $T$ is $A = \begin{bmatrix} 1 & 0 & 2 \\ 0 & 1 & -1 \end{bmatrix}$, so $T^*$ is represented by $A^T = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 2 & -1 \end{bmatrix}$, mapping $\mathbb{R}^2 \to \mathbb{R}^3$. This $3 \times 2$ matrix has rank $2$ (both columns are independent), so $T^*$ is injective.
+% \textbf{Partial credit:} C (recalls the FTLA relationship between $\operatorname{im}(T^*)$ and $\ker(T)$ but writes $\operatorname{im}(T^*) = \ker(T)$ instead of $\operatorname{im}(T^*) = \ker(T)^\perp$; the ``off by a complement'' error, showing genuine FTLA awareness with an incomplete grasp of the orthogonal structure)
+% \textbf{Trick answer:} A ($T^*$ maps into $\mathbb{R}^3$ with a $2$-dimensional image, so it is not surjective; students who confuse injectivity with surjectivity or who think rank $2$ means surjective into $\mathbb{R}^3$ pick this)
+% \textbf{Trick answer:} B (gets the direction of $T^*$ backwards: $T^*$ maps $\mathbb{R}^2 \to \mathbb{R}^3$, not $\mathbb{R}^3 \to \mathbb{R}^2$. Also conflates the kernels: $\ker(T)$ is $1$-dimensional in $\mathbb{R}^3$ while $\ker(T^*) = \{\mathbf{0}\}$.)
+% \textbf{Trick answer:} C (tempting for students who half-remember the FTLA: the correct relationship is $\operatorname{im}(T^*) = \ker(T)^\perp$, not $\ker(T)$. Here $\ker(T)$ is $1$-dimensional while $\operatorname{im}(T^*)$ is $2$-dimensional --- they are orthogonal complements in $\mathbb{R}^3$, not equal.)
+% \textbf{Wrong:} E (adjoints always exist for linear maps between inner product spaces; invertibility is irrelevant)
+
+\divider
+
+
+
+% I THINK THIS ONE IS TOO HARD -- COMMENTED OUT
+% {\bf PROBLEM:}
+% % WEEK 6
+% % TOPIC = normal equations, geometric meaning of least squares
+
+% Let $A$ be an $m \times n$ matrix with $m > n$ and full column rank. The least squares solution to $A\mathbf{x} = \mathbf{b}$ satisfies the normal equations $A^TA\hat{\mathbf{x}} = A^T\mathbf{b}$. Which statement correctly explains \emph{why} the normal equations characterize the least squares solution?
+
+% \begin{enumerate}[(A)]
+% \item $A^TA$ is the simplest invertible matrix built from $A$, so we multiply both sides of $A\mathbf{x} = \mathbf{b}$ by $A^T$ to make the system solvable.
+% \item The normal equations minimize $\|A\mathbf{x}\|$ subject to $\mathbf{x}$ being as close as possible to $\mathbf{b}$.
+% \item $A^T$ projects $\mathbf{b}$ onto $\operatorname{im}(A)$, so $A^T\mathbf{b}$ is the closest point in $\operatorname{im}(A)$ to $\mathbf{b}$.
+% \item The normal equations are equivalent to the original system $A\mathbf{x} = \mathbf{b}$, rewritten in a form that always has a solution.
+% \item None of the above.
+% \end{enumerate}
+
+% % \textbf{Correct Answer:} E
+% % \textbf{Explanation:} The correct geometric explanation is: the normal equations encode the orthogonality condition $A^T(\mathbf{b} - A\hat{\mathbf{x}}) = \mathbf{0}$, which says the residual $\mathbf{b} - A\hat{\mathbf{x}}$ is orthogonal to every column of $A$, hence orthogonal to $\operatorname{im}(A)$. This is precisely the condition for $A\hat{\mathbf{x}}$ to be the closest point in $\operatorname{im}(A)$ to $\mathbf{b}$. None of (A)--(D) captures this.
+% % \textbf{Trick answer:} A (multiplying by $A^T$ is not a computational trick for convenience; it encodes a geometric requirement. Students who view the normal equations as an algebraic manipulation rather than a geometric condition pick this.)
+% % \textbf{Trick answer:} C (the most dangerous distractor: $A^T$ maps $\mathbb{R}^m \to \mathbb{R}^n$, so it is \emph{not} a projection onto $\operatorname{im}(A) \subset \mathbb{R}^m$. The projection is $A(A^TA)^{-1}A^T$, not $A^T$. Students who conflate the transpose with the projection pick this.)
+% % \textbf{Wrong:} B (least squares minimizes $\|A\mathbf{x} - \mathbf{b}\|$, not $\|A\mathbf{x}\|$; this confuses the residual with the image)
+% % \textbf{Wrong:} D (the normal equations are \emph{not} equivalent to $A\mathbf{x} = \mathbf{b}$; $A\hat{\mathbf{x}} \neq \mathbf{b}$ in general. The normal equations characterize the \emph{best approximation}, not an exact solution.)
+% % \textbf{Partial credit:} C (correctly identifies that the geometry involves a closest point in $\operatorname{im}(A)$, but misidentifies $A^T$ as the operator that achieves this)
+
+% \divider
+
+
+{\bf PROBLEM 21:}
+% WEEK 6
+% TOPIC = orthogonal projection, error, orthogonal decomposition
+%
+Let $W$ be a subspace of an inner product space $V$, and let $\mathbf{v} \in V$. Define $\hat{\mathbf{v}} = \Pi_W(\mathbf{v})$ (the orthogonal projection onto $W$) and $\mathbf{r} = \mathbf{v} - \hat{\mathbf{v}}$ (the ``error''). Which of the following is guaranteed to be true?
+
+\begin{enumerate}[(A)]
+\item $\|\hat{\mathbf{v}}\| = \|\mathbf{v}\|$
+\item $\langle \hat{\mathbf{v}},\, \mathbf{r} \rangle = 1$
+\item $\mathbf{r} \in W$
+\item $\|\mathbf{r}\| > 0$
+\item None of the above
+\end{enumerate}
+
+% \textbf{Correct Answer:} E
+% \textbf{Explanation:} The orthogonal decomposition gives $\mathbf{v} = \hat{\mathbf{v}} + \mathbf{r}$ with $\hat{\mathbf{v}} \in W$ and $\mathbf{r} \in W^\perp$, satisfying $\langle \hat{\mathbf{v}}, \mathbf{r} \rangle = 0$. By the Pythagorean theorem, $\|\mathbf{v}\|^2 = \|\hat{\mathbf{v}}\|^2 + \|\mathbf{r}\|^2$, so $\|\hat{\mathbf{v}}\| \leq \|\mathbf{v}\|$ with equality iff $\mathbf{v} \in W$. None of (A)--(D) is universally true.
+% \textbf{Trick answer:} A (confuses projection with an isometry; projection preserves norm only when $\mathbf{v} \in W$ already, in which case $\mathbf{r} = \mathbf{0}$. For any $\mathbf{v} \notin W$, Pythagoras gives strict inequality.)
+% \textbf{Trick answer:} B (remembers that the projection and residual have a special inner-product relationship, but the value is $0$, not $1$; orthogonality is the defining geometric property of the decomposition)
+% \textbf{Partial credit:} C (correctly recognizes that $\mathbf{r}$ belongs to a specific subspace determined by $W$, but picks $W$ instead of $W^\perp$ --- the most common swap error in orthogonal decomposition)
+% \textbf{Trick answer:} D (true for ``generic'' $\mathbf{v}$, and true in the overdetermined least-squares setting students are most familiar with, but fails when $\mathbf{v} \in W$: then $\hat{\mathbf{v}} = \mathbf{v}$ and $\mathbf{r} = \mathbf{0}$. Students who forget the edge case pick this.)
+\divider
+
+
+{\bf PROBLEM 22:}
+% WEEK 4
+% TOPIC = coordinate isomorphism, linear dependence detected via coordinates
+%
+Let $V$ be a 3-dimensional vector space with basis $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3\}$ (not further specified). Three vectors in $V$ have coordinates
+$$[\mathbf{u}]_\mathcal{B} = \begin{pmatrix} 1 \\ 2 \\ -1 \end{pmatrix}, \qquad [\mathbf{v}]_\mathcal{B} = \begin{pmatrix} 3 \\ 0 \\ 1 \end{pmatrix}, \qquad [\mathbf{w}]_\mathcal{B} = \begin{pmatrix} 4 \\ 2 \\ 0 \end{pmatrix}.$$
+
+Which statement about $\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}$ is correct?
+
+\begin{enumerate}[(A)]
+\item They are linearly independent because $V$ is 3-dimensional and we have exactly 3 vectors.
+\item Whether they are linearly dependent or independent cannot be determined without knowing the basis $\mathcal{B}$ explicitly.
+\item They are linearly independent because $\mathcal{B}$ is a basis.
+\item They are linearly dependent because $[\mathbf{w}]_\mathcal{B} = [\mathbf{u}]_\mathcal{B} + [\mathbf{v}]_\mathcal{B}$.
+\item None of the above.
+\end{enumerate}
+
+% \textbf{Correct Answer:} D
+% \textbf{Explanation:} The coordinate map $\mathbf{v} \mapsto [\mathbf{v}]_\mathcal{B}$ is a linear isomorphism from $V$ to $\mathbb{R}^3$. Because it is linear, any linear relation among vectors is faithfully reflected in their coordinate vectors: if $[\mathbf{w}]_\mathcal{B} = [\mathbf{u}]_\mathcal{B} + [\mathbf{v}]_\mathcal{B}$, then $\mathbf{w} = \mathbf{u} + \mathbf{v}$, making the set $\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}$ linearly dependent. One can verify the arithmetic: $(1,2,-1)^T + (3,0,1)^T = (4,2,0)^T$. No knowledge of $\mathcal{B}$ is needed beyond the fact that it is a basis.
+% \textbf{Trick answer:} A (having $n$ vectors in an $n$-dimensional space is necessary for a basis, but not sufficient for independence; three coplanar vectors in $\mathbb{R}^3$ are dependent. This conflates a necessary condition with a sufficient one.)
+% \textbf{Partial credit:} B (the student is cautious about working in an abstract space and senses that the answer depends on the relationship between $V$ and $\mathbb{R}^3$, but has not internalized the key theorem: the coordinate map is an isomorphism, so linear independence questions can always be settled from coordinates alone. This is a ``right instinct, missing theorem'' answer.)
+% \textbf{Trick answer:} C (checks only for pairwise proportionality, which rules out one specific type of dependence but misses the general case. The three coordinate vectors are indeed pairwise non-proportional, yet they satisfy $[\mathbf{u}]_\mathcal{B} + [\mathbf{v}]_\mathcal{B} - [\mathbf{w}]_\mathcal{B} = \mathbf{0}$. Students who reduce ``linear independence'' to ``no vector is a multiple of another'' will pick this.)
+% \textbf{Wrong:} E (D is correct, so ``None of the above'' is false)
+
+
+
+\end{document}

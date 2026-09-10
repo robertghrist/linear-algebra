@@ -1,0 +1,532 @@
+\documentclass[12pt]{amsart}
+%\usepackage[margin=1in]{geometry}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+
+\usepackage[shortlabels]{enumitem}
+% Set spacing for all enumerate environments
+\setlist[enumerate]{itemsep=6pt, topsep=6pt, parsep=0pt}
+
+\usepackage{graphicx}
+
+\usepackage[left=0.75in,right=1in,bottom=0.9in]{geometry}  
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+\usepackage[T1]{fontenc}
+
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTION DIVIDERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\divider}{
+  \vspace{-1em} % Add space above
+  \noindent
+  \raisebox{-0.15ex}{\textbullet}%
+  \hspace{0.5em}%
+  \rule[0.5ex]{0.95\textwidth}{1.0pt}%
+  \hspace{0.5em}%
+  \raisebox{-0.15ex}{\textbullet}%
+  \vspace{0em} % Adjust space below
+}
+
+\title{ESE 2030 QUIZZAM 1 : Fall 2025}
+\author{prof-g}
+
+
+\begin{document}
+\maketitle
+
+\begin{center}
+    {\bf INSTRUCTIONS}
+\end{center}
+
+\begin{itemize}
+\item 
+No books, notes, or calculators. Use a writing utensil and logic. 
+
+\item 
+Please follow question instructions and fill in the bubble-sheet. 
+
+\item 
+Select one answer per problem.
+
+\item 
+Each problem has one best answer. In some problems, a wrong choice may be worth partial credit. 
+
+\item 
+Be careful to fill in the correct problem number. 
+
+\item 
+These questions are written carefully: if you detect an error, read closely and do your best.
+
+\item 
+If anything is unclear, use your best judgment. 
+
+\item 
+Cheating in any form will be dealt with severely. 
+\end{itemize}
+
+\newpage
+
+
+
+% QUIZZAM 1: SELECTED PROBLEMS
+% TOTAL QUESTIONS: 25
+% COVERAGE: WEEKS 1-3
+
+{\bf PROBLEM 1:}
+% WEEK = 2
+% TOPICS = Polynomial spaces, dimension, bases
+Consider the vector space $\mathcal{P}_3$ of polynomials of degree at most 3. The dimension of this space is:
+\begin{enumerate}[(A)]
+\item 2
+\item 3
+\item 4
+\item infinite
+\item Cannot be determined without additional information
+\end{enumerate}
+% CORRECT ANSWER: (C): dim(P_3) = 4 (includes 1, x, x^2, x^3)
+\divider
+
+{\bf PROBLEM 2:}
+% WEEK = 1
+% TOPICS = Triangular systems, forward substitution, computational efficiency
+For the lower triangular system $L\mathbf{x} = \mathbf{b}$ where $L = \begin{bmatrix} 2 & 0 & 0 \\ 1 & 3 & 0 \\ 4 & -1 & 5 \end{bmatrix}$, which statement about solving this system is most accurate?
+
+\begin{enumerate}[(A)]
+\item One should use row reduction to find the solution
+\item The system may have no solutions, depending on $\mathbf{b}$
+\item One should solve by forward substitution
+\item The system may have infinitely many solutions depending on $\mathbf{b}$
+\item One should solve by backward substitution
+\end{enumerate}
+% CORRECT ANSWER: (C): Lower triangular systems are solved by forward substitution - solve for $x_1$ from first equation, substitute into second to get $x_2$, then into third for $x_3$
+\divider
+
+
+
+{\bf PROBLEM 3:}
+% WEEK = 3
+% TOPICS = Linear transformations, kernel, matrix representation
+Let $T: \mathbb{R}^3 \to \mathbb{R}^3$ be the linear transformation with matrix representation $A = \begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ -1 & -2 & -3 \end{bmatrix}$. What is the dimension of $\ker(T)$?
+\begin{enumerate}[(A)]
+\item 0 %(the transformation is injective)
+\item 1 %(the nullity equals $3 - \text{rank}(A) = 3 - 2 = 1$)
+\item 2 %(all rows are proportional, so rank is 1)
+\item 3 %(the matrix maps everything to zero)
+\item None of the above
+\end{enumerate}
+% CORRECT ANSWER: (C): All three rows are scalar multiples of $(1, 2, 3)$, so rank$(A) = 1$. By the Fundamental Theorem, $\dim(\ker(T)) = 3 - 1 = 2$
+\divider
+
+\newpage
+
+{\bf PROBLEM 4:}
+% WEEK = 2
+% TOPICS = Vector spaces, examples and non-examples, vector space axioms
+Consider the following sets with standard addition and scalar multiplication operations. Which one forms a vector space?
+
+\begin{enumerate}[(A)]
+\item The set of all $2 \times 2$ matrices with determinant equal to 1
+\item The set of all continuous functions $f: [0,1] \to \mathbb{R}$ such that $f(0) = f(1) = 0$
+\item The set of all vectors $(x, y, z) \in \mathbb{R}^3$ such that $x + y + z = 1$
+\item The set of all $2 \times 2$ matrices $A$ such that $A^2 = A$ (idempotent matrices)
+\item The set $\{(x, y) \in \mathbb{R}^2 : x \geq 0, y \geq 0\}$ (the first quadrant)
+\end{enumerate}
+% CORRECT ANSWER: (B): This is a subspace of all continuous functions. The zero function satisfies f(0) = f(1) = 0, and the set is closed under addition and scalar multiplication
+% PARTIAL CREDIT: None
+\divider
+
+
+
+{\bf PROBLEM 5:}
+% WEEK = 3
+% TOPICS = Rank, nullity, Fundamental Theorem of Linear Algebra
+Let ${\mathcal D}: \mathcal{P}_3 \to \mathcal{P}_2$ be the differentiation operator taking cubic to quadratic polynomials. 
+The rank and nullity of this operator are:
+\begin{enumerate}[(A)]
+\item rank = 3, nullity = 1
+\item rank = 2, nullity = 2
+\item rank = 3, nullity = 0
+\item rank = 2, nullity = 1
+\item rank = 4, nullity = 0
+\end{enumerate}
+% CORRECT ANSWER: (A): Image of D is all of P2 (dim 3), so rank=3. Domain P3 has dim 4. By rank-nullity, 4 = 3 + nullity, so nullity=1.
+\divider
+
+
+{\bf PROBLEM 6:}
+% WEEK = 1
+% TOPICS = Elementary matrices, determinants, invertibility
+Let $E$ be an elementary matrix used for row reduction. Which statement must be TRUE?
+
+\begin{enumerate}[(A)]
+\item $\det(E) = 1$
+\item $\det(E) = \pm 1$
+\item $\det(E) \neq 0$
+\item $\det(E^{-1}) = -\det(E)$
+\item $\det(EA) = \det(A)$ for any matrix $A$
+\end{enumerate}
+% CORRECT ANSWER: (C): Elementary matrices are always invertible, so det(E) ≠ 0
+% PARTIAL CREDIT: None
+% TRICK ANSWER: (A): Only true for row addition operations
+% TRICK ANSWER: (B): True for swaps and row additions, but not scaling
+% TRICK ANSWER: (D): Should be det(E^{-1}) = 1/det(E)
+% TRICK ANSWER: (E): Only true if det(E) = 1
+\divider
+
+
+
+{\bf PROBLEM 7:}
+% WEEK = 3
+% TOPICS = Coimage, cokernel, quotient spaces, kernel, image
+Let $T: V \to W$ be a linear transformation. Which statement correctly describes the coimage and cokernel of $T$?
+
+\begin{enumerate}[(A)]
+\item $\text{coim } T = \ker T$ and $\text{coker } T = \text{im } T$
+\item $\text{coim } T = V/\text{im } T$ and $\text{coker } T = W/\ker T$
+\item $\text{coim } T = V/\ker T$ and $\text{coker } T = W/\text{im } T$
+\item $\text{coim } T = \text{im } T$ and $\text{coker } T = \ker T$
+\item $\text{coim } T = W/\ker T$ and $\text{coker } T = V/\text{im } T$
+\end{enumerate}
+
+% CORRECT ANSWER: (C): The coimage is the quotient of the domain by the kernel (V/ker T), and the cokernel is the quotient of the codomain by the image (W/im T)
+% PARTIAL CREDIT: None
+% TRICK ANSWER: (A): Students might think coimage and cokernel are just alternate names for kernel and image
+% TRICK ANSWER: (B): Reverses which space gets quotiented by what - a plausible misconception
+% TRICK ANSWER: (D): Another confusion between the fundamental spaces and their quotients
+% TRICK ANSWER: (E): Mixes up domain and codomain in the quotient constructions
+\divider
+
+
+{\bf PROBLEM 8:}
+% TOPICS = Permutation matrices, properties, PLU decomposition
+Consider the permutation matrix $P = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{bmatrix}$. Which of the following statements about $P$ is TRUE?
+\begin{enumerate}[(A)]
+\item $P^2 = I$ %(applying $P$ twice gives the identity)
+\item $P^3 = I$ %(applying $P$ three times gives the identity)
+\item $P^{-1} = -P$ %(the inverse is the negative)
+\item $P^{-1} = P$ %(reverses the permutation)
+\item None of the above
+\end{enumerate}
+% CORRECT ANSWER: (B): This is a cyclic permutation that cycles rows: 1→2→3→1. After three applications, each row returns to its original position, so $P^3 = I$
+\divider
+
+
+{\bf PROBLEM 9:}
+% WEEK = 2
+% TOPICS = Linear independence, dimension, bases
+Consider the set of Euclidean vectors 
+\[
+    S = \left\{
+    \begin{pmatrix}1\\2\\0\end{pmatrix}, 
+    \begin{pmatrix}0\\1\\1\end{pmatrix}, 
+    \begin{pmatrix}1\\3\\1\end{pmatrix}
+    \right\}
+\]
+Which statement about $S$ is most correct?
+
+\begin{enumerate}[(A)]
+\item $S$ spans $\mathbb{R}^3$
+\item $S$ is linearly independent but does not span $\mathbb{R}^3$
+\item $S$ is linearly dependent and does not span $\mathbb{R}^3$
+\item $S$ is linearly dependent and spans $\mathbb{R}^3$
+\item $S$ forms a basis for $\mathbb{R}^3$
+\end{enumerate}
+% CORRECT ANSWER: (C): The set is linearly dependent since (1,3,1) = (1,2,0) + (0,1,1), and spans only a 2-dimensional subspace
+% PARTIAL CREDIT: (E): Correctly identifies that only two vectors are independent
+\divider
+
+
+{\bf PROBLEM 10:}
+% WEEK = 2
+% TOPICS = Subspaces, intersection and union of subspaces
+Let $W_1$ and $W_2$ be subspaces of a vector space $V$. Which of the following is always a subspace of $V$?
+
+\begin{enumerate}[(A)]
+\item $W_1 \cup W_2$ (the union of $W_1$ and $W_2$)
+\item $W_1 \cap W_2$ (the intersection of $W_1$ and $W_2$)
+\item The set of all vectors in $W_1$ but not in $W_2$
+\item The set of all vectors in $V$ but not in $W_1+W_2$
+\item The quotient spaces $V/W_1$ and $V/W_2$
+\end{enumerate}
+% CORRECT ANSWER: (B): Intersection of subspaces is always a subspace
+\divider
+
+\newpage
+
+{\bf PROBLEM 11:}
+% QUESTION 11
+% WEEK = 2
+% TOPICS = Subspaces, dimension, bases, polynomial spaces
+Let $V$ be the vector space of all $3 \times 3$ symmetric matrices. Which of the following is the dimension of $V$?
+
+\begin{enumerate}[(A)]
+\item 2
+\item 3
+\item 4
+\item 6
+\item None of the above
+\end{enumerate}
+% CORRECT ANSWER: (D) -- 3 on diagonal and 3 off-diagonal
+\divider
+
+
+{\bf PROBLEM 12:}
+% WEEK = 3
+% TOPICS = Linear transformations, kernel, image, rank-nullity theorem
+Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces. If $\dim(V) = 5$ and $\dim(W) = 3$, which statement about $T$ must be TRUE?
+
+\begin{enumerate}[(A)]
+\item $T$ must be injective
+\item $T$ must be surjective
+\item The dimension of $\ker(T)$ is at least 2
+\item The dimension of $\text{im}(T)$ is 3
+\item None of the above
+\end{enumerate}
+% CORRECT ANSWER: (C): By rank-nullity, dim(ker(T)) = 5 - dim(im(T)) ≥ 5 - 3 = 2
+\divider
+
+
+
+{\bf PROBLEM 13:}
+% WEEK = 1
+% TOPICS = LU decomposition, matrix factorization, nonsingularity
+Consider a square matrix $A$ that has an LU decomposition $A = LU$. Which of the following statements is necessarily TRUE?
+
+\begin{enumerate}[(A)]
+\item $A$ is nonsingular if and only if all diagonal entries of $L$ are nonzero
+\item $A$ is singular if and only if the last diagonal entry of $U$ equals zero
+\item The existence of an LU decomposition guarantees that $A$ is nonsingular
+\item If $A$ is nonsingular, then both $L$ and $U$ must have positive diagonal entries
+\item $A$ is nonsingular if and only if all diagonal entries of $U$ are nonzero
+\end{enumerate}
+% CORRECT ANSWER: (E): Since L has 1's on its diagonal (by convention), L is always invertible. Matrix A = LU is nonsingular iff U is nonsingular, which happens iff all diagonal entries of U are nonzero (for triangular matrices, nonsingularity is equivalent to having all nonzero diagonal entries)
+% SMALL PARTIAL CREDIT: (B,D): 
+\divider
+
+
+
+{\bf PROBLEM 14:}
+% WEEK = 1
+% TOPICS = LU decomposition, matrix factorization, system solvability
+For a square matrix $A$ with LU decomposition $A = LU$, which statement is always true?
+
+\begin{enumerate}[(A)]
+\item The matrix $L$ is invertible
+\item The matrix $U$ is invertible  
+\item The system $A\mathbf{x} = \mathbf{b}$ has a unique solution for any $\mathbf{b}$
+\item The reduced row eschelon form (RREF) of $A$ is the identity
+\item The determinant of $A$ equals the determinant of $L$
+\end{enumerate}
+% CORRECT ANSWER: (A): L is lower triangular with 1's on diagonal, hence always invertible
+\divider
+
+
+
+{\bf PROBLEM 15:}
+% QUESTION 15
+% WEEK = 2
+% TOPICS = Basis, dimension, spanning sets, linear dependence
+Let $V$ be a 4-dimensional vector space. Suppose $S = \{\mathbf{v_1, v_2, v_3, v_4, v_5}\}$ is a set of vectors in $V$ where $\{\mathbf{v_1, v_2, v_3, v_4}\}$ forms a basis for $V$. Which of the following must be TRUE about $\mathbf{v}_5$?
+
+\begin{enumerate}[(A)]
+\item $\mathbf{v}_5 = \mathbf{0}$ (the zero vector)
+\item $\mathbf{v}_5$ can be uniquely written as a linear combination of $\mathbf{v_1, v_2, v_3, v_4}$
+\item $\mathbf{v}_5$ is linearly independent from any three vectors chosen from $\{\mathbf{v_1, v_2, v_3, v_4}\}$
+\item The set $\{\mathbf{v_2, v_3, v_4, v_5}\}$ cannot be a basis for $V$
+\item The set $S$ is linearly independent
+\end{enumerate}
+% CORRECT ANSWER: (B): Since {v_1, v_2, v_3, v_4} is a basis, it spans V. Therefore v_5 can be uniquely expressed as a linear combination of the basis vectors
+% PARTIAL CREDIT: None
+\divider
+
+
+
+{\bf PROBLEM 16:}
+% WEEK = 1
+% TOPICS = Linear systems, row reduction, pivots
+Consider the system $A\mathbf{x} = \mathbf{b}$ where $A$ is a $3 \times 3$ matrix. If row reduction of the augmented matrix $[\, A\, |\, \mathbf{b}\, ]$ yields exactly two pivots, which statement must be TRUE?
+
+\begin{enumerate}[(A)]
+\item The system has a unique solution
+\item The system has infinitely many solutions if it has any solution at all
+\item The system is inconsistent
+\item The matrix $A$ is invertible
+\item None of the above
+\end{enumerate}
+% CORRECT ANSWER: (B): With 2 pivots in a 3x3 system, there's one free variable, so if consistent, infinitely many solutions
+\divider
+
+
+
+{\bf PROBLEM 17:}
+% WEEK = 3
+% TOPICS = Linear transformations, additivity, homogeneity, definition
+Which one of the following is NOT a linear transformation?
+
+\begin{enumerate}[(A)]
+\item $T: \mathbb{R}^2 \to \mathbb{R}^2$ defined by $T(x,y) = (x-y, 0)$
+\item $S: \mathcal{P}_2 \to \mathcal{P}_2$ defined by $S(p(x)) = xp'(x)$ where $p'$ denotes the derivative
+\item $R: \mathbb{R}^3 \to \mathbb{R}$ defined by $R(x,y,z) = 2x - 3y + z$
+\item $F: \mathbb{R}^2 \to \mathbb{R}^3$ defined by $F(x,y) = (x+1, y, x-y)$
+\item $G: \mathbb{R}^{2\times 2} \to \mathbb{R}$ defined by $G(A) = \text{trace}(A)$ (trace is the sum of diagonal terms)
+\end{enumerate}
+% CORRECT ANSWER: (D): F is not linear because F(0,0) = (1,0,0) ≠ (0,0,0), violating T(0) = 0. Also fails additivity: F(x₁+x₂, y₁+y₂) = (x₁+x₂+1, y₁+y₂, x₁+x₂-y₁-y₂) ≠ F(x₁,y₁) + F(x₂,y₂)
+% PARTIAL CREDIT: None
+% TRICK ANSWER: (A): Students might think the zero in second component makes it non-linear
+% TRICK ANSWER: (B): Product of x and p'(x) might seem non-linear, but this IS linear in p
+% TRICK ANSWER: (C): Students might incorrectly think maps to different dimension can't be linear
+% TRICK ANSWER: (E): Students unfamiliar with trace might assume it's non-linear
+\divider
+
+
+{\bf PROBLEM 18:}
+% WEEK = 3
+% TOPICS = Differentiation operator, kernel, polynomial spaces
+The Fundamental Theorem of Linear Algebra says that for a linear transformation $T:V\to W$ 
+
+\begin{enumerate}[(A)]
+\item The kernel and cokernel are isomorphic
+\item The domain and codomain are isomorphic
+\item The coimage and cokernel are isomorphic
+\item The kernel and image are isomorphic
+\item None of the above
+\end{enumerate}
+% CORRECT ANSWER: (E) none of the above -- it's the image and coimage that are isomorphic
+\divider
+
+
+{\bf PROBLEM 19:}
+% WEEK = 3
+% TOPICS = Isomorphism, dimension, vector space equivalence
+Consider an $m$-by-$n$ matrix $A$ and the associated linear transformation $T_A:\mathbb{R}^n\to\mathbb{R}^m$. Which of the following is true? 
+
+\begin{enumerate}[(A)]
+\item $A$ is nonsingular if $T_A$ is injective
+\item The column space of $A$ is the coimage of $T_A$
+\item The null space of $A$ is the kernel of $T_A$
+\item If $T_A$ is surjective then $A$ is nonsingular
+\item If $T_A$ is injective then $A$ is singular 
+\end{enumerate}
+% CORRECT ANSWER: (C)
+% PARTIAL CREDIT (B)
+\divider
+
+
+{\bf PROBLEM 20:}
+% WEEK = 2  
+% TOPICS = Linear independence, span, basis
+Let $V$ be a vector space and $S = \{\mathbf{v_1, v_2, ..., v_n}\}$ be a set of vectors in $V$. If every vector in $V$ can be written as a linear combination of vectors in $S$, then which statement is true by definition?
+
+\begin{enumerate}[(A)]
+\item $S$ is a basis for $V$
+\item $S$ is linearly independent
+\item The dimension of $V$ is at most $n$ 
+\item The dimension of $V$ is exactly $n$
+\item $S$ spans $V$
+\end{enumerate}
+% CORRECT ANSWER: (E)
+% PARTIAL CREDIT: (C) -- true, but not by definition
+\divider
+
+
+{\bf PROBLEM 21:}
+% WEEK = 2
+% TOPICS = Linear independence, polynomial spaces
+In $\mathcal{P}_2$, consider the set $S = \{1+x, x+x^2, 1+x^2\}$. This set is:
+\begin{enumerate}[(A)]
+\item Linearly independent and spans $\mathcal{P}_2$
+\item Linearly independent but does not span $\mathcal{P}_2$
+\item Linearly dependent and spans $\mathcal{P}_2$
+\item Linearly dependent and does not span $\mathcal{P}_2$
+\item None of the above
+\end{enumerate}
+% CORRECT ANSWER: (A): The three polynomials are independent and dim(P_2)=3
+\divider
+
+
+
+{\bf PROBLEM 22:}
+% WEEK = 3
+% TOPICS = Coimage, quotient spaces, fundamental theorem
+Let $T: \mathbb{R}^5 \to \mathbb{R}^6$ be a linear transformation with $\dim(\ker(T)) = 2$. The cokernel of $T$ is isomorphic to which space?
+
+\begin{enumerate}[(A)]
+\item $\mathbb{R}^1$ 
+\item $\mathbb{R}^6$ 
+\item $\mathbb{R}^4$ 
+\item $\mathbb{R}^3$
+\item $\ker(T)$
+\end{enumerate}
+% CORRECT ANSWER: (D): By the fundamental theorem of linear algebra
+\divider
+
+
+\newpage
+
+
+
+{\bf PROBLEM 23:}
+% TOPICS = Quotient spaces, equivalence classes, vector equivalence
+Let $V = \mathbb{R}^3$ and let $W$ be the subspace defined by the $xy$-plane, i.e., $W = \{(x, y, 0) \mid x, y \in \mathbb{R}\}$. An equivalence relation is defined on $V$ where two vectors $\mathbf{u}$ and $\mathbf{v}$ are equivalent if their difference $\mathbf{u - v}$ is an element of $W$.
+
+Given the vector $\mathbf{v} = (3, 5, 2)^T$, which of the following vectors belongs to the equivalence class $[\mathbf{v}]$?
+
+\begin{enumerate}[(A)]
+\item $(3, 5, 0)^T$
+\item $(6, 10, 4)^T$
+\item $(-1, -2, 2)^T$
+\item $(0, 0, 0)^T$
+\item None of the above
+\end{enumerate}
+% CORRECT ANSWER: (C): Two vectors $u, v$ are in the same equivalence class if $u-v \in W$. We check the difference for each option: $v - (-1, -2, 2) = (3 - (-1), 5 - (-2), 2 - 2) = (4, 7, 0)$. Since this result has a zero z-component, it lies in W.
+% PARTIAL CREDIT: None
+% TRICK ANSWER: (A): This is the projection of v onto W, a common point of confusion.
+% TRICK ANSWER: (B): This is a scalar multiple of v; their difference $v - 2v = -v$, which is not in W.
+\divider
+
+
+
+{\bf PROBLEM 24:}
+% WEEK = 1
+% TOPICS = Elementary matrices, row operations, matrix multiplication order
+If $B$ is obtained from matrix $A$ by first swapping rows 1 and 2, then adding 2 times row 1 to row 3, which equation correctly relates them?
+
+\begin{enumerate}[(A)]
+\item $B = E_2 E_1 A$ where $E_1$ swaps rows 1 and 2, $E_2$ adds 2 times row 1 to row 3
+\item $B = E_1 E_2 A$ where $E_1$ swaps rows 1 and 2, $E_2$ adds 2 times row 1 to row 3
+\item $B = A E_1 E_2$ where $E_1$ swaps rows 1 and 2, $E_2$ adds 2 times row 1 to row 3
+\item $B = (E_2 E_1)^{-1} A$
+\item None of the above
+\end{enumerate}
+% CORRECT ANSWER: (A): Row operations are applied left-to-right as E2(E1(A))
+\divider
+
+
+
+{\bf PROBLEM 25:}
+% WEEK = 2
+% TOPICS = Subspace verification, closure properties
+Consider the subset $S = \{(x, y, z)^T \in \mathbb{R}^3 : x + y + z = 1\}$. Under standard vector addition and scalar multiplication, which property does $S$ violate to be a subspace?
+
+\begin{enumerate}[(A)]
+\item Closure under addition 
+\item Closure under scalar multiplication 
+\item Contains the zero vector 
+\item Both (A) and (C)
+\item All three: (A), (B), and (C)
+\end{enumerate}
+% CORRECT ANSWER: (E): The set $S$ is an affine space (plane not through origin). It fails all three: $(0,0,0) \notin S$; if $u, v \in S$ then $u+v$ has sum of coordinates = 2; if $u \in S$ and $c \neq 1$, then $cu$ has sum = $c$
+% PARTIAL CREDIT: (D): Correctly identifies two violations but misses scalar multiplication
+% TRICK ANSWER: (A): Only identifies one violation
+% TRICK ANSWER: (B): Only identifies one violation
+% TRICK ANSWER: (C): Only identifies the zero vector issue
+\divider
+
+
+
+\end{document}

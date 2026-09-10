@@ -1,0 +1,520 @@
+\documentclass[12pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\pagestyle{plain}
+
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip}
+\renewcommand{\baselinestretch}{1.1}
+
+% Custom commands for clarity
+\newcommand{\correct}[1]{{\color{blue}\textbf{CORRECT: #1}}}
+\newcommand{\partcred}[1]{{\color{red}\textit{Partial Credit: #1}}}
+\newcommand{\hint}{\textbf{Key Insight: }}
+\newcommand{\trap}{\textbf{Common Trap: }}
+
+\title{ESE 2030 QUIZZAM 2 : Solution Guide\\Fall 2025}
+\author{Solution Key with Explanations}
+
+\begin{document}
+\maketitle
+
+\section*{Overview}
+This solution guide provides detailed explanations for each problem on Quiz 2, covering Weeks 3-5 material: quotient spaces, FTLA, change of basis, inner products, orthogonality, and QR decomposition.
+
+\hrulefill
+
+\section*{Problem 1: Coimage Dimension}
+\textbf{Topic:} Coimage, quotient spaces, rank-nullity theorem
+
+\correct{(A) 3}
+
+\textbf{Explanation:} 
+The coimage is defined as $\text{coim}(T) = V/\ker(T)$.
+
+Using the Rank-Nullity Theorem:
+\begin{itemize}
+\item $\dim(V) = \text{rank}(T) + \dim(\ker(T))$
+\item $9 = 3 + \dim(\ker(T))$
+\item Therefore: $\dim(\ker(T)) = 6$
+\end{itemize}
+
+The dimension of the coimage:
+$$\dim(\text{coim}(T)) = \dim(V) - \dim(\ker(T)) = 9 - 6 = 3$$
+
+\hint The coimage "mods out" the kernel, so its dimension equals the rank.
+
+\hrulefill
+
+\section*{Problem 2: Orthonormal Set Properties}
+\textbf{Topic:} Orthonormal sets, inner products
+
+\correct{(A) Any linear combination has length $\sqrt{c_1^2 + c_2^2 + c_3^2}$}
+
+\partcred{(D) True if $V$ is 3-dimensional and we can form a matrix}
+
+\textbf{Explanation:} 
+For an orthonormal set $\mathcal{S} = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$:
+
+$$\left\|c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3\right\|^2 = \sum_{i,j} c_ic_j\langle\mathbf{v}_i, \mathbf{v}_j\rangle$$
+
+Since the vectors are orthonormal: $\langle\mathbf{v}_i, \mathbf{v}_j\rangle = \delta_{ij}$
+
+Therefore: $\|c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3\|^2 = c_1^2 + c_2^2 + c_3^2$
+
+Why other options are wrong:
+\begin{itemize}
+\item (B): They span a 3D subspace but $V$ could be larger
+\item (C): $\|\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3\|^2 = 1 + 1 + 1 = 3 \neq 1$
+\item (D): Only true if we can form a matrix (requires $V = \mathbb{R}^3$)
+\end{itemize}
+
+\hrulefill
+
+\section*{Problem 3: Operations Without Inner Product}
+\textbf{Topic:} Inner product requirements vs. algebraic operations
+
+\correct{(C) I and III only}
+
+\partcred{(A) Recognizes basis checking doesn't need inner product}
+
+\textbf{Explanation:} 
+\begin{itemize}
+\item \textbf{Statement I (TRUE):} Checking if vectors form a basis only requires:
+  \begin{itemize}
+  \item Linear independence (solve $c_1(x) + c_2(1+x^2) + c_3(1+x+x^2) = 0$)
+  \item Spanning (verify we get all of $\mathcal{P}_2$)
+  \item These are purely algebraic operations
+  \end{itemize}
+\item \textbf{Statement II (FALSE):} Orthogonality requires computing $\langle x, x^2 \rangle$, which needs an inner product definition
+\item \textbf{Statement III (TRUE):} Finding dimension only requires checking linear independence via row reduction
+\end{itemize}
+
+\hint Geometric concepts (angles, orthogonality) need inner products; algebraic concepts (independence, dimension) don't.
+
+\hrulefill
+
+\section*{Problem 4: Change of Basis Coordinates}
+\textbf{Topic:} Change of basis, coordinate vectors
+
+\correct{(B) $\begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix}$}
+
+\textbf{Explanation:} 
+Given: $\mathbf{v} = 2\mathbf{b}_1 - \mathbf{b}_2 + 3\mathbf{b}_3$
+
+New basis: $\mathcal{C} = \{2\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3\}$
+
+We need to express $\mathbf{v}$ in terms of $\mathcal{C}$:
+$$\mathbf{v} = 2\mathbf{b}_1 - \mathbf{b}_2 + 3\mathbf{b}_3 = 1 \cdot (2\mathbf{b}_1) + (-1) \cdot \mathbf{b}_2 + 3 \cdot \mathbf{b}_3$$
+
+Therefore: $[\mathbf{v}]_{\mathcal{C}} = \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix}$
+
+\trap The first coordinate changes because we're using $2\mathbf{b}_1$ as our new first basis vector.
+
+\hrulefill
+
+\section*{Problem 5: Similarity Invariants}
+\textbf{Topic:} Similar matrices, invariant properties
+
+\correct{(D) The column space}
+
+\partcred{(E) Recognizes that most properties are preserved}
+
+\textbf{Explanation:} 
+Similar matrices $B = P^{-1}AP$ preserve:
+\begin{itemize}
+\item Rank (dimension of image)
+\item Nullity (dimension of kernel)
+\item Determinant: $\det(B) = \det(P^{-1})\det(A)\det(P) = \det(A)$
+\item Trace, eigenvalues, characteristic polynomial
+\end{itemize}
+
+NOT preserved:
+\begin{itemize}
+\item Column space: Changes with basis transformation
+\item Row space: Also changes
+\item Specific eigenvectors (though eigenspaces are preserved)
+\end{itemize}
+
+Example: $I$ and $P^{-1}IP = I$ are similar but may have different column spaces if viewed as subspaces of $\mathbb{R}^n$ with $P \neq I$.
+
+\hrulefill
+
+\section*{Problem 6: Matrix Representations Under Basis Change}
+\textbf{Topic:} Change of basis for linear transformations
+
+\correct{(B) They have the same rank}
+
+\textbf{Explanation:} 
+$[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$ are similar matrices related by:
+$$[T]_{\mathcal{C}} = P^{-1}[T]_{\mathcal{B}}P$$
+
+where $P$ is the change of basis matrix. Similar matrices preserve:
+\begin{itemize}
+\item Rank (both equal $\dim(\text{im}(T))$)
+\item Determinant
+\item Trace
+\item Eigenvalues
+\end{itemize}
+
+They do NOT have:
+\begin{itemize}
+\item Same column vectors (change with basis)
+\item Same diagonal entries (except trace is preserved)
+\item They represent the SAME transformation (not different ones)
+\end{itemize}
+
+\hrulefill
+
+\section*{Problem 7: Cokernel Properties}
+\textbf{Topic:} Cokernel, quotient spaces
+
+\correct{(C) $\dim(\text{coker}(T)) = 2$ but it need not be isomorphic to $\ker(T)$}
+
+\partcred{(A) Correct dimension but incomplete understanding}
+
+\textbf{Explanation:} 
+The cokernel is $\text{coker}(T) = W/\text{im}(T) = \mathbb{R}^5/\text{im}(T)$.
+
+Dimension calculation:
+$$\dim(\text{coker}(T)) = \dim(W) - \dim(\text{im}(T)) = 5 - 3 = 2$$
+
+While both $\ker(T)$ and $\text{coker}(T)$ have dimension 2:
+\begin{itemize}
+\item $\ker(T)$ is a subspace of the domain $\mathbb{R}^5$
+\item $\text{coker}(T)$ is a quotient of the codomain $\mathbb{R}^5$
+\item There's no natural isomorphism between them
+\item They're abstractly isomorphic as 2D vector spaces but not canonically
+\end{itemize}
+
+\hrulefill
+
+\section*{Problem 8: QR Decomposition and Similarity}
+\textbf{Topic:} QR decomposition, matrix multiplication
+
+\correct{(E) $RQ$}
+
+\textbf{Explanation:} 
+Given $A = QR$ where $Q$ is orthogonal (so $Q^{-1} = Q^T$):
+
+$$B = Q^{-1}AQ = Q^T(QR)Q$$
+
+Simplifying:
+$$B = (Q^TQ)RQ = IRQ = RQ$$
+
+Note: This is the key step in the QR algorithm for eigenvalue computation!hich we will learn later!
+
+\hrulefill
+
+\section*{Problem 9: Norm in Orthonormal Basis}
+\textbf{Topic:} Orthonormal bases, norm computation
+
+\correct{(A) $30$}
+
+\textbf{Explanation:} 
+For $\mathbf{w} = 3\mathbf{v}_1 - 2\mathbf{v}_2 + \mathbf{v}_3 - 4\mathbf{v}_4$ with orthonormal basis $B$:
+
+$$\|\mathbf{w}\|^2 = \langle\mathbf{w}, \mathbf{w}\rangle$$
+
+Using orthonormality ($\langle\mathbf{v}_i, \mathbf{v}_j\rangle = \delta_{ij}$):
+$$\|\mathbf{w}\|^2 = 3^2\|\mathbf{v}_1\|^2 + (-2)^2\|\mathbf{v}_2\|^2 + 1^2\|\mathbf{v}_3\|^2 + (-4)^2\|\mathbf{v}_4\|^2$$
+$$= 9 + 4 + 1 + 16 = 30$$
+
+\hint With orthonormal bases, the norm squared equals the sum of squared coefficients.
+
+\hrulefill
+
+\section*{Problem 10: QR Decomposition Properties}
+\textbf{Topic:} Properties of Q and R matrices
+
+\correct{(C) The columns of $Q$ form an orthonormal basis}
+
+\textbf{Explanation:} 
+In QR decomposition:
+\begin{itemize}
+\item $Q$ has orthonormal columns by definition  
+\item $R$ is upper triangular
+\item Diagonal entries of $R$ can be negative (depends on algorithm)
+\item $R$ is invertible only if $A$ has full rank
+\item For orthogonal $Q$: $Q^TQ^{-1} = Q^T(Q^T) = (Q^T)^2 \neq I$ in general
+\end{itemize}
+
+Why option (A) is false: Since $Q^{-1} = Q^T$ for orthogonal matrices, we get $Q^TQ^{-1} = (Q^T)^2$, which is NOT the identity matrix unless $Q^T$ is an involution (rare special case).
+
+\hrulefill
+
+\section*{Problem 11: Orthogonal Matrix Properties}
+\textbf{Topic:} Properties of orthogonal matrices
+
+\correct{(E) None of the above statements is false}
+
+\textbf{Explanation:} 
+For an orthogonal matrix $Q$ ($Q^TQ = I$):
+\begin{itemize}
+\item \textbf{(A) TRUE:} $\langle Qx, Qy \rangle = (Qx)^T(Qy) = x^TQ^TQy = x^Ty = \langle x, y \rangle$
+\item \textbf{(B) TRUE:} Columns are orthonormal by definition
+\item \textbf{(C) TRUE:} $(Q^T)^TQ^T = QQ^T = I$, so $Q^T$ is orthogonal
+\item \textbf{(D) TRUE:} Each column has unit norm, so $|q_{ij}| \leq 1$ for all entries
+\end{itemize}
+
+All statements are true!
+
+\hrulefill
+
+\section*{Problem 12: Weighted Inner Product}
+\textbf{Topic:} Weighted inner products, induced norms
+
+\correct{(D) $\|f\| = \sqrt{\int_0^1 f(x)^2 e^x dx}$}
+
+\textbf{Explanation:} 
+Given the weighted inner product $\langle f, g \rangle = \int_0^1 e^x f(x)g(x) dx$:
+
+The induced norm is:
+$$\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int_0^1 e^x f(x)f(x) dx} = \sqrt{\int_0^1 f(x)^2 e^x dx}$$
+
+Why others are wrong:
+\begin{itemize}
+\item (A): This IS a valid inner product (weight $e^x > 0$)
+\item (B): $\|1\|^2 = \int_0^1 e^x dx = e - 1$, so $\|1\| = \sqrt{e-1} \neq e$
+\item (C): Orthogonality depends on the specific inner product
+\end{itemize}
+
+\hrulefill
+
+\section*{Problem 13: Angle Between Linear Combinations}
+\textbf{Topic:} Inner products, angle computation
+
+\correct{(D) $\frac{2\|\mathbf{u}\|^2 - 3\langle\mathbf{u},\mathbf{v}\rangle}{\|\mathbf{u}\| \cdot \|\mathbf{w}\|}$}
+
+\partcred{(C) Attempts correct approach but incorrectly simplifies}
+
+\textbf{Explanation:} 
+The cosine of the angle between $\mathbf{u}$ and $\mathbf{w} = 2\mathbf{u} - 3\mathbf{v}$ is:
+
+$$\cos\phi = \frac{\langle\mathbf{u}, \mathbf{w}\rangle}{\|\mathbf{u}\|\|\mathbf{w}\|} = \frac{\langle\mathbf{u}, 2\mathbf{u} - 3\mathbf{v}\rangle}{\|\mathbf{u}\|\|\mathbf{w}\|}$$
+
+Computing the numerator:
+$$\langle\mathbf{u}, 2\mathbf{u} - 3\mathbf{v}\rangle = 2\langle\mathbf{u}, \mathbf{u}\rangle - 3\langle\mathbf{u}, \mathbf{v}\rangle = 2\|\mathbf{u}\|^2 - 3\langle\mathbf{u}, \mathbf{v}\rangle$$
+
+\trap Don't confuse norms with inner products in the numerator!
+
+\hrulefill
+
+\section*{Problem 14: FTLA}
+\textbf{Topic:} Quotient spaces, fundamental theorem of linear algebra
+
+\correct{(B) They are isomorphic, and the isomorphism is induced by $T$ itself}
+
+\partcred{(A) (small) Recognizes equal dimensions}
+
+\textbf{Explanation:} 
+The FTLA states:
+$$\mathbb{R}^4/\ker(T) = \text{coim} \cong \text{im}(T)$$
+
+Both spaces have dimension 2:
+\begin{itemize}
+\item Quotient: $\dim(\mathbb{R}^4/\ker(T)) = 4 - \dim(\ker(T)) = 4 - 2 = 2$
+\item Image: $\dim(\text{im}(T)) = \text{rank}(T) = 2$
+\end{itemize}
+
+The isomorphism is given by: $[\mathbf{v}]_{\ker(T)} \mapsto T(\mathbf{v})$
+
+This map is well-defined and bijective by the theorem.
+
+\hrulefill
+
+\section*{Problem 15: Angle-Preserving Transformations}
+\textbf{Topic:} Orthogonal transformations, geometric properties
+
+\correct{(B) $A^TA = I$ (orthogonal matrix)}
+
+\textbf{Explanation:} 
+For angle preservation, we need:
+$$\cos\theta' = \frac{\langle T\mathbf{u}, T\mathbf{v}\rangle}{\|T\mathbf{u}\|\|T\mathbf{v}\|} = \frac{\langle \mathbf{u}, \mathbf{v}\rangle}{\|\mathbf{u}\|\|\mathbf{v}\|} = \cos\theta$$
+
+This happens if and only if $T$ preserves inner products:
+$$\langle T\mathbf{u}, T\mathbf{v}\rangle = \langle \mathbf{u}, \mathbf{v}\rangle$$
+
+For matrix $A$: $\langle A\mathbf{x}, A\mathbf{y}\rangle = \mathbf{x}^TA^TA\mathbf{y} = \mathbf{x}^T\mathbf{y}$ requires $A^TA = I$.
+
+Why others fail:
+\begin{itemize}
+\item (A): Symmetric matrices don't preserve angles in general
+\item (C): Necessary but not sufficient
+\item (D): Equal column lengths don't ensure orthonormality
+\item (E): Skew-symmetric matrices don't preserve angles
+\end{itemize}
+
+\hrulefill
+
+\section*{Problem 16: Scalar Multiplication Geometry}
+\textbf{Topic:} Geometric properties of linear transformations
+
+\correct{(C) Angles between vectors}
+
+\textbf{Explanation:} 
+For $T(\mathbf{x}) = 5\mathbf{x}$:
+
+\begin{itemize}
+\item Inner products: $\langle 5\mathbf{u}, 5\mathbf{v}\rangle = 25\langle\mathbf{u}, \mathbf{v}\rangle$ (scaled by 25)
+\item Lengths: $\|5\mathbf{u}\| = 5\|\mathbf{u}\|$ (scaled by 5)
+\item Distances: $\|5\mathbf{u} - 5\mathbf{v}\| = 5\|\mathbf{u} - \mathbf{v}\|$ (scaled by 5)
+\item Angles: $\cos\theta' = \frac{25\langle\mathbf{u}, \mathbf{v}\rangle}{5\|\mathbf{u}\| \cdot 5\|\mathbf{v}\|} = \frac{\langle\mathbf{u}, \mathbf{v}\rangle}{\|\mathbf{u}\|\|\mathbf{v}\|} = \cos\theta$  
+\end{itemize}
+
+\hint Uniform scaling preserves angles but not distances or inner products.
+
+\hrulefill
+
+\section*{Problem 17: Coimage Equivalence Classes}
+\textbf{Topic:} Equivalence classes in quotient spaces
+
+\correct{(D) $T(\mathbf{u}) = T(\mathbf{v})$}
+
+\partcred{(E) True but trivially so, not the defining condition}
+
+\textbf{Explanation:} 
+Two vectors $\mathbf{u}, \mathbf{v}$ are in the same equivalence class of $\text{coim}(T) = V/\ker(T)$ if and only if:
+
+$$\mathbf{u} - \mathbf{v} \in \ker(T)$$
+
+This is equivalent to:
+$$T(\mathbf{u} - \mathbf{v}) = \mathbf{0}$$
+$$T(\mathbf{u}) = T(\mathbf{v})$$
+
+Option (E) states $T(\mathbf{u}) - T(\mathbf{v}) \in \text{im}(T)$, which is always true but doesn't characterize equivalence.
+
+\hrulefill
+
+\section*{Problem 18: Inner Product Requirements}
+\textbf{Topic:} Operations requiring vs. not requiring inner products
+
+\correct{(B) Computing the adjoint $T^*$}
+
+\partcred{(E) Matrix representation is easier with inner product but doesn't require it}
+
+\textbf{Explanation:} 
+The adjoint $T^*$ is defined by the relation:
+$$\langle T\mathbf{v}, \mathbf{w}\rangle = \langle\mathbf{v}, T^*\mathbf{w}\rangle$$
+
+This definition explicitly requires an inner product.
+
+Operations NOT requiring inner products:
+\begin{itemize}
+\item Invertibility: Check if $\ker(T) = \{\mathbf{0}\}$
+\item Finding kernel: Solve $T\mathbf{v} = \mathbf{0}$
+\item Coimage basis: Purely algebraic quotient construction
+\item Matrix representation: Only needs choice of bases
+\end{itemize}
+
+\hrulefill
+
+\section*{Problem 19: Identifying Orthogonal Matrices}
+\textbf{Topic:} Orthogonal matrices, computational verification
+
+\textbf{CRITICAL ERROR - PROBLEM IS BROKEN}
+
+The problem asks "Which of the following matrices is orthogonal?" but THREE matrices are orthogonal!
+
+\textbf{Actual results:}
+\begin{itemize}
+\item \textbf{$Q_1$ is ORTHOGONAL} 
+\item \textbf{$Q_2$ is ORTHOGONAL} 
+\item \textbf{$Q_3$ is NOT orthogonal} (columns 1 and 3 not orthogonal)
+\item \textbf{$Q_4$ is ORTHOGONAL} 
+\end{itemize}
+
+Option (E) "None of the above is orthogonal" is FALSE.
+
+\textbf{This problem has no unique correct answer.} Options A, B, and D are all correct. Apologies from prof-g.
+
+For grading: Full credit to students who chose A, B, or D, and no credit for C or E (which is factually incorrect).
+
+\hrulefill
+
+\hrulefill
+
+\section*{Problem 20: Document Vector Angles}
+\textbf{Topic:} Vector addition and angles
+
+\correct{(C) These angles are both strictly less than $30°$}
+
+\partcred{(A) Might be exactly $15°$ in special cases}
+\partcred{(E) Can determine bounds without knowing lengths}
+
+\textbf{Explanation:} 
+Given $\mathbf{d}_3 = \mathbf{d}_1 + \mathbf{d}_2$ with $\theta_{1,2} = 30°$:
+
+By the parallelogram law, $\mathbf{d}_3$ lies in the interior of the angle between $\mathbf{d}_1$ and $\mathbf{d}_2$ (when viewed from origin).
+
+Both angles $\theta_{1,3}$ and $\theta_{2,3}$ must be:
+\begin{itemize}
+\item Strictly less than $30°$ (the original angle)
+\item Strictly greater than $0°$ (vectors point in same general direction)
+\item Equal to $15°$ only if $\|\mathbf{d}_1\| = \|\mathbf{d}_2\|$
+\end{itemize}
+
+\hint Vector addition creates a "weighted average" direction between the two vectors.
+
+\hrulefill
+
+\section*{Problem 21: Matrix Representation of Differentiation}
+\textbf{Topic:} Matrix representations of linear operators
+
+\correct{(A) The columns are coordinate vectors of $T(1), T(x), T(x^2)$ with respect to $\mathcal{C}$}
+
+\partcred{(E) Related idea but incorrect conclusion}
+
+\textbf{Explanation:} 
+Computing $[T]_{\mathcal{B}}^{\mathcal{C}}$:
+
+\begin{itemize}
+\item $T(1) = 0 = 0 \cdot 1 + 0 \cdot x$ → column 1: $\begin{pmatrix}0\\0\end{pmatrix}$
+\item $T(x) = 1 = 1 \cdot 1 + 0 \cdot x$ → column 2: $\begin{pmatrix}1\\0\end{pmatrix}$
+\item $T(x^2) = 2x = 0 \cdot 1 + 2 \cdot x$ → column 3: $\begin{pmatrix}0\\2\end{pmatrix}$
+\end{itemize}
+
+Therefore: $[T]_{\mathcal{B}}^{\mathcal{C}} = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 2 \end{bmatrix}$
+
+The matrix is $2 \times 3$ (not square), and changing basis won't change rank.
+
+\hrulefill
+
+\section*{Problem 22: Adjoint of Differentiation}
+\textbf{Topic:} Adjoint operators, inner products
+
+\correct{(E) For all $p \in \mathcal{P}_3$ and $q \in \mathcal{P}_2$: $\int_0^1 p'(x)q(x)dx = \int_0^1 p(x)(D^*(q))(x)dx$}
+
+\partcred{(C) Related to integration by parts but vague}
+
+\textbf{Explanation:} 
+The defining property of the adjoint is:
+$$\langle D(p), q \rangle = \langle p, D^*(q) \rangle$$
+
+With our inner product $\langle f, g \rangle = \int_0^1 f(x)g(x)dx$:
+$$\int_0^1 p'(x)q(x)dx = \int_0^1 p(x)(D^*(q))(x)dx$$
+
+This is exactly what option (E) states.
+
+Note: $D^*$ is NOT simply antidifferentiation due to boundary terms from integration by parts. The actual formula involves both antiderivatives and boundary corrections.
+
+\hint The adjoint relationship is the fundamental definition—everything else follows from it.
+
+\hrulefill
+
+\section*{Key Takeaways for Quiz 2}
+
+\begin{enumerate}
+\item \textbf{Quotient Spaces:} Remember dim$(V/W) = \dim(V) - \dim(W)$
+\item \textbf{Orthonormal Bases:} Dramatically simplify norm and inner product calculations
+\item \textbf{QR Decomposition:} $Q$ has orthonormal columns; $R$ is upper triangular
+\item \textbf{FTLA:} $V/\ker(T) \cong \text{im}(T)$
+\item \textbf{Inner Products:} Required for geometry (angles, adjoints) but not algebra (rank, independence)
+\item \textbf{Change of Basis:} Similar matrices preserve rank, determinant, eigenvalues—but not column spaces
+\end{enumerate}
+
+\end{document}
