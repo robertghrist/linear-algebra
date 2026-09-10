@@ -1,0 +1,82 @@
+WEEK 5: INNER PRODUCTS & ORTHOGONALITY
+LAEF 2E -- Chapter 5: Inner Products & Orthogonality (Sections 5.1-5.6)
+Application sections: Clustering & K-Means; Deep Networks & The Isometry of Depth
+
+CORE CONCEPTS:
+
+1. Dot & Inner Products (5.1)
+   - Axioms: symmetry, bilinearity, positive definiteness (Def 5.1)
+   - Weighted inner products <x,y>_M = x^T M y for symmetric positive definite M (Ex 5.2)
+   - The Frobenius pairing on matrices, <A,B> = tr(A^T B) (Ex 5.3)
+   - The L^2 inner product on functions
+   - Induced norm (Def 5.4); a norm need not come from an inner product
+
+2. Angles & Orthogonality (5.2)
+   - Cauchy-Schwarz and the definition of angle (Lemma 5.5)
+   - Cosine similarity; matrix alignment (Ex 5.6)
+   - Orthogonality is relative to the inner product chosen
+   - Pythagoras and the orthogonal decomposition lemma (Lemma 5.7)
+   - Orthogonal complements
+   - Word embeddings as the modern instance of "angle = meaning" (Ex 5.16)
+
+3. Orthogonal & Orthonormal Bases (5.3)
+   - Coordinates against an orthonormal basis are inner products: no system to solve
+   - Gram-Schmidt, with its PURPOSE stated: manufacture an orthonormal basis for a given span
+     while preserving the nested subspaces spanned by the initial segments
+   - Fourier series as orthogonal expansion (Ex 5.8); orthogonal polynomials (Ex 5.9)
+   - Householder reflections named as the numerically preferred alternative
+
+4. Adjoints & Transposes (5.4)
+   - Adjoint defined by <T v, w> = <v, T* w> (Def 5.10)
+   - The adjoint is a property of the inner products, not of the array of numbers
+   - In the standard inner product with standard bases, T* is the transpose
+   - IN GENERAL IT IS NOT: for a weighted inner product, A* = M^{-1} A^T M (Ex 5.15)
+   - Adjoints of differentiation (Ex 5.11), sum-and-copy (Ex 5.12), the shift (Ex 5.13)
+   - (Lemma 5.14) composition and inverse rules for adjoints
+
+5. Orthogonal Transformations (5.5)  [EXPANDED IN 2E]
+   - Definition: preserves all inner products, hence all lengths and angles (Def 5.17)
+   - Equivalent characterizations: Q^T Q = I; columns orthonormal; ||Qx|| = ||x|| (Lemmas 5.18, 5.19)
+   - ISOMETRY: the rectangular case. A tall Q with orthonormal columns satisfies Q^T Q = I
+     but NOT Q Q^T = I. Instead Q Q^T is the orthogonal PROJECTION onto the column space
+   - Determinant +-1; rotations vs. reflections
+   - Rigid body motion (Ex 5.20); orthogonal signal transforms (Ex 5.21)
+
+6. The QR Decomposition (5.6)
+   - A = QR with Q having orthonormal columns and R upper triangular (Def 5.22)
+   - Thin QR vs. full QR, and which one Gram-Schmidt produces
+   - Existence and uniqueness (Lemma 5.24) -- 2E does NOT require independent columns in the
+     definition; the independence hypothesis buys uniqueness with positive diagonal
+   - Simple QR forms (Ex 5.23); handwritten digits (Ex 5.25); color compression (Ex 5.26)
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Verify the inner product axioms for a proposed pairing, and find the axiom that fails
+- Compute norms, angles, and cosine similarity in weighted and function inner products
+- Apply Cauchy-Schwarz to bound an inner product
+- Find an orthogonal complement and its dimension
+- Run Gram-Schmidt on two or three vectors and normalize correctly
+- Expand a vector against an orthonormal basis using inner products alone
+- Compute an adjoint, and recognize when the adjoint differs from the transpose
+- Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does
+- Read off Q and R from a small QR, and use QR to solve or to compute a projection
+
+TYPICAL MCQ TRAPS:
+- Asserting Q Q^T = I for a tall matrix with orthonormal columns
+- Using the standard dot product to test orthogonality when a weighted inner product is in force
+- Identifying the adjoint with the transpose in a non-standard inner product
+- Normalizing before subtracting projections in Gram-Schmidt (or forgetting to normalize at all)
+- Claiming Gram-Schmidt changes the span of the initial segments
+- Treating "orthogonal set" and "orthonormal set" as interchangeable in a coordinate formula
+- Assuming R in QR is invertible when the columns of A are dependent
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- K-means clustering application
+- The isometry-of-depth application section
+- Quantitative Householder arithmetic (the name and purpose suffice)
+
+CONNECTIONS:
+- Back: this is Week 2's structure with geometry added
+- Forward: projections and least squares are Week 6; QR is how least squares is actually solved
+- Forward: symmetric matrices and the spectral theorem (Weeks 9-10)
+- Forward: the SVD is the adjoint story carried to its conclusion (Week 10)
+- Forward: attention learns an inner product rather than accepting one (Week 13)

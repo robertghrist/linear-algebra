@@ -1,0 +1,106 @@
+WEEK 11: PRINCIPAL COMPONENTS & LOW-RANK STRUCTURE
+LAEF 2E -- Chapter 11: Principal Components & Low-Rank Structure (Sections 11.1-11.7)
+Application sections: Decoding Neural Population Activity; Eigenfaces; The Netflix Prize
+
+NOTE ON SCOPE -- SUBSTANTIALLY CHANGED IN 2E:
+  * The first-edition Chapters 11 and 12 were MERGED; this is now a single seven-section chapter.
+  * Eckart-Young-Mirsky is CORE, not bonus (Thm 11.6). Spell it Eckart-Young-Mirsky.
+  * Matrix completion and Robust PCA are now full sections (11.6), not advanced asides.
+  * Mahalanobis distance and outlier screening are core (11.5).
+  * Section 11.5 is titled "Judgment" and carries preprocessing, scaling, scree plots,
+    component selection, and significance.
+  * Kernel PCA is now the body of 11.7 rather than a bonus bullet.
+
+CORE CONCEPTS:
+
+1. Covariance & Correlation (11.1)
+   - Centering; covariance as an inner product of residuals
+   - Covariance matrix and correlation matrix
+   - Correlation as cosine similarity between centered variables
+   - Symmetry and positive semidefiniteness of the covariance matrix
+
+2. Matrices & Data (11.2)
+   - The centered data matrix X: rows are observations, columns are variables
+   - Covariance as C = (1/n) X^T X -- a Gram matrix
+   - Data as a point cloud; the geometry of a cloud vs. the algebra of a matrix
+
+3. Principal Components (11.3)
+   - Principal components as eigenvectors of the covariance matrix, equivalently the right
+     singular vectors of the centered data matrix (Def 11.1)
+   - PC scores: coordinates of the data in the principal basis (Def 11.2)
+   - Variance captured by each component equals the corresponding eigenvalue, equal to
+     sigma_i^2 / n
+   - Successive components: each maximizes remaining variance subject to orthogonality
+   - Gene expression data (Ex 11.3)
+
+4. Optimality Properties (11.4)
+   - Principal Component Optimality (Thm 11.4): v_1 maximizes v^T C v over unit vectors, and
+     each later v_k maximizes it subject to orthogonality with its predecessors
+   - Section 11.4 then shows the equivalent readings: maximizing captured variance,
+     minimizing mean squared reconstruction error, and minimizing distance shrinkage are
+     the SAME problem, differing by constants
+   - Caution: when an eigenvalue repeats, the maximizer is not unique
+   - The Rayleigh quotient (Week 9) is the mechanism behind the maximization
+   - Rank-k approximation (Def 11.5): truncate the SVD
+   - ECKART-YOUNG-MIRSKY (Thm 11.6): the truncated SVD is the best rank-k approximation in
+     both the spectral and the Frobenius norm, for k < r; the errors are exactly
+     ||A - A_k||_2 = sigma_{k+1} and ||A - A_k||_F = sqrt(sum_{i>k} sigma_i^2)
+   - Image compression as the visible instance (Ex 11.7)
+
+5. Judgment (11.5)
+   - Centering is mandatory; standardization is a decision
+   - Covariance PCA vs. correlation PCA: units, dominance, and what each preserves (Ex 11.8)
+   - Scree plots and explained-variance ratios; how many components to retain
+   - Mahalanobis distance (Def 11.9): distance measured in units of the data's own spread
+   - Outlier detection and why screening must PRECEDE the eigenvector computation (Ex 11.10)
+   - Vibration analysis (Ex 11.11); chemical process monitoring (Ex 11.12)
+   - Forward link: Section 12.4 supplies the noise floor against which a scree plot is read
+
+6. Completion & Corruption (11.6)
+   - Matrix completion problem (Def 11.13): recover a low-rank matrix from a subset of entries
+   - Nuclear norm (Def 11.14) as the convex surrogate for rank -- the sum of singular values
+   - Matrix completion guarantee (Thm 11.15) and its incoherence/sampling hypotheses
+   - Robust PCA (Def 11.16): decompose M = L + S into low-rank plus sparse
+   - Principal Component Pursuit (Thm 11.17): the hypothesis is on the SUPPORT of S being
+     random, not on its signs
+   - Video surveillance: background as L, moving objects as S (Ex 11.18)
+
+7. Beyond Linear PCA (11.7)
+   - When data lies near a curved manifold, linear projection misleads
+   - Kernel PCA: replace the covariance matrix with a kernel matrix K = [k(x_i, x_j)]
+     and run the same machinery in an implicit feature space
+   - Autoencoders as the nonlinear successor (forward link to Week 13)
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Center a small data matrix and compute its covariance matrix
+- Identify principal components as eigenvectors of C or right singular vectors of X
+- Compute variance captured and explained-variance ratios from eigenvalues or singular values
+- Read a scree plot and defend a choice of k
+- Decide between covariance PCA and correlation PCA from the units and scales given
+- Produce the best rank-k approximation from a given SVD and state its error in both norms
+- Compute a Mahalanobis distance and use it to flag an outlier
+- Project data onto the top two components and interpret the resulting plot
+- Interpret loadings: which variables drive which component, and the sign ambiguity
+- State the nuclear norm and say why it stands in for rank
+
+TYPICAL MCQ TRAPS:
+- Omitting the centering step and reporting the leading component as the mean direction
+- Using covariance PCA on variables with wildly different units
+- Confusing eigenvalues of C (variances) with singular values of X (their square roots, times sqrt(n))
+- Reporting the Frobenius error when the spectral error is asked for, or vice versa
+- Claiming the truncated SVD is merely a good approximation rather than the optimal one
+- Treating a sign flip in a loading vector as a different component
+- Interpreting a large first component as evidence of signal without a noise floor to compare against
+- Assuming Robust PCA needs the sparse part to be small in magnitude (it needs it to be sparse)
+- Writing "Eckart-Minsky-Young" (the theorem is Eckart-Young-Mirsky)
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- Eigenfaces, neural population decoding, and Netflix Prize application sections
+- Sparse PCA, online/streaming PCA, and other variants not in the text
+- The optimization machinery behind nuclear norm minimization
+
+CONNECTIONS:
+- Back: Week 10's SVD is the computational engine; Week 9's Rayleigh quotient the variational one
+- Back: Week 6's least squares reappears as reconstruction error
+- Forward: Chapter 12 supplies the noise floor (Marchenko-Pastur) and the randomized SVD
+- Forward: autoencoders learn a nonlinear analogue of the principal subspace (Week 13)

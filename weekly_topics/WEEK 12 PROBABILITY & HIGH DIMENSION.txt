@@ -1,0 +1,120 @@
+WEEK 12: PROBABILITY & HIGH DIMENSION
+LAEF 2E -- Chapter 12: Probability & High Dimension (Sections 12.1-12.6)
+Application sections: The Market Mode; The Blessing of Dimensionality
+
+NEW CHAPTER FOR THE SECOND EDITION -- no first-edition problems exist for this week.
+Prerequisite probability is the multivariable-calculus kind: densities integrated over
+reasonable domains. Nothing measure-theoretic is assumed or should be tested.
+
+THE CHAPTER'S THESIS: probability is not a new subject bolted on at the end. Expectation is
+a projection, standard deviation is a length, correlation is a cosine, and the identities of
+elementary statistics are Pythagoras in disguise. Then: in high dimension, chance stops
+behaving like caprice and starts behaving lawfully.
+
+CORE CONCEPTS:
+
+1. The Geometry of Expectation (12.1)
+   - Random variables on N outcomes ARE vectors in R^N; a density is a vector of positive
+     weights summing to one
+   - The probability inner product <f,g>_rho = sum rho_i f_i g_i (Def 12.1); continuous case
+     replaces the sum by an integral
+   - The constant vector 1 has unit length -- this IS the total-probability axiom
+   - Expectation is an inner product with 1, hence E(f) 1 is the orthogonal projection onto
+     the line of constants
+   - Linearity of expectation needs no independence hypothesis because projection is linear
+   - Centering is projection onto 1^perp
+   - Variance is a squared length; standard deviation is a distance to the constants,
+     which is why it carries the units of f
+   - Covariance is the inner product of residuals; correlation is its cosine
+   - Variances add exactly when residuals are orthogonal -- Pythagoras again
+   - Conditional expectation is an orthogonal projection onto a subspace of random variables
+   - Markov and Chebyshev inequalities (Lemma 12.2)
+
+2. The Simplex (12.2)
+   - The probability simplex Delta^{N-1} (Def 12.3): the nonnegative orthant met with the
+     hyperplane <rho, 1> = 1
+   - Vertices are point masses; the relative interior is the strictly positive densities
+   - Stochastic matrices preserve the simplex (Lemma 12.4) -- Week 9's dynamics, now geometric
+   - Softmax (Def 12.5) as the smooth map onto the simplex that Chapter 13 requires
+   - Softmax is shift-invariant and its output is a density, never a probability of truth
+
+3. High Dimension & Near-Orthogonality (12.3)
+   - Two random directions in R^n meet at nearly a right angle, with overwhelming probability
+   - Random inner products: mean 0 and variance 1/n (Lemma 12.6)
+   - Concentration: random lengths crowd onto a thin shell
+   - The union bound (Lemma 12.7) as the tool for controlling many events at once
+   - The probabilistic method: prove existence by showing failure has probability below one
+   - Exponentially many nearly-orthogonal directions exist in R^n
+
+4. Random Matrices & the Noise Floor (12.4)
+   - Singular values of a pure-noise matrix do NOT scatter arbitrarily
+   - Total spectral mass equals the Frobenius norm, concentrated near nd by Chebyshev
+   - The Marchenko-Pastur bulk with aspect ratio gamma = d/n and edges (1 -+ sqrt(gamma))^2
+   - A singular value above the upper edge is signal; a singular value inside the bulk is not
+   - Caution on notation: sigma(f) is a standard deviation; subscripted sigma_i are singular values
+   - This is what makes Week 11's scree plot readable against a standard instead of by instinct
+
+5. Random Projection (12.5)
+   - Random projection Phi in R^{k x n} with independent mean-zero Gaussian entries of
+     variance 1/k (Def 12.8); the variance is calibration, not decoration
+   - Random projections measure length in expectation, with concentration (Lemma 12.9)
+   - JOHNSON-LINDENSTRAUSS (Thm 12.10): for any m points in R^n and any 0 < epsilon < 1,
+     a random projection to R^k with k >= 36 ln(m) / epsilon^2 preserves every pairwise
+     SQUARED distance to relative error epsilon, with probability at least 1 - 1/m
+   - The target dimension depends on the NUMBER OF POINTS and the tolerance -- NOT on n
+   - Proof shape: one-point concentration plus a union bound over the C(m,2) pairs
+   - Database-friendly variants; why this is the enabling result for nearest-neighbor search,
+     clustering, and retrieval at scale
+
+6. The Randomized SVD (12.6)
+   - One Gaussian probe A omega returns a mixture of left singular vectors, each speaking at
+     its native volume sigma_i
+   - Stack k + p probes to form the sketch Y = A Omega with oversampling p
+   - Orthonormalize the sketch (QR, Week 5) to capture the dominant range
+   - Randomized Range Finder (Thm 12.11): the sketch's range approximates the top-k range
+   - Project A onto that range and factor the small matrix exactly
+   - Why it matters: the full SVD costs O(nd min(n,d)) and only the top k triples are wanted
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Translate between statistical and geometric vocabulary: expectation/projection,
+  variance/squared length, covariance/inner product, correlation/cosine
+- Verify that a proposed weighting gives a valid inner product on random variables
+- Apply Markov and Chebyshev to bound a tail probability
+- Decide whether a point lies in the simplex; compute a softmax output and check it sums to one
+- Compute the expected inner product and variance for random unit vectors and explain
+  near-orthogonality in R^n
+- Apply the union bound to a stated collection of events
+- Place the Marchenko-Pastur edges given n and d, and classify a singular value as
+  signal or noise
+- Use Johnson-Lindenstrauss to compute a sufficient target dimension k from m and epsilon,
+  and read off the stated success probability
+- State exactly what JL preserves (pairwise squared distances, up to relative error) and
+  what it does not
+- Describe the randomized SVD pipeline in order: probe, sketch, orthonormalize, project, factor
+
+TYPICAL MCQ TRAPS:
+- Believing linearity of expectation requires independence
+- Reporting the JL target dimension as depending on the ambient dimension n
+- Stating JL as preserving distances rather than SQUARED distances
+- Forgetting the union bound over pairs and quoting a per-pair failure probability
+- Confusing standard deviation sigma(f) with a singular value sigma_i
+- Reading a large leading eigenvalue as signal without comparing it to the noise floor
+- Treating softmax output as a probability that the answer is correct
+- Assuming a random projection matrix is orthogonal (its rows are only approximately so)
+- Dropping the 1/k variance calibration and then wondering why lengths are wrong
+- Claiming the randomized SVD is exact, or that oversampling p is optional in practice
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- The Market Mode application (correlation spectra of stock returns)
+- The Blessing of Dimensionality application (centroid vs. nearest-neighbor classification,
+  linear discriminant analysis)
+- Chi-squared distributions and Gaussian shell computations beyond the stated lemmas
+- Bellman's curse and Donoho's blessing as terminology only
+
+CONNECTIONS:
+- Back: Week 5's weighted inner products are literally the probability inner product
+- Back: Week 6's projections give expectation, centering, and conditional expectation
+- Back: Week 9's stochastic matrices act on the simplex defined here
+- Back: Week 10's singular values and Week 11's scree plots acquire a noise floor
+- Forward: SGD is an expectation estimated by a sample (Week 13)
+- Forward: softmax is the attention mechanism's normalization (Week 13)

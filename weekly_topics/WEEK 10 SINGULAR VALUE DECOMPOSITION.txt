@@ -1,0 +1,92 @@
+WEEK 10: SINGULAR VALUE DECOMPOSITION
+LAEF 2E -- Chapter 10: Singular Value Decomposition (Sections 10.1-10.6)
+Application sections: Latent Semantic Structure in Text; Sensor Networks & The Geometry of Measurement
+
+NOTE ON SCOPE -- CHANGED IN 2E:
+  * The chapter now OPENS with the Spectral Theorem (10.1); the symmetric case is the
+    foundation, not an aside.
+  * POLAR DECOMPOSITION HAS BEEN REMOVED. Do not write problems on A = QH.
+  * Matrix norms and the condition number are now defined here (Defs 10.5, 10.8).
+  * Low-rank approximation and Eckart-Young-Mirsky live in Chapter 11 (Week 11), not here.
+
+CORE CONCEPTS:
+
+1. The Spectral Theorem (10.1)
+   - A real symmetric matrix has real eigenvalues and an orthonormal eigenbasis:
+     A = Q D Q^T with Q orthogonal (Thm 10.1)
+   - The spectral decomposition as a sum of rank-one projections, A = sum lambda_i q_i q_i^T
+   - Positive semidefiniteness and the eigenvalue sign pattern
+   - A^T A and A A^T are symmetric positive semidefinite with the same nonzero eigenvalues
+
+2. Spheres, Ellipsoids, & Singular Values (10.2)
+   - Every linear map sends the unit sphere to an ellipsoid (or a degenerate one)
+   - Principal semi-axes are the singular values; their directions are the left singular vectors
+   - Singular values as the square roots of the eigenvalues of A^T A (Def 10.2)
+   - Two frames, not one: the input basis and the output basis are DIFFERENT (Ex 10.3)
+     -- this is the essential contrast with diagonalization
+
+3. Constructing the SVD (10.3)
+   - Step 1: orthonormal eigenvectors of A^T A give V and the singular values sigma_i
+   - Step 2: u_i = A v_i / sigma_i for sigma_i > 0 gives the left singular vectors
+   - Step 3: complete U to an orthonormal basis using the cokernel
+   - Existence for every matrix, square or not (Thm 10.4)
+   - Uniqueness: singular values always; singular vectors up to sign and up to rotation
+     within a repeated singular value's subspace
+
+4. Interpreting the SVD (10.4)
+   - A = U Sigma V^T = sum sigma_i u_i v_i^T: a sum of rank-one pieces in decreasing importance
+   - Rank = number of nonzero singular values
+   - Bases for all four fundamental subspaces read directly off U and V
+     (v's beyond rank r span the kernel; u's beyond rank r span the cokernel)
+   - The pseudoinverse in closed form: A^+ = V Sigma^+ U^T, with Sigma^+ inverting the
+     nonzero singular values and transposing (connects to Week 6)
+   - Ridge regression as singular-value filtering: sigma / (sigma^2 + lambda)
+
+5. Invariance & Natural Structure (10.5)
+   - Singular values are unchanged by A -> Q_1 A Q_2^T for orthogonal Q_1, Q_2
+   - Matrix norms (Def 10.5): spectral norm = sigma_1; Frobenius norm^2 = sum sigma_i^2
+   - Singular values under composition (Lemma 10.6)
+   - Singular values as distances: sigma_{k+1} is the distance from A to the nearest
+     rank-k matrix in the spectral norm (Lemma 10.7)
+   - Condition number kappa(A) = sigma_1 / sigma_r (Def 10.8) -- Week 1's warning made exact
+   - Near-singularity means a small singular value, not a small determinant
+
+6. Inner Products & the SVD (10.6)
+   - The construction transported to abstract inner product spaces via the adjoint T*
+   - T*T and TT* play the roles of A^T A and A A^T
+   - Finite-dimensional function spaces (Ex 10.9)
+   - Text analysis (Ex 10.10); temperature sensor arrays (Ex 10.11)
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Orthogonally diagonalize a small symmetric matrix and write its spectral decomposition
+- Compute the SVD of a 2x2 or a simple 2x3 / 3x2 matrix
+- Read rank, and bases for all four fundamental subspaces, off a GIVEN SVD
+- Write A as a sum of rank-one terms and identify the dominant one
+- Compute spectral and Frobenius norms from singular values
+- Compute the condition number and interpret it
+- Build A^+ from a given SVD and use it to solve a least squares problem
+- Relate singular values of A to eigenvalues of A^T A without conflating them
+- Explain why singular values are nonnegative while eigenvalues need not be
+
+TYPICAL MCQ TRAPS:
+- Reporting eigenvalues of A when singular values are asked for (they agree only for
+  symmetric positive semidefinite A, up to absolute value for symmetric A)
+- Expecting U = V for a non-symmetric matrix
+- Forgetting that Sigma is rectangular and that Sigma^+ transposes as well as inverts
+- Inverting a zero singular value when forming A^+
+- Using the determinant as the measure of near-singularity instead of sigma_min
+- Taking kappa = sigma_1 / sigma_n when the matrix is rank deficient (the denominator is sigma_r)
+- Assuming singular values are similarity-invariant (they are ORTHOGONALLY invariant)
+- Confusing the spectral norm with the Frobenius norm
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- Latent semantic analysis and sensor network application sections
+- Infinite-dimensional and operator-theoretic generalities in 10.6
+- Tensor coda at the close of 10.6
+
+CONNECTIONS:
+- Back: Week 5's adjoints and orthonormal bases; Week 6's pseudoinverse, now computable
+- Back: Week 9's Lemma 9.19 is the same spectral theorem, met earlier
+- Forward: PCA is the SVD of a centered data matrix (Week 11)
+- Forward: Eckart-Young-Mirsky makes Lemma 10.7 an approximation theorem (Week 11)
+- Forward: the randomized SVD computes the top singular triples by sketching (Week 12)

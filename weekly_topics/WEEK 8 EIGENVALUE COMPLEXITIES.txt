@@ -1,0 +1,72 @@
+WEEK 8: EIGENVALUE COMPLEXITIES
+LAEF 2E -- Chapter 8: Eigenvalue Complexities (Sections 8.1-8.5)
+Application sections: Pharmacokinetics & The Flip-Flop; Quadrotor Flight & Hovering
+
+NOTE ON SCOPE: the 2E dissolves the former "finding the Jordan form" section into 8.3.
+Mechanical Jordan-form construction for large matrices is de-emphasized; STRUCTURE
+(block sizes, multiplicities, what the form predicts) is what is tested.
+
+CORE CONCEPTS:
+
+1. Complex Eigenvalues & Oscillation (8.1)
+   - Real matrices have complex eigenvalues in conjugate pairs, with conjugate eigenvectors (Ex 8.1)
+   - Real normal form for a conjugate pair: the rotation-scaling 2x2 block (Lemma 8.2)
+   - Euler's theorem redux: e^{(a+bi)t} as decaying/growing oscillation (Lemma 8.3)
+   - Real solutions from complex data: take real and imaginary parts
+   - a = Re(lambda) sets growth or decay; b = Im(lambda) sets frequency
+
+2. Repeated Eigenvalues (8.2)
+   - Algebraic vs. geometric multiplicity (Def 8.4)
+   - Geometric <= algebraic, always; defectiveness is the gap
+   - Generalized eigenvectors and generalized eigenspaces (Lemma 8.5, Ex 8.6)
+   - Jordan chains: (A - lambda I) w = v
+   - Exponentiating a simple block produces the t e^{lambda t} terms (Ex 8.7)
+
+3. The Jordan Canonical Form (8.3)
+   - Every matrix is similar to a Jordan form, unique up to block order (Thm 8.8)
+   - Jordan blocks: one block per independent eigenvector; block sizes from the chain lengths
+   - Reading structure from multiplicities (Ex 8.9, 8.10, 8.11)
+   - What Jordan form buys: powers, exponentials, and the exact failure mode of diagonalization
+   - Numerical caveat: the Jordan form is discontinuous in the entries and is not computed in practice
+
+4. Computing Eigenvalues (8.4)
+   - The characteristic polynomial is a proof device, not an algorithm
+   - The QR algorithm: iterate A = QR, then A <- RQ (Def 8.12, Ex 8.13)
+   - Similarity is preserved at every step, so the spectrum is preserved
+   - Convergence to (quasi-)triangular form; shifts and practical considerations
+
+5. Back to Basis (8.5)
+   - Basis solutions for repeated roots: e^{lambda t}, t e^{lambda t}, ..., t^{m-1} e^{lambda t} (Thm 8.14)
+   - Repeated real root (Ex 8.15); critical damping (Ex 8.16); repeated complex roots (Ex 8.17)
+   - The polynomial factor is the ODE's signature of a defective matrix
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Find complex eigenvalues and produce REAL solutions from them
+- Read frequency and growth rate off a complex eigenvalue
+- Compute algebraic and geometric multiplicity, and diagnose defectiveness
+- Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I)
+- Find a generalized eigenvector by solving (A - lambda I) w = v
+- Exponentiate a 2x2 or 3x3 Jordan block
+- Write the basis of solutions for an ODE with repeated or complex characteristic roots
+- Explain what one QR step does and why the spectrum is unchanged
+
+TYPICAL MCQ TRAPS:
+- Reporting geometric multiplicity greater than algebraic
+- Assuming a repeated eigenvalue forces a Jordan block (it need not; check the eigenspace)
+- Counting Jordan blocks by algebraic rather than geometric multiplicity
+- Omitting the t e^{lambda t} term for a defective repeated root
+- Treating complex eigenvalues as evidence that a real system has complex behavior
+  (the oscillation is real; only the bookkeeping is complex)
+- Confusing the QR ALGORITHM (Week 8, eigenvalues) with the QR DECOMPOSITION (Week 5, factorization)
+- Believing the Jordan form is what software computes
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- Pharmacokinetics and quadrotor application sections
+- Hand construction of large Jordan bases
+- Shift strategies and deflation in the QR algorithm
+
+CONNECTIONS:
+- Back: Week 7's diagonalization is the non-defective special case
+- Forward: symmetric matrices are never defective (Weeks 9-10)
+- Forward: the spectral radius governs iteration; defectiveness produces transient growth (Week 9)
+- Forward: singular values, unlike eigenvalues, are always a full orthonormal story (Week 10)

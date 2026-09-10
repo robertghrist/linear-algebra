@@ -1,0 +1,68 @@
+WEEK 4: BASES & COORDINATES
+LAEF 2E -- Chapter 4: Bases & Coordinates (Sections 4.1-4.5)
+Application sections: Robotic Arm Kinematics; Computer Graphics & Coordinate Systems
+
+CORE CONCEPTS:
+
+1. Bases & Spanning Sets (4.1)
+   - Basis as a set that is both spanning and independent (Def 4.1)
+   - Basis Extension: any independent set extends to a basis (Thm 4.3, Cor 4.5)
+   - Bases for polynomial spaces (Ex 4.2) and matrix spaces (Ex 4.4)
+   - Dimension counting as a proof technique (Ex 4.6)
+
+2. Coordinates & Components (4.2)
+   - The coordinate vector [v]_B and its uniqueness
+   - Coordinates as the isomorphism V -> R^n induced by a choice of basis
+   - Components in a non-standard basis (Ex 4.7, Ex 4.8)
+   - A vector is not its coordinates; the coordinates depend on the basis
+
+3. Change of Basis (4.3)
+   - The change of basis matrix P, written P_{B <- B'} in full (Def 4.9)
+   - HOUSE CONVENTION: the matrix is always P (never X); Q is reserved for the orthogonal case;
+     V is used only where the columns are literally eigenvectors
+   - Direction rule: P_{B <- B'} takes B'-coordinates to B-coordinates
+   - The columns of P_{B <- B'} are the B-coordinates of the B'-basis vectors
+   - Inverse: (P_{B <- B'})^{-1} = P_{B' <- B}
+   - Signal processing (Ex 4.10) and principal stress (Ex 4.11) as motivating changes of frame
+
+4. Matrix Representations (4.4)
+   - The matrix [T]_{B',B} of a linear transformation relative to chosen bases
+   - Dependence on the basis choice; the standard matrix as one case among many
+   - Rotation in different bases (Ex 4.12); projection onto a line (Ex 4.13)
+   - Composition of maps corresponds to a product of representing matrices
+
+5. Similarity (4.14) and Coordinate-Free Thought (4.5)
+   - B = P^{-1} A P (Def 4.14): the same operator seen in two frames
+   - Similarity invariants: rank, nullity, trace, determinant, characteristic polynomial,
+     eigenvalues -- and NOT entries, columns, or orthogonality
+   - Geometric reading of similarity (Ex 4.15)
+   - Which statements about an operator are coordinate-free and which are artifacts of a basis
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis
+- Build P_{B <- B'} and use it in the correct direction
+- Convert coordinates between two non-standard bases
+- Write the matrix of a linear map relative to given bases in domain and codomain
+- Re-express a matrix in a new basis via P^{-1} A P
+- Decide whether a stated property is preserved under similarity
+- Extend an independent set to a basis and trim a spanning set to one
+
+TYPICAL MCQ TRAPS:
+- Inverting the direction of the change of basis matrix (the single most common error)
+- Building P from the coordinates of the OLD basis in the NEW one when the reverse is wanted
+- Using P A P^{-1} where P^{-1} A P is required
+- Assuming similar matrices have the same eigenvectors (they have corresponding ones, related by P)
+- Assuming similar matrices have the same singular values (they need not)
+- Confusing [T]_{B',B} with [T]_{B,B'} when domain and codomain bases differ
+- Treating orthogonality of columns as similarity-invariant
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- Lagrange and other special polynomial bases
+- Robot kinematics and graphics application sections
+- Coordinate-free philosophy as prose rather than as a testable criterion
+
+CONNECTIONS:
+- Back: coordinates realize the isomorphisms of Week 3
+- Forward: orthonormal bases make P orthogonal, so P^{-1} = P^T (Week 5)
+- Forward: diagonalization is the search for a basis in which the matrix is diagonal (Week 7)
+- Forward: the SVD chooses TWO bases, one for the domain and one for the codomain (Week 10)

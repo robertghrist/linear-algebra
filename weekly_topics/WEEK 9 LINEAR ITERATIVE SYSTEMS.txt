@@ -1,0 +1,87 @@
+WEEK 9: LINEAR ITERATIVE SYSTEMS
+LAEF 2E -- Chapter 9: Linear Iterative Systems (Sections 9.1-9.6)
+Application sections: Spectral Graph Theory & Vibrations; PageRank (The Flow of Web Authority);
+Opinion Dynamics & The Paradox of Connection
+
+NOTE ON SCOPE: the 2E adds Section 9.6 (Networked Behavior & Consensus) and, in the
+confusion pass, a hypothesis table distinguishing nonnegative / irreducible / primitive /
+positive. Those four words are now boxed vocabulary and are fair game.
+
+CORE CONCEPTS:
+
+1. At First Iteration (9.1)
+   - x_{k+1} = A x_k; the solution x_k = A^k x_0
+   - Eigen-decomposition of the initial condition; each mode scaled by lambda^k
+   - Six-sector economy as the running example (Ex 9.1)
+   - Contrast with Week 7: e^{lambda t} vs. lambda^k; Re(lambda) < 0 vs. |lambda| < 1
+
+2. Dominance & Convergence (9.2)
+   - Spectral radius rho(A) and dominant eigenvalue (Def 9.2)
+   - A^k -> 0 exactly when rho(A) < 1
+   - Dominant convergence: the iterate aligns with the dominant eigenvector (Lemma 9.3)
+   - Rate of convergence set by the ratio |lambda_2| / |lambda_1|
+   - The power method as this observation turned into an algorithm
+   - Fibonacci redux (Ex 9.4); economic convergence (Ex 9.5)
+   - Neumann series (Lemma 1.8) reappears for the equilibrium of an affine iteration
+
+3. Positivity & Perron-Frobenius (9.3)
+   - Perron-Frobenius for positive matrices: rho(A) is a simple eigenvalue with a positive
+     eigenvector, strictly dominant (Thm 9.6)
+   - Positivity conditions: nonnegative, irreducible, primitive, positive (Def 9.8) -- SEE THE TABLE
+   - Frobenius extension to irreducible nonnegative matrices (Thm 9.9)
+   - Irreducibility as strong connectivity of the associated digraph
+   - Citation networks (Ex 9.7); catalytic cycles (Ex 9.10)
+
+4. Stochastic Matrices & Markov Chains (9.4)
+   - Markov chain, probability distribution, stochastic matrix (Defs 9.11, 9.12, 9.13)
+   - Column-stochastic convention: columns sum to one, so A^T 1 = 1 and rho(A) = 1 (Lemma 9.15)
+   - Stationary distribution as the eigenvector for lambda = 1
+   - Markov convergence and its hypotheses (Thm 9.16)
+   - Weather patterns (Ex 9.14, 9.17); random walk on a graph (Ex 9.18)
+
+5. Symmetric Matrices & Spectra (9.5)
+   - Symmetric matrices are orthogonally diagonalizable, with real eigenvalues (Lemma 9.19)
+   - Eigenvectors for distinct eigenvalues are automatically orthogonal
+   - The Rayleigh quotient q(x) = x^T A x / x^T x; its extreme values are lambda_max and
+     lambda_min, attained at the corresponding eigenvectors (Lemma 9.22)
+   - Correlation and inertia (Ex 9.20); distance matrices (Ex 9.21)
+
+6. Networked Behavior & Consensus (9.6)
+   - Adjacency and degree; the Graph Laplacian L = D - A (Def 9.23)
+   - L is symmetric positive semidefinite; the constant vector is in its kernel
+   - dim ker L counts the connected components; the FIEDLER VECTOR, the eigenvector of the
+     smallest nonzero eigenvalue, splits the graph into two groups
+   - Redistribution and consensus: averaging dynamics converge to a common value (Thm 9.25)
+   - Five cohorts (Ex 9.24); robotic flocking (Ex 9.26); supply chains (Ex 9.27)
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Determine whether A^k converges, diverges, or oscillates, from the spectrum alone
+- Compute the spectral radius and identify the dominant eigenvalue and eigenvector
+- Predict the limiting direction of an iterate and the rate of approach
+- Run two or three steps of the power method and normalize sensibly
+- Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem
+- Verify a matrix is stochastic and find its stationary distribution
+- Orthogonally diagonalize a small symmetric matrix
+- Bound x^T A x using the Rayleigh quotient
+- Build a Graph Laplacian and read the number of components off its kernel
+
+TYPICAL MCQ TRAPS:
+- Using Re(lambda) < 0 (the ODE criterion) as the convergence test for an iteration
+- Assuming every nonnegative matrix satisfies Perron-Frobenius (irreducibility is required)
+- Confusing irreducible with primitive (a periodic chain is irreducible but not primitive)
+- Mixing row-stochastic and column-stochastic conventions mid-problem
+- Failing to normalize a stationary eigenvector to a probability distribution
+- Asserting a symmetric matrix's eigenvectors are orthogonal when the eigenvalues coincide
+  (they CAN be chosen orthogonal; they are not automatically so within an eigenspace)
+- Treating rapid convergence of the Rayleigh quotient as convergence of the eigenvector
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- PageRank's damping factor and the mechanics of the web graph
+- Opinion dynamics, Taylor's stubborn-agent model, and the paradox of connection
+- Spectral graph theory and vibration application material
+
+CONNECTIONS:
+- Back: Week 7-8 spectra, now read for |lambda| rather than Re(lambda)
+- Forward: Lemma 9.19 becomes the Spectral Theorem opening Chapter 10 (Week 10)
+- Forward: the Rayleigh quotient is the variational characterization behind PCA (Week 11)
+- Forward: stochastic matrices act on the probability simplex (Week 12)

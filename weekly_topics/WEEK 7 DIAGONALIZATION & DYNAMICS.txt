@@ -1,0 +1,79 @@
+WEEK 7: DIAGONALIZATION & DYNAMICS
+LAEF 2E -- Chapter 7: Diagonalization & Dynamics (Sections 7.1-7.6)
+Application sections: Multi-Zone Building Temperature Control; Transient Growth in Shear Flows
+
+NOTE ON SCOPE: the 2E merges the former higher-order-equations and basis-solutions sections
+into a single Section 7.6. Basis solutions are now a Chapter 7 topic, with the repeated-root
+case deferred to Chapter 8.
+
+CORE CONCEPTS:
+
+1. The First Order (7.1)
+   - The scalar equation x' = a x and its solution x(t) = e^{at} x(0)
+   - Initial value problems; growth, decay, and the sign of a
+   - The whole chapter is an argument that the matrix case should look like this
+
+2. Coupled First-Order Systems (7.2)
+   - x' = A x in matrix form
+   - The diagonal case solves coordinate by coordinate
+   - Chemical reaction networks as the running example (Ex 7.1)
+   - Strategy: find a basis in which the system decouples
+
+3. Eigenvalues & Eigenvectors (7.3)
+   - Definition A v = lambda v with v nonzero (Def 7.2)
+   - Existence of a nonzero solution requires det(A - lambda I) = 0
+   - The characteristic polynomial (Lemma 7.4)
+   - Eigenvalue relations: trace = sum of eigenvalues, determinant = product (Lemma 7.5)
+   - Eigenspaces as subspaces; eigenvectors for distinct eigenvalues are independent
+   - Geometric reading: directions the map only stretches
+
+4. Simple Diagonalization (7.4)
+   - A = V D V^{-1} when an eigenbasis exists (Thm 7.6, Def 7.7)
+   - Eigenbasis criterion (Lemma 7.8)
+   - n distinct eigenvalues is SUFFICIENT, not necessary
+   - Matrix powers: A^k = V D^k V^{-1} (Lemma 7.9)
+   - Diagonalization is a change of basis (Week 4) with a purpose
+
+5. Matrix Exponentials (7.5)
+   - Definition by the power series (Def 7.10)
+   - e^{A} e^{B} = e^{A+B} only when A and B commute (Lemma 7.11)
+   - x(t) = e^{tA} x(0) solves the initial value problem (Lemma 7.12)
+   - Diagonalizable case: e^{tA} = V e^{tD} V^{-1} (Lemma 7.13)
+   - Mass-spring systems (Ex 7.14)
+
+6. Higher-Order Equations & Basis Solutions (7.6)
+   - Reduction of an n-th order scalar ODE to a first-order system
+   - The companion matrix and its characteristic polynomial
+   - Basis solutions: distinct roots give e^{lambda_i t} (Thm 7.15)
+   - The solution space of a linear ODE has dimension equal to the order (Week 2, Ex 2.7)
+   - Matching initial conditions is a linear system, Vandermonde in the distinct roots
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Compute eigenvalues and eigenvectors for 2x2 and 3x3 matrices, including triangular ones
+- Use trace and determinant to check or to shortcut an eigenvalue computation
+- Decide diagonalizability from eigenvector counts, not from distinctness alone
+- Assemble V and D and verify A = V D V^{-1}
+- Compute A^k and e^{tA} for a diagonalizable matrix
+- Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum
+- Convert a higher-order scalar ODE to a first-order system and back
+- Write a basis of solutions from distinct characteristic roots
+
+TYPICAL MCQ TRAPS:
+- Concluding non-diagonalizability from a repeated eigenvalue alone
+- Scaling an eigenvector and treating it as a different eigenvector
+- Writing A = V^{-1} D V instead of V D V^{-1}
+- Computing e^{A} entrywise as the exponential of each entry
+- Using e^{A+B} = e^A e^B without checking that A and B commute
+- Reading stability off the entries of A rather than off the eigenvalues
+- Forgetting that a real matrix can have complex eigenvalues (Week 8 territory, but it appears here)
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- Building temperature control and shear-flow transient growth application sections
+- Population and economic models as illustrations
+- Pseudospectra (commented out in the 2E; not examinable)
+
+CONNECTIONS:
+- Back: diagonalization is a change of basis (Week 4); similarity invariants matter here
+- Forward: complex and repeated eigenvalues, and Jordan form (Week 8)
+- Forward: iteration replaces the ODE and the spectral radius replaces the sign of Re(lambda) (Week 9)
+- Forward: symmetric matrices always diagonalize, and orthogonally (Weeks 9-10)

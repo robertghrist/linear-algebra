@@ -1,0 +1,86 @@
+WEEK 1: SOLVING LINEAR SYSTEMS
+LAEF 2E -- Chapter 1: Solving Linear Systems (Sections 1.1-1.8)
+Application sections: Network Flows (graphs to linear systems); Structural Analysis (forces in trusses)
+
+CORE CONCEPTS:
+
+1. Linear Systems
+   - Definition and matrix form Ax = b (Def 1.1)
+   - Solution types: unique, none, infinitely many
+   - Existence and obstruction: which right-hand sides are reachable (Ex 1.2)
+   - Two geometric readings: intersecting hyperplanes (rows) vs. combinations of columns
+
+2. Row Reduction
+   - Elementary row operations R1, R2, R3 (Def 1.5)
+   - Row echelon form (Def 1.6) and reduced row echelon form
+   - Pivots, pivot columns, free variables
+   - Row operations preserve the solution set (and the null space and row space)
+   - General solution as particular + homogeneous
+
+3. Rank
+   - Rank as the number of pivots (Def 1.12)
+   - The first numerical invariant attached to a matrix
+   - What rank predicts about existence and uniqueness
+   - Forward link: rank reappears as dim(image) in Chapter 3; the two must agree
+
+4. Inverse & Invertibility
+   - Nonsingularity as a list of equivalent conditions (Def 1.7)
+   - Inverse by row reduction on [A | I]
+   - Determinants are ASSUMED from multivariable calculus; used as a test, never as a
+     computational tool -- pivots are the working criterion
+   - Neumann series: (I - A)^{-1} = I + A + A^2 + ... when A^k -> 0 entrywise (Lemma 1.8)
+
+5. Composition & Elimination
+   - Row operations as left multiplication by elementary matrices
+   - Elimination read as a factorization rather than a procedure
+
+6. LU & PLU Decomposition
+   - A = LU with L unit lower triangular, U upper triangular (Def 1.9)
+   - L is assembled from the elimination multipliers (Ex 1.10)
+   - PA = LU when row exchanges are required (Def 1.11)
+   - Why factor at all: one factorization, many right-hand sides
+   - Solve by forward substitution (Ly = b) then back substitution (Ux = y)
+
+7. Practicalities of Linear Systems (1.8)
+   - Conditioning: when a small perturbation of b produces a large change in x
+   - Partial pivoting and numerical stability; the elimination growth factor
+   - Cost: elimination is O(n^3), each subsequent solve is O(n^2)
+   - The condition number is defined precisely in Chapter 10 via singular values;
+     here it is a qualitative warning, not a formula
+
+ESSENTIAL MATRIX TYPES (1.2):
+- Identity and diagonal
+- Elementary matrices
+- Permutation matrices (Def 1.3)
+- Upper and lower triangular
+- Block and block-diagonal structure (Ex 1.4)
+- Symmetric matrices
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Row-reduce a small matrix and read off pivots, rank, and free variables
+- Classify a solution set as unique / none / infinite WITHOUT solving the system
+- Write a general solution as particular + homogeneous
+- Decide invertibility from pivot count
+- Invert a 2x2 or 3x3 by row reduction
+- Extract L and U from elimination multipliers; produce PA = LU when a swap is needed
+- Solve a triangular system by forward or back substitution
+- Recognize when permutation or block structure decouples a system
+- State what conditioning measures and what it does not
+
+TYPICAL MCQ TRAPS:
+- Reporting the number of rows (or nonzero entries) instead of the number of pivots as rank
+- Confusing an inconsistent row (no solution) with a free variable (infinitely many)
+- Sign errors on the multipliers stored in L
+- Believing det(A) != 0 implies A is well-conditioned
+- Assuming row operations preserve the column space (they preserve row space and null space)
+- Multiplying out A = LU to "check" while ignoring the required permutation
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized; conceptual questions at most):
+- Network flow and truss application sections
+- Total positivity, minors, and other determinant-heavy curiosities
+
+CONNECTIONS FORWARD:
+- Rank and null space become Chapter 3's kernel/image (Week 3)
+- Elimination-as-factorization is the template for QR (Week 5) and SVD (Week 10)
+- Neumann series returns in Chapter 9's convergence arguments (Week 9)
+- Conditioning is made quantitative by singular values (Week 10)

@@ -1,0 +1,75 @@
+WEEK 3: LINEAR TRANSFORMATIONS
+LAEF 2E -- Chapter 3: Linear Transformations (Sections 3.1-3.8)
+Application sections: Color & the Space of Light; Dimensional Analysis & the Drag on a Sphere;
+Graph Topology & Network Structure
+
+CORE CONCEPTS:
+
+1. Euclidean Transformations (3.1)
+   - Rotations, reflections, shears, projections, scalings in R^2 and R^3
+   - Reading a matrix off the images of the standard basis vectors
+   - Composition as matrix multiplication
+
+2. Linear Transformations (3.2)
+   - Definition: additivity and homogeneity (Def 3.1)
+   - Immediate consequences: T(0) = 0, T preserves linear combinations (Lemmas 3.2, 3.3)
+   - Domain, codomain, and why the codomain is a choice
+   - Differentiation (Ex 3.4) and integration (Ex 3.5) as the running non-matrix examples
+
+3. Isomorphisms (3.3)
+   - Injective and surjective (Def 3.6, Lemma 3.7)
+   - Isomorphism (Def 3.8): a linear bijection
+   - Coordinate vectors as the first isomorphism a student meets (Ex 3.9)
+   - Two spaces of the same finite dimension are isomorphic
+
+4. The Four Fundamental Spaces
+   - Image (Def 3.11) and Kernel (Def 3.12), defined for any linear map
+   - Coimage (Def 3.22) and Cokernel (Def 3.23) as quotients
+   - Where each one lives: kernel and coimage in the domain; image and cokernel in the codomain
+   - Blake's Four Zoas correspondence (kernel/Luvah, coimage/Tharmas, image/Urizen,
+     cokernel/Urthona) -- thematic, not examinable
+
+5. Rank & Nullity (3.5)
+   - Definitions as dimensions of image and kernel (Def 3.14)
+   - Agreement with the pivot count of Chapter 1 (Ex 3.15)
+   - Rank and nullity for calculus operators (Ex 3.16, 3.17)
+
+6. Quotients (3.6)
+   - Quotient space and cosets (Def 3.18)
+   - Kernel quotients (Ex 3.19), geometric quotients (Ex 3.20)
+   - Quotient as "the information that survives"; dim(V/U) = dim V - dim U
+
+7. The Fundamental Theorem (3.8)
+   - Statement: V = ker T (+) coimage T, W = im T (+) cokernel T, with coimage T isomorphic
+     to im T (Thm 3.25)
+   - Rank-Nullity as a corollary, not the headline (Cor 3.26)
+   - The theorem is algebraic here; it becomes geometric (orthogonal) in Chapter 6
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Verify or refute linearity of a described map
+- Compute the kernel and image of a matrix or of a simple operator on polynomials
+- Apply Rank-Nullity to deduce one dimension from the other two
+- Decide injectivity/surjectivity from rank and nullity alone
+- Identify which of the four spaces a given vector or subspace belongs to
+- Describe a quotient space and give its dimension
+- State the Fundamental Theorem correctly, including which space each summand lives in
+- Recognize an isomorphism and produce its inverse on a small example
+
+TYPICAL MCQ TRAPS:
+- Placing the cokernel in the domain, or the coimage in the codomain
+- Reporting the kernel as a dimension when a subspace is asked for (or the reverse)
+- Assuming rank(A) = rank(A^T) is obvious rather than a consequence of the theorem
+- Treating a map with T(0) = 0 as automatically linear
+- Confusing the quotient V/U with a complement of U (a complement is a choice; the quotient is not)
+- Applying Rank-Nullity with the codomain dimension in place of the domain dimension
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- Metamers, primaries, and the color application (Ex 3.28, 3.29)
+- Dimensional analysis and the Buckingham-style drag argument
+- Ladder networks and graph topology (Ex 3.30)
+
+CONNECTIONS:
+- Back: null space and column space from Week 1-2 are now kernel and image
+- Forward: matrix representations make all of this coordinate-dependent (Week 4)
+- Forward: orthogonality turns the algebraic decomposition into a geometric one (Week 6)
+- Forward: the pseudoinverse is built directly from Thm 3.25 / Thm 6.9 (Week 6)

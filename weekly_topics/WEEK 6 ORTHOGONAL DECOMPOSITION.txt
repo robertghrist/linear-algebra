@@ -1,0 +1,93 @@
+WEEK 6: ORTHOGONAL DECOMPOSITION & DATA
+LAEF 2E -- Chapter 6: Orthogonal Decomposition & Data (Sections 6.1-6.6)
+Application sections: Signal & Image Processing (Denoising & Inpainting);
+Support Vector Machines (Geometry of Optimal Separation)
+
+NOTE ON SCOPE: the 2E promotes the PSEUDOINVERSE to its own section (6.4), placed BEFORE
+least squares. Least squares is now a consequence of the pseudoinverse rather than the
+setting in which it is first glimpsed. Weight questions accordingly.
+
+CORE CONCEPTS:
+
+1. Orthogonal Subspaces & Complements (6.1)
+   - Orthogonal complement U^perp and its properties (Def 6.1, Lemma 6.2)
+   - dim U + dim U^perp = dim V; (U^perp)^perp = U
+   - The four fundamental subspaces of a matrix as two orthogonal pairs (Ex 6.3)
+
+2. Projections & Quotients (6.2)
+   - Orthogonal projection onto a subspace (Def 6.4)
+   - Best Approximation: the projection is the unique nearest point (Lemma 6.5)
+   - Projection properties: P^2 = P, P^T = P, im P = U, ker P = U^perp (Lemma 6.7)
+   - Matrix forms: P = Q Q^T for an orthonormal basis; P = A(A^T A)^{-1} A^T for independent columns
+   - Data centering as a projection onto 1^perp (Ex 6.8)
+   - Projection realizes the quotient concretely: the quotient's abstract coset acquires a
+     canonical representative
+
+3. The Fundamental Theorem Redux (6.3)
+   - Geometric form: coimage = (ker T)^perp and cokernel = (im T)^perp (Thm 6.9)
+   - T restricts to an ISOMORPHISM from (ker T)^perp onto im T
+   - Rank-Nullity Redux (Cor 6.11)
+   - Matrix transformations read through the geometric theorem (Ex 6.10)
+
+4. The Pseudoinverse (6.4)  [MAJOR NEW EMPHASIS IN 2E]
+   - Construction from Thm 6.9: invert the isomorphism (ker T)^perp -> im T and extend by
+     zero on the cokernel. This sentence IS the definition; the axioms merely make it unique
+   - The four Moore-Penrose conditions define it and pin it down uniquely (Def 6.12):
+     T T^+ T = T, T^+ T T^+ = T^+, (T T^+)* = T T^+, (T^+ T)* = T^+ T
+   - Pseudoinverse Properties (Thm 6.16): T^+ maps im T isomorphically onto (ker T)^perp;
+     ker T^+ = (im T)^perp; T T^+ is the orthogonal projection onto im T; T^+ T is the
+     orthogonal projection onto (ker T)^perp = the coimage
+   - A rank-deficient worked example (Ex 6.13)
+   - Redundant manipulators: the minimum-norm solution as the physically chosen one (Ex 6.14)
+   - The pseudoinverse of a projection (Ex 6.15)
+   - Special cases: A^+ = A^{-1} when invertible; A^+ = (A^T A)^{-1} A^T for independent columns;
+     A^+ = A^T (A A^T)^{-1} for independent rows
+   - Forward link: the SVD computes it, A^+ = V Sigma^+ U^T (Week 10)
+
+5. Least Squares Approximation (6.5)
+   - Normal equations A^T A x = A^T b
+   - Existence always; uniqueness exactly when the columns are independent
+   - The pseudoinverse solution x = A^+ b is the minimum-norm least squares solution (Thm 6.17)
+   - Geometric statement: the residual is orthogonal to the column space
+   - Linear regression (Ex 6.18); polynomial overfitting (Ex 6.19)
+   - QR (Week 5) is the numerically sound route; the normal equations square the condition number
+
+6. Regularized Least Squares (6.6)
+   - Ridge regression: minimize ||Ax - b||^2 + lambda ||x||^2
+   - Modified normal equations (A^T A + lambda I) x = A^T b (Lemma 6.20)
+   - The regularized problem has a unique solution for every lambda > 0, even when A is rank deficient
+   - Effect of lambda: bias against variance; behavior as lambda -> 0 and lambda -> infinity
+   - As lambda -> 0+ the ridge solution tends to the pseudoinverse solution
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Compute an orthogonal complement and verify a dimension count
+- Project a vector onto a line, a plane, or the column space of a small matrix
+- Recognize a projection matrix from P^2 = P and P^T = P, and identify its image and kernel
+- State which fundamental subspace is the orthogonal complement of which
+- Write down A^+ for a diagonal, a rank-one, a projection, and an invertible matrix
+- Say what A^+ A and A A^+ are, and why they are generally not the identity
+- Set up and solve small normal equations; identify the residual and check its orthogonality
+- Identify the minimum-norm solution among the infinitely many least squares solutions
+- Write the ridge system and describe the effect of lambda
+
+TYPICAL MCQ TRAPS:
+- Asserting A^+ A = I or A A^+ = I in general (both are projections, not identities)
+- Using (A^T A)^{-1} A^T when the columns of A are dependent
+- Reporting any least squares solution when the MINIMUM-NORM one is requested
+- Projecting onto the row space when the column space is meant
+- Forgetting to center data before a projection argument
+- Claiming ridge regression shrinks the residual (it shrinks the solution)
+- Treating the normal equations as numerically equivalent to QR
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- Denoising and inpainting application section
+- SVM margin geometry (the projection idea is core; the optimization is not)
+- Lasso and other non-quadratic regularizers (not in this text)
+
+CONNECTIONS:
+- Back: Week 3's algebraic Fundamental Theorem, now with orthogonality supplied
+- Back: projections are built from the orthonormal bases of Week 5
+- Forward: the SVD gives A^+ in closed form and explains ridge as singular-value filtering (Week 10)
+- Forward: PCA is least squares turned onto the data matrix itself (Week 11)
+- Forward: conditional expectation is an orthogonal projection (Week 12)
+- Forward: the backpropagation error signal is a least squares residual, negated (Week 13)

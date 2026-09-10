@@ -1,0 +1,78 @@
+WEEK 2: ABSTRACT VECTOR SPACES
+LAEF 2E -- Chapter 2: Abstract Vector Spaces (Sections 2.1-2.5)
+Application sections: Engineering Signals as Vector Spaces; Linear Differential Equations
+
+NOTE ON SCOPE: Chapter 2 stops at "Towards Dimension." Bases, coordinates, and change of
+basis are Chapter 4 (Week 4). Week 2 questions should test structure, not coordinates.
+
+CORE CONCEPTS:
+
+1. Vector Space Axioms (2.1)
+   - Closure under addition and scalar multiplication
+   - The eight axioms and what each one buys
+   - Uniqueness of the zero vector and of additive inverses (Lemma 2.2)
+   - Consequences that must be proved, not assumed (0v = 0, (-1)v = -v)
+
+2. A Gallery of Vector Spaces (2.2)
+   - Euclidean space R^n (Ex 2.3)
+   - Matrix spaces (Ex 2.4)
+   - Polynomial spaces, graded and ungraded (Ex 2.5)
+   - Function spaces (Ex 2.6)
+   - Solution sets of linear ODEs (Ex 2.7)
+   - Sequences and series (Ex 2.8)
+   - The point: the same theorems govern all of them
+
+3. Subspaces (2.3)
+   - Definition and the three-part test (Def 2.9)
+   - Coordinate subspaces (Ex 2.10)
+   - Null space (Ex 2.11) and column space (Ex 2.12) as subspaces attached to a matrix
+   - Intersections and sums of subspaces; direct sums
+   - Why the zero vector membership check catches most non-examples
+
+4. Span & Linear Independence (2.4)
+   - Span as the set of all linear combinations (Def 2.13)
+   - Span of a set is always a subspace
+   - Linear independence (Def 2.16) as a statement about the ONLY solution being trivial
+   - Testing independence in R^n by row reduction (Ex 2.19)
+   - Testing independence of polynomials and functions (Ex 2.18)
+
+5. Towards Dimension (2.5)
+   - Minimality and independence are the same condition (Lemma 2.20)
+   - Minimal spanning sets (Lemma 2.21)
+   - The Exchange Bound: an independent set never outnumbers a spanning set (Cor 2.22)
+   - Dimension as the well-defined common size (Def 2.23)
+   - Dimension of polynomial spaces (Ex 2.24) and infinite-dimensional function spaces (Ex 2.25)
+
+FUNDAMENTAL PRINCIPLES:
+- Abstraction earns its keep by proving one theorem for many spaces at once
+- Spanning is about coverage; independence is about non-redundancy; dimension is where they meet
+- The Exchange Bound is the engine behind every dimension claim in the book
+
+ESSENTIAL SKILLS (core; expected without hesitation):
+- Verify or refute the subspace property for a described set
+- Decide whether a given set spans a stated space
+- Test a finite set of vectors, matrices, or polynomials for linear independence
+- Compute the dimension of a described subspace (null space, column space, symmetric matrices,
+  polynomials of bounded degree, solution sets of homogeneous systems)
+- Compare dim of a sum and an intersection of two subspaces
+- Recognize an infinite-dimensional space and say why it is one
+
+TYPICAL MCQ TRAPS:
+- Accepting a set that is closed under addition but not scalar multiplication (or vice versa)
+- Testing a nonhomogeneous solution set as a subspace (it is an affine set, not a subspace)
+- Conflating "these vectors span R^3" with "these vectors are independent"
+- Counting the number of generators rather than the dimension of their span
+- Assuming a set of n vectors in an n-dimensional space is automatically a basis without a check
+- Treating dim(U + W) = dim U + dim W when the intersection is nontrivial
+
+PERIPHERAL -- CONTEXT ONLY (de-emphasized):
+- Independence of the axioms from one another
+- Sequence spaces and convergence questions
+- The signals and ODE application sections
+
+CONNECTIONS FORWARD:
+- Kernel and image are subspaces defined by a map, not by equations (Week 3)
+- Bases, coordinates, and change of basis (Week 4)
+- Inner products add geometry to this structure (Week 5)
+- Eigenspaces are subspaces cut out by an operator (Week 7)
+- Function spaces reappear as the setting for representation learning (Week 13)
