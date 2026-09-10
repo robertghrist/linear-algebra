@@ -1,0 +1,43 @@
+id: ESE2030-0026
+legacy_id: Q2-P01
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces where $\dim(V) = 9$ and $\dim(W) = 4$.
+  If the rank of $T$ is $3$, what is the dimension of the coimage $\text{coim}(T)$?
+choices:
+- label: A
+  text: '3'
+- label: B
+  text: '4'
+- label: C
+  text: '5'
+- label: D
+  text: '7'
+- label: E
+  text: Cannot be determined without additional information
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The coimage is defined as $\text{coim}(T) = V/\ker(T)$. Using the Rank-Nullity Theorem: \begin{itemize} \item $\dim(V) = \text{rank}(T) + \dim(\ker(T))$ \item $9 = 3 + \dim(\ker(T))$ \item Therefore: $\dim(\ker(T)) = 6$ \end{itemize} The dimension of the coimage: $$\dim(\text{coim}(T)) = \dim(V) - \dim(\ker(T)) = 9 - 6 = 3$$
+  key_insight: |
+    The coimage "mods out" the kernel, so its dimension equals the rank.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 1
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 83
+variant_of: null
+topics: []
+notes: null

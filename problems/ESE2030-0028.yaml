@@ -1,0 +1,51 @@
+id: ESE2030-0028
+legacy_id: Q2-P03
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Consider the following statements about the vector space of quadratic polynomials $\mathcal{P}_2$:
+
+  I. We can determine whether $\{x, 1+x^2, 1+x+x^2\}$ is a basis
+
+  II. We can argue that $x$ and $x^2$ are orthogonal
+
+  III. We can determine the dimension of the subspace spanned by $\{1+x, x+x^2, 1+x^2\}$
+
+  Which statements are true {\bf without} specifying an inner product on $\mathcal{P}_2$?
+choices:
+- label: A
+  text: I only
+- label: B
+  text: II only
+- label: C
+  text: I and III only
+- label: D
+  text: II and III only
+- label: E
+  text: I, II, and III
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Statement I is true: checking if vectors form a basis only requires verifying linear independence and spanning, which are algebraic concepts. Statement III is true: finding dimension of a subspace only requires row reduction or checking linear independence, not geometry. Statement II is false: angles between vectors require an inner product to define $\cos\theta = \langle p,q \rangle / (\|p\|\|q\|)$. Without specifying an inner product (like $\langle f,g \rangle = \int_0^1 f(x)g(x)dx$), we cannot compute angles.
+  key_insight: |
+    Geometric concepts (angles, orthogonality) need inner products; algebraic concepts (independence, dimension) don't.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 3
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 121
+variant_of: null
+topics: []
+notes: null

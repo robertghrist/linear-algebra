@@ -1,0 +1,49 @@
+id: ESE2030-0045
+legacy_id: Q2-P20
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  In a document retrieval system, documents are represented as vectors in $\mathbb{R}^{1000}$
+  where the $i^{th}$ coordinate counts the number of times the $i^{th}$ most common word in the dictionary appears in the document.
+  (For example, the 1st coordinate counts {\em ``the''}...)
+  {\bf Fact:} The angle between documents $\mathbf{d}_1$ and $\mathbf{d}_2$ is $\theta_{1,2}=30^\circ$ (thirty degrees).
+  If we create a new document by merging the two original docs and obtain $\mathbf{d}_3 = \mathbf{d}_1+\mathbf{d}_2$,
+  what can you say about the angles $\theta_{1,3}$ between $\mathbf{d}_1$ and $\mathbf{d}_3$ and $\theta_{2,3}$ between $\mathbf{d}_2$ and $\mathbf{d}_3$?
+choices:
+- label: A
+  text: These angles are both $15^\circ$ (fifteen degrees)
+- label: B
+  text: At least one angle is strictly greater than $15^\circ$ (fifteen degrees)
+- label: C
+  text: These angles are both strictly less than $30^\circ$ (fifteen degrees)
+- label: D
+  text: These angles are both strictly greater than $15^\circ$ (fifteen degrees)
+- label: E
+  text: Nothing can be determined without knowing the original vector lengths
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - A
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Given $\mathbf{d}_3 = \mathbf{d}_1 + \mathbf{d}_2$ with $\theta_{1,2} = 30°$: By the parallelogram law, $\mathbf{d}_3$ lies in the interior of the angle between $\mathbf{d}_1$ and $\mathbf{d}_2$ (when viewed from origin). Both angles $\theta_{1,3}$ and $\theta_{2,3}$ must be: \begin{itemize} \item Strictly less than $30°$ (the original angle) \item Strictly greater than $0°$ (vectors point in same general direction) \item Equal to $15°$ only if $\|\mathbf{d}_1\| = \|\mathbf{d}_2\|$ \end{itemize}
+  key_insight: |
+    Vector addition creates a "weighted average" direction between the two vectors.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 20
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 565
+variant_of: null
+topics: []
+notes: null

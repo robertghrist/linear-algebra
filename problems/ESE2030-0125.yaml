@@ -1,0 +1,50 @@
+id: ESE2030-0125
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A real $4 \times 4$ matrix $A$ has eigenvalues $\lambda_1 = 5$, $\lambda_2 = -2$, and $\lambda_{3,4} = 3 \pm 4i$.
+
+  The QR algorithm is applied repeatedly to $A$. What is the structure of the limiting matrix?
+choices:
+- label: A
+  text: A diagonal matrix with entries $5, -2, 3+4i, 3-4i$
+- label: B
+  text: An upper triangular matrix with $5, -2, 3+4i, 3-4i$ on the diagonal
+- label: C
+  text: A block upper triangular matrix with two $1 \times 1$ blocks and one $2 \times 2$ block
+- label: D
+  text: The Jordan canonical form of $A$
+- label: E
+  text: The algorithm fails to converge because of the complex eigenvalues
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    The QR algorithm, when applied to a real matrix using real arithmetic, converges to the real Schur form: a block upper triangular matrix where real eigenvalues appear in $1 \times 1$ diagonal blocks, and complex conjugate pairs appear in $2 \times 2$ diagonal blocks of the form $\begin{bmatrix} a & b \\ -c & a \end{bmatrix}$ encoding $a \pm i\sqrt{bc}$. Here we have two real eigenvalues ($\lambda = 5$ and $\lambda = -2$) contributing two $1 \times 1$ blocks, and one complex conjugate pair ($3 \pm 4i$) contributing one $2 \times 2$ block. The algorithm converges perfectly well—complex eigenvalues don't prevent convergence, they just appear in $2 \times 2$ blocks rather than on the diagonal.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      cannot have complex entries when using real arithmetic; the algorithm operates entirely in real numbers
+    B: |
+      same issue—complex numbers cannot appear on the diagonal when working with real matrices and real QR factorizations
+    D: |
+      the QR algorithm produces Schur form, NOT Jordan form; Jordan form requires computing generalized eigenvectors, which is a different process entirely
+    E: |
+      (complex eigenvalues do not prevent convergence; they simply manifest as $2 \times 2$ blocks in the real Schur form) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 10
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 373
+variant_of: null
+topics: []
+notes: null

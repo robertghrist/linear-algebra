@@ -1,0 +1,59 @@
+id: ESE2030-0113
+legacy_id: Q5-P18
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A centered data matrix $X \in \mathbb{R}^{100 \times 3}$ represents 100 observations of three variables. The matrix $X^TX$ has eigenvalues:
+  $$\lambda_1 = 1600, \quad \lambda_2 = 400, \quad \lambda_3 = 100$$
+
+  Consider the linear transformation $T: \mathbb{R}^3 \to \mathbb{R}^{100}$ defined by $T(\mathbf{v}) = X\mathbf{v}$. This transformation maps the unit sphere in $\mathbb{R}^3$ to an ellipsoid in $\mathbb{R}^{100}$.
+
+  Which statement correctly relates the SVD geometry to the PCA variance structure?
+choices:
+- label: A
+  text: The ellipsoid has semi-axis lengths 1600, 400, and 100, which equal the variances along the three
+    principal component directions.
+- label: B
+  text: The ellipsoid has semi-axis lengths 40, 20, and 10, which equal the variances along the three
+    principal component directions.
+- label: C
+  text: The ellipsoid semi-axes have lengths in ratio 4:2:1, while the principal component variances have
+    ratio 16:4:1.
+- label: D
+  text: The ellipsoid semi-axes have lengths in ratio 4:2:1, and the principal component variances have
+    the same ratio 4:2:1.
+- label: E
+  text: The ellipsoid lies in a 3-dimensional subspace of $\mathbb{R}^{100}$, but the semi-axis lengths
+    and PC variances are unrelated quantities.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    This requires connecting SVD geometry to PCA statistics: 1) SVD GEOMETRY: The eigenvalues of $X^TX$ are $\sigma_i^2$, so $\sigma_1 = 40$, $\sigma_2 = 20$, $\sigma_3 = 10$. These singular values are the semi-axis lengths of the ellipsoid. Ratio: $40 : 20 : 10 = 4 : 2 : 1$. 2) PCA VARIANCE: The covariance matrix is $C = X^TX/(n-1) = X^TX/99$, with eigenvalues $\lambda_1^{(C)} \approx 16.16$, $\lambda_2^{(C)} \approx 4.04$, $\lambda_3^{(C)} \approx 1.01$. These are the PC variances. Ratio: approximately $16 : 4 : 1$. 3) KEY INSIGHT: Semi-axis lengths scale as $\sigma_i$ (ratio 4:2:1), while variances scale as $\sigma_i^2/(n-1)$ (ratio 16:4:1). The linear vs. quadratic relationship explains the difference. Both capture the same ellipsoidal structure: singular values measure stretching factors (distances), while variances measure spread (squared distances, normalized by sample size).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      confuses eigenvalues of $X^TX$ with both semi-axes and variances; eigenvalues are $\sigma_i^2$, not the lengths or variances directly
+    B: |
+      correctly computes semi-axis lengths as $\sqrt{\lambda_i}$, but these are NOT the variances; variances require division by $n-1$
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 18
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 721
+variant_of: null
+topics:
+- SVD geometry
+- PCA variance structure
+- A^T A vs covariance
+notes: null

@@ -1,0 +1,44 @@
+id: ESE2030-0040
+legacy_id: Q2-P15
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: \mathbb{R}^3 \to \mathbb{R}^3$ be a linear transformation whose matrix representation in the standard Euclidean basis is $A$.
+  Which condition is sufficient to guarantee that $T$ preserves all angles between vectors?
+choices:
+- label: A
+  text: $A^T = A$ (symmetric matrix)
+- label: B
+  text: $A^TA = I$ (orthogonal matrix)
+- label: C
+  text: $\det(A) = \pm 1$
+- label: D
+  text: All columns of $A$ have the same length
+- label: E
+  text: $A^T = -A$ (skew-symmetric matrix)
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    An orthogonal matrix (satisfying $A^TA = I$) preserves inner products: $\langle Ax, Ay \rangle = (Ax)^T(Ay) = x^TA^TAy = x^Ty = \langle x,y \rangle$. Since it preserves both inner products and norms, it preserves angles via $\cos\theta = \langle u,v\rangle/(\|u\|\|v\|)$.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      necessary but not sufficient; includes non-orthogonal matrices
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 15
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 434
+variant_of: null
+topics: []
+notes: null

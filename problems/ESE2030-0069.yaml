@@ -1,0 +1,52 @@
+id: ESE2030-0069
+legacy_id: Q3-P20
+week: 6
+skills: []
+status: active
+problem_type: null
+statement: |
+  Suppose a matrix $A$ has QR decomposition $A = Q_AR_A$. For a positive scalar $c > 0$, what is the QR decomposition of $cA$?
+choices:
+- label: A
+  text: $cA = (cQ_A)(R_A)$
+- label: B
+  text: $cA = (Q_A)(cR_A)$
+- label: C
+  text: $cA = (cQ_A)(cR_A)$
+- label: D
+  text: $cA = (Q_A)(R_A)$
+- label: E
+  text: Cannot be determined without knowing $c$
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    When we scale a matrix by $c$, the orthonormal basis for its column space doesn't change (the columns point in the same directions), but the "coefficients" in $R$ all scale by $c$. Mathematically: $cA = c(Q_AR_A) = Q_A(cR_A)$. The factor $Q_A$ remains the same because it represents the orthonormalized directions of the columns, which don't change under uniform scaling. All the magnitude information moves into $R$. This illustrates how QR cleanly separates directional information (Q) from magnitude/scaling information (R).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      breaks orthonormality - $cQ_A$ would have columns of length $c$, not length 1
+    C: |
+      double-counts the scaling factor
+    D: |
+      fails to account for the scaling at all
+    E: |
+      the relationship is deterministic regardless of $c$'s value
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 20
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 582
+variant_of: null
+topics:
+- QR decomposition
+- scaling
+- matrix relationships
+notes: null

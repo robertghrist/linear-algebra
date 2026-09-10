@@ -1,0 +1,57 @@
+id: ESE2030-0103
+legacy_id: Q5-P08
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  What can be said about the SVD of an orthogonal matrix $Q \in \mathbb{R}^{n \times n}$?.
+choices:
+- label: A
+  text: All singular values equal 1, so $Q = U\Sigma V^T$ where $\Sigma = I$, meaning $Q = UV^T$ is a
+    product of two orthogonal matrices.
+- label: B
+  text: The singular values depend on the specific matrix $Q$; for example, a rotation matrix has different
+    singular values than a reflection matrix.
+- label: C
+  text: All singular values equal 1, and because of this the SVD is not unique.
+- label: D
+  text: Orthogonal matrices do not have a uniquely defined SVD because they preserve lengths, which contradicts
+    the stretching interpretation of singular values.
+- label: E
+  text: The largest singular value is 1, but the other singular values can be less than 1 depending on
+    how much $Q$ ``compresses'' certain directions.
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    For any orthogonal matrix $Q$, we have $Q^T Q = I$. The singular values of $Q$ are defined as $\sigma_i = \sqrt{\lambda_i}$ where $\lambda_i$ are eigenvalues of $Q^T Q = I$. Since the eigenvalues of the identity matrix are all 1, we get $\sigma_i = \sqrt{1} = 1$ for all $i$. Therefore, in the SVD $Q = U\Sigma V^T$, we have $\Sigma = I$, giving $Q = U I V^T = UV^T$. This shows that every orthogonal matrix can be written as a product of two orthogonal matrices. Geometrically, orthogonal matrices preserve lengths (no stretching or compression), which is exactly what having all singular values equal to 1 means. The SVD decomposition $Q = UV^T$ represents $Q$ as a composition of two orthogonal transformations.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      doesn't recognize that the defining property $Q^T Q = I$ immediately forces all singular values to be 1
+    C: |
+      (correctly identifies that all singular values are 1, but incorrectly concludes non-uniqueness
+    D: |
+      misunderstands the SVD; preserving lengths means singular values are 1, not that SVD doesn't exist
+    E: |
+      backwards reasoning: orthogonal matrices preserve ALL lengths, so no direction is compressed; all singular values must be 1
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 8
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 333
+variant_of: null
+topics:
+- SVD of orthogonal matrices
+- singular values
+- geometric interpretation
+notes: null

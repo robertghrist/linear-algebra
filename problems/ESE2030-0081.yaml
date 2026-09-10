@@ -1,0 +1,57 @@
+id: ESE2030-0081
+legacy_id: Q4-P08
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider a network of six computer servers. The graph Laplacian matrix $L = D - A$ (where $D$ is the degree matrix and $A$ is the adjacency matrix) is computed and found to have eigenvalues:
+  $$\lambda_1 = 0, \quad \lambda_2 = 0, \quad \lambda_3 = 2, \quad \lambda_4 = 3, \quad \lambda_5 = 4, \quad \lambda_6 = 5$$
+
+  A network engineer needs to understand the topology. What can be concluded from this eigenvalue information?
+choices:
+- label: A
+  text: The network is fully connected since all servers are represented in the Laplacian
+- label: B
+  text: The presence of $\lambda = 2$ indicates exactly two servers are isolated from the rest
+- label: C
+  text: Exactly two eigenvalues equal zero, indicating a computational error since graph Laplacians should
+    have only one zero eigenvalue
+- label: D
+  text: The network consists of exactly two separate connected components
+- label: E
+  text: The network has six connected components, one for each eigenvalue
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    A fundamental theorem in spectral graph theory states that the multiplicity of the eigenvalue 0 for a graph Laplacian equals the number of connected components. Since $\lambda = 0$ appears with multiplicity 2, the network consists of exactly two separate groups of servers with no connections between the groups. This is not an error - disconnected networks naturally have multiple zero eigenvalues. The eigenvector for each zero eigenvalue is constant on one component and zero elsewhere, so the eigenspace of 0 has dimension equal to the number of components.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      doesn't recognize that multiple zero eigenvalues indicate disconnection
+    B: |
+      confuses the meaning of $\lambda = 2$; nonzero eigenvalues don't directly count isolated nodes
+    C: |
+      incorrectly thinks multiple zero eigenvalues indicate an error; this is actually the correct behavior for disconnected graphs
+    E: |
+      confuses the number of eigenvalues with the number of components; it's the multiplicity of 0 that matters
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 8
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 306
+variant_of: null
+topics:
+- Graph Laplacian
+- eigenvalues
+- connected components
+- network structure
+notes: null

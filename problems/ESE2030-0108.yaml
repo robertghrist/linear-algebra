@@ -1,0 +1,53 @@
+id: ESE2030-0108
+legacy_id: Q5-P13
+week: 11
+skills: []
+status: active
+problem_type: null
+statement: |
+  Two centered data matrices are analyzed via covariance PCA:
+
+  \textbf{Dataset A:} $X_A \in \mathbb{R}^{200 \times 10}$ has all nonzero singular values:
+  $$\sigma_1 = 24, \quad \sigma_2 = 22, \quad \sigma_3 = 20, \quad \sigma_4 = 18, \quad \sigma_5 = 16, \ldots$$
+
+  \textbf{Dataset B:} $X_B \in \mathbb{R}^{200 \times 10}$ has all nonzero singular values:
+  $$\sigma_1 = 50, \quad \sigma_2 = 25, \quad \sigma_3 = 8, \quad \sigma_4 = 3, \quad \sigma_5 = 1, \ldots$$
+
+  Which statement best characterizes the difference between these datasets?
+choices:
+- label: A
+  text: Dataset A has clearer low-dimensional structure.
+- label: B
+  text: Dataset B has clearer low-dimensional structure.
+- label: C
+  text: Dataset A is better for dimensionality reduction based on better total variance.
+- label: D
+  text: Both datasets have similar intrinsic dimensionality since all singular values are positive.
+- label: E
+  text: Dataset B should have been handled via correlation PCA.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    The key insight is interpreting singular value decay. Dataset A shows gradual, nearly uniform decay (24, 22, 20, 18, ...) suggesting variation is spread across many dimensions with no clear dominant low-dimensional structure. Dataset B shows rapid decay (50, 25, 8, 3, 1, ...) with a sharp drop after the first 2-3 values, indicating the data lies approximately in a low-dimensional subspace. For PCA/dimensionality reduction, rapid decay is desirable - it means a few components capture most variation. This is the "elbow" pattern: large early values, then a sharp drop to small values. Dataset B would need fewer components to achieve any given variance threshold.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      rapid decay means FEWER components needed, not more
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 13
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 532
+variant_of: null
+topics:
+- Choosing number of components
+- singular value decay patterns
+notes: null

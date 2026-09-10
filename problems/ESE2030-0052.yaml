@@ -1,0 +1,55 @@
+id: ESE2030-0052
+legacy_id: Q3-P03
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  The second-order differential equation
+  $$\frac{d^2x}{dt^2} + 3\frac{dx}{dt} - 4x = 0$$
+  can be written using the polynomial differential operator $p(D) = D^2 + 3D - 4I$ where $D = d/dt$.
+
+  This equation is equivalent to a first-order system $\frac{d\mathbf{v}}{dt} = C\mathbf{v}$ where $C$ is the companion matrix. Which statement correctly describes the relationship between $p(D)$ and $C$?
+choices:
+- label: A
+  text: The characteristic polynomial of $C$ is $\lambda^2 - 3\lambda + 4$
+- label: B
+  text: The eigenvalues of $C$ are the roots of $p(\lambda)$
+- label: C
+  text: The determinant of $C$ equals $p(1)=0$
+- label: D
+  text: The companion matrix $C$ has trace equal to $p(0)=-4$
+- label: E
+  text: The matrix $C$ is $C = \begin{bmatrix} 0 & 1 \\ 4 & -3 \end{bmatrix}$
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The fundamental connection is that the eigenvalues of the companion matrix are precisely the roots of the characteristic polynomial obtained by substituting $\lambda$ for $D$ in the differential operator. For $p(D) = D^2 + 3D - 4$, we get $p(\lambda) = \lambda^2 + 3\lambda - 4 = 0$. The companion matrix is $C = \begin{bmatrix} 0 & 1 \\ 4 & -3 \end{bmatrix}$ (note: the coefficients appear with sign flipped in the bottom row: $-(-4) = 4$ and $-(3) = -3$), which has characteristic polynomial $\det(C - \lambda I) = \det\begin{bmatrix} -\lambda & 1 \\ 4 & -3-\lambda \end{bmatrix} = \lambda^2 + 3\lambda - 4$, confirming choice B.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      gets the signs wrong on the characteristic polynomial - fails to recognize that $\det(C - \lambda I)$ produces the same polynomial as $p(\lambda)$
+    C: |
+      confuses trace and determinant: $\text{tr}(C) = 0 + (-3) = -3$, but the question asks about the relationship to $p(D)$; also $\det(C) = -4$
+    D: |
+      the trace is actually $-3$, not $-4$; also this doesn't capture the main relationship between $p(D)$ and $C$
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 3
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 137
+variant_of: null
+topics:
+- Companion matrix
+- characteristic polynomial
+- polynomial differential operators
+notes: null

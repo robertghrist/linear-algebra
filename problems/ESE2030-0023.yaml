@@ -1,0 +1,46 @@
+id: ESE2030-0023
+legacy_id: Q1-P23
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $V = \mathbb{R}^3$ and let $W$ be the subspace defined by the $xy$-plane, i.e., $W = \{(x, y, 0) \mid x, y \in \mathbb{R}\}$. An equivalence relation is defined on $V$ where two vectors $\mathbf{u}$ and $\mathbf{v}$ are equivalent if their difference $\mathbf{u - v}$ is an element of $W$.
+
+  Given the vector $\mathbf{v} = (3, 5, 2)^T$, which of the following vectors belongs to the equivalence class $[\mathbf{v}]$?
+choices:
+- label: A
+  text: $(3, 5, 0)^T$
+- label: B
+  text: $(6, 10, 4)^T$
+- label: C
+  text: $(-1, -2, 2)^T$
+- label: D
+  text: $(0, 0, 0)^T$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    Two vectors are equivalent if their difference lies in $W$ (the $xy$-plane). For $\mathbf{v} = (3, 5, 2)^T$, check each option: \begin{itemize} \item (A): $(3,5,2) - (3,5,0) = (0,0,2) \notin W$ (has nonzero $z$-component) \item (B): $(3,5,2) - (6,10,4) = (-3,-5,-2) \notin W$ \item (C): $(3,5,2) - (-1,-2,2) = (4,7,0) \in W$ ✓ (zero $z$-component) \item (D): $(3,5,2) - (0,0,0) = (3,5,2) \notin W$ \end{itemize}
+  key_insight: |
+    Vectors are equivalent mod $W$ if they differ only by an element of $W$.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 23
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 473
+variant_of: null
+topics:
+- Quotient spaces
+- equivalence classes
+- vector equivalence
+notes: null

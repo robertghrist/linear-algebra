@@ -1,0 +1,59 @@
+id: ESE2030-0100
+legacy_id: Q5-P05
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{4 \times 3}$ has singular value decomposition $A = U\Sigma V^T$ where $U \in \mathbb{R}^{4 \times 4}$, $V \in \mathbb{R}^{3 \times 3}$ are orthogonal, and:
+  $$\Sigma = \begin{bmatrix} 5 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix} \in \mathbb{R}^{4 \times 3}$$
+
+  What is the pseudoinverse $A^\dagger$ of this matrix?
+choices:
+- label: A
+  text: $A^\dagger = U\Sigma^{-1} V^T$ where $\Sigma^{-1} = \begin{bmatrix} 1/5 & 0 & 0 \\ 0 & 1/2 & 0
+    \\ 0 & 0 & \text{undefined} \\ 0 & 0 & \text{undefined} \end{bmatrix}$
+- label: B
+  text: $A^\dagger = V\Sigma^T U^T$ where $\Sigma^T = \begin{bmatrix} 5 & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\
+    0 & 0 & 0 & 0 \end{bmatrix}$
+- label: C
+  text: $A^\dagger = V\Sigma^\dagger U^T$ where $\Sigma^\dagger = \begin{bmatrix} 1/5 & 0 & 0 & 0 \\ 0
+    & 1/2 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix}$
+- label: D
+  text: $A^\dagger = U^T\Sigma^\dagger V$ where $\Sigma^\dagger = \begin{bmatrix} 1/5 & 0 & 0 & 0 \\ 0
+    & 1/2 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix}$
+- label: E
+  text: $A^\dagger = V\Sigma^\dagger U^T$ where $\Sigma^\dagger = \begin{bmatrix} 1/5 & 0 & 0 \\ 0 & 1/2
+    & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    The pseudoinverse formula is $A^\dagger = V\Sigma^\dagger U^T$. The pseudoinverse of the diagonal matrix $\Sigma$ is constructed by: (1) transposing $\Sigma$ to get a $3 \times 4$ matrix, then (2) replacing each nonzero diagonal entry $\sigma_i$ with $1/\sigma_i$, and (3) leaving zero entries as zero. Thus: $$\Sigma^\dagger = \begin{bmatrix} 1/5 & 0 & 0 & 0 \\ 0 & 1/2 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{bmatrix} \in \mathbb{R}^{3 \times 4}$$ Note the dimensions: $A$ is $4 \times 3$, so $A^\dagger$ must be $3 \times 4$. We have $V$ is $3 \times 3$, $\Sigma^\dagger$ is $3 \times 4$, and $U^T$ is $4 \times 4$, giving $(3 \times 3)(3 \times 4)(4 \times 4) = 3 \times 4$. ✓ The key insight: we don't try to "invert" $\Sigma$ (which is rectangular and rank-deficient), but rather construct its pseudoinverse by transposing and inverting only the nonzero entries.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      trying to directly invert $\Sigma$ doesn't work because $\Sigma$ is rectangular and has zero entries; the pseudoinverse handles this by transposing first
+    B: |
+      just transposing $\Sigma$ doesn't give the pseudoinverse; you must also invert the nonzero entries
+    D: |
+      incorrect ordering; the pseudoinverse is $V\Sigma^\dagger U^T$, not $U^T\Sigma^\dagger V$, which comes from reversing $A = U\Sigma V^T$
+    E: |
+      zero singular values remain zero in $\Sigma^\dagger$; they are NOT replaced with 1 or any other value
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 5
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 229
+variant_of: null
+topics:
+- Pseudoinverse construction via SVD
+- Σ^† formula
+notes: null

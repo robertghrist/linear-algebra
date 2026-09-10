@@ -1,0 +1,45 @@
+id: ESE2030-0005
+legacy_id: Q1-P05
+week: 3
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let ${\mathcal D}: \mathcal{P}_3 \to \mathcal{P}_2$ be the differentiation operator taking cubic to quadratic polynomials.
+  The rank and nullity of this operator are:
+choices:
+- label: A
+  text: rank = 3, nullity = 1
+- label: B
+  text: rank = 2, nullity = 2
+- label: C
+  text: rank = 3, nullity = 0
+- label: D
+  text: rank = 2, nullity = 1
+- label: E
+  text: rank = 4, nullity = 0
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    The differentiation operator $\mathcal{D}: \mathcal{P}_3 \to \mathcal{P}_2$ works as: $$\mathcal{D}(a_0 + a_1x + a_2x^2 + a_3x^3) = a_1 + 2a_2x + 3a_3x^2$$ \begin{itemize} \item The image is all of $\mathcal{P}_2$ (any quadratic can be obtained), so $\text{rank} = \dim(\mathcal{P}_2) = 3$ \item The kernel consists of constant polynomials (derivatives equal zero), so $\dim(\ker(\mathcal{D})) = 1$ \item Verify: $\dim(\mathcal{P}_3) = 4 = 3 + 1$ ✓ \end{itemize}
+  key_insight: |
+    The derivative of constants is zero, so the kernel is the space of constant polynomials.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 5
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 145
+variant_of: null
+topics:
+- Rank
+- nullity
+- Fundamental Theorem of Linear Algebra
+notes: null

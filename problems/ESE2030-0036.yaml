@@ -1,0 +1,41 @@
+id: ESE2030-0036
+legacy_id: Q2-P11
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $Q$ be an $n \times n$ orthogonal matrix. Which of the following statements is false?
+choices:
+- label: A
+  text: $Q$ preserves dot products
+- label: B
+  text: The columns of $Q$ form an orthonormal basis for $\mathbb{R}^n$
+- label: C
+  text: The matrix $Q^T$ is also orthogonal
+- label: D
+  text: All entries of $Q$ must satisfy $|q_{ij}| \leq 1$
+- label: E
+  text: None of the above statements is false
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    For an orthogonal matrix $Q$ ($Q^TQ = I$): \begin{itemize} \item \textbf{(A) TRUE:} $\langle Qx, Qy \rangle = (Qx)^T(Qy) = x^TQ^TQy = x^Ty = \langle x, y \rangle$ \item \textbf{(B) TRUE:} Columns are orthonormal by definition \item \textbf{(C) TRUE:} $(Q^T)^TQ^T = QQ^T = I$, so $Q^T$ is orthogonal \item \textbf{(D) TRUE:} Each column has unit norm, so $|q_{ij}| \leq 1$ for all entries \end{itemize} All statements are true!
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 11
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 341
+variant_of: null
+topics: []
+notes: null

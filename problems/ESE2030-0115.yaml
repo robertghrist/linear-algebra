@@ -1,0 +1,57 @@
+id: ESE2030-0115
+legacy_id: Q5-P20
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  The figure shows the full SVD $A = U\Sigma V^T$ for a matrix $A \in \mathbb{R}^{12 \times 5}$.
+  Filled circles represent nonzero singular values; empty circles represent zero singular values.
+  Vertical lines indicate columns; horizontal lines indicate rows.
+
+  Which statement is most TRUE?
+choices:
+- label: A
+  text: $\dim(\ker A) = 9$.
+- label: B
+  text: The first three columns of $V$ form an orthonormal basis for $\mathrm{im}(A)$.
+- label: C
+  text: The last 9 columns of $U$ form an orthonormal basis for the codomain of $A$.
+- label: D
+  text: The last two columns of $V$ form an orthonormal basis for $\ker(A)$.
+- label: E
+  text: The rank of $A$ equals $5$.
+figures:
+- ESE2030-0115-a.jpg
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    For $A \in \mathbb{R}^{12 \times 5}$ with rank $r = 3$: - Right singular vectors $\mathbf{v}_i \in \mathbb{R}^5$ (domain) - Left singular vectors $\mathbf{u}_i \in \mathbb{R}^{12}$ (codomain) - $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ spans $\mathrm{im}(A^T)$ (row space) - $\{\mathbf{v}_4, \mathbf{v}_5\}$ spans $\ker(A)$ ← this is (D), TRUE - $\{\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3\}$ spans $\mathrm{im}(A)$ (column space) - $\{\mathbf{u}_4, \ldots, \mathbf{u}_{12}\}$ spans $\ker(A^T)$ (left nullspace)
+  key_insight: null
+  distractor_rationale:
+    A: |
+      computes $12 - 3 = 9$, which is $\dim(\ker A^T)$, not $\dim(\ker A)$; confuses left nullspace with right nullspace. Correct: $\dim(\ker A) = 5 - 3 = 2$
+    B: |
+      right singular vectors span $\mathrm{im}(A^T)$, not $\mathrm{im}(A)$; the column space is spanned by LEFT singular vectors $\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3$
+    C: |
+      the vectors $\mathbf{u}_i$ live in $\mathbb{R}^{12}$, not $\mathbb{R}^5$; confuses domain with codomain
+    E: |
+      rank = number of nonzero singular values = 3, not the size of $V$; a matrix can have full-size orthogonal factors while being rank-deficient
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 20
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 799
+variant_of: null
+topics:
+- SVD structure
+- fundamental subspaces
+- left vs right singular vectors
+notes: null

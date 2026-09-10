@@ -1,0 +1,76 @@
+id: ESE2030-0079
+legacy_id: Q4-P06
+week: 8
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider the following three $6 \times 6$ matrices. Which of them are in (real) Jordan canonical form?
+
+  {\small
+  \[
+  \mathcal{M}_1 = \begin{bmatrix}
+  2 & 0 & 0 & 0 & 0 & 0 \\
+  0 & 1 & -3 & 0 & 0 & 0 \\
+  0 & 3 & 1 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 4 & 1 & 0 \\
+  0 & 0 & 0 & 0 & 4 & 0 \\
+  0 & 0 & 0 & 0 & 0 & 4
+  \end{bmatrix}
+  \quad
+  \mathcal{M}_2 = \begin{bmatrix}
+  2 & 0 & 0 & 0 & 0 & 0 \\
+  0 & 0 & 3 & 0 & 0 & 0 \\
+  0 & -3 & 0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 4 & 1 & 0 \\
+  0 & 0 & 0 & 0 & 4 & 0 \\
+  0 & 0 & 0 & 0 & 0 & 5
+  \end{bmatrix}
+  \quad
+  \mathcal{M}_3 = \begin{bmatrix}
+  1 & -3 & 0 & 0 & 0 & 0 \\
+  3 & 1 & 0 & 0 & 0 & 0 \\
+  0 & 0 & 4 & 1 & 0 & 0 \\
+  0 & 0 & 0 & 4 & 1 & 0 \\
+  0 & 0 & 0 & 0 & 4 & 0 \\
+  0 & 0 & 0 & 0 & 0 & 2
+  \end{bmatrix}
+  \]
+  }
+choices:
+- label: A
+  text: Only $\mathcal{M}_1$
+- label: B
+  text: Only $\mathcal{M}_2$
+- label: C
+  text: Only $\mathcal{M}_3$
+- label: D
+  text: Only $\mathcal{M}_1$ and $\mathcal{M}_3$
+- label: E
+  text: All of them
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: null
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 6
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 227
+variant_of: null
+topics:
+- Jordan canonical form
+- complex eigenvalues
+- repeated eigenvalues
+- block structure
+notes: null

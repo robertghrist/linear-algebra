@@ -1,0 +1,51 @@
+id: ESE2030-0156
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Orthogonal projection $\Pi_W(\mathbf{v})$ is used to find the ``best approximation'' of a vector $\mathbf{v}$ within a subspace $W$.
+  What makes $\Pi_W(\mathbf{v})$ the ``best'' approximation?
+choices:
+- label: A
+  text: $\Pi_W(\mathbf{v})$ has the largest possible norm among vectors in $W$
+- label: B
+  text: $\Pi_W(\mathbf{v})$ has the same direction as $\mathbf{v}$
+- label: C
+  text: $\Pi_W(\mathbf{v})$ is the unique vector in $W$ that is orthogonal to $\mathbf{v}$
+- label: D
+  text: $\Pi_W(\mathbf{v})$ is the closest vector in $W$ to $\mathbf{v}$, minimizing $\|\mathbf{v} - \mathbf{w}\|$
+    over all $\mathbf{w} \in W$
+- label: E
+  text: $\Pi_W(\mathbf{v})$ is the unique vector in $W$ making the smallest angle with $\mathbf{v}$
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    The fundamental property of orthogonal projection is the best approximation theorem: $\Pi_W(\mathbf{v})$ is the unique closest point to $\mathbf{v}$ in the subspace $W$. This is why projection appears throughout applications—least squares, signal processing, data compression—wherever we want to approximate something as well as possible using a constrained set of "building blocks" (the subspace $W$). The proof uses Pythagoras: for any other $\mathbf{w} \in W$, we have $\|\mathbf{v} - \mathbf{w}\|^2 = \|\mathbf{v} - \Pi_W(\mathbf{v})\|^2 + \|\Pi_W(\mathbf{v}) - \mathbf{w}\|^2$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      wrong optimization direction entirely; projection minimizes distance, doesn't maximize norm
+    B: |
+      generally false; $\Pi_W(\mathbf{v})$ only has the same direction as $\mathbf{v}$ if $\mathbf{v} \in W$
+    C: |
+      backwards: the residual $\mathbf{v} - \Pi_W(\mathbf{v})$ is orthogonal to $W$, but $\Pi_W(\mathbf{v})$ is typically NOT orthogonal to $\mathbf{v}$
+    E: |
+      plausible intuition, but minimizing angle $\neq$ minimizing distance; consider $\mathbf{v}$ far from $W$
+sources:
+- semester: 2025C
+  instrument: final
+  position: 41
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1319
+variant_of: null
+topics: []
+notes: null

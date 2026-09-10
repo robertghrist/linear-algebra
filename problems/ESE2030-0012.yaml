@@ -1,0 +1,45 @@
+id: ESE2030-0012
+legacy_id: Q1-P12
+week: 3
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces. If $\dim(V) = 5$ and $\dim(W) = 3$, which statement about $T$ must be TRUE?
+choices:
+- label: A
+  text: $T$ must be injective
+- label: B
+  text: $T$ must be surjective
+- label: C
+  text: The dimension of $\ker(T)$ is at least 2
+- label: D
+  text: The dimension of $\text{im}(T)$ is 3
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    By the Rank-Nullity Theorem: $$\dim(V) = \dim(\ker T) + \dim(\text{im } T)$$ Since $\text{im}(T) \subseteq W$, we have $\dim(\text{im } T) \leq \dim(W) = 3$. Therefore: $$5 = \dim(\ker T) + \dim(\text{im } T) \leq \dim(\ker T) + 3$$ So $\dim(\ker T) \geq 2$.
+  key_insight: |
+    When domain dimension exceeds codomain dimension, there must be a nontrivial kernel.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 12
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 278
+variant_of: null
+topics:
+- Linear transformations
+- kernel
+- image
+- rank-nullity theorem
+notes: null

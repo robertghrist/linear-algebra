@@ -1,0 +1,50 @@
+id: ESE2030-0153
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Consider the following sets with standard addition and scalar multiplication.
+  Which one is \textbf{NOT} a vector space?
+choices:
+- label: A
+  text: The set of all solutions $y(t)$ to the differential equation $y'' + 4y = 0$.
+- label: B
+  text: The set of all polynomials $p(x)$ of degree equal to 3.
+- label: C
+  text: The set of all vectors $\mathbf{x} \in \mathbb{R}^4$ satisfying $x_1 - 2x_2 + x_3 - 2x_4 = 0$.
+- label: D
+  text: The set $\{\mathbf{0}\}$ containing only the zero vector.
+- label: E
+  text: 'The set of all continuous functions $f: \mathbb{R} \to \mathbb{R}$ satisfying $f(-x) = -f(x)$
+    (odd functions).'
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |2
+     (A) IS a vector space: Solutions to y'' + 4y = 0 form a 2-dimensional vector space spanned by {cos(2t), sin(2t)}. The ODE is linear and homogeneous, so sums and scalar multiples of solutions are solutions. Zero function is a solution. (B) is NOT a vector space: Polynomials of degree EXACTLY 3 fail multiple axioms. - No zero vector: the zero polynomial has no degree (or degree -∞), not degree 3. - Not closed under addition: (x³ + x) + (-x³ + x²) = x² + x has degree 2, not 3. - Not closed under scalar multiplication: 0·(x³) = 0 has degree undefined, not 3. Compare with P_3 (degree AT MOST 3), which IS a vector space. (C) IS a vector space: This is the null space of the matrix [1, -2, 1, -2], a 3-dimensional subspace of ℝ⁴. Homogeneous linear equation ⟹ subspace. (D) IS a vector space: The trivial vector space {0} satisfies all axioms! - Contains zero vector: ✓ (it's the only element) - Closed under addition: 0 + 0 = 0 ∈ {0} ✓ - Closed under scalar multiplication: c·0 = 0 ∈ {0} for all c ✓ This is the unique 0-dimensional vector space. Students often think "a vector space needs more than one element" — but no axiom requires this! (E) IS a vector space: Odd functions form a subspace of C(ℝ). - Zero function is odd: 0 = -0 ✓ - Sum of odd functions is odd: (f+g)(-x) = f(-x)+g(-x) = -f(x)-g(x) = -(f+g)(x) ✓ - Scalar multiple of odd function is odd: (cf)(-x) = cf(-x) = c(-f(x)) = -(cf)(x) ✓
+  key_insight: null
+  distractor_rationale:
+    A: |
+      students may think ODEs give complicated non-linear structures, but LINEAR homogeneous ODEs always yield vector spaces
+    C: |
+      the constraint involves subtraction, which might seem non-standard, but it's still a homogeneous linear equation
+    D: |
+      students instinctively feel "one element can't be a vector space" but {0} is the trivial vector space — dimension 0, perfectly valid!
+    E: |
+      the symmetry condition f(-x) = -f(x) might seem restrictive, but odd functions do form a subspace
+sources:
+- semester: 2025C
+  instrument: final
+  position: 38
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1209
+variant_of: null
+topics: []
+notes: null

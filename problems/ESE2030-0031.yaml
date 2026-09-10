@@ -1,0 +1,43 @@
+id: ESE2030-0031
+legacy_id: Q2-P06
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: V \to V$ be a finite-dimensional linear transformation. If we change from basis $\mathcal{B}$ to basis $\mathcal{C}$, which statement about the matrix representations $[T]_{\mathcal{B}}$ and $[T]_{\mathcal{C}}$ must be true?
+choices:
+- label: A
+  text: They have the same column vectors
+- label: B
+  text: They have the same rank
+- label: C
+  text: They have the same entries on the main diagonal
+- label: D
+  text: They represent different linear transformations
+- label: E
+  text: They are equal if $\mathcal{B}$ and $\mathcal{C}$ share at least one basis vector
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Different matrix representations of the same linear transformation are similar matrices, which preserve rank (dimension of image), determinant, and trace. The actual entries and column vectors change with basis choice.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      columns change with basis
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 6
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 215
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,58 @@
+id: ESE2030-0078
+legacy_id: Q4-P05
+week: 8
+skills: []
+status: active
+problem_type: null
+statement: |
+  A third-order differential equation is given by:
+  $$\frac{d^3x}{dt^3} - 4\frac{d^2x}{dt^2} + 5\frac{dx}{dt} - 2x = 0$$
+
+  This equation can be converted to a first-order system $\frac{d\mathbf{v}}{dt} = C\mathbf{v}$ where $\mathbf{v} = (x, \dot{x}, \ddot{x})^T$ and $C$ is the $3 \times 3$ companion matrix.
+
+  Which statement correctly relates the ODE to the matrix $C$?
+choices:
+- label: A
+  text: The eigenvalues of $C$ are $-4, 5, -2$ from the ODE coefficients
+- label: B
+  text: The trace of $C$ equals $-4 + 5 + (-2) = -1$
+- label: C
+  text: The characteristic polynomial of $C$ is $\lambda^3 - 4\lambda^2 + 5\lambda - 2 = 0$
+- label: D
+  text: Matrix $C$ must be symmetric because the ODE has real coefficients
+- label: E
+  text: The solution spaces of the ODE and matrix system have different dimensions
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The characteristic polynomial of the companion matrix $C$ is identical to the characteristic polynomial of the differential operator: $\lambda^3 - 4\lambda^2 + 5\lambda - 2 = 0$. The roots of this polynomial are the eigenvalues of $C$, and basis solutions to both formulations (ODE and matrix system) come from these eigenvalues. The conversion preserves all solution structure.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      coefficients are not eigenvalues; eigenvalues are roots of the characteristic polynomial
+    B: |
+      trace equals sum of eigenvalues, which is 4, not -1; also conflates coefficients with eigenvalues
+    D: |
+      companion matrices are not symmetric
+    E: |
+      both have dimension 3; conversion doesn't change solution space dimension
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 5
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 196
+variant_of: null
+topics:
+- Higher-order ODEs
+- companion matrices
+- characteristic polynomial
+- basis solutions
+notes: null

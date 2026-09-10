@@ -1,0 +1,44 @@
+id: ESE2030-0037
+legacy_id: Q2-P12
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Consider the vector space $C[0,1]$ of continuous functions on $[0,1]$ with the inner product $\langle f, g \rangle = \int_0^1 e^x\,f(x)g(x)\,dx$.
+  Which of the following statements about this inner product is TRUE?
+choices:
+- label: A
+  text: This is not a valid inner product and all choices below are invalid
+- label: B
+  text: The constant function $f(x) = 1$ has norm $\|f\| = e$
+- label: C
+  text: The functions $\sin(x)$ and $\cos(x)$ are orthogonal with respect to this inner product
+- label: D
+  text: The norm induced by this inner product is $\|f\| = \sqrt{\int_0^1 f(x)^2 e^x\,dx}$
+- label: E
+  text: 'None of the above: all above statements are false'
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The induced norm is $\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\int_0^1 f(x)^2 e^x\,dx}$. This follows directly from the definition of the weighted inner product.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      orthogonality depends on the specific inner product; needs calculation
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 12
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 359
+variant_of: null
+topics: []
+notes: null

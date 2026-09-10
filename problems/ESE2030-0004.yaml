@@ -1,0 +1,44 @@
+id: ESE2030-0004
+legacy_id: Q1-P04
+week: 2
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider the following sets with standard addition and scalar multiplication operations. Which one forms a vector space?
+choices:
+- label: A
+  text: The set of all $2 \times 2$ matrices with determinant equal to 1
+- label: B
+  text: 'The set of all continuous functions $f: [0,1] \to \mathbb{R}$ such that $f(0) = f(1) = 0$'
+- label: C
+  text: The set of all vectors $(x, y, z) \in \mathbb{R}^3$ such that $x + y + z = 1$
+- label: D
+  text: The set of all $2 \times 2$ matrices $A$ such that $A^2 = A$ (idempotent matrices)
+- label: E
+  text: 'The set $\{(x, y) \in \mathbb{R}^2 : x \geq 0, y \geq 0\}$ (the first quadrant)'
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    Let's check each option: \textbf{(A) Matrices with det = 1:} Fails closure under addition. If $\det(A) = \det(B) = 1$, generally $\det(A+B) \neq 1$. \textbf{(B) Functions with $f(0) = f(1) = 0$:} ✓ This works! \begin{itemize} \item Zero function satisfies the condition \item If $f(0) = g(0) = 0$ and $f(1) = g(1) = 0$, then $(f+g)(0) = 0$ and $(f+g)(1) = 0$ \item If $f(0) = f(1) = 0$, then $(cf)(0) = cf(0) = 0$ and $(cf)(1) = cf(1) = 0$ \end{itemize} \textbf{(C) Vectors with $x+y+z=1$:} Not a subspace; doesn't contain zero vector. \textbf{(D) Idempotent matrices:} Fails closure. If $A^2 = A$ and $B^2 = B$, generally $(A+B)^2 \neq A+B$. \textbf{(E) First quadrant:} Fails closure under negative scalar multiplication.
+  key_insight: |
+    Always check: (1) Contains zero? (2) Closed under addition? (3) Closed under scalar multiplication?
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 4
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 127
+variant_of: null
+topics:
+- Vector spaces
+- examples and non-examples
+- vector space axioms
+notes: null

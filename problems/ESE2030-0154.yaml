@@ -1,0 +1,50 @@
+id: ESE2030-0154
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Consider a neural network with input dimension 10, three hidden layers of dimensions 20, 15, and 8 respectively, and output dimension 3. All connections are fully connected (dense layers). If the network uses NO activation functions (i.e., each layer computes only an affine transformation $\mathbf{y} = W\mathbf{x} + \mathbf{b}$), what is the network's effective computational power?
+choices:
+- label: A
+  text: The network can approximate any continuous function from $\mathbb{R}^{10}$ to $\mathbb{R}^3$ due
+    to its depth
+- label: B
+  text: The network is equivalent to a single affine transformation $\mathbf{y} = A\mathbf{x} + \mathbf{c}$
+    where $A \in \mathbb{R}^{3 \times 10}$
+- label: C
+  text: The network can represent any polynomial function of degree at most 4 (one degree per layer)
+- label: D
+  text: The network can represent any rank-3 linear map due to the bottleneck at the output
+- label: E
+  text: The network has greater expressive power than a shallow network because matrix products can increase
+    rank
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Without nonlinear activation functions, each layer computes $\mathbf{h}_k = W_k \mathbf{h}_{k-1} + \mathbf{b}_k$. The composition of affine maps is affine: if we trace through, we get $\mathbf{y} = W_4(W_3(W_2(W_1\mathbf{x} + \mathbf{b}_1) + \mathbf{b}_2) + \mathbf{b}_3) + \mathbf{b}_4 = (W_4W_3W_2W_1)\mathbf{x} + (\text{combined biases})$. This is just $A\mathbf{x} + \mathbf{c}$ where $A = W_4W_3W_2W_1 \in \mathbb{R}^{3 \times 10}$. The entire deep network collapses to a single linear layer! This is why nonlinear activations are essential for deep learning.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      this would require nonlinearity—the universal approximation theorem assumes nonlinear activations
+    C: |
+      composition of linear maps stays linear, doesn't create polynomials
+    E: |
+      (matrix products can only decrease or maintain rank, never increase it; $\text{rank}(AB) \leq \min(\text{rank}(A), \text{rank}(B))$) ===============================================
+sources:
+- semester: 2025C
+  instrument: final
+  position: 39
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1266
+variant_of: null
+topics: []
+notes: null

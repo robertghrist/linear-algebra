@@ -1,0 +1,55 @@
+id: ESE2030-0090
+legacy_id: Q4-P17
+week: 8
+skills: []
+status: active
+problem_type: null
+statement: |
+  A real $5 \times 5$ matrix $A$ has eigenvalues $\lambda_{1,2} = 3$ (sharing an eigenvector), $\lambda_{3,4} = 1 \pm 2i$, and $\lambda_5 = -1$.
+
+  When the QR algorithm is applied to $A$ repeatedly, what is the structure of the limiting form?
+choices:
+- label: A
+  text: Diagonal with entries $3, 3, -1$ and two complex entries
+- label: B
+  text: Jordan canonical form with appropriate Jordan blocks
+- label: C
+  text: Upper triangular with all five eigenvalues on the diagonal
+- label: D
+  text: 'Block upper triangular: three $1 \times 1$ blocks and one $2 \times 2$ block'
+- label: E
+  text: The algorithm cannot converge due to the repeated eigenvalue
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The QR algorithm converges to real Schur form: block upper triangular with 1×1 blocks for real eigenvalues (regardless of multiplicity) and 2×2 blocks for complex conjugate pairs. Here: three 1×1 blocks for the eigenvalues 3, 3, and -1, plus one 2×2 block encoding 1±2i. The algorithm does NOT produce Jordan form (would need generalized eigenvectors), does NOT produce complex entries (real arithmetic throughout), and repeated eigenvalues do NOT prevent convergence.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      real sequence cannot have complex entries
+    B: |
+      QR gives Schur form, not Jordan form
+    C: |
+      complex eigenvalues require 2×2 blocks in real arithmetic
+    E: |
+      repeated eigenvalues do not prevent convergence
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 17
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 561
+variant_of: null
+topics:
+- QR algorithm
+- convergence
+- Schur form
+- repeated and complex eigenvalues
+notes: null

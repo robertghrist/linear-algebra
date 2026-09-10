@@ -1,0 +1,64 @@
+id: ESE2030-0082
+legacy_id: Q4-P09
+week: 8
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider the $2 \times 2$ real Jordan block corresponding to complex eigenvalues $\alpha \pm i\beta$:
+  $$A = \begin{bmatrix} \alpha & -\beta \\ \beta & \alpha \end{bmatrix} = \alpha I + \beta J = \begin{bmatrix} \alpha & 0 \\ 0 & \alpha \end{bmatrix} +
+  \begin{bmatrix} 0 & -\beta \\ \beta & 0 \end{bmatrix}$$
+  When computing $e^{At}$ one has:
+  $$e^{At} = e^{\alpha t}\begin{bmatrix} \cos(\beta t) & -\sin(\beta t) \\ \sin(\beta t) & \cos(\beta t) \end{bmatrix}$$
+
+  Why do the trigonometric functions $\cos(\beta t)$ and $\sin(\beta t)$ appear in this result?
+choices:
+- label: A
+  text: Complex eigenvalues always produce oscillatory behavior, which is mathematically represented by
+    trigonometric functions
+- label: B
+  text: The skew-symmetric part $\beta J$ satisfies $J^2 = -I$, causing the Taylor series to separate
+    into even/odd terms that match the series for $\cos(\beta t)$ and $\sin(\beta t)$
+- label: C
+  text: The matrix $J$ represents a rotation, and rotations are always described by sines and cosines
+- label: D
+  text: Euler's formula $e^{i\beta t} = \cos(\beta t) + i\sin(\beta t)$ is directly applied to the matrix
+    exponential
+- label: E
+  text: The determinant of $A$ equals $\alpha^2 + \beta^2$, which forces the exponential to have magnitude
+    1, requiring unit circle parameterization via trigonometric functions
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The key is recognizing how powers of $N$ behave: $N^2 = -\beta^2 I$, $N^3 = -\beta^2 N$, $N^4 = \beta^4 I$, etc. When we expand $e^{Nt}$ as a Taylor series $I + Nt + \frac{(Nt)^2}{2!} + \frac{(Nt)^3}{3!} + \cdots$, the even powers give $I(1 - \frac{\beta^2t^2}{2!} + \frac{\beta^4t^4}{4!} - \cdots)$ which is exactly $\cos(\beta t) \cdot I$, and the odd powers give $N(t - \frac{\beta^2t^3}{3!} + \frac{\beta^4t^5}{5!} - \cdots) = \frac{1}{\beta}N \cdot \sin(\beta t)$. The appearance of sines and cosines comes from how their Taylor series naturally emerge when computing matrix powers, not from any abstract connection to complex numbers or rotations. The crucial property is $N^2 = -\beta^2 I$, which causes the alternating signs in the series expansion.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      describes the phenomenon but doesn't explain the mechanism; this is "what" not "why"
+    C: |
+      confuses cause and effect - J represents rotation BECAUSE the exponential has this form, not vice versa
+    D: |
+      Euler's formula applies to scalar complex exponentials; the matrix case requires deriving the result from Taylor series
+    E: |
+      the determinant property is irrelevant to why trigonometric functions appear in the series expansion
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 9
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 333
+variant_of: null
+topics:
+- Matrix exponentials
+- complex eigenvalues
+- Taylor series
+- 2x2 blocks
+notes: null

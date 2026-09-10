@@ -1,0 +1,51 @@
+id: ESE2030-0087
+legacy_id: Q4-P14
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  A simplified model of customer loyalty tracks subscribers between three streaming services. Each month, customers switch services according to a transition matrix $P$ where column $j$ represents the probability distribution of where service $j$'s customers go:
+
+  $$P = \begin{bmatrix} 0.7 & 0.1 & 0.2 \\ 0.2 & 0.8 & 0.3 \\ 0.1 & 0.1 & 0.5 \end{bmatrix}$$
+
+  The market starts with 40\% of customers at Service 1, 35\% at Service 2, and 25\% at Service 3.
+
+  After many months, what will the market share distribution be?
+choices:
+- label: A
+  text: 40\%, 35\%, 25\%
+- label: B
+  text: 45\%, 45\%, 10\%
+- label: C
+  text: 70\%, 80\%, 50\%
+- label: D
+  text: Cannot be determined without computing the limit of $P^n$ as $n\to\infty$
+- label: E
+  text: Need to know the dominant eigenvector to determine this
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Stochastic matrices (where columns sum to 1 and entries are non-negative) always have $\lambda = 1$ as an eigenvalue. The corresponding eigenvector, normalized so its entries sum to 1, gives the stationary distribution—the long-term market share that the system converges to regardless of initial distribution. After many iterations, $\mathbf{x}_k = P^k\mathbf{x}_0$ converges to this stationary distribution. This is a fundamental result in Markov chain theory: the eigenvalue $\lambda = 1$ is dominant (by Perron-Frobenius), and its positive eigenvector describes the equilibrium.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 14
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 474
+variant_of: null
+topics:
+- Stochastic matrices
+- Markov chains
+- stationary distribution applications
+notes: null

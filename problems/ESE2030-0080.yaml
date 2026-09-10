@@ -1,0 +1,59 @@
+id: ESE2030-0080
+legacy_id: Q4-P07
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  A population model tracks the number of individuals in three age groups: juvenile, adult, and senior. The transition matrix $P$ describes how the population distribution changes each year, where column $j$ shows the probability of transitioning into each age group from group $j$.
+
+  The matrix $P$ has been found to have eigenvalues $\lambda_1 = 1$, $\lambda_2 = 0.6$, and $\lambda_3 = -0.2$, with corresponding eigenvector for $\lambda_1 = 1$ given by:
+  $\mathbf{v}_1 = \frac{1}{10}\begin{pmatrix} 2 \\ 5 \\ 3 \end{pmatrix}$
+
+  If the population distribution after $k$ years is $\mathbf{x}(k) = P^k\mathbf{x}(0)$, which statement is most accurate about the long-term behavior?
+choices:
+- label: A
+  text: As $k \to \infty$, the population distribution converges to $\mathbf{v}_1$
+- label: B
+  text: The dominant eigenvalue $\lambda_1 = 1$ means the total population remains constant over time
+- label: C
+  text: The eigenvalue $\lambda_3 = -0.2$ means the senior population will eventually become negative
+- label: D
+  text: Since $|\lambda_2| = 0.6 > |\lambda_3|$, the convergence is primarily controlled by the adult
+    age group
+- label: E
+  text: As $k \to \infty$, all populations decay to zero because $\lambda_2$ and $\lambda_3$ are both
+    less than 1
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    A stochastic matrix preserves total probability (or total population in this context), which corresponds to the eigenvalue $\lambda_1 = 1$ being dominant. The eigenvector $\mathbf{v}_1$ indicates the long-term distribution ratios.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      confuses how negative eigenvalues work; they don't make population components negative, they cause alternating deviations from equilibrium
+    D: |
+      misunderstands what $|\lambda_2|$ controls; it governs convergence rate, not which age group dominates
+    E: |
+      ignores the dominant eigenvalue $\lambda_1 = 1$; the other eigenvalues affect transients, not the long-term limit
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 7
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 278
+variant_of: null
+topics:
+- Stochastic matrices
+- Markov chains
+- eigenvalues
+- stationary distributions
+notes: null

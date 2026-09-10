@@ -1,0 +1,48 @@
+id: ESE2030-0151
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $X \in \mathbb{R}^{n \times d}$ be a centered data matrix, and let $\tilde{X}$ be obtained by multiplying the third column of $X$ by 1000 (i.e., rescaling variable $X_3$).
+
+  Which statement is TRUE?
+choices:
+- label: A
+  text: Covariance PCA on $X$ and covariance PCA on $\tilde{X}$ yield identical principal components.
+- label: B
+  text: Correlation PCA on $X$ and correlation PCA on $\tilde{X}$ yield different principal components,
+    but the same explained variance ratios.
+- label: C
+  text: Correlation PCA on $X$ and correlation PCA on $\tilde{X}$ yield identical results.
+- label: D
+  text: Covariance PCA and correlation PCA agree whenever the variables are uncorrelated.
+- label: E
+  text: Covariance PCA and correlation PCA agree whenever all variables have equal variance.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Correlation PCA first standardizes each variable to have unit variance, then performs covariance PCA on the standardized data. Since standardization divides each variable by its standard deviation, multiplying $X_3$ by 1000 and then dividing by its (now 1000× larger) standard deviation returns to the original standardized variable. Thus correlation PCA is scale-invariant: rescaling any variable has no effect on the results. This is the key conceptual distinction: correlation PCA is invariant to rescaling of individual variables; covariance PCA is not.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      covariance PCA is NOT scale-invariant; rescaling $X_3$ by 1000 multiplies its variance by $10^6$, dramatically changing which directions capture maximum variance
+    B: |
+      correlation PCA gives identical results, not just same variance ratios
+sources:
+- semester: 2025C
+  instrument: final
+  position: 36
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1153
+variant_of: null
+topics: []
+notes: null

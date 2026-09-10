@@ -1,0 +1,58 @@
+id: ESE2030-0111
+legacy_id: Q5-P16
+week: 11
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider two analysts working with the same centered data matrix $X \in \mathbb{R}^{100 \times 6}$ that has singular values $\sigma_1 = 20, \sigma_2 = 15, \sigma_3 = 8, \sigma_4 = 5, \sigma_5 = 2, \sigma_6 = 1$.
+
+  \textbf{Analyst A} performs PCA directly on $X$.
+
+  \textbf{Analyst B} first applies an orthogonal transformation $Q \in \mathbb{R}^{6 \times 6}$ to get $Y = XQ$, then performs PCA on $Y$.
+
+  How do their results compare?
+choices:
+- label: A
+  text: 'Analyst B''s principal components are related to Analyst A''s by the transformation: $\mathbf{w}_k
+    = Q^T\mathbf{v}_k$, where $\mathbf{v}_k$ are A''s principal components.'
+- label: B
+  text: 'Both analysts obtain identical singular values: $\{20, 15, 8, 5, 2, 1\}$, but their principal
+    component directions differ.'
+- label: C
+  text: Analyst A's results are superior because applying $Q$ distorts the covariance structure of the
+    data.
+- label: D
+  text: The analyses are equivalent only if $Q$ is a rotation (determinant +1), but not if $Q$ includes
+    reflections (determinant -1).
+- label: E
+  text: Both analyses capture the same total variance and the same variance proportions, but the ordering
+    of principal components may differ.
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    Key insight: Orthogonal transformations preserve singular values. If $X = U\Sigma V^T$, then $Y = XQ = U\Sigma V^TQ$. The singular values of $Y$ are found from $Y^TY = Q^TV\Sigma^2 V^TQ$. Since $Q$ is orthogonal, this is similar to $V\Sigma^2 V^T$, preserving eigenvalues. Thus singular values of $Y$ equal those of $X$. However, the principal components differ: for $Y$, the PCs are columns of $W$ where $Y = U\Sigma W^T$, giving $W = Q^TV$, so $\mathbf{w}_k = Q^T\mathbf{v}_k$. CONCEPTUAL POINT: The singular value spectrum (and thus variance captured) is invariant under orthogonal transformations of the columns. This makes sense: rotating the coordinate system doesn't change the intrinsic dimensionality or variance structure of the data - just the coordinate representation of the principal directions.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      the variance proportions are identical, but the ordering remains the same - both get $\sigma_1 = 20$ as largest, etc.
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 16
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 633
+variant_of: null
+topics:
+- Effect of orthogonal transformations
+- invariance properties
+- creative application
+notes: null

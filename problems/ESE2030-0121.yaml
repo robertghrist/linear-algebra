@@ -1,0 +1,51 @@
+id: ESE2030-0121
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $V$ be a finite-dimensional inner product space. An engineer claims:
+  {\em ``Finding coordinates relative to an orthonormal basis is easier than for a general basis.''}
+
+  Which statement best explains why this is true?
+choices:
+- label: A
+  text: Orthonormal bases always have fewer vectors, reducing the system size
+- label: B
+  text: For orthonormal basis $\{\mathbf{e}_1, \ldots, \mathbf{e}_n\}$, the $k$-th coordinate of $\mathbf{v}$
+    is simply $\langle \mathbf{v}, \mathbf{e}_k \rangle$
+- label: C
+  text: For orthonormal bases, the change-of-basis matrix equals its own inverse
+- label: D
+  text: The change-of-basis matrix for an orthonormal basis is always the identity
+- label: E
+  text: It's not true; the difficulty of finding coordinates depends only on $\dim(V)$
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    For a general basis, finding coordinates requires solving a linear system (or computing a matrix inverse). For an orthonormal basis $\{\mathbf{e}_1, \ldots, \mathbf{e}_n\}$, we have $\mathbf{v} = \sum_k c_k \mathbf{e}_k$ where $c_k = \langle \mathbf{v}, \mathbf{e}_k \rangle$ — each coordinate is computed independently via a single inner product. This is because $\langle \mathbf{v}, \mathbf{e}_k \rangle = \sum_j c_j \langle \mathbf{e}_j, \mathbf{e}_k \rangle = c_k$ (using orthonormality).
+  key_insight: null
+  distractor_rationale:
+    C: |
+      true property, but indirect — the real advantage is computing coordinates without any matrix operations
+    D: |
+      the change-of-basis matrix from standard to orthonormal is $Q$, not $I$; only $Q^TQ = I$
+    E: |
+      (the skeptic is wrong; orthonormality genuinely simplifies coordinate computation from $O(n^3)$ system-solving to $O(n^2)$ inner products) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 6
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 250
+variant_of: null
+topics: []
+notes: null

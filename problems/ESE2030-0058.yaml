@@ -1,0 +1,49 @@
+id: ESE2030-0058
+legacy_id: Q3-P09
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $A = \begin{bmatrix} 5 & 2 \\ 2 & 2 \end{bmatrix}$ have eigenvectors $\mathbf{v}_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$ (with eigenvalue $\lambda_1 = 6$) and $\mathbf{v}_2 = \begin{pmatrix} -1 \\ 2 \end{pmatrix}$ (with eigenvalue $\lambda_2 = 1$).
+
+  Consider a vector $\mathbf{x}$ whose coordinates in the eigenbasis $\mathcal{B} = \{\mathbf{v}_1, \mathbf{v}_2\}$ are $[\mathbf{x}]_{\mathcal{B}} = \begin{pmatrix} 3 \\ -2 \end{pmatrix}$.
+
+  What are the coordinates of $A\mathbf{x}$ in the eigenbasis $\mathcal{B}$?
+choices:
+- label: A
+  text: \begin{pmatrix} 6 \\ -1 \end{pmatrix}
+- label: B
+  text: \begin{pmatrix} 3 \\ -2 \end{pmatrix}
+- label: C
+  text: \begin{pmatrix} 6 \\ 1 \end{pmatrix}
+- label: D
+  text: \begin{pmatrix} 18 \\ -2 \end{pmatrix}
+- label: E
+  text: \begin{pmatrix} 15 \\ -4 \end{pmatrix}
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The power of the eigenbasis is that the matrix $A$ acts simply by scaling each eigenvector by its eigenvalue. In the eigenbasis, $A$ has the diagonal representation $[A]_{\mathcal{B}} = \begin{bmatrix} 6 & 0 \\ 0 & 1 \end{bmatrix}$. Therefore, when we multiply in eigenbasis coordinates: $[A\mathbf{x}]_{\mathcal{B}} = [A]_{\mathcal{B}}[\mathbf{x}]_{\mathcal{B}} = \begin{bmatrix} 6 & 0 \\ 0 & 1 \end{bmatrix}\begin{pmatrix} 3 \\ -2 \end{pmatrix} = \begin{pmatrix} 18 \\ -2 \end{pmatrix}$. Each coordinate simply gets scaled by the corresponding eigenvalue: the first coordinate ($3$) is multiplied by $\lambda_1 = 6$ to give $18$, and the second coordinate ($-2$) is multiplied by $\lambda_2 = 1$ to give $-2$. This is the fundamental simplification that diagonalization provides.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 9
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 289
+variant_of: null
+topics:
+- Eigenbasis
+- coordinates
+- change of basis
+- diagonalization
+notes: null

@@ -1,0 +1,42 @@
+id: ESE2030-0043
+legacy_id: Q2-P18
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  For a linear transformation $T:V\to V$, which of the following requires an inner product on $V$?
+choices:
+- label: A
+  text: Determining if $T$ is invertible
+- label: B
+  text: Computing the adjoint $T^*$
+- label: C
+  text: Finding the kernel of $T:V\to V$
+- label: D
+  text: Computing a basis for the coimage of $T$
+- label: E
+  text: Constructing the matrix representation of $T$
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Projection of vector $\mathbf{u}$ onto vector $\mathbf{v}$ requires the formula $\text{proj}_{\mathbf{v}}\mathbf{u} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle}\mathbf{v}$, which explicitly uses inner products. All other operations are purely algebraic: spanning is about linear combinations, kernels are defined as pre-images of zero, injectivity means ker(T) = {0}, and matrix representations only need a choice of basis, not geometry.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 18
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 500
+variant_of: null
+topics: []
+notes: null

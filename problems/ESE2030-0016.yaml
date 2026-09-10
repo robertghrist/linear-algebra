@@ -1,0 +1,45 @@
+id: ESE2030-0016
+legacy_id: Q1-P16
+week: 1
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider the system $A\mathbf{x} = \mathbf{b}$ where $A$ is a $3 \times 3$ matrix. If row reduction of the augmented matrix $[\, A\, |\, \mathbf{b}\, ]$ yields exactly two pivots, which statement must be TRUE?
+choices:
+- label: A
+  text: The system has a unique solution
+- label: B
+  text: The system has infinitely many solutions if it has any solution at all
+- label: C
+  text: The system is inconsistent
+- label: D
+  text: The matrix $A$ is invertible
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    With 2 pivots in a $3 \times 3$ system: \begin{itemize} \item One row lacks a pivot (becomes a zero row or inconsistent row) \item If the third row is $[0\ 0\ 0\ |\ b_3]$ with $b_3 \neq 0$: inconsistent \item If the third row is $[0\ 0\ 0\ |\ 0]$: one free variable → infinitely many solutions \item The system either has no solutions or infinitely many (never unique) \end{itemize}
+  key_insight: |
+    Number of free variables = number of columns minus number of pivots in coefficient matrix.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 16
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 349
+variant_of: null
+topics:
+- Linear systems
+- row reduction
+- pivots
+notes: null

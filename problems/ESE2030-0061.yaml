@@ -1,0 +1,53 @@
+id: ESE2030-0061
+legacy_id: Q3-P12
+week: 6
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $V$ be a finite-dimensional inner product space and $W$ a subspace of $V$. The orthogonal complement $W^{\perp}$ consists of all vectors in $V$ that are orthogonal to every vector in $W$.
+
+  Which statement about the relationship between $W$ and $W^{\perp}$ is most true?
+choices:
+- label: A
+  text: $W \cap W^{\perp} = \{\mathbf{0}\}$ and $V = W + W^{\perp}$
+- label: B
+  text: $W \cap W^{\perp} = W$
+- label: C
+  text: $\dim W = \dim W^{\perp}$
+- label: D
+  text: $\dim(W) + \dim(W^{\perp}) \leq \dim(V)$
+- label: E
+  text: $W<W^{\perp}$
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The orthogonal decomposition theorem states that any vector space can be decomposed as a direct sum $V = W \oplus W^{\perp}$, meaning every vector in $V$ can be uniquely written as a sum of a vector in $W$ and a vector in $W^{\perp}$. The only vector in both $W$ and $W^{\perp}$ is the zero vector (since a nonzero vector cannot be orthogonal to itself). This gives us $\dim(V) = \dim(W) + \dim(W^{\perp})$.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      misunderstands orthogonal complement; intersection is only the zero vector
+    C: |
+      false
+    E: |
+      false
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 12
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 380
+variant_of: null
+topics:
+- Orthogonal decomposition
+- direct sum
+- fundamental theorem
+notes: null

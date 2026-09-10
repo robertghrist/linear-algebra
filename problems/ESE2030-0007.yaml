@@ -1,0 +1,46 @@
+id: ESE2030-0007
+legacy_id: Q1-P07
+week: 3
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation. Which statement correctly describes the coimage and cokernel of $T$?
+choices:
+- label: A
+  text: $\text{coim } T = \ker T$ and $\text{coker } T = \text{im } T$
+- label: B
+  text: $\text{coim } T = V/\text{im } T$ and $\text{coker } T = W/\ker T$
+- label: C
+  text: $\text{coim } T = V/\ker T$ and $\text{coker } T = W/\text{im } T$
+- label: D
+  text: $\text{coim } T = \text{im } T$ and $\text{coker } T = \ker T$
+- label: E
+  text: $\text{coim } T = W/\ker T$ and $\text{coker } T = V/\text{im } T$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    By definition: \begin{itemize} \item \textbf{Coimage:} The quotient of the domain by the kernel: $V/\ker T$ \begin{itemize} \item This "mods out" the part that maps to zero \item Results in equivalence classes of vectors that map to the same output \end{itemize} \item \textbf{Cokernel:} The quotient of the codomain by the image: $W/\text{im } T$ \begin{itemize} \item This captures "what's missing" from the image \item Measures the failure of surjectivity \end{itemize} \end{itemize}
+  key_insight: |
+    Remember: "co-" operations involve quotients of the corresponding spaces.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 7
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 183
+variant_of: null
+topics:
+- Coimage
+- cokernel
+- quotient spaces
+- kernel
+- image
+notes: null

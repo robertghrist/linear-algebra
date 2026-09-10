@@ -1,0 +1,52 @@
+id: ESE2030-0158
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Consider the differential equation given in factored operator form ($D = \frac{d}{dt}$):
+  $$D(D-4)(D+2)(D-3)x = 0$$
+
+
+  How many linearly independent solutions does this equation have?
+choices:
+- label: A
+  text: '1'
+- label: B
+  text: '2'
+- label: C
+  text: '3'
+- label: D
+  text: '4'
+- label: E
+  text: Infinitely many
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    The factored form reveals four distinct linear factors: $D$, $(D-4)$, $(D+2)$, and $(D-3)$. These correspond to eigenvalues $\lambda = 0, 4, -2, 3$. Since there are four distinct eigenvalues, the solution space has dimension 4, spanned by $\{e^{0 \cdot t}, e^{4t}, e^{-2t}, e^{3t}\} = \{1, e^{4t}, e^{-2t}, e^{3t}\}$. Note that $\lambda = 0$ contributes the constant solution $x(t) = 1$. The dimension of the solution space always equals the order of the ODE, which can be read as the highest power of $D$ when expanded (here, $D^4$).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      might think only one "type" of solution exists
+    B: |
+      might miscount factors or confuse with something else
+    C: |
+      miscounts factors, perhaps ignoring the lone $D$ factor
+    E: |
+      confuses the infinite number of solutions with the finite dimension of the solution space; yes there are infinitely many solutions, but they form a 4-dimensional vector space
+sources:
+- semester: 2025C
+  instrument: final
+  position: 43
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1376
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,52 @@
+id: ESE2030-0070
+legacy_id: Q3-P21
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  Suppose a $2 \times 2$ matrix $A$ has eigenvalues $\lambda_1 = 2$ and $\lambda_2 = -1$. What are the eigenvalues of $A^3$?
+choices:
+- label: A
+  text: $2$ and $-1$
+- label: B
+  text: $8$ and $-1$
+- label: C
+  text: $6$ and $-3$
+- label: D
+  text: $8$ and $1$
+- label: E
+  text: Cannot be determined without knowing the eigenvectors
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    If $\lambda$ is an eigenvalue of $A$ (with eigenvector $\mathbf{v}$), then $\lambda^k$ is an eigenvalue of $A^k$ (with the same eigenvector). This is because $A^k\mathbf{v} = A^{k-1}(A\mathbf{v}) = A^{k-1}(\lambda\mathbf{v}) = \lambda A^{k-1}\mathbf{v} = \cdots = \lambda^k\mathbf{v}$. Therefore, the eigenvalues of $A^3$ are $\lambda_1^3 = 2^3 = 8$ and $\lambda_2^3 = (-1)^3 = -1$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      incorrectly thinks eigenvalues don't change under matrix powers
+    C: |
+      multiplies eigenvalues by 3 instead of raising to the 3rd power
+    D: |
+      correctly computes $2^3 = 8$ but makes sign error: $(-1)^3 = -1$, not $1$
+    E: |
+      doesn't recognize that eigenvalues of powers depend only on eigenvalues of $A$, not on eigenvectors
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 21
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 606
+variant_of: null
+topics:
+- Eigenvalues
+- matrix powers
+- diagonalization
+notes: null

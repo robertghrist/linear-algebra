@@ -1,0 +1,45 @@
+id: ESE2030-0011
+legacy_id: Q1-P11
+week: 2
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $V$ be the vector space of all $3 \times 3$ symmetric matrices. Which of the following is the dimension of $V$?
+choices:
+- label: A
+  text: '2'
+- label: B
+  text: '3'
+- label: C
+  text: '4'
+- label: D
+  text: '6'
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    A $3 \times 3$ symmetric matrix has the form: $$\begin{bmatrix} a & b & c \\ b & d & e \\ c & e & f \end{bmatrix}$$ Count the independent parameters: \begin{itemize} \item Diagonal: 3 parameters $(a, d, f)$ \item Upper triangle: 3 parameters $(b, c, e)$ \item Total: 6 dimensions \end{itemize} Formula: For $n \times n$ symmetric matrices, $\dim = \frac{n(n+1)}{2}$
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 11
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 261
+variant_of: null
+topics:
+- Subspaces
+- dimension
+- bases
+- polynomial spaces
+notes: null

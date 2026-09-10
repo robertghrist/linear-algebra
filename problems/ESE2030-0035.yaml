@@ -1,0 +1,42 @@
+id: ESE2030-0035
+legacy_id: Q2-P10
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $A$ be a square matrix. After performing QR decomposition you compute $A = QR$.
+  Which statement about this QR decomposition must be true?
+choices:
+- label: A
+  text: The matrix $Q^TQ^{-1}$ is the identity matrix
+- label: B
+  text: The diagonal entries of $R$ are all positive
+- label: C
+  text: The columns of $Q$ form an orthonormal basis
+- label: D
+  text: The matrix $R$ is invertible
+- label: E
+  text: More than one statement above is true
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    In QR decomposition: \begin{itemize} \item $Q$ has orthonormal columns by definition \item $R$ is upper triangular \item Diagonal entries of $R$ can be negative (depends on algorithm) \item $R$ is invertible only if $A$ has full rank \item For orthogonal $Q$: $Q^TQ^{-1} = Q^T(Q^T) = (Q^T)^2 \neq I$ in general \end{itemize} Why option (A) is false: Since $Q^{-1} = Q^T$ for orthogonal matrices, we get $Q^TQ^{-1} = (Q^T)^2$, which is NOT the identity matrix unless $Q^T$ is an involution (rare special case).
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 10
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 322
+variant_of: null
+topics: []
+notes: null

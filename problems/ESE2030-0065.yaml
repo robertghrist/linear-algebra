@@ -1,0 +1,56 @@
+id: ESE2030-0065
+legacy_id: Q3-P16
+week: 6
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider a matrix $A \in \mathbb{R}^{m \times n}$ with $m > n$ and full column rank. The pseudoinverse $A^{\dagger} = (A^TA)^{-1}A^T$ can be understood geometrically through the Fundamental Theorem of Linear Algebra.
+
+  Which of the following best describes the geometric action of $A^{\dagger}$ on a vector $\mathbf{b} \in \mathbb{R}^m$?
+choices:
+- label: A
+  text: $A^{\dagger}$ first projects $\mathbf{b}$ onto $\ker(A^T)$, then applies the inverse map
+- label: B
+  text: $A^{\dagger}$ first projects $\mathbf{b}$ onto $\text{im}(A)$, then applies the inverse of $A$
+    restricted to $(\ker A)^{\perp}$
+- label: C
+  text: $A^{\dagger}$ applies $A^{-1}$ directly when it exists, otherwise returns the zero vector
+- label: D
+  text: $A^{\dagger}$ computes the orthogonal complement of $\mathbf{b}$ in $\text{im}(A)$
+- label: E
+  text: $A^{\dagger}$ finds the unique vector in $\ker(A)$ closest to $\mathbf{b}$
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The pseudoinverse has a beautiful geometric interpretation through the FTLA: it first projects $\mathbf{b}$ onto $\text{im}(A)$ (discarding the component in $(\text{im}(A))^{\perp} = \ker(A^T)$), obtaining $\Pi_{\text{im}(A)}\mathbf{b}$. Then, since $A$ restricted to $(\ker A)^{\perp}$ is an isomorphism onto $\text{im}(A)$, we can invert this restriction to find the unique preimage in $(\ker A)^{\perp}$. This is why $A^{\dagger}\mathbf{b}$ gives the minimum norm solution: it lives in $(\ker A)^{\perp}$, the smallest subspace containing all solutions. The formula $A^{\dagger} = (A^TA)^{-1}A^T$ implements this two-step process: $A^T$ projects onto $\text{im}(A^T) = (\ker A)^{\perp}$, and $(A^TA)^{-1}$ provides the inverse on this subspace.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      projects onto the wrong subspace - should be $\text{im}(A)$, not $\ker(A^T)$
+    C: |
+      fundamentally misunderstands that the pseudoinverse works for non-square/singular matrices where $A^{-1}$ doesn't exist
+    D: |
+      confuses projection with orthogonal complement, and mistakes the input-output relationship
+    E: |
+      the solution lives in $(\ker A)^{\perp}$, not in $\ker(A)$; this reverses the key geometric insight
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 16
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 478
+variant_of: null
+topics:
+- Pseudoinverse
+- geometric interpretation
+- FTLA
+- orthogonal projections
+notes: null

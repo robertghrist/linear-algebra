@@ -1,0 +1,55 @@
+id: ESE2030-0060
+legacy_id: Q3-P11
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a square singular matrix with real distinct eigenvalues.
+
+  Which statement about the matrix exponential $e^A$ is most true?
+choices:
+- label: A
+  text: $e^A$ may or may not be well-defined
+- label: B
+  text: $e^A$ may not be diagonalizable
+- label: C
+  text: $e^A$ is the solution to $d\mathbf{x}/dt=A\mathbf{x}$
+- label: D
+  text: $e^A$ is nonsingular
+- label: E
+  text: The series for $e^A$ terminates after finitely many terms
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: null
+  key_insight: null
+  distractor_rationale:
+    A: |
+      fails to recognize that $e^A$ is ALWAYS well-defined
+    B: |2+
+
+    C: |
+      missing the $t$-dependence
+    E: |
+      fundamentally misunderstands the matrix exponential; the power series $e^A = I + A + \frac{A^2}{2!} + \cdots$ does not terminate for general matrices
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 11
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 354
+variant_of: null
+topics:
+- Matrix exponentials
+- invertibility
+- eigenvalues
+- properties
+notes: null

@@ -1,0 +1,52 @@
+id: ESE2030-0110
+legacy_id: Q5-P15
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 5$, $\lambda_2 = -3$, $\lambda_3 = 1$.
+  Which statement about the singular values of $A$ is most TRUE?
+choices:
+- label: A
+  text: The singular values are $5, 3, 1$.
+- label: B
+  text: The singular values are $25, 9, 1$.
+- label: C
+  text: The singular values are $\sqrt{5}, \sqrt{3}, 1$.
+- label: D
+  text: The singular values cannot be determined from eigenvalues alone.
+- label: E
+  text: The singular values of a {\em square} matrix equal the eigenvalues for any square matrix.
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    Eigenvalues and singular values measure fundamentally different things: - Eigenvalues come from $A\mathbf{v} = \lambda\mathbf{v}$ and can be negative or complex - Singular values come from $A^TA$ (or the SVD) and are always real and non-negative For SYMMETRIC matrices: $A = A^T$ implies $A^TA = A^2$, so the eigenvalues of $A^TA$ are $\lambda_i^2$, giving singular values $\sigma_i = |\lambda_i|$. Thus: $\sigma_1 = 5$, $\sigma_2 = 3$, $\sigma_3 = 1$. For NON-SYMMETRIC matrices: the eigenvalues of $A$ and $A^TA$ are unrelated in general. A non-symmetric matrix with these eigenvalues could have completely different singular values. Example: a shear matrix can have repeated eigenvalue 1 but singular values far from 1.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      confuses eigenvalues of $A^TA$ with singular values; singular values are $\sqrt{\lambda(A^TA)}$, not $\lambda^2$
+    C: |
+      inverts the relationship; singular values are $|\lambda_i|$ for symmetric matrices, not $\sqrt{|\lambda_i|}$
+    E: |
+      (false: eigenvalues can be negative or complex, but singular values are always $\geq 0$; immediately contradicted by $\lambda_2 = -3$) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 15
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 591
+variant_of: null
+topics:
+- Eigenvalues vs singular values
+- symmetric matrices
+- general square matrices
+notes: null

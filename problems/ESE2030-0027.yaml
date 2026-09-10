@@ -1,0 +1,44 @@
+id: ESE2030-0027
+legacy_id: Q2-P02
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Suppose ${\mathcal S} = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is an orthonormal set in an inner product space $V$. Which of the following must be true?
+choices:
+- label: A
+  text: Any linear combination $c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3$ has length $\sqrt{c_1^2
+    + c_2^2 + c_3^2}$
+- label: B
+  text: The vectors ${\mathcal S}$ automatically form a basis for $V$
+- label: C
+  text: The sum $\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3$ is a unit vector
+- label: D
+  text: The matrix with columns $[\mathbf{v}_1 \mid \mathbf{v}_2 \mid \mathbf{v}_3]$ has determinant $\pm
+    1$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Compute the norm and use orthonormality
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 2
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 101
+variant_of: null
+topics: []
+notes: null

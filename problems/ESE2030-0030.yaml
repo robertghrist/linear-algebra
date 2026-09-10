@@ -1,0 +1,42 @@
+id: ESE2030-0030
+legacy_id: Q2-P05
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Which of the following properties is not necessarily preserved under similarity? (Recall, square matrices $A$ and $B$ are similar if $B = P^{-1}AP$ for some $P$).
+choices:
+- label: A
+  text: The rank of the matrix
+- label: B
+  text: The dimension of the kernel
+- label: C
+  text: The determinant
+- label: D
+  text: The column space
+- label: E
+  text: All of the above are preserved
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Similarity preserves rank, nullity (dimension of kernel), determinant, and trace, as these are intrinsic properties of the underlying linear transformation. However, the column space (image) depends on the choice of basis and is generally different for similar matrices. For example, $I$ and $P^{-1}IP = I$ are similar, but if $P \neq I$, they could have different column spaces when viewed as subspaces of $\mathbb{R}^n$.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 5
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 170
+variant_of: null
+topics: []
+notes: null

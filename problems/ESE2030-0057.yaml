@@ -1,0 +1,53 @@
+id: ESE2030-0057
+legacy_id: Q3-P08
+week: 6
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a nonsingular matrix. Which statement best represents the relationship between the pseudoinverse $A^{\dagger}$ and the inverse $A^{-1}$?
+choices:
+- label: A
+  text: $A^{\dagger} = A^{-1}$
+- label: B
+  text: $A^{\dagger} = (A^{-1})^T$
+- label: C
+  text: $A^{\dagger} = (A^T)^{-1}$
+- label: D
+  text: $A^{\dagger}A^{-1} = I$
+- label: E
+  text: $A^{\dagger}$ is undefined if $A^{-1}$ does not exist
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    When $A$ is square and nonsingular, the pseudoinverse coincides exactly with the inverse: $A^{\dagger} = A^{-1}$. This can be verified through the formula for full column rank: $A^{\dagger} = (A^TA)^{-1}A^T$. For square nonsingular $A$, we have $(A^TA)^{-1}A^T = [(A^T)^{-1}A^{-1}]A^T = (A^T)^{-1}(A^{-1}A^T) = (A^T)^{-1}A^T A^{-1} = A^{-1}$. Geometrically, when $A$ is an isomorphism, there's no need for "pseudo" behavior—the true inverse captures all the structure the pseudoinverse would provide. The pseudoinverse generalizes the inverse to rectangular and singular matrices, but reduces to the ordinary inverse in the nonsingular square case.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      incorrectly involves transpose; perhaps confused with properties of orthogonal matrices or adjoint
+    C: |
+      conflates the inverse and transpose operations; students might think pseudoinverse has something to do with transpose since the formula involves $A^T$
+    D: |
+      recognizes that the product equals identity but incorrectly believes they must be different matrices; fails to see that having $A^{\dagger}A^{-1} = I$ combined with both being square means they must be equal
+    E: |
+      fundamentally misunderstands the relationship; thinks pseudoinverse only applies to non-invertible cases
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 8
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 265
+variant_of: null
+topics:
+- Pseudoinverse
+- inverse
+- square matrices
+- relationship
+notes: null

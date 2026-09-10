@@ -1,0 +1,55 @@
+id: ESE2030-0105
+legacy_id: Q5-P10
+week: 11
+skills: []
+status: active
+problem_type: null
+statement: |
+  Four vibration sensors measure vertical displacement (in mm) on a suspension bridge at locations: North anchor, North midspan, South midspan, South anchor. After centering the data, (covariance) PCA reveals the following eigenvectors/eigenvalues of $X^TX$:
+
+  $$\mathbf{v}_1 = \frac{1}{2}\begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \quad \mathbf{v}_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \\ 0 \\ -1 \end{pmatrix}, \quad \mathbf{v}_3 = \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ 1 \\ -1 \\ 0 \end{pmatrix}$$
+
+  with eigenvalues $\lambda_1 = 36$, $\lambda_2 = 9$, $\lambda_3 = 4$, $\lambda_4 = 1$ (in mm²).
+
+  Which interpretation is most consistent with these results?
+choices:
+- label: A
+  text: $\mathbf{v}_1$ represents uniform vertical motion of the entire bridge (all sensors move together),
+    capturing 72\% of total variance.
+- label: B
+  text: $\mathbf{v}_2$ represents torsional twisting where the North side moves opposite to the South
+    side, while midspan points remain stationary.
+- label: C
+  text: $\mathbf{v}_3$ represents antisymmetric bending where the two midspan points move in opposite
+    directions while anchors remain fixed.
+- label: D
+  text: All of the above (A, B, and C) are correct interpretations of the principal components.
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - A
+  - B
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    Each principal component reveals a distinct vibration mode: - $\mathbf{v}_1 = (1,1,1,1)/2$: All four sensors move together with equal weight → uniform vertical displacement. Proportion: $36/50 = 72\%$. - $\mathbf{v}_2 = (1,0,0,-1)/\sqrt{2}$: North anchor and South anchor move in opposite directions (+1 vs -1), midspan sensors have zero weight → end-to-end "tilting" or rotational mode. - $\mathbf{v}_3 = (0,1,-1,0)/\sqrt{2}$: The two midspan sensors move in opposition while anchors have zero weight → midspan antisymmetric bending. These interpretations match physical vibration modes of bridges. The large $\lambda_1$ indicates most variation is uniform heaving.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 10
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 396
+variant_of: null
+topics:
+- Interpreting principal components
+- physical meaning
+notes: null

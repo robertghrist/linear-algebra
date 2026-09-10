@@ -1,0 +1,60 @@
+id: ESE2030-0107
+legacy_id: Q5-P12
+week: 11
+skills: []
+status: active
+problem_type: null
+statement: |
+  A data scientist analyzes measurements from six sensors monitoring a thermodynamic process. The sensors measure various properties of the system: pressure, temperature, volume, entropy, enthalpy, and work.
+  The figures below plot (vertically) cumulative explained variance for covariance PCA (left) and correlation PCA (right), versus (horizontally) number of singular values (from 0 to 6). Based on these plots, which interpretation is most appropriate?
+choices:
+- label: A
+  text: 'Covariance PCA reveals that the process is essentially one-dimensional: a single latent variable
+    explains 94\% of all variation, making $k=1$ the optimal choice for dimensionality reduction.'
+- label: B
+  text: Correlation PCA suggests the process has intrinsic dimension approximately 3, with scale differences
+    among sensors masking this structure in the covariance analysis.
+- label: C
+  text: Both analyses agree on low intrinsic dimensionality; correlation PCA is always preferable as it
+    preserves the natural units of measurement.
+- label: D
+  text: The correlation PCA result is misleading because standardizing variables inflates the apparent
+    contribution of low-variance sensors like volume.
+- label: E
+  text: A rank-2 approximation captures over 75\% of variance in both analyses, so either method supports
+    reducing to 2 dimensions.
+figures:
+- ESE2030-0107-a.jpg
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    The 94% variance captured by the first covariance PC is a classic symptom of scale mismatch: pressure (measured in thousands of kPa) dominates the variance simply due to units. This doesn't indicate true 1-dimensionality—it indicates that one variable has numerically larger values than the others. Correlation PCA standardizes all variables to unit variance, removing scale artifacts. The resulting plot shows a clear elbow at $k=3$: three components capture 90% of standardized variance, suggesting the underlying process has approximately 3 degrees of freedom. This is the genuine intrinsic dimensionality, revealed only after accounting for measurement scale. The covariance result would lead to discarding potentially important process information that happens to be measured in small-magnitude units (like pH ranging 6-8 or dissolved O₂ in mg/L).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      falls into the scale-artifact trap; high variance ≠ physical importance
+    C: |
+      covariance PCA does NOT reveal low dimensionality—it reveals scale dominance; also, "natural units" is not a valid reason when units are incommensurable
+    D: |
+      standardization doesn't "inflate" low-variance variables unfairly—it gives each variable equal opportunity to contribute, which is appropriate when scales are arbitrary
+    E: |
+      (technically true that correlation PCA hits 75% at $k=2$, but covariance PCA hits 97% at $k=2$, so "both analyses" is misleading; more importantly, this misses the key insight about WHICH analysis to trust) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 12
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 467
+variant_of: null
+topics:
+- Covariance vs correlation PCA
+- scree plots
+- intrinsic dimensionality
+- scale artifacts
+notes: null

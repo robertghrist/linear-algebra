@@ -1,0 +1,41 @@
+id: ESE2030-0142
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $A$ be an $n \times n$ matrix and let $A = QR$ be its QR decomposition.
+  If $R$ has a zero on its diagonal, what can be concluded?
+choices:
+- label: A
+  text: The columns of $A$ are linearly dependent
+- label: B
+  text: The matrix $Q$ must have determinant zero
+- label: C
+  text: The matrix $A^TA$ is positive definite
+- label: D
+  text: The matrix $A^T$ equals $R^TQ$
+- label: E
+  text: There is an error; $R$ cannot have a zero diagonal entry
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    For upper triangular $R$, det$(R)$ equals the product of diagonal entries. A zero diagonal entry means det$(R) = 0$, so $R$ is singular and rank$(R) < n$. Since $Q$ is orthogonal (hence invertible), rank$(A)$ = rank$(QR)$ = rank$(R) < n$, meaning the columns of $A$ are linearly dependent. Equivalently: QR decomposition is Gram-Schmidt in matrix form; a zero diagonal entry occurs precisely when some column of $A$ lies in the span of preceding columns.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: final
+  position: 27
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 887
+variant_of: null
+topics: []
+notes: null

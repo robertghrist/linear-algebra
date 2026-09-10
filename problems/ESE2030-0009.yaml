@@ -1,0 +1,51 @@
+id: ESE2030-0009
+legacy_id: Q1-P09
+week: 2
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider the set of Euclidean vectors
+  \[
+      S = \left\{
+      \begin{pmatrix}1\\2\\0\end{pmatrix},
+      \begin{pmatrix}0\\1\\1\end{pmatrix},
+      \begin{pmatrix}1\\3\\1\end{pmatrix}
+      \right\}
+  \]
+  Which statement about $S$ is most correct?
+choices:
+- label: A
+  text: $S$ spans $\mathbb{R}^3$
+- label: B
+  text: $S$ is linearly independent but does not span $\mathbb{R}^3$
+- label: C
+  text: $S$ is linearly dependent and does not span $\mathbb{R}^3$
+- label: D
+  text: $S$ is linearly dependent and spans $\mathbb{R}^3$
+- label: E
+  text: $S$ forms a basis for $\mathbb{R}^3$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    Notice that: $$\begin{pmatrix}1\\3\\1\end{pmatrix} = \begin{pmatrix}1\\2\\0\end{pmatrix} + \begin{pmatrix}0\\1\\1\end{pmatrix}$$ This shows linear dependence. Since we have only 2 independent vectors in $\mathbb{R}^3$, the set cannot span the entire space.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 9
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 219
+variant_of: null
+topics:
+- Linear independence
+- dimension
+- bases
+notes: 'trap (Q9 answers): Three vectors in $\mathbb{R}^3$ aren''t automatically a basis—check for independence!'

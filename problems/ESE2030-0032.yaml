@@ -1,0 +1,43 @@
+id: ESE2030-0032
+legacy_id: Q2-P07
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: \mathbb{R}^5 \to \mathbb{R}^5$ be a linear transformation.
+  Given that $\dim(\ker(T)) = 2$ and $\dim(\text{im}(T)) = 3$, which statement about the cokernel $\text{coker}(T)$ must be true?
+choices:
+- label: A
+  text: $\dim(\text{coker}(T)) = 2$ and it is a subspace of $\mathbb{R}^5$
+- label: B
+  text: $\dim(\text{coker}(T)) = 2$ and it is isomorphic to $\ker(T)$
+- label: C
+  text: $\dim(\text{coker}(T)) = 2$ but it need not be isomorphic to $\ker(T)$
+- label: D
+  text: $\dim(\text{coker}(T)) = 2$ and it is isomorphic to $\text{im}(T)$
+- label: E
+  text: $\dim(\text{coker}(T)) = 2$ and it is isomorphic to $\text{coim}(T)$
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The cokernel has dimension $\dim(\mathbb{R}^5) - \dim(\text{im}(T)) = 5 - 3 = 2$. While $\ker(T)$ also has dimension 2, these spaces live in different contexts (one in the domain, one as a quotient of the codomain) and are generally not isomorphic as there's no natural isomorphism between them.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 7
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 238
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,45 @@
+id: ESE2030-0039
+legacy_id: Q2-P14
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: \mathbb{R}^4 \to \mathbb{R}^3$ be a linear transformation with $\text{rank}(T) = 2$.
+  Consider the quotient space $\mathbb{R}^4/\ker(T)$ and the image $\text{im}(T)$.
+  Which statement about the relationship between these spaces is true?
+choices:
+- label: A
+  text: They have the same dimension but are not isomorphic since one lives in $\mathbb{R}^4$ and the
+    other in $\mathbb{R}^3$
+- label: B
+  text: They are isomorphic, and the isomorphism is induced by the transformation $T$ itself
+- label: C
+  text: The quotient space has dimension $3$ while the image has dimension $2$, so they cannot be isomorphic
+- label: D
+  text: They are the same space
+- label: E
+  text: The quotient space is undefined since $\ker(T)$ might not be a proper subspace
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    By the First Isomorphism Theorem (fundamental theorem), $\mathbb{R}^4/\ker(T) \cong \text{im}(T)$. The transformation $T$ induces this isomorphism naturally. Both spaces have dimension 2 (quotient: $\dim(\mathbb{R}^4) - \dim(\ker(T)) = 4 - 2 = 2$; image: rank = 2).
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 14
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 408
+variant_of: null
+topics: []
+notes: null

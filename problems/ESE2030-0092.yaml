@@ -1,0 +1,55 @@
+id: ESE2030-0092
+legacy_id: Q4-P19
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a \textit{symmetric} $3 \times 3$ matrix with eigenvalues $\lambda_1 = 5$, $\lambda_2 = 3$, and $\lambda_3 = 3$. Using the convention that an eigenvector $\mathbf{v}_i$ always goes with the eigenvalue $\lambda_i$, which of the following statements is most correct?
+choices:
+- label: A
+  text: The eigenspace for $\lambda = 3$ has dimension 1, so only one of $\mathbf{v}_2$ or $\mathbf{v}_3$
+    exists
+- label: B
+  text: $\mathbf{v}_1$ must be orthogonal to both $\mathbf{v}_2$ and $\mathbf{v}_3$, but $\mathbf{v}_2$
+    and $\mathbf{v}_3$ need not be orthogonal since they share the same eigenvalue
+- label: C
+  text: All three eigenvectors exist, but we must apply Gram-Schmidt within the eigenspace for $\lambda
+    = 3$ to make $\mathbf{v}_2$ and $\mathbf{v}_3$ orthogonal
+- label: D
+  text: The repeated eigenvalue means $A$ is not diagonalizable, so we cannot find three linearly independent
+    eigenvectors
+- label: E
+  text: All three $\mathbf{v}_i$ exist and are mutually orthogonal
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The Spectral Theorem guarantees that every symmetric matrix has an orthonormal basis of eigenvectors, regardless of whether eigenvalues are repeated. For this matrix: (1) Symmetric matrices are always diagonalizable, so geometric multiplicity equals algebraic multiplicity for each eigenvalue. The eigenspace for λ=3 is 2-dimensional. (2) The theorem guarantees not just that eigenvectors from different eigenspaces are orthogonal, but that we can choose an ENTIRE orthonormal eigenbasis. This means v₁, v₂, and v₃ can all be chosen mutually orthogonal. While it's true we might use Gram-Schmidt to construct such a basis, the Spectral Theorem guarantees this construction will succeed—this is the key difference from general (non-symmetric) matrices where repeated eigenvalues might have deficient eigenspaces.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      confuses symmetric matrices with general matrices; symmetric matrices always have full-dimensional eigenspaces
+    B: |
+      true for eigenvectors from different eigenspaces, but misses that the Spectral Theorem guarantees orthogonality within eigenspaces too
+    D: |
+      repeated eigenvalues can cause non-diagonalizability for general matrices, but never for symmetric matrices
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 19
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 611
+variant_of: null
+topics:
+- Spectral Theorem
+- orthogonality of eigenvectors
+- symmetric matrices
+notes: null

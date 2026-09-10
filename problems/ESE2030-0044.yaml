@@ -1,0 +1,43 @@
+id: ESE2030-0044
+legacy_id: Q2-P19
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Which of the following matrices is orthogonal? {\em Hint:} be strategic and do not do {\em all} the computations...
+choices:
+- label: A
+  text: Q_1 = \begin{bmatrix} 2/3 & 2/3 & 1/3 \\ -2/3 & 1/3 & 2/3 \\ 1/3 & -2/3 & 2/3 \end{bmatrix}
+- label: B
+  text: Q_2 = \begin{bmatrix} 1/\sqrt{3} & 1/\sqrt{2} & 1/\sqrt{6} \\ 1/\sqrt{3} & -1/\sqrt{2} & 1/\sqrt{6}
+    \\ 1/\sqrt{3} & 0 & -2/\sqrt{6} \end{bmatrix}
+- label: C
+  text: Q_3 = \begin{bmatrix} 1/\sqrt{2} & 1/\sqrt{3} & 1/\sqrt{6} \\ 0 & 1/\sqrt{3} & -2/\sqrt{6} \\
+    1/\sqrt{2} & -1/\sqrt{3} & 1/\sqrt{6} \end{bmatrix}
+- label: D
+  text: Q_4 = \begin{bmatrix} 1/2 & 1/2 & 1/\sqrt{2} \\ 1/2 & 1/2 & -1/\sqrt{2} \\ -1/\sqrt{2} & 1/\sqrt{2}
+    & 0 \end{bmatrix}
+- label: E
+  text: None of the above is orthogonal.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    An orthogonal matrix requires ALL columns to be orthonormal (pairwise orthogonal and each of unit length). For $Q_2$: - Column 1: $\|(1/\sqrt{3}, 1/\sqrt{3}, 1/\sqrt{3})\| = \sqrt{3 \cdot 1/3} = 1$ ✓ - Column 2: $\|(1/\sqrt{2}, -1/\sqrt{2}, 0)\| = \sqrt{2 \cdot 1/2} = 1$ ✓ - Column 3: $\|(1/\sqrt{6}, 1/\sqrt{6}, -2/\sqrt{6})\| = \sqrt{(1+1+4)/6} = 1$ ✓ - Columns 1&2: $(1/\sqrt{3})(1/\sqrt{2}) + (1/\sqrt{3})(-1/\sqrt{2}) + (1/\sqrt{3})(0) = 0$ ✓ - Columns 1&3: $(1/\sqrt{3})(1/\sqrt{6}) + (1/\sqrt{3})(1/\sqrt{6}) + (1/\sqrt{3})(-2/\sqrt{6}) = 0$ ✓ - Columns 2&3: $(1/\sqrt{2})(1/\sqrt{6}) + (-1/\sqrt{2})(1/\sqrt{6}) + (0)(-2/\sqrt{6}) = 0$ ✓
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 19
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 519
+variant_of: null
+topics: []
+notes: null

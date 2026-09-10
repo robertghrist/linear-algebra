@@ -1,0 +1,53 @@
+id: ESE2030-0071
+legacy_id: Q3-P22
+week: 6
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $V$ be a finite-dimensional inner product space and $W$ a subspace of $V$. Consider the quotient space $V/W$, whose elements are equivalence classes $[\mathbf{v}] = \{\mathbf{v} + \mathbf{w} : \mathbf{w} \in W\}$.
+
+  In an inner product space, we can represent each equivalence class $[\mathbf{v}]$ uniquely by a distinguished vector. Which of the following provides the correct geometric characterization of this distinguished representative?
+choices:
+- label: A
+  text: The vector in $[\mathbf{v}]$ with maximum norm
+- label: B
+  text: The vector in $[\mathbf{v}]$ that lies in $W$
+- label: C
+  text: The vector in $[\mathbf{v}]$ that lies in $W^{\perp}$
+- label: D
+  text: The vector in $[\mathbf{v}]$ that is closest to the origin
+- label: E
+  text: Both (C) and (D) describe the same vector
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    This problem tests the deep connection between quotient spaces and orthogonal complements in inner product spaces. The key insight is that the orthogonal projection $\Pi_{W^{\perp}}(\mathbf{v})$ provides the unique representative of the equivalence class $[\mathbf{v}]$ that lies in $W^{\perp}$. This is also precisely the vector in $[\mathbf{v}]$ with minimum norm (closest to origin). To see why: any vector in $[\mathbf{v}]$ has the form $\mathbf{v} + \mathbf{w}$ for some $\mathbf{w} \in W$. We can write $\mathbf{v} = \mathbf{v}_{W^{\perp}} + \mathbf{v}_W$ where $\mathbf{v}_{W^{\perp}} \in W^{\perp}$ and $\mathbf{v}_W \in W$. Then $\mathbf{v} + \mathbf{w} = \mathbf{v}_{W^{\perp}} + (\mathbf{v}_W + \mathbf{w})$. By the Pythagorean theorem, $\|\mathbf{v} + \mathbf{w}\|^2 = \|\mathbf{v}_{W^{\perp}}\|^2 + \|\mathbf{v}_W + \mathbf{w}\|^2$, which is minimized when $\mathbf{v}_W + \mathbf{w} = \mathbf{0}$, i.e., when $\mathbf{w} = -\mathbf{v}_W$. This gives us $\mathbf{v} + \mathbf{w} = \mathbf{v}_{W^{\perp}}$, the orthogonal projection onto $W^{\perp}$. This geometric insight provides the natural isomorphism $V/W \cong W^{\perp}$: each equivalence class corresponds to its unique representative in $W^{\perp}$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      reverses the optimization - maximum vs minimum norm
+    B: |
+      confuses the subspace we're quotienting by with where representatives live; vectors in $W$ represent only the zero equivalence class
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 22
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 631
+variant_of: null
+topics:
+- Quotient spaces
+- orthogonal complements
+- isomorphism
+- inner product geometry
+notes: null

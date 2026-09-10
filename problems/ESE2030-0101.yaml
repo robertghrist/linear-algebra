@@ -1,0 +1,55 @@
+id: ESE2030-0101
+legacy_id: Q5-P06
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  A data matrix $A \in \mathbb{R}^{100 \times 50}$ represents measurements where rows are observations and columns are features. The SVD $A = U\Sigma V^T$ reveals that only the first 10 singular values are nonzero: $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_{10} > 0$ and $\sigma_{11} = \cdots = \sigma_{50} = 0$.
+
+  An analyst wants to understand the fundamental subspaces. Which statement is most TRUE?
+choices:
+- label: A
+  text: The first 10 right singular vectors $\mathbf{v}_1, \ldots, \mathbf{v}_{10}$ span the column space
+    of $A$, capturing the 10 most important patterns in the observations.
+- label: B
+  text: The first 10 left singular vectors $\mathbf{u}_1, \ldots, \mathbf{u}_{10}$ span a 10-dimensional
+    subspace of feature space where all data variation occurs.
+- label: C
+  text: The right singular vectors $\mathbf{v}_{11}, \ldots, \mathbf{v}_{50}$ form a basis for $\ker(A)$,
+    representing 40 redundant feature combinations.
+- label: D
+  text: The left singular vectors $\mathbf{u}_{11}, \ldots, \mathbf{u}_{100}$ span $\ker(A^T)$, representing
+    observation directions that have no correlation with any features.
+- label: E
+  text: Both (C) and (D) are correct.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    This tests understanding of which singular vectors span which fundamental subspaces. For $A \in \mathbb{R}^{100 \times 50}$ with rank 10: - Right singular vectors $\mathbf{v}_i \in \mathbb{R}^{50}$ (feature space): $\{\mathbf{v}_1, \ldots, \mathbf{v}_{10}\}$ span $\text{im}(A^T)$ (NOT $\text{im}(A)$), and $\{\mathbf{v}_{11}, \ldots, \mathbf{v}_{50}\}$ span $\ker(A)$. Statement C is correct. - Left singular vectors $\mathbf{u}_i \in \mathbb{R}^{100}$ (observation space): $\{\mathbf{u}_1, \ldots, \mathbf{u}_{10}\}$ span $\text{im}(A)$, and $\{\mathbf{u}_{11}, \ldots, \mathbf{u}_{100}\}$ span $\ker(A^T)$. Statement D is correct. The kernel $\ker(A)$ has dimension $50 - 10 = 40$, representing linear combinations of features that always give zero when $A$ acts on them (redundant feature directions). The left null space $\ker(A^T)$ has dimension $100 - 10 = 90$, representing observation directions orthogonal to the column space.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      confuses $\text{im}(A^T)$ with $\text{im}(A)$; right singular vectors span $\text{im}(A^T)$ in the domain, not $\text{im}(A)$ in the codomain
+    B: |
+      left singular vectors live in observation space $\mathbb{R}^{100}$, not feature space $\mathbb{R}^{50}$; they span the column space $\text{im}(A)$, which is 10-dimensional
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 6
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 259
+variant_of: null
+topics:
+- Fundamental subspaces via SVD
+- left vs right singular vectors
+- geometric interpretation
+notes: null

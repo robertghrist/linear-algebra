@@ -1,0 +1,47 @@
+id: ESE2030-0135
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Consider a linear system $A\mathbf{x} = \mathbf{b}$ where $A$ is a $5 \times 8$ matrix of rank $3$. Suppose the system is consistent (has at least one solution). Which statement best describes the solution set?
+choices:
+- label: A
+  text: The solution is unique.
+- label: B
+  text: The solution set is a 3-dimensional subspace of $\mathbb{R}^8$.
+- label: C
+  text: The solution set is a parallel translate of a 5-dimensional subspace of $\mathbb{R}^8$.
+- label: D
+  text: The solution set is a 5-dimensional subspace of $\mathbb{R}^8$.
+- label: E
+  text: The solution set is a parallel translate of $\ker(A)$.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |2
+     By rank-nullity: dim(ker(A)) = 8 - rank(A) = 8 - 3 = 5. For a consistent system Ax = b: - If x_p is a particular solution (so Ax_p = b), then the full solution set is {x_p + h : h ∈ ker(A)} = x_p + ker(A) - This is an affine subspace (translated linear subspace), not a subspace (unless b = 0) - The dimension of this affine subspace equals dim(ker(A)) = 5 So there are infinitely many solutions, parametrized by 5 free variables.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      rank > 0 doesn't guarantee uniqueness; need rank = number of unknowns for that
+    B: |
+      confuses rank with nullity; the "3" is the rank, not the solution space dimension
+    D: |
+      solution set passes through origin only if b = 0; for b ≠ 0, it's translated away from origin
+sources:
+- semester: 2025C
+  instrument: final
+  position: 20
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 683
+variant_of: null
+topics: []
+notes: null

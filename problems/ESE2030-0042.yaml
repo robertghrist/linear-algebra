@@ -1,0 +1,43 @@
+id: ESE2030-0042
+legacy_id: Q2-P17
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation. Two vectors $\mathbf{u}, \mathbf{v} \in V$ represent the same equivalence class in the coimage
+  $\text{coim}(T)$ if and only if:
+choices:
+- label: A
+  text: $\mathbf{u} - \mathbf{v} \in \text{coim}(T)$
+- label: B
+  text: $T(\mathbf{u} - \mathbf{v}) \in \text{im}(T)$
+- label: C
+  text: $\mathbf{u} = \mathbf{v}$
+- label: D
+  text: $T(\mathbf{u}) = T(\mathbf{v})$
+- label: E
+  text: $T(\mathbf{u})-T(\mathbf{v}) \in \text{im}(T)$
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Two vectors $\mathbf{u}, \mathbf{v}$ are in the same equivalence class of $\text{coim}(T) = V/\ker(T)$ if and only if: $$\mathbf{u} - \mathbf{v} \in \ker(T)$$ This is equivalent to: $$T(\mathbf{u} - \mathbf{v}) = \mathbf{0}$$ $$T(\mathbf{u}) = T(\mathbf{v})$$ Option (E) states $T(\mathbf{u}) - T(\mathbf{v}) \in \text{im}(T)$, which is always true but doesn't characterize equivalence.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 17
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 482
+variant_of: null
+topics: []
+notes: null

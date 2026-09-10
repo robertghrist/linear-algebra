@@ -1,0 +1,54 @@
+id: ESE2030-0051
+legacy_id: Q3-P02
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 2$, $\lambda_2 = -3$, and $\lambda_3$ unknown.
+  If $\det(A) = -12$ and $\text{tr}(A) = 1$, what is $\lambda_3$?
+choices:
+- label: A
+  text: $\lambda_3 = 2$
+- label: B
+  text: $\lambda_3 = -2$
+- label: C
+  text: $\lambda_3 = 4$
+- label: D
+  text: $\lambda_3 = -4$
+- label: E
+  text: Not enough information to determine
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The determinant equals the product of eigenvalues: $\det(A) = \lambda_1 \lambda_2 \lambda_3 = (2)(-3)\lambda_3 = -6\lambda_3 = -12$, giving $\lambda_3 = 2$. We can verify with the trace: $\text{tr}(A) = \lambda_1 + \lambda_2 + \lambda_3 = 2 + (-3) + 2 = 1$ ✓. Both properties are consistent.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      uses trace to get 1 - 2 + 3 = 2, but miscalculates or uses wrong sign
+    C: |
+      incorrectly uses $\det(A) = \lambda_1 + \lambda_2 + \lambda_3$ instead of product
+    D: |
+      uses determinant correctly but makes arithmetic error
+    E: |
+      doesn't recognize that determinant alone is sufficient, or thinks both equations are needed and might be inconsistent
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 2
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 111
+variant_of: null
+topics:
+- Eigenvalues
+- determinant
+- trace
+- properties of eigenvalues
+notes: null

@@ -1,0 +1,57 @@
+id: ESE2030-0130
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $A$ be an $m \times n$ matrix with $\text{rank}(A) = r$.
+  Consider the following three spaces:
+  \begin{enumerate}[(i)]
+  \item The coimage: $\text{coim}(A) = \mathbb{R}^n / \ker(A)$
+  \item The orthogonal complement: $\ker(A)^{\perp}$
+  \item The row space: $\text{im}(A^T)$
+  \end{enumerate}
+
+  Which statement is true?
+choices:
+- label: A
+  text: (i), (ii), and (iii) are three different spaces with dimensions $r$, $n-r$, and $r$ respectively
+- label: B
+  text: (i) and (ii) are equal, but (iii) requires the transpose and lives in a different space
+- label: C
+  text: (i) is isomorphic to $\text{im}(A)$, but (ii) and (iii) are unrelated to the image
+- label: D
+  text: (ii) and (iii) are equal as subsets of $\mathbb{R}^n$, and both are isomorphic to (i)
+- label: E
+  text: An inner product is required to define all three of (i), (ii), and (iii)
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    The row space $\text{im}(A^T)$ and the orthogonal complement $\ker(A)^{\perp}$ are the same subspace of $\mathbb{R}^n$ — this is a key part of FTLA: $\mathbb{R}^n = \ker(A) \oplus \text{im}(A^T)$. The coimage $\mathbb{R}^n/\ker(A)$ is the quotient space (equivalence classes), which is isomorphic to both via the natural isomorphism that sends each coset to its unique representative in $\ker(A)^{\perp}$. All three have dimension $r = \text{rank}(A)$. The coimage is also isomorphic to $\text{im}(A)$ by the First Isomorphism Theorem.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      gets dimensions wrong for (ii); $\ker(A)^{\perp}$ has dimension $r$, not $n-r$
+    B: |
+      wrong: (i) is a quotient space of equivalence classes, (ii) is a subspace of vectors; they're isomorphic but not equal. Also wrong that (iii) lives elsewhere — it's in $\mathbb{R}^n$
+    C: |
+      partially correct but misses the key FTLA relationship
+    E: |
+      (coimage and row space are purely algebraic; only orthogonal complement requires inner product) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ===============================================
+sources:
+- semester: 2025C
+  instrument: final
+  position: 15
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 538
+variant_of: null
+topics: []
+notes: null

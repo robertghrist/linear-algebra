@@ -1,0 +1,53 @@
+id: ESE2030-0064
+legacy_id: Q3-P15
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider a $3 \times 3$ matrix $B$ with eigenvalues $2$, $3$, and $\lambda$. Which of the following statements is most true?
+choices:
+- label: A
+  text: If $\text{tr}(B) = 10$, then $\det(B) = 30$
+- label: B
+  text: If $\det(B) = 24$, then $\text{tr}(B) = 10$
+- label: C
+  text: If $\text{tr}(B) = 10$, then $\lambda = 5$ and $\det(B) = 30$
+- label: D
+  text: The trace and determinant provide independent information and cannot determine $\lambda$ uniquely
+- label: E
+  text: If $\det(B) = 0$, then $\text{tr}(B)$ must equal $0$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The trace equals the sum of eigenvalues: $\text{tr}(B) = 2 + 3 + \lambda$. If $\text{tr}(B) = 10$, then $\lambda = 10 - 5 = 5$. The determinant equals the product of eigenvalues: $\det(B) = 2 \cdot 3 \cdot \lambda = 6\lambda = 6 \cdot 5 = 30$. Given the trace, we can uniquely determine $\lambda$, which then uniquely determines the determinant.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      correctly computes $\lambda = 5$ from trace but incorrectly computes $\det(B) = 2 + 3 + 5 = 10$ using sum instead of product
+    B: |
+      reverses the implication; knowing det doesn't uniquely determine trace without knowing the third eigenvalue
+    D: |
+      fails to recognize that trace alone determines $\lambda$ via the sum relationship
+    E: |
+      if $\det(B) = 0$, then one eigenvalue is zero, but without knowing which one, we cannot determine $\text{tr}(B)$ uniquely; could be $2 + 3 + 0 = 5$, or $2 + 0 + \lambda$, or $0 + 3 + \lambda$
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 15
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 453
+variant_of: null
+topics:
+- Trace
+- eigenvalues
+- determinant
+- relationship
+notes: null

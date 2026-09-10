@@ -1,0 +1,51 @@
+id: ESE2030-0136
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A $3 \times 3$ matrix $A$ is diagonalizable with $A = P\Lambda P^{-1}$, where $\Lambda  = \text{diag}(2, -1, 4)$ and $P$ is the matrix of eigenvectors.
+  To compute $A^{100}$, which approach is correct?
+choices:
+- label: A
+  text: $A^{100} = P\Lambda ^{100}P^{-1}$, where $\Lambda ^{100} = \text{diag}(2^{100}, (-1)^{100}, 4^{100})
+    = \text{diag}(2^{100}, 1, 4^{100})$
+- label: B
+  text: $A^{100} = P^{100}\Lambda ^{100}P^{-100}$, raising each factor to the 100th power
+- label: C
+  text: $A^{100} = \Lambda ^{100}$, since diagonalization reveals the essential structure of $A$
+- label: D
+  text: $A^{100} = P\Lambda P^{-1} \cdot P\Lambda P^{-1} \cdots = P^{100}\Lambda P^{-100}$, with the $\Lambda
+    $'s combining to just $\Lambda $
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    The key insight is that $(P\Lambda P^{-1})^2 = P\Lambda P^{-1}P\Lambda P^{-1} = P\Lambda (P^{-1}P)\Lambda P^{-1} = P\Lambda I\Lambda P^{-1} = P\Lambda ^2P^{-1}$. The middle terms $P^{-1}P$ collapse to $I$, leaving only the outer $P$ and $P^{-1}$. By induction, $A^k = P\Lambda ^kP^{-1}$ for any positive integer $k$. Since $\Lambda $ is diagonal, $\Lambda ^{100} = \text{diag}(2^{100}, (-1)^{100}, 4^{100})$. Note that $(-1)^{100} = 1$ because 100 is even. This is the computational power of diagonalization: matrix powers reduce to scalar powers of eigenvalues.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      incorrectly raises $P$ and $P^{-1}$ to the 100th power; doesn't recognize the telescoping
+    C: |
+      loses the similarity transformation; $A^{100} \neq \Lambda ^{100}$ unless $P = I$
+    D: |
+      gets the telescoping idea but incorrectly thinks the $\Lambda $'s don't accumulate powers
+    E: |
+      ===============================================
+sources:
+- semester: 2025C
+  instrument: final
+  position: 21
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 715
+variant_of: null
+topics: []
+notes: null

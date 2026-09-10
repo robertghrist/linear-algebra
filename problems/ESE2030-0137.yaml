@@ -1,0 +1,46 @@
+id: ESE2030-0137
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  {\em ``To get an orthonormal basis from a basis $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$, just normalize each vector: $\mathbf{e}_i = \mathbf{v}_i/\|\mathbf{v}_i\|$.''}
+  Why does this fail to produce an orthonormal basis in general?
+choices:
+- label: A
+  text: Normalizing changes the span of the vectors
+- label: B
+  text: The formula $\mathbf{e}_i = \mathbf{v}_i/\|\mathbf{v}_i\|$ requires the vectors to already be
+    orthogonal
+- label: C
+  text: Normalized vectors have unit length but are not guaranteed to be mutually orthogonal
+- label: D
+  text: Normalization produces vectors that no longer form a basis
+- label: E
+  text: The inner product $\langle \mathbf{e}_i, \mathbf{e}_j \rangle$ becomes undefined after normalization
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    "Orthonormal" requires two properties: (1) unit length ($\|\mathbf{e}_i\| = 1$) and (2) mutual orthogonality ($\langle \mathbf{e}_i, \mathbf{e}_j \rangle = 0$ for $i \neq j$). Simple normalization achieves (1) but does nothing for (2). If $\mathbf{v}_1$ and $\mathbf{v}_2$ are not orthogonal, then $\mathbf{v}_1/\|\mathbf{v}_1\|$ and $\mathbf{v}_2/\|\mathbf{v}_2\|$ won't be orthogonal either—scaling preserves angles. The key insight of Gram-Schmidt is the subtraction step: we remove the component along previous vectors BEFORE normalizing, which is what creates orthogonality.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      normalized vectors still span the same space and are still linearly independent, so they still form a basis—just not an orthonormal one
+    E: |
+      (inner products are perfectly well-defined for normalized vectors) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 22
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 741
+variant_of: null
+topics: []
+notes: null

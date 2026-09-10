@@ -1,0 +1,52 @@
+id: ESE2030-0131
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $V$ be a finite-dimensional real inner product space and let $T: V \to V$ be a linear operator.
+  Recall that the adjoint $T^*$ is defined via the inner product and generalizes the notion of a transpose.
+  Suppose $T$ is self-adjoint (meaning $T = T^*$). Which statement must be true?
+choices:
+- label: A
+  text: $T$ is invertible
+- label: B
+  text: $\langle T\mathbf{v}, \mathbf{w} \rangle = \langle T\mathbf{w}, \mathbf{v} \rangle$ for all $\mathbf{v},
+    \mathbf{w}$
+- label: C
+  text: $T^2 = I$
+- label: D
+  text: $\ker(T) = \{\mathbf{0}\}$
+- label: E
+  text: $\langle T\mathbf{v}, T\mathbf{w} \rangle = \langle \mathbf{v}, \mathbf{w} \rangle$ for all $\mathbf{v},
+    \mathbf{w}$
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    If $T = T^*$, then $\langle T\mathbf{v}, \mathbf{w} \rangle = \langle \mathbf{v}, T^*\mathbf{w} \rangle = \langle \mathbf{v}, T\mathbf{w} \rangle$. By symmetry of real inner products, $\langle \mathbf{v}, T\mathbf{w} \rangle = \langle T\mathbf{w}, \mathbf{v} \rangle$. Thus $\langle T\mathbf{v}, \mathbf{w} \rangle = \langle T\mathbf{w}, \mathbf{v} \rangle$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      self-adjoint does not imply invertible; the zero operator is self-adjoint
+    C: |
+      confuses self-adjoint with involution; $T^2 = I$ is a different property
+    D: |
+      self-adjoint operators can have nontrivial kernels
+    E: |
+      this property defines \emph{orthogonal/unitary} operators, not self-adjoint
+sources:
+- semester: 2025C
+  instrument: final
+  position: 16
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 574
+variant_of: null
+topics: []
+notes: null

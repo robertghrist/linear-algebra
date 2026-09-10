@@ -1,0 +1,56 @@
+id: ESE2030-0118
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A single perceptron computes $f(\mathbf{x}) = \text{sign}(\mathbf{w} \cdot \mathbf{x} + b)$ where $\mathbf{w} \in \mathbb{R}^n$ is a weight vector and $b$ is a bias. Four classification tasks in $\mathbb{R}^2$ are proposed:
+
+  \begin{itemize}
+  \item Task 1: Separate points where $x_1 + x_2 > 1$ from points where $x_1 + x_2 < 1$
+  \item Task 2: Separate points where $x_1 \cdot x_2 > 0$ from points where $x_1 \cdot x_2 < 0$
+  \item Task 3: Separate points inside the unit circle from points outside
+  \item Task 4: Separate points where $|x_1| > |x_2|$ from points where $|x_1| < |x_2|$
+  \end{itemize}
+
+  Which tasks can be solved by a single perceptron?
+choices:
+- label: A
+  text: Tasks 1 and 2 only
+- label: B
+  text: Task 1 only
+- label: C
+  text: Tasks 1, 2, and 4
+- label: D
+  text: All four tasks
+- label: E
+  text: None of the tasks
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    A single perceptron can only implement linear decision boundaries—hyperplanes of the form $\mathbf{w} \cdot \mathbf{x} + b = 0$. - Task 1: The boundary $x_1 + x_2 = 1$ IS a hyperplane (line in $\mathbb{R}^2$), so YES. - Task 2: The boundary $x_1 \cdot x_2 = 0$ consists of BOTH axes (two lines), and the regions alternate in quadrants (like XOR). NOT linearly separable. - Task 3: The boundary is a circle $x_1^2 + x_2^2 = 1$, which is NOT a hyperplane. NOT linearly separable. - Task 4: The boundaries are $|x_1| = |x_2|$, i.e., the lines $x_1 = x_2$ AND $x_1 = -x_2$. Regions alternate, NOT linearly separable.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      confuses "can be described algebraically" with "linearly separable"
+    D: |
+      doesn't understand that perceptrons are limited to linear boundaries
+    E: |
+      (fails to recognize that at least one task has a linear boundary) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 3
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 145
+variant_of: null
+topics: []
+notes: null

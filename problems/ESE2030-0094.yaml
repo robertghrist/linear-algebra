@@ -1,0 +1,49 @@
+id: ESE2030-0094
+legacy_id: Q4-P21
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A $5 \times 5$ matrix $A$ has characteristic polynomial $p(\lambda) = (\lambda - 2)^3(\lambda + 1)^2$. Suppose you compute $\dim(\ker(A - 2I)) = 2$ and $\dim(\ker(A + I)) = 2$.
+
+  What can you conclude about $A$?
+choices:
+- label: A
+  text: $A$ is diagonalizable
+- label: B
+  text: $A$ is not diagonalizable
+- label: C
+  text: $A$ has Jordan blocks of size at least 2
+- label: D
+  text: The matrix $A - 2I$ has rank 2
+- label: E
+  text: Both (B) and (C)
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - B
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    For diagonalizability, geometric multiplicity must equal algebraic multiplicity for each eigenvalue. For $\lambda = 2$: algebraic multiplicity is 3 but geometric multiplicity is 2. This mismatch means $A$ is NOT diagonalizable. Furthermore, the deficiency (3-2=1) tells us there must be at least one Jordan block of size at least 2 for eigenvalue 2. Specifically, the Jordan form will have either one 2×2 block and one 1×1 block, or one 3×3 block for eigenvalue 2. The eigenvalue $\lambda = -1$ is fine (geometric = algebraic = 2).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      directly contradicts the multiplicity mismatch
+    D: |
+      rank-nullity gives rank = 5-2 = 3, not 2
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 21
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 661
+variant_of: null
+topics: []
+notes: null

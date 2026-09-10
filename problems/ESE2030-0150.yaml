@@ -1,0 +1,51 @@
+id: ESE2030-0150
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces with $\dim(V) = 7$, $\dim(W) = 5$, and $\text{rank}(T) = 3$.
+
+  Consider the four fundamental spaces: $\ker(T)$, $\text{im}(T)$, $\text{coim}(T)$, and $\text{coker}(T)$.
+
+  Which statement is TRUE?
+choices:
+- label: A
+  text: $\ker(T)$ and $\text{coker}(T)$ are isomorphic.
+- label: B
+  text: $\text{im}(T)$ and $\text{coker}(T)$ are isomorphic.
+- label: C
+  text: $\dim(\text{coim}(T)) = 4$ and $\dim(\text{coker}(T)) = 3$.
+- label: D
+  text: $\dim(\text{coim}(T)) = 3$ and $\dim(\text{coker}(T)) = 2$.
+- label: E
+  text: $\ker(T)$ and $\text{coim}(T)$ have the same dimension.
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |2
+     Given: dim(V) = 7, dim(W) = 5, rank(T) = dim(im(T)) = 3. By rank-nullity: dim(ker(T)) = 7 - 3 = 4. dim(coim(T)) = dim(V/ker(T)) = dim(V) - dim(ker(T)) = 7 - 4 = 3. (Alternatively, by the Fundamental Theorem, coim(T) ≅ im(T), so dim(coim) = rank = 3.) dim(coker(T)) = dim(W/im(T)) = dim(W) - dim(im(T)) = 5 - 3 = 2. So dim(coim) = 3 and dim(coker) = 2. ✓
+  key_insight: null
+  distractor_rationale:
+    A: |
+      ker and coker are NOT generally isomorphic; here dim(ker)=4, dim(coker)=2
+    B: |
+      im and coker are NOT isomorphic; im ⊆ W while coker = W/im
+    E: |
+      dim(ker) = 4 but dim(coim) = 3; these are complementary, not equal
+sources:
+- semester: 2025C
+  instrument: final
+  position: 35
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1121
+variant_of: null
+topics: []
+notes: null

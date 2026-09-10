@@ -1,0 +1,43 @@
+id: ESE2030-0024
+legacy_id: Q1-P24
+week: 1
+skills: []
+status: active
+problem_type: null
+statement: |
+  If $B$ is obtained from matrix $A$ by first swapping rows 1 and 2, then adding 2 times row 1 to row 3, which equation correctly relates them?
+choices:
+- label: A
+  text: $B = E_2 E_1 A$ where $E_1$ swaps rows 1 and 2, $E_2$ adds 2 times row 1 to row 3
+- label: B
+  text: $B = E_1 E_2 A$ where $E_1$ swaps rows 1 and 2, $E_2$ adds 2 times row 1 to row 3
+- label: C
+  text: $B = A E_1 E_2$ where $E_1$ swaps rows 1 and 2, $E_2$ adds 2 times row 1 to row 3
+- label: D
+  text: $B = (E_2 E_1)^{-1} A$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    Elementary matrices apply from right to left: \begin{enumerate} \item First operation: $E_1 A$ swaps rows 1 and 2 \item Second operation: $E_2(E_1 A)$ adds 2 times (new) row 1 to row 3 \end{enumerate} The key insight: After swapping, "row 1" in the second operation refers to what was originally row 2.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 24
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 494
+variant_of: null
+topics:
+- Elementary matrices
+- row operations
+- matrix multiplication order
+notes: 'trap (Q24 answers): Matrix multiplication is right-to-left, but we describe operations left-to-right!'

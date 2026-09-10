@@ -1,0 +1,61 @@
+id: ESE2030-0096
+legacy_id: Q5-P01
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  The figure shows how a matrix $A \in \mathbb{R}^{2 \times 2}$ transforms the unit circle to an ellipse, with the singular vectors represented.
+
+
+  Based on this figure, which of the following is the most likely SVD of $A = U\Sigma V^T$?
+choices:
+- label: A
+  text: $U = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}, \quad \Sigma = \begin{bmatrix}
+    3/2 & 0 \\ 0 & 1/2 \end{bmatrix}, \quad V = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix}$
+- label: B
+  text: $U = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix}, \quad \Sigma = \begin{bmatrix}
+    3/2 & 0 \\ 0 & 1/2 \end{bmatrix}, \quad V = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$
+- label: C
+  text: $U = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix}, \quad \Sigma = \begin{bmatrix}
+    1/2 & 0 \\ 0 & 3/2 \end{bmatrix}, \quad V = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ -1 & 1 \end{bmatrix}$
+- label: D
+  text: $U = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}, \quad \Sigma = \begin{bmatrix}
+    3/2 & 0 \\ 0 & -1/2 \end{bmatrix}, \quad V = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$
+- label: E
+  text: $U = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}, \quad \Sigma = \begin{bmatrix}
+    3/2 & 0 \\ 0 & 1/2 \end{bmatrix}, \quad V = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$
+figures:
+- ESE2030-0096-a.jpg
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    Reading from the figure: - The right singular vectors (columns of $V$) are in the domain at $\pm 45°$: $\mathbf{v}_1 = (1,1)^T/\sqrt{2}$ and $\mathbf{v}_2 = (1,-1)^T/\sqrt{2}$ - The semi-axis lengths give $\sigma_1 = 3/2$ (major) and $\sigma_2 = 1/2$ (minor) - The left singular vectors (columns of $U$) align with the ellipse axes in the codomain: $\mathbf{u}_1 = (1,-1)^T/\sqrt{2}$ (at $-45°$) and $\mathbf{u}_2 = (1,1)^T/\sqrt{2}$ (at $45°$)
+  key_insight: null
+  distractor_rationale:
+    A: |
+      swaps $U$ and $V$; confuses which singular vectors live in domain vs codomain
+    C: |
+      places smaller singular value first; violates the convention $\sigma_1 \geq \sigma_2 \geq \cdots \geq 0$
+    D: |
+      uses negative singular value $-1/2$; singular values must be non-negative by definition
+    E: |
+      (uses $\sigma_i^2$ instead of $\sigma_i$; confuses eigenvalues of $A^TA$ with singular values) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 1
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 87
+variant_of: null
+topics:
+- SVD from geometric picture
+- singular value conventions
+- left vs right singular vectors
+notes: null

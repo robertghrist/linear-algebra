@@ -1,0 +1,39 @@
+id: ESE2030-0049
+legacy_id: Q2-P24
+week: null
+skills: []
+status: active
+problem_type: survey
+statement: |
+  Which was most helpful to you in studying for this exam?
+  [All answers will receive full credit]
+choices:
+- label: A
+  text: The text
+- label: B
+  text: The sample test problems
+- label: C
+  text: The custom GPT
+- label: D
+  text: A NotebookLM
+- label: E
+  text: Other
+figures: []
+answer:
+  correct: null
+  partial_credit: []
+  verified: false
+  verified_from: []
+  conflict: null
+  explanation: null
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 24
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 646
+variant_of: null
+topics: []
+notes: null

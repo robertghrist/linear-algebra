@@ -1,0 +1,53 @@
+id: ESE2030-0084
+legacy_id: Q4-P11
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a square matrix with all entries strictly positive, to which the Perron-Frobenius theorem applies. Now consider the matrix $-A$ (all entries strictly negative). Which statement about $-A$ does Perron-Frobenius imply?
+choices:
+- label: A
+  text: $-A$ has a dominant real positive eigenvalue with positive eigenvector
+- label: B
+  text: $-A$ has a dominant real negative eigenvalue with positive eigenvector
+- label: C
+  text: $-A$ has a dominant real negative eigenvalue with negative eigenvector
+- label: D
+  text: Perron-Frobenius does not apply to $-A$, so nothing definite can be said about its eigenstructure
+- label: E
+  text: None of the above is entirely accurate
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    If $\mathbf{v}$ is an eigenvector of $A$ with eigenvalue $\lambda$, then $A\mathbf{v} = \lambda\mathbf{v}$, which means $(-A)\mathbf{v} = -\lambda\mathbf{v}$. Thus $\mathbf{v}$ is also an eigenvector of $-A$ with eigenvalue $-\lambda$. Since $A$ has dominant eigenvalue $\lambda_* = \rho(A) > 0$ with positive eigenvector $\mathbf{v}_*$, the matrix $-A$ has eigenvalue $-\lambda_* < 0$ with the SAME positive eigenvector $\mathbf{v}_*$. This eigenvalue has magnitude $|-\lambda_*| = \lambda_* = \rho(A)$, making it dominant (largest magnitude) among all eigenvalues of $-A$. The key insight: negating a matrix negates its eigenvalues but preserves eigenvectors.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      negating the matrix negates the eigenvalues; fails to track the transformation
+    C: |
+      eigenvectors are unchanged by negating the matrix; eigenvalues change sign but eigenvectors don't
+    D: |
+      while Perron-Frobenius doesn't directly apply to matrices with all negative entries, we can determine the eigenstructure by understanding how negation affects eigenvalues and eigenvectors
+    E: |
+      all eigenvalues remain real; negation preserves the real/complex nature of eigenvalues
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 11
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 391
+variant_of: null
+topics:
+- Perron-Frobenius theorem
+- positive matrices
+- dominant eigenvalue
+notes: null

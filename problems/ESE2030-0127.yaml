@@ -1,0 +1,43 @@
+id: ESE2030-0127
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A mathematician working in an abstract vector space $V$ with subspace $W<V$ wants to perform several operations.
+  She has chosen a basis for $V$ but has not specified an inner product.
+
+  Which operation can she \textbf{not} perform?
+choices:
+- label: A
+  text: Compute a quotient $V/W$ by the subspace $W<V$
+- label: B
+  text: Compute the dimension of the subspace $W<V$
+- label: C
+  text: Compute the orthogonal projection of $V$ onto $W$
+- label: D
+  text: Compute a basis for $W$
+- label: E
+  text: All of these operations can in fact be performed
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Orthogonality is defined via inner products: $W^{\perp} = \{\mathbf{v} \in V : \langle \mathbf{v}, \mathbf{w} \rangle = 0 \text{ for all } \mathbf{w} \in W\}$. Without an inner product, the concept of ``orthogonal'' is undefined. All other operations are purely algebraic: linear independence (check if $\sum c_i \mathbf{v}_i = 0$ implies all $c_i = 0$), dimension (count basis vectors), injectivity (check if $\ker(T) = \{0\}$), and expressing in a basis (solve a linear system).
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: final
+  position: 12
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 453
+variant_of: null
+topics: []
+notes: null

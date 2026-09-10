@@ -1,0 +1,55 @@
+id: ESE2030-0099
+legacy_id: Q5-P04
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{m \times n}$ has singular values $\sigma_1 = 5$, $\sigma_2 = 3$, $\sigma_3 = 1$, and $\sigma_k = 0$ for $k>3$.
+
+  Which of the following statements is most TRUE?
+choices:
+- label: A
+  text: Matrix $2A$ has singular values 10, 6, 2, with all others zero, but they should be reordered as
+    2, 6, 10 to maintain the SVD convention.
+- label: B
+  text: Matrix $A^T$ has singular values $\sigma_1=1, \sigma_2=3, \sigma_3=5$, with all others zero.
+- label: C
+  text: Matrix $A^TA$ has eigenvalues 25, 9, 1, with the remaining eigenvalues zero.
+- label: D
+  text: The largest singular value of $AA^T$ is 25.
+- label: E
+  text: Matrices $A^TA$ and $AA^T$ have different nonzero eigenvalues.
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    Singular values are ALWAYS arranged in descending order: $\sigma_1 \geq \sigma_2 \geq \cdots \geq 0$. This is a convention, not a consequence of any operation. The key relationships: (1) $A$ and $A^T$ have identical singular values (same set, same order). (2) If $A$ has singular values $\{\sigma_i\}$, then $cA$ has singular values $\{|c|\sigma_i\}$ in the same descending order. (3) The eigenvalues of $A^TA$ are $\sigma_i^2$, so $25, 9, 1, 0, 0, \ldots$ in descending order. (4) Both $A^TA$ and $AA^T$ share the same NONZERO eigenvalues (namely $\sigma_i^2$ for $i \leq r = \rank(A)$), though they may have different numbers of zero eigenvalues depending on dimensions.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      singular values of $2A$ are correctly computed as $10, 6, 2$, but they do NOT need reordering—they're already in descending order by construction
+    B: |
+      $A^T$ has the SAME singular values as $A$, in the same descending order; transpose doesn't reverse the ordering
+    D: |
+      $AA^T$ is an $m \times m$ matrix; its eigenvalues are $\sigma_i^2 = 25, 9, 1, 0, \ldots$, so its largest eigenvalue is 25, but this is an eigenvalue, not a singular value of $AA^T$. The singular values of $AA^T$ would be the square roots of eigenvalues of $(AA^T)^T(AA^T) = AA^TAA^T$
+    E: |
+      classic misconception: $A^TA$ and $AA^T$ always share the same nonzero eigenvalues, which are $\sigma_1^2, \ldots, \sigma_r^2$
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 4
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 203
+variant_of: null
+topics:
+- Singular values ordering
+- operations on matrices
+- basic SVD properties
+notes: null

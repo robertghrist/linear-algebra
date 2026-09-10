@@ -1,0 +1,45 @@
+id: ESE2030-0002
+legacy_id: Q1-P02
+week: 1
+skills: []
+status: active
+problem_type: null
+statement: |
+  For the lower triangular system $L\mathbf{x} = \mathbf{b}$ where $L = \begin{bmatrix} 2 & 0 & 0 \\ 1 & 3 & 0 \\ 4 & -1 & 5 \end{bmatrix}$, which statement about solving this system is most accurate?
+choices:
+- label: A
+  text: One should use row reduction to find the solution
+- label: B
+  text: The system may have no solutions, depending on $\mathbf{b}$
+- label: C
+  text: One should solve by forward substitution
+- label: D
+  text: The system may have infinitely many solutions depending on $\mathbf{b}$
+- label: E
+  text: One should solve by backward substitution
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    For a lower triangular system $L\mathbf{x} = \mathbf{b}$: \begin{itemize} \item Since $L$ has nonzero diagonal entries, it's invertible, so there's always a unique solution \item Forward substitution is the most efficient method: \begin{enumerate} \item Solve $2x_1 = b_1$ to get $x_1 = b_1/2$ \item Substitute into second equation: $x_1 + 3x_2 = b_2$ \item Continue forward through the system \end{enumerate} \item Backward substitution is for upper triangular systems \end{itemize}
+  key_insight: |
+    Forward = Lower, Backward = Upper (alphabetical order helps remember!)
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 2
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 94
+variant_of: null
+topics:
+- Triangular systems
+- forward substitution
+- computational efficiency
+notes: null

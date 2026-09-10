@@ -1,0 +1,45 @@
+id: ESE2030-0003
+legacy_id: Q1-P03
+week: 3
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $T: \mathbb{R}^3 \to \mathbb{R}^3$ be the linear transformation with matrix representation $A = \begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ -1 & -2 & -3 \end{bmatrix}$. What is the dimension of $\ker(T)$?
+choices:
+- label: A
+  text: 0 %(the transformation is injective)
+- label: B
+  text: 1 %(the nullity equals $3 - \text{rank}(A) = 3 - 2 = 1$)
+- label: C
+  text: 2 %(all rows are proportional, so rank is 1)
+- label: D
+  text: 3 %(the matrix maps everything to zero)
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    Observe that all three rows of $A$ are scalar multiples: \begin{align} \text{Row 2} &= 2 \times \text{Row 1}\\ \text{Row 3} &= -1 \times \text{Row 1} \end{align} Therefore: \begin{itemize} \item $\text{rank}(A) = 1$ (only one independent row) \item By the Rank-Nullity Theorem: $\dim(V) = \text{rank}(T) + \dim(\ker(T))$ \item So: $3 = 1 + \dim(\ker(T))$ \item Therefore: $\dim(\ker(T)) = 2$ \end{itemize}
+  key_insight: |
+    When all rows/columns are proportional, the rank is 1.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 3
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 111
+variant_of: null
+topics:
+- Linear transformations
+- kernel
+- matrix representation
+notes: null

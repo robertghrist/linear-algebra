@@ -1,0 +1,55 @@
+id: ESE2030-0106
+legacy_id: Q5-P11
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  The SVD $A = U\Sigma V^T$ reveals that $A$ acts as an isomorphism (scaled by singular values) between certain fundamental subspaces. For matrix $A \in \mathbb{R}^{m \times n}$ with rank $r$, which statement is most TRUE?
+choices:
+- label: A
+  text: $A$ maps $\ker(A)$ isomorphically onto $\ker(A^T)$ by the relationship $A\mathbf{v}_i = \sigma_i
+    \mathbf{u}_i$ for $i > r$.
+- label: B
+  text: '$A$ maps $\text{im}(A^T)$ isomorphically onto $\text{im}(A)$, with the isomorphism given by scaling:
+    $A\mathbf{v}_i = \sigma_i \mathbf{u}_i$ for $i \leq r$.'
+- label: C
+  text: $A$ maps $\mathbb{R}^n$ isomorphically onto $\mathbb{R}^m$ whenever $m = n$, regardless of rank.
+- label: D
+  text: $A$ maps both $\ker(A)$ and $\text{im}(A^T)$ isomorphically onto $\text{im}(A)$, explaining why
+    $\dim(\ker(A)) + \dim(\text{im}(A^T)) = \dim(\text{im}(A))$.
+- label: E
+  text: The restriction of $A$ to $\ker(A)$ is an isomorphism onto $\ker(A^T)$ because both have dimension
+    $n - r$.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    This tests the deep geometric insight from the Fundamental Theorem via SVD. The key observation: $A$ collapses $\ker(A)$ to zero but acts as an isomorphism on $(\ker A)^\perp = \text{im}(A^T)$. Specifically: - For $i \leq r$ (nonzero singular values): $A\mathbf{v}_i = \sigma_i \mathbf{u}_i$. The vectors $\{\mathbf{v}_1, \ldots, \mathbf{v}_r\}$ form an orthonormal basis for $\text{im}(A^T)$, and $\{\mathbf{u}_1, \ldots, \mathbf{u}_r\}$ form an orthonormal basis for $\text{im}(A)$. - $A$ restricted to $\text{im}(A^T)$ gives a bijection onto $\text{im}(A)$: it's injective (kernel restricted to $\text{im}(A^T)$ is trivial) and surjective (by definition of image). The singular values $\sigma_i$ provide the scaling factors for this isomorphism. - For $i > r$ (zero singular values): $A\mathbf{v}_i = \mathbf{0}$, so $A$ collapses $\ker(A) = \text{span}\{\mathbf{v}_{r+1}, \ldots, \mathbf{v}_n\}$ to zero. This reveals the geometric content of the Fundamental Theorem: $A$ acts as $(\text{im}(A^T) \xrightarrow{\sim} \text{im}(A)) \oplus (\ker(A) \to \{\mathbf{0}\})$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      $A$ maps $\ker(A)$ to zero, not to $\ker(A^T)$; these are unrelated subspaces in different vector spaces
+    C: |
+      false even when $m = n$; if rank$(A) < n$, then $A$ is not an isomorphism because it has a nontrivial kernel
+    D: |
+      completely wrong dimension formula; rank-nullity says $\dim(\ker(A)) + \dim(\text{im}(A^T)) = n$, not $\dim(\text{im}(A))$
+    E: |
+      ($A$ restricted to $\ker(A)$ gives the zero map, not an isomorphism; $A$ annihilates $\ker(A)$) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 11
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 430
+variant_of: null
+topics:
+- SVD revealing Fundamental Theorem structure
+- isomorphism between subspaces
+notes: null

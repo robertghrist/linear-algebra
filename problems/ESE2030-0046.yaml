@@ -1,0 +1,49 @@
+id: ESE2030-0046
+legacy_id: Q2-P21
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: \mathcal{P}_2 \to \mathcal{P}_1$ be the differentiation operator defined by $T(p) = p'$.
+  Consider two bases: $\mathcal{B} = \{1, x, x^2\}$ for $\mathcal{P}_2$ and $\mathcal{C} = \{1, x\}$ for $\mathcal{P}_1$.
+  Let $[T]_{\mathcal{B}}^{\mathcal{C}}$ denote the matrix of $T$ with respect to these bases.
+  Which statement about this matrix representation is true?
+choices:
+- label: A
+  text: The columns of $[T]_{\mathcal{B}}^{\mathcal{C}}$ are the coordinate vectors of $T(1), T(x), T(x^2)$
+    with respect to $\mathcal{C}$
+- label: B
+  text: The rows of $[T]_{\mathcal{B}}^{\mathcal{C}}$ represent how each basis vector in $\mathcal{B}$
+    transforms under $T$
+- label: C
+  text: The matrix $[T]_{\mathcal{B}}^{\mathcal{C}}$ is square
+- label: D
+  text: If we change to the basis $\mathcal{B}' = \{1, 1+x, 1+x+x^2\}$, the matrix $[T]_{\mathcal{B}'}^{\mathcal{C}}$
+    may change rank
+- label: E
+  text: Since $T$ has a non-trivial kernel, we can make $[T]_{\mathcal{B}}^{\mathcal{C}}$ invertible by
+    removing the kernel basis vectors from $\mathcal{B}$
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The matrix representation $[T]_{\mathcal{B}}^{\mathcal{C}}$ has columns that are coordinate vectors of $T$ applied to each basis vector of the domain. Specifically: $T(1) = 0 = 0 \cdot 1 + 0 \cdot x$, so column 1 is $\begin{pmatrix}0\\0\end{pmatrix}$; $T(x) = 1 = 1 \cdot 1 + 0 \cdot x$, so column 2 is $\begin{pmatrix}1\\0\end{pmatrix}$; $T(x^2) = 2x = 0 \cdot 1 + 2 \cdot x$, so column 3 is $\begin{pmatrix}0\\2\end{pmatrix}$. Thus $[T]_{\mathcal{B}}^{\mathcal{C}} = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 2 \end{bmatrix}$.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 21
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 589
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,44 @@
+id: ESE2030-0013
+legacy_id: Q1-P13
+week: 1
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider a square matrix $A$ that has an LU decomposition $A = LU$. Which of the following statements is necessarily TRUE?
+choices:
+- label: A
+  text: $A$ is nonsingular if and only if all diagonal entries of $L$ are nonzero
+- label: B
+  text: $A$ is singular if and only if the last diagonal entry of $U$ equals zero
+- label: C
+  text: The existence of an LU decomposition guarantees that $A$ is nonsingular
+- label: D
+  text: If $A$ is nonsingular, then both $L$ and $U$ must have positive diagonal entries
+- label: E
+  text: $A$ is nonsingular if and only if all diagonal entries of $U$ are nonzero
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    \begin{itemize} \item In standard LU decomposition, $L$ has 1's on the diagonal (by convention) \item Therefore, $L$ is always invertible \item Since $A = LU$ and $\det(A) = \det(L)\det(U) = \det(U)$ \item For triangular matrices: nonsingular ⟺ all diagonal entries nonzero \item Thus: $A$ nonsingular ⟺ $U$ nonsingular ⟺ all diagonal entries of $U$ are nonzero \end{itemize}
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 13
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 295
+variant_of: null
+topics:
+- LU decomposition
+- matrix factorization
+- nonsingularity
+notes: null

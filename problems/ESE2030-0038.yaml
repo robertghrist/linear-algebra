@@ -1,0 +1,46 @@
+id: ESE2030-0038
+legacy_id: Q2-P13
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$ be nonzero vectors with angle $\theta$ between them.
+  If we define $\mathbf{w} = 2\mathbf{u} - 3\mathbf{v}$, which expression gives the cosine of the angle between $\mathbf{u}$ and $\mathbf{w}$?
+choices:
+- label: A
+  text: $\cos\theta$ because scaling does not change angles
+- label: B
+  text: $\displaystyle \frac{2\|\mathbf{u}\|^2 - 3\|\mathbf{v}\|^2}{2\|\mathbf{u}\| \cdot \|\mathbf{w}\|}$
+- label: C
+  text: $\displaystyle \frac{2 - 3\cos\theta}{\sqrt{4 + 9 - 12\cos\theta}} \cdot \frac{\|\mathbf{u}\|}{\|\mathbf{v}\|}$
+- label: D
+  text: $\displaystyle \frac{2\|\mathbf{u}\|^2 - 3\langle\mathbf{u},\mathbf{v}\rangle}{\|\mathbf{u}\|
+    \cdot \|\mathbf{w}\|}$
+- label: E
+  text: $2 - 3\cos\theta$ after normalizing both vectors
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The cosine of the angle is $\frac{\langle\mathbf{u},\mathbf{w}\rangle}{\|\mathbf{u}\|\|\mathbf{w}\|} = \frac{\langle\mathbf{u}, 2\mathbf{u} - 3\mathbf{v}\rangle}{\|\mathbf{u}\|\|\mathbf{w}\|} = \frac{2\|\mathbf{u}\|^2 - 3\langle\mathbf{u},\mathbf{v}\rangle}{\|\mathbf{u}\|\|\mathbf{w}\|}$. This is the general formula using inner products.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      uses norms instead of inner product in numerator
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 13
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 384
+variant_of: null
+topics: []
+notes: 'trap (Q13 answers): Don''t confuse norms with inner products in the numerator!'

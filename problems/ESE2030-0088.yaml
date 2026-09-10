@@ -1,0 +1,58 @@
+id: ESE2030-0088
+legacy_id: Q4-P15
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  A robot performs a random walk on a network of four rooms connected by doorways. At each time step, the robot moves to a randomly chosen adjacent room with equal probability. The transition matrix is:
+
+  $$P = \begin{bmatrix} 0 & 1/3 & 1/3 & 0 \\ 1/2 & 0 & 1/3 & 1/2 \\ 1/2 & 1/3 & 0 & 1/2 \\ 0 & 1/3 & 1/3 & 0 \end{bmatrix}$$
+
+  Assume this has all the nice properties (irreducible, etc) for a stationary distribution to exist (it does!). Note that rooms 1 and 4 have identical rows and columns in $P$. What does this symmetry imply about the long-term behavior?
+choices:
+- label: A
+  text: Over time, the robot spends the same time in room 1 as in room 4
+- label: B
+  text: The stationary distribution will have equal terms for rooms 2 and 3
+- label: C
+  text: At each time step, the robot visits rooms 2 and 3 with at least 50\% probability
+- label: D
+  text: Rooms 1 and 4 have the same eigenvalue
+- label: E
+  text: The robot spends more time in rooms (2 and 3) than in rooms (1 and 4)
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The stationary distribution of a random walk on a graph reflects the long-term proportion of time spent in each state. When two rooms have identical rows AND columns in the transition matrix, they are topologically equivalent—they have the same connectivity structure to the rest of the network. This symmetry forces the stationary distribution to assign equal probability to these rooms. Since the robot's long-term behavior is described by the eigenvector for $\lambda = 1$, and this eigenvector must respect the symmetry of $P$, rooms 1 and 4 must have equal components. This is a manifestation of the symmetry principle in Markov chains.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      the stationary distribution is unique for this irreducible chain and doesn't depend on initial conditions
+    C: |
+      long-term behavior is independent of starting position; confuses transient and stationary behavior
+    D: |
+      eigenvalues are properties of the matrix, not individual states; confuses state symmetry with spectral properties
+    E: |
+      matrix powers preserve connectivity; symmetry doesn't cause disconnection
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 15
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 501
+variant_of: null
+topics:
+- Random walks
+- graph structure
+- symmetric matrices
+- Markov chains
+notes: null

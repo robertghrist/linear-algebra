@@ -1,0 +1,45 @@
+id: ESE2030-0006
+legacy_id: Q1-P06
+week: 1
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $E$ be an elementary matrix used for row reduction. Which statement must be TRUE?
+choices:
+- label: A
+  text: $\det(E) = 1$
+- label: B
+  text: $\det(E) = \pm 1$
+- label: C
+  text: $\det(E) \neq 0$
+- label: D
+  text: $\det(E^{-1}) = -\det(E)$
+- label: E
+  text: $\det(EA) = \det(A)$ for any matrix $A$
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    Elementary matrices correspond to three types of row operations: \begin{enumerate} \item Row swaps: $\det(E) = -1$ \item Row scaling by $c$: $\det(E) = c \neq 0$ \item Adding multiple of one row to another: $\det(E) = 1$ \end{enumerate} All elementary matrices are invertible (operations can be undone), so $\det(E) \neq 0$ always.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 6
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 161
+variant_of: null
+topics:
+- Elementary matrices
+- determinants
+- invertibility
+notes: 'trap (Q6 answers): Not all elementary matrices have $\det = \pm 1$; row scaling can give any nonzero
+  determinant.'

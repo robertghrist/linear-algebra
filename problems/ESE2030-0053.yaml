@@ -1,0 +1,52 @@
+id: ESE2030-0053
+legacy_id: Q3-P04
+week: 6
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{m \times n}$ with $m > n$ have full column rank. For a vector $\mathbf{b} \in \mathbb{R}^m$, consider the system $A\mathbf{x} = \mathbf{b}$.
+
+  The pseudoinverse solution $\hat{\mathbf{x}} = A^{\dagger}\mathbf{b}$ has a special property regarding which fundamental subspace it lies in. Which statement is correct?
+choices:
+- label: A
+  text: $\hat{\mathbf{x}} \in \ker(A)$
+- label: B
+  text: $\hat{\mathbf{x}} \in (\ker A)^{\perp}$
+- label: C
+  text: $\hat{\mathbf{x}} \in \text{im}(A^T)$
+- label: D
+  text: $\hat{\mathbf{x}} \in (\text{im}\,A)^\perp$
+- label: E
+  text: Both (B) and (C) are correct
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - B
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The pseudoinverse solution lives in $(\ker A)^{\perp}$, which equals $\text{im}(A^T)$ by the Fundamental Theorem. This geometric property is fundamental: among all solutions to the normal equations (if the system is consistent) or among all least squares solutions (if inconsistent), the pseudoinverse picks the unique one with minimum norm by restricting to $(\ker A)^{\perp}$. Choices (B) and (C) are describing the same subspace - the orthogonal complement of the kernel equals the image of the adjoint.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      confuses the solution with the kernel; the solution is orthogonal TO the kernel, not in it
+    D: |
+      wrong space
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 4
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 166
+variant_of: null
+topics:
+- Pseudoinverse
+- fundamental subspaces
+- minimum norm solution
+notes: null

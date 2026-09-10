@@ -1,0 +1,51 @@
+id: ESE2030-0146
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  What is $e^{Jt}$ where $J$ is the $3 \times 3$ Jordan block
+  $$J = \begin{bmatrix} 2 & 1 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{bmatrix}$$
+
+  \[
+choices:
+- label: A
+  text: \begin{bmatrix} e^{2t} & e^{2t} & e^{2t} \\ 0 & e^{2t} & e^{2t} \\ 0 & 0 & e^{2t} \end{bmatrix}
+- label: B
+  text: \begin{bmatrix} e^{2t} & te^{2t} & t^2e^{2t} \\ 0 & e^{2t} & te^{2t} \\ 0 & 0 & e^{2t} \end{bmatrix}
+- label: C
+  text: \begin{bmatrix} e^{2t} & te^{2t} & \frac{t^2}{2}e^{2t} \\ 0 & e^{2t} & te^{2t} \\ 0 & 0 & e^{2t}
+    \end{bmatrix}
+- label: D
+  text: \begin{bmatrix} e^{2t} & 1 & 0 \\ 0 & e^{2t} & 1 \\ 0 & 0 & e^{2t} \end{bmatrix}
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Write $J = 2I + N$ where $N = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{bmatrix}$ is nilpotent with $N^2 = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$ and $N^3 = 0$. Since $2I$ and $N$ commute, $e^{Jt} = e^{2It}e^{Nt} = e^{2t}e^{Nt}$. The nilpotent exponential terminates: $e^{Nt} = I + Nt + \frac{(Nt)^2}{2!} = I + tN + \frac{t^2}{2}N^2 = \begin{bmatrix} 1 & t & \frac{t^2}{2} \\ 0 & 1 & t \\ 0 & 0 & 1 \end{bmatrix}$. Therefore $e^{Jt} = e^{2t}\begin{bmatrix} 1 & t & \frac{t^2}{2} \\ 0 & 1 & t \\ 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} e^{2t} & te^{2t} & \frac{t^2}{2}e^{2t} \\ 0 & e^{2t} & te^{2t} \\ 0 & 0 & e^{2t} \end{bmatrix}$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      replaces all superdiagonal terms with $e^{2t}$; doesn't understand that the nilpotent part contributes polynomial factors
+    D: |
+      multiplies by the eigenvalue 2 in wrong places; confuses the role of the eigenvalue vs. the nilpotent structure
+    E: |
+      (only exponentiates the diagonal; leaves the 1's unchanged, as if $e^{J} = e^{2I} + N$, which is wrong) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 31
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 995
+variant_of: null
+topics: []
+notes: null

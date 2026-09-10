@@ -1,0 +1,41 @@
+id: ESE2030-0155
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $Q$ be an $n \times n$ orthogonal matrix.
+  Which property is false (more precisely, not necessarily true)?
+choices:
+- label: A
+  text: $\|Q\mathbf{x}\| = \|\mathbf{x}\|$ for all $\mathbf{x} \in \mathbb{R}^n$
+- label: B
+  text: The rows of $Q$ form an orthonormal set
+- label: C
+  text: $|\det(Q)| = 1$
+- label: D
+  text: If $\lambda$ is an eigenvalue of $Q$, then $|\lambda| = 1$
+- label: E
+  text: $Q + Q^T$ is always invertible
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Consider $Q = -I$ (which is orthogonal: $Q^TQ = I$). Then $Q + Q^T = -I + (-I)^T = -2I$, which IS invertible. But consider $Q = \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}$ (90° rotation). Then $Q^T = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$, so $Q + Q^T = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}$, which is NOT invertible. So (E) is false in general. All others are true: (A) orthogonal matrices preserve lengths; (B) $Q^TQ = I$ means rows of $Q^T$ (= columns of $Q$) are orthonormal, and $QQ^T = I$ means rows of $Q$ are orthonormal; (C) $\det(Q^TQ) = \det(Q)^2 = 1$; (D) if $Q\mathbf{v} = \lambda\mathbf{v}$, then $\|\mathbf{v}\| = \|Q\mathbf{v}\| = |\lambda|\|\mathbf{v}\|$, so $|\lambda| = 1$.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: final
+  position: 40
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1288
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,55 @@
+id: ESE2030-0109
+legacy_id: Q5-P14
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{7 \times 5}$ has rank 3 with SVD $A = U\Sigma V^T$.
+
+  Which approach yields a basis for the coimage $\text{coim}(A) = (\ker A)^\perp$?
+choices:
+- label: A
+  text: Right singular vectors $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3, \mathbf{v}_4, \mathbf{v}_5\}$
+- label: B
+  text: Left singular vectors $\{\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3\}$
+- label: C
+  text: Right singular vectors $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$
+- label: D
+  text: Left singular vectors $\{\mathbf{u}_4, \mathbf{u}_5, \mathbf{u}_6, \mathbf{u}_7\}$
+- label: E
+  text: Right singular vectors $\{\mathbf{v}_4, \mathbf{v}_5\}$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    The coimage $\text{coim}(A) = (\ker A)^\perp$ is the orthogonal complement of the kernel in the domain $\mathbb{R}^5$. By the Fundamental Theorem, $(\ker A)^\perp = \text{im}(A^T)$. The SVD reveals that $\text{im}(A^T)$ is spanned by right singular vectors corresponding to nonzero singular values. Since rank$(A) = 3$, we have exactly 3 nonzero singular values, so $\text{coim}(A) = \text{span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      left singular vectors live in codomain $\mathbb{R}^7$, not domain $\mathbb{R}^5$
+    D: |
+      wrong space and wrong singular values
+    E: |
+      these span $\ker(A)$, not its orthogonal complement
+    A: |
+      includes both $\ker(A)$ and $(\ker A)^\perp$, giving all of $\mathbb{R}^5$ rather than just the coimage
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 14
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 565
+variant_of: null
+topics:
+- Four fundamental subspaces via SVD
+- kernel
+- image
+- orthogonal complements
+notes: null

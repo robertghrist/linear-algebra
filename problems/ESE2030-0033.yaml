@@ -1,0 +1,43 @@
+id: ESE2030-0033
+legacy_id: Q2-P08
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $A$ be a square matrix with QR decomposition $A = QR$.
+  Consider the matrix $B = Q^{-1}AQ$ (similar to $A$ by its own $Q$ factor).
+  Which of the following equals $B$?
+choices:
+- label: A
+  text: $RQ^T$
+- label: B
+  text: $Q^TR^T$
+- label: C
+  text: $QRQ^T$
+- label: D
+  text: $Q^TR$
+- label: E
+  text: $RQ$
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Since $B = Q^TAQ = Q^T(QR)Q = (Q^TQ)RQ = IRQ = RQ$.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 8
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 282
+variant_of: null
+topics: []
+notes: null

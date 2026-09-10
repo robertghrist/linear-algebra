@@ -1,0 +1,44 @@
+id: ESE2030-0014
+legacy_id: Q1-P14
+week: 1
+skills: []
+status: active
+problem_type: null
+statement: |
+  For a square matrix $A$ with LU decomposition $A = LU$, which statement is always true?
+choices:
+- label: A
+  text: The matrix $L$ is invertible
+- label: B
+  text: The matrix $U$ is invertible
+- label: C
+  text: The system $A\mathbf{x} = \mathbf{b}$ has a unique solution for any $\mathbf{b}$
+- label: D
+  text: The reduced row eschelon form (RREF) of $A$ is the identity
+- label: E
+  text: The determinant of $A$ equals the determinant of $L$
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    By convention in LU decomposition: \begin{itemize} \item $L$ is lower triangular with 1's on the diagonal \item This guarantees $\det(L) = 1 \neq 0$ \item Therefore, $L$ is always invertible \item $U$ may have zeros on diagonal (singular case) \item The other options depend on whether $A$ is singular \end{itemize}
+  key_insight: |
+    The "L" in LU always has unit diagonal, making it invertible by construction.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 14
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 313
+variant_of: null
+topics:
+- LU decomposition
+- matrix factorization
+- system solvability
+notes: null

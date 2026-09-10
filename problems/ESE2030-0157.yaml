@@ -1,0 +1,48 @@
+id: ESE2030-0157
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{8 \times 6}$ has SVD $A = U\Sigma V^T$ with singular values
+  $$\sigma_1 = 7, \quad \sigma_2 = 4, \quad \sigma_3 = 2, \quad \sigma_4 = \sigma_5 = \sigma_6 = 0$$
+
+  Which statement is TRUE?
+choices:
+- label: A
+  text: $\dim(\ker A) = 3$ and the kernel is spanned by columns 4, 5, 6 of $U$.
+- label: B
+  text: $\dim(\mathrm{im}\, A) = 3$ and the image is spanned by columns 1, 2, 3 of $V$.
+- label: C
+  text: $\dim(\mathrm{coker}\, A) = 5$ and the cokernel is spanned by columns 4, 5, 6, 7, 8 of $U$.
+- label: D
+  text: $\dim(\mathrm{coim}\, A) = 3$ and the coimage is spanned by columns 1, 2, 3 of $V$.
+- label: E
+  text: $\dim(\ker A) = 5$ because $A$ has 8 rows and rank 3.
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    From the SVD structure with $r = 3$ nonzero singular values: - The first $r = 3$ columns of $V$ (right singular vectors) span $\mathrm{coim}(A)$ (the row space) - The last $n - r = 3$ columns of $V$ span $\ker(A)$ - The first $r = 3$ columns of $U$ (left singular vectors) span $\mathrm{im}(A)$ (the column space) - The last $m - r = 5$ columns of $U$ span $\mathrm{coker}(A)$ (the left nullspace) So $\dim(\mathrm{coim}\, A) = 3$ and it is spanned by columns 1, 2, 3 of $V$. This is (D).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      correct dimension $\dim(\ker A) = 6 - 3 = 3$, but kernel comes from $V$, not $U$
+    B: |
+      correct dimension for image, but image comes from $U$, not $V$; confuses domain and codomain
+sources:
+- semester: 2025C
+  instrument: final
+  position: 42
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1343
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,54 @@
+id: ESE2030-0138
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A transition matrix $P$ models customer movement between three competing brands. The state vector $\mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}$ represents the fraction of customers at each brand, and the system evolves as $\mathbf{x}_{k+1} = P\mathbf{x}_k$.
+
+  The matrix $P$ is column-stochastic: all entries are non-negative and each column sums to 1.
+
+  Which statement about the eigenvalues and eigenvectors of $P$ is TRUE?
+choices:
+- label: A
+  text: $\lambda = 1$ is always an eigenvalue of $P$, and any corresponding eigenvector gives the stationary
+    distribution
+- label: B
+  text: $\lambda = 1$ is always an eigenvalue of $P$, but the stationary distribution must be normalized
+    so its entries sum to 1
+- label: C
+  text: The largest eigenvalue of $P$ could be greater than 1 if the columns sum to more than 1
+- label: D
+  text: If $P$ has eigenvalue $\lambda = 1$ with multiplicity 2, then there are exactly two distinct stationary
+    distributions
+- label: E
+  text: None of the above is necessarily true
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    For any column-stochastic matrix, $\lambda = 1$ is guaranteed to be an eigenvalue. This follows because if each column of $P$ sums to 1, then each column of $(P - I)$ sums to 0, so the rows of $(P - I)^T$ sum to 0, meaning $(P - I)^T$ has linearly dependent rows and is singular. However, eigenvectors are only determined up to scalar multiples. The stationary distribution $\boldsymbol{\pi}$ must satisfy both $P\boldsymbol{\pi} = \boldsymbol{\pi}$ (eigenvector condition) AND have entries summing to 1 (probability condition). The eigenvector itself may not automatically satisfy the normalization—we must rescale it.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      the problem states columns sum to exactly 1; this is the definition of column-stochastic
+    D: |
+      multiplicity 2 for eigenvalue 1 indicates multiple connected components or reducibility, but the stationary distribution within each component is still unique up to normalization; the full picture is more subtle
+    E: |
+      (the stationary distribution depends on the specific transition probabilities, not just the size of the matrix; uniform is only stationary for doubly-stochastic matrices) ===============================================
+sources:
+- semester: 2025C
+  instrument: final
+  position: 23
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 770
+variant_of: null
+topics: []
+notes: null

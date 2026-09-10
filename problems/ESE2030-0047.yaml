@@ -1,0 +1,45 @@
+id: ESE2030-0047
+legacy_id: Q2-P22
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $D: \mathcal{P}_3 \to \mathcal{P}_2$ be the differentiation operator on polynomials, where $D(p) = p'$.
+  Consider the inner product $\langle f, g \rangle = \int_0^1 f(x)g(x)dx$ on both $\mathcal{P}_3$ and $\mathcal{P}_2$.
+  What must be true of the adjoint $D^*: \mathcal{P}_2 \to \mathcal{P}_3$?
+choices:
+- label: A
+  text: $D^*$ must map each polynomial to its antiderivative
+- label: B
+  text: $D^* \circ D = I$ where $I$ is the identity
+- label: C
+  text: $D^*$ is integration by parts
+- label: D
+  text: $D \circ D^* = I$ where $I$ is the identity
+- label: E
+  text: 'For all $p \in \mathcal{P}_3$ and $q \in \mathcal{P}_2$: $\int_0^1 p''(x)q(x)dx = \int_0^1 p(x)(D^*(q))(x)dx$'
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    The defining property of the adjoint is $\langle D(p), q \rangle = \langle p, D^*(q) \rangle$ for all $p$ in the domain and $q$ in the codomain. With our inner product, this becomes $\int_0^1 p'(x)q(x)dx = \int_0^1 p(x)(D^*(q))(x)dx$. Option B correctly states this fundamental relationship. Note that D* is NOT simply the antiderivative due to boundary terms from integration by parts.
+  key_insight: |
+    The adjoint relationship is the fundamental definition—everything else follows from it.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 22
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 613
+variant_of: null
+topics: []
+notes: null

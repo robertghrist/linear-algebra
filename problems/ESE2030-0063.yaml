@@ -1,0 +1,55 @@
+id: ESE2030-0063
+legacy_id: Q3-P14
+week: 6
+skills: []
+status: active
+problem_type: null
+statement: |
+  Which of the following provides the best fundamental description of the orthogonal projection $\Pi_W(\mathbf{v})$ of a vector $\mathbf{v}$ onto a subspace $W$?
+choices:
+- label: A
+  text: The unique vector in $W$ that minimizes $\|\mathbf{v} - \mathbf{w}\|$ over all $\mathbf{w} \in
+    W$
+- label: B
+  text: A linear operator satisfying $\Pi_W^2 = \Pi_W$ and $\Pi_W^* = \Pi_W$
+- label: C
+  text: The component of $\mathbf{v}$ that lies in $W$ when $\mathbf{v}$ is decomposed as $\mathbf{v}
+    = \mathbf{v}_W + \mathbf{v}_{W^\perp}$
+- label: D
+  text: The vector obtained by applying the matrix $A(A^TA)^{-1}A^T$ to $\mathbf{v}$, where the columns
+    of $A$ span $W$
+- label: E
+  text: The solution to the normal equations $A^TA\mathbf{x} = A^T\mathbf{v}$ when the columns of $A$
+    form a basis for $W$
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The most fundamental characterization of orthogonal projection is the best approximation property: $\Pi_W(\mathbf{v})$ is the unique vector in $W$ closest to $\mathbf{v}$. This geometric property captures WHY we care about projections—they provide optimal approximations of vectors by vectors in a subspace. All other properties follow from this: the idempotent and self-adjoint properties (B) are algebraic consequences; the decomposition (C) is another way to describe the same phenomenon; and the matrix formulas (D, E) are computational methods that implement the projection. The best approximation property is the most conceptually fundamental because it explains the purpose and meaning of projection, from which all other characterizations derive.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      algebraically correct but describes properties rather than the fundamental geometric meaning
+    D: |
+      computationally correct but merely a formula - doesn't explain what projection means or why we use it
+    E: |
+      correct computational approach but again just a method, not the fundamental geometric insight
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 14
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 430
+variant_of: null
+topics:
+- Orthogonal projection
+- best approximation property
+- geometric meaning
+notes: null

@@ -1,0 +1,49 @@
+id: ESE2030-0122
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: \mathbb{R}^6 \to \mathbb{R}^4$ be a linear transformation.
+
+  Which statement must be TRUE?
+choices:
+- label: A
+  text: $T$ cannot be injective, but it might be surjective.
+- label: B
+  text: $T$ cannot be surjective, but it might be injective.
+- label: C
+  text: $T$ can be neither injective nor surjective.
+- label: D
+  text: $T$ must be surjective.
+- label: E
+  text: $T$ must have kernel of dimension $2$.
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |2
+     By rank-nullity: dim(ker(T)) + dim(im(T)) = 6. Since im(T) ⊆ ℝ⁴, we have dim(im(T)) ≤ 4, so dim(ker(T)) ≥ 2. Thus ker(T) ≠ {0}, meaning T cannot be injective (injective ⟺ ker = {0}). However, T CAN be surjective: if rank(T) = 4, then im(T) = ℝ⁴. Example: T(x₁,...,x₆) = (x₁, x₂, x₃, x₄) is surjective with kernel of dim 2.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      reverses the implications — this describes ℝ⁴ → ℝ⁶
+    D: |
+      "must be surjective" is false; rank could be less than 4
+    E: |
+      nullity is AT LEAST 2, but could be larger; not fixed at 2
+sources:
+- semester: 2025C
+  instrument: final
+  position: 7
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 279
+variant_of: null
+topics: []
+notes: null

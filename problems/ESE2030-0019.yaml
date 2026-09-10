@@ -1,0 +1,44 @@
+id: ESE2030-0019
+legacy_id: Q1-P19
+week: 3
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider an $m$-by-$n$ matrix $A$ and the associated linear transformation $T_A:\mathbb{R}^n\to\mathbb{R}^m$. Which of the following is true?
+choices:
+- label: A
+  text: $A$ is nonsingular if $T_A$ is injective
+- label: B
+  text: The column space of $A$ is the coimage of $T_A$
+- label: C
+  text: The null space of $A$ is the kernel of $T_A$
+- label: D
+  text: If $T_A$ is surjective then $A$ is nonsingular
+- label: E
+  text: If $T_A$ is injective then $A$ is singular
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    By definition: \begin{itemize} \item The null space of $A$ = $\{\mathbf{x} : A\mathbf{x} = \mathbf{0}\}$ = $\ker(T_A)$ ✓ \item The column space of $A$ = image of $T_A$ (not coimage) \item "Nonsingular" only makes sense for square matrices \item Options (A), (D), (E) incorrectly relate injectivity/surjectivity to singularity \end{itemize}
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 19
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 403
+variant_of: null
+topics:
+- Isomorphism
+- dimension
+- vector space equivalence
+notes: null

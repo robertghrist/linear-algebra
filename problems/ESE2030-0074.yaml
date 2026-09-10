@@ -1,0 +1,46 @@
+id: ESE2030-0074
+legacy_id: Q4-P01
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  A matrix $B$ has eigenvalues $\lambda_1 = 3$, $\lambda_2 = -4$, $\lambda_3 = 0$, and $\lambda_{4,5} = 1 \pm 2i$.
+
+  Which eigenvalue is dominant for the purpose of analyzing the convergence behavior of the power iteration $\mathbf{x}_k = B^k\mathbf{x}_0$?
+choices:
+- label: A
+  text: $\lambda_1 = 3$
+- label: B
+  text: $\lambda_2 = -4$
+- label: C
+  text: $\lambda_3 = 0$
+- label: D
+  text: $\lambda_{4,5} = 1 \pm 2i$
+- label: E
+  text: There is not necessarily a dominant eigenvalue
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The dominant eigenvalue is the one with largest magnitude (absolute value). Computing magnitudes: $|\lambda_1| = 3$, $|\lambda_2| = |-4| = 4$, $|\lambda_3| = 0$, $|\lambda_4| = |1+2i| = \sqrt{1^2 + 2^2} = \sqrt{5} \approx 2.24$. Since $|\lambda_2| = 4$ is largest, $\lambda_2 = -4$ is the dominant eigenvalue. The sign is irrelevant for dominance—only magnitude matters. The dominant eigenvalue determines the asymptotic rate at which powers $B^k$ grow or decay: here $\|B^k\| \approx 4^k$ for large $k$.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 1
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 87
+variant_of: null
+topics:
+- Dominant eigenvalue
+- spectral radius
+- convergence rate
+notes: null

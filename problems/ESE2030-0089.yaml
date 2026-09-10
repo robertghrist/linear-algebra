@@ -1,0 +1,61 @@
+id: ESE2030-0089
+legacy_id: Q4-P16
+week: 8
+skills: []
+status: active
+problem_type: null
+statement: |
+  The general solution to a third-order linear differential equation
+  $$\frac{d^3x}{dt^3} + a\frac{d^2x}{dt^2} + b\frac{dx}{dt} + cx = 0$$
+  is found to be:
+  $$x(t) = c_1 e^{-2t} + c_2 e^{3t} + c_3 te^{3t}$$
+
+  What can be concluded about the companion matrix $C$ for this differential equation?
+choices:
+- label: A
+  text: $C$ has three distinct eigenvalues
+- label: B
+  text: $C$ has eigenvalue $\lambda = 3$ appearing twice in the characteristic polynomial, with a 2-dimensional
+    eigenspace
+- label: C
+  text: $C$ has eigenvalue $\lambda = 3$ appearing twice in the characteristic polynomial, with a 1-dimensional
+    eigenspace
+- label: D
+  text: $C$ has eigenvalue $\lambda = 3$ with a 2-dimensional eigenspace, but only one basis solution
+    because the other eigenvector produces the same exponential
+- label: E
+  text: None of the above can be concluded
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The characteristic polynomial must have $\lambda = -2$ appearing once (producing the basis solution $e^{-2t}$) and $\lambda = 3$ appearing twice (degree 3 total). However, the presence of BOTH $e^{3t}$ and $te^{3t}$ indicates that the eigenspace for $\lambda = 3$ is only 1-dimensional. If the eigenspace were 2-dimensional, we would have two independent eigenvectors for $\lambda = 3$, producing two independent exponential solutions of the form $e^{3t}$ (in different directions). Instead, the $te^{3t}$ term arises precisely because there is only ONE eigenvector for $\lambda = 3$, requiring a generalized eigenvector to complete the basis. The polynomial term $t$ always signals a deficiency in the number of eigenvectors relative to how many times the eigenvalue appears in the characteristic polynomial.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      misses that the polynomial term signals eigenvalue repetition; the presence of $te^{3t}$ means $\lambda = 3$ must be repeated
+    B: |
+      backwards; a 2-dimensional eigenspace would give two independent exponential solutions, not the polynomial term $te^{3t}$
+    D: |
+      contradictory reasoning; a 2-dimensional eigenspace means two independent eigenvectors, which would produce two distinct exponential solutions
+    E: |
+      complex eigenvalues produce trigonometric functions like $\cos(\beta t)$ and $\sin(\beta t)$, not polynomial-exponential products like $te^{3t}$
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 16
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 530
+variant_of: null
+topics:
+- Higher-order ODEs
+- repeated eigenvalues
+- basis solutions
+- polynomial-exponential terms
+notes: null

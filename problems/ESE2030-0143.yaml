@@ -1,0 +1,48 @@
+id: ESE2030-0143
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A centered data matrix $X \in \mathbb{R}^{200 \times 4}$ records four measurements from 200 adults: height ($H$), weight ($W$), arm span ($S$), and age ($A$). After standardizing each variable, correlation PCA yields:
+
+  $$\mathbf{v}_1 = \frac{1}{\sqrt{3}}(1, 1, 1, 0)^T, \qquad \mathbf{v}_2 = (0, 0, 0, 1)^T$$
+
+  together capturing 85\% of total variance.
+  Which interpretation is most justified?
+choices:
+- label: A
+  text: The 1st principal component measures overall body size, while age varies independently.
+- label: B
+  text: Height, weight, and arm span are perfectly correlated.
+- label: C
+  text: Age explains only 15\% of the variance.
+- label: D
+  text: The data is essentially 2-dimensional.
+- label: E
+  text: Since $\mathbf{v}_1 \perp \mathbf{v}_2$, height/weight/span are uncorrelated with age.
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    The first PC $\mathbf{v}_1 = (1,1,1,0)^T/\sqrt{3}$ weights $H$, $W$, $S$ equally and ignores age — this captures "overall body size." The second PC $\mathbf{v}_2 = (0,0,0,1)^T$ loads only on age. Together they explain 85% of variance. This structure suggests body size measurements vary together (correlated), while age varies separately. Specifying adults is key: among adults, body size and age are largely independent.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      "equal loadings" doesn't imply "perfect correlation"; it means they contribute equally to that PC direction. Perfect correlation would mean rank-1 structure among those three variables.
+sources:
+- semester: 2025C
+  instrument: final
+  position: 28
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 905
+variant_of: null
+topics: []
+notes: null

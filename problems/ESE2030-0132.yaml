@@ -1,0 +1,54 @@
+id: ESE2030-0132
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Training a neural network requires computing the gradient of the loss function $L$ with respect to all weight matrices $W_1, W_2, \ldots, W_k$ in the network. The backpropagation algorithm accomplishes this efficiently by working backward from the output layer to the input layer.
+
+  Which mathematical principle most directly explains why backpropagation works?
+choices:
+- label: A
+  text: 'The spectral theorem: weight matrices can be diagonalized, allowing gradients to be computed
+    in eigenvector coordinates'
+- label: B
+  text: 'The chain rule: the loss depends on weights through a composition of functions, and derivatives
+    of compositions factor into products'
+- label: C
+  text: 'Orthogonal decomposition: each layer''s contribution to the gradient is orthogonal to the others,
+    so they can be computed independently'
+- label: D
+  text: 'Singular value decomposition: gradients flow through the principal directions of each weight
+    matrix'
+- label: E
+  text: 'The Fundamental Theorem of Linear Algebra: it''s the foundation of all'
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    A neural network computes a composition: $L = \ell(\mathbf{y}, f_k(f_{k-1}(\cdots f_1(\mathbf{x})\cdots)))$ where each $f_i$ depends on weights $W_i$. The chain rule states that derivatives of compositions are products of derivatives: $\frac{\partial L}{\partial W_1} = \frac{\partial L}{\partial f_k} \cdot \frac{\partial f_k}{\partial f_{k-1}} \cdots \frac{\partial f_2}{\partial f_1} \cdot \frac{\partial f_1}{\partial W_1}$. Backpropagation computes these factors from right to left (output to input), reusing intermediate results. This is literally the chain rule applied to the computational graph.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      weight matrices are generally not symmetric, so spectral theorem doesn't apply; even when eigendecomposition exists, it's not how backprop works
+    C: |
+      layer gradients are NOT orthogonal; they are multiplied together, not added independently
+    D: |
+      FTC relates integrals and derivatives; backprop involves no integration. The "backward" direction is about computational ordering, not inverting an operation
+    E: |
+      (SVD is useful for analyzing weight matrices but is not the mechanism behind backpropagation) ===============================================
+sources:
+- semester: 2025C
+  instrument: final
+  position: 17
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 601
+variant_of: null
+topics: []
+notes: null

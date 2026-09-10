@@ -1,0 +1,52 @@
+id: ESE2030-0050
+legacy_id: Q3-P01
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  If $\mathbf{v}$ is an eigenvector of matrix $A$ with eigenvalue $\lambda = 3$, what is $A(2\mathbf{v})$?
+choices:
+- label: A
+  text: $3\mathbf{v}$
+- label: B
+  text: $6\mathbf{v}$
+- label: C
+  text: $2\mathbf{v}$
+- label: D
+  text: $5\mathbf{v}$
+- label: E
+  text: $9\mathbf{v}$
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    Using the eigenvector property $A\mathbf{v} = \lambda\mathbf{v} = 3\mathbf{v}$ and linearity: $A(2\mathbf{v}) = 2A\mathbf{v} = 2(3\mathbf{v}) = 6\mathbf{v}$. Scalar multiples of eigenvectors are also eigenvectors with the same eigenvalue.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      forgets the factor of 2, computes $A\mathbf{v}$ instead of $A(2\mathbf{v})$
+    C: |
+      incorrectly thinks the eigenvalue property "cancels" somehow
+    D: |
+      adds instead of multiplies: $\lambda + 2 = 5$
+    E: |
+      multiplies $\lambda$ by 2 then squares: $(2 \cdot 3) = 6$ but gets confused and computes $3^2$
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 1
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 87
+variant_of: null
+topics:
+- Eigenvalues
+- eigenvectors
+- basic definition
+notes: null

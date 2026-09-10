@@ -1,0 +1,50 @@
+id: ESE2030-0116
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Consider the third-order linear differential equation given in operator ($D = \frac{d}{dt}$) form:
+  $$(D^3 - 6D^2 + 3D + 10I)x = 0 = (D-2)(D+1)(D-5)x $$
+  Which set forms a basis for the solution space?
+choices:
+- label: A
+  text: $\{e^{-2t}, e^{t}, e^{-5t}\}$
+- label: B
+  text: $\{e^{6t}, e^{-3t}, e^{-10t}\}$
+- label: C
+  text: $\{e^{2t}, e^{t}, e^{5t}\}$
+- label: D
+  text: $\{e^{2t}, e^{-t}, e^{5t}\}$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    The operator $(D - \lambda)$ annihilates functions of the form $e^{\lambda t}$, since $(D - \lambda)e^{\lambda t} = \lambda e^{\lambda t} - \lambda e^{\lambda t} = 0$. Reading the roots from the factored form $(D-2)(D+1)(D-5) = 0$, we get $\lambda = 2, -1, 5$. These are three distinct real eigenvalues, so the basis consists of $\{e^{2t}, e^{-t}, e^{5t}\}$. The dimension of the solution space equals the order of the ODE, which is 3.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      sign errors: uses negatives of the actual roots; confuses $(D-2)$ with root $-2$
+    B: |
+      reads basis from expanded coefficients $-6, 3, 10$ instead of roots; completely wrong approach
+    C: |
+      incorrectly reads $(D+1)$ as giving $\lambda = 1$ instead of $\lambda = -1$
+    E: |
+      (adds an extra $te^{5t}$ term as if $\lambda = 5$ were repeated; also has 4 functions for a 3rd-order ODE) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 1
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 89
+variant_of: null
+topics: []
+notes: null

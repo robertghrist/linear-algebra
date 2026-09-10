@@ -1,0 +1,50 @@
+id: ESE2030-0126
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $V$ be a vector space with $\dim(V) = 4$, and let $S = \{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3, \mathbf{v}_4, \mathbf{v}_5\}$ be a set of five vectors in $V$.
+
+  Which statement is necessarily TRUE?
+choices:
+- label: A
+  text: $S$ must be linearly dependent.
+- label: B
+  text: $S$ must span $V$.
+- label: C
+  text: If $S$ spans $V$, then $S$ is a basis for $V$.
+- label: D
+  text: If $S$ spans $V$, then removing any one vector from $S$ leaves a basis.
+- label: E
+  text: At least two vectors in $S$ must be equal.
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |2
+     In a vector space of dimension n, any set of more than n vectors must be linearly dependent. Here dim(V) = 4 and |S| = 5 > 4, so S is necessarily linearly dependent. Why the others fail: (B) S need not span V. Example: take v₁ = v₂ = v₃ = v₄ = v₅ = e₁ (all the same nonzero vector). This set has 5 vectors but spans only a 1-dimensional subspace. (C) False. Spanning alone doesn't make a basis — you also need linear independence. If S spans V, it has 5 vectors in a 4-dim space, so it's necessarily dependent. A basis must be both spanning AND linearly independent, so S cannot be a basis. (A spanning set with too many vectors is "too big" to be a basis.) (D) False. Counterexample: S = {e₁, e₂, e₃, e₄, 2e₄} spans ℝ⁴. Remove e₁: remaining {e₂, e₃, e₄, 2e₄} spans only span{e₂, e₃, e₄}, a 3-dim subspace. So removing e₁ leaves a set that doesn't even span V, let alone form a basis. (E) False. The five vectors can all be distinct and still be linearly dependent. Example: {e₁, e₂, e₃, e₄, e₁+e₂} — all distinct, but linearly dependent.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      more vectors doesn't mean more span — could all point the same direction
+    C: |
+      conflates spanning with being a basis; forgets the independence requirement
+    D: |
+      sounds plausible but the redundancy might be "concentrated" so some removals break spanning
+    E: |
+      (confuses linear dependence with having repeated vectors) ===============================================
+sources:
+- semester: 2025C
+  instrument: final
+  position: 11
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 404
+variant_of: null
+topics: []
+notes: null

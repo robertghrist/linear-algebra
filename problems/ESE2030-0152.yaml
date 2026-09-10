@@ -1,0 +1,50 @@
+id: ESE2030-0152
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Consider the linear system $\displaystyle \frac{d\mathbf{x}}{dt} = A\mathbf{x}$ where $A$ is a constant $n \times n$ matrix.
+
+  The solution is $\mathbf{x}(t) = e^{At}\mathbf{x}_0$. What is the fundamental reason that the matrix exponential $e^{At}$ solves this differential equation?
+choices:
+- label: A
+  text: The eigenvalues of $A$ determine stability, and $e^{At}$ encodes this stability information through
+    exponential decay or growth
+- label: B
+  text: Differentiating $e^{At}$ with respect to $t$ produces $Ae^{At}$, so $\frac{d}{dt}(e^{At}\mathbf{x}_0)
+    = A(e^{At}\mathbf{x}_0)$
+- label: C
+  text: The Taylor series $I + At + \frac{(At)^2}{2!} + \cdots$ converges for all matrices $A$ and all
+    times $t$
+- label: D
+  text: Matrix exponentials generalize scalar exponentials, and $e^{at}$ solves $\frac{dx}{dt} = ax$
+- label: E
+  text: The matrix $e^{At}$ is always invertible, ensuring that solutions exist and are unique
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    The defining property that makes $e^{At}$ the solution is that $\frac{d}{dt}e^{At} = Ae^{At}$. When we substitute $\mathbf{x}(t) = e^{At}\mathbf{x}_0$ into the ODE, we get $\frac{d\mathbf{x}}{dt} = Ae^{At}\mathbf{x}_0 = A\mathbf{x}(t)$, confirming it satisfies the equation. Additionally, $e^{A \cdot 0} = I$ ensures the initial condition $\mathbf{x}(0) = \mathbf{x}_0$ is satisfied.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      convergence is necessary for $e^{At}$ to be well-defined, but doesn't explain why it solves the ODE
+    E: |
+      (invertibility guarantees uniqueness but doesn't explain why $e^{At}$ satisfies the differential equation) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 37
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1180
+variant_of: null
+topics: []
+notes: null

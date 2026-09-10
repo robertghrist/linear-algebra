@@ -1,0 +1,55 @@
+id: ESE2030-0066
+legacy_id: Q3-P17
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider the initial value problem $\frac{d\mathbf{x}}{dt} = A\mathbf{x}$ with $\mathbf{x}(0) = \mathbf{x}_0$, where $A$ is an $n \times n$ matrix. The solution is given by $\mathbf{x}(t) = e^{At}\mathbf{x}_0$.
+
+  Which property is the most fundamental reason why $e^{At}\mathbf{x}_0$ solves this initial value problem?
+choices:
+- label: A
+  text: The matrix exponential $e^{At}$ is always invertible, so we can recover the initial condition
+- label: B
+  text: The matrix exponential satisfies $e^{A \cdot 0} = I$, which gives $\mathbf{x}(0) = \mathbf{x}_0$
+- label: C
+  text: The matrix exponential satisfies $\frac{d}{dt}e^{At} = Ae^{At}$, which yields the differential
+    equation
+- label: D
+  text: For diagonalizable $A$, we have $e^{At} = Ve^{\Lambda t}V^{-1}$ where eigenvalues determine behavior
+- label: E
+  text: The matrix exponential satisfies the flow property $e^{A(t+s)} = e^{At}e^{As}$
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The fundamental property that makes $e^{At}\mathbf{x}_0$ the solution is the derivative property: $\frac{d}{dt}e^{At} = Ae^{At}$. This directly verifies that $\mathbf{x}(t) = e^{At}\mathbf{x}_0$ satisfies the differential equation: $\frac{d\mathbf{x}}{dt} = \frac{d}{dt}(e^{At}\mathbf{x}_0) = Ae^{At}\mathbf{x}_0 = A\mathbf{x}(t)$. While (B) correctly notes that the initial condition is satisfied ($e^{A \cdot 0}\mathbf{x}_0 = I\mathbf{x}_0 = \mathbf{x}_0$), this alone doesn't explain why it solves the differential equation—we need the derivative property. The other properties are important consequences or computational tools: (A) invertibility is useful but not the reason it's a solution; (D) diagonalization is a method for computing $e^{At}$ but not why it solves the ODE; (E) the flow property is a consequence of the solution structure but not the fundamental reason it works.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      invertibility is important for uniqueness and reversibility, but doesn't explain why $e^{At}\mathbf{x}_0$ satisfies the ODE
+    D: |
+      describes how to compute solutions but not why the formula works; confuses method with fundamental property
+    E: |
+      the flow property is elegant but is actually a consequence of $e^{At}$ being the solution operator, not the reason
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 17
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 504
+variant_of: null
+topics:
+- Matrix exponentials
+- ODEs
+- solution structure
+- initial conditions
+notes: null

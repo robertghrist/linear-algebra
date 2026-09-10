@@ -1,0 +1,51 @@
+id: ESE2030-0141
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A fourth-order linear ODE with constant coefficients has the general solution:
+  $$x(t) = C_1 e^{-t} + C_2 te^{-t} + C_3 e^{2t}\cos(5t) + C_4 e^{2t}\sin(5t)$$
+
+  What are the eigenvalues of the associated $4 \times 4$ companion matrix?
+choices:
+- label: A
+  text: $\lambda = -1, 2\pm 5i$
+- label: B
+  text: $\lambda = 0, 1, 2, 5$
+- label: C
+  text: $\lambda = -1$ (multiplicity 2) and $2 \pm 5i$
+- label: D
+  text: $\lambda = -1$ (multiplicity 2), $2, 5$
+- label: E
+  text: $\lambda = \pm 1, 2\pm 5i$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Reading eigenvalues from basis solutions: The pair $\{e^{-t}, te^{-t}\}$ indicates $\lambda = -1$ with algebraic multiplicity 2 (the factor of $t$ signals a repeated eigenvalue). The pair $\{e^{2t}\cos(5t), e^{2t}\sin(5t)\}$ indicates complex conjugate eigenvalues $\lambda = 2 \pm 5i$ (the general form $e^{\alpha t}\cos(\beta t), e^{\alpha t}\sin(\beta t)$ corresponds to $\alpha \pm i\beta$). This gives exactly 4 eigenvalues (counting multiplicity) for the 4th-order system: $-1, -1, 2+5i, 2-5i$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      extracts the numbers $-1, 2, 5$ from the solution but misinterprets the cosine argument as a separate real eigenvalue
+    B: |
+      similar error, also incorrectly splits the $te^{-t}$ into two different eigenvalues
+    D: |
+      correctly identifies repeated $\lambda = -1$ but still treats 2 and 5 as separate real eigenvalues
+    E: |
+      (correctly identifies the complex pair but thinks something is missing; the solution is complete) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ===============================================
+sources:
+- semester: 2025C
+  instrument: final
+  position: 26
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 858
+variant_of: null
+topics: []
+notes: null

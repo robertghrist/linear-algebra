@@ -1,0 +1,49 @@
+id: ESE2030-0124
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a linear transformation. The Fundamental Theorem of Linear Algebra establishes an isomorphism between two of the four fundamental spaces. Which pair of spaces are isomorphic?
+choices:
+- label: A
+  text: $\ker(T) \cong \text{coker}(T)$.
+- label: B
+  text: $\text{im}(T) \cong \ker(T)$.
+- label: C
+  text: $\text{coim}(T) \cong \text{im}(T)$.
+- label: D
+  text: $\text{coker}(T) \cong \text{coim}(T)$.
+- label: E
+  text: None of the above is always true for all $T:V\to W$.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |2
+     The FTLA states that coim(T) ≅ im(T). The isomorphism is induced by T itself: - Define φ: V/ker(T) → im(T) by φ([v]) = T(v) - Well-defined: if [v] = [u], then v - u ∈ ker(T), so T(v) = T(u) - Injective: if T(v) = T(u), then T(v-u) = 0, so v - u ∈ ker(T), hence [v] = [u] - Surjective: every w ∈ im(T) equals T(v) for some v, so w = φ([v]) This is the deep content of the theorem: T "collapses" ker(T) to zero, but acts as an isomorphism on the quotient V/ker(T).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      tempting because ker and coker sound like "opposites," but dim(ker) ≠ dim(coker) in general
+    B: |
+      rank-nullity relates dimensions but does NOT say ker ≅ im; dimensions adding doesn't imply isomorphism
+    D: |
+      both are quotients, but of different spaces by different subspaces — no natural isomorphism
+    E: |
+      (completely false; T need not be bijective) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 9
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 336
+variant_of: null
+topics: []
+notes: null

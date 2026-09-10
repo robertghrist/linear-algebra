@@ -1,0 +1,60 @@
+id: ESE2030-0086
+legacy_id: Q4-P13
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  Two matrices have the following eigenvalue structures:
+
+  Matrix $A$: eigenvalues $10, 9, 1$
+
+  Matrix $B$: eigenvalues $10, 2, 1$
+
+  Both matrices are diagonalizable with linearly independent eigenvectors. The power method is applied to each matrix with generic initial conditions (containing components of all eigenvectors).
+
+  Which statement about the convergence rates is most accurate?
+choices:
+- label: A
+  text: Both converge at the same rate
+- label: B
+  text: Matrix $A$ converges faster
+- label: C
+  text: Matrix $B$ converges faster
+- label: D
+  text: The convergence rate depends on the initial condition, not the eigenvalues
+- label: E
+  text: The power method depends on Perron-Frobenius and may not be applicable here
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The convergence rate of the power method is determined by the ratio $|\lambda_2|/|\lambda_1|$ where $\lambda_1$ is the dominant eigenvalue and $\lambda_2$ is the second-largest in magnitude. For matrix $A$: ratio is $|9|/|10| = 0.9$. For matrix $B$: ratio is $|2|/|10| = 0.2$. The smaller this ratio, the faster the convergence. Matrix $B$ has ratio $0.2 < 0.9$, so it converges much faster. Intuitively, when the dominant eigenvalue is well-separated from the others (as in $B$), the $\mathbf{v}_1$ component grows much faster relative to other components, leading to rapid convergence. When eigenvalues are close (as in $A$), the $\mathbf{v}_2$ component remains significant for many iterations.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      doesn't recognize that separation matters; the same dominant eigenvalue doesn't mean same convergence rate
+    B: |
+      backward reasoning; larger second eigenvalue means slower convergence, not faster
+    D: |
+      sum of eigenvalues is irrelevant to convergence rate; only the ratio of magnitudes matters
+    E: |
+      while initial condition affects early iterations, the asymptotic convergence rate is determined by the eigenvalue ratio
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 13
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 442
+variant_of: null
+topics:
+- Power method
+- convergence rate
+- eigenvalue ratios
+notes: null

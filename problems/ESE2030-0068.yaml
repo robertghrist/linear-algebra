@@ -1,0 +1,49 @@
+id: ESE2030-0068
+legacy_id: Q3-P19
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  Which of the following properties holds for the matrix exponential $e^{At}$ where $A$ is an $n \times n$ matrix and $t$ is a scalar?
+choices:
+- label: A
+  text: $e^{At}$ is always symmetric
+- label: B
+  text: $e^{A \cdot 0} = 0$
+- label: C
+  text: $e^{At} \cdot e^{As} = e^{A(t+s)}$ for all scalars $t$ and $s$
+- label: D
+  text: $(e^{At})^{-1} = e^{A^{-1}t}$
+- label: E
+  text: None of the above.
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The matrix exponential satisfies the flow property: $e^{At} \cdot e^{As} = e^{A(t+s)}$. This is analogous to the scalar exponential property $e^{at} \cdot e^{as} = e^{a(t+s)}$ and reflects the fact that matrix exponentials form a one-parameter group. This property is fundamental to understanding solutions to differential equations: the solution starting at time $s$ and evolving for time $t$ is the same as the solution evolving for total time $t+s$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      false; $e^{At}$ is symmetric only if $A$ is symmetric and certain other conditions hold
+    B: |
+      incorrect; $e^{A \cdot 0} = e^{0} = I$, the identity matrix
+    D: |
+      this would mean $e^{At}$ is an involution; actually $(e^{At})^{-1} = e^{-At}$
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 19
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 557
+variant_of: null
+topics:
+- Matrix exponentials
+- basic properties
+notes: null

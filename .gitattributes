@@ -1,0 +1,22 @@
+# Normalize line endings. Without this the working tree (CRLF, Windows) and the
+# committed blobs (LF) disagree on every file a Windows editor touches, and git
+# reports whole-file rewrites with no content change.
+#
+# After committing this file, renormalize the tree once:
+#     git add --renormalize .
+#     git commit -m "normalize line endings"
+
+* text=auto
+
+*.tex   text
+*.md    text
+*.txt   text
+*.py    text
+*.json  text
+*.yaml  text
+*.yml   text
+
+*.jpg   -text
+*.jpeg  -text
+*.png   -text
+*.pdf   -text

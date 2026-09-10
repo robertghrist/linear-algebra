@@ -1,0 +1,50 @@
+id: ESE2030-0123
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{m \times n}$ have SVD $A = U\Sigma V^T$ with singular values $\sigma_1 > \sigma_2 > 0$ and $\sigma_k = 0$ for $k > 2$.
+
+  Which statement best describes the geometric relationship between the singular vectors?
+choices:
+- label: A
+  text: '$A\mathbf{u}_1 = \sigma_1 \mathbf{v}_1$: the matrix $A$ maps left singular vectors to right singular
+    vectors, scaled by singular values.'
+- label: B
+  text: '$A^T\mathbf{v}_1 = \sigma_1 \mathbf{u}_1$: the matrix $A^T$ maps right singular vectors to left
+    singular vectors, scaled by singular values.'
+- label: C
+  text: '$A\mathbf{v}_1 = \sigma_1 \mathbf{u}_1$: the matrix $A$ maps the first right singular vector
+    to the first left singular vector, scaled by $\sigma_1$.'
+- label: D
+  text: The columns of $U$ and $V$ are both eigenvectors of $A$, with eigenvalues $\pm\sigma_i$.
+- label: E
+  text: $\mathbf{u}_1$ and $\mathbf{v}_1$ point in the same direction, since both correspond to the largest
+    singular value.
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    The defining relationship of the SVD is $A\mathbf{v}_i = \sigma_i \mathbf{u}_i$ for $i \leq r$ (where $r$ is the rank). This says: the matrix $A$ takes each right singular vector $\mathbf{v}_i$ (in the domain $\mathbb{R}^n$) and maps it to a scalar multiple of the corresponding left singular vector $\mathbf{u}_i$ (in the codomain $\mathbb{R}^m$). Geometrically: the right singular vectors are the principal input directions; the left singular vectors are the principal output directions; and $\sigma_i$ is the stretching factor along the $i$-th principal axis.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      reverses the roles: $A$ maps from domain to codomain, so it takes $\mathbf{v}_i \in \mathbb{R}^n$ to $\mathbf{u}_i \in \mathbb{R}^m$, not the other way
+    B: |
+      reverses the relationship: $A^T \mathbf{u}_i = \sigma_i \mathbf{v}_i$, not $A^T \mathbf{v}_i = \sigma_i \mathbf{u}_i$
+sources:
+- semester: 2025C
+  instrument: final
+  position: 8
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 309
+variant_of: null
+topics: []
+notes: null

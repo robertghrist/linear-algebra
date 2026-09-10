@@ -1,0 +1,56 @@
+id: ESE2030-0095
+legacy_id: Q4-P22
+week: 8
+skills: []
+status: active
+problem_type: null
+statement: |
+  A damped harmonic oscillator is described by the second-order differential equation:
+  $$m\frac{d^2x}{dt^2} + c\frac{dx}{dt} + kx = 0$$
+
+  The companion matrix for this system has eigenvalues that depend on $c$, $m$, and $k$. Which eigenvalue pattern corresponds to damped oscillations (decaying oscillatory motion)?
+choices:
+- label: A
+  text: Two distinct real negative eigenvalues
+- label: B
+  text: Two complex conjugate eigenvalues with negative real part
+- label: C
+  text: A repeated real negative eigenvalue
+- label: D
+  text: Two distinct real positive eigenvalues
+- label: E
+  text: Two complex conjugate eigenvalues with positive real part
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Damped oscillations occur in the underdamped regime when $c^2 < 4mk$, producing complex conjugate eigenvalues $\lambda = -\frac{c}{2m} \pm i\omega$ where $\omega = \frac{1}{2m}\sqrt{4mk - c^2}$. The negative real part $-c/(2m) < 0$ causes exponential decay, while the imaginary part $\pm i\omega$ produces oscillatory behavior through $e^{i\omega t} = \cos(\omega t) + i\sin(\omega t)$. Solutions have the form $e^{-ct/(2m)}(A\cos(\omega t) + B\sin(\omega t))$, exhibiting oscillations with decreasing amplitude. This underdamped motion is characteristic of systems like shock absorbers or pendulums with moderate friction.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      overdamped case with $c^2 > 4mk$; produces exponential decay without oscillation
+    C: |
+      critically damped case with $c^2 = 4mk$; fastest decay without oscillation, but no oscillatory behavior
+    D: |
+      positive real eigenvalues produce unbounded exponential growth, not damping
+    E: |
+      complex eigenvalues with positive real part produce growing oscillations, not damped oscillations
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 22
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 684
+variant_of: null
+topics:
+- ODEs
+- eigenvalues
+- stability
+- behavior classification
+notes: null

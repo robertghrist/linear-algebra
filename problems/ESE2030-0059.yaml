@@ -1,0 +1,57 @@
+id: ESE2030-0059
+legacy_id: Q3-P10
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  A $3 \times 3$ matrix $A$ has three distinct real eigenvalues. Let $V = [\mathbf{v}_1 \; \mathbf{v}_2 \; \mathbf{v}_3]$ be the matrix whose columns are corresponding eigenvectors, forming an eigenbasis for $\mathbb{R}^3$.
+
+  Which statement correctly describes the relationship between $A$ and its diagonal form $\Lambda = \text{diag}(\lambda_1, \lambda_2, \lambda_3)$?
+choices:
+- label: A
+  text: $A = \Lambda V$
+- label: B
+  text: $A = V\Lambda$
+- label: C
+  text: $A = V\Lambda V^{-1}$
+- label: D
+  text: $A = V^{-1}\Lambda V$
+- label: E
+  text: $AV = \Lambda$
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The diagonalization formula $A = V\Lambda V^{-1}$ captures the essence of change of basis: $V^{-1}$ converts from standard coordinates to eigenbasis coordinates (where $A$ becomes the simple diagonal matrix $\Lambda$), and then $V$ converts back to standard coordinates. This is the fundamental similarity transformation that shows $A$ and $\Lambda$ represent the same linear transformation, just viewed in different coordinate systems. The eigenbasis is the natural coordinate system for $A$, where its action is transparent (pure scaling), while standard coordinates may obscure this structure. We can verify this formula from the defining property $A\mathbf{v}_i = \lambda_i\mathbf{v}_i$, which gives us $AV = V\Lambda$, and then multiplying on the right by $V^{-1}$ yields $A = V\Lambda V^{-1}$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      misunderstands the order of operations; this would give a $3 \times 3$ matrix, but doesn't capture the change of basis structure correctly
+    B: |
+      while $V\Lambda$ appears in the correct formula, without $V^{-1}$ this doesn't equal $A$; students may confuse this with $AV = V\Lambda$
+    D: |
+      reverses the order of the similarity transformation; this common error stems from confusion about which direction the basis change operates
+    E: |
+      this is the eigenvalue equation $AV = V\Lambda$ written in matrix form, which is true but doesn't isolate $A$ or show the similarity relationship; students might select this thinking it's equivalent to the answer, missing that we need to solve for $A$
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 10
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 328
+variant_of: null
+topics:
+- Eigenbasis
+- similarity
+- change of basis
+- diagonalization
+- matrix representation
+notes: null

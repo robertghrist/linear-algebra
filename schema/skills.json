@@ -1,0 +1,209 @@
+{
+  "_comment": "GENERATED from weekly_topics/*.txt ESSENTIAL SKILLS blocks. Do not hand-edit; re-run scripts/build_skills_index.py.",
+  "weeks": {
+    "1": {
+      "title": "SOLVING LINEAR SYSTEMS",
+      "chapter": "LAEF 2E -- Chapter 1: Solving Linear Systems (Sections 1.1-1.8)",
+      "source_file": "weekly_topics/WEEK 1 SOLVING LINEAR SYSTEMS.txt",
+      "skills": {
+        "W01.S01": "Row-reduce a small matrix and read off pivots, rank, and free variables",
+        "W01.S02": "Classify a solution set as unique / none / infinite WITHOUT solving the system",
+        "W01.S03": "Write a general solution as particular + homogeneous",
+        "W01.S04": "Decide invertibility from pivot count",
+        "W01.S05": "Invert a 2x2 or 3x3 by row reduction",
+        "W01.S06": "Extract L and U from elimination multipliers; produce PA = LU when a swap is needed",
+        "W01.S07": "Solve a triangular system by forward or back substitution",
+        "W01.S08": "Recognize when permutation or block structure decouples a system",
+        "W01.S09": "State what conditioning measures and what it does not"
+      }
+    },
+    "2": {
+      "title": "ABSTRACT VECTOR SPACES",
+      "chapter": "LAEF 2E -- Chapter 2: Abstract Vector Spaces (Sections 2.1-2.5)",
+      "source_file": "weekly_topics/WEEK 2 ABSTRACT VECTOR SPACES.txt",
+      "skills": {
+        "W02.S01": "Verify or refute the subspace property for a described set",
+        "W02.S02": "Decide whether a given set spans a stated space",
+        "W02.S03": "Test a finite set of vectors, matrices, or polynomials for linear independence",
+        "W02.S04": "Compute the dimension of a described subspace (null space, column space, symmetric matrices, polynomials of bounded degree, solution sets of homogeneous systems)",
+        "W02.S05": "Compare dim of a sum and an intersection of two subspaces",
+        "W02.S06": "Recognize an infinite-dimensional space and say why it is one"
+      }
+    },
+    "3": {
+      "title": "LINEAR TRANSFORMATIONS",
+      "chapter": "LAEF 2E -- Chapter 3: Linear Transformations (Sections 3.1-3.8)",
+      "source_file": "weekly_topics/WEEK 3 LINEAR TRANSFORMATIONS.txt",
+      "skills": {
+        "W03.S01": "Verify or refute linearity of a described map",
+        "W03.S02": "Compute the kernel and image of a matrix or of a simple operator on polynomials",
+        "W03.S03": "Apply Rank-Nullity to deduce one dimension from the other two",
+        "W03.S04": "Decide injectivity/surjectivity from rank and nullity alone",
+        "W03.S05": "Identify which of the four spaces a given vector or subspace belongs to",
+        "W03.S06": "Describe a quotient space and give its dimension",
+        "W03.S07": "State the Fundamental Theorem correctly, including which space each summand lives in",
+        "W03.S08": "Recognize an isomorphism and produce its inverse on a small example"
+      }
+    },
+    "4": {
+      "title": "BASES & COORDINATES",
+      "chapter": "LAEF 2E -- Chapter 4: Bases & Coordinates (Sections 4.1-4.5)",
+      "source_file": "weekly_topics/WEEK 4 BASES & COORDINATES.txt",
+      "skills": {
+        "W04.S01": "Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis",
+        "W04.S02": "Build P_{B <- B'} and use it in the correct direction",
+        "W04.S03": "Convert coordinates between two non-standard bases",
+        "W04.S04": "Write the matrix of a linear map relative to given bases in domain and codomain",
+        "W04.S05": "Re-express a matrix in a new basis via P^{-1} A P",
+        "W04.S06": "Decide whether a stated property is preserved under similarity",
+        "W04.S07": "Extend an independent set to a basis and trim a spanning set to one"
+      }
+    },
+    "5": {
+      "title": "INNER PRODUCTS & ORTHOGONALITY",
+      "chapter": "LAEF 2E -- Chapter 5: Inner Products & Orthogonality (Sections 5.1-5.6)",
+      "source_file": "weekly_topics/WEEK 5 INNER PRODUCTS.txt",
+      "skills": {
+        "W05.S01": "Verify the inner product axioms for a proposed pairing, and find the axiom that fails",
+        "W05.S02": "Compute norms, angles, and cosine similarity in weighted and function inner products",
+        "W05.S03": "Apply Cauchy-Schwarz to bound an inner product",
+        "W05.S04": "Find an orthogonal complement and its dimension",
+        "W05.S05": "Run Gram-Schmidt on two or three vectors and normalize correctly",
+        "W05.S06": "Expand a vector against an orthonormal basis using inner products alone",
+        "W05.S07": "Compute an adjoint, and recognize when the adjoint differs from the transpose",
+        "W05.S08": "Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does",
+        "W05.S09": "Read off Q and R from a small QR, and use QR to solve or to compute a projection"
+      }
+    },
+    "6": {
+      "title": "ORTHOGONAL DECOMPOSITION & DATA",
+      "chapter": "LAEF 2E -- Chapter 6: Orthogonal Decomposition & Data (Sections 6.1-6.6)",
+      "source_file": "weekly_topics/WEEK 6 ORTHOGONAL DECOMPOSITION.txt",
+      "skills": {
+        "W06.S01": "Compute an orthogonal complement and verify a dimension count",
+        "W06.S02": "Project a vector onto a line, a plane, or the column space of a small matrix",
+        "W06.S03": "Recognize a projection matrix from P^2 = P and P^T = P, and identify its image and kernel",
+        "W06.S04": "State which fundamental subspace is the orthogonal complement of which",
+        "W06.S05": "Write down A^+ for a diagonal, a rank-one, a projection, and an invertible matrix",
+        "W06.S06": "Say what A^+ A and A A^+ are, and why they are generally not the identity",
+        "W06.S07": "Set up and solve small normal equations; identify the residual and check its orthogonality",
+        "W06.S08": "Identify the minimum-norm solution among the infinitely many least squares solutions",
+        "W06.S09": "Write the ridge system and describe the effect of lambda"
+      }
+    },
+    "7": {
+      "title": "DIAGONALIZATION & DYNAMICS",
+      "chapter": "LAEF 2E -- Chapter 7: Diagonalization & Dynamics (Sections 7.1-7.6)",
+      "source_file": "weekly_topics/WEEK 7 DIAGONALIZATION & DYNAMICS.txt",
+      "skills": {
+        "W07.S01": "Compute eigenvalues and eigenvectors for 2x2 and 3x3 matrices, including triangular ones",
+        "W07.S02": "Use trace and determinant to check or to shortcut an eigenvalue computation",
+        "W07.S03": "Decide diagonalizability from eigenvector counts, not from distinctness alone",
+        "W07.S04": "Assemble V and D and verify A = V D V^{-1}",
+        "W07.S05": "Compute A^k and e^{tA} for a diagonalizable matrix",
+        "W07.S06": "Solve x' = Ax with a given initial condition and describe the long-run behavior from the spectrum",
+        "W07.S07": "Convert a higher-order scalar ODE to a first-order system and back",
+        "W07.S08": "Write a basis of solutions from distinct characteristic roots"
+      }
+    },
+    "8": {
+      "title": "EIGENVALUE COMPLEXITIES",
+      "chapter": "LAEF 2E -- Chapter 8: Eigenvalue Complexities (Sections 8.1-8.5)",
+      "source_file": "weekly_topics/WEEK 8 EIGENVALUE COMPLEXITIES.txt",
+      "skills": {
+        "W08.S01": "Find complex eigenvalues and produce REAL solutions from them",
+        "W08.S02": "Read frequency and growth rate off a complex eigenvalue",
+        "W08.S03": "Compute algebraic and geometric multiplicity, and diagnose defectiveness",
+        "W08.S04": "Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I)",
+        "W08.S05": "Find a generalized eigenvector by solving (A - lambda I) w = v",
+        "W08.S06": "Exponentiate a 2x2 or 3x3 Jordan block",
+        "W08.S07": "Write the basis of solutions for an ODE with repeated or complex characteristic roots",
+        "W08.S08": "Explain what one QR step does and why the spectrum is unchanged"
+      }
+    },
+    "9": {
+      "title": "LINEAR ITERATIVE SYSTEMS",
+      "chapter": "LAEF 2E -- Chapter 9: Linear Iterative Systems (Sections 9.1-9.6)",
+      "source_file": "weekly_topics/WEEK 9 LINEAR ITERATIVE SYSTEMS.txt",
+      "skills": {
+        "W09.S01": "Determine whether A^k converges, diverges, or oscillates, from the spectrum alone",
+        "W09.S02": "Compute the spectral radius and identify the dominant eigenvalue and eigenvector",
+        "W09.S03": "Predict the limiting direction of an iterate and the rate of approach",
+        "W09.S04": "Run two or three steps of the power method and normalize sensibly",
+        "W09.S05": "Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem",
+        "W09.S06": "Verify a matrix is stochastic and find its stationary distribution",
+        "W09.S07": "Orthogonally diagonalize a small symmetric matrix",
+        "W09.S08": "Bound x^T A x using the Rayleigh quotient",
+        "W09.S09": "Build a Graph Laplacian and read the number of components off its kernel"
+      }
+    },
+    "10": {
+      "title": "SINGULAR VALUE DECOMPOSITION",
+      "chapter": "LAEF 2E -- Chapter 10: Singular Value Decomposition (Sections 10.1-10.6)",
+      "source_file": "weekly_topics/WEEK 10 SINGULAR VALUE DECOMPOSITION.txt",
+      "skills": {
+        "W10.S01": "Orthogonally diagonalize a small symmetric matrix and write its spectral decomposition",
+        "W10.S02": "Compute the SVD of a 2x2 or a simple 2x3 / 3x2 matrix",
+        "W10.S03": "Read rank, and bases for all four fundamental subspaces, off a GIVEN SVD",
+        "W10.S04": "Write A as a sum of rank-one terms and identify the dominant one",
+        "W10.S05": "Compute spectral and Frobenius norms from singular values",
+        "W10.S06": "Compute the condition number and interpret it",
+        "W10.S07": "Build A^+ from a given SVD and use it to solve a least squares problem",
+        "W10.S08": "Relate singular values of A to eigenvalues of A^T A without conflating them",
+        "W10.S09": "Explain why singular values are nonnegative while eigenvalues need not be"
+      }
+    },
+    "11": {
+      "title": "PRINCIPAL COMPONENTS & LOW-RANK STRUCTURE",
+      "chapter": "LAEF 2E -- Chapter 11: Principal Components & Low-Rank Structure (Sections 11.1-11.7)",
+      "source_file": "weekly_topics/WEEK 11 PRINCIPAL COMPONENTS.txt",
+      "skills": {
+        "W11.S01": "Center a small data matrix and compute its covariance matrix",
+        "W11.S02": "Identify principal components as eigenvectors of C or right singular vectors of X",
+        "W11.S03": "Compute variance captured and explained-variance ratios from eigenvalues or singular values",
+        "W11.S04": "Read a scree plot and defend a choice of k",
+        "W11.S05": "Decide between covariance PCA and correlation PCA from the units and scales given",
+        "W11.S06": "Produce the best rank-k approximation from a given SVD and state its error in both norms",
+        "W11.S07": "Compute a Mahalanobis distance and use it to flag an outlier",
+        "W11.S08": "Project data onto the top two components and interpret the resulting plot",
+        "W11.S09": "Interpret loadings: which variables drive which component, and the sign ambiguity",
+        "W11.S10": "State the nuclear norm and say why it stands in for rank"
+      }
+    },
+    "12": {
+      "title": "PROBABILITY & HIGH DIMENSION",
+      "chapter": "LAEF 2E -- Chapter 12: Probability & High Dimension (Sections 12.1-12.6)",
+      "source_file": "weekly_topics/WEEK 12 PROBABILITY & HIGH DIMENSION.txt",
+      "skills": {
+        "W12.S01": "Translate between statistical and geometric vocabulary: expectation/projection, variance/squared length, covariance/inner product, correlation/cosine",
+        "W12.S02": "Verify that a proposed weighting gives a valid inner product on random variables",
+        "W12.S03": "Apply Markov and Chebyshev to bound a tail probability",
+        "W12.S04": "Decide whether a point lies in the simplex; compute a softmax output and check it sums to one",
+        "W12.S05": "Compute the expected inner product and variance for random unit vectors and explain near-orthogonality in R^n",
+        "W12.S06": "Apply the union bound to a stated collection of events",
+        "W12.S07": "Place the Marchenko-Pastur edges given n and d, and classify a singular value as signal or noise",
+        "W12.S08": "Use Johnson-Lindenstrauss to compute a sufficient target dimension k from m and epsilon, and read off the stated success probability",
+        "W12.S09": "State exactly what JL preserves (pairwise squared distances, up to relative error) and what it does not",
+        "W12.S10": "Describe the randomized SVD pipeline in order: probe, sketch, orthonormalize, project, factor"
+      }
+    },
+    "13": {
+      "title": "NEURAL NETWORKS & AI",
+      "chapter": "LAEF 2E -- Chapter 13: Neural Networks & AI (Sections 13.1-13.7)",
+      "source_file": "weekly_topics/WEEK 13 NEURAL NETWORKS & AI.txt",
+      "skills": {
+        "W13.S01": "Count parameters in a stated architecture",
+        "W13.S02": "Evaluate a small network forward by hand",
+        "W13.S03": "State why depth without nonlinearity collapses to a single linear map",
+        "W13.S04": "Identify the shapes of W_l, h_l, b_l, and delta_l and check conformability",
+        "W13.S05": "Apply the backpropagation rule for one layer and identify where the TRANSPOSE enters",
+        "W13.S06": "Recognize the output-layer error signal as the negated least squares residual",
+        "W13.S07": "Compare the cost of backpropagation to finite differences",
+        "W13.S08": "Compute a softmax and an attention weight COLUMN; verify it sums to one",
+        "W13.S09": "Explain what attention learns that a fixed inner product cannot",
+        "W13.S10": "Identify kernel and image of a linearized autoencoder round trip and say what each means",
+        "W13.S11": "Explain the sense in which a linear autoencoder reproduces PCA"
+      }
+    }
+  }
+}

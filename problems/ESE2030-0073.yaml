@@ -1,0 +1,52 @@
+id: ESE2030-0073
+legacy_id: Q3-P24
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  A $4 \times 4$ matrix $A$ has eigenvalues $\lambda_1 = 3$, $\lambda_2 = -2$, $\lambda_3 = 5$, and $\lambda_4$ is unknown. If $\text{tr}(A) = 8$, what is $\lambda_4$?
+choices:
+- label: A
+  text: $2$
+- label: B
+  text: $-2$
+- label: C
+  text: $6$
+- label: D
+  text: $4$
+- label: E
+  text: Cannot be determined without knowing the matrix $A$
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The trace of a matrix equals the sum of its eigenvalues (counting multiplicity): $\text{tr}(A) = \lambda_1 + \lambda_2 + \lambda_3 + \lambda_4$. Therefore, $8 = 3 + (-2) + 5 + \lambda_4 = 6 + \lambda_4$, giving $\lambda_4 = 2$. This relationship holds regardless of the specific form of the matrix.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      sign error in arithmetic
+    C: |
+      incorrectly adds the three known eigenvalues and treats that as the answer
+    D: |
+      miscalculates: perhaps $8 - 3 - 2 - 5 = -2$ but takes absolute value, or other arithmetic error
+    E: |
+      (doesn't recognize that trace determines the sum of eigenvalues regardless of matrix form) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 24
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 682
+variant_of: null
+topics:
+- Trace
+- eigenvalues
+- sum property
+notes: null

@@ -1,0 +1,47 @@
+id: ESE2030-0140
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{m \times n}$ have singular values $\sigma_1, \ldots, \sigma_r > 0$. Let $Q \in \mathbb{R}^{m \times m}$ and $P \in \mathbb{R}^{n \times n}$ be orthogonal matrices.
+
+  Which statement is TRUE?
+choices:
+- label: A
+  text: $QA$ has singular values $\sigma_1, \ldots, \sigma_r$, but $AP$ generally does not.
+- label: B
+  text: $AP$ has singular values $\sigma_1, \ldots, \sigma_r$, but $QA$ generally does not.
+- label: C
+  text: Both $QA$ and $AP$ have singular values $\sigma_1, \ldots, \sigma_r$.
+- label: D
+  text: $QAP$ has singular values $\sigma_1^2, \ldots, \sigma_r^2$ because two orthogonal transformations
+    are applied.
+- label: E
+  text: The singular values of $QA$ depend on which orthogonal matrix $Q$ is chosen.
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Singular values are invariant under orthogonal transformations on either side. If $A = U\Sigma V^T$, then: - $QA = (QU)\Sigma V^T$ is an SVD of $QA$ since $QU$ is orthogonal - $AP = U\Sigma (P^TV)^T$ is an SVD of $AP$ since $P^TV$ is orthogonal Geometrically: orthogonal transformations are rotations/reflections that preserve lengths and angles. The singular values measure how much $A$ stretches along principal directions. Pre- or post-composing with a rotation doesn't change the stretching — it just rotates the input or output space. This is why singular values capture "intrinsic" properties of a linear map, independent of the choice of orthonormal bases.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      incorrectly thinks left and right multiplication behave differently; both preserve singular values
+    B: |
+      same error as A, with sides swapped
+sources:
+- semester: 2025C
+  instrument: final
+  position: 25
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 822
+variant_of: null
+topics: []
+notes: null

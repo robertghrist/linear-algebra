@@ -1,0 +1,58 @@
+id: ESE2030-0104
+legacy_id: Q5-P09
+week: 11
+skills: []
+status: active
+problem_type: null
+statement: |
+  An engineer monitors a chemical reactor with three sensors measuring temperature ($T$, in °C), pressure ($P$, in kPa), and flow rate ($F$, in mL/min). A week of measurements yields:
+  $$\text{Temperature: } T \in [180, 220] \text{ °C}$$
+  $$\text{Pressure: } P \in [2000, 2500] \text{ kPa}$$
+  $$\text{Flow rate: } F \in [5, 15] \text{ mL/min}$$
+
+  The engineer performs covariance PCA on the centered data and finds that the first principal component is approximately:
+  $$\mathbf{v}_1 \approx (0.002, 0.998, 0.005)^T$$
+
+  Which statement best explains this result?
+choices:
+- label: A
+  text: Pressure dominates the first principal component because it has the largest absolute variance,
+    masking potentially important patterns in temperature and flow.
+- label: B
+  text: The principal component correctly identifies pressure as the most important variable since it
+    has the widest measurement range.
+- label: C
+  text: This result suggests the three variables are uncorrelated, with pressure varying independently
+    of temperature and flow.
+- label: D
+  text: The small coefficients for temperature and flow indicate these variables contribute negligible
+    information and can be discarded.
+- label: E
+  text: Covariance PCA automatically accounts for different measurement scales, so this result reveals
+    genuine physical dominance of pressure variation.
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    Covariance PCA is sensitive to the scale of variables. Pressure varies on the order of hundreds of kPa, while temperature varies by tens of degrees and flow by ~10 mL/min. The sample variance of pressure will be much larger (proportional to the square of the range), causing the first PC to align almost entirely with the pressure direction. This doesn't mean pressure is genuinely "more important" - it's an artifact of the different measurement units. To reveal patterns independent of scale, the engineer should use correlation PCA (standardize variables to unit variance before PCA) or carefully rescale the variables.
+  key_insight: null
+  distractor_rationale:
+    E: |
+      (contradicts the fundamental issue with covariance PCA - it does NOT automatically account for scale) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 9
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 358
+variant_of: null
+topics:
+- Covariance vs Correlation PCA
+- preprocessing and scaling
+notes: null

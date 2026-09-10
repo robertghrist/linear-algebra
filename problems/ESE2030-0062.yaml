@@ -1,0 +1,51 @@
+id: ESE2030-0062
+legacy_id: Q3-P13
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  Which of the following provides the best fundamental description of what an eigenvalue $\lambda$ of a matrix $A$ represents?
+choices:
+- label: A
+  text: A root of the characteristic polynomial $\det(A - \lambda I) = 0$
+- label: B
+  text: A scalar for which $A - \lambda I$ is singular
+- label: C
+  text: A value that determines the long-term behavior of the system $\frac{d\mathbf{x}}{dt} = A\mathbf{x}$
+- label: D
+  text: The scaling factor by which $A$ stretches vectors in certain invariant directions
+- label: E
+  text: A value such that $\text{tr}(A)$ equals the sum of all eigenvalues
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The most fundamental geometric interpretation of an eigenvalue is that it represents the scaling factor by which the matrix $A$ acts on vectors in special invariant directions (the eigenvectors). This captures the essence of the defining equation $A\mathbf{v} = \lambda\mathbf{v}$: the matrix transforms the eigenvector $\mathbf{v}$ by simply scaling it by the factor $\lambda$, without changing its direction. While all the other choices are mathematically correct statements about eigenvalues, they represent either computational methods (A, B), consequences/applications (C), or properties (E) rather than the fundamental geometric meaning. Understanding eigenvalues as scaling factors for invariant directions provides the deepest conceptual insight into what eigenvalues ARE, from which all other properties follow.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      correct but computational - describes HOW to find eigenvalues, not WHAT they are
+    C: |
+      correct but application-specific - describes what eigenvalues DO in one context, not what they fundamentally ARE
+    E: |
+      correct property but describes a relationship among eigenvalues rather than what a single eigenvalue means
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 13
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 406
+variant_of: null
+topics:
+- Eigenvalues
+- geometric interpretation
+- fundamental definition
+notes: null

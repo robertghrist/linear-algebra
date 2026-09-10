@@ -1,0 +1,46 @@
+id: ESE2030-0056
+legacy_id: Q3-P07
+week: 6
+skills: []
+status: active
+problem_type: null
+statement: |
+  A nonsingular $n \times n$ matrix $A$ has QR decomposition $A = QR$ where $Q=[Q_{ij}]$ and $R=[R_{ij}]$.
+  Which statement about $\det(A)$ must be true?
+choices:
+- label: A
+  text: $\det(A) = \det(R)$
+- label: B
+  text: $\det(A) = 1$
+- label: C
+  text: $\det(A) = \pm 1$
+- label: D
+  text: $\det(A) = \pm \prod_{i=1}^n R_{ii}$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The determinant of a product equals the product of determinants: $\det(A) = \det(QR) = \det(Q)\det(R)$. Since $Q$ is orthogonal, $\det(Q) = \pm 1$. For an upper triangular matrix $R$, the determinant equals the product of diagonal entries.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 7
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 244
+variant_of: null
+topics:
+- QR decomposition
+- orthogonal matrices
+- determinant
+notes: null

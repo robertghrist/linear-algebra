@@ -1,0 +1,46 @@
+id: ESE2030-0015
+legacy_id: Q1-P15
+week: 2
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $V$ be a 4-dimensional vector space. Suppose $S = \{\mathbf{v_1, v_2, v_3, v_4, v_5}\}$ is a set of vectors in $V$ where $\{\mathbf{v_1, v_2, v_3, v_4}\}$ forms a basis for $V$. Which of the following must be TRUE about $\mathbf{v}_5$?
+choices:
+- label: A
+  text: $\mathbf{v}_5 = \mathbf{0}$ (the zero vector)
+- label: B
+  text: $\mathbf{v}_5$ can be uniquely written as a linear combination of $\mathbf{v_1, v_2, v_3, v_4}$
+- label: C
+  text: $\mathbf{v}_5$ is linearly independent from any three vectors chosen from $\{\mathbf{v_1, v_2,
+    v_3, v_4}\}$
+- label: D
+  text: The set $\{\mathbf{v_2, v_3, v_4, v_5}\}$ cannot be a basis for $V$
+- label: E
+  text: The set $S$ is linearly independent
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    Since $\{\mathbf{v_1, v_2, v_3, v_4}\}$ is a basis for the 4-dimensional space $V$: \begin{itemize} \item Every vector in $V$ (including $\mathbf{v}_5$) can be written as a linear combination of the basis \item This representation is unique (fundamental property of bases) \item $\mathbf{v}_5$ need not be zero (option A is wrong) \item The set $S$ is linearly dependent since it has 5 vectors in a 4D space \end{itemize}
+  key_insight: |
+    In an $n$-dimensional space, any set of more than $n$ vectors must be linearly dependent.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 15
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 330
+variant_of: null
+topics:
+- Basis
+- dimension
+- spanning sets
+- linear dependence
+notes: null

@@ -1,0 +1,56 @@
+id: ESE2030-0097
+legacy_id: Q5-P02
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  A linear transformation $A \in \mathbb{R}^{3 \times 2}$ maps the unit circle in $\mathbb{R}^2$ to an ellipse in $\mathbb{R}^3$. The matrix $A^TA$ has eigenvalues $\lambda_1 = 9$ and $\lambda_2 = 4$ with corresponding orthonormal eigenvectors $\mathbf{v}_1$ and $\mathbf{v}_2$.
+
+  Which statement correctly describes the geometric action of $A$?
+choices:
+- label: A
+  text: The ellipse in $\mathbb{R}^3$ has semi-axis lengths 9 and 4, aligned with the directions $\mathbf{v}_1$
+    and $\mathbf{v}_2$.
+- label: B
+  text: The ellipse in $\mathbb{R}^3$ has semi-axis lengths 3 and 2, and the input directions $\mathbf{v}_1$
+    and $\mathbf{v}_2$ are mapped to these semi-axes.
+- label: C
+  text: The ellipse lies in a 2-dimensional subspace of $\mathbb{R}^3$, with semi-axis lengths $\sqrt{9}
+    = 3$ and $\sqrt{4} = 2$.
+- label: D
+  text: The transformation stretches the direction $\mathbf{v}_1$ by factor 9 and $\mathbf{v}_2$ by factor
+    4, producing an ellipse with area $36\pi$.
+- label: E
+  text: The eigenvalues of $A$ determine the semi-axis lengths, which are 9 and 4.
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    The key geometric insight is that $A$ transforms the unit circle (sphere in $\mathbb{R}^2$) into an ellipse in $\mathbb{R}^3$. Since $A \in \mathbb{R}^{3 \times 2}$, the image must lie in a 2-dimensional subspace (the column space of $A$). The eigenvalues $\lambda_i$ of $A^TA$ give $\|A\mathbf{v}_i\|^2 = \lambda_i$, so the singular values $\sigma_i = \sqrt{\lambda_i}$ are the actual stretching factors: $\sigma_1 = 3$ and $\sigma_2 = 2$. These are the semi-axis lengths of the ellipse. The eigenvectors $\mathbf{v}_1, \mathbf{v}_2$ (in the domain) are the principal input directions that get stretched to form the semi-axes.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      confuses eigenvalues $\lambda_i$ with singular values $\sigma_i$; the eigenvalues give squared stretching, not the lengths themselves
+    D: |
+      uses eigenvalues as stretching factors instead of their square roots
+    E: |
+      conflates eigenvalues of $A$ with eigenvalues of $A^TA$; for rectangular $A$, eigenvalues of $A$ don't exist
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 2
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 135
+variant_of: null
+topics:
+- Geometric foundations of SVD
+- sphere to ellipsoid transformation
+- role of A^TA
+notes: null

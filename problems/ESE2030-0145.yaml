@@ -1,0 +1,49 @@
+id: ESE2030-0145
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Consider the linear system $A\mathbf{x} = \mathbf{b}$, where $A$ is an $m \times n$ matrix and $\mathbf{b} \in \mathbb{R}^m$. The system may be overdetermined, underdetermined, or inconsistent. The pseudoinverse solution is defined as $\hat{\mathbf{x}} = A^{\dagger}\mathbf{b}$.
+
+  Which statement best characterizes $\hat{\mathbf{x}}$?
+choices:
+- label: A
+  text: The unique vector satisfying $A\mathbf{x} = \mathbf{b}$
+- label: B
+  text: The vector in $\ker(A)$ closest to $\mathbf{b}$
+- label: C
+  text: Among all vectors minimizing $\|A\mathbf{x} - \mathbf{b}\|$, the one with smallest $\|\mathbf{x}\|$
+- label: D
+  text: The orthogonal projection of $\mathbf{b}$ onto $\text{im}(A)$
+- label: E
+  text: The vector $\mathbf{x}$ maximizing $\|A\mathbf{x}\|$ subject to $\|\mathbf{x}\| = 1$
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    The pseudoinverse gives the minimum-norm least-squares solution. First, it finds all vectors minimizing the residual $\|A\mathbf{x} - \mathbf{b}\|$ (the least-squares criterion). Among these, it selects the unique one with smallest norm $\|\mathbf{x}\|$. This is achieved by requiring $\hat{\mathbf{x}} \in (\ker A)^{\perp}$. When $A\mathbf{x} = \mathbf{b}$ is consistent, $\hat{\mathbf{x}}$ is the minimum-norm exact solution; when inconsistent, it's the minimum-norm least-squares solution.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      confuses the subspaces; $\hat{\mathbf{x}} \in (\ker A)^{\perp}$, not $\ker(A)$; also confuses domain and codomain
+    D: |
+      this is what $A\hat{\mathbf{x}}$ equals, not $\hat{\mathbf{x}}$; confuses the projection of $\mathbf{b}$ with the solution vector
+    E: |
+      (this describes the first right singular vector $\mathbf{v}_1$, related to the operator norm, not the pseudoinverse) %%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 30
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 969
+variant_of: null
+topics: []
+notes: null

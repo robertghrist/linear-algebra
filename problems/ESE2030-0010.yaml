@@ -1,0 +1,43 @@
+id: ESE2030-0010
+legacy_id: Q1-P10
+week: 2
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $W_1$ and $W_2$ be subspaces of a vector space $V$. Which of the following is always a subspace of $V$?
+choices:
+- label: A
+  text: $W_1 \cup W_2$ (the union of $W_1$ and $W_2$)
+- label: B
+  text: $W_1 \cap W_2$ (the intersection of $W_1$ and $W_2$)
+- label: C
+  text: The set of all vectors in $W_1$ but not in $W_2$
+- label: D
+  text: The set of all vectors in $V$ but not in $W_1+W_2$
+- label: E
+  text: The quotient spaces $V/W_1$ and $V/W_2$
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    \begin{itemize} \item \textbf{(A) Union:} Generally NOT a subspace. Example: $x$-axis ∪ $y$-axis in $\mathbb{R}^2$ \item \textbf{(B) Intersection:} Always a subspace! ✓ \begin{itemize} \item Contains zero (in both subspaces) \item Closed under addition and scalar multiplication \end{itemize} \item \textbf{(C) Set difference:} Not closed under scalar multiplication \item \textbf{(D) Complement of sum:} Not closed under operations \item \textbf{(E) Quotient spaces:} These ARE subspaces but of $V/W_i$, not of $V$ \end{itemize}
+  key_insight: |
+    Intersection preserves all subspace properties; union typically doesn't.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 10
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 244
+variant_of: null
+topics:
+- Subspaces
+- intersection and union of subspaces
+notes: null

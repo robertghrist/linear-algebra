@@ -1,0 +1,61 @@
+id: ESE2030-0102
+legacy_id: Q5-P07
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  A machine learning engineer wants to store a compressed representation of matrix $A \in \mathbb{R}^{500 \times 300}$ using its rank-$k$ SVD approximation $A_k = \sum_{i=1}^k \sigma_i \mathbf{u}_i\mathbf{v}_i^T$.
+
+  To store $A_k$, they need to save:
+  \begin{itemize}
+  \item $k$ singular values $\{\sigma_1, \ldots, \sigma_k\}$
+  \item $k$ left singular vectors $\{\mathbf{u}_1, \ldots, \mathbf{u}_k\}$
+  \item $k$ right singular vectors $\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$
+  \end{itemize}
+
+  How many total scalar values must be stored, and for which value of $k$ does the storage equal the original matrix $A$?
+choices:
+- label: A
+  text: $k(500 + 300 + 1)$ values; storage equals original when $k = 500$
+- label: B
+  text: $k(500 + 300 + 1)$ values; storage equals original when $k = 300$
+- label: C
+  text: $k(500 + 300)$ values; storage equals original when $k = 187$ (approximately)
+- label: D
+  text: $k(500 \cdot 300)$ values; storage never equals original since SVD is always compressed
+- label: E
+  text: $k(500 + 300 + 1)$ values; storage equals original when $k = 187$ (approximately)
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    For rank-$k$ approximation of $A \in \mathbb{R}^{500 \times 300}$: - $k$ singular values (each is 1 scalar): $k$ values - $k$ left singular vectors $\mathbf{u}_i \in \mathbb{R}^{500}$: $500k$ values - $k$ right singular vectors $\mathbf{v}_i \in \mathbb{R}^{300}$: $300k$ values Total storage: $k + 500k + 300k = k(500 + 300 + 1) = 801k$ values. The original matrix $A$ stores $500 \times 300 = 150000$ values. Storage equals original when: $801k = 150000$, so $k = 150000/801 \approx 187.3$ This shows the crossover point: for $k < 187$, SVD compression saves storage; for $k > 187$, it uses more. The maximum useful rank is $\min(500, 300) = 300$, but full rank ($k=300$) would store $801 \times 300 = 240300$ values, which exceeds the original! This reveals why SVD compression is most valuable when the effective rank is much smaller than both dimensions.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      correctly counts storage but incorrectly thinks full storage occurs at $k = m = 500$; the maximum rank is $\min(m,n) = 300$
+    B: |
+      correctly counts storage but thinks full storage = max rank; actually at max rank, SVD stores MORE than original due to separate storage of vectors
+    C: |
+      forgets to count the $k$ singular values themselves; singular values are scalars that must also be stored
+    D: |
+      (incorrectly thinks each component requires full $m \times n$ storage; the outer product $\mathbf{u}_i\mathbf{v}_i^T$ need not be stored explicitly) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 7
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 287
+variant_of: null
+topics:
+- Matrix dimensions in SVD
+- compatibility
+- parameter counting
+notes: null

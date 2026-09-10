@@ -1,0 +1,55 @@
+id: ESE2030-0083
+legacy_id: Q4-P10
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 0.6$, $\lambda_2 = -0.8$, and $\lambda_3 = 0.4$, with corresponding linearly independent eigenvectors $\mathbf{v}_1$, $\mathbf{v}_2$, and $\mathbf{v}_3$.
+  Consider the iterative sequence $\mathbf{x}_k = A^k\mathbf{x}_0$ where $\mathbf{x}_0 = 2\mathbf{v}_1 + 3\mathbf{v}_2 + 5\mathbf{v}_3$.
+  Which statement best describes the long-term behavior of $\mathbf{x}_k$ as $k \to \infty$?
+choices:
+- label: A
+  text: The sequence converges to zero monotonically
+- label: B
+  text: The sequence converges toward the direction of $\mathbf{v}_1$, since $\lambda_1$ is dominant
+- label: C
+  text: The sequence grows without bound due to positive eigenvalues
+- label: D
+  text: The sequence converges to the direction of $\mathbf{v}_2$, but oscillating signs%, based on the
+    dominant eigenvalue
+- label: E
+  text: All eigenvalues are real and distinct, so each eigencomponent of $\mathbf{x}_k$ acts independently
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Since the eigenvectors are linearly independent, we can write $\mathbf{x}_k = A^k\mathbf{x}_0 = 2(0.6)^k\mathbf{v}_1 + 3(-0.8)^k\mathbf{v}_2 + 5(0.4)^k\mathbf{v}_3$. The dominant eigenvalue (largest magnitude) is $\lambda_2 = -0.8$ with $|\lambda_2| = 0.8$. The other eigenvalues have smaller magnitudes: $|\lambda_1| = 0.6$ and $|\lambda_3| = 0.4$. As $k \to \infty$, the term with $\lambda_2$ dominates: the ratios $|\lambda_1|/|\lambda_2| = 0.75$ and $|\lambda_3|/|\lambda_2| = 0.5$ mean the other components decay much faster relative to the $\mathbf{v}_2$ component. Therefore, $\mathbf{x}_k \approx 3(-0.8)^k\mathbf{v}_2$ for large $k$. The normalized sequence $\mathbf{x}_k/\|\mathbf{x}_k\|$ oscillates between $+\mathbf{v}_2/\|\mathbf{v}_2\|$ and $-\mathbf{v}_2/\|\mathbf{v}_2\|$ (alternating signs due to the negative eigenvalue), while the magnitude $\|\mathbf{x}_k\|$ decays to zero since $|\lambda_2| = 0.8 < 1$. The sequence converges to zero along the direction of $\mathbf{v}_2$, with oscillating sign.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      incorrectly identifies $\lambda_1 = 0.6$ as dominant; dominance is determined by magnitude, and $|\lambda_2| = 0.8 > |\lambda_1| = 0.6$
+    C: |
+      all eigenvalues have magnitude less than 1, so the sequence decays rather than grows
+    E: |
+      while true that eigencomponents act independently, this doesn't describe the asymptotic behavior; the statement misses that one component dominates the others
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 10
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 365
+variant_of: null
+topics:
+- Linear iteration
+- convergence
+- long-term behavior
+- dominant eigenvalue
+notes: null

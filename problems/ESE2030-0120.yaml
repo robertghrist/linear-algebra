@@ -1,0 +1,55 @@
+id: ESE2030-0120
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $T: V \to W$ be a function between vector spaces. Which statement about
+  the following three properties of $T$ being linear is most correct?
+
+  \begin{tabular}{rl}
+  (I) & $T(\mathbf{0}_V) = \mathbf{0}_W$ \\[4pt]
+  (II) & $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$ for all $\mathbf{u}, \mathbf{v} \in V$ \\[4pt]
+  (III) & $T(c\mathbf{v}) = cT(\mathbf{v})$ for all $c \in \mathbb{R}$, $\mathbf{v} \in V$
+  \end{tabular}
+choices:
+- label: A
+  text: Properties (I), (II), and (III) are all independent; each must be verified separately to confirm
+    linearity.
+- label: B
+  text: Property (I) alone is sufficient to guarantee linearity.
+- label: C
+  text: Properties (II) and (III) together imply property (I), so checking (II) and (III) is sufficient.
+- label: D
+  text: Properties (I) and (II) together imply property (III).
+- label: E
+  text: Property (II) alone implies both (I) and (III).
+figures: []
+answer:
+  correct: C
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |2
+     The definition of linearity requires (II) additivity and (III) homogeneity. Property (I) follows automatically: using (III) with c = 0 gives T(0·v) = 0·T(v), hence T(0_V) = 0_W. So we only need to check (II) and (III); property (I) is a consequence. This is why T(0) ≠ 0 is a quick non-linearity test — if (I) fails, then (III) must fail (with c = 0), so T cannot be linear.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      T(0) = 0 is necessary but not sufficient
+    D: |
+      additivity + T(0)=0 does NOT imply homogeneity; e.g., T(v) = v for v ∈ ℚ, T(v) = 0 otherwise
+    E: |
+      additivity alone does NOT imply homogeneity over ℝ; requires continuity or some regularity
+sources:
+- semester: 2025C
+  instrument: final
+  position: 5
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 213
+variant_of: null
+topics: []
+notes: null

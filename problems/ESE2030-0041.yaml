@@ -1,0 +1,47 @@
+id: ESE2030-0041
+legacy_id: Q2-P16
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Consider the transformation $T: \mathbb{R}^n \to \mathbb{R}^n$ on the standard Euclidean $n$-space
+  given by $T(\mathbf{x}) = 5\mathbf{x}$ for all $\mathbf{x}$. Which geometric property does this transformation preserve?
+choices:
+- label: A
+  text: Distances between two vectors, since it scales uniformly
+- label: B
+  text: Inner products between vectors, since scaling is linear
+- label: C
+  text: Angles between vectors, since all vectors are scaled equally
+- label: D
+  text: Lengths of vectors, since it is a multiple of the identity $I$
+- label: E
+  text: None of the above geometric properties are preserved
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    For scalar multiplication by $c$: $\langle c\mathbf{u}, c\mathbf{v} \rangle = c^2\langle \mathbf{u}, \mathbf{v} \rangle$ and $\|c\mathbf{u}\| = |c|\|\mathbf{u}\|$. Thus $\cos\theta' = \frac{c^2\langle \mathbf{u},\mathbf{v}\rangle}{|c|\|\mathbf{u}\| \cdot |c|\|\mathbf{v}\|} = \frac{\langle \mathbf{u},\mathbf{v}\rangle}{\|\mathbf{u}\|\|\mathbf{v}\|} = \cos\theta$. Angles are preserved even though distances and inner products are not.
+  key_insight: |
+    Uniform scaling preserves angles but not distances or inner products.
+  distractor_rationale:
+    A: |
+      distances are scaled by factor of 5, not preserved
+    B: |
+      inner products are scaled by factor of 25
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 16
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 458
+variant_of: null
+topics: []
+notes: null

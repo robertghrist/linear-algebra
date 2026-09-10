@@ -1,0 +1,54 @@
+id: ESE2030-0054
+legacy_id: Q3-P05
+week: 6
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $\Pi_W: V \to V$ be an orthogonal projection operator onto a subspace $W$ of an inner product space $V$. For a particular vector $\mathbf{v} \in V$, the projection satisfies $\Pi_W(\mathbf{v}) = \mathbf{w}$ where $\mathbf{w} \neq \mathbf{0}$.
+
+  What is the result of computing $\Pi_W(\mathbf{w})$ ?
+choices:
+- label: A
+  text: $\mathbf{0}$
+- label: B
+  text: $2\mathbf{w}$
+- label: C
+  text: $\mathbf{w}$
+- label: D
+  text: $\mathbf{w}/\norm{\mathbf{w}}$
+- label: E
+  text: Not enough information to say
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    Orthogonal projections satisfy the idempotent property $\Pi_W^2 = \Pi_W$. Since $\Pi_W(\mathbf{v}) = \mathbf{w}$, we know $\mathbf{w} \in W$. Any vector already in $W$ is unchanged by projection onto $W$, so $\Pi_W(\mathbf{w}) = \mathbf{w}$. Geometrically, once a vector has been projected onto a subspace, projecting it again does nothing.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      confuses projection with orthogonal complement or thinks repeated projection "removes" components
+    B: |
+      misunderstands how linear operators compose, perhaps thinking projection "adds" to itself
+    D: |
+      incorrectly thinks repeated projection causes normalization
+    E: |
+      fails to recognize that idempotency is independent of the original vector's position
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 5
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 192
+variant_of: null
+topics:
+- Orthogonal projections
+- projection operators
+- idempotent property
+notes: null

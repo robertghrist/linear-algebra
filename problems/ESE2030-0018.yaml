@@ -1,0 +1,44 @@
+id: ESE2030-0018
+legacy_id: Q1-P18
+week: 3
+skills: []
+status: active
+problem_type: null
+statement: |
+  The Fundamental Theorem of Linear Algebra says that for a linear transformation $T:V\to W$
+choices:
+- label: A
+  text: The kernel and cokernel are isomorphic
+- label: B
+  text: The domain and codomain are isomorphic
+- label: C
+  text: The coimage and cokernel are isomorphic
+- label: D
+  text: The kernel and image are isomorphic
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    The Fundamental Theorem of Linear Algebra states: $$\text{coim}(T) \cong \text{im}(T)$$ That is, the coimage $V/\ker(T)$ is isomorphic to the image of $T$. None of the given options correctly state this relationship. This tests precise understanding of the theorem's statement.
+  key_insight: |
+    The key isomorphism is between what's "left after modding out the kernel" and what actually gets mapped to.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 18
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 387
+variant_of: null
+topics:
+- Differentiation operator
+- kernel
+- polynomial spaces
+notes: null

@@ -1,0 +1,52 @@
+id: ESE2030-0067
+legacy_id: Q3-P18
+week: 6
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider the overdetermined linear system $A\mathbf{x} = \mathbf{b}$ where $A \in \mathbb{R}^{m \times n}$ with $m > n$ (more equations than unknowns) and $A$ has full column rank. If the system is inconsistent (no exact solution exists), what function does the least squares solution $\hat{\mathbf{x}}$ minimize?
+choices:
+- label: A
+  text: $\|A\mathbf{x}\|$
+- label: B
+  text: $\|\mathbf{x}\|$
+- label: C
+  text: $\|A\mathbf{x} - \mathbf{b}\|$
+- label: D
+  text: $|\mathbf{b}^T A \mathbf{x}|$
+- label: E
+  text: $|\mathbf{b}^T\mathbf{x}|$
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The least squares solution minimizes the residual norm $\|A\mathbf{x} - \mathbf{b}\|$, which measures how far $A\mathbf{x}$ is from $\mathbf{b}$. Geometrically, this finds the point in $\text{im}(A)$ closest to $\mathbf{b}$. This is the fundamental optimization problem that least squares solves: since we cannot satisfy $A\mathbf{x} = \mathbf{b}$ exactly, we find the $\mathbf{x}$ that makes $A\mathbf{x}$ as close as possible to $\mathbf{b}$ in the sense of minimizing the Euclidean distance (or equivalently, the squared distance).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      this would just minimize the size of $A\mathbf{x}$, which is minimized by $\mathbf{x} = \mathbf{0}$; doesn't involve $\mathbf{b}$
+    B: |
+      minimizing solution norm is what the pseudoinverse does among all least squares solutions, but not the primary least squares criterion
+    D: |
+      this is related to the normal equations but is not what's being minimized; confuses the form with the objective
+    E: |
+      this is fixed - doesn't depend on $\mathbf{x}$ at all
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 18
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 532
+variant_of: null
+topics:
+- Least squares
+- normal equations
+- overdetermined systems
+notes: null

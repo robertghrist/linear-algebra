@@ -1,0 +1,52 @@
+id: ESE2030-0114
+legacy_id: Q5-P19
+week: 10
+skills: []
+status: active
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{4 \times 3}$ has singular values $\sigma_1 = 6$, $\sigma_2 = 3$, $\sigma_3 = 2$.
+
+  What is the Frobenius norm $\|A\|_F$?
+choices:
+- label: A
+  text: $11$
+- label: B
+  text: $49$
+- label: C
+  text: $7$
+- label: D
+  text: $\sqrt{11}$
+- label: E
+  text: Not enough information to determine $\|A\|_F$.
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    The Frobenius norm can be computed directly from singular values: $$\|A\|_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \sigma_3^2} = \sqrt{36 + 9 + 4} = \sqrt{49} = 7$$ This is equivalent to $\sqrt{\sum_{i,j} a_{ij}^2}$ (the entry-wise definition), but the singular value formula shows that $\|A\|_F$ depends only on the singular values, not on the specific entries or the orthogonal factors $U$ and $V$.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      adds singular values $6 + 3 + 2 = 11$ instead of computing $\sqrt{\sum \sigma_i^2}$; confuses sum with norm
+    B: |
+      computes $\sigma_1^2 + \sigma_2^2 + \sigma_3^2 = 49$ but forgets the square root
+    D: |
+      takes square root of the sum of singular values $\sqrt{11}$; combines both errors
+    E: |
+      (believes one needs the actual matrix entries or the orthogonal factors; doesn't recognize that singular values fully determine the Frobenius norm) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 19
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 766
+variant_of: null
+topics:
+- Frobenius norm from singular values
+notes: null

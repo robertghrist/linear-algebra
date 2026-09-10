@@ -1,0 +1,48 @@
+id: ESE2030-0128
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  {\em ``Correlation is not causation, but it is a cosine.''}
+  Which statement best explains the mathematical content of this remark?
+choices:
+- label: A
+  text: The sample correlation between two variables equals the cosine of the angle between their raw
+    data vectors.
+- label: B
+  text: The sample correlation between two variables equals the cosine of the angle between their centered
+    data vectors.
+- label: C
+  text: The sample correlation is computed using the formula $\cos^{-1}(\mathbf{x}^T \mathbf{y})$, hence
+    the reference to cosine.
+- label: D
+  text: Correlation and cosine similarity are different quantities that happen to agree for standardized
+    data.
+- label: E
+  text: The correlation matrix has eigenvalues between $-1$ and $1$, just like cosine.
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    For centered data vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ (meaning $\sum_i x_i = \sum_i y_i = 0$), the sample correlation IS the cosine of the angle between them: $$\rho(\mathbf{x}, \mathbf{y}) = \frac{\mathbf{x}^T \mathbf{y}}{\|\mathbf{x}\| \|\mathbf{y}\|} = \cos\theta$$ Centering is essential: without it, the formula gives cosine similarity, not correlation. Once centered, the inner product divided by the product of norms is both the definition of $\cos\theta$ and (up to a constant) the sample correlation. Key insight: $\rho = 0$ (uncorrelated) corresponds exactly to $\theta = 90°$ (orthogonal).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      close but wrong — must center first; raw data vectors give cosine similarity, which differs from correlation unless data is centered
+sources:
+- semester: 2025C
+  instrument: final
+  position: 13
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 482
+variant_of: null
+topics: []
+notes: null

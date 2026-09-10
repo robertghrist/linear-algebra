@@ -1,0 +1,45 @@
+id: ESE2030-0001
+legacy_id: Q1-P01
+week: 2
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider the vector space $\mathcal{P}_3$ of polynomials of degree at most 3. The dimension of this space is:
+choices:
+- label: A
+  text: '2'
+- label: B
+  text: '3'
+- label: C
+  text: '4'
+- label: D
+  text: infinite
+- label: E
+  text: Cannot be determined without additional information
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    The space $\mathcal{P}_3$ consists of all polynomials of the form: $$p(x) = a_0 + a_1x + a_2x^2 + a_3x^3$$ A standard basis is $\{1, x, x^2, x^3\}$, which has 4 elements. Therefore, $\dim(\mathcal{P}_3) = 4$.
+  key_insight: |
+    The subscript in $\mathcal{P}_n$ denotes the maximum degree, not the dimension. The dimension is always $n+1$.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 1
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 80
+variant_of: null
+topics:
+- Polynomial spaces
+- dimension
+- bases
+notes: 'trap (Q1 answers): Students often confuse "degree at most 3" with "exactly degree 3" or think
+  the dimension equals the maximum degree.'

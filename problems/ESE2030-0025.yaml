@@ -1,0 +1,44 @@
+id: ESE2030-0025
+legacy_id: Q1-P25
+week: 2
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider the subset $S = \{(x, y, z)^T \in \mathbb{R}^3 : x + y + z = 1\}$. Under standard vector addition and scalar multiplication, which property does $S$ violate to be a subspace?
+choices:
+- label: A
+  text: Closure under addition
+- label: B
+  text: Closure under scalar multiplication
+- label: C
+  text: Contains the zero vector
+- label: D
+  text: Both (A) and (C)
+- label: E
+  text: 'All three: (A), (B), and (C)'
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - D
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    The set $S = \{(x,y,z) : x+y+z = 1\}$ is an affine space (shifted plane). Check all three properties: \begin{enumerate} \item \textbf{Zero vector:} $(0,0,0) \notin S$ since $0+0+0 = 0 \neq 1$ ✗ \item \textbf{Addition:} If $\mathbf{u}, \mathbf{v} \in S$, then sum of coordinates of $\mathbf{u}+\mathbf{v}$ is $1+1 = 2 \neq 1$ ✗ \item \textbf{Scalar multiplication:} If $\mathbf{u} \in S$ and $c \neq 1$, then sum of coordinates of $c\mathbf{u}$ is $c \cdot 1 = c \neq 1$ ✗ \end{enumerate} All three properties fail!
+  key_insight: |
+    Any affine space (not through origin) fails all subspace properties.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 25
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 511
+variant_of: null
+topics:
+- Subspace verification
+- closure properties
+notes: null

@@ -1,0 +1,48 @@
+id: ESE2030-0075
+legacy_id: Q4-P02
+week: 8
+skills: []
+status: active
+problem_type: null
+statement: |
+  The linear differential equation $\displaystyle \frac{d^3x}{dt^3} + a\frac{d^2x}{dt^2} + b\frac{dx}{dt} + cx = 0$ has companion matrix with eigenvalues $\lambda_1 = 2$ and $\lambda_{2,3} = -1 \pm 3i$.
+
+  Which set is the most natural basis for the solution space?
+choices:
+- label: A
+  text: $\{e^{2t}, e^{(-1+3i)t}, e^{(-1-3i)t}\}$
+- label: B
+  text: $\{e^{2t}, e^{-t}\cos(3t), e^{-t}\sin(3t)\}$
+- label: C
+  text: $\{e^{2t}, te^{2t}, t^2e^{2t}\}$
+- label: D
+  text: $\{e^{2t}, e^{-t}, \cos(3t), \sin(3t)\}$
+- label: E
+  text: $\{2e^{2t}, -e^{-t}, e^{-t}\cos(3t), e^{-t}\sin(3t)\}$
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - A
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Complex conjugate eigenvalues $\alpha \pm i\beta$ produce real basis solutions $e^{\alpha t}\cos(\beta t)$ and $e^{\alpha t}\sin(\beta t)$. Here $\alpha = -1$ and $\beta = 3$. The simple real eigenvalue $\lambda = 2$ gives $e^{2t}$. Thus the basis is $\{e^{2t}, e^{-t}\cos(3t), e^{-t}\sin(3t)\}$.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 2
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 110
+variant_of: null
+topics:
+- Basis solutions for ODEs
+- complex eigenvalues
+- repeated eigenvalues
+- solution structure
+notes: null

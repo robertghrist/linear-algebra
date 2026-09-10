@@ -1,0 +1,56 @@
+id: ESE2030-0076
+legacy_id: Q4-P03
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a real symmetric $n \times n$ matrix with eigenvalues $\lambda_1, \ldots, \lambda_n$ and corresponding orthonormal eigenvectors $\mathbf{q}_1, \ldots, \mathbf{q}_n$.
+
+  For any vector $\mathbf{x} \in \mathbb{R}^n$, we can write $\mathbf{x} = c_1\mathbf{q}_1 + \cdots + c_n\mathbf{q}_n$ where $c_i = \mathbf{q}_i^T\mathbf{x}$.
+
+  What is $\|A\mathbf{x}\|^2$ in terms of the eigenvalues and coefficients?
+choices:
+- label: A
+  text: $\lambda_1^2 c_1^2 + \cdots + \lambda_n^2 c_n^2$
+- label: B
+  text: $(\lambda_1 c_1 + \cdots + \lambda_n c_n)^2$
+- label: C
+  text: $\lambda_{\max}^2(c_1^2 + \cdots + c_n^2)$
+- label: D
+  text: $c_1^2 + \cdots + c_n^2$
+- label: E
+  text: $|\lambda_1 c_1| + \cdots + |\lambda_n c_n|$
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Since the eigenvectors form an orthonormal basis, we have $A\mathbf{x} = A(c_1\mathbf{q}_1 + \cdots + c_n\mathbf{q}_n) = c_1\lambda_1\mathbf{q}_1 + \cdots + c_n\lambda_n\mathbf{q}_n$. Because the eigenvectors are orthonormal (a key consequence of the Spectral Theorem), we can compute: $\|A\mathbf{x}\|^2 = (c_1\lambda_1)^2 + \cdots + (c_n\lambda_n)^2 = \lambda_1^2 c_1^2 + \cdots + \lambda_n^2 c_n^2$. This shows how A stretches each eigenspace component independently by the corresponding eigenvalue. The orthonormality is crucial - without it, cross terms would appear.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      incorrectly squares the entire sum; would only work if all vectors were parallel
+    C: |
+      only uses maximum eigenvalue; misses that different components scale differently
+    D: |
+      forgets to apply A at all; this is just $\|\mathbf{x}\|^2$
+    E: |
+      uses wrong norm and treats components linearly rather than quadratically
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 3
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 132
+variant_of: null
+topics:
+- Spectral Theorem
+- symmetric matrices
+- orthogonal diagonalization
+notes: null

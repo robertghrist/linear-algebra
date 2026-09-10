@@ -1,0 +1,48 @@
+id: ESE2030-0119
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A matrix $A \in \mathbb{R}^{5 \times 3}$ has singular values $\sigma_1 = 6$, $\sigma_2 = 3$, $\sigma_3 = 2$.
+
+  Which statement about the pseudoinverse $A^\dagger$ is TRUE?
+choices:
+- label: A
+  text: $A^\dagger \in \mathbb{R}^{3 \times 5}$ with singular values $6$, $3$, $2$.
+- label: B
+  text: $A^\dagger \in \mathbb{R}^{3 \times 5}$ with singular values $1/4$, $1/9$, $1/36$.
+- label: C
+  text: $A^\dagger \in \mathbb{R}^{3 \times 5}$ with singular values $1/2$, $1/3$, $1/6$.
+- label: D
+  text: The singular values of $A^\dagger$ equal those of $(A^TA)^{-1}$.
+- label: E
+  text: The pseudoinverse $A^\dagger$ is undefined because $A$ is not square.
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Two key facts: 1) DIMENSIONS: If $A \in \mathbb{R}^{m \times n}$, then $A^\dagger \in \mathbb{R}^{n \times m}$. Here $A$ is $5 \times 3$, so $A^\dagger$ is $3 \times 5$. 2) SINGULAR VALUES: The nonzero singular values of $A^\dagger$ are the reciprocals of those of $A$. Since $A = U\Sigma V^T$, we have $A^\dagger = V\Sigma^\dagger U^T$. The singular values of $A^\dagger$ are $1/\sigma_3, 1/\sigma_2, 1/\sigma_1 = 1/2, 1/3, 1/6$ (listed in decreasing order, as convention requires).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      correct dimensions but confuses with transpose; $A^T$ has the same singular values as $A$, but $A^\dagger$ does not
+    B: |
+      confuses with $(A^TA)^{-1}$, which has eigenvalues $1/\sigma_i^2$; since $(A^TA)^{-1}$ is symmetric positive definite, its singular values equal its eigenvalues. Students who recall $A^\dagger = (A^TA)^{-1}A^T$ may conflate the singular values of $A^\dagger$ with those of $(A^TA)^{-1}$.
+    D: |
+      tests the same misconception as B from a different angle; $(A^TA)^{-1}$ has singular values $1/4, 1/9, 1/36$, not $1/2, 1/3, 1/6$
+sources:
+- semester: 2025C
+  instrument: final
+  position: 4
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 185
+variant_of: null
+topics: []
+notes: null

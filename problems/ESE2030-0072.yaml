@@ -1,0 +1,55 @@
+id: ESE2030-0072
+legacy_id: Q3-P23
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider the linear differential equation
+  $$\frac{d^3x}{dt^3} + 6\frac{d^2x}{dt^2} + 5x = 0$$
+  What is the dimension of the solution space to this equation?
+choices:
+- label: A
+  text: '1'
+- label: B
+  text: '2'
+- label: C
+  text: '3'
+- label: D
+  text: '4'
+- label: E
+  text: More information is needed
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    The solution space to an $n$-th order linear homogeneous ODE always has dimension $n$. This follows from the existence and uniqueness theorem: specifying $n$ initial conditions (e.g., $x(0), x'(0), x''(0)$ for a third-order equation) uniquely determines a solution, meaning the solution space is parametrized by $n$ independent constants. Equivalently, the companion matrix is $3 \times 3$ and has 3 eigenvalues (counted with multiplicity), yielding 3 basis solutions of the form $e^{\lambda_i t}$ (or modified forms for repeated roots).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      confuses the order of the equation with thinking there's a single "general solution"
+    B: |
+      perhaps counting the number of derivative terms, or misremembering
+    D: |
+      off-by-one error, perhaps thinking about degrees vs. order
+    E: |
+      incorrectly thinks the dimension changes based on eigenvalue properties like distinctness or sign, when in fact it's always $n$ for an $n$-th order equation
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 23
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 655
+variant_of: null
+topics:
+- Higher-order ODEs
+- solution spaces
+- dimension
+- vector space structure
+notes: null

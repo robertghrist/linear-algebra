@@ -1,0 +1,39 @@
+id: ESE2030-0048
+legacy_id: Q2-P23
+week: null
+skills: []
+status: active
+problem_type: survey
+statement: |
+  About how many hours $H$ in total did you study for this exam? Count time spent in focused study.
+  [All answers will receive full credit]
+choices:
+- label: A
+  text: $H \leq 4$
+- label: B
+  text: $4< H\leq 6$
+- label: C
+  text: $6< H\leq 8$
+- label: D
+  text: $8< H\leq 10$
+- label: E
+  text: $H>10$
+figures: []
+answer:
+  correct: null
+  partial_credit: []
+  verified: false
+  verified_from: []
+  conflict: null
+  explanation: null
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 23
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 631
+variant_of: null
+topics: []
+notes: null

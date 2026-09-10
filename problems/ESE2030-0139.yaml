@@ -1,0 +1,46 @@
+id: ESE2030-0139
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  In data science, \emph{cosine similarity} between vectors $\mathbf{u}$ and $\mathbf{v}$ tends to be preferred over the inner product $\langle \mathbf{u}, \mathbf{v} \rangle$. Why?
+choices:
+- label: A
+  text: Cosine similarity measures directional relationship between vectors
+- label: B
+  text: Cosine similarity is non-negative
+- label: C
+  text: Cosine similarity does not require coordinates in an orthonormal basis
+- label: D
+  text: Cosine similarity detects linearly independence
+- label: E
+  text: 'Not so: cosine similarity is not preferred in data science, as the inner product has more information
+    within it'
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - E
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    By dividing by both norms, cosine similarity measures the cosine of the angle between vectors, which depends only on their directions. This is valuable when magnitude is irrelevant or misleading—for instance, comparing documents of different lengths (longer documents have larger term-frequency vectors but aren't necessarily "more similar" to a query), or comparing user preference vectors where some users rate more items than others. Mathematically: $\text{cos-sim}(c\mathbf{u}, \mathbf{v}) = \text{cos-sim}(\mathbf{u}, \mathbf{v})$ for any $c > 0$.
+  key_insight: null
+  distractor_rationale:
+    C: |
+      both inner product and cosine similarity work in any basis; neither requires orthonormality
+    D: |
+      cosine similarity measures alignment, not independence; two dependent vectors like $\mathbf{u}$ and $2\mathbf{u}$ have cosine similarity $= 1$
+sources:
+- semester: 2025C
+  instrument: final
+  position: 24
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 797
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,45 @@
+id: ESE2030-0029
+legacy_id: Q2-P04
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $\mathcal{B} = \{\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3\}$ be a basis for $\mathbb{R}^3$,
+  and suppose the coordinate vector of $\mathbf{v} \in \mathbb{R}^3$ with respect to $\mathcal{B}$ is
+  $[\mathbf{v}]_{\mathcal B} = \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix}$.
+  If we form a new basis ${\mathcal C} = \{2\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3\}$, what is the coordinate vector $[\mathbf{v}]_{\mathcal C}$?
+choices:
+- label: A
+  text: \begin{pmatrix} 4 \\ -1 \\ 3 \end{pmatrix}
+- label: B
+  text: \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix}
+- label: C
+  text: \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix}
+- label: D
+  text: \begin{pmatrix} 2 \\ -2 \\ 6 \end{pmatrix}
+- label: E
+  text: \begin{pmatrix} 1 \\ -\frac{1}{2} \\ \frac{3}{2} \end{pmatrix}$% \end{center}
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q2-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q2.tex
+  conflict: null
+  explanation: |
+    Since $\mathbf{v} = 2\mathbf{b}_1 - \mathbf{b}_2 + 3\mathbf{b}_3$ and the new basis has $2\mathbf{b}_1$ as its first vector, we need coefficient 1 for the first basis vector: $\mathbf{v} = 1 \cdot (2\mathbf{b}_1) - 1 \cdot \mathbf{b}_2 + 3 \cdot \mathbf{b}_3$. Thus $[\mathbf{v}]_C = \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix}$.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz2
+  position: 4
+  file: quizzes-exams/2025-C/2030-Q2.tex
+  line: 152
+variant_of: null
+topics: []
+notes: 'trap (Q4 answers): The first coordinate changes because we''re using $2\mathbf{b}_1$ as our new
+  first basis vector.'

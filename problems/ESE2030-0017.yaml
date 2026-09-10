@@ -1,0 +1,45 @@
+id: ESE2030-0017
+legacy_id: Q1-P17
+week: 3
+skills: []
+status: active
+problem_type: null
+statement: |
+  Which one of the following is NOT a linear transformation?
+choices:
+- label: A
+  text: '$T: \mathbb{R}^2 \to \mathbb{R}^2$ defined by $T(x,y) = (x-y, 0)$'
+- label: B
+  text: '$S: \mathcal{P}_2 \to \mathcal{P}_2$ defined by $S(p(x)) = xp''(x)$ where $p''$ denotes the derivative'
+- label: C
+  text: '$R: \mathbb{R}^3 \to \mathbb{R}$ defined by $R(x,y,z) = 2x - 3y + z$'
+- label: D
+  text: '$F: \mathbb{R}^2 \to \mathbb{R}^3$ defined by $F(x,y) = (x+1, y, x-y)$'
+- label: E
+  text: '$G: \mathbb{R}^{2\times 2} \to \mathbb{R}$ defined by $G(A) = \text{trace}(A)$ (trace is the
+    sum of diagonal terms)'
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    For a transformation to be linear, it must satisfy $T(\mathbf{0}) = \mathbf{0}$. Check $F$: $F(0,0) = (0+1, 0, 0-0) = (1, 0, 0) \neq (0, 0, 0)$ This immediately disqualifies $F$. Additionally, $F$ fails additivity: $$F(x_1+x_2, y_1+y_2) = (x_1+x_2+1, y_1+y_2, x_1+x_2-y_1-y_2)$$ $$\neq F(x_1,y_1) + F(x_2,y_2) = (x_1+1, y_1, x_1-y_1) + (x_2+1, y_2, x_2-y_2)$$ All other options preserve the zero vector and satisfy linearity.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 17
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 366
+variant_of: null
+topics:
+- Linear transformations
+- additivity
+- homogeneity
+- definition
+notes: 'trap (Q17 answers): The "+1" is the killer—any additive constant breaks linearity.'

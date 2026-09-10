@@ -1,0 +1,48 @@
+id: ESE2030-0148
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $A \in \mathbb{R}^{n \times n}$ be a square matrix with eigenvalues $\lambda_1, \ldots, \lambda_n$ and singular values $\sigma_1 \geq \cdots \geq \sigma_n \geq 0$.
+
+  Which statement is TRUE for all such matrices $A$?
+choices:
+- label: A
+  text: $\sigma_i = |\lambda_i|$ for all $i$.
+- label: B
+  text: $\sigma_1 \cdots \sigma_n = |\lambda_1 \cdots \lambda_n|$.
+- label: C
+  text: The singular values and eigenvalues coincide if and only if $A$ is symmetric.
+- label: D
+  text: If $A$ has a negative eigenvalue, then $A$ has a negative singular value.
+- label: E
+  text: The eigenvalues of $A^T A$ are $\lambda_1^2, \ldots, \lambda_n^2$.
+figures: []
+answer:
+  correct: B
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    Both sides equal $|\det(A)|$: - Product of singular values: $\sigma_1 \cdots \sigma_n = \sqrt{\det(A^TA)} = \sqrt{(\det A)^2} = |\det A|$ - Product of eigenvalues: $|\lambda_1 \cdots \lambda_n| = |\det A|$ This is one of the few universal relationships between singular values and eigenvalues.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      false in general; true only for symmetric positive semidefinite matrices. Counterexample: rotation matrix has eigenvalues $e^{\pm i\theta}$ with $|\lambda| = 1$, and singular values both 1, but the pairing doesn't match when eigenvalues are complex
+    C: |
+      symmetric is not sufficient — need symmetric POSITIVE SEMIDEFINITE. A symmetric matrix with negative eigenvalue $\lambda < 0$ has $\sigma = |\lambda| \neq \lambda$
+    E: |
+      (eigenvalues of $A^TA$ are $\sigma_i^2$, not $\lambda_i^2$; these differ unless $A$ is symmetric positive semidefinite) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 33
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1055
+variant_of: null
+topics: []
+notes: null

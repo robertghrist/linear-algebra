@@ -1,0 +1,49 @@
+id: ESE2030-0149
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $A$ be a $4 \times 4$ invertible matrix. During row reduction (i.e., Gaussian elimination) on $A$, a row exchange
+  is required at the third step (but not before). Which statement is TRUE?
+choices:
+- label: A
+  text: $A$ does not have an LU decomposition, but it does have a PLU decomposition.
+- label: B
+  text: $A$ has an LU decomposition because it is invertible.
+- label: C
+  text: The matrix $L$ in any factorization $A = LU$ will not be lower triangular.
+- label: D
+  text: $A$ cannot be factored as a product of elementary matrices.
+- label: E
+  text: The row exchange implies that $\det(A) = 0$.
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |2
+     LU decomposition (without permutation) exists if and only if Gaussian elimination can proceed without any row exchanges — i.e., all leading principal submatrices are nonsingular. Needing a row exchange at step 3 means the 3×3 leading principal submatrix is singular (has a zero in the pivot position after eliminating below the first two pivots), so standard LU fails. However, every invertible matrix has a PLU decomposition where P is a permutation matrix that reorders rows to avoid zero pivots.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      Invertibility does NOT guarantee LU; it guarantees PLU
+    C: |
+      L is always lower triangular by definition; the issue is existence, not structure
+    D: |
+      Every invertible matrix is a product of elementary matrices — this is always true
+    E: |
+      (Row exchanges don't affect invertibility; they just change sign of det. A is given as invertible.) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 34
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 1087
+variant_of: null
+topics: []
+notes: null

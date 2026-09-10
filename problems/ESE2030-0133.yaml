@@ -1,0 +1,47 @@
+id: ESE2030-0133
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $B = \{\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3, \mathbf{e}_4\}$ be an orthonormal basis for $\mathbb{R}^4$, and suppose
+  $$\mathbf{v} = 3\mathbf{e}_1 - 2\mathbf{e}_2 + \mathbf{e}_3 - 4\mathbf{e}_4$$
+
+  What is $\|\mathbf{v}\|^2$?
+choices:
+- label: A
+  text: $3 - 2 + 1 - 4 = -2$
+- label: B
+  text: $|3| + |-2| + |1| + |-4| = 10$
+- label: C
+  text: $3^2 + (-2)^2 + 1^2 + (-4)^2 = 30$
+- label: D
+  text: $(3 - 2 + 1 - 4)^2 = 4$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: C
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    For an orthonormal basis, $\|\mathbf{v}\|^2 = \langle \mathbf{v}, \mathbf{v} \rangle = \sum_i c_i^2$ where $c_i$ are the coordinates. This is because cross terms vanish: $\langle \mathbf{e}_i, \mathbf{e}_j \rangle = 0$ for $i \neq j$. So $\|\mathbf{v}\|^2 = 9 + 4 + 1 + 16 = 30$.
+  key_insight: null
+  distractor_rationale:
+    D: |
+      squares the sum instead of summing the squares
+    E: |
+      the whole point of orthonormality is that you don't need explicit vectors
+sources:
+- semester: 2025C
+  instrument: final
+  position: 18
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 627
+variant_of: null
+topics: []
+notes: null

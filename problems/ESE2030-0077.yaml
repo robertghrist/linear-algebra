@@ -1,0 +1,65 @@
+id: ESE2030-0077
+legacy_id: Q4-P04
+week: 8
+skills: []
+status: active
+problem_type: null
+statement: |
+  Consider a $4 \times 4$ matrix in Jordan canonical form where all eigenvalues equal 2. Which of the following matrices can be $e^{Jt}$ for some such Jordan form $J$?
+  \[
+  \displaystyle
+  \textbf{I.} \begin{bmatrix} e^{2t} & te^{2t} & 0 & 0 \\ 0 & e^{2t} & 0 & 0 \\ 0 & 0 & e^{2t} & te^{2t} \\ 0 & 0 & 0 & e^{2t} \end{bmatrix}
+  \quad
+  \textbf{II.} \begin{bmatrix} e^{2t} & te^{2t} & t^2e^{2t} & 0 \\ 0 & e^{2t} & te^{2t} & 0 \\ 0 & 0 & e^{2t} & 0 \\ 0 & 0 & 0 & e^{2t} \end{bmatrix}
+  \]
+  \[
+  \displaystyle\textbf{III.} \begin{bmatrix} e^{2t} & te^{2t} & \frac{t^2}{2}e^{2t} & 0 \\ 0 & e^{2t} & te^{2t} & 0 \\ 0 & 0 & e^{2t} & 0 \\ 0 & 0 & 0 & e^{2t} \end{bmatrix}
+  \quad
+  \textbf{IV.} \begin{bmatrix} e^{2t} & te^{2t} & 0 & 0 \\ 0 & e^{2t} & \frac{t^2}{2}e^{2t} & 0 \\ 0 & 0 & e^{2t} & te^{2t} \\ 0 & 0 & 0 & e^{2t} \end{bmatrix}
+  \]
+choices:
+- label: A
+  text: I and III only
+- label: B
+  text: II and IV only
+- label: C
+  text: I, II, and III only
+- label: D
+  text: III only
+- label: E
+  text: I, II, III, and IV
+figures: []
+answer:
+  correct: A
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    Matrix I represents two 2×2 Jordan blocks (geometric multiplicity 2). Matrix III represents one 3×3 block plus one 1×1 block (geometric multiplicity 2). Both are valid. Matrix II has wrong factorial: should be $\frac{t^2}{2}e^{2t}$ not $t^2e^{2t}$ since $e^{Nt} = I + Nt + \frac{(Nt)^2}{2!} + \cdots$. Matrix IV has polynomial term in wrong position: $(2,3)$ entry should be 0 in block diagonal structure.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      both have structural errors
+    C: |
+      includes II which has wrong factorial
+    D: |
+      misses that I is also valid
+    E: |
+      doesn't catch the errors in II and IV
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 4
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 162
+variant_of: null
+topics:
+- Matrix exponentials
+- Jordan form
+- repeated eigenvalues
+- nilpotent structure
+notes: null

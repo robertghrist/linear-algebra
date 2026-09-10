@@ -1,0 +1,49 @@
+id: ESE2030-0091
+legacy_id: Q4-P18
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $X$ be a $5 \times 3$ matrix with linearly independent columns. Consider the square matrix $A = X^TX$. Which statement about the eigenvalues of $A$ must be true?
+choices:
+- label: A
+  text: There are three positive eigenvalues
+- label: B
+  text: At least one eigenvalue equals zero
+- label: C
+  text: There are no repeated eigenvalues
+- label: D
+  text: There are five positive eigenvalues
+- label: E
+  text: None of the above is necessarily true
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The matrix $A = X^TX$ is a Gram matrix, which is symmetric and positive definite when $X$ has linearly independent columns. By the Spectral Theorem, $A$ can be orthogonally diagonalized with real eigenvalues. The positive definiteness ensures all eigenvalues are positive. Since $A$ is $3 \times 3$ (from $X^TX$ where $X$ is $5 \times 3$), there are exactly three eigenvalues, all positive. The dimension is determined by the number of columns of $X$, not rows.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      confuses dimension; $A$ is $3 \times 3$, not singular
+    C: |
+      eigenvalues can repeat; positive definiteness doesn't prevent this
+    D: |
+      wrong dimension; $A$ is $3 \times 3$, not $5 \times 5$
+    E: |
+      fails to recognize that linear independence of columns guarantees positive definiteness
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 18
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 588
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,44 @@
+id: ESE2030-0022
+legacy_id: Q1-P22
+week: 3
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $T: \mathbb{R}^5 \to \mathbb{R}^6$ be a linear transformation with $\dim(\ker(T)) = 2$. The cokernel of $T$ is isomorphic to which space?
+choices:
+- label: A
+  text: $\mathbb{R}^1$
+- label: B
+  text: $\mathbb{R}^6$
+- label: C
+  text: $\mathbb{R}^4$
+- label: D
+  text: $\mathbb{R}^3$
+- label: E
+  text: $\ker(T)$
+figures: []
+answer:
+  correct: D
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    Given: $T: \mathbb{R}^5 \to \mathbb{R}^6$ with $\dim(\ker(T)) = 2$ By Rank-Nullity: $\dim(\text{im}(T)) = 5 - 2 = 3$ The cokernel is $\text{coker}(T) = \mathbb{R}^6/\text{im}(T)$ Therefore: $\dim(\text{coker}(T)) = 6 - 3 = 3$ So coker$(T) \cong \mathbb{R}^3$.
+  key_insight: |
+    The cokernel measures "what's missing" from the image to fill the codomain.
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 22
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 453
+variant_of: null
+topics:
+- Coimage
+- quotient spaces
+- fundamental theorem
+notes: null

@@ -1,0 +1,42 @@
+id: ESE2030-0021
+legacy_id: Q1-P21
+week: 2
+skills: []
+status: active
+problem_type: null
+statement: |
+  In $\mathcal{P}_2$, consider the set $S = \{1+x, x+x^2, 1+x^2\}$. This set is:
+choices:
+- label: A
+  text: Linearly independent and spans $\mathcal{P}_2$
+- label: B
+  text: Linearly independent but does not span $\mathcal{P}_2$
+- label: C
+  text: Linearly dependent and spans $\mathcal{P}_2$
+- label: D
+  text: Linearly dependent and does not span $\mathcal{P}_2$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q1-ANSWERS.tex
+  conflict: null
+  explanation: |
+    Check linear independence by setting up: $$c_1(1+x) + c_2(x+x^2) + c_3(1+x^2) = 0$$ This gives the system: \begin{align} c_1 + c_3 &= 0 \quad \text{(constant term)}\\ c_1 + c_2 &= 0 \quad \text{(coefficient of } x\text{)}\\ c_2 + c_3 &= 0 \quad \text{(coefficient of } x^2\text{)} \end{align} The only solution is $c_1 = c_2 = c_3 = 0$, so the set is linearly independent. Since we have 3 independent vectors in the 3-dimensional space $\mathcal{P}_2$, they form a basis.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz1
+  position: 21
+  file: quizzes-exams/2025-C/2030-Q1.tex
+  line: 437
+variant_of: null
+topics:
+- Linear independence
+- polynomial spaces
+notes: null

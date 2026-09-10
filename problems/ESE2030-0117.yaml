@@ -1,0 +1,47 @@
+id: ESE2030-0117
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  Let $V$ be the vector space of all $4 \times 4$ upper triangular matrices. What is $\dim(V)$?
+choices:
+- label: A
+  text: '4'
+- label: B
+  text: '6'
+- label: C
+  text: '12'
+- label: D
+  text: '16'
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |2
+     Count the entries that can be freely chosen: the diagonal has 4 entries, the superdiagonal has 3, then 2, then 1. Total = 4 + 3 + 2 + 1 = 10. Alternatively: in an n×n upper triangular matrix, the number of entries on or above the diagonal is n(n+1)/2. For n=4: 4(5)/2 = 10. A basis consists of matrices E_{ij} with a single 1 in position (i,j) where i ≤ j. Since 10 is not among options (A)-(D), the answer is (E).
+  key_insight: null
+  distractor_rationale:
+    A: |
+      only counts diagonal entries
+    B: |
+      counts superdiagonals
+    D: |
+      (counts all 16 entries, ignoring the triangular constraint) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: final
+  position: 2
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 117
+variant_of: null
+topics: []
+notes: null

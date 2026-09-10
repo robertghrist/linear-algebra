@@ -1,0 +1,53 @@
+id: ESE2030-0085
+legacy_id: Q4-P12
+week: 8
+skills: []
+status: active
+problem_type: null
+statement: |
+  The QR algorithm for computing eigenvalues proceeds iteratively: given $A_k$, we factor $A_k = Q_k R_k$ (QR decomposition), then form $A_{k+1} = R_k Q_k$ (reverse the order).
+
+  Why is the reversed multiplication $A_{k+1} = R_k Q_k$  essential for the algorithm to work?
+choices:
+- label: A
+  text: $R_k Q_k$ is upper triangular while $Q_k R_k$ is not, allowing eigenvalues to appear on the diagonal
+- label: B
+  text: $R_k Q_k$ uses the fact that matrix multiplication is not commutative to generate new matrices
+- label: C
+  text: $Q_k R_k = A_k$ would just return the original matrix, making no progress toward convergence
+- label: D
+  text: $R_k Q_k$ is similar to $A_k$ via $A_{k+1} = Q_k^T A_k Q_k$, preserving eigenvalues across iterations
+- label: E
+  text: $R_k Q_k$ is symmetric when $A_k$ is symmetric, while $Q_k R_k$ may not be
+figures: []
+answer:
+  correct: D
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The key insight is that $R_k Q_k = Q_k^T Q_k R_k Q_k = Q_k^T (Q_k R_k) Q_k = Q_k^T A_k Q_k$ since $A_k = Q_k R_k$ and $Q_k^T Q_k = I$. This shows $A_{k+1}$ is similar to $A_k$ via an orthogonal similarity transformation, guaranteeing they have identical eigenvalues. The sequence of similarity transformations gradually reveals the eigenvalue structure while preserving the spectrum at each step. Choice D is tempting but imprecise - while $Q_k R_k = A_k$ is true, the deeper reason we reverse the order is to create the similarity transformation that preserves eigenvalues while changing the matrix form.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      RQ is NOT generally upper triangular; the algorithm converges to triangular form over many iterations, not in one step
+    B: |
+      commutativity has little to do with the algorithm ; it is an observation
+    E: |
+      RQ does not generally preserve symmetry unless additional structure is present
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 12
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 414
+variant_of: null
+topics:
+- QR algorithm
+- similarity transformations
+- eigenvalue computation
+notes: null

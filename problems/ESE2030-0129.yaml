@@ -1,0 +1,49 @@
+id: ESE2030-0129
+legacy_id: null
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A $3 \times 3$ matrix $A$ has eigenvalues $\lambda_1 = 2$, $\lambda_2 = -1$, and $\lambda_3 = 3$.
+  What are the eigenvalues of $A^4$?
+choices:
+- label: A
+  text: $16, 1, 81$
+- label: B
+  text: $8, -4, 12$
+- label: C
+  text: $16, -1, 81$
+- label: D
+  text: $2, -1, 3$
+- label: E
+  text: Cannot be determined without more information
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  conflict: null
+  explanation: |
+    If $\mathbf{v}$ is an eigenvector of $A$ with eigenvalue $\lambda$, then $\mathbf{v}$ is also an eigenvector of $A^k$ with eigenvalue $\lambda^k$. This follows from: $A^k\mathbf{v} = A^{k-1}(A\mathbf{v}) = A^{k-1}(\lambda\mathbf{v}) = \lambda A^{k-1}\mathbf{v} = \cdots = \lambda^k\mathbf{v}$. Therefore, the eigenvalues of $A^4$ are $2^4 = 16$, $(-1)^4 = 1$, and $3^4 = 81$. Note that $(-1)^4 = 1$, not $-1$; raising a negative number to an even power yields a positive result.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      multiplies by 4 instead of raising to the 4th power
+    C: |
+      forgets that $(-1)^4 = 1$, not $-1$; common sign error with even powers
+    D: |
+      thinks eigenvalues are preserved under powers; confuses with eigenvectors being preserved
+    E: |
+      (the relationship $\lambda^k$ holds regardless of the specific eigenvectors) ===============================================
+sources:
+- semester: 2025C
+  instrument: final
+  position: 14
+  file: quizzes-exams/2025-C/2030-FINAL-EXAM.tex
+  line: 512
+variant_of: null
+topics: []
+notes: null

@@ -1,0 +1,66 @@
+id: ESE2030-0112
+legacy_id: Q5-P17
+week: 11
+skills: []
+status: active
+problem_type: null
+statement: |
+  Four feature vectors $(X_1, X_2, X_3, X_4)$ are extracted from centered sensor data. The covariance and correlation matrices are:
+
+  $$[\Sigma] = \begin{bmatrix}
+  4 & 3 & -4.2 & 6.4 \\
+  3 & 25 & -6 & -12 \\
+  -4.2 & -6 & 9 & 1.2 \\
+  6.4 & -12 & 1.2 & 16
+  \end{bmatrix}
+  \quad : \quad
+  [R] = \begin{bmatrix}
+  1.0 & 0.3 & -0.7 & 0.8 \\
+  0.3 & 1.0 & -0.4 & -0.6 \\
+  -0.7 & -0.4 & 1.0 & 0.1 \\
+  0.8 & -0.6 & 0.1 & 1.0
+  \end{bmatrix}$$
+
+  Which pairs of feature vectors have directions within $30^\circ$ of being orthogonal?
+choices:
+- label: A
+  text: $(X_1, X_3)$ and $(X_2, X_4)$
+- label: B
+  text: $(X_1, X_2)$ and $(X_3, X_4)$
+- label: C
+  text: $(X_2, X_3)$ only
+- label: D
+  text: $(X_1, X_3)$, $(X_2, X_3)$, and $(X_2, X_4)$
+- label: E
+  text: $(X_1, X_2)$, $(X_2, X_3)$, and $(X_3, X_4)$
+figures: []
+answer:
+  correct: E
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    "Within 30° of orthogonal" means the angle θ satisfies $60° < \theta < 120°$, which requires: $$\cos(60°) < \cos(\theta) < \cos(120°) \quad \Rightarrow \quad -0.5 < \rho < 0.5$$ Since ρ = cos(θ) for centered vectors, we need $|\rho| < 0.5$. Checking each pair: - $(X_1, X_2)$: $\rho_{12} = 0.3$, so $|\rho| = 0.3 < 0.5$ → angle ≈ 73° ✓ - $(X_1, X_3)$: $\rho_{13} = -0.7$, so $|\rho| = 0.7 > 0.5$ → angle ≈ 134° ✗ - $(X_1, X_4)$: $\rho_{14} = 0.8$, so $|\rho| = 0.8 > 0.5$ → angle ≈ 37° ✗ - $(X_2, X_3)$: $\rho_{23} = -0.4$, so $|\rho| = 0.4 < 0.5$ → angle ≈ 114° ✓ - $(X_2, X_4)$: $\rho_{24} = -0.6$, so $|\rho| = 0.6 > 0.5$ → angle ≈ 127° ✗ - $(X_3, X_4)$: $\rho_{34} = 0.1$, so $|\rho| = 0.1 < 0.5$ → angle ≈ 84° ✓ Pairs within 30° of orthogonal: $(X_1, X_2)$, $(X_2, X_3)$, $(X_3, X_4)$. KEY DISTRACTION: Negative correlation doesn't automatically mean near-orthogonal. $(X_1, X_3)$ has $\rho = -0.7$ (angle 134°) and $(X_2, X_4)$ has $\rho = -0.6$ (angle 127°), both too far from 90°. Similarly, small covariance doesn't guarantee near-orthogonality - must check correlation.
+  key_insight: null
+  distractor_rationale:
+    A: |
+      negative covariance/correlation suggests orthogonality, but $|\rho| > 0.5$ means angles are too extreme
+    B: |
+      uses covariance magnitude instead of correlation; $C_{12} = 3$ and $C_{34} = 1.2$ are small but this doesn't directly indicate angles
+    D: |
+      (assumes negative correlation means near-orthogonal, but need $|\rho| < 0.5$, not just $\rho < 0$) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 17
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 665
+variant_of: null
+topics:
+- Correlation as cosine similarity
+- orthogonality
+- angle interpretation
+notes: null

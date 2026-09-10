@@ -1,0 +1,48 @@
+id: ESE2030-0093
+legacy_id: Q4-P20
+week: 9
+skills: []
+status: active
+problem_type: null
+statement: |
+  A $4 \times 4$ matrix $A$ has eigenvalues:
+  $$\lambda_1 = 2, \quad \lambda_2 = -3, \quad \lambda_3 = 1 + 2i, \quad \lambda_4 = 1 - 2i$$
+
+  What is the spectral radius $\rho(A)$?
+choices:
+- label: A
+  text: $\rho(A) = \sqrt{3}$
+- label: B
+  text: $\rho(A) = 3$
+- label: C
+  text: $\rho(A) = \sqrt{5}$
+- label: D
+  text: $\rho(A) = 5$
+- label: E
+  text: None of the above
+figures: []
+answer:
+  correct: B
+  partial_credit:
+  - C
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q4-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q4.tex
+  conflict: null
+  explanation: |
+    The spectral radius is the maximum magnitude among all eigenvalues: $\rho(A) = \max\{|\lambda_i|\}$. Computing magnitudes: $|\lambda_1| = |2| = 2$, $|\lambda_2| = |-3| = 3$, $|\lambda_3| = |1+2i| = \sqrt{1^2 + 2^2} = \sqrt{5} \approx 2.24$, $|\lambda_4| = |1-2i| = \sqrt{1^2 + (-2)^2} = \sqrt{5} \approx 2.24$. The maximum is $|\lambda_2| = 3$, so $\rho(A) = 3$. The spectral radius is always a non-negative real number, even when the matrix has complex eigenvalues.
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz4
+  position: 20
+  file: quizzes-exams/2025-C/2030-Q4.tex
+  line: 637
+variant_of: null
+topics:
+- Spectral radius
+- eigenvalue magnitudes
+- complex eigenvalues
+notes: null

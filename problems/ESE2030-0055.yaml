@@ -1,0 +1,54 @@
+id: ESE2030-0055
+legacy_id: Q3-P06
+week: 7
+skills: []
+status: active
+problem_type: null
+statement: |
+  Let $A$ be a $3 \times 3$ diagonalizable matrix with eigenvalues $\lambda_1 = 1$, $\lambda_2 = -2$, and $\lambda_3 = 0$.
+  What is $\det(e^A)$?
+choices:
+- label: A
+  text: $e^{-1}$
+- label: B
+  text: $e^{1}$
+- label: C
+  text: $0$
+- label: D
+  text: $e^{-2}$
+- label: E
+  text: $1$
+figures: []
+answer:
+  correct: A
+  partial_credit: []
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q3-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q3.tex
+  conflict: null
+  explanation: |
+    When $A$ is diagonalizable with eigenvalues $\lambda_i$, the matrix exponential $e^A$ has eigenvalues $e^{\lambda_i}$. Therefore $e^A$ has eigenvalues $e^{1}, e^{-2}, e^{0} = e^{1}, e^{-2}, 1$. The determinant is the product of eigenvalues: $\det(e^A) = e^{1} \cdot e^{-2} \cdot 1 = e^{1-2} = e^{-1}$. Note that even though $A$ is singular ($\det(A) = 0$ since one eigenvalue is zero), $e^A$ is always invertible.
+  key_insight: null
+  distractor_rationale:
+    B: |
+      uses only the positive eigenvalue, or sums eigenvalues instead of using product rule
+    C: |
+      incorrectly thinks that $\det(A) = 0$ implies $\det(e^A) = 0$, confusing the exponential with the original matrix
+    D: |
+      uses only the negative eigenvalue or makes calculation error
+    E: |
+      incorrectly believes that $\det(e^A)=e^\det(A)$$
+sources:
+- semester: 2025C
+  instrument: quiz3
+  position: 6
+  file: quizzes-exams/2025-C/2030-Q3.tex
+  line: 218
+variant_of: null
+topics:
+- Matrix exponentials
+- eigenvalues
+- diagonalization
+- determinant
+notes: null

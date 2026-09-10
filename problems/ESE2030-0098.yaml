@@ -1,0 +1,54 @@
+id: ESE2030-0098
+legacy_id: Q5-P03
+week: null
+skills: []
+status: needs-review
+problem_type: null
+statement: |
+  A centered data matrix $X \in \mathbb{R}^{n \times d}$ has SVD $X = U\Sigma V^T$ with singular values $\sigma_1 = 100, \sigma_2 = 50, \sigma_3 = 25, \ldots$ A researcher wants a 2-dimensional representation of the $n$ observations and considers two approaches:
+
+  \textbf{Approach 1:} Compute the $n \times 2$ matrix $U_2\Sigma_2$, where $U_2$ contains the first 2 columns of $U$ and $\Sigma_2$ is the $2 \times 2$ upper-left block of $\Sigma$.
+
+  \textbf{Approach 2:} Compute the $n \times 2$ matrix $XV_2$, where $V_2$ contains the first 2 columns of $V$ (i.e., project each observation onto the first two principal component directions).
+
+  Which statement is most TRUE?
+choices:
+- label: A
+  text: Both approaches give identical 2D representations since $U\Sigma = XV$.
+- label: B
+  text: Approach 1 gives the optimal rank-2 approximation to $X$ in Frobenius norm, while Approach 2 gives
+    the 2D representation that maximizes captured variance, but these are different things.
+- label: C
+  text: 'The approaches yield different matrices: $U_2\Sigma_2 \neq XV_2$ because one uses left singular
+    vectors and the other uses right singular vectors.'
+- label: D
+  text: Approach 1 produces vectors in $\mathbb{R}^n$ while Approach 2 produces vectors in $\mathbb{R}^d$,
+    so they cannot be compared.
+- label: E
+  text: Both approaches produce the same $n \times 2$ matrix of 2D observation coordinates, and both optimally
+    capture the variance structure in a 2D subspace.
+figures: []
+answer:
+  correct: E
+  partial_credit:
+  - B
+  verified: true
+  verified_from:
+  - quizzes-exams/2025-C/2030-Q5-ANSWERS.tex
+  - quizzes-exams/2025-C/2030-Q5.tex
+  conflict: null
+  explanation: |
+    This tests whether students understand the equivalence of different formulations: - $U\Sigma V^T$ is the SVD, so $X = U\Sigma V^T$ - Therefore $XV = U\Sigma V^T V = U\Sigma$ (since $V^TV = I$) - Keeping first 2 columns: $U_2\Sigma_2 = XV_2$, where subscript 2 means first 2 columns Both approaches yield the SAME $n \times 2$ matrix. This matrix: 1) Gives the best rank-2 approximation: $X_2 = U_2\Sigma_2 V_2^T$ minimizes $\|X - X_2\|_F$ (Eckart-Young from Week 10) 2) Maximizes variance captured: the columns are projections onto principal directions that explain the most variance (from Week 11) 3) Projects observations optimally onto a 2D subspace KEY SYNTHESIS: SVD's optimal low-rank approximation and PCA's variance maximization are THE SAME THING for centered data. The geometric picture (ellipsoid with largest semi-axes) corresponds to the statistical picture (directions of maximum variance).
+  key_insight: null
+  distractor_rationale: {}
+sources:
+- semester: 2025C
+  instrument: quiz5
+  position: 3
+  file: quizzes-exams/2025-C/2030-Q5.tex
+  line: 161
+variant_of: null
+topics:
+- Rank-k approximation from both perspectives
+- preprocessing effects
+notes: null
