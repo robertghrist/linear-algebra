@@ -58,15 +58,15 @@ CORE CONCEPTS:
    - Text analysis (Ex 10.10); temperature sensor arrays (Ex 10.11)
 
 ESSENTIAL SKILLS (core; expected without hesitation):
-- Orthogonally diagonalize a small symmetric matrix and write its spectral decomposition
-- Compute the SVD of a 2x2 or a simple 2x3 / 3x2 matrix
-- Read rank, and bases for all four fundamental subspaces, off a GIVEN SVD
-- Write A as a sum of rank-one terms and identify the dominant one
-- Compute spectral and Frobenius norms from singular values
-- Compute the condition number and interpret it
-- Build A^+ from a given SVD and use it to solve a least squares problem
-- Relate singular values of A to eigenvalues of A^T A without conflating them
-- Explain why singular values are nonnegative while eigenvalues need not be
+- [W10.S01] Orthogonally diagonalize a small symmetric matrix and write its spectral decomposition
+- [W10.S02] Compute the SVD of a 2x2 or a simple 2x3 / 3x2 matrix
+- [W10.S03] Read rank, and bases for all four fundamental subspaces, off a GIVEN SVD
+- [W10.S04] Write A as a sum of rank-one terms and identify the dominant one
+- [W10.S05] Compute spectral and Frobenius norms from singular values
+- [W10.S06] Compute the condition number and interpret it
+- [W10.S07] Build A^+ from a given SVD and use it to solve a least squares problem
+- [W10.S08] Relate singular values of A to eigenvalues of A^T A without conflating them
+- [W10.S09] Explain why singular values are nonnegative while eigenvalues need not be
 
 TYPICAL MCQ TRAPS:
 - Reporting eigenvalues of A when singular values are asked for (they agree only for

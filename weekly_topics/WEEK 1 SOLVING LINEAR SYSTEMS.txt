@@ -57,15 +57,15 @@ ESSENTIAL MATRIX TYPES (1.2):
 - Symmetric matrices
 
 ESSENTIAL SKILLS (core; expected without hesitation):
-- Row-reduce a small matrix and read off pivots, rank, and free variables
-- Classify a solution set as unique / none / infinite WITHOUT solving the system
-- Write a general solution as particular + homogeneous
-- Decide invertibility from pivot count
-- Invert a 2x2 or 3x3 by row reduction
-- Extract L and U from elimination multipliers; produce PA = LU when a swap is needed
-- Solve a triangular system by forward or back substitution
-- Recognize when permutation or block structure decouples a system
-- State what conditioning measures and what it does not
+- [W01.S01] Row-reduce a small matrix and read off pivots, rank, and free variables
+- [W01.S02] Classify a solution set as unique / none / infinite WITHOUT solving the system
+- [W01.S03] Write a general solution as particular + homogeneous
+- [W01.S04] Decide invertibility from pivot count
+- [W01.S05] Invert a 2x2 or 3x3 by row reduction
+- [W01.S06] Extract L and U from elimination multipliers; produce PA = LU when a swap is needed
+- [W01.S07] Solve a triangular system by forward or back substitution
+- [W01.S08] Recognize when permutation or block structure decouples a system
+- [W01.S09] State what conditioning measures and what it does not
 
 TYPICAL MCQ TRAPS:
 - Reporting the number of rows (or nonzero entries) instead of the number of pivots as rank

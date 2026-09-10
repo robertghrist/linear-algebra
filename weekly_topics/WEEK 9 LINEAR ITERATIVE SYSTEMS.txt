@@ -55,15 +55,15 @@ CORE CONCEPTS:
    - Five cohorts (Ex 9.24); robotic flocking (Ex 9.26); supply chains (Ex 9.27)
 
 ESSENTIAL SKILLS (core; expected without hesitation):
-- Determine whether A^k converges, diverges, or oscillates, from the spectrum alone
-- Compute the spectral radius and identify the dominant eigenvalue and eigenvector
-- Predict the limiting direction of an iterate and the rate of approach
-- Run two or three steps of the power method and normalize sensibly
-- Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem
-- Verify a matrix is stochastic and find its stationary distribution
-- Orthogonally diagonalize a small symmetric matrix
-- Bound x^T A x using the Rayleigh quotient
-- Build a Graph Laplacian and read the number of components off its kernel
+- [W09.S01] Determine whether A^k converges, diverges, or oscillates, from the spectrum alone
+- [W09.S02] Compute the spectral radius and identify the dominant eigenvalue and eigenvector
+- [W09.S03] Predict the limiting direction of an iterate and the rate of approach
+- [W09.S04] Run two or three steps of the power method and normalize sensibly
+- [W09.S05] Classify a nonnegative matrix as irreducible and/or primitive and apply the right theorem
+- [W09.S06] Verify a matrix is stochastic and find its stationary distribution
+- [W09.S07] Orthogonally diagonalize a small symmetric matrix
+- [W09.S08] Bound x^T A x using the Rayleigh quotient
+- [W09.S09] Build a Graph Laplacian and read the number of components off its kernel
 
 TYPICAL MCQ TRAPS:
 - Using Re(lambda) < 0 (the ODE criterion) as the convergence test for an iteration

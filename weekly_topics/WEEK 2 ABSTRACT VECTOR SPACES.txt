@@ -49,13 +49,13 @@ FUNDAMENTAL PRINCIPLES:
 - The Exchange Bound is the engine behind every dimension claim in the book
 
 ESSENTIAL SKILLS (core; expected without hesitation):
-- Verify or refute the subspace property for a described set
-- Decide whether a given set spans a stated space
-- Test a finite set of vectors, matrices, or polynomials for linear independence
-- Compute the dimension of a described subspace (null space, column space, symmetric matrices,
+- [W02.S01] Verify or refute the subspace property for a described set
+- [W02.S02] Decide whether a given set spans a stated space
+- [W02.S03] Test a finite set of vectors, matrices, or polynomials for linear independence
+- [W02.S04] Compute the dimension of a described subspace (null space, column space, symmetric matrices,
   polynomials of bounded degree, solution sets of homogeneous systems)
-- Compare dim of a sum and an intersection of two subspaces
-- Recognize an infinite-dimensional space and say why it is one
+- [W02.S05] Compare dim of a sum and an intersection of two subspaces
+- [W02.S06] Recognize an infinite-dimensional space and say why it is one
 
 TYPICAL MCQ TRAPS:
 - Accepting a set that is closed under addition but not scalar multiplication (or vice versa)

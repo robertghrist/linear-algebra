@@ -39,13 +39,13 @@ CORE CONCEPTS:
    - Which statements about an operator are coordinate-free and which are artifacts of a basis
 
 ESSENTIAL SKILLS (core; expected without hesitation):
-- Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis
-- Build P_{B <- B'} and use it in the correct direction
-- Convert coordinates between two non-standard bases
-- Write the matrix of a linear map relative to given bases in domain and codomain
-- Re-express a matrix in a new basis via P^{-1} A P
-- Decide whether a stated property is preserved under similarity
-- Extend an independent set to a basis and trim a spanning set to one
+- [W04.S01] Compute the coordinate vector of a vector, polynomial, or matrix in a stated basis
+- [W04.S02] Build P_{B <- B'} and use it in the correct direction
+- [W04.S03] Convert coordinates between two non-standard bases
+- [W04.S04] Write the matrix of a linear map relative to given bases in domain and codomain
+- [W04.S05] Re-express a matrix in a new basis via P^{-1} A P
+- [W04.S06] Decide whether a stated property is preserved under similarity
+- [W04.S07] Extend an independent set to a basis and trim a spanning set to one
 
 TYPICAL MCQ TRAPS:
 - Inverting the direction of the change of basis matrix (the single most common error)

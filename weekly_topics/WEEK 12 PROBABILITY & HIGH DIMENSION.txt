@@ -76,21 +76,21 @@ CORE CONCEPTS:
    - Why it matters: the full SVD costs O(nd min(n,d)) and only the top k triples are wanted
 
 ESSENTIAL SKILLS (core; expected without hesitation):
-- Translate between statistical and geometric vocabulary: expectation/projection,
+- [W12.S01] Translate between statistical and geometric vocabulary: expectation/projection,
   variance/squared length, covariance/inner product, correlation/cosine
-- Verify that a proposed weighting gives a valid inner product on random variables
-- Apply Markov and Chebyshev to bound a tail probability
-- Decide whether a point lies in the simplex; compute a softmax output and check it sums to one
-- Compute the expected inner product and variance for random unit vectors and explain
+- [W12.S02] Verify that a proposed weighting gives a valid inner product on random variables
+- [W12.S03] Apply Markov and Chebyshev to bound a tail probability
+- [W12.S04] Decide whether a point lies in the simplex; compute a softmax output and check it sums to one
+- [W12.S05] Compute the expected inner product and variance for random unit vectors and explain
   near-orthogonality in R^n
-- Apply the union bound to a stated collection of events
-- Place the Marchenko-Pastur edges given n and d, and classify a singular value as
+- [W12.S06] Apply the union bound to a stated collection of events
+- [W12.S07] Place the Marchenko-Pastur edges given n and d, and classify a singular value as
   signal or noise
-- Use Johnson-Lindenstrauss to compute a sufficient target dimension k from m and epsilon,
+- [W12.S08] Use Johnson-Lindenstrauss to compute a sufficient target dimension k from m and epsilon,
   and read off the stated success probability
-- State exactly what JL preserves (pairwise squared distances, up to relative error) and
+- [W12.S09] State exactly what JL preserves (pairwise squared distances, up to relative error) and
   what it does not
-- Describe the randomized SVD pipeline in order: probe, sketch, orthonormalize, project, factor
+- [W12.S10] Describe the randomized SVD pipeline in order: probe, sketch, orthonormalize, project, factor
 
 TYPICAL MCQ TRAPS:
 - Believing linearity of expectation requires independence

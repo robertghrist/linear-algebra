@@ -41,14 +41,14 @@ CORE CONCEPTS:
    - The polynomial factor is the ODE's signature of a defective matrix
 
 ESSENTIAL SKILLS (core; expected without hesitation):
-- Find complex eigenvalues and produce REAL solutions from them
-- Read frequency and growth rate off a complex eigenvalue
-- Compute algebraic and geometric multiplicity, and diagnose defectiveness
-- Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I)
-- Find a generalized eigenvector by solving (A - lambda I) w = v
-- Exponentiate a 2x2 or 3x3 Jordan block
-- Write the basis of solutions for an ODE with repeated or complex characteristic roots
-- Explain what one QR step does and why the spectrum is unchanged
+- [W08.S01] Find complex eigenvalues and produce REAL solutions from them
+- [W08.S02] Read frequency and growth rate off a complex eigenvalue
+- [W08.S03] Compute algebraic and geometric multiplicity, and diagnose defectiveness
+- [W08.S04] Determine the Jordan block structure from multiplicities and ranks of powers of (A - lambda I)
+- [W08.S05] Find a generalized eigenvector by solving (A - lambda I) w = v
+- [W08.S06] Exponentiate a 2x2 or 3x3 Jordan block
+- [W08.S07] Write the basis of solutions for an ODE with repeated or complex characteristic roots
+- [W08.S08] Explain what one QR step does and why the spectrum is unchanged
 
 TYPICAL MCQ TRAPS:
 - Reporting geometric multiplicity greater than algebraic

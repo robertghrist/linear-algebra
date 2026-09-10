@@ -91,17 +91,17 @@ CORE CONCEPTS:
    - The linear autoencoder recovers the principal subspace -- Week 11, learned rather than computed
 
 ESSENTIAL SKILLS (core; expected without hesitation):
-- Count parameters in a stated architecture
-- Evaluate a small network forward by hand
-- State why depth without nonlinearity collapses to a single linear map
-- Identify the shapes of W_l, h_l, b_l, and delta_l and check conformability
-- Apply the backpropagation rule for one layer and identify where the TRANSPOSE enters
-- Recognize the output-layer error signal as the negated least squares residual
-- Compare the cost of backpropagation to finite differences
-- Compute a softmax and an attention weight COLUMN; verify it sums to one
-- Explain what attention learns that a fixed inner product cannot
-- Identify kernel and image of a linearized autoencoder round trip and say what each means
-- Explain the sense in which a linear autoencoder reproduces PCA
+- [W13.S01] Count parameters in a stated architecture
+- [W13.S02] Evaluate a small network forward by hand
+- [W13.S03] State why depth without nonlinearity collapses to a single linear map
+- [W13.S04] Identify the shapes of W_l, h_l, b_l, and delta_l and check conformability
+- [W13.S05] Apply the backpropagation rule for one layer and identify where the TRANSPOSE enters
+- [W13.S06] Recognize the output-layer error signal as the negated least squares residual
+- [W13.S07] Compare the cost of backpropagation to finite differences
+- [W13.S08] Compute a softmax and an attention weight COLUMN; verify it sums to one
+- [W13.S09] Explain what attention learns that a fixed inner product cannot
+- [W13.S10] Identify kernel and image of a linearized autoencoder round trip and say what each means
+- [W13.S11] Explain the sense in which a linear autoencoder reproduces PCA
 
 TYPICAL MCQ TRAPS:
 - Claiming universal approximation implies a network can be TRAINED to the function

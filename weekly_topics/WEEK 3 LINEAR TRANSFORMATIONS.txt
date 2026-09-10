@@ -46,14 +46,14 @@ CORE CONCEPTS:
    - The theorem is algebraic here; it becomes geometric (orthogonal) in Chapter 6
 
 ESSENTIAL SKILLS (core; expected without hesitation):
-- Verify or refute linearity of a described map
-- Compute the kernel and image of a matrix or of a simple operator on polynomials
-- Apply Rank-Nullity to deduce one dimension from the other two
-- Decide injectivity/surjectivity from rank and nullity alone
-- Identify which of the four spaces a given vector or subspace belongs to
-- Describe a quotient space and give its dimension
-- State the Fundamental Theorem correctly, including which space each summand lives in
-- Recognize an isomorphism and produce its inverse on a small example
+- [W03.S01] Verify or refute linearity of a described map
+- [W03.S02] Compute the kernel and image of a matrix or of a simple operator on polynomials
+- [W03.S03] Apply Rank-Nullity to deduce one dimension from the other two
+- [W03.S04] Decide injectivity/surjectivity from rank and nullity alone
+- [W03.S05] Identify which of the four spaces a given vector or subspace belongs to
+- [W03.S06] Describe a quotient space and give its dimension
+- [W03.S07] State the Fundamental Theorem correctly, including which space each summand lives in
+- [W03.S08] Recognize an isomorphism and produce its inverse on a small example
 
 TYPICAL MCQ TRAPS:
 - Placing the cokernel in the domain, or the coimage in the codomain

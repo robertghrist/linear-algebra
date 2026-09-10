@@ -50,15 +50,15 @@ CORE CONCEPTS:
    - Simple QR forms (Ex 5.23); handwritten digits (Ex 5.25); color compression (Ex 5.26)
 
 ESSENTIAL SKILLS (core; expected without hesitation):
-- Verify the inner product axioms for a proposed pairing, and find the axiom that fails
-- Compute norms, angles, and cosine similarity in weighted and function inner products
-- Apply Cauchy-Schwarz to bound an inner product
-- Find an orthogonal complement and its dimension
-- Run Gram-Schmidt on two or three vectors and normalize correctly
-- Expand a vector against an orthonormal basis using inner products alone
-- Compute an adjoint, and recognize when the adjoint differs from the transpose
-- Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does
-- Read off Q and R from a small QR, and use QR to solve or to compute a projection
+- [W05.S01] Verify the inner product axioms for a proposed pairing, and find the axiom that fails
+- [W05.S02] Compute norms, angles, and cosine similarity in weighted and function inner products
+- [W05.S03] Apply Cauchy-Schwarz to bound an inner product
+- [W05.S04] Find an orthogonal complement and its dimension
+- [W05.S05] Run Gram-Schmidt on two or three vectors and normalize correctly
+- [W05.S06] Expand a vector against an orthonormal basis using inner products alone
+- [W05.S07] Compute an adjoint, and recognize when the adjoint differs from the transpose
+- [W05.S08] Distinguish a square orthogonal matrix from a rectangular isometry, and say what Q Q^T does
+- [W05.S09] Read off Q and R from a small QR, and use QR to solve or to compute a projection
 
 TYPICAL MCQ TRAPS:
 - Asserting Q Q^T = I for a tall matrix with orthonormal columns
